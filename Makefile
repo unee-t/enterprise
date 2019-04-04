@@ -15,3 +15,6 @@ prod: prep
 
 localdev:
 	sam local start-api
+
+logs:
+	sam logs --name my-function --tail

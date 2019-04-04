@@ -14,3 +14,7 @@ Using https://runtimes.bref.sh/
 
 * https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html
 * https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+
+TODO:
+* VPC access to the database https://github.com/mnapoli/bref/pull/269
+* mysqli support https://github.com/mnapoli/bref/issues/294

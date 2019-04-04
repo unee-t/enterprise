@@ -7,6 +7,9 @@ Resources:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: 'my-function'
+            Environment:
+                Variables:
+                    MYSQL_HOST: '{{resolve:ssm:MYSQL_HOST:1}}'
             Description: ''
             CodeUri: .
             Handler: index.php
