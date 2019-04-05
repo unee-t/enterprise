@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>enterprise reports</title>
+<title>Enterprise reports</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
@@ -21,6 +21,7 @@ require './vendor/autoload.php';
 
 /********* CONFIG ********/
 $clusterEndpoint = getenv("MYSQL_HOST");
+// $clusterEndpoint = "auroradb.dev.unee-t.com";
 $clusterPort = 3306;
 $clusterRegion = "ap-southeast-1";
 $dbUsername = "mydbuser";
