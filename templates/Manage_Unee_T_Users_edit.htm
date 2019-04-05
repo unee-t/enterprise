@@ -1459,9 +1459,9 @@
 	data-location="section5" id="form_section5_{$pageid}" data-makeup="topbar" {$form_section5} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="2"
+		data-form-width="3"
 		
-		data-v-width="4"
+		data-v-width="6"
 	>
 	<tbody>
 										<tr>
@@ -1546,6 +1546,47 @@
 	
 								</td>
 			{END cellblock_section5_c}
+			 
+																
+
+{BEGIN cellblock_section5_c2}
+<td
+	{$cell_section5_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN uneet_created_datetime_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_created_datetime}  r-vertical-field" 
+	data-fieldname="uneet_created_datetime" 
+	data-signal-error-for="uneet_created_datetime{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="uneet_created_datetime" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_uneet_created_datetime}">
+		{BEGIN uneet_created_datetime_label}{$label Manage_Unee_T_Users uneet_created_datetime }{END uneet_created_datetime_label}
+	</label>
+	<div class="r-edit-field">
+		{$uneet_created_datetime_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="uneet_created_datetime">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END uneet_created_datetime_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c2}
 								</tr>
 			</tbody></table>
 {END section5_block}

@@ -617,6 +617,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_uneet_created_datetime" checked="checked" value="1" data-field="uneet_created_datetime">
+					<span>{$label Manage_Unee_T_Users uneet_created_datetime }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -810,6 +820,10 @@
 		content: "{$label Manage_Unee_T_Users handler_id}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="uneet_created_datetime"]:before {
+		content: "{$label Manage_Unee_T_Users uneet_created_datetime}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
@@ -964,7 +978,7 @@
 	 
 		{BEGIN person_status_fieldheadercolumn}
 	{BEGIN person_status_fieldheader}
-	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
+	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
 	{$label Manage_Unee_T_Users person_status }	{$arrow_icon_person_status}
 	</SPAN>
 	{END person_status_fieldheader}
@@ -1018,7 +1032,7 @@
 	 
 		{BEGIN unee_t_user_type_id_fieldheadercolumn}
 	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
+	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
 	{$label Manage_Unee_T_Users unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
 	</SPAN>
 	{END unee_t_user_type_id_fieldheader}
@@ -1153,7 +1167,7 @@
 	 
 		{BEGIN designation_fieldheadercolumn}
 	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
 	{$label Manage_Unee_T_Users designation }	{$arrow_icon_designation}
 	</SPAN>
 	{END designation_fieldheader}
@@ -1162,6 +1176,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN uneet_created_datetime_fieldheadercolumn}
+	{BEGIN uneet_created_datetime_fieldheader}
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	{$label Manage_Unee_T_Users uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
+	</SPAN>
+	{END uneet_created_datetime_fieldheader}
+{END uneet_created_datetime_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
 							</tr>
 					 
 					 
@@ -1493,6 +1534,29 @@
 {END designation_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN uneet_created_datetime_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime" data-default-width >
+{$uneet_created_datetime_value}
+</span>
+{END uneet_created_datetime_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
 							</tr>
 					 
 					
@@ -1717,6 +1781,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unee_T_Users_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					{END totals_row}
