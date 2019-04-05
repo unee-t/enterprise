@@ -584,7 +584,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Password");
+	$edata = array("EditFormat" => "Text field");
 
 	
 	
@@ -604,7 +604,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 	
-	
+			$edata["HTML5InuptType"] = "text";
+
 		$edata["EditParams"] = "";
 			$edata["EditParams"].= " maxlength=255";
 

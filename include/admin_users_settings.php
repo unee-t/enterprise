@@ -14,7 +14,7 @@ $tdataadmin_users[".searchableFields"] = array();
 
 $defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdataadmin_users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdataadmin_users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\",\"edit1\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataadmin_users[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -70,8 +70,7 @@ $tdataadmin_users[".entityType"] = 1;
 
 $tdataadmin_users[".strOriginalTableName"] = "uneet_enterprise_users";
 
-		 	  	   $tdataadmin_users[".hasEncryptedFields"] = true;
-
+		 	  
 
 
 
@@ -671,8 +670,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-																											$fdata["bIsEncrypted"] = true;
-																									
+																																														
 
 		$fdata["strField"] = "password";
 
@@ -710,7 +708,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Password");
+	$edata = array("EditFormat" => "Text field");
 
 	
 	
@@ -729,7 +727,8 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-	
+			$edata["HTML5InuptType"] = "text";
+
 		$edata["EditParams"] = "";
 			$edata["EditParams"].= " maxlength=255";
 
@@ -1466,7 +1465,7 @@ $proto0["m_strOrderBy"] = "";
 	
 					
 ;
-	$proto0["cipherer"] = new RunnerCipherer("admin_users");
+						$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
@@ -1666,8 +1665,7 @@ $queryData_admin_users = createSqlQuery_admin_users();
 					
 ;
 
-																					 $queryData_admin_users->m_fieldlist[2]->m_isEncrypted = true;
-					
+																								
 
 $tdataadmin_users[".sqlquery"] = $queryData_admin_users;
 
