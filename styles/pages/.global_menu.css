@@ -1,0 +1,18 @@
+[data-page=".global_menu"][data-itemid="welcome_item"] > .bs-welcome-header {
+  background-color: #1E90FF;
+}
+[data-page=".global_menu"][data-itemid="welcome_item1"] > .bs-welcome-header {
+  background-color: #BC8F8F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item2"] > .bs-welcome-header {
+  background-color: #D2AF80;
+}
+[data-page=".global_menu"][data-itemid="welcome_item3"] > .bs-welcome-header {
+  background-color: #6DA5C8;
+}
+[data-page=".global_menu"][data-itemid="welcome_item4"] > .bs-welcome-header {
+  background-color: #e07878;
+}
+[data-page=".global_menu"][data-itemid="welcome_item5"] > .bs-welcome-header {
+  background-color: #d38621;
+}
