@@ -14,7 +14,7 @@ $tdataadmin_users[".searchableFields"] = array();
 
 $defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdataadmin_users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\",\"edit1\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdataadmin_users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataadmin_users[".defaultPages"] = $defaultPages;
 
 //	field labels
