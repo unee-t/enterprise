@@ -1,0 +1,358 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{$pagetitle}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link REL="stylesheet" href="styles/default.css" type="text/css">
+		{BEGIN rtlCSS}
+		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
+		{END rtlCSS}
+		{BEGIN styleCSSFiles}
+		<link REL="stylesheet" href="{$stylepath}" type="text/css">
+		{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		
+		<div class="container r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel Manage_Unit_Names search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN unee_t_unit_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_unit_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_unit_type" 
+	
+	data-signal-error-for="unee_t_unit_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="unee_t_unit_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_unit_type}">
+		{$label Manage_Unit_Names unee_t_unit_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_unit_type}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_unit_type_fieldblock}
+											
+{BEGIN uneet_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="uneet_name" 
+	
+	data-signal-error-for="uneet_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="uneet_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_uneet_name}">
+		{$label Manage_Unit_Names uneet_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_uneet_name}
+	</div>
+	<div class="r-search-field">
+		{$uneet_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$uneet_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END uneet_name_fieldblock}
+											
+{BEGIN external_property_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_property_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_property_type_id" 
+	
+	data-signal-error-for="external_property_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="external_property_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_property_type_id}">
+		{$label Manage_Unit_Names external_property_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_property_type_id}
+	</div>
+	<div class="r-search-field">
+		{$external_property_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_property_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_property_type_id_fieldblock}
+											
+{BEGIN external_property_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_property_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_property_id" 
+	
+	data-signal-error-for="external_property_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="external_property_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_property_id}">
+		{$label Manage_Unit_Names external_property_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_property_id}
+	</div>
+	<div class="r-search-field">
+		{$external_property_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_property_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_property_id_fieldblock}
+											
+{BEGIN external_system_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_system" 
+	
+	data-signal-error-for="external_system{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="external_system" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_system}">
+		{$label Manage_Unit_Names external_system }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_system}
+	</div>
+	<div class="r-search-field">
+		{$external_system_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_system_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_system_fieldblock}
+											
+{BEGIN table_in_external_system_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_table_in_external_system}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="table_in_external_system" 
+	
+	data-signal-error-for="table_in_external_system{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="table_in_external_system" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_table_in_external_system}">
+		{$label Manage_Unit_Names table_in_external_system }	</label>
+	<div class="r-search-option">
+		{$searchtype_table_in_external_system}
+	</div>
+	<div class="r-search-field">
+		{$table_in_external_system_editcontrol}	</div>
+	<div class="r-search-field">
+		{$table_in_external_system_editcontrol1}
+	</div>
+	
+</div>
+
+{END table_in_external_system_fieldblock}
+											
+{BEGIN organization_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization_id" 
+	
+	data-signal-error-for="organization_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="organization_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization_id}">
+		{$label Manage_Unit_Names organization_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization_id}
+	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_id_fieldblock}
+											
+{BEGIN new_record_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_new_record_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="new_record_id" 
+	
+	data-signal-error-for="new_record_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="new_record_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_new_record_id}">
+		{$label Manage_Unit_Names new_record_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_new_record_id}
+	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END new_record_id_fieldblock}
+											
+{BEGIN is_update_needed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_update_needed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_update_needed" 
+	
+	data-signal-error-for="is_update_needed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="is_update_needed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_update_needed}">
+		{$label Manage_Unit_Names is_update_needed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_update_needed}
+	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_update_needed_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

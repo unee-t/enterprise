@@ -1,0 +1,6 @@
+Import into ut_map_external_source_units
+07/04/19 16:54:33
+
+1 out of 1 records processed successfully.
+0 records added.
+1 records updated.

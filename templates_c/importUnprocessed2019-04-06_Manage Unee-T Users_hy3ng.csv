@@ -1,0 +1,4 @@
+﻿"id_person","external_id","external_system","external_table","person_status_id","is_unee_t_account_needed","unee_t_user_type_id","salutation_id","given_name","middle_name","family_name","email","gender","date_of_birth","alias","job_title","organization","tel_1","tel_2","whatsapp","linkedin","facebook","adr1","adr2","adr3","City","zip_postcode","region_or_state","country_code","country","created_by_id","syst_created_datetime","creation_system_id","creation_method","updated_by_id","syst_updated_datetime","update_system_id","update_method"
+"1","test","test_persons","2","1","4","2","Derp","","Derpson","derp@derpson.com","1","","","","","","","","","","","","","","","","","","1","1"
+"2","test","test_persons","2","1","2","4","Derpina","","Derp","derpina@derp.com","2","","0","","","","","","","","","","","","","","1","","1","2"
+"3","test","test_persons","2","1","2","4","Derpette","","derp","derpette@derp.com","2","","","","","","","","","","","","","","","","","","",""

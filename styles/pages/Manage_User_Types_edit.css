@@ -1,0 +1,7 @@
+[data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"] > * > label,
+[data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"] > * > * > input,
+[data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"] > * > * > select,
+[data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"][data-page="Manage_User_Types_edit"][data-itemid="integrated_edit_field"] > * > * > * > select {
+  font-weight: bold;
+  font-size: 1.5em;
+}

@@ -1,0 +1,10 @@
+Import into external_persons
+06/04/19 02:56:21
+
+1 out of 2 records processed successfully.
+0 records added.
+1 records updated.
+1 records processed with errors:
+
+Duplicate entry '1-test-test_persons-1' for key 'PRIMARY'
+"1","1","test","test_persons","2","1","4","2","Derp","","Derpsky","derp@derpson.com","","","","","","","","","","","","","","","",""
