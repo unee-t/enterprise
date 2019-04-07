@@ -1,0 +1,10 @@
+Import into ut_map_external_source_units
+07/04/19 16:49:35
+
+0 out of 1 records processed successfully.
+0 records added.
+0 records updated.
+1 records processed with errors:
+
+Duplicate entry '2139434764-ipi_hmlet-db_all_dt_2_flats-2' for key 'PRIMARY'
+"SG_A_02-12_1","2139434764","ipi_hmlet","db_all_dt_2_flats","1","Level 2","2"

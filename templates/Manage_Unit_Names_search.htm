@@ -259,6 +259,56 @@
 </div>
 
 {END organization_id_fieldblock}
+											
+{BEGIN new_record_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_new_record_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="new_record_id" 
+	
+	data-signal-error-for="new_record_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="new_record_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_new_record_id}">
+		{$label Manage_Unit_Names new_record_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_new_record_id}
+	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END new_record_id_fieldblock}
+											
+{BEGIN is_update_needed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_update_needed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_update_needed" 
+	
+	data-signal-error-for="is_update_needed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="is_update_needed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_update_needed}">
+		{$label Manage_Unit_Names is_update_needed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_update_needed}
+	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_update_needed_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

@@ -1,0 +1,10 @@
+Import into ut_map_external_source_units
+07/04/19 16:43:33
+
+0 out of 1 records processed successfully.
+0 records added.
+0 records updated.
+1 records processed with errors:
+
+Field 'new_record_id' doesn't have a default value
+"ipi_hmlet","db_all_dt_2_flats","1","Level 2","2"

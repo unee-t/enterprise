@@ -4,7 +4,7 @@ $_SESSION["OwnerID"] = $_SESSION["_".$strTableName."_OwnerID"];
 
 $strOriginalTableName="ut_map_external_source_units";
 
-$gstrOrderBy="";
+$gstrOrderBy="ORDER BY ut_map_external_source_units.uneet_name";
 if(strlen($gstrOrderBy) && strtolower(substr($gstrOrderBy,0,8))!="order by")
 	$gstrOrderBy="order by ".$gstrOrderBy;
 

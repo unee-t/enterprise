@@ -313,26 +313,6 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_id_map" checked="checked" value="1" data-field="id_map">
-					<span>{$label Manage_Unit_Names id_map }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_unee_t_unit_type" checked="checked" value="1" data-field="unee_t_unit_type">
-					<span>{$label Manage_Unit_Names unee_t_unit_type }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_uneet_name" checked="checked" value="1" data-field="uneet_name">
 					<span>{$label Manage_Unit_Names uneet_name }</span>
 				</label>
@@ -343,38 +323,8 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_external_property_id" checked="checked" value="1" data-field="external_property_id">
-					<span>{$label Manage_Unit_Names external_property_id }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_external_system" checked="checked" value="1" data-field="external_system">
-					<span>{$label Manage_Unit_Names external_system }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_table_in_external_system" checked="checked" value="1" data-field="table_in_external_system">
-					<span>{$label Manage_Unit_Names table_in_external_system }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_designation" checked="checked" value="1" data-field="designation">
-					<span>{$label Manage_Unit_Names designation }</span>
+					<input type="checkbox" id="hide_unee_t_unit_type" checked="checked" value="1" data-field="unee_t_unit_type">
+					<span>{$label Manage_Unit_Names unee_t_unit_type }</span>
 				</label>
 			</div>
 		</a>
@@ -464,6 +414,14 @@
 		content: "{$label Manage_Unit_Names mefe_user_id}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="new_record_id"]:before {
+		content: "{$label Manage_Unit_Names new_record_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_update_needed"]:before {
+		content: "{$label Manage_Unit_Names is_update_needed}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
@@ -509,22 +467,22 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$id_map_class}
+		 r-ori-vert				{$uneet_name_class}
 			"
 
-			data-field="id_map"
+			data-field="uneet_name"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_map_fieldheadercolumn}
-	{BEGIN id_map_fieldheader}
-	<SPAN {$id_map_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_map">
-	{$label Manage_Unit_Names id_map }	{$arrow_icon_id_map}
+		{BEGIN uneet_name_fieldheadercolumn}
+	{BEGIN uneet_name_fieldheader}
+	<SPAN {$uneet_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_name">
+	{$label Manage_Unit_Names uneet_name }	{$arrow_icon_uneet_name}
 	</SPAN>
-	{END id_map_fieldheader}
-{END id_map_fieldheadercolumn}
+	{END uneet_name_fieldheader}
+{END uneet_name_fieldheadercolumn}
 
 	
 	</th>
@@ -547,7 +505,7 @@
 	 
 		{BEGIN unee_t_unit_type_fieldheadercolumn}
 	{BEGIN unee_t_unit_type_fieldheader}
-	<SPAN {$unee_t_unit_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type">
+	<SPAN {$unee_t_unit_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type">
 	{$label Manage_Unit_Names unee_t_unit_type }	{$arrow_icon_unee_t_unit_type}
 	</SPAN>
 	{END unee_t_unit_type_fieldheader}
@@ -556,141 +514,6 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
-				 
-					{BEGIN cellblock_grid_headcell_field2}
-	<th
-	
-	{$cell_grid_headcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$uneet_name_class}
-			"
-
-			data-field="uneet_name"
-	
-	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN uneet_name_fieldheadercolumn}
-	{BEGIN uneet_name_fieldheader}
-	<SPAN {$uneet_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_name">
-	{$label Manage_Unit_Names uneet_name }	{$arrow_icon_uneet_name}
-	</SPAN>
-	{END uneet_name_fieldheader}
-{END uneet_name_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldheadercolumn}
-	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
-	{$label Manage_Unit_Names designation }	{$arrow_icon_designation}
-	</SPAN>
-	{END designation_fieldheader}
-{END designation_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$external_property_id_class}
-			"
-
-			data-field="external_property_id"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN external_property_id_fieldheadercolumn}
-	{BEGIN external_property_id_fieldheader}
-	<SPAN {$external_property_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="external_property_id">
-	{$label Manage_Unit_Names external_property_id }	{$arrow_icon_external_property_id}
-	</SPAN>
-	{END external_property_id_fieldheader}
-{END external_property_id_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field4}
-				 
-					{BEGIN cellblock_grid_headcell_field5}
-	<th
-	
-	{$cell_grid_headcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$external_system_class}
-			"
-
-			data-field="external_system"
-	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN external_system_fieldheadercolumn}
-	{BEGIN external_system_fieldheader}
-	<SPAN {$external_system_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="external_system">
-	{$label Manage_Unit_Names external_system }	{$arrow_icon_external_system}
-	</SPAN>
-	{END external_system_fieldheader}
-{END external_system_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
-	<th
-	
-	{$cell_grid_headcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$table_in_external_system_class}
-			"
-
-			data-field="table_in_external_system"
-	
-	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN table_in_external_system_fieldheadercolumn}
-	{BEGIN table_in_external_system_fieldheader}
-	<SPAN {$table_in_external_system_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="table_in_external_system">
-	{$label Manage_Unit_Names table_in_external_system }	{$arrow_icon_table_in_external_system}
-	</SPAN>
-	{END table_in_external_system_fieldheader}
-{END table_in_external_system_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field6}
 							</tr>
 					 
 					 
@@ -737,20 +560,20 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$id_map_class}
+		 r-ori-vert				{$uneet_name_class}
 			"
 
-			data-field="id_map"
+			data-field="uneet_name"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_map_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_map" data-default-width >
-{$id_map_value}
+		{BEGIN uneet_name_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-page="Manage_Unit_Names_list" data-record-id="{$recId}" data-field="uneet_name" data-default-width >
+{$uneet_name_value}
 </span>
-{END id_map_fieldcolumn}	
+{END uneet_name_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 				 
@@ -770,127 +593,12 @@
 
 	 
 		{BEGIN unee_t_unit_type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type" data-default-width >
 {$unee_t_unit_type_value}
 </span>
 {END unee_t_unit_type_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$uneet_name_class}
-			"
-
-			data-field="uneet_name"
-	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN uneet_name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_name" data-default-width >
-{$uneet_name_value}
-</span>
-{END uneet_name_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field2}
-				 
-					{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation" data-default-width >
-{$designation_value}
-</span>
-{END designation_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-				 
-					{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$external_property_id_class}
-			"
-
-			data-field="external_property_id"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN external_property_id_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="external_property_id" data-default-width >
-{$external_property_id_value}
-</span>
-{END external_property_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$external_system_class}
-			"
-
-			data-field="external_system"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN external_system_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="external_system" data-default-width >
-{$external_system_value}
-</span>
-{END external_system_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$table_in_external_system_class}
-			"
-
-			data-field="table_in_external_system"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN table_in_external_system_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="table_in_external_system" data-default-width >
-{$table_in_external_system_value}
-</span>
-{END table_in_external_system_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
 							</tr>
 					 
 					
@@ -955,86 +663,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
-				 
-					{BEGIN cellblock_grid_footcell_field2}
-	<td
-	
-	{$cell_grid_footcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unit_Names_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field2}
-				 
-					{BEGIN cellblock_grid_footcell_field3}
-	<td
-	
-	{$cell_grid_footcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unit_Names_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field3}
-				 
-					{BEGIN cellblock_grid_footcell_field4}
-	<td
-	
-	{$cell_grid_footcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unit_Names_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field4}
-				 
-					{BEGIN cellblock_grid_footcell_field5}
-	<td
-	
-	{$cell_grid_footcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unit_Names_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field5}
-				 
-					{BEGIN cellblock_grid_footcell_field6}
-	<td
-	
-	{$cell_grid_footcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unit_Names_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					{END totals_row}

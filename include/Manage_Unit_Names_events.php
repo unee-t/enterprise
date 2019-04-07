@@ -163,24 +163,32 @@ return true;
 function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 {
 
-			// we capture the organisation id of the user whi updated this record.
+		// we are limiting this to UPDATE only.
+
+	// we capture the organisation id of the user who updated this record.
 	// We need to get the MEFE user ID of the user associated with this organization
 
-		$inserted_record =	$rawvalues['id_map'];
+		$values['organization_id'] = $_SESSION['organizationLoggedInUser'];
 
-//		$values['updated_by_id'] = $oldvalues['mefe_user_id'];
+	// we capture the organisation id of the user that created this record.
 
-	// When was the record created?
+		$values['updated_by_id'] = 'YYeAutqzDY3MeqbNC';
+
+	// When was the record updated?
 
 		$values['syst_updated_datetime'] = NOW() ;
 
 	// What is the system that we use to update this record:
 
-		$values['update_system_id'] = 'Unee-T Enterprise portal';
+		$values['update_system_id'] = 2;
 
 	// What is the update method
 
 		$values['update_method'] = 'Manage_Unee_T_Unit_Names_Import';
+
+	// We also need to update the MEFE:
+
+		$values['is_update_needed'] = 1;
 
 	// Value of the mandatory fields in the table `ut_map_external_source_units`
 	//	- ``
