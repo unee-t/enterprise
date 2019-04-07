@@ -658,6 +658,15 @@ $tableCaptions["English"]["Manage_User_Types"] = "Manage User Types";
 $tableCaptions["English"]["ut_user_role_types"] = "Ut User Role Types";
 $tableCaptions["English"]["Manage_User_Default_Visibility"] = "Manage User Default Visibility";
 $tableCaptions["English"]["Manage_User_Default_Notifications"] = "Manage User Default Notifications";
+$tableCaptions["English"]["person_genders"] = "Person Genders";
+$tableCaptions["English"]["Manage_Areas"] = "Manage Areas";
+$tableCaptions["English"]["Manage_Buildings"] = "Manage Buildings";
+$tableCaptions["English"]["property_groups_areas"] = "Property Groups Areas";
+$tableCaptions["English"]["Unee_T_Enterprise_Configuration"] = "Unee-T Enterprise Configuration";
+$tableCaptions["English"]["ut_external_sot_for_unee_t_objects"] = "Ut External Sot For Unee T Objects";
+$tableCaptions["English"]["Manage_Units"] = "Manage Units";
+$tableCaptions["English"]["external_property_groups_areas"] = "External Property Groups Areas";
+$tableCaptions["English"]["external_property_level_1_buildings"] = "External Property Level 1 Buildings";
 
 
 $globalEvents = new class_GlobalEvents;

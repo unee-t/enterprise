@@ -2926,6 +2926,24 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "Manage_User_Default_Visibility" ] = "Manage User Default Visibility";
 	$projectEntities[ "Manage User Default Notifications" ] = array( "url" => "Manage_User_Default_Notifications", "type" => 1 );
 	$projectEntitiesReverse[ "Manage_User_Default_Notifications" ] = "Manage User Default Notifications";
+	$projectEntities[ "person_genders" ] = array( "url" => "person_genders", "type" => 0 );
+	$projectEntitiesReverse[ "person_genders" ] = "person_genders";
+	$projectEntities[ "Manage Areas" ] = array( "url" => "Manage_Areas", "type" => 1 );
+	$projectEntitiesReverse[ "Manage_Areas" ] = "Manage Areas";
+	$projectEntities[ "Manage Buildings" ] = array( "url" => "Manage_Buildings", "type" => 1 );
+	$projectEntitiesReverse[ "Manage_Buildings" ] = "Manage Buildings";
+	$projectEntities[ "property_groups_areas" ] = array( "url" => "property_groups_areas", "type" => 0 );
+	$projectEntitiesReverse[ "property_groups_areas" ] = "property_groups_areas";
+	$projectEntities[ "Unee-T Enterprise Configuration" ] = array( "url" => "Unee_T_Enterprise_Configuration", "type" => 1 );
+	$projectEntitiesReverse[ "Unee_T_Enterprise_Configuration" ] = "Unee-T Enterprise Configuration";
+	$projectEntities[ "ut_external_sot_for_unee_t_objects" ] = array( "url" => "ut_external_sot_for_unee_t_objects", "type" => 1 );
+	$projectEntitiesReverse[ "ut_external_sot_for_unee_t_objects" ] = "ut_external_sot_for_unee_t_objects";
+	$projectEntities[ "Manage Units" ] = array( "url" => "Manage_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Manage_Units" ] = "Manage Units";
+	$projectEntities[ "external_property_groups_areas" ] = array( "url" => "external_property_groups_areas", "type" => 1 );
+	$projectEntitiesReverse[ "external_property_groups_areas" ] = "external_property_groups_areas";
+	$projectEntities[ "external_property_level_1_buildings" ] = array( "url" => "external_property_level_1_buildings", "type" => 1 );
+	$projectEntitiesReverse[ "external_property_level_1_buildings" ] = "external_property_level_1_buildings";
 }
 
 function findTable( $table ) {

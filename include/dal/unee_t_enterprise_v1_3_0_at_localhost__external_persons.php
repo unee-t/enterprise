@@ -43,6 +43,7 @@ $dalTableexternal_persons["country"] = array("type"=>200,"varname"=>"country", "
 	$dalTableexternal_persons["external_id"]["key"]=true;
 	$dalTableexternal_persons["external_system"]["key"]=true;
 	$dalTableexternal_persons["external_table"]["key"]=true;
+	$dalTableexternal_persons["created_by_id"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__external_persons"] = &$dalTableexternal_persons;
 ?>

@@ -38,7 +38,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 			// we make sure the Organization is the same as the organisation of the user who creates this use
 
-		$values['organization_id'] = $_SESSION['organization_logged_in_user'];
+		$values['organization_id'] = $_SESSION['organizationLoggedInUser'];
 
 	// When we create a user, this user is always active:
 

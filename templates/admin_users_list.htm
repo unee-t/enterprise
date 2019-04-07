@@ -113,22 +113,6 @@
 		Advanced search		
 		</a>
 	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
-				<a  id="showOptPanel{$id}" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
-				<a  id="hideOptPanel{$id}" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -203,160 +187,6 @@
 	class=" r-ori-vert			"
 			 
 	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
-
-	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_ID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_ID}" {$filterRow_attrs_ID}>
-			<label>{$label admin_users ID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_ID}</span>
-						</div>
-		{END searchCtrlBlock_ID}
-																{BEGIN searchCtrlBlock_username}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_username}" {$filterRow_attrs_username}>
-			<label>{$label admin_users username }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_username}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_username}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_username}</span>
-						</div>
-		{END searchCtrlBlock_username}
-																{BEGIN searchCtrlBlock_password}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_password}" {$filterRow_attrs_password}>
-			<label>{$label admin_users password }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_password}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_password}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_password}</span>
-						</div>
-		{END searchCtrlBlock_password}
-																{BEGIN searchCtrlBlock_organization_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_organization_id}" {$filterRow_attrs_organization_id}>
-			<label>{$label admin_users organization_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_organization_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_organization_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_organization_id}</span>
-						</div>
-		{END searchCtrlBlock_organization_id}
-																{BEGIN searchCtrlBlock_groupid}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_groupid}" {$filterRow_attrs_groupid}>
-			<label>{$label admin_users groupid }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_groupid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_groupid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_groupid}</span>
-						</div>
-		{END searchCtrlBlock_groupid}
-																{BEGIN searchCtrlBlock_fullname}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_fullname}" {$filterRow_attrs_fullname}>
-			<label>{$label admin_users fullname }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_fullname}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_fullname}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_fullname}</span>
-						</div>
-		{END searchCtrlBlock_fullname}
-																{BEGIN searchCtrlBlock_email}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_email}" {$filterRow_attrs_email}>
-			<label>{$label admin_users email }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_email}</span>
-						</div>
-		{END searchCtrlBlock_email}
-																{BEGIN searchCtrlBlock_active}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_active}" {$filterRow_attrs_active}>
-			<label>{$label admin_users active }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_active}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_active}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_active}</span>
-						</div>
-		{END searchCtrlBlock_active}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
 </td>
 							</tr>
 					
@@ -381,7 +211,7 @@
 		{BEGIN add_link}
 <span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-button-item>
 	<a type="button" class="btn btn-primary   
-	" {$addlink_attrs} href="admin_users_add.php" data-popup >
+	" {$addlink_attrs} href="admin_users_add.php" >
 							Add new			</a>
 </span>
 {END add_link}
@@ -668,7 +498,7 @@
 {BEGIN edit_link}
 <span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
 	<a type="button" class="btn-link   
-	 glyphicon glyphicon-pencil" href="admin_users_edit.php?{$editlink}" {$editlink_attrs} title="Edit" data-popup >		
+	 glyphicon glyphicon-pencil" href="admin_users_edit.php?{$editlink}" {$editlink_attrs} title="Edit" >		
 				
 								</a>
 </span>

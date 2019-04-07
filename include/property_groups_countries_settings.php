@@ -100,7 +100,7 @@ $popupPagesLayoutNames = array();
 $tdataproperty_groups_countries[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdataproperty_groups_countries[".listAjax"] = false;
+	$tdataproperty_groups_countries[".listAjax"] = true;
 //	temporary
 $tdataproperty_groups_countries[".listAjax"] = false;
 
@@ -221,6 +221,7 @@ $tdataproperty_groups_countries[".geocodingEnabled"] = false;
 
 
 
+$tdataproperty_groups_countries[".isResizeColumns"] = true;
 
 
 

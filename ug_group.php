@@ -30,6 +30,15 @@ $nonAdminTablesArr[] = "Manage User Types";
 $nonAdminTablesArr[] = "ut_user_role_types";
 $nonAdminTablesArr[] = "Manage User Default Visibility";
 $nonAdminTablesArr[] = "Manage User Default Notifications";
+$nonAdminTablesArr[] = "person_genders";
+$nonAdminTablesArr[] = "Manage Areas";
+$nonAdminTablesArr[] = "Manage Buildings";
+$nonAdminTablesArr[] = "property_groups_areas";
+$nonAdminTablesArr[] = "Unee-T Enterprise Configuration";
+$nonAdminTablesArr[] = "ut_external_sot_for_unee_t_objects";
+$nonAdminTablesArr[] = "Manage Units";
+$nonAdminTablesArr[] = "external_property_groups_areas";
+$nonAdminTablesArr[] = "external_property_level_1_buildings";
 
 $ug_connection = $cman->getForUserGroups();
 

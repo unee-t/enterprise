@@ -42,7 +42,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 			// we capture the organisation id of the user that created this record.
 
-		$values['created_by_id'] = $_SESSION['organization_logged_in_user'];
+		$values['created_by_id'] = $_SESSION['organizationLoggedInUser'];
 
 	// When was the record created?
 
@@ -137,7 +137,7 @@ function BeforeEdit(&$values, $where, &$oldvalues, &$keys, &$message, $inline, &
 
 			// we capture the organisation id of the user whi updated this record.
 
-		$values['updated_by_id'] = $_SESSION['organization_logged_in_user'];
+		$values['updated_by_id'] = $_SESSION['organizationLoggedInUser'];
 
 	// When was the record created?
 
@@ -253,7 +253,23 @@ return true;
 function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 {
 
-			// we capture the organisation id of the user whi updated this record.
+			// we capture the organisation id of the user that created this record.
+
+		$values['created_by_id'] = $_SESSION['organizationLoggedInUser'];
+
+	// When was the record created?
+
+		$values['syst_created_datetime'] = NOW() ;
+
+	// What is the system that we use to updat this record:
+
+		$values['creation_system_id'] = 'Unee-T Enterprise portal';
+
+	// What is the creation method
+
+		$values['creation_method'] = 'Manage Unee-T Users - Import';
+
+	// we capture the organisation id of the user whi updated this record.
 
 		$values['updated_by_id'] = $_SESSION['organization_logged_in_user'];
 

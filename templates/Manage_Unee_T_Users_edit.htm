@@ -137,7 +137,7 @@
  
 	 
 												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
 		<div class="panel-heading" role="tab" {$section_section1_headattrs} data-toggle="collapse"   
 
 				href="#section1{$pageid}" aria-expanded="true" aria-controls="section1"
@@ -145,219 +145,12 @@
 		>
 		  <h4 class="panel-title">
 			<a role="button" >
-				Source of the information			</a>
+				The Person			</a>
 		  </h4>
 		</div>
 		<div  class="panel-collapse collapse in {$section_section1_xtrclass}" role="tabpanel"  {$section_section1_attrs}
 
 				id="section1{$pageid}" 
-		>
-		  <div class="panel-body">
-			{BEGIN section_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="left"
-	data-location="section" id="form_section_{$pageid}" data-makeup="topbar" {$form_section} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="4"
-		
-		data-v-width="8"
-	>
-	<tbody>
-										<tr>
-										
-
-{BEGIN cellblock_section_c3}
-<td
-	{$cell_section_c3}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section_c3" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN person_status_id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_person_status_id}  r-vertical-field" 
-	data-fieldname="person_status_id" 
-	data-signal-error-for="person_status_id{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="person_status_id" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_person_status_id}">
-		{BEGIN person_status_id_label}{$label Manage_Unee_T_Users person_status_id }{END person_status_id_label}
-	</label>
-	<div class="r-edit-field">
-		{$person_status_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="person_status_id">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END person_status_id_fieldblock}
-	
-								</td>
-			{END cellblock_section_c3}
-			 
-																
-
-{BEGIN cellblock_section_c1}
-<td
-	{$cell_section_c1}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section_c1" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN external_system_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system}  r-vertical-field" 
-	data-fieldname="external_system" 
-	data-signal-error-for="external_system{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="external_system" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_external_system}">
-		{BEGIN external_system_label}{$label Manage_Unee_T_Users external_system }{END external_system_label}
-	</label>
-	<div class="r-edit-field">
-		{$external_system_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="external_system">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END external_system_fieldblock}
-	
-								</td>
-			{END cellblock_section_c1}
-			 
-																
-
-{BEGIN cellblock_section_c2}
-<td
-	{$cell_section_c2}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section_c2" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN external_table_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_table}  r-vertical-field" 
-	data-fieldname="external_table" 
-	data-signal-error-for="external_table{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="external_table" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_external_table}">
-		{BEGIN external_table_label}{$label Manage_Unee_T_Users external_table }{END external_table_label}
-	</label>
-	<div class="r-edit-field">
-		{$external_table_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="external_table">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END external_table_fieldblock}
-	
-								</td>
-			{END cellblock_section_c2}
-			 
-																
-
-{BEGIN cellblock_section_c}
-<td
-	{$cell_section_c}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN external_id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_id}  r-vertical-field" 
-	data-fieldname="external_id" 
-	data-signal-error-for="external_id{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="external_id" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_external_id}">
-		{BEGIN external_id_label}{$label Manage_Unee_T_Users external_id }{END external_id_label}
-	</label>
-	<div class="r-edit-field">
-		{$external_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="external_id">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END external_id_fieldblock}
-	
-								</td>
-			{END cellblock_section_c}
-								</tr>
-			</tbody></table>
-{END section_block}
-		  </div>
-		</div>
-	</div>
-	
-				 
-	 
-												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
-
-				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
-
-		>
-		  <h4 class="panel-title">
-			<a role="button" >
-				The Person			</a>
-		  </h4>
-		</div>
-		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
-
-				id="section2{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section1_block}
@@ -1432,9 +1225,9 @@
 	 
 												 
 	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
 
-				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
 
 		>
 		  <h4 class="panel-title">
@@ -1442,9 +1235,9 @@
 				Unee-T Account			</a>
 		  </h4>
 		</div>
-		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
 
-				id="section3{$pageid}" 
+				id="section2{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section5_block}
@@ -1590,6 +1383,213 @@
 								</tr>
 			</tbody></table>
 {END section5_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+
+				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Source of the information			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+
+				id="section3{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section" id="form_section_{$pageid}" data-makeup="topbar" {$form_section} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section_c3}
+<td
+	{$cell_section_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN person_status_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_person_status_id}  r-vertical-field" 
+	data-fieldname="person_status_id" 
+	data-signal-error-for="person_status_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="person_status_id" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_person_status_id}">
+		{BEGIN person_status_id_label}{$label Manage_Unee_T_Users person_status_id }{END person_status_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$person_status_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="person_status_id">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END person_status_id_fieldblock}
+	
+								</td>
+			{END cellblock_section_c3}
+			 
+																
+
+{BEGIN cellblock_section_c1}
+<td
+	{$cell_section_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN external_system_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system}  r-vertical-field" 
+	data-fieldname="external_system" 
+	data-signal-error-for="external_system{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="external_system" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_external_system}">
+		{BEGIN external_system_label}{$label Manage_Unee_T_Users external_system }{END external_system_label}
+	</label>
+	<div class="r-edit-field">
+		{$external_system_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="external_system">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END external_system_fieldblock}
+	
+								</td>
+			{END cellblock_section_c1}
+			 
+																
+
+{BEGIN cellblock_section_c2}
+<td
+	{$cell_section_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN external_table_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_table}  r-vertical-field" 
+	data-fieldname="external_table" 
+	data-signal-error-for="external_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="external_table" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_external_table}">
+		{BEGIN external_table_label}{$label Manage_Unee_T_Users external_table }{END external_table_label}
+	</label>
+	<div class="r-edit-field">
+		{$external_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="external_table">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END external_table_fieldblock}
+	
+								</td>
+			{END cellblock_section_c2}
+			 
+																
+
+{BEGIN cellblock_section_c}
+<td
+	{$cell_section_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN external_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_id}  r-vertical-field" 
+	data-fieldname="external_id" 
+	data-signal-error-for="external_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="external_id" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_external_id}">
+		{BEGIN external_id_label}{$label Manage_Unee_T_Users external_id }{END external_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$external_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="external_id">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END external_id_fieldblock}
+	
+								</td>
+			{END cellblock_section_c}
+								</tr>
+			</tbody></table>
+{END section_block}
 		  </div>
 		</div>
 	</div>

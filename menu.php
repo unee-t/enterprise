@@ -98,6 +98,14 @@ include_once(getabspath("include/Manage_User_Default_Visibility_events.php"));
 $tableEvents["Manage User Default Visibility"] = new eventclass_Manage_User_Default_Visibility;
 include_once(getabspath("include/Manage_User_Default_Notifications_events.php"));
 $tableEvents["Manage User Default Notifications"] = new eventclass_Manage_User_Default_Notifications;
+include_once(getabspath("include/Manage_Areas_events.php"));
+$tableEvents["Manage Areas"] = new eventclass_Manage_Areas;
+include_once(getabspath("include/Manage_Buildings_events.php"));
+$tableEvents["Manage Buildings"] = new eventclass_Manage_Buildings;
+include_once(getabspath("include/Unee_T_Enterprise_Configuration_events.php"));
+$tableEvents["Unee-T Enterprise Configuration"] = new eventclass_Unee_T_Enterprise_Configuration;
+include_once(getabspath("include/Manage_Units_events.php"));
+$tableEvents["Manage Units"] = new eventclass_Manage_Units;
 
 $xt = new Xtempl();
 

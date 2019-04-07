@@ -94,7 +94,7 @@ $popupPagesLayoutNames = array();
 $tdataut_property_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdataut_property_types[".listAjax"] = false;
+	$tdataut_property_types[".listAjax"] = true;
 //	temporary
 $tdataut_property_types[".listAjax"] = false;
 
@@ -213,6 +213,7 @@ $tdataut_property_types[".geocodingEnabled"] = false;
 
 
 
+$tdataut_property_types[".isResizeColumns"] = true;
 
 
 

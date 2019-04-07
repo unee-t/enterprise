@@ -46,7 +46,11 @@ function AfterSuccessfulLogin($username, $password, &$data, &$pageObject)
 			//create a global variable to capture the organization_id of the logged in user.
 	// we use this variable to define the `created_by_id` and `updated_by_id` information for each table we update in this Application.
 	
-		$_SESSION["organization_logged_in_user"]=$data["organization_id"];
+		// old format:
+			$_SESSION["organization_logged_in_user"]=$data["organization_id"];
+		
+		// New format
+			$_SESSION["organizationLoggedInUser"]=$data["organization_id"];
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

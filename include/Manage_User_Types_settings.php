@@ -65,7 +65,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Types["English"]["organization_id"] = "Organization Id";
 	$fieldToolTipsManage_User_Types["English"]["organization_id"] = "";
 	$placeHoldersManage_User_Types["English"]["organization_id"] = "";
-	$fieldLabelsManage_User_Types["English"]["id_unee_t_user_type"] = "Id Unee T User Type";
+	$fieldLabelsManage_User_Types["English"]["id_unee_t_user_type"] = "ID";
 	$fieldToolTipsManage_User_Types["English"]["id_unee_t_user_type"] = "";
 	$placeHoldersManage_User_Types["English"]["id_unee_t_user_type"] = "";
 	$fieldLabelsManage_User_Types["English"]["designation"] = "Unee-T User Type";
@@ -471,7 +471,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
 
 	
 	
@@ -491,19 +491,15 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+							
 	
 	//	End validation
 

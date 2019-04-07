@@ -376,6 +376,42 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="person_genders")
+		{
+			return false;
+		}
+		if($table=="Manage Areas")
+		{
+			return false;
+		}
+		if($table=="Manage Buildings")
+		{
+			return false;
+		}
+		if($table=="property_groups_areas")
+		{
+			return false;
+		}
+		if($table=="Unee-T Enterprise Configuration")
+		{
+			return false;
+		}
+		if($table=="ut_external_sot_for_unee_t_objects")
+		{
+			return false;
+		}
+		if($table=="Manage Units")
+		{
+			return false;
+		}
+		if($table=="external_property_groups_areas")
+		{
+			return false;
+		}
+		if($table=="external_property_level_1_buildings")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -753,6 +789,42 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Manage User Default Notifications")
+		{
+			return false;
+		}
+		if($table=="person_genders")
+		{
+			return false;
+		}
+		if($table=="Manage Areas")
+		{
+			return false;
+		}
+		if($table=="Manage Buildings")
+		{
+			return false;
+		}
+		if($table=="property_groups_areas")
+		{
+			return false;
+		}
+		if($table=="Unee-T Enterprise Configuration")
+		{
+			return false;
+		}
+		if($table=="ut_external_sot_for_unee_t_objects")
+		{
+			return false;
+		}
+		if($table=="Manage Units")
+		{
+			return false;
+		}
+		if($table=="external_property_groups_areas")
+		{
+			return false;
+		}
+		if($table=="external_property_level_1_buildings")
 		{
 			return false;
 		}

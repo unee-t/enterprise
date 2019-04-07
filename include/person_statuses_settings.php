@@ -88,7 +88,7 @@ $popupPagesLayoutNames = array();
 $tdataperson_statuses[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdataperson_statuses[".listAjax"] = false;
+	$tdataperson_statuses[".listAjax"] = true;
 //	temporary
 $tdataperson_statuses[".listAjax"] = false;
 
@@ -205,6 +205,7 @@ $tdataperson_statuses[".geocodingEnabled"] = false;
 
 
 
+$tdataperson_statuses[".isResizeColumns"] = true;
 
 
 

@@ -44,7 +44,7 @@ function BeforeEdit(&$values, $where, &$oldvalues, &$keys, &$message, $inline, &
 
 		// We need to get ID of the organization associated with this user
 
-		$values['updated_by_id'] = $_SESSION['organization_logged_in_user'];
+		$values['updated_by_id'] = $_SESSION['organizationLoggedInUser'];
 
 	// When was the record created?
 

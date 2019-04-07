@@ -22,6 +22,7 @@ $dalTableut_map_external_source_units["external_property_type_id"] = array("type
 $dalTableut_map_external_source_units["external_property_id"] = array("type"=>200,"varname"=>"external_property_id", "name" => "external_property_id");
 $dalTableut_map_external_source_units["external_system"] = array("type"=>200,"varname"=>"external_system", "name" => "external_system");
 $dalTableut_map_external_source_units["table_in_external_system"] = array("type"=>200,"varname"=>"table_in_external_system", "name" => "table_in_external_system");
+	$dalTableut_map_external_source_units["organization_id"]["key"]=true;
 	$dalTableut_map_external_source_units["external_property_id"]["key"]=true;
 	$dalTableut_map_external_source_units["external_system"]["key"]=true;
 	$dalTableut_map_external_source_units["table_in_external_system"]["key"]=true;

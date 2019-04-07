@@ -113,22 +113,6 @@
 		Advanced search		
 		</a>
 	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
-				<a  id="showOptPanel{$id}" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
-				<a  id="hideOptPanel{$id}" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -208,141 +192,6 @@
 						<tbody>
 			
 								<tr>
-									<td 
-	class=" r-ori-vert			"
-			 
-	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
-
-	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_designation}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_designation}" {$filterRow_attrs_designation}>
-			<label>{$label Manage_User_Default_Notifications designation }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_designation}</span>
-						</div>
-		{END searchCtrlBlock_designation}
-																{BEGIN searchCtrlBlock_is_dashboard_access}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_dashboard_access}" {$filterRow_attrs_is_dashboard_access}>
-			<label>{$label Manage_User_Default_Notifications is_dashboard_access }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_dashboard_access}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_dashboard_access}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_dashboard_access}</span>
-						</div>
-		{END searchCtrlBlock_is_dashboard_access}
-																{BEGIN searchCtrlBlock_is_invited_all_cases}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_invited_all_cases}" {$filterRow_attrs_is_invited_all_cases}>
-			<label>{$label Manage_User_Default_Notifications is_invited_all_cases }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_invited_all_cases}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_invited_all_cases}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_invited_all_cases}</span>
-						</div>
-		{END searchCtrlBlock_is_invited_all_cases}
-																{BEGIN searchCtrlBlock_is_default_assignee}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_default_assignee}" {$filterRow_attrs_is_default_assignee}>
-			<label>{$label Manage_User_Default_Notifications is_default_assignee }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_default_assignee}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_default_assignee}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_default_assignee}</span>
-						</div>
-		{END searchCtrlBlock_is_default_assignee}
-																{BEGIN searchCtrlBlock_is_public}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_public}" {$filterRow_attrs_is_public}>
-			<label>{$label Manage_User_Default_Notifications is_public }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_public}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_public}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_public}</span>
-						</div>
-		{END searchCtrlBlock_is_public}
-																{BEGIN searchCtrlBlock_is_occupant}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_occupant}" {$filterRow_attrs_is_occupant}>
-			<label>{$label Manage_User_Default_Notifications is_occupant }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_occupant}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_occupant}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_occupant}</span>
-						</div>
-		{END searchCtrlBlock_is_occupant}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-</td>
-							</tr>
-											<tr>
 									<td 
 	class=" r-ori-vert			"
 			 
@@ -670,7 +519,166 @@
 </span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
-</span>		</div>					</div>
+</span>	 
+		<div id="fildhidepanel{$id}" class="bs-fildhidepanel 
+	 showHide	 reorder	keep-open btn-group"
+	data-itemtype="columns_control" data-itemid="columns_control" {$item_columns_control} data-pageid="{$pageid}"	title="Show/hide columns"
+	>
+	<button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><i class="glyphicon glyphicon-th-list"></i> <span class="caret"></span></button>
+	<ul role="menu" class="dropdown-menu dropdown-left">
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_solution_updated" checked="checked" value="1" data-field="is_solution_updated">
+					<span>{$label Manage_User_Default_Notifications is_solution_updated }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_case_critical" checked="checked" value="1" data-field="is_case_critical">
+					<span>{$label Manage_User_Default_Notifications is_case_critical }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_case_blocker" checked="checked" value="1" data-field="is_case_blocker">
+					<span>{$label Manage_User_Default_Notifications is_case_blocker }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_mgt_cny" checked="checked" value="1" data-field="is_message_from_mgt_cny">
+					<span>{$label Manage_User_Default_Notifications is_message_from_mgt_cny }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_contractor" checked="checked" value="1" data-field="is_message_from_contractor">
+					<span>{$label Manage_User_Default_Notifications is_message_from_contractor }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_agent" checked="checked" value="1" data-field="is_message_from_agent">
+					<span>{$label Manage_User_Default_Notifications is_message_from_agent }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_designation" checked="checked" value="1" data-field="designation">
+					<span>{$label Manage_User_Default_Notifications designation }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_assigned_to_case" checked="checked" value="1" data-field="is_assigned_to_case">
+					<span>{$label Manage_User_Default_Notifications is_assigned_to_case }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_invited_to_case" checked="checked" value="1" data-field="is_invited_to_case">
+					<span>{$label Manage_User_Default_Notifications is_invited_to_case }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_next_step_updated" checked="checked" value="1" data-field="is_next_step_updated">
+					<span>{$label Manage_User_Default_Notifications is_next_step_updated }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_deadline_updated" checked="checked" value="1" data-field="is_deadline_updated">
+					<span>{$label Manage_User_Default_Notifications is_deadline_updated }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_case_resolved" checked="checked" value="1" data-field="is_case_resolved">
+					<span>{$label Manage_User_Default_Notifications is_case_resolved }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_occupant" checked="checked" value="1" data-field="is_message_from_occupant">
+					<span>{$label Manage_User_Default_Notifications is_message_from_occupant }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_ll" checked="checked" value="1" data-field="is_message_from_ll">
+					<span>{$label Manage_User_Default_Notifications is_message_from_ll }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_message_from_tenant" checked="checked" value="1" data-field="is_message_from_tenant">
+					<span>{$label Manage_User_Default_Notifications is_message_from_tenant }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+			</ul>
+</div>
+		</div>					</div>
 	</div>		
 {END above-grid_block}
 							

@@ -12,9 +12,9 @@ $tdataManage_Unit_Names[".searchableFields"] = array();
 	$tdataManage_Unit_Names[".OriginalTable"] = "ut_map_external_source_units";
 
 
-$defaultPages = my_json_decode( "{\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\"}" );
+$defaultPages = my_json_decode( "{\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdataManage_Unit_Names[".pages"] = types2pages( my_json_decode( "{\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdataManage_Unit_Names[".pages"] = types2pages( my_json_decode( "{\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataManage_Unit_Names[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -286,6 +286,8 @@ $tdataManage_Unit_Names[".arrGroupsPerPage"] = $arrGPP;
 $tdataManage_Unit_Names[".highlightSearchResults"] = true;
 
 $tableKeysManage_Unit_Names = array();
+$tableKeysManage_Unit_Names[] = "id_map";
+$tableKeysManage_Unit_Names[] = "organization_id";
 $tableKeysManage_Unit_Names[] = "external_property_id";
 $tableKeysManage_Unit_Names[] = "external_system";
 $tableKeysManage_Unit_Names[] = "table_in_external_system";

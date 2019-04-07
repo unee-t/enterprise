@@ -911,7 +911,12 @@ function GetLWWhere($field, $ptype, $table = "")
 	}
 		if($table=="Manage Unee-T Users" && $field=="unee_t_user_type_id")
 	{
-		$strWhere = " `is_obsolete` = 0 AND (`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL) ";
+		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		return $strWhere;
+	}
+		if($table=="Manage Unee-T Users" && $field=="gender")
+	{
+		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
 		if($table=="Manage Unee-T Users" && $field=="salutation_id")
@@ -964,6 +969,86 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
+		if($table=="Manage Areas" && $field=="external_system_id")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="external_table")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="country_code" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="country_code" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="edit")
+	{
+		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND (`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " OR `created_by_id` IS NULL)";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="edit")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="unee_t_unit_type")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
 	return "";
 }
 
@@ -975,6 +1060,10 @@ function GetDefaultValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
+				if($table=="Manage Unee-T Users" && $field=="gender")
+	{
+		return 0;
+	}
 	return "";
 }
 

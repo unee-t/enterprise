@@ -12,9 +12,9 @@ $tdataut_unit_types[".searchableFields"] = array();
 	$tdataut_unit_types[".OriginalTable"] = "ut_unit_types";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataut_unit_types[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataut_unit_types[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataut_unit_types[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -103,7 +103,7 @@ $popupPagesLayoutNames = array();
 $tdataut_unit_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdataut_unit_types[".listAjax"] = false;
+	$tdataut_unit_types[".listAjax"] = true;
 //	temporary
 $tdataut_unit_types[".listAjax"] = false;
 
@@ -225,6 +225,7 @@ $tdataut_unit_types[".geocodingEnabled"] = false;
 
 
 
+$tdataut_unit_types[".isResizeColumns"] = true;
 
 
 

@@ -121,22 +121,6 @@
 		Advanced search		
 		</a>
 	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
-				<a  id="showOptPanel{$id}" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
-				<a  id="hideOptPanel{$id}" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
 							<li role="separator" class="divider"></li>							{BEGIN export_link}
 	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" >
 				<a  href="#" {$exportlink_attrs} >
@@ -223,180 +207,6 @@
 						<tbody>
 			
 								<tr>
-									<td 
-	class=" r-ori-vert			"
-			 
-	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
-
-	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_person_status_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_person_status_id}" {$filterRow_attrs_person_status_id}>
-			<label>{$label Manage_Unee_T_Users person_status_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_person_status_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_person_status_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_person_status_id}</span>
-						</div>
-		{END searchCtrlBlock_person_status_id}
-																{BEGIN searchCtrlBlock_designation}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_designation}" {$filterRow_attrs_designation}>
-			<label>{$label Manage_Unee_T_Users designation }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_designation}</span>
-						</div>
-		{END searchCtrlBlock_designation}
-																{BEGIN searchCtrlBlock_email}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_email}" {$filterRow_attrs_email}>
-			<label>{$label Manage_Unee_T_Users email }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_email}</span>
-						</div>
-		{END searchCtrlBlock_email}
-																{BEGIN searchCtrlBlock_alias}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_alias}" {$filterRow_attrs_alias}>
-			<label>{$label Manage_Unee_T_Users alias }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_alias}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_alias}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_alias}</span>
-						</div>
-		{END searchCtrlBlock_alias}
-																{BEGIN searchCtrlBlock_family_name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_family_name}" {$filterRow_attrs_family_name}>
-			<label>{$label Manage_Unee_T_Users family_name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_family_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_family_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_family_name}</span>
-						</div>
-		{END searchCtrlBlock_family_name}
-																{BEGIN searchCtrlBlock_middle_name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_middle_name}" {$filterRow_attrs_middle_name}>
-			<label>{$label Manage_Unee_T_Users middle_name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_middle_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_middle_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_middle_name}</span>
-						</div>
-		{END searchCtrlBlock_middle_name}
-																{BEGIN searchCtrlBlock_given_name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_given_name}" {$filterRow_attrs_given_name}>
-			<label>{$label Manage_Unee_T_Users given_name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_given_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_given_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_given_name}</span>
-						</div>
-		{END searchCtrlBlock_given_name}
-																{BEGIN searchCtrlBlock_unee_t_user_type_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unee_t_user_type_id}" {$filterRow_attrs_unee_t_user_type_id}>
-			<label>{$label Manage_Unee_T_Users unee_t_user_type_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unee_t_user_type_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_user_type_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_user_type_id}</span>
-						</div>
-		{END searchCtrlBlock_unee_t_user_type_id}
-																{BEGIN searchCtrlBlock_is_unee_t_account_needed}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_is_unee_t_account_needed}" {$filterRow_attrs_is_unee_t_account_needed}>
-			<label>{$label Manage_Unee_T_Users is_unee_t_account_needed }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_is_unee_t_account_needed}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_is_unee_t_account_needed}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_is_unee_t_account_needed}</span>
-						</div>
-		{END searchCtrlBlock_is_unee_t_account_needed}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-</td>
-							</tr>
-											<tr>
 									<td 
 	class=" r-ori-vert			"
 			 
@@ -603,16 +413,6 @@
 				<label>
 					<input type="checkbox" id="hide_unee_t_user_type_id" checked="checked" value="1" data-field="unee_t_user_type_id">
 					<span>{$label Manage_Unee_T_Users unee_t_user_type_id }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_designation" checked="checked" value="1" data-field="designation">
-					<span>{$label Manage_Unee_T_Users designation }</span>
 				</label>
 			</div>
 		</a>
@@ -978,7 +778,7 @@
 	 
 		{BEGIN person_status_fieldheadercolumn}
 	{BEGIN person_status_fieldheader}
-	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
+	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
 	{$label Manage_Unee_T_Users person_status }	{$arrow_icon_person_status}
 	</SPAN>
 	{END person_status_fieldheader}
@@ -1032,7 +832,7 @@
 	 
 		{BEGIN unee_t_user_type_id_fieldheadercolumn}
 	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
+	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
 	{$label Manage_Unee_T_Users unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
 	</SPAN>
 	{END unee_t_user_type_id_fieldheader}
@@ -1156,45 +956,18 @@
 	{$cell_grid_headcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldheadercolumn}
-	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
-	{$label Manage_Unee_T_Users designation }	{$arrow_icon_designation}
-	</SPAN>
-	{END designation_fieldheader}
-{END designation_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field10}
-				 
-					{BEGIN cellblock_grid_headcell_field11}
-	<th
-	
-	{$cell_grid_headcell_field11}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Unee_T_Users uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -1202,7 +975,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field11}
+	{END cellblock_grid_headcell_field10}
 							</tr>
 					 
 					 
@@ -1518,35 +1291,12 @@
 	{$cell_grid_cell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation" data-default-width >
-{$designation_value}
-</span>
-{END designation_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field10}
-				 
-					{BEGIN cellblock_grid_cell_field11}
-	<td
-	
-	{$cell_grid_cell_field11}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1556,7 +1306,7 @@
 </span>
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field11}
+	{END cellblock_grid_cell_field10}
 							</tr>
 					 
 					
@@ -1781,22 +1531,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field10}
-				 
-					{BEGIN cellblock_grid_footcell_field11}
-	<td
-	
-	{$cell_grid_footcell_field11}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unee_T_Users_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					{END totals_row}

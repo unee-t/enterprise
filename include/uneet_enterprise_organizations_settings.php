@@ -100,7 +100,7 @@ $popupPagesLayoutNames = array();
 $tdatauneet_enterprise_organizations[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdatauneet_enterprise_organizations[".listAjax"] = false;
+	$tdatauneet_enterprise_organizations[".listAjax"] = true;
 //	temporary
 $tdatauneet_enterprise_organizations[".listAjax"] = false;
 
@@ -221,6 +221,7 @@ $tdatauneet_enterprise_organizations[".geocodingEnabled"] = false;
 
 
 
+$tdatauneet_enterprise_organizations[".isResizeColumns"] = true;
 
 
 

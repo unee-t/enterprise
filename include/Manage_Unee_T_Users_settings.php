@@ -79,7 +79,7 @@ if(mlang_getcurrentlang()=="English")
 	$placeHoldersManage_Unee_T_Users["English"]["country_code"] = "";
 	$fieldLabelsManage_Unee_T_Users["English"]["gender"] = "Gender";
 	$fieldToolTipsManage_Unee_T_Users["English"]["gender"] = "";
-	$placeHoldersManage_Unee_T_Users["English"]["gender"] = "";
+	$placeHoldersManage_Unee_T_Users["English"]["gender"] = "0";
 	$fieldLabelsManage_Unee_T_Users["English"]["salutation_id"] = "Salutation";
 	$fieldToolTipsManage_Unee_T_Users["English"]["salutation_id"] = "";
 	$placeHoldersManage_Unee_T_Users["English"]["salutation_id"] = "";
@@ -211,7 +211,7 @@ if( $pages[PAGE_EDIT] ) {
 	$tdataManage_Unee_T_Users[".edit"] = true;
 	$tdataManage_Unee_T_Users[".afterEditAction"] = 1;
 	$tdataManage_Unee_T_Users[".closePopupAfterEdit"] = 1;
-	$tdataManage_Unee_T_Users[".afterEditActionDetTable"] = "";
+	$tdataManage_Unee_T_Users[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
@@ -334,12 +334,16 @@ $tdataManage_Unee_T_Users[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "";
+$tstrOrderBy = "ORDER BY external_persons.unee_t_user_type_id, external_persons.given_name";
 if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
 	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataManage_Unee_T_Users[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_Unee_T_Users[".orderindexes"] = array();
+	$tdataManage_Unee_T_Users[".orderindexes"][] = array(16, (1 ? "ASC" : "DESC"), "external_persons.unee_t_user_type_id");
+
+	$tdataManage_Unee_T_Users[".orderindexes"][] = array(22, (1 ? "ASC" : "DESC"), "external_persons.given_name");
+
 
 $tdataManage_Unee_T_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime";
 $tdataManage_Unee_T_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
@@ -380,9 +384,11 @@ $tdataManage_Unee_T_Users[".arrGroupsPerPage"] = $arrGPP;
 $tdataManage_Unee_T_Users[".highlightSearchResults"] = true;
 
 $tableKeysManage_Unee_T_Users = array();
+$tableKeysManage_Unee_T_Users[] = "id_person";
 $tableKeysManage_Unee_T_Users[] = "external_id";
 $tableKeysManage_Unee_T_Users[] = "external_system";
 $tableKeysManage_Unee_T_Users[] = "external_table";
+$tableKeysManage_Unee_T_Users[] = "created_by_id";
 $tdataManage_Unee_T_Users[".Keys"] = $tableKeysManage_Unee_T_Users;
 
 
@@ -2795,12 +2801,41 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "person_genders";
+		$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "id_person_gender";
+	$edata["LinkFieldType"] = 3;
+	$edata["DisplayField"] = "person_gender";
+
+				$edata["LookupWhereCode"] = true;
+
+
+	
+	$edata["LookupOrderBy"] = "order";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -2814,17 +2849,14 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2844,7 +2876,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -6391,8 +6423,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -6411,7 +6442,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-							
+	
 	
 	//	End validation
 
@@ -6492,7 +6523,7 @@ $proto0["m_strHead"] = "SELECT";
 $proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime";
 $proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
 $proto0["m_strWhere"] = "";
-$proto0["m_strOrderBy"] = "";
+$proto0["m_strOrderBy"] = "ORDER BY external_persons.unee_t_user_type_id, external_persons.given_name";
 	
 					
 ;
@@ -7634,6 +7665,32 @@ $obj = new SQLFromListItem($proto128);
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
+												$proto132=array();
+						$obj = new SQLField(array(
+	"m_strName" => "unee_t_user_type_id",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto132["m_column"]=$obj;
+$proto132["m_bAsc"] = 1;
+$proto132["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto132);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto134=array();
+						$obj = new SQLField(array(
+	"m_strName" => "given_name",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto134["m_column"]=$obj;
+$proto134["m_bAsc"] = 1;
+$proto134["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto134);
+
+$proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage Unee-T Users";		
 $obj = new SQLQuery($proto0);
 

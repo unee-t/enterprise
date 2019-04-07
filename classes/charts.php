@@ -523,6 +523,24 @@ class Chart
 			return true;
 		if("ut_user_types" == $this->chrt_array['tables'][0])
 			return true;
+		if("person_genders" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_groups_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_groups_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_groups_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

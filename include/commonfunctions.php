@@ -305,6 +305,24 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("Manage_User_Default_Notifications" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("person_genders" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Manage_Areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Manage_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("property_groups_areas" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Unee_T_Enterprise_Configuration" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("ut_external_sot_for_unee_t_objects" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Manage_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("external_property_groups_areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("external_property_level_1_buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -444,6 +462,51 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="Manage User Default Notifications";
 	}
+	$strPerm = GetUserPermissions("person_genders");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="person_genders";
+	}
+	$strPerm = GetUserPermissions("Manage Areas");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Manage Areas";
+	}
+	$strPerm = GetUserPermissions("Manage Buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Manage Buildings";
+	}
+	$strPerm = GetUserPermissions("property_groups_areas");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="property_groups_areas";
+	}
+	$strPerm = GetUserPermissions("Unee-T Enterprise Configuration");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Unee-T Enterprise Configuration";
+	}
+	$strPerm = GetUserPermissions("ut_external_sot_for_unee_t_objects");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="ut_external_sot_for_unee_t_objects";
+	}
+	$strPerm = GetUserPermissions("Manage Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Manage Units";
+	}
+	$strPerm = GetUserPermissions("external_property_groups_areas");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="external_property_groups_areas";
+	}
+	$strPerm = GetUserPermissions("external_property_level_1_buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="external_property_level_1_buildings";
+	}
 	return $arr;
 }
 
@@ -471,6 +534,15 @@ function GetTablesListWithoutSecurity()
 	$arr[]="ut_user_role_types";
 	$arr[]="Manage User Default Visibility";
 	$arr[]="Manage User Default Notifications";
+	$arr[]="person_genders";
+	$arr[]="Manage Areas";
+	$arr[]="Manage Buildings";
+	$arr[]="property_groups_areas";
+	$arr[]="Unee-T Enterprise Configuration";
+	$arr[]="ut_external_sot_for_unee_t_objects";
+	$arr[]="Manage Units";
+	$arr[]="external_property_groups_areas";
+	$arr[]="external_property_level_1_buildings";
 	return $arr;
 }
 
@@ -1349,6 +1421,10 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Manage User Types_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage User Default Visibility_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage User Default Notifications_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Manage Areas_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Manage Buildings_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Unee-T Enterprise Configuration_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Manage Units_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1438,6 +1514,30 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				return false;
 		}
 		if($table=="Manage User Default Notifications")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Manage Areas")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Manage Buildings")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Unee-T Enterprise Configuration")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Manage Units")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
@@ -1534,6 +1634,22 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Manage User Default Notifications")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Manage Areas")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Manage Buildings")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Unee-T Enterprise Configuration")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Manage Units")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

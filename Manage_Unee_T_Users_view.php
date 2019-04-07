@@ -89,9 +89,11 @@ $xt = new Xtempl();
 
 // $keys could not be set properly if editid params were no passed
 $keys = array();
-$keys["external_id"] = postvalue("editid1");
-$keys["external_system"] = postvalue("editid2");
-$keys["external_table"] = postvalue("editid3");
+$keys["id_person"] = postvalue("editid1");
+$keys["external_id"] = postvalue("editid2");
+$keys["external_system"] = postvalue("editid3");
+$keys["external_table"] = postvalue("editid4");
+$keys["created_by_id"] = postvalue("editid5");
 
 //array of params for classes
 $params = array();

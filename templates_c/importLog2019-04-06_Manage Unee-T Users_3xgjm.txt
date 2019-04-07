@@ -1,0 +1,16 @@
+Import into external_persons
+06/04/19 03:09:29
+
+0 out of 3 records processed successfully.
+0 records added.
+0 records updated.
+3 records processed with errors:
+
+Duplicate entry '1' for key 'unique_person_id'
+"1","test","test_persons","2","1","4","2","Derp","","Derpson","derp@derpson.com","1","","","","","","","","","","","","","","","","","","1","1"
+
+Duplicate entry '2' for key 'unique_person_id'
+"2","test","test_persons","2","1","2","4","Derpina","","Derp","derpina@derp.com","2","","0","","","","","","","","","","","","","","1","","1","2"
+
+Cannot add or update a child row: a foreign key constraint fails (`unee_t_enterprise_v1.5.0`.`external_persons`, CONSTRAINT `person_salutation` FOREIGN KEY (`salutation_id`) REFERENCES `person_salutations` (`id_salutation`) ON UPDATE CASCADE)
+"3","test","test_persons","2","1","2","4","Derpette","","derp","derpette@derp.com","2","","","","","","","","","","","","","","","","","","",""

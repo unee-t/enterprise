@@ -97,7 +97,7 @@ $popupPagesLayoutNames = array();
 $tdataut_user_role_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
 
 
-$tdataut_user_role_types[".listAjax"] = false;
+	$tdataut_user_role_types[".listAjax"] = true;
 //	temporary
 $tdataut_user_role_types[".listAjax"] = false;
 
@@ -217,6 +217,7 @@ $tdataut_user_role_types[".geocodingEnabled"] = false;
 
 
 
+$tdataut_user_role_types[".isResizeColumns"] = true;
 
 
 

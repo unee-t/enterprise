@@ -1,0 +1,13 @@
+Import into external_persons
+06/04/19 02:13:31
+
+0 out of 2 records processed successfully.
+0 records added.
+0 records updated.
+2 records processed with errors:
+
+Unknown column 'designation' in 'field list'
+"1","1","test","test_person","1","","","2","Derp","","Derpson","","","","","derp@derpson.com","","","","","","","","","","","","","Occupant",""
+
+Unknown column 'designation' in 'field list'
+"2","2","test","test_person","1","","","3","Derpina","","Derpson","","","","","derpina@derp.com","","","","","","","","","","","","","Occupant",""
