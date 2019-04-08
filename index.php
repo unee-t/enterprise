@@ -16,12 +16,13 @@ body {
 h2 { border-bottom: thin solid black; }
 </style>
 <body>
+<h1><?=getenv("MYSQL_HOST");?></h1>
 <?php
 require './vendor/autoload.php';
 
 /********* CONFIG ********/
-$clusterEndpoint = getenv("MYSQL_HOST");
-// $clusterEndpoint = "auroradb.dev.unee-t.com";
+// $clusterEndpoint = getenv("MYSQL_HOST");
+$clusterEndpoint = "auroradb.dev.unee-t.com";
 $clusterPort = 3306;
 $clusterRegion = "ap-southeast-1";
 $dbUsername = "mydbuser";
