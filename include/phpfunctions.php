@@ -989,19 +989,9 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="edit")
+		if($table=="Manage Buildings" && $field=="area_id")
 	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
-		return $strWhere;
-	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="add")
-	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
-		return $strWhere;
-	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="search")
-	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
@@ -1047,6 +1037,31 @@ function GetLWWhere($field, $ptype, $table = "")
 		if($table=="Manage Units" && $field=="unee_t_unit_type")
 	{
 		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
 		return $strWhere;
 	}
 	return "";

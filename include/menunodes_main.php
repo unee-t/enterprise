@@ -7,15 +7,15 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNode = array();
 	$menuNode["id"] = "1";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Manage Unee-T Users";
+	$menuNode["name"] = "Unee-T ressources";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
+	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = "List";//
 	$menuNode["openType"] = "None";
 	
@@ -24,37 +24,109 @@ function getMenuNodes_main($menuNodesObject)
 
 			$menuNode["color"] = "";
 	
-	$menuNode["title"] = "Manage Unee-T Users";
+	$menuNode["title"] = "Unee-T ressources";
 
 
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "2";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
+	$menuNode["name"] = "Case";
+	$menuNode["href"] = "https://case.unee-t.com/case";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Manage User Types";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "0";
+	$menuNode["parent"] = "1";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = "List";//
-	$menuNode["openType"] = "None";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = "Search";//
+	$menuNode["openType"] = "NewWindow";
 	
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
 
 			$menuNode["color"] = "";
 	
-	$menuNode["title"] = "Manage User Types";
+	$menuNode["title"] = "Case";
 
 
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "3";
+	$menuNode["name"] = "Dashboard";
+	$menuNode["href"] = "https://dashboard.unee-t.com/";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "1";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = "Search";//
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Dashboard";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "4";
+	$menuNode["name"] = "Documentation";
+	$menuNode["href"] = "https://documentation.unee-t.com/";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "1";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = "Search";//
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Documentation";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "5";
+	$menuNode["name"] = "Videos and Tutorials";
+	$menuNode["href"] = "https://vimeo.com/uneet/albums";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "1";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = "Search";//
+	$menuNode["openType"] = "None";
+	
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Videos and Tutorials";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "6";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";

@@ -412,6 +412,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Manage Rooms")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -825,6 +829,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="external_property_level_1_buildings")
+		{
+			return false;
+		}
+		if($table=="Manage Rooms")
 		{
 			return false;
 		}

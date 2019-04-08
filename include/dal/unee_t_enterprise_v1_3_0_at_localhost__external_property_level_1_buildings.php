@@ -20,6 +20,12 @@ $dalTableexternal_property_level_1_buildings["do_not_insert"] = array("type"=>16
 $dalTableexternal_property_level_1_buildings["unee_t_unit_type"] = array("type"=>200,"varname"=>"unee_t_unit_type", "name" => "unee_t_unit_type");
 $dalTableexternal_property_level_1_buildings["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
 $dalTableexternal_property_level_1_buildings["tower"] = array("type"=>200,"varname"=>"tower", "name" => "tower");
+$dalTableexternal_property_level_1_buildings["address_1"] = array("type"=>200,"varname"=>"address_1", "name" => "address_1");
+$dalTableexternal_property_level_1_buildings["address_2"] = array("type"=>200,"varname"=>"address_2", "name" => "address_2");
+$dalTableexternal_property_level_1_buildings["zip_postal_code"] = array("type"=>200,"varname"=>"zip_postal_code", "name" => "zip_postal_code");
+$dalTableexternal_property_level_1_buildings["state"] = array("type"=>200,"varname"=>"state", "name" => "state");
+$dalTableexternal_property_level_1_buildings["city"] = array("type"=>200,"varname"=>"city", "name" => "city");
+$dalTableexternal_property_level_1_buildings["country_code"] = array("type"=>200,"varname"=>"country_code", "name" => "country_code");
 $dalTableexternal_property_level_1_buildings["description"] = array("type"=>201,"varname"=>"description", "name" => "description");
 	$dalTableexternal_property_level_1_buildings["external_id"]["key"]=true;
 	$dalTableexternal_property_level_1_buildings["external_system_id"]["key"]=true;

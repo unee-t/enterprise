@@ -52,7 +52,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Manage Buildings - Add Page';
+		$values['creation_method'] = 'Manage_Buildings_Add_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.
@@ -143,7 +143,7 @@ function BeforeEdit(&$values, $where, &$oldvalues, &$keys, &$message, $inline, &
 
 	// What is the creation method
 
-		$values['update_method'] = 'Manage Buildings - Edit Page';
+		$values['update_method'] = 'Manage_Buildings_Edit_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

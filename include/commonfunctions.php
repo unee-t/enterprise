@@ -323,6 +323,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("external_property_level_1_buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("Manage_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -507,6 +509,11 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="external_property_level_1_buildings";
 	}
+	$strPerm = GetUserPermissions("Manage Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Manage Rooms";
+	}
 	return $arr;
 }
 
@@ -543,6 +550,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Manage Units";
 	$arr[]="external_property_groups_areas";
 	$arr[]="external_property_level_1_buildings";
+	$arr[]="Manage Rooms";
 	return $arr;
 }
 
@@ -1425,6 +1433,7 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Manage Buildings_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Unee-T Enterprise Configuration_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Manage Rooms_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1543,6 +1552,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Manage Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	//	 check user group permissions
 	$localAction = strtolower($strAction);
@@ -1650,6 +1665,10 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Manage Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Manage Rooms")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

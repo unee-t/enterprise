@@ -39,6 +39,7 @@ $nonAdminTablesArr[] = "ut_external_sot_for_unee_t_objects";
 $nonAdminTablesArr[] = "Manage Units";
 $nonAdminTablesArr[] = "external_property_groups_areas";
 $nonAdminTablesArr[] = "external_property_level_1_buildings";
+$nonAdminTablesArr[] = "Manage Rooms";
 
 $ug_connection = $cman->getForUserGroups();
 

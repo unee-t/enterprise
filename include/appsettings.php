@@ -667,6 +667,7 @@ $tableCaptions["English"]["ut_external_sot_for_unee_t_objects"] = "Ut External S
 $tableCaptions["English"]["Manage_Units"] = "Manage Units";
 $tableCaptions["English"]["external_property_groups_areas"] = "External Property Groups Areas";
 $tableCaptions["English"]["external_property_level_1_buildings"] = "External Property Level 1 Buildings";
+$tableCaptions["English"]["Manage_Rooms"] = "Manage Rooms";
 
 
 $globalEvents = new class_GlobalEvents;

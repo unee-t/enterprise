@@ -34,7 +34,11 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 			 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-brick="logo" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -420,23 +424,23 @@
 
 		 	
 
-		{BEGIN filter_control_country_name}
-		<div class="panel panel-info filter-field filter-country_name-container">
+		{BEGIN filter_control_country_code}
+		<div class="panel panel-info filter-field filter-country_code-container">
 			<div class="panel-heading filter-expander">
 																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
 
 			
-				<label>{$label Manage_Buildings country_name }</label>
+				<label>{$label Manage_Buildings country_code }</label>
 
-				{BEGIN clearLink_country_name}
-				<a href="#" class="filter-clear filter-clear-country_name">Clear</a>
-				{END clearLink_country_name}				
+				{BEGIN clearLink_country_code}
+				<a href="#" class="filter-clear filter-clear-country_code">Clear</a>
+				{END clearLink_country_code}				
 			</div>
 
 			<ul class="list-group">
-				{BEGIN filterCtrlBlock_country_name}
-				<li class="list-group-item filter-values filter-values-country_name {$collapsedClass_country_name} {$visibilityClass_country_name}">
-					{$country_name_filter}
+				{BEGIN filterCtrlBlock_country_code}
+				<li class="list-group-item filter-values filter-values-country_code {$collapsedClass_country_code} {$visibilityClass_country_code}">
+					{$country_code_filter}
 								
 			
 			
@@ -447,13 +451,13 @@
 			
 			
 				</li>				
-				{END filterCtrlBlock_country_name}
+				{END filterCtrlBlock_country_code}
 
-							{BEGIN filter_button_showmore_country_name}
-				<li class="list-group-item filter-show-more {$collapsedClass_country_name} {$showMoreBtnClass_country_name}">
-					<a class="filter-show-more-link filterShowMore_country_name" href="#">{$show_n_more_country_name}</a>
+							{BEGIN filter_button_showmore_country_code}
+				<li class="list-group-item filter-show-more {$collapsedClass_country_code} {$showMoreBtnClass_country_code}">
+					<a class="filter-show-more-link filterShowMore_country_code" href="#">{$show_n_more_country_code}</a>
 				</li>
-				{END filter_button_showmore_country_name}			
+				{END filter_button_showmore_country_code}			
 			
 
 
@@ -463,7 +467,7 @@
 	
 			</ul>			
 		</div>
-		{END filter_control_country_name}
+		{END filter_control_country_code}
 	 
 			
 	 	
@@ -890,20 +894,40 @@
 		content: "{$label Manage_Buildings designation}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="tower"]:before {
-		content: "{$label Manage_Buildings tower}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_unit_type"]:before {
 		content: "{$label Manage_Buildings unee_t_unit_type}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="description"]:before {
-		content: "{$label Manage_Buildings description}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_creation_needed_in_unee_t"]:before {
 		content: "{$label Manage_Buildings is_creation_needed_in_unee_t}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="tower"]:before {
+		content: "{$label Manage_Buildings tower}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="address_1"]:before {
+		content: "{$label Manage_Buildings address_1}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="address_2"]:before {
+		content: "{$label Manage_Buildings address_2}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="zip_postal_code"]:before {
+		content: "{$label Manage_Buildings zip_postal_code}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="state"]:before {
+		content: "{$label Manage_Buildings state}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="city"]:before {
+		content: "{$label Manage_Buildings city}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="description"]:before {
+		content: "{$label Manage_Buildings description}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="do_not_insert"]:before {

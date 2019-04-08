@@ -541,6 +541,8 @@ class Chart
 			return true;
 		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
 			return true;
+		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

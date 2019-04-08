@@ -106,6 +106,8 @@ include_once(getabspath("include/Unee_T_Enterprise_Configuration_events.php"));
 $tableEvents["Unee-T Enterprise Configuration"] = new eventclass_Unee_T_Enterprise_Configuration;
 include_once(getabspath("include/Manage_Units_events.php"));
 $tableEvents["Manage Units"] = new eventclass_Manage_Units;
+include_once(getabspath("include/Manage_Rooms_events.php"));
+$tableEvents["Manage Rooms"] = new eventclass_Manage_Rooms;
 
 $xt = new Xtempl();
 

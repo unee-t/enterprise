@@ -12,9 +12,9 @@ $tdataManage_Units[".searchableFields"] = array();
 	$tdataManage_Units[".OriginalTable"] = "external_property_level_2_units";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
 
-$tdataManage_Units[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataManage_Units[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataManage_Units[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -98,7 +98,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Units["English"]["surface"] = "Surface";
 	$fieldToolTipsManage_Units["English"]["surface"] = "";
 	$placeHoldersManage_Units["English"]["surface"] = "";
-	$fieldLabelsManage_Units["English"]["surface_measurment_unit"] = "Surface Measurment Unit";
+	$fieldLabelsManage_Units["English"]["surface_measurment_unit"] = "sqf/sqm";
 	$fieldToolTipsManage_Units["English"]["surface_measurment_unit"] = "";
 	$placeHoldersManage_Units["English"]["surface_measurment_unit"] = "";
 	$fieldLabelsManage_Units["English"]["description"] = "Description";
@@ -5178,6 +5178,35 @@ $page_titles["Manage_Units"] = &$pageTitlesManage_Units;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["Manage Units"] = array();
+//	Manage Rooms
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Manage Rooms";
+		$detailsParam["dOriginalTable"] = "external_property_level_3_rooms";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "Manage_Rooms";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Manage_Rooms");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Units"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Units"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="system_id_unit";
+
+				$detailsTablesData["Manage Units"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="system_id_unit";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Units"] = array();
@@ -5819,6 +5848,12 @@ $proto79["m_columns"][] = "do_not_insert";
 $proto79["m_columns"][] = "unee_t_unit_type";
 $proto79["m_columns"][] = "designation";
 $proto79["m_columns"][] = "tower";
+$proto79["m_columns"][] = "address_1";
+$proto79["m_columns"][] = "address_2";
+$proto79["m_columns"][] = "zip_postal_code";
+$proto79["m_columns"][] = "state";
+$proto79["m_columns"][] = "city";
+$proto79["m_columns"][] = "country_code";
 $proto79["m_columns"][] = "description";
 $obj = new SQLTable($proto79);
 

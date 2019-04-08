@@ -28,3 +28,6 @@
 [data-page=".global_menu"][data-itemid="welcome_item9"] > .bs-welcome-header {
   background-color: #db7093;
 }
+[data-page=".global_menu"][data-itemid="welcome_item10"] > .bs-welcome-header {
+  background-color: #7b68ee;
+}

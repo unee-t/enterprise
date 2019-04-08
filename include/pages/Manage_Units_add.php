@@ -1,5 +1,7 @@
 <?php
-			$optionsArray = array( 'master' => array( 'Manage Buildings' => array( 'preview' => true ) ),
+			$optionsArray = array( 'details' => array( 'Manage Rooms' => array( 'displayPreview' => 2,
+'previewPageId' => '' ) ),
+'master' => array( 'Manage Buildings' => array( 'preview' => true ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'building_system_id',
 'unit_designation',

@@ -2944,6 +2944,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "external_property_groups_areas" ] = "external_property_groups_areas";
 	$projectEntities[ "external_property_level_1_buildings" ] = array( "url" => "external_property_level_1_buildings", "type" => 1 );
 	$projectEntitiesReverse[ "external_property_level_1_buildings" ] = "external_property_level_1_buildings";
+	$projectEntities[ "Manage Rooms" ] = array( "url" => "Manage_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Manage_Rooms" ] = "Manage Rooms";
 }
 
 function findTable( $table ) {
