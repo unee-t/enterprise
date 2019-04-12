@@ -1498,7 +1498,59 @@
 		</div>
 	</div>
 	
-				{END grid_block}
+				 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN role_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-vertical-field" data-fieldname="role_type" data-signal-error-for="role_type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="role_type" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_role_type}">
+		
+		{BEGIN role_type_label}{$label Manage_Unee_T_Users role_type }{END role_type_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$role_type_value}	</div>
+
+		
+</div>
+
+
+{END role_type_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

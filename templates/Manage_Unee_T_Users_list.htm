@@ -125,6 +125,22 @@
 		Advanced search		
 		</a>
 	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
+				<a  id="showOptPanel{$id}" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
+				<a  id="hideOptPanel{$id}" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
 							<li role="separator" class="divider"></li>							{BEGIN export_link}
 	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" >
 				<a  href="#" {$exportlink_attrs} >
@@ -214,6 +230,76 @@
 									<td 
 	class=" r-ori-vert			"
 			 
+	data-cellId="left_c1" data-pageid="{$pageid}">
+ 
+<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+
+	<div class="panel-heading">
+		<div class="btn-group" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_role_type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_role_type}" {$filterRow_attrs_role_type}>
+			<label>{$label Manage_Unee_T_Users role_type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
+						</div>
+		{END searchCtrlBlock_role_type}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+</td>
+							</tr>
+											<tr>
+									<td 
+	class=" r-ori-vert			"
+			 
 	data-cellId="left_c2" data-pageid="{$pageid}">
  
 <div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
@@ -253,6 +339,10 @@
 								
 			
 			
+			
+			
+			
+			
 				</li>				
 				{END filterCtrlBlock_country_code}
 
@@ -271,6 +361,110 @@
 			</ul>			
 		</div>
 		{END filter_control_country_code}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_role_type}
+		<div class="panel panel-info filter-field filter-role_type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_Unee_T_Users role_type }</label>
+
+				{BEGIN clearLink_role_type}
+				<a href="#" class="filter-clear filter-clear-role_type">Clear</a>
+				{END clearLink_role_type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_role_type}
+				<li class="list-group-item filter-values filter-values-role_type {$collapsedClass_role_type} {$visibilityClass_role_type}">
+					{$role_type_filter}
+								
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_role_type}
+
+							{BEGIN filter_button_showmore_role_type}
+				<li class="list-group-item filter-show-more {$collapsedClass_role_type} {$showMoreBtnClass_role_type}">
+					<a class="filter-show-more-link filterShowMore_role_type" href="#">{$show_n_more_role_type}</a>
+				</li>
+				{END filter_button_showmore_role_type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_role_type}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_designation}
+		<div class="panel panel-info filter-field filter-designation-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_Unee_T_Users designation }</label>
+
+				{BEGIN clearLink_designation}
+				<a href="#" class="filter-clear filter-clear-designation">Clear</a>
+				{END clearLink_designation}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_designation}
+				<li class="list-group-item filter-values filter-values-designation {$collapsedClass_designation} {$visibilityClass_designation}">
+					{$designation_filter}
+								
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_designation}
+
+							{BEGIN filter_button_showmore_designation}
+				<li class="list-group-item filter-show-more {$collapsedClass_designation} {$showMoreBtnClass_designation}">
+					<a class="filter-show-more-link filterShowMore_designation" href="#">{$show_n_more_designation}</a>
+				</li>
+				{END filter_button_showmore_designation}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_designation}
 	 
 	</div>
 </div></td>
@@ -431,6 +625,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_role_type" checked="checked" value="1" data-field="role_type">
+					<span>{$label Manage_Unee_T_Users role_type }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -514,6 +718,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="designation"]:before {
 		content: "{$label Manage_Unee_T_Users designation}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="role_type"]:before {
+		content: "{$label Manage_Unee_T_Users role_type}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="gender"]:before {
@@ -782,7 +990,7 @@
 	 
 		{BEGIN person_status_fieldheadercolumn}
 	{BEGIN person_status_fieldheader}
-	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
+	<SPAN {$person_status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="person_status">
 	{$label Manage_Unee_T_Users person_status }	{$arrow_icon_person_status}
 	</SPAN>
 	{END person_status_fieldheader}
@@ -836,7 +1044,7 @@
 	 
 		{BEGIN unee_t_user_type_id_fieldheadercolumn}
 	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
+	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
 	{$label Manage_Unee_T_Users unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
 	</SPAN>
 	{END unee_t_user_type_id_fieldheader}
@@ -971,7 +1179,7 @@
 	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Unee_T_Users uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -980,6 +1188,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$role_type_class}
+			"
+
+			data-field="role_type"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN role_type_fieldheadercolumn}
+	{BEGIN role_type_fieldheader}
+	<SPAN {$role_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type">
+	{$label Manage_Unee_T_Users role_type }	{$arrow_icon_role_type}
+	</SPAN>
+	{END role_type_fieldheader}
+{END role_type_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
 							</tr>
 					 
 					 
@@ -1311,6 +1546,29 @@
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$role_type_class}
+			"
+
+			data-field="role_type"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN role_type_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type" data-default-width >
+{$role_type_value}
+</span>
+{END role_type_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
 							</tr>
 					 
 					
@@ -1535,6 +1793,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unee_T_Users_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					{END totals_row}

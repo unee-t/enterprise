@@ -358,15 +358,19 @@ $tdataManage_User_Types[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "ORDER BY ut_user_types.is_obsolete, ut_user_types.`order`";
+$tstrOrderBy = "ORDER BY ut_user_role_types.role_type, ut_user_types.is_obsolete, ut_user_types.`order`, ut_user_types.organization_id DESC";
 if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
 	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataManage_User_Types[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_User_Types[".orderindexes"] = array();
+	$tdataManage_User_Types[".orderindexes"][] = array(16, (1 ? "ASC" : "DESC"), "ut_user_role_types.role_type");
+
 	$tdataManage_User_Types[".orderindexes"][] = array(12, (1 ? "ASC" : "DESC"), "ut_user_types.is_obsolete");
 
 	$tdataManage_User_Types[".orderindexes"][] = array(11, (1 ? "ASC" : "DESC"), "ut_user_types.`order`");
+
+	$tdataManage_User_Types[".orderindexes"][] = array(10, (0 ? "ASC" : "DESC"), "ut_user_types.organization_id");
 
 
 $tdataManage_User_Types[".sqlHead"] = "SELECT ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_invited_all_cases,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
@@ -6324,7 +6328,7 @@ $proto0["m_strHead"] = "SELECT";
 $proto0["m_strFieldList"] = "ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_invited_all_cases,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
 $proto0["m_strFrom"] = "FROM ut_user_types  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $proto0["m_strWhere"] = "";
-$proto0["m_strOrderBy"] = "ORDER BY ut_user_types.is_obsolete, ut_user_types.`order`";
+$proto0["m_strOrderBy"] = "ORDER BY ut_user_role_types.role_type, ut_user_types.is_obsolete, ut_user_types.`order`, ut_user_types.organization_id DESC";
 	
 					
 ;
@@ -7148,8 +7152,8 @@ $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
 												$proto108=array();
 						$obj = new SQLField(array(
-	"m_strName" => "is_obsolete",
-	"m_strTable" => "ut_user_types",
+	"m_strName" => "role_type",
+	"m_strTable" => "ut_user_role_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
@@ -7161,7 +7165,7 @@ $obj = new SQLOrderByItem($proto108);
 $proto0["m_orderby"][]=$obj;					
 												$proto110=array();
 						$obj = new SQLField(array(
-	"m_strName" => "order",
+	"m_strName" => "is_obsolete",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
@@ -7170,6 +7174,32 @@ $proto110["m_column"]=$obj;
 $proto110["m_bAsc"] = 1;
 $proto110["m_nColumn"] = 0;
 $obj = new SQLOrderByItem($proto110);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto112=array();
+						$obj = new SQLField(array(
+	"m_strName" => "order",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Types"
+));
+
+$proto112["m_column"]=$obj;
+$proto112["m_bAsc"] = 1;
+$proto112["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto112);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto114=array();
+						$obj = new SQLField(array(
+	"m_strName" => "organization_id",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Types"
+));
+
+$proto114["m_column"]=$obj;
+$proto114["m_bAsc"] = 0;
+$proto114["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto114);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage User Types";		

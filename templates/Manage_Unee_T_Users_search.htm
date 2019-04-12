@@ -419,6 +419,31 @@
 </div>
 
 {END uneet_created_datetime_fieldblock}
+											
+{BEGIN role_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="role_type" 
+	
+	data-signal-error-for="role_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="role_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_role_type}">
+		{$label Manage_Unee_T_Users role_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_role_type}
+	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END role_type_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
