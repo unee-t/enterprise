@@ -40,6 +40,12 @@ $nonAdminTablesArr[] = "Manage Units";
 $nonAdminTablesArr[] = "external_property_groups_areas";
 $nonAdminTablesArr[] = "external_property_level_1_buildings";
 $nonAdminTablesArr[] = "Manage Rooms";
+$nonAdminTablesArr[] = "Assign Areas to User";
+$nonAdminTablesArr[] = "Search Users";
+$nonAdminTablesArr[] = "Assign Buildings to User";
+$nonAdminTablesArr[] = "property_level_1_buildings";
+$nonAdminTablesArr[] = "Assign Units to User";
+$nonAdminTablesArr[] = "property_level_2_units";
 
 $ug_connection = $cman->getForUserGroups();
 

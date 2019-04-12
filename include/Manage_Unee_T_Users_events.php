@@ -54,7 +54,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Manage Unee-T Users - Add Page';
+		$values['creation_method'] = 'Manage_Unee_T_Users_Add_Page';
 
 	// The value for the person status at creation in this interface should be 2 (Active)
 	
@@ -149,7 +149,7 @@ function BeforeEdit(&$values, $where, &$oldvalues, &$keys, &$message, $inline, &
 
 	// What is the creation method
 
-		$values['update_method'] = 'Manage Unee-T Users - Edit Page';
+		$values['update_method'] = 'Manage_Unee_T_Users_Edit_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.
@@ -267,7 +267,7 @@ function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Manage Unee-T Users - Import';
+		$values['creation_method'] = 'Manage_Unee_T_Users_Import_Page';
 
 	// we capture the organisation id of the user whi updated this record.
 
@@ -283,7 +283,7 @@ function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 
 	// What is the creation method
 
-		$values['update_method'] = 'Manage Unee-T Users - Import';
+		$values['update_method'] = 'Manage_Unee_T_Users_Import_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

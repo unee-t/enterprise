@@ -7412,6 +7412,7 @@ $proto113["m_columns"][] = "is_occupant";
 $proto113["m_columns"][] = "is_public";
 $proto113["m_columns"][] = "is_default_assignee";
 $proto113["m_columns"][] = "is_invited_all_cases";
+$proto113["m_columns"][] = "is_unit_owner";
 $proto113["m_columns"][] = "is_dashboard_access";
 $proto113["m_columns"][] = "can_see_role_contractor";
 $proto113["m_columns"][] = "can_see_role_mgt_cny";

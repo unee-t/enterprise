@@ -31,3 +31,12 @@
 [data-page=".global_menu"][data-itemid="welcome_item10"] > .bs-welcome-header {
   background-color: #7b68ee;
 }
+[data-page=".global_menu"][data-itemid="welcome_item11"] > .bs-welcome-header {
+  background-color: #CD5C5C;
+}
+[data-page=".global_menu"][data-itemid="welcome_item13"] > .bs-welcome-header {
+  background-color: #44c3ba;
+}
+[data-page=".global_menu"][data-itemid="welcome_item12"] > .bs-welcome-header {
+  background-color: #c94079;
+}

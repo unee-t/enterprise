@@ -239,6 +239,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_public}
 
@@ -267,6 +269,66 @@
 
 		 	
 
+		{BEGIN filter_control_role_type}
+		<div class="panel panel-info filter-field filter-role_type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_User_Types role_type }</label>
+
+				{BEGIN clearLink_role_type}
+				<a href="#" class="filter-clear filter-clear-role_type">Clear</a>
+				{END clearLink_role_type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_role_type}
+				<li class="list-group-item filter-values filter-values-role_type {$collapsedClass_role_type} {$visibilityClass_role_type}">
+					{$role_type_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_role_type}
+
+							{BEGIN filter_button_showmore_role_type}
+				<li class="list-group-item filter-show-more {$collapsedClass_role_type} {$showMoreBtnClass_role_type}">
+					<a class="filter-show-more-link filterShowMore_role_type" href="#">{$show_n_more_role_type}</a>
+				</li>
+				{END filter_button_showmore_role_type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_role_type}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
 		{BEGIN filter_control_is_dashboard_access}
 		<div class="panel panel-info filter-field filter-is_dashboard_access-container">
 			<div class="panel-heading filter-expander">
@@ -285,6 +347,8 @@
 				<li class="list-group-item filter-values filter-values-is_dashboard_access {$collapsedClass_is_dashboard_access} {$visibilityClass_is_dashboard_access}">
 					{$is_dashboard_access_filter}
 								
+			
+			
 			
 			
 			
@@ -355,6 +419,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_default_assignee}
 
@@ -401,6 +467,8 @@
 				<li class="list-group-item filter-values filter-values-is_invited_all_cases {$collapsedClass_is_invited_all_cases} {$visibilityClass_is_invited_all_cases}">
 					{$is_invited_all_cases_filter}
 								
+			
+			
 			
 			
 			
@@ -471,6 +539,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_occupant}
 
@@ -517,6 +587,8 @@
 				<li class="list-group-item filter-values filter-values-is_obsolete {$collapsedClass_is_obsolete} {$visibilityClass_is_obsolete}">
 					{$is_obsolete_filter}
 								
+			
+			
 			
 			
 			

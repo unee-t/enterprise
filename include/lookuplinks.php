@@ -87,6 +87,30 @@ function InitLookupLinks()
 	$lookupTableLinks["ut_unit_types"]["Manage_Rooms.unee_t_unit_type"]["edit"] = array("table" => "Manage Rooms", "field" => "unee_t_unit_type", "page" => "edit");
 	$lookupTableLinks["ut_unit_types"]["Manage_Rooms.unee_t_unit_type"]["add"] = array("table" => "Manage Rooms", "field" => "unee_t_unit_type", "page" => "add");
 	$lookupTableLinks["ut_unit_types"]["Manage_Rooms.unee_t_unit_type"]["search"] = array("table" => "Manage Rooms", "field" => "unee_t_unit_type", "page" => "search");
+	$lookupTableLinks["Search Users"]["Assign_Areas_to_User.unee_t_mefe_user_id"]["add"] = array("table" => "Assign Areas to User", "field" => "unee_t_mefe_user_id", "page" => "add");
+	$lookupTableLinks["Search Users"]["Assign_Areas_to_User.unee_t_mefe_user_id"]["search"] = array("table" => "Assign Areas to User", "field" => "unee_t_mefe_user_id", "page" => "search");
+	$lookupTableLinks["property_groups_areas"]["Assign_Areas_to_User.unee_t_area_id"]["edit"] = array("table" => "Assign Areas to User", "field" => "unee_t_area_id", "page" => "edit");
+	$lookupTableLinks["ut_user_role_types"]["Assign_Areas_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Areas to User", "field" => "unee_t_role_id", "page" => "edit");
+	$lookupTableLinks["ut_user_types"]["Assign_Areas_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Areas to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["Search Users"]["Assign_Buildings_to_User.unee_t_mefe_user_id"]["add"] = array("table" => "Assign Buildings to User", "field" => "unee_t_mefe_user_id", "page" => "add");
+	$lookupTableLinks["Search Users"]["Assign_Buildings_to_User.unee_t_mefe_user_id"]["search"] = array("table" => "Assign Buildings to User", "field" => "unee_t_mefe_user_id", "page" => "search");
+	$lookupTableLinks["property_groups_areas"]["Assign_Buildings_to_User.area_id"]["search"] = array("table" => "Assign Buildings to User", "field" => "area_id", "page" => "search");
+	$lookupTableLinks["property_level_1_buildings"]["Assign_Buildings_to_User.unee_t_level_1_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_level_1_id", "page" => "edit");
+	$lookupTableLinks["ut_user_role_types"]["Assign_Buildings_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_role_id", "page" => "edit");
+	$lookupTableLinks["ut_user_types"]["Assign_Buildings_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["uneet_enterprise_organizations"]["property_level_1_buildings.organization_id"]["edit"] = array("table" => "property_level_1_buildings", "field" => "organization_id", "page" => "edit");
+	$lookupTableLinks["property_groups_areas"]["property_level_1_buildings.area_id"]["edit"] = array("table" => "property_level_1_buildings", "field" => "area_id", "page" => "edit");
+	$lookupTableLinks["ut_unit_types"]["property_level_1_buildings.unee_t_unit_type"]["edit"] = array("table" => "property_level_1_buildings", "field" => "unee_t_unit_type", "page" => "edit");
+	$lookupTableLinks["Search Users"]["Assign_Units_to_User.unee_t_mefe_user_id"]["add"] = array("table" => "Assign Units to User", "field" => "unee_t_mefe_user_id", "page" => "add");
+	$lookupTableLinks["Search Users"]["Assign_Units_to_User.unee_t_mefe_user_id"]["search"] = array("table" => "Assign Units to User", "field" => "unee_t_mefe_user_id", "page" => "search");
+	$lookupTableLinks["property_groups_areas"]["Assign_Units_to_User.area_id"]["search"] = array("table" => "Assign Units to User", "field" => "area_id", "page" => "search");
+	$lookupTableLinks["property_level_1_buildings"]["Assign_Units_to_User.id_building"]["search"] = array("table" => "Assign Units to User", "field" => "id_building", "page" => "search");
+	$lookupTableLinks["property_level_2_units"]["Assign_Units_to_User.unee_t_level_2_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_level_2_id", "page" => "edit");
+	$lookupTableLinks["ut_user_role_types"]["Assign_Units_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_role_id", "page" => "edit");
+	$lookupTableLinks["ut_user_types"]["Assign_Units_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["uneet_enterprise_organizations"]["property_level_2_units.organization_id"]["edit"] = array("table" => "property_level_2_units", "field" => "organization_id", "page" => "edit");
+	$lookupTableLinks["ut_unit_types"]["property_level_2_units.unee_t_unit_type"]["edit"] = array("table" => "property_level_2_units", "field" => "unee_t_unit_type", "page" => "edit");
+	$lookupTableLinks["property_level_1_buildings"]["property_level_2_units.building_system_id"]["edit"] = array("table" => "property_level_2_units", "field" => "building_system_id", "page" => "edit");
 }
 
 ?>

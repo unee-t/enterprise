@@ -19,6 +19,7 @@ $dalTableut_user_types["is_occupant"] = array("type"=>16,"varname"=>"is_occupant
 $dalTableut_user_types["is_public"] = array("type"=>16,"varname"=>"is_public", "name" => "is_public");
 $dalTableut_user_types["is_default_assignee"] = array("type"=>16,"varname"=>"is_default_assignee", "name" => "is_default_assignee");
 $dalTableut_user_types["is_invited_all_cases"] = array("type"=>16,"varname"=>"is_invited_all_cases", "name" => "is_invited_all_cases");
+$dalTableut_user_types["is_unit_owner"] = array("type"=>16,"varname"=>"is_unit_owner", "name" => "is_unit_owner");
 $dalTableut_user_types["is_dashboard_access"] = array("type"=>16,"varname"=>"is_dashboard_access", "name" => "is_dashboard_access");
 $dalTableut_user_types["can_see_role_contractor"] = array("type"=>16,"varname"=>"can_see_role_contractor", "name" => "can_see_role_contractor");
 $dalTableut_user_types["can_see_role_mgt_cny"] = array("type"=>16,"varname"=>"can_see_role_mgt_cny", "name" => "can_see_role_mgt_cny");

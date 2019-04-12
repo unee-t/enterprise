@@ -2953,6 +2953,7 @@ $proto45["m_columns"][] = "is_occupant";
 $proto45["m_columns"][] = "is_public";
 $proto45["m_columns"][] = "is_default_assignee";
 $proto45["m_columns"][] = "is_invited_all_cases";
+$proto45["m_columns"][] = "is_unit_owner";
 $proto45["m_columns"][] = "is_dashboard_access";
 $proto45["m_columns"][] = "can_see_role_contractor";
 $proto45["m_columns"][] = "can_see_role_mgt_cny";

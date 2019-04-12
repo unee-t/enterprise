@@ -1,1 +1,1 @@
-<p align=center>Unee-T Enterprise - v2.6.0</p>
+<p align=center>Unee-T Enterprise - v2.8.0</p>

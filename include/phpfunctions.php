@@ -1064,6 +1064,96 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
 		return $strWhere;
 	}
+		if($table=="Assign Areas to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_area_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_level_1_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="id_building" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_level_2_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
 	return "";
 }
 

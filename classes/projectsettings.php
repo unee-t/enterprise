@@ -2946,6 +2946,18 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "external_property_level_1_buildings" ] = "external_property_level_1_buildings";
 	$projectEntities[ "Manage Rooms" ] = array( "url" => "Manage_Rooms", "type" => 1 );
 	$projectEntitiesReverse[ "Manage_Rooms" ] = "Manage Rooms";
+	$projectEntities[ "Assign Areas to User" ] = array( "url" => "Assign_Areas_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Areas_to_User" ] = "Assign Areas to User";
+	$projectEntities[ "Search Users" ] = array( "url" => "Search_Users", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Users" ] = "Search Users";
+	$projectEntities[ "Assign Buildings to User" ] = array( "url" => "Assign_Buildings_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Buildings_to_User" ] = "Assign Buildings to User";
+	$projectEntities[ "property_level_1_buildings" ] = array( "url" => "property_level_1_buildings", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_1_buildings" ] = "property_level_1_buildings";
+	$projectEntities[ "Assign Units to User" ] = array( "url" => "Assign_Units_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Units_to_User" ] = "Assign Units to User";
+	$projectEntities[ "property_level_2_units" ] = array( "url" => "property_level_2_units", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_2_units" ] = "property_level_2_units";
 }
 
 function findTable( $table ) {

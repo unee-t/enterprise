@@ -47,6 +47,9 @@ function DBLookup($sql)
   */
 class tDAL
 {
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_areas;
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_1;
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_2;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_persons;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_property_groups_areas;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__external_property_level_1_buildings;
@@ -83,6 +86,9 @@ class tDAL
 	{
 		if($this->lstTables)
 			return;
+		$this->lstTables[] = array("name" => "external_map_user_unit_role_permissions_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_areas", "altvarname" => "external_map_user_unit_role_permissions_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+		$this->lstTables[] = array("name" => "external_map_user_unit_role_permissions_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_1", "altvarname" => "external_map_user_unit_role_permissions_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+		$this->lstTables[] = array("name" => "external_map_user_unit_role_permissions_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_2", "altvarname" => "external_map_user_unit_role_permissions_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "external_persons", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_persons", "altvarname" => "external_persons", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "external_property_groups_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_groups_areas", "altvarname" => "external_property_groups_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "external_property_level_1_buildings", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_level_1_buildings", "altvarname" => "external_property_level_1_buildings", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");

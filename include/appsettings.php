@@ -668,6 +668,12 @@ $tableCaptions["English"]["Manage_Units"] = "Manage Units";
 $tableCaptions["English"]["external_property_groups_areas"] = "External Property Groups Areas";
 $tableCaptions["English"]["external_property_level_1_buildings"] = "External Property Level 1 Buildings";
 $tableCaptions["English"]["Manage_Rooms"] = "Manage Rooms";
+$tableCaptions["English"]["Assign_Areas_to_User"] = "Assign Areas to User";
+$tableCaptions["English"]["Search_Users"] = "Search Users";
+$tableCaptions["English"]["Assign_Buildings_to_User"] = "Assign Buildings to User";
+$tableCaptions["English"]["property_level_1_buildings"] = "Property Level 1 Buildings";
+$tableCaptions["English"]["Assign_Units_to_User"] = "Assign Units to User";
+$tableCaptions["English"]["property_level_2_units"] = "Property Level 2 Units";
 
 
 $globalEvents = new class_GlobalEvents;
