@@ -77,6 +77,9 @@ pdfDocument = {
 										{BEGIN col_grid_8}
 					"%",
 					{END col_grid_8}
+										{BEGIN col_grid_9}
+					"%",
+					{END col_grid_9}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -341,7 +344,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field6}","text":"{$jslabel Manage_Units unit_designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field7}","text":"{$jslabel Manage_Units unit_designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -366,7 +369,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field7}","text":"{$jslabel Manage_Units unee_t_unit_type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field8}","text":"{$jslabel Manage_Units unee_t_unit_type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -391,7 +394,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field8}","text":"{$jslabel Manage_Units country_code }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field9}","text":"{$jslabel Manage_Units country_code }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -416,7 +419,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field9}","text":"{$jslabel Manage_Units area_name }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field10}","text":"{$jslabel Manage_Units area_name }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -441,7 +444,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field10}","text":"{$jslabel Manage_Units building_designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field11}","text":"{$jslabel Manage_Units building_designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -466,13 +469,38 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field11}","text":"{$jslabel Manage_Units is_creation_needed_in_unee_t }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field12}","text":"{$jslabel Manage_Units is_creation_needed_in_unee_t }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
         },
 
 {END cellblock_grid_headcell_field5}
+																			{BEGIN cellblock_grid_headcell_field6}
+
+{
+	cellId: 'headcell_field6',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field13}","text":"{$jslabel Manage_Units uneet_created_datetime }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_field6}
 											],
 				{END row_grid_0}
 									
@@ -716,6 +744,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_cell_field5}
+																			{BEGIN cellblock_grid_cell_field6}
+
+{
+	cellId: 'cell_field6',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field6}","text":{$uneet_created_datetime_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_field6}
 											],
 				{END row_grid_1}
 								{BEGIN row_grid_2}
@@ -797,6 +850,12 @@ pdfDocument = {
 					cellId: 'cell_dpreview',
 					row:  0,
 					col:  8,
+					text: ''
+				},
+															{ 
+					cellId: 'cell_dpreview',
+					row:  0,
+					col:  9,
 					text: ''
 				},
 							],
@@ -1016,6 +1075,29 @@ pdfDocument = {
         },
 
 {END cellblock_grid_footcell_field5}
+																			{BEGIN cellblock_grid_footcell_field6}
+
+{
+	cellId: 'footcell_field6',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_field6}
 											],
 				{END row_grid_3}
 						{END totals_row}

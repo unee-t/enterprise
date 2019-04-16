@@ -674,6 +674,12 @@ $tableCaptions["English"]["Assign_Buildings_to_User"] = "Assign Buildings to Use
 $tableCaptions["English"]["property_level_1_buildings"] = "Property Level 1 Buildings";
 $tableCaptions["English"]["Assign_Units_to_User"] = "Assign Units to User";
 $tableCaptions["English"]["property_level_2_units"] = "Property Level 2 Units";
+$tableCaptions["English"]["Assign_Rooms_to_User"] = "Assign Rooms to User";
+$tableCaptions["English"]["property_level_3_rooms"] = "Property Level 3 Rooms";
+$tableCaptions["English"]["Search_Rooms"] = "Search Rooms";
+$tableCaptions["English"]["Search_Units"] = "Search Units";
+$tableCaptions["English"]["external_property_level_2_units"] = "External Property Level 2 Units";
+$tableCaptions["English"]["Search_All_Units"] = "Search All Units";
 
 
 $globalEvents = new class_GlobalEvents;

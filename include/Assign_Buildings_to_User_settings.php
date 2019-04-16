@@ -12,9 +12,9 @@ $tdataAssign_Buildings_to_User[".searchableFields"] = array();
 	$tdataAssign_Buildings_to_User[".OriginalTable"] = "external_map_user_unit_role_permissions_level_1";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdataAssign_Buildings_to_User[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataAssign_Buildings_to_User[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataAssign_Buildings_to_User[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -4566,7 +4566,7 @@ $proto81["m_columns"][] = "ut_user_role_type_id";
 $proto81["m_columns"][] = "is_occupant";
 $proto81["m_columns"][] = "is_public";
 $proto81["m_columns"][] = "is_default_assignee";
-$proto81["m_columns"][] = "is_invited_all_cases";
+$proto81["m_columns"][] = "is_default_invited";
 $proto81["m_columns"][] = "is_unit_owner";
 $proto81["m_columns"][] = "is_dashboard_access";
 $proto81["m_columns"][] = "can_see_role_contractor";

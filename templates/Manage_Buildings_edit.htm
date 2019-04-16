@@ -203,7 +203,7 @@
 <div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" 
 	data-fieldname="designation" 
 	data-signal-error-for="designation{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-page="Manage_Buildings_edit" data-field="designation" >
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="designation" >
 
 
 	<label class="r-edit-label control-label" for="{$labelfor_designation}">
@@ -443,8 +443,8 @@
 	
 			data-single
 			
-	ocolspan="2"		data-cellId="section1_c8" data-pageid="{$pageid}"
-		data-v-cell="4"
+			data-cellId="section1_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -474,6 +474,47 @@
 	
 								</td>
 			{END cellblock_section1_c8}
+			 
+																
+
+{BEGIN cellblock_section1_c10}
+<td
+	{$cell_section1_c10}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN uneet_created_datetime_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_created_datetime}  r-vertical-field" 
+	data-fieldname="uneet_created_datetime" 
+	data-signal-error-for="uneet_created_datetime{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="uneet_created_datetime" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_uneet_created_datetime}">
+		{BEGIN uneet_created_datetime_label}{$label Manage_Buildings uneet_created_datetime }{END uneet_created_datetime_label}
+	</label>
+	<div class="r-edit-field">
+		{$uneet_created_datetime_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="uneet_created_datetime">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END uneet_created_datetime_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c10}
 			 
 																
 
@@ -1001,40 +1042,7 @@
 </div>
 {END details_Manage_Units}
 	
-				 
-	 
-		
-					<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="2"
-	>
-	<tbody>
-						<tr>
-						
-
-{BEGIN cellblock_grid_c6}
-<td
-	{$cell_grid_c6}
-	class=" r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="grid_c6" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_grid_c6}
-								</tr>
-			</tbody></table>
-{END grid_block}
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

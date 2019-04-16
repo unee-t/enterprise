@@ -1,0 +1,6 @@
+Import into external_property_level_2_units
+16/04/19 05:50:04
+
+44 out of 44 records processed successfully.
+0 records added.
+44 records updated.

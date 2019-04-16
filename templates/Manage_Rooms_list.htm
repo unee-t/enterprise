@@ -298,32 +298,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_country_code}</span>
 						</div>
 		{END searchCtrlBlock_country_code}
-																{BEGIN searchCtrlBlock_building_system_id}
+																{BEGIN searchCtrlBlock_uneet_created_datetime}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_building_system_id}" {$filterRow_attrs_building_system_id}>
-			<label>{$label Manage_Rooms building_system_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_building_system_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_building_system_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_building_system_id}</span>
-						</div>
-		{END searchCtrlBlock_building_system_id}
-																{BEGIN searchCtrlBlock_unit_designation}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unit_designation}" {$filterRow_attrs_unit_designation}>
-			<label>{$label Manage_Rooms unit_designation }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_uneet_created_datetime}" {$filterRow_attrs_uneet_created_datetime}>
+			<label>{$label Manage_Rooms uneet_created_datetime }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_unit_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unit_designation}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unit_designation}</span>
+								<span class="rnr-searchtype">{$searchtype_uneet_created_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_uneet_created_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_uneet_created_datetime}</span>
 						</div>
-		{END searchCtrlBlock_unit_designation}
+		{END searchCtrlBlock_uneet_created_datetime}
 																{BEGIN searchCtrlBlock_area_id}
 
 
@@ -828,6 +815,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_uneet_created_datetime" checked="checked" value="1" data-field="uneet_created_datetime">
+					<span>{$label Manage_Rooms uneet_created_datetime }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -917,12 +914,16 @@
 		content: "{$label Manage_Rooms building_name}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_designation"]:before {
-		content: "{$label Manage_Rooms unit_designation}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="system_id_unit"]:before {
 		content: "{$label Manage_Rooms system_id_unit}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_system_id"]:before {
+		content: "{$label Manage_Rooms unit_system_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_designation"]:before {
+		content: "{$label Manage_Rooms unit_designation}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="room_designation"]:before {
@@ -975,6 +976,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="do_not_insert"]:before {
 		content: "{$label Manage_Rooms do_not_insert}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="uneet_created_datetime"]:before {
+		content: "{$label Manage_Rooms uneet_created_datetime}";
 	}
 	
 }
@@ -1158,7 +1163,7 @@
 	 
 		{BEGIN building_name_fieldheadercolumn}
 	{BEGIN building_name_fieldheader}
-	<SPAN {$building_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_name">
+	<SPAN {$building_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_name">
 	{$label Manage_Rooms building_name }	{$arrow_icon_building_name}
 	</SPAN>
 	{END building_name_fieldheader}
@@ -1194,6 +1199,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
+				 
+					{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN uneet_created_datetime_fieldheadercolumn}
+	{BEGIN uneet_created_datetime_fieldheader}
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	{$label Manage_Rooms uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
+	</SPAN>
+	{END uneet_created_datetime_fieldheader}
+{END uneet_created_datetime_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
 							</tr>
 					 
 					 
@@ -1419,6 +1451,29 @@
 {END unit_designation_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN uneet_created_datetime_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime" data-default-width >
+{$uneet_created_datetime_value}
+</span>
+{END uneet_created_datetime_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
 							</tr>
 					 
 					
@@ -1563,6 +1618,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
+				 
+					{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Rooms_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					{END totals_row}

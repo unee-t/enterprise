@@ -89,9 +89,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsut_user_types["English"]["is_dashboard_access"] = "Is Dashboard Access";
 	$fieldToolTipsut_user_types["English"]["is_dashboard_access"] = "";
 	$placeHoldersut_user_types["English"]["is_dashboard_access"] = "";
-	$fieldLabelsut_user_types["English"]["is_invited_all_cases"] = "Is Invited All Cases";
-	$fieldToolTipsut_user_types["English"]["is_invited_all_cases"] = "";
-	$placeHoldersut_user_types["English"]["is_invited_all_cases"] = "";
 	$fieldLabelsut_user_types["English"]["is_default_assignee"] = "Is Default Assignee";
 	$fieldToolTipsut_user_types["English"]["is_default_assignee"] = "";
 	$placeHoldersut_user_types["English"]["is_default_assignee"] = "";
@@ -170,6 +167,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsut_user_types["English"]["is_unit_owner"] = "Is Unit Owner";
 	$fieldToolTipsut_user_types["English"]["is_unit_owner"] = "";
 	$placeHoldersut_user_types["English"]["is_unit_owner"] = "";
+	$fieldLabelsut_user_types["English"]["is_default_invited"] = "Is Default Invited";
+	$fieldToolTipsut_user_types["English"]["is_default_invited"] = "";
+	$placeHoldersut_user_types["English"]["is_default_invited"] = "";
 	if (count($fieldToolTipsut_user_types["English"]))
 		$tdataut_user_types[".isUseToolTips"] = true;
 }
@@ -309,7 +309,7 @@ $tdataut_user_types[".googleLikeFields"][] = "ut_user_role_type_id";
 $tdataut_user_types[".googleLikeFields"][] = "is_occupant";
 $tdataut_user_types[".googleLikeFields"][] = "is_public";
 $tdataut_user_types[".googleLikeFields"][] = "is_default_assignee";
-$tdataut_user_types[".googleLikeFields"][] = "is_invited_all_cases";
+$tdataut_user_types[".googleLikeFields"][] = "is_default_invited";
 $tdataut_user_types[".googleLikeFields"][] = "is_unit_owner";
 $tdataut_user_types[".googleLikeFields"][] = "is_dashboard_access";
 $tdataut_user_types[".googleLikeFields"][] = "can_see_role_contractor";
@@ -376,7 +376,7 @@ $tdataut_user_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdataut_user_types[".orderindexes"] = array();
 
-$tdataut_user_types[".sqlHead"] = "SELECT id_unee_t_user_type,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	ut_user_role_type_id,  	is_occupant,  	is_public,  	is_default_assignee,  	is_invited_all_cases,  	is_unit_owner,  	is_dashboard_access,  	can_see_role_contractor,  	can_see_role_mgt_cny,  	can_see_occupant,  	can_see_role_landlord,  	can_see_role_agent,  	can_see_role_tenant,  	is_assigned_to_case,  	is_invited_to_case,  	is_solution_updated,  	is_next_step_updated,  	is_deadline_updated,  	is_case_resolved,  	is_case_critical,  	is_case_blocker,  	is_message_from_contractor,  	is_message_from_mgt_cny,  	is_message_from_agent,  	is_message_from_occupant,  	is_message_from_ll,  	is_message_from_tenant,  	is_any_new_message,  	is_new_ir,  	is_new_inventory,  	is_new_item,  	is_item_moved,  	is_item_removed";
+$tdataut_user_types[".sqlHead"] = "SELECT id_unee_t_user_type,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	ut_user_role_type_id,  	is_occupant,  	is_public,  	is_default_assignee,  	is_default_invited,  	is_unit_owner,  	is_dashboard_access,  	can_see_role_contractor,  	can_see_role_mgt_cny,  	can_see_occupant,  	can_see_role_landlord,  	can_see_role_agent,  	can_see_role_tenant,  	is_assigned_to_case,  	is_invited_to_case,  	is_solution_updated,  	is_next_step_updated,  	is_deadline_updated,  	is_case_resolved,  	is_case_critical,  	is_case_blocker,  	is_message_from_contractor,  	is_message_from_mgt_cny,  	is_message_from_agent,  	is_message_from_occupant,  	is_message_from_ll,  	is_message_from_tenant,  	is_any_new_message,  	is_new_ir,  	is_new_inventory,  	is_new_item,  	is_item_moved,  	is_item_removed";
 $tdataut_user_types[".sqlFrom"] = "FROM ut_user_types";
 $tdataut_user_types[".sqlWhereExpr"] = "";
 $tdataut_user_types[".sqlTail"] = "";
@@ -2710,14 +2710,14 @@ $tdataut_user_types[".hideMobileList"] = array();
 
 	$tdataut_user_types["is_default_assignee"] = $fdata;
 		$tdataut_user_types[".searchableFields"][] = "is_default_assignee";
-//	is_invited_all_cases
+//	is_default_invited
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 19;
-	$fdata["strName"] = "is_invited_all_cases";
-	$fdata["GoodName"] = "is_invited_all_cases";
+	$fdata["strName"] = "is_default_invited";
+	$fdata["GoodName"] = "is_default_invited";
 	$fdata["ownerTable"] = "ut_user_types";
-	$fdata["Label"] = GetFieldLabel("ut_user_types","is_invited_all_cases");
+	$fdata["Label"] = GetFieldLabel("ut_user_types","is_default_invited");
 	$fdata["FieldType"] = 16;
 
 	
@@ -2725,10 +2725,10 @@ $tdataut_user_types[".hideMobileList"] = array();
 	
 										
 
-		$fdata["strField"] = "is_invited_all_cases";
+		$fdata["strField"] = "is_default_invited";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "is_invited_all_cases";
+	$fdata["FullName"] = "is_default_invited";
 
 	
 	
@@ -2832,8 +2832,8 @@ $tdataut_user_types[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataut_user_types["is_invited_all_cases"] = $fdata;
-		$tdataut_user_types[".searchableFields"][] = "is_invited_all_cases";
+	$tdataut_user_types["is_default_invited"] = $fdata;
+		$tdataut_user_types[".searchableFields"][] = "is_default_invited";
 //	is_unit_owner
 //	Custom field settings
 	$fdata = array();
@@ -6341,7 +6341,7 @@ function createSqlQuery_ut_user_types()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_unee_t_user_type,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	ut_user_role_type_id,  	is_occupant,  	is_public,  	is_default_assignee,  	is_invited_all_cases,  	is_unit_owner,  	is_dashboard_access,  	can_see_role_contractor,  	can_see_role_mgt_cny,  	can_see_occupant,  	can_see_role_landlord,  	can_see_role_agent,  	can_see_role_tenant,  	is_assigned_to_case,  	is_invited_to_case,  	is_solution_updated,  	is_next_step_updated,  	is_deadline_updated,  	is_case_resolved,  	is_case_critical,  	is_case_blocker,  	is_message_from_contractor,  	is_message_from_mgt_cny,  	is_message_from_agent,  	is_message_from_occupant,  	is_message_from_ll,  	is_message_from_tenant,  	is_any_new_message,  	is_new_ir,  	is_new_inventory,  	is_new_item,  	is_item_moved,  	is_item_removed";
+$proto0["m_strFieldList"] = "id_unee_t_user_type,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	ut_user_role_type_id,  	is_occupant,  	is_public,  	is_default_assignee,  	is_default_invited,  	is_unit_owner,  	is_dashboard_access,  	can_see_role_contractor,  	can_see_role_mgt_cny,  	can_see_occupant,  	can_see_role_landlord,  	can_see_role_agent,  	can_see_role_tenant,  	is_assigned_to_case,  	is_invited_to_case,  	is_solution_updated,  	is_next_step_updated,  	is_deadline_updated,  	is_case_resolved,  	is_case_critical,  	is_case_blocker,  	is_message_from_contractor,  	is_message_from_mgt_cny,  	is_message_from_agent,  	is_message_from_occupant,  	is_message_from_ll,  	is_message_from_tenant,  	is_any_new_message,  	is_new_ir,  	is_new_inventory,  	is_new_item,  	is_item_moved,  	is_item_removed";
 $proto0["m_strFrom"] = "FROM ut_user_types";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -6636,12 +6636,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_invited_all_cases",
+	"m_strName" => "is_default_invited",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "ut_user_types"
 ));
 
-$proto42["m_sql"] = "is_invited_all_cases";
+$proto42["m_sql"] = "is_default_invited";
 $proto42["m_srcTableName"] = "ut_user_types";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -7065,7 +7065,7 @@ $proto101["m_columns"][] = "ut_user_role_type_id";
 $proto101["m_columns"][] = "is_occupant";
 $proto101["m_columns"][] = "is_public";
 $proto101["m_columns"][] = "is_default_assignee";
-$proto101["m_columns"][] = "is_invited_all_cases";
+$proto101["m_columns"][] = "is_default_invited";
 $proto101["m_columns"][] = "is_unit_owner";
 $proto101["m_columns"][] = "is_dashboard_access";
 $proto101["m_columns"][] = "can_see_role_contractor";

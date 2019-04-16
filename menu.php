@@ -114,6 +114,8 @@ include_once(getabspath("include/Assign_Buildings_to_User_events.php"));
 $tableEvents["Assign Buildings to User"] = new eventclass_Assign_Buildings_to_User;
 include_once(getabspath("include/Assign_Units_to_User_events.php"));
 $tableEvents["Assign Units to User"] = new eventclass_Assign_Units_to_User;
+include_once(getabspath("include/Assign_Rooms_to_User_events.php"));
+$tableEvents["Assign Rooms to User"] = new eventclass_Assign_Rooms_to_User;
 
 $xt = new Xtempl();
 

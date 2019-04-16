@@ -2958,6 +2958,18 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "Assign_Units_to_User" ] = "Assign Units to User";
 	$projectEntities[ "property_level_2_units" ] = array( "url" => "property_level_2_units", "type" => 0 );
 	$projectEntitiesReverse[ "property_level_2_units" ] = "property_level_2_units";
+	$projectEntities[ "Assign Rooms to User" ] = array( "url" => "Assign_Rooms_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Rooms_to_User" ] = "Assign Rooms to User";
+	$projectEntities[ "property_level_3_rooms" ] = array( "url" => "property_level_3_rooms", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_3_rooms" ] = "property_level_3_rooms";
+	$projectEntities[ "Search Rooms" ] = array( "url" => "Search_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Rooms" ] = "Search Rooms";
+	$projectEntities[ "Search Units" ] = array( "url" => "Search_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Units" ] = "Search Units";
+	$projectEntities[ "external_property_level_2_units" ] = array( "url" => "external_property_level_2_units", "type" => 1 );
+	$projectEntitiesReverse[ "external_property_level_2_units" ] = "external_property_level_2_units";
+	$projectEntities[ "Search All Units" ] = array( "url" => "Search_All_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Search_All_Units" ] = "Search All Units";
 }
 
 function findTable( $table ) {

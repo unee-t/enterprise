@@ -555,6 +555,112 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("property_level_2_units", " " . "Property Level 2 Units");
+$table = "Assign Rooms to User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Rooms_to_User", " " . "Assign Rooms to User");
+$table = "property_level_3_rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("property_level_3_rooms", " " . "Property Level 3 Rooms");
+$table = "Search Rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Rooms", " " . "Search Rooms");
+$table = "Search Units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Units", " " . "Search Units");
+$table = "external_property_level_2_units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("external_property_level_2_units", " " . "External Property Level 2 Units");
+$table = "Search All Units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_All_Units", " " . "Search All Units");
 
 
 

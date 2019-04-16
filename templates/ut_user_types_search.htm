@@ -585,31 +585,6 @@
 
 {END is_dashboard_access_fieldblock}
 											
-{BEGIN is_invited_all_cases_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_all_cases}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="is_invited_all_cases" 
-	
-	data-signal-error-for="is_invited_all_cases{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="is_invited_all_cases" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_is_invited_all_cases}">
-		{$label ut_user_types is_invited_all_cases }	</label>
-	<div class="r-search-option">
-		{$searchtype_is_invited_all_cases}
-	</div>
-	<div class="r-search-field">
-		{$is_invited_all_cases_editcontrol}	</div>
-	<div class="r-search-field">
-		{$is_invited_all_cases_editcontrol1}
-	</div>
-	
-</div>
-
-{END is_invited_all_cases_fieldblock}
-											
 {BEGIN is_default_assignee_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_assignee}  r-horizontal-field form-horizontal" 
@@ -1259,6 +1234,31 @@
 </div>
 
 {END is_unit_owner_fieldblock}
+											
+{BEGIN is_default_invited_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_default_invited" 
+	
+	data-signal-error-for="is_default_invited{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="is_default_invited" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_default_invited}">
+		{$label ut_user_types is_default_invited }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_default_invited}
+	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_default_invited_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

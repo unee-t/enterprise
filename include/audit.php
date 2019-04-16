@@ -440,6 +440,30 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Assign Rooms to User")
+		{
+			return false;
+		}
+		if($table=="property_level_3_rooms")
+		{
+			return false;
+		}
+		if($table=="Search Rooms")
+		{
+			return false;
+		}
+		if($table=="Search Units")
+		{
+			return false;
+		}
+		if($table=="external_property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Search All Units")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -881,6 +905,30 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Assign Rooms to User")
+		{
+			return false;
+		}
+		if($table=="property_level_3_rooms")
+		{
+			return false;
+		}
+		if($table=="Search Rooms")
+		{
+			return false;
+		}
+		if($table=="Search Units")
+		{
+			return false;
+		}
+		if($table=="external_property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Search All Units")
 		{
 			return false;
 		}

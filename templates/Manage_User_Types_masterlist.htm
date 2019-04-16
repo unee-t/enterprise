@@ -89,7 +89,7 @@
 	 
 		{BEGIN role_type_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type">
 	{$label Manage_User_Types role_type }	</label>
 {END role_type_fieldheadercolumn}
 
@@ -114,7 +114,7 @@
 	 
 		{BEGIN is_public_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
 	{$label Manage_User_Types is_public }	</label>
 {END is_public_fieldheadercolumn}
 
@@ -139,7 +139,7 @@
 	 
 		{BEGIN is_default_assignee_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
 	{$label Manage_User_Types is_default_assignee }	</label>
 {END is_default_assignee_fieldheadercolumn}
 
@@ -153,20 +153,20 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
+		 r-ori-vert				{$is_occupant_class}
 			"
 
-			data-field="is_invited_all_cases"
+			data-field="is_occupant"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_invited_all_cases_fieldheadercolumn}
+		{BEGIN is_occupant_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases">
-	{$label Manage_User_Types is_invited_all_cases }	</label>
-{END is_invited_all_cases_fieldheadercolumn}
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
+	{$label Manage_User_Types is_occupant }	</label>
+{END is_occupant_fieldheadercolumn}
 
 	
 	</th>
@@ -178,20 +178,20 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_occupant_class}
+		 r-ori-vert				{$is_dashboard_access_class}
 			"
 
-			data-field="is_occupant"
+			data-field="is_dashboard_access"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_occupant_fieldheadercolumn}
+		{BEGIN is_dashboard_access_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
-	{$label Manage_User_Types is_occupant }	</label>
-{END is_occupant_fieldheadercolumn}
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
+	{$label Manage_User_Types is_dashboard_access }	</label>
+{END is_dashboard_access_fieldheadercolumn}
 
 	
 	</th>
@@ -203,20 +203,20 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_dashboard_access_class}
+		 r-ori-vert				{$is_default_invited_class}
 			"
 
-			data-field="is_dashboard_access"
+			data-field="is_default_invited"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_dashboard_access_fieldheadercolumn}
+		{BEGIN is_default_invited_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
-	{$label Manage_User_Types is_dashboard_access }	</label>
-{END is_dashboard_access_fieldheadercolumn}
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
+	{$label Manage_User_Types is_default_invited }	</label>
+{END is_default_invited_fieldheadercolumn}
 
 	
 	</th>
@@ -335,35 +335,12 @@
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
-			"
-
-			data-field="is_invited_all_cases"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN is_invited_all_cases_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases" data-default-width >
-{$is_invited_all_cases_value}
-</span>
-{END is_invited_all_cases_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$is_occupant_class}
 			"
 
 			data-field="is_occupant"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -373,12 +350,12 @@
 </span>
 {END is_occupant_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field5}
+	{END cellblock_grid_cell_field4}
 				 
-					{BEGIN cellblock_grid_cell_field6}
+					{BEGIN cellblock_grid_cell_field5}
 	<td
 	
-	{$cell_grid_cell_field6}
+	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_dashboard_access_class}
@@ -386,7 +363,7 @@
 
 			data-field="is_dashboard_access"
 	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -395,6 +372,29 @@
 {$is_dashboard_access_value}
 </span>
 {END is_dashboard_access_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_default_invited_class}
+			"
+
+			data-field="is_default_invited"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_default_invited_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited" data-default-width >
+{$is_default_invited_value}
+</span>
+{END is_default_invited_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field6}
 							</tr>

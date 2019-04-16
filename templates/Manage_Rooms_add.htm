@@ -153,7 +153,7 @@
 				 
 	 
 												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}">
 		<div class="panel-heading" role="tab" {$section_section1_headattrs} data-toggle="collapse"   
 
 				href="#section1{$pageid}" aria-expanded="true" aria-controls="section1"
@@ -161,178 +161,12 @@
 		>
 		  <h4 class="panel-title">
 			<a role="button" >
-				The Property			</a>
+				The Room			</a>
 		  </h4>
 		</div>
 		<div  class="panel-collapse collapse in {$section_section1_xtrclass}" role="tabpanel"  {$section_section1_attrs}
 
 				id="section1{$pageid}" 
-		>
-		  <div class="panel-body">
-			{BEGIN section1_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="left"
-	data-location="section1" id="form_section1_{$pageid}" data-makeup="topbar" {$form_section1} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="3"
-		
-		data-v-width="6"
-	>
-	<tbody>
-										<tr>
-										
-
-{BEGIN cellblock_section1_c1}
-<td
-	{$cell_section1_c1}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c1" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN country_code_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" 
-	data-fieldname="country_code" 
-	data-signal-error-for="country_code{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="country_code" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_country_code}">
-		{BEGIN country_code_label}{$label Manage_Rooms country_code }{END country_code_label}
-	</label>
-	<div class="r-edit-field">
-		{$country_code_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="country_code">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END country_code_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c1}
-			 
-																
-
-{BEGIN cellblock_section1_c2}
-<td
-	{$cell_section1_c2}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c2" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN building_name_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_building_name}  r-vertical-field" 
-	data-fieldname="building_name" 
-	data-signal-error-for="building_name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="building_name" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_building_name}">
-		{BEGIN building_name_label}{$label Manage_Rooms building_name }{END building_name_label}
-	</label>
-	<div class="r-edit-field">
-		{$building_name_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="building_name">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END building_name_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c2}
-			 
-																
-
-{BEGIN cellblock_section1_c}
-<td
-	{$cell_section1_c}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN unit_designation_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unit_designation}  r-vertical-field" 
-	data-fieldname="unit_designation" 
-	data-signal-error-for="unit_designation{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="unit_designation" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_unit_designation}">
-		{BEGIN unit_designation_label}{$label Manage_Rooms unit_designation }{END unit_designation_label}
-	</label>
-	<div class="r-edit-field">
-		{$unit_designation_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="unit_designation">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END unit_designation_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c}
-								</tr>
-			</tbody></table>
-{END section1_block}
-		  </div>
-		</div>
-	</div>
-	
-				 
-	 
-												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
-
-				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
-
-		>
-		  <h4 class="panel-title">
-			<a role="button" >
-				The Room			</a>
-		  </h4>
-		</div>
-		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
-
-				id="section2{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section2_block}
@@ -368,6 +202,47 @@
 >
 	<div edit-form-cell class="clearfix">
 				
+{BEGIN system_id_unit_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_system_id_unit}  r-vertical-field" 
+	data-fieldname="system_id_unit" 
+	data-signal-error-for="system_id_unit{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="system_id_unit" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_system_id_unit}">
+		{BEGIN system_id_unit_label}{$label Manage_Rooms system_id_unit }{END system_id_unit_label}
+	</label>
+	<div class="r-edit-field">
+		{$system_id_unit_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="system_id_unit">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END system_id_unit_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c1}
+			 
+																
+
+{BEGIN cellblock_section2_c3}
+<td
+	{$cell_section2_c3}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN room_designation_fieldblock}
 
 
@@ -390,47 +265,6 @@
 
 
 {END room_designation_fieldblock}
-	
-								</td>
-			{END cellblock_section2_c1}
-			 
-																
-
-{BEGIN cellblock_section2_c3}
-<td
-	{$cell_section2_c3}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section2_c3" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN number_of_beds_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_number_of_beds}  r-vertical-field" 
-	data-fieldname="number_of_beds" 
-	data-signal-error-for="number_of_beds{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="number_of_beds" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_number_of_beds}">
-		{BEGIN number_of_beds_label}{$label Manage_Rooms number_of_beds }{END number_of_beds_label}
-	</label>
-	<div class="r-edit-field">
-		{$number_of_beds_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="number_of_beds">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END number_of_beds_fieldblock}
 	
 								</td>
 			{END cellblock_section2_c3}
@@ -535,6 +369,47 @@
 >
 	<div edit-form-cell class="clearfix">
 				
+{BEGIN number_of_beds_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_number_of_beds}  r-vertical-field" 
+	data-fieldname="number_of_beds" 
+	data-signal-error-for="number_of_beds{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="number_of_beds" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_number_of_beds}">
+		{BEGIN number_of_beds_label}{$label Manage_Rooms number_of_beds }{END number_of_beds_label}
+	</label>
+	<div class="r-edit-field">
+		{$number_of_beds_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="number_of_beds">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END number_of_beds_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c4}
+			 
+																
+
+{BEGIN cellblock_section2_c5}
+<td
+	{$cell_section2_c5}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN unee_t_unit_type_fieldblock}
 
 
@@ -559,18 +434,18 @@
 {END unee_t_unit_type_fieldblock}
 	
 								</td>
-			{END cellblock_section2_c4}
+			{END cellblock_section2_c5}
 			 
 																
 
-{BEGIN cellblock_section2_c5}
+{BEGIN cellblock_section2_c6}
 <td
-	{$cell_section2_c5}
+	{$cell_section2_c6}
 	class="r-align-center r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section2_c5" data-pageid="{$pageid}"
+			data-cellId="section2_c6" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -600,19 +475,19 @@
 {END is_creation_needed_in_unee_t_fieldblock}
 	
 								</td>
-			{END cellblock_section2_c5}
+			{END cellblock_section2_c6}
 			 
 																
 
-{BEGIN cellblock_section2_c6}
+{BEGIN cellblock_section2_c7}
 <td
-	{$cell_section2_c6}
+	{$cell_section2_c7}
 	class=" r-ori-vert"
 	
 			data-single
 			
-	ocolspan="2"		data-cellId="section2_c6" data-pageid="{$pageid}"
-		data-v-cell="4"
+			data-cellId="section2_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -641,7 +516,7 @@
 {END room_description_fieldblock}
 	
 								</td>
-			{END cellblock_section2_c6}
+			{END cellblock_section2_c7}
 								</tr>
 			</tbody></table>
 {END section2_block}
@@ -653,9 +528,9 @@
 	 
 												 
 	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
 
-				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
 
 		>
 		  <h4 class="panel-title">
@@ -663,9 +538,9 @@
 				Source of the data			</a>
 		  </h4>
 		</div>
-		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
 
-				id="section3{$pageid}" 
+				id="section2{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section_block}

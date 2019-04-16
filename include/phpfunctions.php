@@ -1139,17 +1139,42 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
-		if($table=="Assign Units to User" && $field=="unee_t_level_2_id")
-	{
-		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
-		return $strWhere;
-	}
 		if($table=="Assign Units to User" && $field=="unee_t_role_id")
 	{
 		$strWhere = " `is_obsolete` = 0 ";
 		return $strWhere;
 	}
 		if($table=="Assign Units to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `property_groups_area`.`is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="id_building" && $ptype=="search")
+	{
+		$strWhere = " `property_level_1_buildings`.`is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_user_type_id")
 	{
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
@@ -1168,6 +1193,10 @@ function GetDefaultValue($field, $ptype, $table="")
 				if($table=="Manage Unee-T Users" && $field=="gender")
 	{
 		return 0;
+	}
+				if($table=="Manage Buildings" && $field=="tower")
+	{
+		return 1;
 	}
 	return "";
 }

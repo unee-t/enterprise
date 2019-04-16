@@ -555,6 +555,18 @@ class Chart
 			return true;
 		if("property_level_2_units" == $this->chrt_array['tables'][0])
 			return true;
+		if("external_map_user_unit_role_permissions_level_3" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

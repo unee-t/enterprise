@@ -337,6 +337,18 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("property_level_2_units" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
+	if ("Assign_Rooms_to_User" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("property_level_3_rooms" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Search_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("external_property_level_2_units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_All_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -556,6 +568,36 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="property_level_2_units";
 	}
+	$strPerm = GetUserPermissions("Assign Rooms to User");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Rooms to User";
+	}
+	$strPerm = GetUserPermissions("property_level_3_rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="property_level_3_rooms";
+	}
+	$strPerm = GetUserPermissions("Search Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Rooms";
+	}
+	$strPerm = GetUserPermissions("Search Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Units";
+	}
+	$strPerm = GetUserPermissions("external_property_level_2_units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="external_property_level_2_units";
+	}
+	$strPerm = GetUserPermissions("Search All Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search All Units";
+	}
 	return $arr;
 }
 
@@ -599,6 +641,12 @@ function GetTablesListWithoutSecurity()
 	$arr[]="property_level_1_buildings";
 	$arr[]="Assign Units to User";
 	$arr[]="property_level_2_units";
+	$arr[]="Assign Rooms to User";
+	$arr[]="property_level_3_rooms";
+	$arr[]="Search Rooms";
+	$arr[]="Search Units";
+	$arr[]="external_property_level_2_units";
+	$arr[]="Search All Units";
 	return $arr;
 }
 
@@ -1486,6 +1534,10 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Search Users_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Assign Buildings to User_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Assign Units to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Rooms to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search All Units_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1634,6 +1686,30 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Assign Rooms to User")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search All Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	//	 check user group permissions
 	$localAction = strtolower($strAction);
@@ -1761,6 +1837,22 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Assign Units to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Rooms to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search All Units")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

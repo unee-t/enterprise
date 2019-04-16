@@ -781,7 +781,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field67}","text":"{$jslabel ut_user_types is_invited_all_cases }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field67}","text":"{$jslabel ut_user_types is_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -806,7 +806,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field68}","text":"{$jslabel ut_user_types is_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field68}","text":"{$jslabel ut_user_types can_see_role_contractor }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -831,7 +831,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field69}","text":"{$jslabel ut_user_types can_see_role_contractor }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field69}","text":"{$jslabel ut_user_types can_see_role_mgt_cny }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -856,7 +856,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field70}","text":"{$jslabel ut_user_types can_see_role_mgt_cny }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field70}","text":"{$jslabel ut_user_types can_see_role_agent }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -881,7 +881,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field71}","text":"{$jslabel ut_user_types can_see_role_agent }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field71}","text":"{$jslabel ut_user_types can_see_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -906,7 +906,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field72}","text":"{$jslabel ut_user_types can_see_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field72}","text":"{$jslabel ut_user_types can_see_role_landlord }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -931,7 +931,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field73}","text":"{$jslabel ut_user_types can_see_role_landlord }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field73}","text":"{$jslabel ut_user_types can_see_role_tenant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -956,7 +956,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field74}","text":"{$jslabel ut_user_types can_see_role_tenant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field74}","text":"{$jslabel ut_user_types is_public }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -981,7 +981,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field75}","text":"{$jslabel ut_user_types is_public }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field75}","text":"{$jslabel ut_user_types is_item_moved }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1006,7 +1006,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field76}","text":"{$jslabel ut_user_types is_item_moved }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field76}","text":"{$jslabel ut_user_types is_item_removed }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1031,7 +1031,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field77}","text":"{$jslabel ut_user_types is_item_removed }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field77}","text":"{$jslabel ut_user_types is_new_item }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1056,7 +1056,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field78}","text":"{$jslabel ut_user_types is_new_item }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field78}","text":"{$jslabel ut_user_types is_new_ir }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1081,7 +1081,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field79}","text":"{$jslabel ut_user_types is_new_ir }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field79}","text":"{$jslabel ut_user_types is_message_from_contractor }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1106,7 +1106,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field80}","text":"{$jslabel ut_user_types is_message_from_contractor }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field80}","text":"{$jslabel ut_user_types is_message_from_mgt_cny }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1131,7 +1131,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field81}","text":"{$jslabel ut_user_types is_message_from_mgt_cny }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field81}","text":"{$jslabel ut_user_types is_message_from_agent }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1156,7 +1156,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field82}","text":"{$jslabel ut_user_types is_message_from_agent }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field82}","text":"{$jslabel ut_user_types is_message_from_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1181,7 +1181,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field83}","text":"{$jslabel ut_user_types is_message_from_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field83}","text":"{$jslabel ut_user_types is_message_from_ll }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1206,7 +1206,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field84}","text":"{$jslabel ut_user_types is_message_from_ll }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field84}","text":"{$jslabel ut_user_types is_message_from_tenant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1231,7 +1231,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field85}","text":"{$jslabel ut_user_types is_message_from_tenant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field85}","text":"{$jslabel ut_user_types is_any_new_message }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1256,7 +1256,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field86}","text":"{$jslabel ut_user_types is_any_new_message }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field86}","text":"{$jslabel ut_user_types is_case_critical }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1281,7 +1281,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field87}","text":"{$jslabel ut_user_types is_case_critical }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field87}","text":"{$jslabel ut_user_types is_case_blocker }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1306,7 +1306,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field88}","text":"{$jslabel ut_user_types is_case_blocker }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field88}","text":"{$jslabel ut_user_types is_case_resolved }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1331,7 +1331,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field89}","text":"{$jslabel ut_user_types is_case_resolved }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field89}","text":"{$jslabel ut_user_types is_solution_updated }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1356,7 +1356,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field90}","text":"{$jslabel ut_user_types is_solution_updated }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field90}","text":"{$jslabel ut_user_types is_new_inventory }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1381,7 +1381,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field91}","text":"{$jslabel ut_user_types is_new_inventory }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field91}","text":"{$jslabel ut_user_types is_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1406,7 +1406,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field92}","text":"{$jslabel ut_user_types is_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field92}","text":"{$jslabel ut_user_types is_unit_owner }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1431,7 +1431,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field93}","text":"{$jslabel ut_user_types is_unit_owner }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field93}","text":"{$jslabel ut_user_types is_default_invited }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1965,7 +1965,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field20}","text":{$is_invited_all_cases_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field21}","text":{$is_default_assignee_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1990,7 +1990,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field21}","text":{$is_default_assignee_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field22}","text":{$can_see_role_contractor_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2015,7 +2015,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":{$can_see_role_contractor_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field23}","text":{$can_see_role_mgt_cny_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2040,7 +2040,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":{$can_see_role_mgt_cny_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field24}","text":{$can_see_role_agent_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2065,7 +2065,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field24}","text":{$can_see_role_agent_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field25}","text":{$can_see_occupant_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2090,7 +2090,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field25}","text":{$can_see_occupant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field26}","text":{$can_see_role_landlord_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2115,7 +2115,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field26}","text":{$can_see_role_landlord_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field27}","text":{$can_see_role_tenant_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2140,7 +2140,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field27}","text":{$can_see_role_tenant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field28}","text":{$is_public_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2165,7 +2165,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field28}","text":{$is_public_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field29}","text":{$is_item_moved_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2190,7 +2190,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field29}","text":{$is_item_moved_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field30}","text":{$is_item_removed_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2215,7 +2215,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field30}","text":{$is_item_removed_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field31}","text":{$is_new_item_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2240,7 +2240,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field31}","text":{$is_new_item_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field32}","text":{$is_new_ir_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2265,7 +2265,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field32}","text":{$is_new_ir_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field33}","text":{$is_message_from_contractor_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2290,7 +2290,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":{$is_message_from_contractor_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field34}","text":{$is_message_from_mgt_cny_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2315,7 +2315,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":{$is_message_from_mgt_cny_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field35}","text":{$is_message_from_agent_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2340,7 +2340,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":{$is_message_from_agent_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":{$is_message_from_occupant_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2365,7 +2365,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":{$is_message_from_occupant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":{$is_message_from_ll_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2390,7 +2390,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":{$is_message_from_ll_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":{$is_message_from_tenant_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2415,7 +2415,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":{$is_message_from_tenant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":{$is_any_new_message_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2440,7 +2440,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":{$is_any_new_message_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":{$is_case_critical_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2465,7 +2465,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":{$is_case_critical_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":{$is_case_blocker_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2490,7 +2490,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":{$is_case_blocker_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field42}","text":{$is_case_resolved_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2515,7 +2515,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":{$is_case_resolved_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field43}","text":{$is_solution_updated_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2540,7 +2540,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":{$is_solution_updated_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field44}","text":{$is_new_inventory_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2565,7 +2565,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field44}","text":{$is_new_inventory_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field45}","text":{$is_occupant_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2590,7 +2590,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field45}","text":{$is_occupant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field46}","text":{$is_unit_owner_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2615,7 +2615,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field46}","text":{$is_unit_owner_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field20}","text":{$is_default_invited_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],

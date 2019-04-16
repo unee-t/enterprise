@@ -12,9 +12,9 @@ $tdataproperty_level_2_units[".searchableFields"] = array();
 	$tdataproperty_level_2_units[".OriginalTable"] = "property_level_2_units";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataproperty_level_2_units[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataproperty_level_2_units[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataproperty_level_2_units[".defaultPages"] = $defaultPages;
 
 //	field labels

@@ -512,56 +512,6 @@
 
 		 	
 
-		{BEGIN filter_control_unee_t_user_type_id}
-		<div class="panel panel-info filter-field filter-unee_t_user_type_id-container">
-			<div class="panel-heading filter-expander">
-																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
-
-			
-				<label>{$label Search_Users unee_t_user_type_id }</label>
-
-				{BEGIN clearLink_unee_t_user_type_id}
-				<a href="#" class="filter-clear filter-clear-unee_t_user_type_id">Clear</a>
-				{END clearLink_unee_t_user_type_id}				
-			</div>
-
-			<ul class="list-group">
-				{BEGIN filterCtrlBlock_unee_t_user_type_id}
-				<li class="list-group-item filter-values filter-values-unee_t_user_type_id {$collapsedClass_unee_t_user_type_id} {$visibilityClass_unee_t_user_type_id}">
-					{$unee_t_user_type_id_filter}
-								
-			
-			
-			
-			
-				</li>				
-				{END filterCtrlBlock_unee_t_user_type_id}
-
-							{BEGIN filter_button_showmore_unee_t_user_type_id}
-				<li class="list-group-item filter-show-more {$collapsedClass_unee_t_user_type_id} {$showMoreBtnClass_unee_t_user_type_id}">
-					<a class="filter-show-more-link filterShowMore_unee_t_user_type_id" href="#">{$show_n_more_unee_t_user_type_id}</a>
-				</li>
-				{END filter_button_showmore_unee_t_user_type_id}			
-			
-
-
-			
-
-				
-	
-			</ul>			
-		</div>
-		{END filter_control_unee_t_user_type_id}
-	 
-			
-	 	
-
-		
-		 
-		 
-
-		 	
-
 		{BEGIN filter_control_country_code}
 		<div class="panel panel-info filter-field filter-country_code-container">
 			<div class="panel-heading filter-expander">
@@ -602,6 +552,56 @@
 			</ul>			
 		</div>
 		{END filter_control_country_code}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_user_type}
+		<div class="panel panel-info filter-field filter-user_type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Search_Users user_type }</label>
+
+				{BEGIN clearLink_user_type}
+				<a href="#" class="filter-clear filter-clear-user_type">Clear</a>
+				{END clearLink_user_type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_user_type}
+				<li class="list-group-item filter-values filter-values-user_type {$collapsedClass_user_type} {$visibilityClass_user_type}">
+					{$user_type_filter}
+								
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_user_type}
+
+							{BEGIN filter_button_showmore_user_type}
+				<li class="list-group-item filter-show-more {$collapsedClass_user_type} {$showMoreBtnClass_user_type}">
+					<a class="filter-show-more-link filterShowMore_user_type" href="#">{$show_n_more_user_type}</a>
+				</li>
+				{END filter_button_showmore_user_type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_user_type}
 	 
 	</div>
 </div></td>
@@ -733,6 +733,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_user_type_id"]:before {
 		content: "{$label Search_Users unee_t_user_type_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="user_type"]:before {
+		content: "{$label Search_Users user_type}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="organization_id_person"]:before {

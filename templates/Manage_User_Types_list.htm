@@ -449,23 +449,23 @@
 
 		 	
 
-		{BEGIN filter_control_is_invited_all_cases}
-		<div class="panel panel-info filter-field filter-is_invited_all_cases-container">
+		{BEGIN filter_control_is_default_invited}
+		<div class="panel panel-info filter-field filter-is_default_invited-container">
 			<div class="panel-heading filter-expander">
 																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
 
 			
-				<label>{$label Manage_User_Types is_invited_all_cases }</label>
+				<label>{$label Manage_User_Types is_default_invited }</label>
 
-				{BEGIN clearLink_is_invited_all_cases}
-				<a href="#" class="filter-clear filter-clear-is_invited_all_cases">Clear</a>
-				{END clearLink_is_invited_all_cases}				
+				{BEGIN clearLink_is_default_invited}
+				<a href="#" class="filter-clear filter-clear-is_default_invited">Clear</a>
+				{END clearLink_is_default_invited}				
 			</div>
 
 			<ul class="list-group">
-				{BEGIN filterCtrlBlock_is_invited_all_cases}
-				<li class="list-group-item filter-values filter-values-is_invited_all_cases {$collapsedClass_is_invited_all_cases} {$visibilityClass_is_invited_all_cases}">
-					{$is_invited_all_cases_filter}
+				{BEGIN filterCtrlBlock_is_default_invited}
+				<li class="list-group-item filter-values filter-values-is_default_invited {$collapsedClass_is_default_invited} {$visibilityClass_is_default_invited}">
+					{$is_default_invited_filter}
 								
 			
 			
@@ -482,13 +482,13 @@
 			
 			
 				</li>				
-				{END filterCtrlBlock_is_invited_all_cases}
+				{END filterCtrlBlock_is_default_invited}
 
-							{BEGIN filter_button_showmore_is_invited_all_cases}
-				<li class="list-group-item filter-show-more {$collapsedClass_is_invited_all_cases} {$showMoreBtnClass_is_invited_all_cases}">
-					<a class="filter-show-more-link filterShowMore_is_invited_all_cases" href="#">{$show_n_more_is_invited_all_cases}</a>
+							{BEGIN filter_button_showmore_is_default_invited}
+				<li class="list-group-item filter-show-more {$collapsedClass_is_default_invited} {$showMoreBtnClass_is_default_invited}">
+					<a class="filter-show-more-link filterShowMore_is_default_invited" href="#">{$show_n_more_is_default_invited}</a>
 				</li>
-				{END filter_button_showmore_is_invited_all_cases}			
+				{END filter_button_showmore_is_default_invited}			
 			
 
 
@@ -498,7 +498,7 @@
 	
 			</ul>			
 		</div>
-		{END filter_control_is_invited_all_cases}
+		{END filter_control_is_default_invited}
 	 
 			
 	 	
@@ -759,16 +759,6 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_is_invited_all_cases" checked="checked" value="1" data-field="is_invited_all_cases">
-					<span>{$label Manage_User_Types is_invited_all_cases }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_is_dashboard_access" checked="checked" value="1" data-field="is_dashboard_access">
 					<span>{$label Manage_User_Types is_dashboard_access }</span>
 				</label>
@@ -781,6 +771,16 @@
 				<label>
 					<input type="checkbox" id="hide_is_occupant" checked="checked" value="1" data-field="is_occupant">
 					<span>{$label Manage_User_Types is_occupant }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_default_invited" checked="checked" value="1" data-field="is_default_invited">
+					<span>{$label Manage_User_Types is_default_invited }</span>
 				</label>
 			</div>
 		</a>
@@ -878,8 +878,8 @@
 		content: "{$label Manage_User_Types is_default_assignee}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_invited_all_cases"]:before {
-		content: "{$label Manage_User_Types is_invited_all_cases}";
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_default_invited"]:before {
+		content: "{$label Manage_User_Types is_default_invited}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_dashboard_access"]:before {
@@ -1040,7 +1040,7 @@
 	 
 		{BEGIN designation_fieldheadercolumn}
 	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
 	{$label Manage_User_Types designation }	{$arrow_icon_designation}
 	</SPAN>
 	{END designation_fieldheader}
@@ -1164,22 +1164,22 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
+		 r-ori-vert				{$is_default_invited_class}
 			"
 
-			data-field="is_invited_all_cases"
+			data-field="is_default_invited"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_invited_all_cases_fieldheadercolumn}
-	{BEGIN is_invited_all_cases_fieldheader}
-	<SPAN {$is_invited_all_cases_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases">
-	{$label Manage_User_Types is_invited_all_cases }	{$arrow_icon_is_invited_all_cases}
+		{BEGIN is_default_invited_fieldheadercolumn}
+	{BEGIN is_default_invited_fieldheader}
+	<SPAN {$is_default_invited_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
+	{$label Manage_User_Types is_default_invited }	{$arrow_icon_is_default_invited}
 	</SPAN>
-	{END is_invited_all_cases_fieldheader}
-{END is_invited_all_cases_fieldheadercolumn}
+	{END is_default_invited_fieldheader}
+{END is_default_invited_fieldheadercolumn}
 
 	
 	</th>
@@ -1430,20 +1430,20 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
+		 r-ori-vert				{$is_default_invited_class}
 			"
 
-			data-field="is_invited_all_cases"
+			data-field="is_default_invited"
 	
 	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_invited_all_cases_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases" data-default-width >
-{$is_invited_all_cases_value}
+		{BEGIN is_default_invited_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited" data-default-width >
+{$is_default_invited_value}
 </span>
-{END is_invited_all_cases_fieldcolumn}	
+{END is_default_invited_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
 				 

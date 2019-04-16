@@ -12,9 +12,9 @@ $tdataAssign_Units_to_User[".searchableFields"] = array();
 	$tdataAssign_Units_to_User[".OriginalTable"] = "external_map_user_unit_role_permissions_level_2";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdataAssign_Units_to_User[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataAssign_Units_to_User[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataAssign_Units_to_User[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -3112,32 +3112,30 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "property_level_2_units";
+	$edata["LookupTable"] = "Search Units";
 		$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "system_id_unit";
 	$edata["LinkFieldType"] = 3;
-	$edata["DisplayField"] = "designation";
+	$edata["DisplayField"] = "unit_name";
 
-				$edata["LookupWhereCode"] = true;
-
-
-	
-	$edata["LookupOrderBy"] = "designation";
-
-	
-	
-	
 	
 
 	
-	
-		$edata["SelectSize"] = 1;
+	$edata["LookupOrderBy"] = "unit_name";
 
+	
+	
+	
+	
+
+	
+	
+	
 // End Lookup Settings
 
 
@@ -4862,7 +4860,7 @@ $proto83["m_columns"][] = "ut_user_role_type_id";
 $proto83["m_columns"][] = "is_occupant";
 $proto83["m_columns"][] = "is_public";
 $proto83["m_columns"][] = "is_default_assignee";
-$proto83["m_columns"][] = "is_invited_all_cases";
+$proto83["m_columns"][] = "is_default_invited";
 $proto83["m_columns"][] = "is_unit_owner";
 $proto83["m_columns"][] = "is_dashboard_access";
 $proto83["m_columns"][] = "can_see_role_contractor";

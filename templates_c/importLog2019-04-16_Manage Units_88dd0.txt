@@ -1,0 +1,139 @@
+Import into external_property_level_2_units
+16/04/19 04:52:19
+
+0 out of 44 records processed successfully.
+0 records added.
+0 records updated.
+44 records processed with errors:
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_34-01","0","1","Apartment/Flat","1","3","34-01","1500","sqf","Unit #34-01 1500 sqf","2139434905","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_36-01","0","1","Apartment/Flat","1","4","36-01","1700","sqf","Unit #36-01 1700 sqf","2139434906","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_37-01","0","1","Apartment/Flat","1","1","37-01","500","sqf","Unit #37-01 500 sqf","2139434907","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_37-02","0","1","Apartment/Flat","1","2","37-02","800","sqf","Unit #37-02 800 sqf","2139434908","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_37-03","0","1","Apartment/Flat","1","1","37-03","300","sqf","Unit #37-03 300 sqf","2139434909","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_37-04","0","1","Apartment/Flat","1","0","37-04","300","sqf","Unit #37-04 300 sqf","2139434910","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_37-05","0","1","Apartment/Flat","1","1","37-05","300","sqf","Unit #37-05 300 sqf","2139434911","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_38-01","0","1","Apartment/Flat","1","1","38-01","400","sqf","Unit #38-01 400 sqf","2139434912","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_38-02","0","1","Apartment/Flat","1","2","38-02","600","sqf","Unit #38-02 600 sqf","2139434913","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_38-03","0","1","Apartment/Flat","1","1","38-03","300","sqf","Unit #38-03 300 sqf","2139434914","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_38-04","0","1","Apartment/Flat","1","0","38-04","200","sqf","Unit #38-04 200 sqf","2139434915","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_38-05","0","1","Apartment/Flat","1","1","38-05","200","sqf","Unit #38-05 200 sqf","2139434916","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_39-01","0","1","Apartment/Flat","1","1","39-01","300","sqf","Unit #39-01 300 sqf","2139434917","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_39-02","0","1","Apartment/Flat","1","2","39-02","400","sqf","Unit #39-02 400 sqf","2139434918","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_39-03","0","1","Apartment/Flat","1","1","39-03","300","sqf","Unit #39-03 300 sqf","2139434919","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_39-04","0","1","Apartment/Flat","1","0","39-04","200","sqf","Unit #39-04 200 sqf","2139434920","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_39-05","0","1","Apartment/Flat","1","1","39-05","250","sqf","Unit #39-05 250 sqf","2139434921","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_40-01","0","1","Apartment/Flat","1","1","40-01","250","sqf","Unit #40-01 250 sqf","2139434922","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_40-02","0","1","Apartment/Flat","1","2","40-02","400","sqf","Unit #40-02 400 sqf","2139434923","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_40-03","0","1","Apartment/Flat","1","1","40-03","250","sqf","Unit #40-03 250 sqf","2139434924","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_40-04","0","1","Apartment/Flat","1","0","40-04","300","sqf","Unit #40-04 300 sqf","2139434925","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_40-05","0","1","Apartment/Flat","1","1","40-05","250","sqf","Unit #40-05 250 sqf","2139434926","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_41-01","0","1","Apartment/Flat","1","1","41-01","300","sqf","Unit #41-01 300 sqf","2139434927","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_41-02","0","1","Apartment/Flat","1","2","41-02","500","sqf","Unit #41-02 500 sqf","2139434928","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_41-03","0","1","Apartment/Flat","1","1","41-03","250","sqf","Unit #41-03 250 sqf","2139434929","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_41-04","0","1","Apartment/Flat","1","0","41-04","200","sqf","Unit #41-04 200 sqf","2139434930","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_41-05","0","1","Apartment/Flat","1","1","41-05","250","sqf","Unit #41-05 250 sqf","2139434931","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_42-01","0","1","Apartment/Flat","1","1","42-01","250","sqf","Unit #42-01 250 sqf","2139434932","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_42-02","0","1","Apartment/Flat","1","2","42-02","600","sqf","Unit #42-02 600 sqf","2139434933","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_42-03","0","1","Apartment/Flat","1","1","42-03","250","sqf","Unit #42-03 250 sqf","2139434934","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_42-04","0","1","Apartment/Flat","1","0","42-04","200","sqf","Unit #42-04 200 sqf","2139434935","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_42-05","0","1","Apartment/Flat","1","1","42-05","250","sqf","Unit #42-05 250 sqf","2139434936","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_43-01","0","1","Apartment/Flat","1","1","43-01","250","sqf","Unit #43-01 250 sqf","2139434937","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_43-02","0","1","Apartment/Flat","1","2","43-02","600","sqf","Unit #43-02 600 sqf","2139434938","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_43-03","0","1","Apartment/Flat","1","1","43-03","250","sqf","Unit #43-03 250 sqf","2139434939","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_43-04","0","1","Apartment/Flat","1","0","43-04","200","sqf","Unit #43-04 200 sqf","2139434940","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_43-05","0","1","Apartment/Flat","1","1","43-05","250","sqf","Unit #43-05 250 sqf","2139434941","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_44-01","0","1","Apartment/Flat","1","1","44-01","250","sqf","Unit #44-01 250 sqf","2139434942","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_44-02","0","1","Apartment/Flat","1","2","44-02","600","sqf","Unit #44-02 600 sqf","2139434943","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_44-03","0","1","Apartment/Flat","1","1","44-03","250","sqf","Unit #44-03 250 sqf","2139434944","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_44-04","0","1","Apartment/Flat","1","0","44-04","200","sqf","Unit #44-04 200 sqf","2139434945","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_44-05","0","1","Apartment/Flat","1","1","44-05","250","sqf","Unit #44-05 250 sqf","2139434946","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_45-01","0","1","Apartment/Flat","1","5","45-01","7500","sqf","Unit #45-01 7500 sqf","2139434947","ipi_hmlet","db_all_dt_2_flats"
+
+Field 'created_by_id' doesn't have a default value
+"Lumiere - 1","SG_SIN_LUM_45-02","0","1","Apartment/Flat","1","0","45-02","200","sqf","Unit #45-02 200 sqf","2139434948","ipi_hmlet","db_all_dt_2_flats"
