@@ -1,0 +1,10 @@
+Import into external_property_level_1_buildings
+17/04/19 09:47:34
+
+0 out of 1 records processed successfully.
+0 records added.
+0 records updated.
+1 records processed with errors:
+
+Duplicate entry '48-ipi_hmlet-db_sourcing_ls_0_condo-1-2' for key 'PRIMARY'
+"Lorong G - 1","1","Condominium","0","0","East","Hmlet Building","1","10 Lorong G Telok Kurau","","426175","Singapore","","Singapore","48","ipi_hmlet","db_sourcing_ls_0_condo","2"

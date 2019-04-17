@@ -1,0 +1,6 @@
+Import into external_property_level_3_rooms
+17/04/19 10:04:07
+
+29 out of 29 records processed successfully.
+0 records added.
+29 records updated.

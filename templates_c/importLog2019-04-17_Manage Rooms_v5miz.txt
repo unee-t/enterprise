@@ -1,0 +1,94 @@
+Import into external_property_level_3_rooms
+17/04/19 09:21:55
+
+0 out of 29 records processed successfully.
+0 records added.
+0 records updated.
+29 records processed with errors:
+
+Duplicate entry '475-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_34-01_01M","Room","1","0","1","150","sqf","","475","ipi_hmlet","205_rooms","2","517"
+
+Duplicate entry '476-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_34-01_02R","Room","1","0","1","120","sqf","","476","ipi_hmlet","205_rooms","2","517"
+
+Duplicate entry '477-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_34-01_03M","Room","1","0","1","150","sqf","","477","ipi_hmlet","205_rooms","2","517"
+
+Duplicate entry '478-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_36-01_01R","Room","1","0","1","120","sqf","","478","ipi_hmlet","205_rooms","2","518"
+
+Duplicate entry '479-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_36-01_02R","Room","1","0","1","120","sqf","","479","ipi_hmlet","205_rooms","2","518"
+
+Duplicate entry '480-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_36-01_03R","Room","1","0","1","120","sqf","","480","ipi_hmlet","205_rooms","2","518"
+
+Duplicate entry '481-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_36-01_04R","Room","1","0","1","120","sqf","","481","ipi_hmlet","205_rooms","2","518"
+
+Duplicate entry '482-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_37-02_01M","Room","1","0","1","150","sqf","","482","ipi_hmlet","205_rooms","2","520"
+
+Duplicate entry '483-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_37-02_02P","Room","1","0","1","100","sqf","","483","ipi_hmlet","205_rooms","2","520"
+
+Duplicate entry '484-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_338-02_01M","Room","1","0","1","150","sqf","","484","ipi_hmlet","205_rooms","2","525"
+
+Duplicate entry '485-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_338-02_02P","Room","1","0","1","100","sqf","","485","ipi_hmlet","205_rooms","2","525"
+
+Duplicate entry '486-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_39-02_01M","Room","1","0","1","150","sqf","","486","ipi_hmlet","205_rooms","2","530"
+
+Duplicate entry '487-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_39-02-02P","Room","1","0","1","100","sqf","","487","ipi_hmlet","205_rooms","2","530"
+
+Duplicate entry '488-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_40-02_01M","Room","1","0","1","150","sqf","","488","ipi_hmlet","205_rooms","2","535"
+
+Duplicate entry '489-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_40-02-02P","Room","1","0","1","100","sqf","","489","ipi_hmlet","205_rooms","2","535"
+
+Duplicate entry '490-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_41-02_01M","Room","1","0","1","150","sqf","","490","ipi_hmlet","205_rooms","2","540"
+
+Duplicate entry '491-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_41-02_02P","Room","1","0","1","100","sqf","","491","ipi_hmlet","205_rooms","2","540"
+
+Duplicate entry '492-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_41-05_01M","Room","1","0","1","150","sqf","","492","ipi_hmlet","205_rooms","2","543"
+
+Duplicate entry '493-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_42-02_01M","Room","1","0","1","150","sqf","","493","ipi_hmlet","205_rooms","2","545"
+
+Duplicate entry '494-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_42-02_02P","Room","1","0","1","100","sqf","","494","ipi_hmlet","205_rooms","2","545"
+
+Duplicate entry '495-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_43-02_01M","Room","1","0","1","150","sqf","","495","ipi_hmlet","205_rooms","2","550"
+
+Duplicate entry '496-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_43-02_02P","Room","1","0","1","100","sqf","","496","ipi_hmlet","205_rooms","2","550"
+
+Duplicate entry '497-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_44-02_01M","Room","1","0","1","150","sqf","","497","ipi_hmlet","205_rooms","2","555"
+
+Duplicate entry '498-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_44-02_02P","Room","1","0","1","100","sqf","","498","ipi_hmlet","205_rooms","2","555"
+
+Duplicate entry '499-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_45-01_01R","Room","1","0","1","1000","sqf","Penthouse","499","ipi_hmlet","205_rooms","2","559"
+
+Duplicate entry '500-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_45-01_02R","Room","1","0","1","1000","sqf","Penthouse","500","ipi_hmlet","205_rooms","2","559"
+
+Duplicate entry '501-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_45-01_03R","Room","1","0","1","1000","sqf","Penthouse","501","ipi_hmlet","205_rooms","2","559"
+
+Duplicate entry '502-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_45-01_04R","Room","1","0","1","1000","sqf","Penthouse","502","ipi_hmlet","205_rooms","2","559"
+
+Duplicate entry '503-ipi_hmlet-205_rooms-2' for key 'PRIMARY'
+"SG_SIN_LUM_45-01_05R","Room","1","0","1","1000","sqf","Penthouse","503","ipi_hmlet","205_rooms","2","559"
