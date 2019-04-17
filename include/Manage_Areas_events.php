@@ -16,6 +16,8 @@
 
 		$this->events["BeforeAdd"]=true;
 
+		$this->events["BeforeInsert"]=true;
+
 
 	}
 
@@ -185,6 +187,105 @@ return true;
 		
 		
 		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// Before Insert Record
+function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
+{
+
+			// When was the record created?
+
+		$values['syst_created_datetime'] = NOW() ;
+
+	// What is the system that we use to updat this record:
+
+		$values['creation_system_id'] = 'Unee-T Enterprise portal';
+
+	// What is the creation method
+
+		$values['creation_method'] = 'Manage_Areas_Import_Page';
+
+	// we capture the organisation id of the user whi updated this record.
+
+		$values['updated_by_id'] = $_SESSION['organization_logged_in_user'];
+
+	// When was the record created?
+
+		$values['syst_updated_datetime'] = NOW() ;
+
+	// What is the system that we use to updat this record:
+
+		$values['update_system_id'] = 'Unee-T Enterprise portal';
+
+	// What is the creation method
+
+		$values['update_method'] = 'Manage_Areas_Import_Page';
+
+
+
+// Place event code here.
+// Use "Add Action" button to add code snippets.
+
+return true;
+;		
+} // function BeforeInsert
+
 		
 		
 		
