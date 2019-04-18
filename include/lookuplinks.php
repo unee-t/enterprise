@@ -59,8 +59,10 @@ function InitLookupLinks()
 	$lookupTableLinks["ut_user_role_types"]["Manage_User_Types.ut_user_role_type_id"]["edit"] = array("table" => "Manage User Types", "field" => "ut_user_role_type_id", "page" => "edit");
 	$lookupTableLinks["ut_user_role_types"]["Manage_User_Types.ut_user_role_type_id"]["add"] = array("table" => "Manage User Types", "field" => "ut_user_role_type_id", "page" => "add");
 	$lookupTableLinks["ut_user_role_types"]["Manage_User_Types.ut_user_role_type_id"]["search"] = array("table" => "Manage User Types", "field" => "ut_user_role_type_id", "page" => "search");
-	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_system_id"]["edit"] = array("table" => "Manage Areas", "field" => "external_system_id", "page" => "edit");
-	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_table"]["edit"] = array("table" => "Manage Areas", "field" => "external_table", "page" => "edit");
+	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_system_id"]["add"] = array("table" => "Manage Areas", "field" => "external_system_id", "page" => "add");
+	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_system_id"]["search"] = array("table" => "Manage Areas", "field" => "external_system_id", "page" => "search");
+	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_table"]["add"] = array("table" => "Manage Areas", "field" => "external_table", "page" => "add");
+	$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["Manage_Areas.external_table"]["search"] = array("table" => "Manage Areas", "field" => "external_table", "page" => "search");
 	$lookupTableLinks["property_groups_countries"]["Manage_Areas.country_code"]["edit"] = array("table" => "Manage Areas", "field" => "country_code", "page" => "edit");
 	$lookupTableLinks["property_groups_countries"]["Manage_Areas.country_code"]["add"] = array("table" => "Manage Areas", "field" => "country_code", "page" => "add");
 	$lookupTableLinks["property_groups_countries"]["Manage_Buildings.country_code"]["edit"] = array("table" => "Manage Buildings", "field" => "country_code", "page" => "edit");

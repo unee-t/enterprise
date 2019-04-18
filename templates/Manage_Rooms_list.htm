@@ -111,6 +111,12 @@
 									<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
+								<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" >
+				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span} >
+				
+		Edit selected		
+		</a>
+	</li>
 							{BEGIN exportselected_link}
 	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" >
 				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span} >
@@ -735,6 +741,22 @@
 							Inline Add			</a>
 </span>
 {END inlineadd_link}
+	 
+		{BEGIN saveall_link}
+<span data-itemtype="inline_save_all" data-itemid="inline_save_all" {$item_inline_save_all} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$savealllink_attrs} {$savealllink_span} >
+							Save all			</a>
+</span>
+{END saveall_link}
+	 
+		{BEGIN cancelall_link}
+<span data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" {$item_inline_cancel_all} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$cancelalllink_attrs} {$cancelalllink_span} >
+							Cancel all			</a>
+</span>
+{END cancelall_link}
 			{END firstAboveGridCell}	
 	</div>			 
 				<div 
@@ -799,28 +821,18 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_unit_designation" checked="checked" value="1" data-field="unit_designation">
-					<span>{$label Manage_Rooms unit_designation }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_building_name" checked="checked" value="1" data-field="building_name">
-					<span>{$label Manage_Rooms building_name }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_uneet_created_datetime" checked="checked" value="1" data-field="uneet_created_datetime">
 					<span>{$label Manage_Rooms uneet_created_datetime }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_obsolete" checked="checked" value="1" data-field="is_obsolete">
+					<span>{$label Manage_Rooms is_obsolete }</span>
 				</label>
 			</div>
 		</a>
@@ -1055,7 +1067,7 @@
 	 
 		{BEGIN room_designation_fieldheadercolumn}
 	{BEGIN room_designation_fieldheader}
-	<SPAN {$room_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_designation">
+	<SPAN {$room_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_designation">
 	{$label Manage_Rooms room_designation }	{$arrow_icon_room_designation}
 	</SPAN>
 	{END room_designation_fieldheader}
@@ -1109,7 +1121,7 @@
 	 
 		{BEGIN room_description_fieldheadercolumn}
 	{BEGIN room_description_fieldheader}
-	<SPAN {$room_description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description">
+	<SPAN {$room_description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description">
 	{$label Manage_Rooms room_description }	{$arrow_icon_room_description}
 	</SPAN>
 	{END room_description_fieldheader}
@@ -1152,22 +1164,22 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$building_name_class}
+		 r-ori-vert				{$is_obsolete_class}
 			"
 
-			data-field="building_name"
+			data-field="is_obsolete"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN building_name_fieldheadercolumn}
-	{BEGIN building_name_fieldheader}
-	<SPAN {$building_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_name">
-	{$label Manage_Rooms building_name }	{$arrow_icon_building_name}
+		{BEGIN is_obsolete_fieldheadercolumn}
+	{BEGIN is_obsolete_fieldheader}
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	{$label Manage_Rooms is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
-	{END building_name_fieldheader}
-{END building_name_fieldheadercolumn}
+	{END is_obsolete_fieldheader}
+{END is_obsolete_fieldheadercolumn}
 
 	
 	</th>
@@ -1179,45 +1191,18 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$unit_designation_class}
-			"
-
-			data-field="unit_designation"
-	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unit_designation_fieldheadercolumn}
-	{BEGIN unit_designation_fieldheader}
-	<SPAN {$unit_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field28" {$item_simple_grid_field28} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_designation">
-	{$label Manage_Rooms unit_designation }	{$arrow_icon_unit_designation}
-	</SPAN>
-	{END unit_designation_fieldheader}
-{END unit_designation_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
-	<th
-	
-	{$cell_grid_headcell_field6}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Rooms uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -1225,7 +1210,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field6}
+	{END cellblock_grid_headcell_field5}
 							</tr>
 					 
 					 
@@ -1266,6 +1251,26 @@
 </span>
 {END edit_link}
 {END edit_column}
+	 
+		{BEGIN inlineedit_column}
+{BEGIN inlineedit_link}
+<span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
+	<a type="button" class="btn-link   
+	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" >		
+				
+								</a>
+</span>
+{END inlineedit_link}
+{END inlineedit_column}
+	 
+		{BEGIN inline_save}
+<span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
+	<a type="button" class="btn-link   
+	 glyphicon glyphicon-ok" {$inlinesavelink_attrs} title="Save" >		
+				
+								</a>
+</span>
+{END inline_save}
 	 
 		{BEGIN inline_cancel}
 <span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
@@ -1412,20 +1417,20 @@
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$building_name_class}
+		 r-ori-vert				{$is_obsolete_class}
 			"
 
-			data-field="building_name"
+			data-field="is_obsolete"
 	
 	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN building_name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_name" data-default-width >
-{$building_name_value}
+		{BEGIN is_obsolete_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
+{$is_obsolete_value}
 </span>
-{END building_name_fieldcolumn}	
+{END is_obsolete_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field4}
 				 
@@ -1435,35 +1440,12 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$unit_designation_class}
-			"
-
-			data-field="unit_designation"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unit_designation_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_designation" data-default-width >
-{$unit_designation_value}
-</span>
-{END unit_designation_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1473,7 +1455,7 @@
 </span>
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field6}
+	{END cellblock_grid_cell_field5}
 							</tr>
 					 
 					
@@ -1618,22 +1600,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
-				 
-					{BEGIN cellblock_grid_footcell_field6}
-	<td
-	
-	{$cell_grid_footcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Rooms_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					{END totals_row}

@@ -111,6 +111,12 @@
 									<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
+								<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" >
+				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span} >
+				
+		Edit selected		
+		</a>
+	</li>
 							{BEGIN exportselected_link}
 	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" >
 				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span} >
@@ -826,6 +832,22 @@
 							Inline Add			</a>
 </span>
 {END inlineadd_link}
+	 
+		{BEGIN saveall_link}
+<span data-itemtype="inline_save_all" data-itemid="inline_save_all" {$item_inline_save_all} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$savealllink_attrs} {$savealllink_span} >
+							Save all			</a>
+</span>
+{END saveall_link}
+	 
+		{BEGIN cancelall_link}
+<span data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" {$item_inline_cancel_all} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$cancelalllink_attrs} {$cancelalllink_span} >
+							Cancel all			</a>
+</span>
+{END cancelall_link}
 			{END firstAboveGridCell}	
 	</div>			 
 				<div 
@@ -945,6 +967,16 @@
 				<label>
 					<input type="checkbox" id="hide_uneet_created_datetime" checked="checked" value="1" data-field="uneet_created_datetime">
 					<span>{$label Manage_Units uneet_created_datetime }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_obsolete" checked="checked" value="1" data-field="is_obsolete">
+					<span>{$label Manage_Units is_obsolete }</span>
 				</label>
 			</div>
 		</a>
@@ -1199,7 +1231,7 @@
 	 
 		{BEGIN unit_designation_fieldheadercolumn}
 	{BEGIN unit_designation_fieldheader}
-	<SPAN {$unit_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_designation">
+	<SPAN {$unit_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_designation">
 	{$label Manage_Units unit_designation }	{$arrow_icon_unit_designation}
 	</SPAN>
 	{END unit_designation_fieldheader}
@@ -1226,7 +1258,7 @@
 	 
 		{BEGIN unee_t_unit_type_fieldheadercolumn}
 	{BEGIN unee_t_unit_type_fieldheader}
-	<SPAN {$unee_t_unit_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type">
+	<SPAN {$unee_t_unit_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type">
 	{$label Manage_Units unee_t_unit_type }	{$arrow_icon_unee_t_unit_type}
 	</SPAN>
 	{END unee_t_unit_type_fieldheader}
@@ -1253,7 +1285,7 @@
 	 
 		{BEGIN country_code_fieldheadercolumn}
 	{BEGIN country_code_fieldheader}
-	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
+	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
 	{$label Manage_Units country_code }	{$arrow_icon_country_code}
 	</SPAN>
 	{END country_code_fieldheader}
@@ -1280,7 +1312,7 @@
 	 
 		{BEGIN area_name_fieldheadercolumn}
 	{BEGIN area_name_fieldheader}
-	<SPAN {$area_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
+	<SPAN {$area_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
 	{$label Manage_Units area_name }	{$arrow_icon_area_name}
 	</SPAN>
 	{END area_name_fieldheader}
@@ -1307,7 +1339,7 @@
 	 
 		{BEGIN building_designation_fieldheadercolumn}
 	{BEGIN building_designation_fieldheader}
-	<SPAN {$building_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_designation">
+	<SPAN {$building_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="building_designation">
 	{$label Manage_Units building_designation }	{$arrow_icon_building_designation}
 	</SPAN>
 	{END building_designation_fieldheader}
@@ -1334,7 +1366,7 @@
 	 
 		{BEGIN is_creation_needed_in_unee_t_fieldheadercolumn}
 	{BEGIN is_creation_needed_in_unee_t_fieldheader}
-	<SPAN {$is_creation_needed_in_unee_t_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t">
+	<SPAN {$is_creation_needed_in_unee_t_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t">
 	{$label Manage_Units is_creation_needed_in_unee_t }	{$arrow_icon_is_creation_needed_in_unee_t}
 	</SPAN>
 	{END is_creation_needed_in_unee_t_fieldheader}
@@ -1350,18 +1382,45 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$uneet_created_datetime_class}
+		 r-ori-vert				{$is_obsolete_class}
 			"
 
-			data-field="uneet_created_datetime"
+			data-field="is_obsolete"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
+		{BEGIN is_obsolete_fieldheadercolumn}
+	{BEGIN is_obsolete_fieldheader}
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	{$label Manage_Units is_obsolete }	{$arrow_icon_is_obsolete}
+	</SPAN>
+	{END is_obsolete_fieldheader}
+{END is_obsolete_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
+				 
+					{BEGIN cellblock_grid_headcell_field7}
+	<th
+	
+	{$cell_grid_headcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Units uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -1369,7 +1428,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field6}
+	{END cellblock_grid_headcell_field7}
 							</tr>
 					 
 					 
@@ -1411,6 +1470,26 @@
 </span>
 {END edit_link}
 {END edit_column}
+	 
+		{BEGIN inlineedit_column}
+{BEGIN inlineedit_link}
+<span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
+	<a type="button" class="btn-link   
+	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" >		
+				
+								</a>
+</span>
+{END inlineedit_link}
+{END inlineedit_column}
+	 
+		{BEGIN inline_save}
+<span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
+	<a type="button" class="btn-link   
+	 glyphicon glyphicon-ok" {$inlinesavelink_attrs} title="Save" >		
+				
+								</a>
+</span>
+{END inline_save}
 	 
 		{BEGIN inline_cancel}
 <span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
@@ -1641,12 +1720,35 @@
 	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$is_obsolete_class}
+			"
+
+			data-field="is_obsolete"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_obsolete_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
+{$is_obsolete_value}
+</span>
+{END is_obsolete_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+				 
+					{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1656,7 +1758,7 @@
 </span>
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field6}
+	{END cellblock_grid_cell_field7}
 							</tr>
 					 
 						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
@@ -1864,6 +1966,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field6}
+				 
+					{BEGIN cellblock_grid_footcell_field7}
+	<td
+	
+	{$cell_grid_footcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Units_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field7}
 							</tr>
 					
 					{END totals_row}

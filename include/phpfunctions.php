@@ -969,12 +969,22 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
-		if($table=="Manage Areas" && $field=="external_system_id")
+		if($table=="Manage Areas" && $field=="external_system_id" && $ptype=="add")
 	{
 		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
 		return $strWhere;
 	}
-		if($table=="Manage Areas" && $field=="external_table")
+		if($table=="Manage Areas" && $field=="external_system_id" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="external_table" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="external_table" && $ptype=="search")
 	{
 		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
 		return $strWhere;
