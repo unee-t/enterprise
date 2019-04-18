@@ -80,12 +80,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Visibility["English"]["is_default_assignee"] = "Default Assignee";
 	$fieldToolTipsManage_User_Default_Visibility["English"]["is_default_assignee"] = "";
 	$placeHoldersManage_User_Default_Visibility["English"]["is_default_assignee"] = "";
-	$fieldLabelsManage_User_Default_Visibility["English"]["is_invited_all_cases"] = "Invited to All Cases";
-	$fieldToolTipsManage_User_Default_Visibility["English"]["is_invited_all_cases"] = "";
-	$placeHoldersManage_User_Default_Visibility["English"]["is_invited_all_cases"] = "";
 	$fieldLabelsManage_User_Default_Visibility["English"]["is_dashboard_access"] = "Dashboard Access";
 	$fieldToolTipsManage_User_Default_Visibility["English"]["is_dashboard_access"] = "";
 	$placeHoldersManage_User_Default_Visibility["English"]["is_dashboard_access"] = "";
+	$fieldLabelsManage_User_Default_Visibility["English"]["is_default_invited"] = "Is Invited to All Cases";
+	$fieldToolTipsManage_User_Default_Visibility["English"]["is_default_invited"] = "";
+	$placeHoldersManage_User_Default_Visibility["English"]["is_default_invited"] = "";
 	if (count($fieldToolTipsManage_User_Default_Visibility["English"]))
 		$tdataManage_User_Default_Visibility[".isUseToolTips"] = true;
 }
@@ -247,7 +247,7 @@ $tdataManage_User_Default_Visibility[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_User_Default_Visibility[".orderindexes"] = array();
 
-$tdataManage_User_Default_Visibility[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access";
+$tdataManage_User_Default_Visibility[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access";
 $tdataManage_User_Default_Visibility[".sqlFrom"] = "FROM ut_user_types";
 $tdataManage_User_Default_Visibility[".sqlWhereExpr"] = "";
 $tdataManage_User_Default_Visibility[".sqlTail"] = "";
@@ -2345,14 +2345,14 @@ $tdataManage_User_Default_Visibility[".hideMobileList"] = array();
 
 	$tdataManage_User_Default_Visibility["is_default_assignee"] = $fdata;
 		$tdataManage_User_Default_Visibility[".searchableFields"][] = "is_default_assignee";
-//	is_invited_all_cases
+//	is_default_invited
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 18;
-	$fdata["strName"] = "is_invited_all_cases";
-	$fdata["GoodName"] = "is_invited_all_cases";
+	$fdata["strName"] = "is_default_invited";
+	$fdata["GoodName"] = "is_default_invited";
 	$fdata["ownerTable"] = "ut_user_types";
-	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Visibility","is_invited_all_cases");
+	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Visibility","is_default_invited");
 	$fdata["FieldType"] = 16;
 
 	
@@ -2360,10 +2360,10 @@ $tdataManage_User_Default_Visibility[".hideMobileList"] = array();
 	
 										
 
-		$fdata["strField"] = "is_invited_all_cases";
+		$fdata["strField"] = "is_default_invited";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "is_invited_all_cases";
+	$fdata["FullName"] = "is_default_invited";
 
 	
 	
@@ -2463,8 +2463,8 @@ $tdataManage_User_Default_Visibility[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataManage_User_Default_Visibility["is_invited_all_cases"] = $fdata;
-		$tdataManage_User_Default_Visibility[".searchableFields"][] = "is_invited_all_cases";
+	$tdataManage_User_Default_Visibility["is_default_invited"] = $fdata;
+		$tdataManage_User_Default_Visibility[".searchableFields"][] = "is_default_invited";
 //	is_dashboard_access
 //	Custom field settings
 	$fdata = array();
@@ -2620,7 +2620,7 @@ function createSqlQuery_Manage_User_Default_Visibility()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access";
+$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access";
 $proto0["m_strFrom"] = "FROM ut_user_types";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -2901,12 +2901,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_invited_all_cases",
+	"m_strName" => "is_default_invited",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Default Visibility"
 ));
 
-$proto40["m_sql"] = "is_invited_all_cases";
+$proto40["m_sql"] = "is_default_invited";
 $proto40["m_srcTableName"] = "Manage User Default Visibility";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -2952,7 +2952,7 @@ $proto45["m_columns"][] = "ut_user_role_type_id";
 $proto45["m_columns"][] = "is_occupant";
 $proto45["m_columns"][] = "is_public";
 $proto45["m_columns"][] = "is_default_assignee";
-$proto45["m_columns"][] = "is_invited_all_cases";
+$proto45["m_columns"][] = "is_default_invited";
 $proto45["m_columns"][] = "is_unit_owner";
 $proto45["m_columns"][] = "is_dashboard_access";
 $proto45["m_columns"][] = "can_see_role_contractor";

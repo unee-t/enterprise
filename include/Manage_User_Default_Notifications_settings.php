@@ -62,9 +62,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_default_assignee"] = "Default Assignee";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_default_assignee"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_default_assignee"] = "";
-	$fieldLabelsManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "Invited to All Cases";
-	$fieldToolTipsManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "";
-	$placeHoldersManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "";
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_dashboard_access"] = "Dashboard Access";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_dashboard_access"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_dashboard_access"] = "";
@@ -113,6 +110,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "The Tenant";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "";
+	$fieldLabelsManage_User_Default_Notifications["English"]["is_default_invited"] = "Is Invited to All Cases";
+	$fieldToolTipsManage_User_Default_Notifications["English"]["is_default_invited"] = "";
+	$placeHoldersManage_User_Default_Notifications["English"]["is_default_invited"] = "";
 	if (count($fieldToolTipsManage_User_Default_Notifications["English"]))
 		$tdataManage_User_Default_Notifications[".isUseToolTips"] = true;
 }
@@ -274,7 +274,7 @@ $tdataManage_User_Default_Notifications[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_User_Default_Notifications[".orderindexes"] = array();
 
-$tdataManage_User_Default_Notifications[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
+$tdataManage_User_Default_Notifications[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
 $tdataManage_User_Default_Notifications[".sqlFrom"] = "FROM ut_user_types";
 $tdataManage_User_Default_Notifications[".sqlWhereExpr"] = "";
 $tdataManage_User_Default_Notifications[".sqlTail"] = "";
@@ -1652,14 +1652,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 	$tdataManage_User_Default_Notifications["is_default_assignee"] = $fdata;
 		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_default_assignee";
-//	is_invited_all_cases
+//	is_default_invited
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 12;
-	$fdata["strName"] = "is_invited_all_cases";
-	$fdata["GoodName"] = "is_invited_all_cases";
+	$fdata["strName"] = "is_default_invited";
+	$fdata["GoodName"] = "is_default_invited";
 	$fdata["ownerTable"] = "ut_user_types";
-	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Notifications","is_invited_all_cases");
+	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Notifications","is_default_invited");
 	$fdata["FieldType"] = 16;
 
 	
@@ -1667,10 +1667,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 										
 
-		$fdata["strField"] = "is_invited_all_cases";
+		$fdata["strField"] = "is_default_invited";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "is_invited_all_cases";
+	$fdata["FullName"] = "is_default_invited";
 
 	
 	
@@ -1748,7 +1748,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1770,8 +1770,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataManage_User_Default_Notifications["is_invited_all_cases"] = $fdata;
-		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_invited_all_cases";
+	$tdataManage_User_Default_Notifications["is_default_invited"] = $fdata;
+		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_default_invited";
 //	is_dashboard_access
 //	Custom field settings
 	$fdata = array();
@@ -3727,7 +3727,7 @@ function createSqlQuery_Manage_User_Default_Notifications()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
+$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
 $proto0["m_strFrom"] = "FROM ut_user_types";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -3924,12 +3924,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_invited_all_cases",
+	"m_strName" => "is_default_invited",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Default Notifications"
 ));
 
-$proto28["m_sql"] = "is_invited_all_cases";
+$proto28["m_sql"] = "is_default_invited";
 $proto28["m_srcTableName"] = "Manage User Default Notifications";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -4185,7 +4185,7 @@ $proto63["m_columns"][] = "ut_user_role_type_id";
 $proto63["m_columns"][] = "is_occupant";
 $proto63["m_columns"][] = "is_public";
 $proto63["m_columns"][] = "is_default_assignee";
-$proto63["m_columns"][] = "is_invited_all_cases";
+$proto63["m_columns"][] = "is_default_invited";
 $proto63["m_columns"][] = "is_unit_owner";
 $proto63["m_columns"][] = "is_dashboard_access";
 $proto63["m_columns"][] = "can_see_role_contractor";

@@ -30,6 +30,7 @@ $dalTableexternal_property_level_2_units["description"] = array("type"=>201,"var
 	$dalTableexternal_property_level_2_units["external_system_id"]["key"]=true;
 	$dalTableexternal_property_level_2_units["external_table"]["key"]=true;
 	$dalTableexternal_property_level_2_units["created_by_id"]["key"]=true;
+	$dalTableexternal_property_level_2_units["tower"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__external_property_level_2_units"] = &$dalTableexternal_property_level_2_units;
 ?>
