@@ -2970,6 +2970,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "external_property_level_2_units" ] = "external_property_level_2_units";
 	$projectEntities[ "Search All Units" ] = array( "url" => "Search_All_Units", "type" => 1 );
 	$projectEntitiesReverse[ "Search_All_Units" ] = "Search All Units";
+	$projectEntities[ "ut_map_external_source_units" ] = array( "url" => "ut_map_external_source_units", "type" => 1 );
+	$projectEntitiesReverse[ "ut_map_external_source_units" ] = "ut_map_external_source_units";
+	$projectEntities[ "Search Buildings" ] = array( "url" => "Search_Buildings", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Buildings" ] = "Search Buildings";
 }
 
 function findTable( $table ) {

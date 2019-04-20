@@ -74,6 +74,9 @@ pdfDocument = {
 										{BEGIN col_grid_7}
 					"%",
 					{END col_grid_7}
+										{BEGIN col_grid_8}
+					"%",
+					{END col_grid_8}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -318,7 +321,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":"{$jslabel Manage_Rooms room_designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field3}","text":"{$jslabel Manage_Rooms system_id_unit }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -343,7 +346,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field16}","text":"{$jslabel Manage_Rooms unee_t_unit_type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field23}","text":"{$jslabel Manage_Rooms room_designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -368,7 +371,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":"{$jslabel Manage_Rooms room_description }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field16}","text":"{$jslabel Manage_Rooms unee_t_unit_type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -393,7 +396,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field14}","text":"{$jslabel Manage_Rooms is_creation_needed_in_unee_t }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field24}","text":"{$jslabel Manage_Rooms room_description }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -418,7 +421,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field3}","text":"{$jslabel Manage_Rooms is_obsolete }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field14}","text":"{$jslabel Manage_Rooms is_creation_needed_in_unee_t }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -443,13 +446,38 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel Manage_Rooms uneet_created_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel Manage_Rooms is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
         },
 
 {END cellblock_grid_headcell_field5}
+																			{BEGIN cellblock_grid_headcell_field6}
+
+{
+	cellId: 'headcell_field6',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field5}","text":"{$jslabel Manage_Rooms uneet_created_datetime }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_field6}
 											],
 				{END row_grid_0}
 								
@@ -539,7 +567,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field21}","bold":true,"text":{$room_designation_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$system_id_unit_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -564,7 +592,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field15}","text":{$unee_t_unit_type_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field21}","bold":true,"text":{$room_designation_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -589,7 +617,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":{$room_description_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field15}","text":{$unee_t_unit_type_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -614,7 +642,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field13}","text":{$is_creation_needed_in_unee_t_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field22}","text":{$room_description_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -639,7 +667,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field2}","text":{$is_obsolete_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field13}","text":{$is_creation_needed_in_unee_t_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -664,13 +692,38 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field1}","text":{$uneet_created_datetime_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field2}","text":{$is_obsolete_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
         },
 
 {END cellblock_grid_cell_field5}
+																			{BEGIN cellblock_grid_cell_field6}
+
+{
+	cellId: 'cell_field6',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field1}","text":{$uneet_created_datetime_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_field6}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -865,6 +918,29 @@ pdfDocument = {
         },
 
 {END cellblock_grid_footcell_field5}
+																			{BEGIN cellblock_grid_footcell_field6}
+
+{
+	cellId: 'footcell_field6',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_field6}
 											],
 				{END row_grid_2}
 						{END totals_row}

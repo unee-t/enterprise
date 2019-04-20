@@ -567,6 +567,10 @@ class Chart
 			return true;
 		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
 			return true;
+		if("ut_map_external_source_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

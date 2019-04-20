@@ -464,6 +464,14 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="ut_map_external_source_units")
+		{
+			return false;
+		}
+		if($table=="Search Buildings")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -929,6 +937,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Search All Units")
+		{
+			return false;
+		}
+		if($table=="ut_map_external_source_units")
+		{
+			return false;
+		}
+		if($table=="Search Buildings")
 		{
 			return false;
 		}

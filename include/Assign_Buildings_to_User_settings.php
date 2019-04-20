@@ -2096,7 +2096,10 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 	$edata["LookupOrderBy"] = "name";
 
 	
-	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "unee_t_user_type_id", "lookup" => "unee_t_user_type_id" );
+
 	
 	
 
@@ -2447,9 +2450,6 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 	
 	
 	
-				//dependent dropdowns @deprecated data ?
-	$edata["DependentLookups"] = array();
-	$edata["DependentLookups"][] = "unee_t_level_1_id";
 
 	
 		$edata["Multiselect"] = true;
@@ -2703,7 +2703,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "property_level_1_buildings";
+	$edata["LookupTable"] = "Search Buildings";
 		$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 3;
@@ -2712,19 +2712,15 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 		
 	$edata["LinkField"] = "id_building";
 	$edata["LinkFieldType"] = 3;
-	$edata["DisplayField"] = "designation";
-
-				$edata["LookupWhereCode"] = true;
-
+	$edata["DisplayField"] = "building_name";
 
 	
-	$edata["LookupOrderBy"] = "";
 
 	
-		$edata["UseCategory"] = true;
-	$edata["categoryFields"] = array();
-	$edata["categoryFields"][] = array( "main" => "area_id", "lookup" => "area_id" );
+	$edata["LookupOrderBy"] = "building_name";
 
+	
+	
 	
 	
 
@@ -3405,6 +3401,9 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 
 	
 	
+				//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+	$edata["DependentLookups"][] = "unee_t_mefe_user_id";
 
 	
 	

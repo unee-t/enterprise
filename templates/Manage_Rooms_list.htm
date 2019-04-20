@@ -304,6 +304,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_country_code}</span>
 						</div>
 		{END searchCtrlBlock_country_code}
+																{BEGIN searchCtrlBlock_system_id_unit}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_system_id_unit}" {$filterRow_attrs_system_id_unit}>
+			<label>{$label Manage_Rooms system_id_unit }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_system_id_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_system_id_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_system_id_unit}</span>
+						</div>
+		{END searchCtrlBlock_system_id_unit}
 																{BEGIN searchCtrlBlock_uneet_created_datetime}
 
 
@@ -837,6 +850,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_system_id_unit" checked="checked" value="1" data-field="system_id_unit">
+					<span>{$label Manage_Rooms system_id_unit }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -928,10 +951,6 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="system_id_unit"]:before {
 		content: "{$label Manage_Rooms system_id_unit}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_system_id"]:before {
-		content: "{$label Manage_Rooms unit_system_id}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_designation"]:before {
@@ -1056,22 +1075,22 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$room_designation_class}
+		 r-ori-vert				{$system_id_unit_class}
 			"
 
-			data-field="room_designation"
+			data-field="system_id_unit"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN room_designation_fieldheadercolumn}
-	{BEGIN room_designation_fieldheader}
-	<SPAN {$room_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_designation">
-	{$label Manage_Rooms room_designation }	{$arrow_icon_room_designation}
+		{BEGIN system_id_unit_fieldheadercolumn}
+	{BEGIN system_id_unit_fieldheader}
+	<SPAN {$system_id_unit_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="system_id_unit">
+	{$label Manage_Rooms system_id_unit }	{$arrow_icon_system_id_unit}
 	</SPAN>
-	{END room_designation_fieldheader}
-{END room_designation_fieldheadercolumn}
+	{END system_id_unit_fieldheader}
+{END system_id_unit_fieldheadercolumn}
 
 	
 	</th>
@@ -1083,12 +1102,39 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$room_designation_class}
+			"
+
+			data-field="room_designation"
+	
+	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN room_designation_fieldheadercolumn}
+	{BEGIN room_designation_fieldheader}
+	<SPAN {$room_designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_designation">
+	{$label Manage_Rooms room_designation }	{$arrow_icon_room_designation}
+	</SPAN>
+	{END room_designation_fieldheader}
+{END room_designation_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field1}
+				 
+					{BEGIN cellblock_grid_headcell_field2}
+	<th
+	
+	{$cell_grid_headcell_field2}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$unee_t_unit_type_class}
 			"
 
 			data-field="unee_t_unit_type"
 	
-	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1102,33 +1148,6 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field1}
-				 
-					{BEGIN cellblock_grid_headcell_field2}
-	<th
-	
-	{$cell_grid_headcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$room_description_class}
-			"
-
-			data-field="room_description"
-	
-	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN room_description_fieldheadercolumn}
-	{BEGIN room_description_fieldheader}
-	<SPAN {$room_description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description">
-	{$label Manage_Rooms room_description }	{$arrow_icon_room_description}
-	</SPAN>
-	{END room_description_fieldheader}
-{END room_description_fieldheadercolumn}
-
-	
-	</th>
 	{END cellblock_grid_headcell_field2}
 				 
 					{BEGIN cellblock_grid_headcell_field3}
@@ -1137,12 +1156,39 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$room_description_class}
+			"
+
+			data-field="room_description"
+	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN room_description_fieldheadercolumn}
+	{BEGIN room_description_fieldheader}
+	<SPAN {$room_description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description">
+	{$label Manage_Rooms room_description }	{$arrow_icon_room_description}
+	</SPAN>
+	{END room_description_fieldheader}
+{END room_description_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field3}
+				 
+					{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$is_creation_needed_in_unee_t_class}
 			"
 
 			data-field="is_creation_needed_in_unee_t"
 	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1156,33 +1202,6 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$is_obsolete_class}
-			"
-
-			data-field="is_obsolete"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN is_obsolete_fieldheadercolumn}
-	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
-	{$label Manage_Rooms is_obsolete }	{$arrow_icon_is_obsolete}
-	</SPAN>
-	{END is_obsolete_fieldheader}
-{END is_obsolete_fieldheadercolumn}
-
-	
-	</th>
 	{END cellblock_grid_headcell_field4}
 				 
 					{BEGIN cellblock_grid_headcell_field5}
@@ -1191,18 +1210,45 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$uneet_created_datetime_class}
+		 r-ori-vert				{$is_obsolete_class}
 			"
 
-			data-field="uneet_created_datetime"
+			data-field="is_obsolete"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
+		{BEGIN is_obsolete_fieldheadercolumn}
+	{BEGIN is_obsolete_fieldheader}
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	{$label Manage_Rooms is_obsolete }	{$arrow_icon_is_obsolete}
+	</SPAN>
+	{END is_obsolete_fieldheader}
+{END is_obsolete_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field5}
+				 
+					{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Rooms uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -1210,7 +1256,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field5}
+	{END cellblock_grid_headcell_field6}
 							</tr>
 					 
 					 
@@ -1325,20 +1371,20 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$room_designation_class}
+		 r-ori-vert				{$system_id_unit_class}
 			"
 
-			data-field="room_designation"
+			data-field="system_id_unit"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN room_designation_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-page="Manage_Rooms_list" data-record-id="{$recId}" data-field="room_designation" data-default-width >
-{$room_designation_value}
+		{BEGIN system_id_unit_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="system_id_unit" data-default-width >
+{$system_id_unit_value}
 </span>
-{END room_designation_fieldcolumn}	
+{END system_id_unit_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 				 
@@ -1348,20 +1394,20 @@
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$unee_t_unit_type_class}
+		 r-ori-vert				{$room_designation_class}
 			"
 
-			data-field="unee_t_unit_type"
+			data-field="room_designation"
 	
 	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN unee_t_unit_type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type" data-default-width >
-{$unee_t_unit_type_value}
+		{BEGIN room_designation_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-page="Manage_Rooms_list" data-record-id="{$recId}" data-field="room_designation" data-default-width >
+{$room_designation_value}
 </span>
-{END unee_t_unit_type_fieldcolumn}	
+{END room_designation_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
 				 
@@ -1371,20 +1417,20 @@
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$room_description_class}
+		 r-ori-vert				{$unee_t_unit_type_class}
 			"
 
-			data-field="room_description"
+			data-field="unee_t_unit_type"
 	
 	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN room_description_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description" data-default-width >
-{$room_description_value}
+		{BEGIN unee_t_unit_type_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_unit_type" data-default-width >
+{$unee_t_unit_type_value}
 </span>
-{END room_description_fieldcolumn}	
+{END unee_t_unit_type_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
 				 
@@ -1394,20 +1440,20 @@
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_creation_needed_in_unee_t_class}
+		 r-ori-vert				{$room_description_class}
 			"
 
-			data-field="is_creation_needed_in_unee_t"
+			data-field="room_description"
 	
 	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_creation_needed_in_unee_t_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t" data-default-width >
-{$is_creation_needed_in_unee_t_value}
+		{BEGIN room_description_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_description" data-default-width >
+{$room_description_value}
 </span>
-{END is_creation_needed_in_unee_t_fieldcolumn}	
+{END room_description_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
 				 
@@ -1417,20 +1463,20 @@
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$is_creation_needed_in_unee_t_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="is_creation_needed_in_unee_t"
 	
 	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_obsolete_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
-{$is_obsolete_value}
+		{BEGIN is_creation_needed_in_unee_t_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t" data-default-width >
+{$is_creation_needed_in_unee_t_value}
 </span>
-{END is_obsolete_fieldcolumn}	
+{END is_creation_needed_in_unee_t_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field4}
 				 
@@ -1440,12 +1486,35 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$is_obsolete_class}
+			"
+
+			data-field="is_obsolete"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_obsolete_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
+{$is_obsolete_value}
+</span>
+{END is_obsolete_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
 			"
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1455,7 +1524,7 @@
 </span>
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field5}
+	{END cellblock_grid_cell_field6}
 							</tr>
 					 
 					
@@ -1600,6 +1669,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
+				 
+					{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Rooms_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					{END totals_row}

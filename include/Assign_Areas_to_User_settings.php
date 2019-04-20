@@ -2083,7 +2083,10 @@ $tdataAssign_Areas_to_User[".hideMobileList"] = array();
 	$edata["LookupOrderBy"] = "name";
 
 	
-	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "unee_t_user_type_id", "lookup" => "unee_t_user_type_id" );
+
 	
 	
 
@@ -2977,6 +2980,9 @@ $tdataAssign_Areas_to_User[".hideMobileList"] = array();
 
 	
 	
+				//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+	$edata["DependentLookups"][] = "unee_t_mefe_user_id";
 
 	
 	

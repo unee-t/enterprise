@@ -680,6 +680,8 @@ $tableCaptions["English"]["Search_Rooms"] = "Search Rooms";
 $tableCaptions["English"]["Search_Units"] = "Search Units";
 $tableCaptions["English"]["external_property_level_2_units"] = "External Property Level 2 Units";
 $tableCaptions["English"]["Search_All_Units"] = "Search All Units";
+$tableCaptions["English"]["ut_map_external_source_units"] = "Ut Map External Source Units";
+$tableCaptions["English"]["Search_Buildings"] = "Search Buildings";
 
 
 $globalEvents = new class_GlobalEvents;

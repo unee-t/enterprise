@@ -31,7 +31,6 @@ $dalTableproperty_level_2_units["description"] = array("type"=>201,"varname"=>"d
 	$dalTableproperty_level_2_units["external_system_id"]["key"]=true;
 	$dalTableproperty_level_2_units["external_table"]["key"]=true;
 	$dalTableproperty_level_2_units["organization_id"]["key"]=true;
-	$dalTableproperty_level_2_units["tower"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__property_level_2_units"] = &$dalTableproperty_level_2_units;
 ?>

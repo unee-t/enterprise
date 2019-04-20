@@ -52,6 +52,8 @@ $nonAdminTablesArr[] = "Search Rooms";
 $nonAdminTablesArr[] = "Search Units";
 $nonAdminTablesArr[] = "external_property_level_2_units";
 $nonAdminTablesArr[] = "Search All Units";
+$nonAdminTablesArr[] = "ut_map_external_source_units";
+$nonAdminTablesArr[] = "Search Buildings";
 
 $ug_connection = $cman->getForUserGroups();
 
