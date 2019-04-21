@@ -311,6 +311,7 @@ $keys = array();
 $keys["organization_id"] = postvalue("editid1");
 $keys["unee_t_mefe_user_id"] = postvalue("editid2");
 $keys["unee_t_area_id"] = postvalue("editid3");
+$keys["unee_t_user_type_id"] = postvalue("editid4");
 
 //array of params for classes
 $params = array();

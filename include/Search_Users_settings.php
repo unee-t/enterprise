@@ -252,7 +252,7 @@ $tdataSearch_Users[".orderindexes"] = array();
 	$tdataSearch_Users[".orderindexes"][] = array(13, (0 ? "ASC" : "DESC"), "persons.organization_id");
 
 
-$tdataSearch_Users[".sqlHead"] = "SELECT ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' - ', IFNULL(`persons`.`organization`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
+$tdataSearch_Users[".sqlHead"] = "SELECT ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
 $tdataSearch_Users[".sqlFrom"] = "FROM ut_map_external_source_users  LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person  LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
 $tdataSearch_Users[".sqlWhereExpr"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)";
 $tdataSearch_Users[".sqlTail"] = "";
@@ -2025,7 +2025,7 @@ $tdataSearch_Users[".hideMobileList"] = array();
 		$fdata["strField"] = "organization-job";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' - ', IFNULL(`persons`.`organization`  		, ''))";
+	$fdata["FullName"] = "CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, ''))";
 
 	
 	
@@ -2526,7 +2526,7 @@ function createSqlQuery_Search_Users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' - ', IFNULL(`persons`.`organization`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
+$proto0["m_strFieldList"] = "ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
 $proto0["m_strFrom"] = "FROM ut_map_external_source_users  LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person  LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
 $proto0["m_strWhere"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)";
 $proto0["m_strOrderBy"] = "ORDER BY persons.organization_id DESC";
@@ -2912,7 +2912,7 @@ $proto0["m_fieldlist"][]=$obj;
 $proto55["m_functiontype"] = "SQLF_CUSTOM";
 $proto55["m_arguments"] = array();
 						$obj = new SQLNonParsed(array(
-	"m_sql" => "IFNULL(`persons`.`given_name`  		, '')"
+	"m_sql" => "IFNULL(`persons`.`organization`  		, '')"
 ));
 
 $proto55["m_arguments"][]=$obj;
@@ -2922,14 +2922,14 @@ $proto55["m_arguments"][]=$obj;
 
 $proto55["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
-	"m_sql" => "IFNULL(`persons`.`organization`  		, '')"
+	"m_sql" => "IFNULL(`persons`.`job_title`  		, '')"
 ));
 
 $proto55["m_arguments"][]=$obj;
 $proto55["m_strFunctionName"] = "CONCAT";
 $obj = new SQLFunctionCall($proto55);
 
-$proto54["m_sql"] = "CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' - ', IFNULL(`persons`.`organization`  		, ''))";
+$proto54["m_sql"] = "CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, ''))";
 $proto54["m_srcTableName"] = "Search Users";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "organization-job";

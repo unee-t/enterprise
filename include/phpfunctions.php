@@ -1099,11 +1099,6 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
-		if($table=="Assign Buildings to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
-	{
-		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
-		return $strWhere;
-	}
 		if($table=="Assign Buildings to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
 	{
 		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";

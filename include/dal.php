@@ -74,6 +74,9 @@ class tDAL
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_ugrights;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_users;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_api_keys;
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_1;
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_2;
+	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_3;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_1;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_2;
 	var $tblunee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_3;
@@ -119,6 +122,9 @@ class tDAL
 		$this->lstTables[] = array("name" => "uneet_enterprise_ugrights", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_ugrights", "altvarname" => "uneet_enterprise_ugrights", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "uneet_enterprise_users", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_users", "altvarname" => "uneet_enterprise_users", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "ut_api_keys", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_api_keys", "altvarname" => "ut_api_keys", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+		$this->lstTables[] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_1", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+		$this->lstTables[] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_2", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+		$this->lstTables[] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_3", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_3", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_3", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "ut_check_unee_t_updates_property_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_1", "altvarname" => "ut_check_unee_t_updates_property_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "ut_check_unee_t_updates_property_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_2", "altvarname" => "ut_check_unee_t_updates_property_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		$this->lstTables[] = array("name" => "ut_check_unee_t_updates_property_level_3", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_3", "altvarname" => "ut_check_unee_t_updates_property_level_3", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");

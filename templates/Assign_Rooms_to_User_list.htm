@@ -679,6 +679,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_unee_t_update_ts" checked="checked" value="1" data-field="unee_t_update_ts">
+					<span>{$label Assign_Rooms_to_User unee_t_update_ts }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -744,10 +754,6 @@
 		content: "{$label Assign_Rooms_to_User is_update_needed}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
-		content: "{$label Assign_Rooms_to_User unee_t_update_ts}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
 		content: "{$label Assign_Rooms_to_User unee_t_mefe_user_id}";
 	}
@@ -802,6 +808,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="user_type"]:before {
 		content: "{$label Assign_Rooms_to_User user_type}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
+		content: "{$label Assign_Rooms_to_User unee_t_update_ts}";
 	}
 	
 }
@@ -860,7 +870,7 @@
 	 
 		{BEGIN room_name_fieldheadercolumn}
 	{BEGIN room_name_fieldheader}
-	<SPAN {$room_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_name">
+	<SPAN {$room_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="room_name">
 	{$label Assign_Rooms_to_User room_name }	{$arrow_icon_room_name}
 	</SPAN>
 	{END room_name_fieldheader}
@@ -950,6 +960,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
+				 
+					{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldheadercolumn}
+	{BEGIN unee_t_update_ts_fieldheader}
+	<SPAN {$unee_t_update_ts_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts">
+	{$label Assign_Rooms_to_User unee_t_update_ts }	{$arrow_icon_unee_t_update_ts}
+	</SPAN>
+	{END unee_t_update_ts_fieldheader}
+{END unee_t_update_ts_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
 							</tr>
 					 
 					 
@@ -1081,6 +1118,29 @@
 {END unee_t_user_type_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
+				 
+					{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts" data-default-width >
+{$unee_t_update_ts_value}
+</span>
+{END unee_t_update_ts_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
 							</tr>
 					 
 					
@@ -1177,6 +1237,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
+				 
+					{BEGIN cellblock_grid_footcell_field4}
+	<td
+	
+	{$cell_grid_footcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Assign_Rooms_to_User_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field4}
 							</tr>
 					
 					{END totals_row}

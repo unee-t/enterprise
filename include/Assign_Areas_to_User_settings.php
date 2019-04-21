@@ -303,6 +303,7 @@ $tableKeysAssign_Areas_to_User = array();
 $tableKeysAssign_Areas_to_User[] = "organization_id";
 $tableKeysAssign_Areas_to_User[] = "unee_t_mefe_user_id";
 $tableKeysAssign_Areas_to_User[] = "unee_t_area_id";
+$tableKeysAssign_Areas_to_User[] = "unee_t_user_type_id";
 $tdataAssign_Areas_to_User[".Keys"] = $tableKeysAssign_Areas_to_User;
 
 

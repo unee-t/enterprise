@@ -62,7 +62,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsAssign_Buildings_to_User["English"]["is_update_needed"] = "Is Update Needed";
 	$fieldToolTipsAssign_Buildings_to_User["English"]["is_update_needed"] = "";
 	$placeHoldersAssign_Buildings_to_User["English"]["is_update_needed"] = "";
-	$fieldLabelsAssign_Buildings_to_User["English"]["unee_t_update_ts"] = "Unee T Update Ts";
+	$fieldLabelsAssign_Buildings_to_User["English"]["unee_t_update_ts"] = "Unee-T Update";
 	$fieldToolTipsAssign_Buildings_to_User["English"]["unee_t_update_ts"] = "";
 	$placeHoldersAssign_Buildings_to_User["English"]["unee_t_update_ts"] = "";
 	$fieldLabelsAssign_Buildings_to_User["English"]["unee_t_mefe_user_id"] = "Unee-T User";
@@ -269,8 +269,8 @@ $tdataAssign_Buildings_to_User[".strOrderBy"] = $tstrOrderBy;
 
 $tdataAssign_Buildings_to_User[".orderindexes"] = array();
 
-$tdataAssign_Buildings_to_User[".sqlHead"] = "SELECT external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1,  external_map_user_unit_role_permissions_level_1.syst_created_datetime,  external_map_user_unit_role_permissions_level_1.creation_system_id,  external_map_user_unit_role_permissions_level_1.created_by_id,  external_map_user_unit_role_permissions_level_1.creation_method,  external_map_user_unit_role_permissions_level_1.syst_updated_datetime,  external_map_user_unit_role_permissions_level_1.update_system_id,  external_map_user_unit_role_permissions_level_1.updated_by_id,  external_map_user_unit_role_permissions_level_1.update_method,  external_map_user_unit_role_permissions_level_1.organization_id,  external_map_user_unit_role_permissions_level_1.is_obsolete,  external_map_user_unit_role_permissions_level_1.is_update_needed,  external_map_user_unit_role_permissions_level_1.unee_t_update_ts,  external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  external_map_user_unit_role_permissions_level_1.unee_t_level_1_id,  property_level_1_buildings.designation AS building_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_1.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_1.unee_t_user_type_id,  ut_user_types.designation AS user_type,  external_map_user_unit_role_permissions_level_1.propagate_level_2,  external_map_user_unit_role_permissions_level_1.propagate_level_3";
-$tdataAssign_Buildings_to_User[".sqlFrom"] = "FROM external_map_user_unit_role_permissions_level_1  LEFT OUTER JOIN property_level_1_buildings ON external_map_user_unit_role_permissions_level_1.unee_t_level_1_id = property_level_1_buildings.id_building AND external_map_user_unit_role_permissions_level_1.organization_id = property_level_1_buildings.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_1.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_1.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_1.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_1.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area";
+$tdataAssign_Buildings_to_User[".sqlHead"] = "SELECT external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1,  external_map_user_unit_role_permissions_level_1.syst_created_datetime,  external_map_user_unit_role_permissions_level_1.creation_system_id,  external_map_user_unit_role_permissions_level_1.created_by_id,  external_map_user_unit_role_permissions_level_1.creation_method,  external_map_user_unit_role_permissions_level_1.syst_updated_datetime,  external_map_user_unit_role_permissions_level_1.update_system_id,  external_map_user_unit_role_permissions_level_1.updated_by_id,  external_map_user_unit_role_permissions_level_1.update_method,  external_map_user_unit_role_permissions_level_1.organization_id,  external_map_user_unit_role_permissions_level_1.is_obsolete,  external_map_user_unit_role_permissions_level_1.is_update_needed,  external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  external_map_user_unit_role_permissions_level_1.unee_t_level_1_id,  property_level_1_buildings.designation AS building_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_1.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_1.unee_t_user_type_id,  ut_user_types.designation AS user_type,  external_map_user_unit_role_permissions_level_1.propagate_level_2,  external_map_user_unit_role_permissions_level_1.propagate_level_3,  ut_check_unee_t_update_add_user_to_unit_level_1.unee_t_update_ts AS unee_t_update_ts";
+$tdataAssign_Buildings_to_User[".sqlFrom"] = "FROM external_map_user_unit_role_permissions_level_1  LEFT OUTER JOIN property_level_1_buildings ON external_map_user_unit_role_permissions_level_1.unee_t_level_1_id = property_level_1_buildings.id_building AND external_map_user_unit_role_permissions_level_1.organization_id = property_level_1_buildings.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_1.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_1.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_1.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_1.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_1 ON external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1 = ut_check_unee_t_update_add_user_to_unit_level_1.id_map_user_unit_permissions_level_1";
 $tdataAssign_Buildings_to_User[".sqlWhereExpr"] = "";
 $tdataAssign_Buildings_to_User[".sqlTail"] = "";
 
@@ -1804,131 +1804,10 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 
 	$tdataAssign_Buildings_to_User["is_update_needed"] = $fdata;
 		$tdataAssign_Buildings_to_User[".searchableFields"][] = "is_update_needed";
-//	unee_t_update_ts
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 13;
-	$fdata["strName"] = "unee_t_update_ts";
-	$fdata["GoodName"] = "unee_t_update_ts";
-	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
-	$fdata["Label"] = GetFieldLabel("Assign_Buildings_to_User","unee_t_update_ts");
-	$fdata["FieldType"] = 135;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "unee_t_update_ts";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "external_map_user_unit_role_permissions_level_1.unee_t_update_ts";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "Short Date");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Readonly");
-
-	
-	
-	
-
-
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-	
-	
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-			
-	
-	
-//end of Filters settings
-
-
-	$tdataAssign_Buildings_to_User["unee_t_update_ts"] = $fdata;
-		$tdataAssign_Buildings_to_User[".searchableFields"][] = "unee_t_update_ts";
 //	unee_t_mefe_user_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 14;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "unee_t_mefe_user_id";
 	$fdata["GoodName"] = "unee_t_mefe_user_id";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -2089,8 +1968,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "name";
 
-				$edata["LookupWhereCode"] = true;
-
+	
 
 	
 	$edata["LookupOrderBy"] = "name";
@@ -2240,7 +2118,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	area_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "area_id";
 	$fdata["GoodName"] = "area_id";
 	$fdata["ownerTable"] = "property_level_1_buildings";
@@ -2526,7 +2404,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	area_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "area_name";
 	$fdata["GoodName"] = "area_name";
 	$fdata["ownerTable"] = "property_groups_areas";
@@ -2647,7 +2525,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	unee_t_level_1_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "unee_t_level_1_id";
 	$fdata["GoodName"] = "unee_t_level_1_id";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -2706,7 +2584,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 	$edata["LookupTable"] = "Search Buildings";
 		$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 3;
+		$edata["LCType"] = 2;
 
 	
 		
@@ -2725,8 +2603,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 	
 
 	
-		$edata["Multiselect"] = true;
-
+	
 	
 // End Lookup Settings
 
@@ -2771,7 +2648,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2798,7 +2675,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	building_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 17;
 	$fdata["strName"] = "building_name";
 	$fdata["GoodName"] = "building_name";
 	$fdata["ownerTable"] = "property_level_1_buildings";
@@ -2921,7 +2798,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	person_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "person_id";
 	$fdata["GoodName"] = "person_id";
 	$fdata["ownerTable"] = "ut_map_external_source_users";
@@ -3047,7 +2924,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	unee_t_role_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "unee_t_role_id";
 	$fdata["GoodName"] = "unee_t_role_id";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -3200,7 +3077,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	user_role
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "user_role";
 	$fdata["GoodName"] = "user_role";
 	$fdata["ownerTable"] = "ut_user_role_types";
@@ -3321,7 +3198,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	unee_t_user_type_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "unee_t_user_type_id";
 	$fdata["GoodName"] = "unee_t_user_type_id";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -3479,7 +3356,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	user_type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "user_type";
 	$fdata["GoodName"] = "user_type";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3600,7 +3477,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	propagate_level_2
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "propagate_level_2";
 	$fdata["GoodName"] = "propagate_level_2";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -3720,7 +3597,7 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 //	propagate_level_3
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "propagate_level_3";
 	$fdata["GoodName"] = "propagate_level_3";
 	$fdata["ownerTable"] = "external_map_user_unit_role_permissions_level_1";
@@ -3837,6 +3714,127 @@ $tdataAssign_Buildings_to_User[".hideMobileList"] = array();
 
 	$tdataAssign_Buildings_to_User["propagate_level_3"] = $fdata;
 		$tdataAssign_Buildings_to_User[".searchableFields"][] = "propagate_level_3";
+//	unee_t_update_ts
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 25;
+	$fdata["strName"] = "unee_t_update_ts";
+	$fdata["GoodName"] = "unee_t_update_ts";
+	$fdata["ownerTable"] = "ut_check_unee_t_update_add_user_to_unit_level_1";
+	$fdata["Label"] = GetFieldLabel("Assign_Buildings_to_User","unee_t_update_ts");
+	$fdata["FieldType"] = 135;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "unee_t_update_ts";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_check_unee_t_update_add_user_to_unit_level_1.unee_t_update_ts";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Datetime");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+	
+	
+
+
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataAssign_Buildings_to_User["unee_t_update_ts"] = $fdata;
+		$tdataAssign_Buildings_to_User[".searchableFields"][] = "unee_t_update_ts";
 
 
 $tables_data["Assign Buildings to User"]=&$tdataAssign_Buildings_to_User;
@@ -3872,8 +3870,8 @@ function createSqlQuery_Assign_Buildings_to_User()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1,  external_map_user_unit_role_permissions_level_1.syst_created_datetime,  external_map_user_unit_role_permissions_level_1.creation_system_id,  external_map_user_unit_role_permissions_level_1.created_by_id,  external_map_user_unit_role_permissions_level_1.creation_method,  external_map_user_unit_role_permissions_level_1.syst_updated_datetime,  external_map_user_unit_role_permissions_level_1.update_system_id,  external_map_user_unit_role_permissions_level_1.updated_by_id,  external_map_user_unit_role_permissions_level_1.update_method,  external_map_user_unit_role_permissions_level_1.organization_id,  external_map_user_unit_role_permissions_level_1.is_obsolete,  external_map_user_unit_role_permissions_level_1.is_update_needed,  external_map_user_unit_role_permissions_level_1.unee_t_update_ts,  external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  external_map_user_unit_role_permissions_level_1.unee_t_level_1_id,  property_level_1_buildings.designation AS building_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_1.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_1.unee_t_user_type_id,  ut_user_types.designation AS user_type,  external_map_user_unit_role_permissions_level_1.propagate_level_2,  external_map_user_unit_role_permissions_level_1.propagate_level_3";
-$proto0["m_strFrom"] = "FROM external_map_user_unit_role_permissions_level_1  LEFT OUTER JOIN property_level_1_buildings ON external_map_user_unit_role_permissions_level_1.unee_t_level_1_id = property_level_1_buildings.id_building AND external_map_user_unit_role_permissions_level_1.organization_id = property_level_1_buildings.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_1.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_1.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_1.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_1.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area";
+$proto0["m_strFieldList"] = "external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1,  external_map_user_unit_role_permissions_level_1.syst_created_datetime,  external_map_user_unit_role_permissions_level_1.creation_system_id,  external_map_user_unit_role_permissions_level_1.created_by_id,  external_map_user_unit_role_permissions_level_1.creation_method,  external_map_user_unit_role_permissions_level_1.syst_updated_datetime,  external_map_user_unit_role_permissions_level_1.update_system_id,  external_map_user_unit_role_permissions_level_1.updated_by_id,  external_map_user_unit_role_permissions_level_1.update_method,  external_map_user_unit_role_permissions_level_1.organization_id,  external_map_user_unit_role_permissions_level_1.is_obsolete,  external_map_user_unit_role_permissions_level_1.is_update_needed,  external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  external_map_user_unit_role_permissions_level_1.unee_t_level_1_id,  property_level_1_buildings.designation AS building_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_1.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_1.unee_t_user_type_id,  ut_user_types.designation AS user_type,  external_map_user_unit_role_permissions_level_1.propagate_level_2,  external_map_user_unit_role_permissions_level_1.propagate_level_3,  ut_check_unee_t_update_add_user_to_unit_level_1.unee_t_update_ts AS unee_t_update_ts";
+$proto0["m_strFrom"] = "FROM external_map_user_unit_role_permissions_level_1  LEFT OUTER JOIN property_level_1_buildings ON external_map_user_unit_role_permissions_level_1.unee_t_level_1_id = property_level_1_buildings.id_building AND external_map_user_unit_role_permissions_level_1.organization_id = property_level_1_buildings.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_1.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_1.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_1.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_1.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_1 ON external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1 = ut_check_unee_t_update_add_user_to_unit_level_1.id_map_user_unit_permissions_level_1";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
@@ -4083,12 +4081,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_update_ts",
+	"m_strName" => "unee_t_mefe_user_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto30["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_update_ts";
+$proto30["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id";
 $proto30["m_srcTableName"] = "Assign Buildings to User";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -4097,12 +4095,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_mefe_user_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
+	"m_strName" => "area_id",
+	"m_strTable" => "property_level_1_buildings",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto32["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_mefe_user_id";
+$proto32["m_sql"] = "property_level_1_buildings.area_id";
 $proto32["m_srcTableName"] = "Assign Buildings to User";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -4111,12 +4109,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "area_id",
-	"m_strTable" => "property_level_1_buildings",
+	"m_strName" => "area_name",
+	"m_strTable" => "property_groups_areas",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto34["m_sql"] = "property_level_1_buildings.area_id";
+$proto34["m_sql"] = "property_groups_areas.area_name";
 $proto34["m_srcTableName"] = "Assign Buildings to User";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -4125,12 +4123,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "area_name",
-	"m_strTable" => "property_groups_areas",
+	"m_strName" => "unee_t_level_1_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto36["m_sql"] = "property_groups_areas.area_name";
+$proto36["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_level_1_id";
 $proto36["m_srcTableName"] = "Assign Buildings to User";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -4139,40 +4137,40 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_level_1_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
-	"m_srcTableName" => "Assign Buildings to User"
-));
-
-$proto38["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_level_1_id";
-$proto38["m_srcTableName"] = "Assign Buildings to User";
-$proto38["m_expr"]=$obj;
-$proto38["m_alias"] = "";
-$obj = new SQLFieldListItem($proto38);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto40=array();
-			$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "property_level_1_buildings",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto40["m_sql"] = "property_level_1_buildings.designation";
-$proto40["m_srcTableName"] = "Assign Buildings to User";
-$proto40["m_expr"]=$obj;
-$proto40["m_alias"] = "building_name";
-$obj = new SQLFieldListItem($proto40);
+$proto38["m_sql"] = "property_level_1_buildings.designation";
+$proto38["m_srcTableName"] = "Assign Buildings to User";
+$proto38["m_expr"]=$obj;
+$proto38["m_alias"] = "building_name";
+$obj = new SQLFieldListItem($proto38);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto42=array();
+						$proto40=array();
 			$obj = new SQLField(array(
 	"m_strName" => "person_id",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto42["m_sql"] = "ut_map_external_source_users.person_id";
+$proto40["m_sql"] = "ut_map_external_source_users.person_id";
+$proto40["m_srcTableName"] = "Assign Buildings to User";
+$proto40["m_expr"]=$obj;
+$proto40["m_alias"] = "";
+$obj = new SQLFieldListItem($proto40);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto42=array();
+			$obj = new SQLField(array(
+	"m_strName" => "unee_t_role_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
+	"m_srcTableName" => "Assign Buildings to User"
+));
+
+$proto42["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_role_id";
 $proto42["m_srcTableName"] = "Assign Buildings to User";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -4181,68 +4179,68 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_role_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
-	"m_srcTableName" => "Assign Buildings to User"
-));
-
-$proto44["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_role_id";
-$proto44["m_srcTableName"] = "Assign Buildings to User";
-$proto44["m_expr"]=$obj;
-$proto44["m_alias"] = "";
-$obj = new SQLFieldListItem($proto44);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto46=array();
-			$obj = new SQLField(array(
 	"m_strName" => "role_type",
 	"m_strTable" => "ut_user_role_types",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto46["m_sql"] = "ut_user_role_types.role_type";
-$proto46["m_srcTableName"] = "Assign Buildings to User";
-$proto46["m_expr"]=$obj;
-$proto46["m_alias"] = "user_role";
-$obj = new SQLFieldListItem($proto46);
+$proto44["m_sql"] = "ut_user_role_types.role_type";
+$proto44["m_srcTableName"] = "Assign Buildings to User";
+$proto44["m_expr"]=$obj;
+$proto44["m_alias"] = "user_role";
+$obj = new SQLFieldListItem($proto44);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto48=array();
+						$proto46=array();
 			$obj = new SQLField(array(
 	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto48["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_user_type_id";
-$proto48["m_srcTableName"] = "Assign Buildings to User";
-$proto48["m_expr"]=$obj;
-$proto48["m_alias"] = "";
-$obj = new SQLFieldListItem($proto48);
+$proto46["m_sql"] = "external_map_user_unit_role_permissions_level_1.unee_t_user_type_id";
+$proto46["m_srcTableName"] = "Assign Buildings to User";
+$proto46["m_expr"]=$obj;
+$proto46["m_alias"] = "";
+$obj = new SQLFieldListItem($proto46);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto50=array();
+						$proto48=array();
 			$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto50["m_sql"] = "ut_user_types.designation";
-$proto50["m_srcTableName"] = "Assign Buildings to User";
-$proto50["m_expr"]=$obj;
-$proto50["m_alias"] = "user_type";
-$obj = new SQLFieldListItem($proto50);
+$proto48["m_sql"] = "ut_user_types.designation";
+$proto48["m_srcTableName"] = "Assign Buildings to User";
+$proto48["m_expr"]=$obj;
+$proto48["m_alias"] = "user_type";
+$obj = new SQLFieldListItem($proto48);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto52=array();
+						$proto50=array();
 			$obj = new SQLField(array(
 	"m_strName" => "propagate_level_2",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto52["m_sql"] = "external_map_user_unit_role_permissions_level_1.propagate_level_2";
+$proto50["m_sql"] = "external_map_user_unit_role_permissions_level_1.propagate_level_2";
+$proto50["m_srcTableName"] = "Assign Buildings to User";
+$proto50["m_expr"]=$obj;
+$proto50["m_alias"] = "";
+$obj = new SQLFieldListItem($proto50);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto52=array();
+			$obj = new SQLField(array(
+	"m_strName" => "propagate_level_3",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
+	"m_srcTableName" => "Assign Buildings to User"
+));
+
+$proto52["m_sql"] = "external_map_user_unit_role_permissions_level_1.propagate_level_3";
 $proto52["m_srcTableName"] = "Assign Buildings to User";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -4251,15 +4249,15 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "propagate_level_3",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
+	"m_strName" => "unee_t_update_ts",
+	"m_strTable" => "ut_check_unee_t_update_add_user_to_unit_level_1",
 	"m_srcTableName" => "Assign Buildings to User"
 ));
 
-$proto54["m_sql"] = "external_map_user_unit_role_permissions_level_1.propagate_level_3";
+$proto54["m_sql"] = "ut_check_unee_t_update_add_user_to_unit_level_1.unee_t_update_ts";
 $proto54["m_srcTableName"] = "Assign Buildings to User";
 $proto54["m_expr"]=$obj;
-$proto54["m_alias"] = "";
+$proto54["m_alias"] = "unee_t_update_ts";
 $obj = new SQLFieldListItem($proto54);
 
 $proto0["m_fieldlist"][]=$obj;
@@ -4706,6 +4704,45 @@ $obj = new SQLLogicalExpr($proto90);
 
 $proto88["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto88);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto92=array();
+$proto92["m_link"] = "SQLL_LEFTJOIN";
+			$proto93=array();
+$proto93["m_strName"] = "ut_check_unee_t_update_add_user_to_unit_level_1";
+$proto93["m_srcTableName"] = "Assign Buildings to User";
+$proto93["m_columns"] = array();
+$proto93["m_columns"][] = "id_map_user_unit_permissions_level_1";
+$proto93["m_columns"][] = "external_property_type_id";
+$proto93["m_columns"][] = "uneet_name";
+$proto93["m_columns"][] = "unee_t_mefe_user_id";
+$proto93["m_columns"][] = "unee_t_mefe_unit_id";
+$proto93["m_columns"][] = "unee_t_update_ts";
+$obj = new SQLTable($proto93);
+
+$proto92["m_table"] = $obj;
+$proto92["m_sql"] = "LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_1 ON external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1 = ut_check_unee_t_update_add_user_to_unit_level_1.id_map_user_unit_permissions_level_1";
+$proto92["m_alias"] = "";
+$proto92["m_srcTableName"] = "Assign Buildings to User";
+$proto94=array();
+$proto94["m_sql"] = "external_map_user_unit_role_permissions_level_1.id_map_user_unit_permissions_level_1 = ut_check_unee_t_update_add_user_to_unit_level_1.id_map_user_unit_permissions_level_1";
+$proto94["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "id_map_user_unit_permissions_level_1",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_1",
+	"m_srcTableName" => "Assign Buildings to User"
+));
+
+$proto94["m_column"]=$obj;
+$proto94["m_contained"] = array();
+$proto94["m_strCase"] = "= ut_check_unee_t_update_add_user_to_unit_level_1.id_map_user_unit_permissions_level_1";
+$proto94["m_havingmode"] = false;
+$proto94["m_inBrackets"] = false;
+$proto94["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto94);
+
+$proto92["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto92);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();

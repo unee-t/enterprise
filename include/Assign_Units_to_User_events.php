@@ -58,6 +58,41 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Assign_Units_to_Users_Add_Page';
 
+	# We check if we have already created this record:
+
+		# We establish the connection:
+		# We do that the old way AND the new way
+
+			global $conn ;
+
+			DB::SetConnection("");
+
+		# We query the table 
+
+			$strSQLExists = "select * 
+							from `external_map_user_unit_role_permissions_level_2` 
+							where (`unee_t_level_2_id` = '" . $values['unee_t_level_2_id'] . "'
+											AND `unee_t_mefe_user_id` = '" . $values['unee_t_mefe_user_id'] . "'
+											AND `unee_t_user_type_id` = '" . $values['unee_t_user_type_id'] . "'
+											AND `organization_id` = '" . $values['organization_id'] . "'
+											)
+							" ;
+
+					$rsExists = db_query($strSQLExists,$conn);
+
+					$data=db_fetch_array($rsExists);
+
+					if($data)
+						{
+						# if record exists we do NOT create
+								$message = 'This User has already been associated to this Property'; 
+								return false;
+						}
+					else
+						{
+						# We can proceed
+						}
+
 // Place event code here.
 // Use "Add Action" button to add code snippets.
 

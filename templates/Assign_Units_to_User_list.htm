@@ -133,6 +133,22 @@
 		Advanced search		
 		</a>
 	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
+				<a  id="showOptPanel{$id}" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
+				<a  id="hideOptPanel{$id}" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
 							<li role="separator" class="divider"></li>							{BEGIN export_link}
 	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" >
 				<a  href="#" {$exportlink_attrs} >
@@ -228,6 +244,76 @@
 						<tbody>
 			
 								<tr>
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="left_c1" data-pageid="{$pageid}">
+ 
+<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+
+	<div class="panel-heading">
+		<div class="btn-group" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_area_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_area_id}" {$filterRow_attrs_area_id}>
+			<label>{$label Assign_Units_to_User area_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_area_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_area_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_area_id}</span>
+						</div>
+		{END searchCtrlBlock_area_id}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+</td>
+							</tr>
+											<tr>
 									<td 
 	class=" r-ori-vert			"
 			 
@@ -574,6 +660,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_unee_t_update_ts" checked="checked" value="1" data-field="unee_t_update_ts">
+					<span>{$label Assign_Units_to_User unee_t_update_ts }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -639,10 +735,6 @@
 		content: "{$label Assign_Units_to_User is_update_needed}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
-		content: "{$label Assign_Units_to_User unee_t_update_ts}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
 		content: "{$label Assign_Units_to_User unee_t_mefe_user_id}";
 	}
@@ -693,6 +785,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="propagate_level_3"]:before {
 		content: "{$label Assign_Units_to_User propagate_level_3}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
+		content: "{$label Assign_Units_to_User unee_t_update_ts}";
 	}
 	
 }
@@ -805,7 +901,7 @@
 	 
 		{BEGIN is_obsolete_fieldheadercolumn}
 	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Assign_Units_to_User is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
 	{END is_obsolete_fieldheader}
@@ -832,7 +928,7 @@
 	 
 		{BEGIN unee_t_mefe_user_id_fieldheadercolumn}
 	{BEGIN unee_t_mefe_user_id_fieldheader}
-	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
+	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
 	{$label Assign_Units_to_User unee_t_mefe_user_id }	{$arrow_icon_unee_t_mefe_user_id}
 	</SPAN>
 	{END unee_t_mefe_user_id_fieldheader}
@@ -859,7 +955,7 @@
 	 
 		{BEGIN unee_t_user_type_id_fieldheadercolumn}
 	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
+	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
 	{$label Assign_Units_to_User unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
 	</SPAN>
 	{END unee_t_user_type_id_fieldheader}
@@ -886,7 +982,7 @@
 	 
 		{BEGIN propagate_level_3_fieldheadercolumn}
 	{BEGIN propagate_level_3_fieldheader}
-	<SPAN {$propagate_level_3_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_3">
+	<SPAN {$propagate_level_3_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_3">
 	{$label Assign_Units_to_User propagate_level_3 }	{$arrow_icon_propagate_level_3}
 	</SPAN>
 	{END propagate_level_3_fieldheader}
@@ -895,6 +991,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
+				 
+					{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldheadercolumn}
+	{BEGIN unee_t_update_ts_fieldheader}
+	<SPAN {$unee_t_update_ts_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts">
+	{$label Assign_Units_to_User unee_t_update_ts }	{$arrow_icon_unee_t_update_ts}
+	</SPAN>
+	{END unee_t_update_ts_fieldheader}
+{END unee_t_update_ts_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
 							</tr>
 					 
 					 
@@ -1072,6 +1195,29 @@
 {END propagate_level_3_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts" data-default-width >
+{$unee_t_update_ts_value}
+</span>
+{END unee_t_update_ts_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
 							</tr>
 					 
 					
@@ -1200,6 +1346,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
+				 
+					{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Assign_Units_to_User_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					{END totals_row}

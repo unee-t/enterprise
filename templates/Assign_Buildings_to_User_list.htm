@@ -610,6 +610,16 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_unee_t_update_ts" checked="checked" value="1" data-field="unee_t_update_ts">
+					<span>{$label Assign_Buildings_to_User unee_t_update_ts }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -675,10 +685,6 @@
 		content: "{$label Assign_Buildings_to_User is_update_needed}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
-		content: "{$label Assign_Buildings_to_User unee_t_update_ts}";
-	}
-	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
 		content: "{$label Assign_Buildings_to_User unee_t_mefe_user_id}";
 	}
@@ -725,6 +731,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="propagate_level_3"]:before {
 		content: "{$label Assign_Buildings_to_User propagate_level_3}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
+		content: "{$label Assign_Buildings_to_User unee_t_update_ts}";
 	}
 	
 }
@@ -837,7 +847,7 @@
 	 
 		{BEGIN is_obsolete_fieldheadercolumn}
 	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Assign_Buildings_to_User is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
 	{END is_obsolete_fieldheader}
@@ -864,7 +874,7 @@
 	 
 		{BEGIN unee_t_mefe_user_id_fieldheadercolumn}
 	{BEGIN unee_t_mefe_user_id_fieldheader}
-	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
+	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
 	{$label Assign_Buildings_to_User unee_t_mefe_user_id }	{$arrow_icon_unee_t_mefe_user_id}
 	</SPAN>
 	{END unee_t_mefe_user_id_fieldheader}
@@ -891,7 +901,7 @@
 	 
 		{BEGIN unee_t_user_type_id_fieldheadercolumn}
 	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
+	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
 	{$label Assign_Buildings_to_User unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
 	</SPAN>
 	{END unee_t_user_type_id_fieldheader}
@@ -918,7 +928,7 @@
 	 
 		{BEGIN propagate_level_2_fieldheadercolumn}
 	{BEGIN propagate_level_2_fieldheader}
-	<SPAN {$propagate_level_2_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_2">
+	<SPAN {$propagate_level_2_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_2">
 	{$label Assign_Buildings_to_User propagate_level_2 }	{$arrow_icon_propagate_level_2}
 	</SPAN>
 	{END propagate_level_2_fieldheader}
@@ -945,7 +955,7 @@
 	 
 		{BEGIN propagate_level_3_fieldheadercolumn}
 	{BEGIN propagate_level_3_fieldheader}
-	<SPAN {$propagate_level_3_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_3">
+	<SPAN {$propagate_level_3_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="propagate_level_3">
 	{$label Assign_Buildings_to_User propagate_level_3 }	{$arrow_icon_propagate_level_3}
 	</SPAN>
 	{END propagate_level_3_fieldheader}
@@ -954,6 +964,33 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field6}
+				 
+					{BEGIN cellblock_grid_headcell_field7}
+	<th
+	
+	{$cell_grid_headcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldheadercolumn}
+	{BEGIN unee_t_update_ts_fieldheader}
+	<SPAN {$unee_t_update_ts_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts">
+	{$label Assign_Buildings_to_User unee_t_update_ts }	{$arrow_icon_unee_t_update_ts}
+	</SPAN>
+	{END unee_t_update_ts_fieldheader}
+{END unee_t_update_ts_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field7}
 							</tr>
 					 
 					 
@@ -1154,6 +1191,29 @@
 {END propagate_level_3_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field6}
+				 
+					{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_update_ts_class}
+			"
+
+			data-field="unee_t_update_ts"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_update_ts_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_update_ts" data-default-width >
+{$unee_t_update_ts_value}
+</span>
+{END unee_t_update_ts_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
 							</tr>
 					 
 					
@@ -1298,6 +1358,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field6}
+				 
+					{BEGIN cellblock_grid_footcell_field7}
+	<td
+	
+	{$cell_grid_footcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Assign_Buildings_to_User_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field7}
 							</tr>
 					
 					{END totals_row}
