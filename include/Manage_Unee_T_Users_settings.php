@@ -388,7 +388,6 @@ $tdataManage_Unee_T_Users[".arrGroupsPerPage"] = $arrGPP;
 $tdataManage_Unee_T_Users[".highlightSearchResults"] = true;
 
 $tableKeysManage_Unee_T_Users = array();
-$tableKeysManage_Unee_T_Users[] = "id_person";
 $tableKeysManage_Unee_T_Users[] = "external_id";
 $tableKeysManage_Unee_T_Users[] = "external_system";
 $tableKeysManage_Unee_T_Users[] = "external_table";

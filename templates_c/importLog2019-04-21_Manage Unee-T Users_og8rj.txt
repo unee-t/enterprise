@@ -1,0 +1,160 @@
+Import into external_persons
+21/04/19 11:58:02
+
+0 out of 51 records processed successfully.
+0 records added.
+0 records updated.
+51 records processed with errors:
+
+Duplicate entry '2090957368-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957368","ipi_hmlet","db_all_dt_1_employees","2","0","","4","Alexis","","Lin","alexis@hmlet.com","2","","Alexis","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '2090957336-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957336","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Alisa Marie","","DETOITO","alisa.detoito@lmbhousing.com","2","","Alisa","Customer Service Coordinator L1","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957355-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957355","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Andrea","","Loh","andrea@hmlet.com","2","","andrea","Finance","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957343-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957343","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Asmah","","BINTE AHMAD","asmah.bte.ahmad@lmbhousing.com","2","","Asmah","Housekeeper","LMB","+65 9864 9692","","","","","","","","",""
+
+Duplicate entry '2078166419-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2078166419","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Azizah","","BTE SUPPA","azizah.bte.suppa@lmbhousing.com","2","","","Housekeeper","LMB","+65 8120 7235","","","","","","","","",""
+
+Duplicate entry '2090957332-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957332","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Bernadeth","","LAZARO","bernadeth.lazaro@lmbhousing.com","2","","Bernadeth","Accounts Assistant","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957363-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957363","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Blujan","","Joaquin","blu@hmlet.com","1","","blu","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '2090957325-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957325","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Brice","","DEROUET","brice.derouet@lmbhousing.com","1","","Brice","CFO","LMB","+65 9671 7407","","","","","","","","",""
+
+Duplicate entry '2090957356-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957356","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Ching","","yang","chingyang@hmlet.com","1","","chingyang","Finance","LMB","","","","","","","","","",""
+
+Duplicate entry '9996-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"9996","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Christabel","","","christabel@hmlet.com","2","","christabel","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '2090957372-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957372","ipi_hmlet","db_all_dt_1_employees","2","0","","4","Claudia","","Teo","claudia@hmlet.com","2","","Claudia","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '2090957361-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957361","ipi_hmlet","db_all_dt_1_employees","2","0","","3","Dawn","","Loar","dawn@hmlet.com","2","","dawn","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '1-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"1","ipi_hmlet","db_all_dt_1_employees","2","0","","","Franck","","BOULLIER","franck.boullier@lmbhousing.com","1","","Franck","GM","LMB","+65 8322 0675","","","","","","","","",""
+
+Duplicate entry '2090957274-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957274","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Jamolin Maria Glyn","","JAMOLANGUE","maria.jamolangue@lmbhousing.com","2","","Maria","Housekeeper","LMB","+65 9737 8326","","","","","","","","",""
+
+Duplicate entry '2090957369-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957369","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Jan","","Faizal","jan@hmlet.com","1","","jan","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '2090957333-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957333","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Jenifer","","Caragay","jenifer.caragay@lmbhousing.com","2","","JenCa","Accounts Assistant","LMB","","","","","","","","","",""
+
+Duplicate entry '9998-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"9998","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Julien","","","julien@hmlet.com","1","","julien","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '2090957347-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957347","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Kashmira","","PRAVINCHANDRA CHAUHAN","kashmira.chauhan@lmbhousing.com","2","","Kashmira","Product Manager","LMB","+65 91801592","","","","","","","","",""
+
+Duplicate entry '2090957340-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957340","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Latifah","","BINTE ABUBAKAR SIDDIQUE","latifah.siddique@lmbhousing.com","2","","Latifah","Accounts Assistant","LMB","+65 8488 9656","","","","","","","","",""
+
+Duplicate entry '2090957350-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957350","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Norshida","","BINTE MOHAMED EUSOPE","shida.eusope@lmbhousing.com","2","","shida","CS Coordinator","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957334-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957334","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Nurul Shafiqah","","BINTE SHAHLAN","nurul.shafiqah@lmbhousing.com","2","","Nurul","Admin Assistant","LMB","+65 8727 3790","","","","","","","","",""
+
+Duplicate entry '2090957359-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957359","ipi_hmlet","db_all_dt_1_employees","2","0","","3","Pauline","","Wetzer","pauline@hmlet.com","2","","pauline","","Hmlet HKG","","","","","","","","","",""
+
+Duplicate entry '99911-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99911","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Prachi","","","prachi@hmlet.com","2","","prachi","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '1459280377-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"1459280377","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Rosni","","BTE MONDOT","rosni.bte.mondot@lmbhousing.com","2","","","Housekeeper","LMB","+65 8554 9793","","","","","","","","",""
+
+Duplicate entry '2090957326-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957326","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Rubiah","","BINTE JANTAN","rubiah.bte.jantan@lmbhousing.com","2","","Rubiah","Housekeeper","LMB","+65 8693 7970","","","","","","","","",""
+
+Duplicate entry '1286247744-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"1286247744","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Shalini","","VADAKKATHU VENU","shalini.v.venu@lmbhousing.com","2","","Shalini","Assistant Accountant","LMB","+65 9651 3737","","","","","","","","",""
+
+Duplicate entry '2090957362-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957362","ipi_hmlet","db_all_dt_1_employees","2","0","","3","Sui Wan (Candice)","","Lai","candice@hmlet.com","2","","candice","","LMB","+65 9169 2608","","","","","","","","",""
+
+Duplicate entry '99914-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99914","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Sunny","","","sunny@hmlet.com","0","","sunny","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '2090957331-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957331","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Travis","","YAP Soon Peng","travis.yap@lmbhousing.com","1","","Travis","Sales and Reservation Executive","LMB","+65 8682 7966","","","","","","","","",""
+
+Duplicate entry '2090957360-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957360","ipi_hmlet","db_all_dt_1_employees","2","0","","3","Vannesa","","Yeung","vannesa@hmlet.com","2","","vannesa","","Hmlet HKG","","","","","","","","","",""
+
+Duplicate entry '2090957354-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957354","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Wai Choo (Rebecca)","","Lee","rebeccalee@hmlet.com","2","","Rebecca","Accounts Assistant","LMB","+65 8388 4586","","","","","","","","",""
+
+Duplicate entry '2090957373-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957373","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Yoan","","Kamalski","yoan@hmlet.com","1","","Yoan","CEO","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '99917-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99917","ipi_hmlet","db_all_dt_1_employees","2","0","","1","Zenos","","","zenos@hmlet.com","1","","zenos","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '-287669714-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"-287669714","ipi_hmlet","db_all_dt_1_employees","2","0","","2","Zuraihan","","BINTE BORHAN","zuraihan.binte.borhan@lmbhousing.com","2","","","Housekeeper","LMB","+65 9815 5394","","","","","","","","",""
+
+Duplicate entry '2090957349-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957349","ipi_hmlet","db_all_dt_1_employees","2","0","8","3","Kalai Vani ","","D/O NORAYANASAMY","vani.kalai@lmbhousing.com","2","","vani","CS Coordinator","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957313-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957313","ipi_hmlet","db_all_dt_1_employees","2","0","8","2","Khairul Anuar","","BIN MOHAMED AZMI","khairul.anuar@lmbhousing.com","1","","Khairul","Maintenance Technician Supervisor","LMB","+65 9834 8514","","","","","","","","",""
+
+Duplicate entry '1334481514-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"1334481514","ipi_hmlet","db_all_dt_1_employees","2","0","8","3","Low Ven (Nast)","","CHUEN","nast.low-ven-chuen@lmbhousing.com","2","","Nast","Customer Support","LMB","+65 9139 3634","","","","","","","","",""
+
+Duplicate entry '2090957357-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957357","ipi_hmlet","db_all_dt_1_employees","2","0","9","3","Esna","","ONG","esna@hmlet.com","2","","Esna","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '1257766119-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"1257766119","ipi_hmlet","db_all_dt_1_employees","2","0","9","2","Jhian Garrey","","GARCIA REYES","jhian-garrey.reyes@lmbhousing.com","1","","Jhian","Sales Executive","LMB","+65 9337 0613","","","","","","","","",""
+
+Duplicate entry '2090957345-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957345","ipi_hmlet","db_all_dt_1_employees","2","0","9","2","Michael","","PUENLABRADA","michael.puenlabrada@lmbhousing.com","1","","Michael","Reservation and Sales Executive","LMB","+65 8290 0678","","","","","","","","",""
+
+Duplicate entry '99910-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99910","ipi_hmlet","db_all_dt_1_employees","2","0","9","3","Namratha",""," Koushik","namratha@hmlet.com","2","","namnam","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '2090957348-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957348","ipi_hmlet","db_all_dt_1_employees","2","0","9","3","Paula Jo Gan","","ALIX","jo.alix@lmbhousing.com","2","","Jo","Reservation and Sales Executive","LMB","+65 91716231","","","","","","","","",""
+
+Duplicate entry '2090957358-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957358","ipi_hmlet","db_all_dt_1_employees","2","0","9","3","Ying","","Lau Wai","waiying@hmlet.com","2","","yingying","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '99916-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99916","ipi_hmlet","db_all_dt_1_employees","2","0","9","2","Zach","","Walters","zach@hmlet.com","1","","zach","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '-242848645-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"-242848645","ipi_hmlet","db_all_dt_1_employees","2","0","11","2","Jennifer","","GOH","jennifer.goh@lmbhousing.com","2","","","Manager Housekeeper","LMB","+65 9367 7025","","","","","","","","",""
+
+Duplicate entry '2090957305-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957305","ipi_hmlet","db_all_dt_1_employees","2","0","13","2","Abdul Rahim","","Bin Haji Tarmuji","rahim.tarmuji@lmbhousing.com","1","","Rahim","Accounts Assistant","LMB","+65 9455 6851","","","","","","","","",""
+
+Duplicate entry '99912-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99912","ipi_hmlet","db_all_dt_1_employees","2","0","14","3","Rachel","","Ridgwell","rachel@hmlet.com","1","","rachel","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '99913-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"99913","ipi_hmlet","db_all_dt_1_employees","2","0","14","3","Rebecca","","Delacruz-Gunderson","rebecca@hmlet.com","2","","rebecca","Hmlet","Unknown","","","","","","","","","",""
+
+Duplicate entry '2090957370-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957370","ipi_hmlet","db_all_dt_1_employees","2","0","17","2","Brian","","Ju","brian@hmlet.com","1","","Brian","","Hmlet Central","","","","","","","","","",""
+
+Duplicate entry '2090957335-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957335","ipi_hmlet","db_all_dt_1_employees","2","0","18","3","Delphine","","GIRON LE MARTIN","delphine.giron.lemartin@lmbhousing.com","2","","Delphine","COO","LMB","","","","","","","","","",""
+
+Duplicate entry '2090957324-ipi_hmlet-db_all_dt_1_employees-2' for key 'PRIMARY'
+"2090957324","ipi_hmlet","db_all_dt_1_employees","2","0","18","2","Nathaniel","","SANCHEZ","nathaniel.sanchez@lmbhousing.com","1","","Nath","Customer Support","LMB","+65 9337 0613","","","","","","","","",""
