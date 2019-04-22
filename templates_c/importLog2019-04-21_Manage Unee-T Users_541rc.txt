@@ -1,0 +1,6 @@
+Import into external_persons
+21/04/19 13:02:17
+
+17 out of 17 records processed successfully.
+0 records added.
+17 records updated.
