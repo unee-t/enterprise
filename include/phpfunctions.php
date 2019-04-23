@@ -1194,10 +1194,6 @@ function GetDefaultValue($field, $ptype, $table="")
 	{
 		return 0;
 	}
-				if($table=="Manage Buildings" && $field=="area_id")
-	{
-		return 1;
-	}
 				if($table=="Manage Buildings" && $field=="tower")
 	{
 		return 1;

@@ -290,6 +290,32 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
 						</div>
 		{END searchCtrlBlock_role_type}
+																{BEGIN searchCtrlBlock_is_unee_t_account_needed}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_unee_t_account_needed}" {$filterRow_attrs_is_unee_t_account_needed}>
+			<label>{$label Manage_Unee_T_Users is_unee_t_account_needed }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_unee_t_account_needed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_unee_t_account_needed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_unee_t_account_needed}</span>
+						</div>
+		{END searchCtrlBlock_is_unee_t_account_needed}
+																{BEGIN searchCtrlBlock_person_status_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_person_status_id}" {$filterRow_attrs_person_status_id}>
+			<label>{$label Manage_Unee_T_Users person_status_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_person_status_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_person_status_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_person_status_id}</span>
+						</div>
+		{END searchCtrlBlock_person_status_id}
 		
 
 	</div>
@@ -349,6 +375,10 @@
 			
 			
 			
+			
+			
+			
+			
 				</li>				
 				{END filterCtrlBlock_country_code}
 
@@ -395,6 +425,10 @@
 				<li class="list-group-item filter-values filter-values-role_type {$collapsedClass_role_type} {$visibilityClass_role_type}">
 					{$role_type_filter}
 								
+			
+			
+			
+			
 			
 			
 			
@@ -453,6 +487,10 @@
 			
 			
 			
+			
+			
+			
+			
 				</li>				
 				{END filterCtrlBlock_designation}
 
@@ -471,6 +509,118 @@
 			</ul>			
 		</div>
 		{END filter_control_designation}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_is_unee_t_account_needed}
+		<div class="panel panel-info filter-field filter-is_unee_t_account_needed-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_Unee_T_Users is_unee_t_account_needed }</label>
+
+				{BEGIN clearLink_is_unee_t_account_needed}
+				<a href="#" class="filter-clear filter-clear-is_unee_t_account_needed">Clear</a>
+				{END clearLink_is_unee_t_account_needed}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_is_unee_t_account_needed}
+				<li class="list-group-item filter-values filter-values-is_unee_t_account_needed {$collapsedClass_is_unee_t_account_needed} {$visibilityClass_is_unee_t_account_needed}">
+					{$is_unee_t_account_needed_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_is_unee_t_account_needed}
+
+							{BEGIN filter_button_showmore_is_unee_t_account_needed}
+				<li class="list-group-item filter-show-more {$collapsedClass_is_unee_t_account_needed} {$showMoreBtnClass_is_unee_t_account_needed}">
+					<a class="filter-show-more-link filterShowMore_is_unee_t_account_needed" href="#">{$show_n_more_is_unee_t_account_needed}</a>
+				</li>
+				{END filter_button_showmore_is_unee_t_account_needed}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_is_unee_t_account_needed}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_person_status}
+		<div class="panel panel-info filter-field filter-person_status-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_Unee_T_Users person_status }</label>
+
+				{BEGIN clearLink_person_status}
+				<a href="#" class="filter-clear filter-clear-person_status">Clear</a>
+				{END clearLink_person_status}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_person_status}
+				<li class="list-group-item filter-values filter-values-person_status {$collapsedClass_person_status} {$visibilityClass_person_status}">
+					{$person_status_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_person_status}
+
+							{BEGIN filter_button_showmore_person_status}
+				<li class="list-group-item filter-show-more {$collapsedClass_person_status} {$showMoreBtnClass_person_status}">
+					<a class="filter-show-more-link filterShowMore_person_status" href="#">{$show_n_more_person_status}</a>
+				</li>
+				{END filter_button_showmore_person_status}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_person_status}
 	 
 	</div>
 </div></td>
