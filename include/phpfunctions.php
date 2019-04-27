@@ -1119,6 +1119,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
+		if($table=="Assign Buildings to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
 		if($table=="Assign Units to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
 	{
 		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
@@ -1149,6 +1154,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
+		if($table=="Assign Units to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
 		if($table=="Assign Rooms to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
 	{
 		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
@@ -1177,6 +1187,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		if($table=="Assign Rooms to User" && $field=="unee_t_user_type_id")
 	{
 		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
 		return $strWhere;
 	}
 	return "";

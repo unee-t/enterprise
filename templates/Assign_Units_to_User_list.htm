@@ -301,6 +301,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_area_id}</span>
 						</div>
 		{END searchCtrlBlock_area_id}
+																{BEGIN searchCtrlBlock_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_name}" {$filterRow_attrs_name}>
+			<label>{$label Assign_Units_to_User name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_name}</span>
+						</div>
+		{END searchCtrlBlock_name}
 		
 
 	</div>
@@ -362,6 +375,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_area_name}
 
@@ -390,6 +405,62 @@
 
 		 	
 
+		{BEGIN filter_control_country_name}
+		<div class="panel panel-info filter-field filter-country_name-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Assign_Units_to_User country_name }</label>
+
+				{BEGIN clearLink_country_name}
+				<a href="#" class="filter-clear filter-clear-country_name">Clear</a>
+				{END clearLink_country_name}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_country_name}
+				<li class="list-group-item filter-values filter-values-country_name {$collapsedClass_country_name} {$visibilityClass_country_name}">
+					{$country_name_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_country_name}
+
+							{BEGIN filter_button_showmore_country_name}
+				<li class="list-group-item filter-show-more {$collapsedClass_country_name} {$showMoreBtnClass_country_name}">
+					<a class="filter-show-more-link filterShowMore_country_name" href="#">{$show_n_more_country_name}</a>
+				</li>
+				{END filter_button_showmore_country_name}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_country_name}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
 		{BEGIN filter_control_building_name}
 		<div class="panel panel-info filter-field filter-building_name-container">
 			<div class="panel-heading filter-expander">
@@ -408,6 +479,8 @@
 				<li class="list-group-item filter-values filter-values-building_name {$collapsedClass_building_name} {$visibilityClass_building_name}">
 					{$building_name_filter}
 								
+			
+			
 			
 			
 			
@@ -470,6 +543,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_user_role}
 
@@ -516,6 +591,8 @@
 				<li class="list-group-item filter-values filter-values-user_type {$collapsedClass_user_type} {$visibilityClass_user_type}">
 					{$user_type_filter}
 								
+			
+			
 			
 			
 			
@@ -789,6 +866,18 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_update_ts"]:before {
 		content: "{$label Assign_Units_to_User unee_t_update_ts}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="country_code"]:before {
+		content: "{$label Assign_Units_to_User country_code}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="country_name"]:before {
+		content: "{$label Assign_Units_to_User country_name}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="name"]:before {
+		content: "{$label Assign_Units_to_User name}";
 	}
 	
 }

@@ -101,6 +101,7 @@ function InitLookupLinks()
 	$lookupTableLinks["Search Buildings"]["Assign_Buildings_to_User.unee_t_level_1_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_level_1_id", "page" => "edit");
 	$lookupTableLinks["ut_user_role_types"]["Assign_Buildings_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_role_id", "page" => "edit");
 	$lookupTableLinks["ut_user_types"]["Assign_Buildings_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Buildings to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["property_groups_countries"]["Assign_Buildings_to_User.country_code"]["search"] = array("table" => "Assign Buildings to User", "field" => "country_code", "page" => "search");
 	$lookupTableLinks["uneet_enterprise_organizations"]["property_level_1_buildings.organization_id"]["edit"] = array("table" => "property_level_1_buildings", "field" => "organization_id", "page" => "edit");
 	$lookupTableLinks["property_groups_areas"]["property_level_1_buildings.area_id"]["edit"] = array("table" => "property_level_1_buildings", "field" => "area_id", "page" => "edit");
 	$lookupTableLinks["ut_unit_types"]["property_level_1_buildings.unee_t_unit_type"]["edit"] = array("table" => "property_level_1_buildings", "field" => "unee_t_unit_type", "page" => "edit");
@@ -111,6 +112,7 @@ function InitLookupLinks()
 	$lookupTableLinks["Search Units"]["Assign_Units_to_User.unee_t_level_2_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_level_2_id", "page" => "edit");
 	$lookupTableLinks["ut_user_role_types"]["Assign_Units_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_role_id", "page" => "edit");
 	$lookupTableLinks["ut_user_types"]["Assign_Units_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["property_groups_countries"]["Assign_Units_to_User.country_code"]["search"] = array("table" => "Assign Units to User", "field" => "country_code", "page" => "search");
 	$lookupTableLinks["uneet_enterprise_organizations"]["property_level_2_units.organization_id"]["edit"] = array("table" => "property_level_2_units", "field" => "organization_id", "page" => "edit");
 	$lookupTableLinks["ut_unit_types"]["property_level_2_units.unee_t_unit_type"]["edit"] = array("table" => "property_level_2_units", "field" => "unee_t_unit_type", "page" => "edit");
 	$lookupTableLinks["property_level_1_buildings"]["property_level_2_units.building_system_id"]["edit"] = array("table" => "property_level_2_units", "field" => "building_system_id", "page" => "edit");
@@ -121,6 +123,7 @@ function InitLookupLinks()
 	$lookupTableLinks["Search Rooms"]["Assign_Rooms_to_User.unee_t_level_3_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_level_3_id", "page" => "edit");
 	$lookupTableLinks["ut_user_role_types"]["Assign_Rooms_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_role_id", "page" => "edit");
 	$lookupTableLinks["ut_user_types"]["Assign_Rooms_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["property_groups_countries"]["Assign_Rooms_to_User.country_code"]["search"] = array("table" => "Assign Rooms to User", "field" => "country_code", "page" => "search");
 	$lookupTableLinks["uneet_enterprise_organizations"]["property_level_3_rooms.organization_id"]["edit"] = array("table" => "property_level_3_rooms", "field" => "organization_id", "page" => "edit");
 	$lookupTableLinks["ut_unit_types"]["property_level_3_rooms.unee_t_unit_type"]["edit"] = array("table" => "property_level_3_rooms", "field" => "unee_t_unit_type", "page" => "edit");
 	$lookupTableLinks["property_level_2_units"]["property_level_3_rooms.system_id_unit"]["edit"] = array("table" => "property_level_3_rooms", "field" => "system_id_unit", "page" => "edit");

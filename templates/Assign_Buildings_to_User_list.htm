@@ -301,6 +301,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_area_id}</span>
 						</div>
 		{END searchCtrlBlock_area_id}
+																{BEGIN searchCtrlBlock_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_name}" {$filterRow_attrs_name}>
+			<label>{$label Assign_Buildings_to_User name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_name}</span>
+						</div>
+		{END searchCtrlBlock_name}
 																{BEGIN searchCtrlBlock_unee_t_user_type_id}
 
 
@@ -910,6 +923,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="country_name"]:before {
 		content: "{$label Assign_Buildings_to_User country_name}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="name"]:before {
+		content: "{$label Assign_Buildings_to_User name}";
 	}
 	
 }
