@@ -19,7 +19,7 @@ $dalTableexternal_map_user_unit_role_permissions_level_1["unee_t_user_type_id"] 
 $dalTableexternal_map_user_unit_role_permissions_level_1["unee_t_role_id"] = array("type"=>3,"varname"=>"unee_t_role_id", "name" => "unee_t_role_id");
 $dalTableexternal_map_user_unit_role_permissions_level_1["propagate_level_2"] = array("type"=>16,"varname"=>"propagate_level_2", "name" => "propagate_level_2");
 $dalTableexternal_map_user_unit_role_permissions_level_1["propagate_level_3"] = array("type"=>16,"varname"=>"propagate_level_3", "name" => "propagate_level_3");
-	$dalTableexternal_map_user_unit_role_permissions_level_1["organization_id"]["key"]=true;
+	$dalTableexternal_map_user_unit_role_permissions_level_1["created_by_id"]["key"]=true;
 	$dalTableexternal_map_user_unit_role_permissions_level_1["unee_t_mefe_user_id"]["key"]=true;
 	$dalTableexternal_map_user_unit_role_permissions_level_1["unee_t_level_1_id"]["key"]=true;
 	$dalTableexternal_map_user_unit_role_permissions_level_1["unee_t_user_type_id"]["key"]=true;
