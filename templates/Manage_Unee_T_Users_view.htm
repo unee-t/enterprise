@@ -873,8 +873,7 @@
 								</td>
 			{END cellblock_section4_c1}
 			 
-		
-							
+																
 
 {BEGIN cellblock_section4_c2}
 <td
@@ -888,7 +887,29 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
+				
+{BEGIN adr2_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_adr2}  r-vertical-field" data-fieldname="adr2" data-signal-error-for="adr2{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="adr2" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_adr2}">
+		
+		{BEGIN adr2_label}{$label Manage_Unee_T_Users adr2 }{END adr2_label}
+	</label>
+	<div class="" >
+		{$adr2_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END adr2_fieldblock}
+	
+								</td>
 			{END cellblock_section4_c2}
 			 
 																
@@ -1050,84 +1071,6 @@
 								</td>
 			{END cellblock_section4_c8}
 								</tr>
-	 
-	 
-														<tr>
-										
-
-{BEGIN cellblock_section4_c3}
-<td
-	{$cell_section4_c3}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section4_c3" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN country_code_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" data-fieldname="country_code" data-signal-error-for="country_code{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="country_code" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_country_code}">
-		
-		{BEGIN country_code_label}{$label Manage_Unee_T_Users country_code }{END country_code_label}
-	</label>
-	<div class="" >
-		{$country_code_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END country_code_fieldblock}
-	
-								</td>
-			{END cellblock_section4_c3}
-			 
-		
-							
-
-{BEGIN cellblock_section4_c4}
-<td
-	{$cell_section4_c4}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section4_c4" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_section4_c4}
-			 
-		
-							
-
-{BEGIN cellblock_section4_c5}
-<td
-	{$cell_section4_c5}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section4_c5" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_section4_c5}
-								</tr>
 			</tbody></table>
 {END section4_block}
 						</div>
@@ -1170,9 +1113,9 @@
 	data-location="section5" id="form_section5_{$pageid}" data-makeup="topbar" {$form_section5} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="3"
+		data-form-width="4"
 		
-		data-v-width="6"
+		data-v-width="8"
 	>
 	<tbody>
 										<tr>
@@ -1253,6 +1196,45 @@
 	
 								</td>
 			{END cellblock_section5_c}
+			 
+																
+
+{BEGIN cellblock_section5_c3}
+<td
+	{$cell_section5_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN country_code_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" data-fieldname="country_code" data-signal-error-for="country_code{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="country_code" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_country_code}">
+		
+		{BEGIN country_code_label}{$label Manage_Unee_T_Users country_code }{END country_code_label}
+	</label>
+	<div class="" >
+		{$country_code_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END country_code_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c3}
 			 
 																
 
@@ -1498,59 +1480,7 @@
 		</div>
 	</div>
 	
-				 
-	 
-												<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr>
-										
-
-{BEGIN cellblock_grid_c3}
-<td
-	{$cell_grid_c3}
-	class=" r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN role_type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-vertical-field" data-fieldname="role_type" data-signal-error-for="role_type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="role_type" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_role_type}">
-		
-		{BEGIN role_type_label}{$label Manage_Unee_T_Users role_type }{END role_type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$role_type_value}	</div>
-
-		
-</div>
-
-
-{END role_type_fieldblock}
-	
-								</td>
-			{END cellblock_grid_c3}
-								</tr>
-			</tbody></table>
-{END grid_block}
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}
