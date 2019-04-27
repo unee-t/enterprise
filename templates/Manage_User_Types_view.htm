@@ -14,7 +14,7 @@
 		<link REL="stylesheet" href="{$stylepath}" type="text/css">
 		{END styleCSSFiles}
 	</head>
-	<body class="{$stylename} function-edit" {$bodyattrs}>
+	<body class="{$stylename} function-view" {$bodyattrs}>
 	{BEGIN body}
 		{$header}
 		<style>
@@ -71,7 +71,7 @@
 	
 ">
 		 
-		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel Manage_User_Types edit}</h2>
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel Manage_User_Types view}</h2>
 		</div>					</div>
 	</div>		
 {END top_block}
@@ -91,28 +91,6 @@
 ">
 		{BEGIN firstAboveGridCell}
 		 
-		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
-<h5>{$message}</h5>
-<div>
-{BEGIN back_button}
-			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
-	{END back_button}
-{BEGIN view_page_button}
-	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>View</button>
-{END view_page_button}
-</div>
-</div>
-			{END firstAboveGridCell}	
-	</div>					</div>
-	 
-		<div class="row">
-			 
-				<div 
-	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
-	class=" r-ori-vert			col-md-12
-	
-">
-		 
 		{BEGIN breadcrumb}
 <ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
 <li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
@@ -128,7 +106,8 @@
   </li>
 {END crumb}
 </ol>
-{END breadcrumb}		</div>					</div>
+{END breadcrumb}			{END firstAboveGridCell}	
+	</div>					</div>
 	</div>		
 {END above-grid_block}
 							
@@ -193,21 +172,19 @@
 {BEGIN designation_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" 
-	data-fieldname="designation" 
-	data-signal-error-for="designation{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="designation" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" data-fieldname="designation" data-signal-error-for="designation{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="designation" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_designation}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_designation}">
+		
 		{BEGIN designation_label}{$label Manage_User_Types designation }{END designation_label}
 	</label>
-	<div class="r-edit-field">
-		{$designation_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="designation">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$designation_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -234,21 +211,19 @@
 {BEGIN ut_user_role_type_id_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_ut_user_role_type_id}  r-vertical-field" 
-	data-fieldname="ut_user_role_type_id" 
-	data-signal-error-for="ut_user_role_type_id{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="ut_user_role_type_id" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ut_user_role_type_id}  r-vertical-field" data-fieldname="ut_user_role_type_id" data-signal-error-for="ut_user_role_type_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="ut_user_role_type_id" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_ut_user_role_type_id}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_ut_user_role_type_id}">
+		
 		{BEGIN ut_user_role_type_id_label}{$label Manage_User_Types ut_user_role_type_id }{END ut_user_role_type_id_label}
 	</label>
-	<div class="r-edit-field">
-		{$ut_user_role_type_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="ut_user_role_type_id">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$ut_user_role_type_id_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -275,21 +250,19 @@
 {BEGIN is_occupant_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_occupant}  r-vertical-field" 
-	data-fieldname="is_occupant" 
-	data-signal-error-for="is_occupant{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="is_occupant" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_occupant}  r-vertical-field" data-fieldname="is_occupant" data-signal-error-for="is_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="is_occupant" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_occupant}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_occupant}">
+		
 		{BEGIN is_occupant_label}{$label Manage_User_Types is_occupant }{END is_occupant_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_occupant_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_occupant">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_occupant_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -319,21 +292,19 @@
 {BEGIN is_public_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_public}  r-vertical-field" 
-	data-fieldname="is_public" 
-	data-signal-error-for="is_public{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="is_public" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_public}  r-vertical-field" data-fieldname="is_public" data-signal-error-for="is_public{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="is_public" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_public}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_public}">
+		
 		{BEGIN is_public_label}{$label Manage_User_Types is_public }{END is_public_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_public_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_public">
-		<div class="text-muted" >
-		Tick if this user can be seen and invited by other roles.		</div>
-	</div>
+	<div class="" >
+		{$is_public_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -360,21 +331,19 @@
 {BEGIN is_default_assignee_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_assignee}  r-vertical-field" 
-	data-fieldname="is_default_assignee" 
-	data-signal-error-for="is_default_assignee{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="is_default_assignee" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_assignee}  r-vertical-field" data-fieldname="is_default_assignee" data-signal-error-for="is_default_assignee{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="is_default_assignee" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_default_assignee}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_default_assignee}">
+		
 		{BEGIN is_default_assignee_label}{$label Manage_User_Types is_default_assignee }{END is_default_assignee_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_default_assignee_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_default_assignee">
-		<div class="text-muted" >
-		Tick if this is the user type you create for the PUBLIC user who is visible to the other roles.		</div>
-	</div>
+	<div class="" >
+		{$is_default_assignee_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -401,21 +370,19 @@
 {BEGIN is_default_invited_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-vertical-field" 
-	data-fieldname="is_default_invited" 
-	data-signal-error-for="is_default_invited{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="is_default_invited" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-vertical-field" data-fieldname="is_default_invited" data-signal-error-for="is_default_invited{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="is_default_invited" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_default_invited}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_default_invited}">
+		
 		{BEGIN is_default_invited_label}{$label Manage_User_Types is_default_invited }{END is_default_invited_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_default_invited_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_default_invited">
-		<div class="text-muted" >
-		Tick if this is these users are automatically invited to ALL the cases created and initially assigned to this role.		</div>
-	</div>
+	<div class="" >
+		{$is_default_invited_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -445,21 +412,19 @@
 {BEGIN is_all_unit_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-vertical-field" 
-	data-fieldname="is_all_unit" 
-	data-signal-error-for="is_all_unit{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" {$item_integrated_edit_field36} data-pageid="{$pageid}" data-field="is_all_unit" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-vertical-field" data-fieldname="is_all_unit" data-signal-error-for="is_all_unit{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" {$item_integrated_edit_field36} data-pageid="{$pageid}" data-field="is_all_unit" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_all_unit}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_unit}">
+		
 		{BEGIN is_all_unit_label}{$label Manage_User_Types is_all_unit }{END is_all_unit_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_all_unit_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_all_unit">
-		<div class="text-muted" >
-		Tick if you want these users to be assigned to ALL units in your organiztion		</div>
-	</div>
+	<div class="" >
+		{$is_all_unit_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -486,21 +451,19 @@
 {BEGIN is_dashboard_access_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_dashboard_access}  r-vertical-field" 
-	data-fieldname="is_dashboard_access" 
-	data-signal-error-for="is_dashboard_access{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="is_dashboard_access" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_dashboard_access}  r-vertical-field" data-fieldname="is_dashboard_access" data-signal-error-for="is_dashboard_access{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="is_dashboard_access" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_dashboard_access}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_dashboard_access}">
+		
 		{BEGIN is_dashboard_access_label}{$label Manage_User_Types is_dashboard_access }{END is_dashboard_access_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_dashboard_access_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_dashboard_access">
-		<div class="text-muted" >
-		Tick if you want these users to have access to the Unee-T Dashboard		</div>
-	</div>
+	<div class="" >
+		{$is_dashboard_access_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -527,21 +490,19 @@
 {BEGIN order_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_order}  r-vertical-field" 
-	data-fieldname="order" 
-	data-signal-error-for="order{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="order" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_order}  r-vertical-field" data-fieldname="order" data-signal-error-for="order{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="order" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_order}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_order}">
+		
 		{BEGIN order_label}{$label Manage_User_Types order }{END order_label}
 	</label>
-	<div class="r-edit-field">
-		{$order_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="order">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$order_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -571,21 +532,19 @@
 {BEGIN id_unee_t_user_type_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_id_unee_t_user_type}  r-vertical-field" 
-	data-fieldname="id_unee_t_user_type" 
-	data-signal-error-for="id_unee_t_user_type{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" {$item_integrated_edit_field35} data-pageid="{$pageid}" data-field="id_unee_t_user_type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_unee_t_user_type}  r-vertical-field" data-fieldname="id_unee_t_user_type" data-signal-error-for="id_unee_t_user_type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" {$item_integrated_edit_field35} data-pageid="{$pageid}" data-field="id_unee_t_user_type" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_id_unee_t_user_type}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_id_unee_t_user_type}">
+		
 		{BEGIN id_unee_t_user_type_label}{$label Manage_User_Types id_unee_t_user_type }{END id_unee_t_user_type_label}
 	</label>
-	<div class="r-edit-field">
-		{$id_unee_t_user_type_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="id_unee_t_user_type">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$id_unee_t_user_type_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -612,21 +571,19 @@
 {BEGIN is_obsolete_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_obsolete}  r-vertical-field" 
-	data-fieldname="is_obsolete" 
-	data-signal-error-for="is_obsolete{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="is_obsolete" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_obsolete}  r-vertical-field" data-fieldname="is_obsolete" data-signal-error-for="is_obsolete{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="is_obsolete" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_obsolete}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_obsolete}">
+		
 		{BEGIN is_obsolete_label}{$label Manage_User_Types is_obsolete }{END is_obsolete_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_obsolete_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_obsolete">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_obsolete_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -657,21 +614,19 @@
 {BEGIN description_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" 
-	data-fieldname="description" 
-	data-signal-error-for="description{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="description" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" data-fieldname="description" data-signal-error-for="description{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="description" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_description}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_description}">
+		
 		{BEGIN description_label}{$label Manage_User_Types description }{END description_label}
 	</label>
-	<div class="r-edit-field">
-		{$description_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="description">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$description_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -741,21 +696,19 @@
 {BEGIN can_see_role_tenant_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_tenant}  r-vertical-field" 
-	data-fieldname="can_see_role_tenant" 
-	data-signal-error-for="can_see_role_tenant{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="can_see_role_tenant" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_tenant}  r-vertical-field" data-fieldname="can_see_role_tenant" data-signal-error-for="can_see_role_tenant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="can_see_role_tenant" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_role_tenant}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_tenant}">
+		
 		{BEGIN can_see_role_tenant_label}{$label Manage_User_Types can_see_role_tenant }{END can_see_role_tenant_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_role_tenant_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_role_tenant">
-		<div class="text-muted" >
-		These users can invite tenants to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_role_tenant_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -782,21 +735,19 @@
 {BEGIN can_see_occupant_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_occupant}  r-vertical-field" 
-	data-fieldname="can_see_occupant" 
-	data-signal-error-for="can_see_occupant{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="can_see_occupant" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_occupant}  r-vertical-field" data-fieldname="can_see_occupant" data-signal-error-for="can_see_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="can_see_occupant" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_occupant}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_occupant}">
+		
 		{BEGIN can_see_occupant_label}{$label Manage_User_Types can_see_occupant }{END can_see_occupant_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_occupant_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_occupant">
-		<div class="text-muted" >
-		These users can invite occupants to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_occupant_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -823,21 +774,19 @@
 {BEGIN can_see_role_mgt_cny_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_mgt_cny}  r-vertical-field" 
-	data-fieldname="can_see_role_mgt_cny" 
-	data-signal-error-for="can_see_role_mgt_cny{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="can_see_role_mgt_cny" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_mgt_cny}  r-vertical-field" data-fieldname="can_see_role_mgt_cny" data-signal-error-for="can_see_role_mgt_cny{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="can_see_role_mgt_cny" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_role_mgt_cny}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_mgt_cny}">
+		
 		{BEGIN can_see_role_mgt_cny_label}{$label Manage_User_Types can_see_role_mgt_cny }{END can_see_role_mgt_cny_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_role_mgt_cny_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_role_mgt_cny">
-		<div class="text-muted" >
-		These users can invite teh Management Company to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_role_mgt_cny_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -867,21 +816,19 @@
 {BEGIN can_see_role_contractor_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_contractor}  r-vertical-field" 
-	data-fieldname="can_see_role_contractor" 
-	data-signal-error-for="can_see_role_contractor{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="can_see_role_contractor" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_contractor}  r-vertical-field" data-fieldname="can_see_role_contractor" data-signal-error-for="can_see_role_contractor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="can_see_role_contractor" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_role_contractor}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_contractor}">
+		
 		{BEGIN can_see_role_contractor_label}{$label Manage_User_Types can_see_role_contractor }{END can_see_role_contractor_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_role_contractor_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_role_contractor">
-		<div class="text-muted" >
-		These users can invite contractors to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_role_contractor_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -908,21 +855,19 @@
 {BEGIN can_see_role_landlord_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_landlord}  r-vertical-field" 
-	data-fieldname="can_see_role_landlord" 
-	data-signal-error-for="can_see_role_landlord{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="can_see_role_landlord" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_landlord}  r-vertical-field" data-fieldname="can_see_role_landlord" data-signal-error-for="can_see_role_landlord{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="can_see_role_landlord" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_role_landlord}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_landlord}">
+		
 		{BEGIN can_see_role_landlord_label}{$label Manage_User_Types can_see_role_landlord }{END can_see_role_landlord_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_role_landlord_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_role_landlord">
-		<div class="text-muted" >
-		These users can invite Owner/Landlord to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_role_landlord_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -949,21 +894,19 @@
 {BEGIN can_see_role_agent_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_agent}  r-vertical-field" 
-	data-fieldname="can_see_role_agent" 
-	data-signal-error-for="can_see_role_agent{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="can_see_role_agent" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_agent}  r-vertical-field" data-fieldname="can_see_role_agent" data-signal-error-for="can_see_role_agent{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="can_see_role_agent" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_can_see_role_agent}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_agent}">
+		
 		{BEGIN can_see_role_agent_label}{$label Manage_User_Types can_see_role_agent }{END can_see_role_agent_label}
 	</label>
-	<div class="r-edit-field">
-		{$can_see_role_agent_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="can_see_role_agent">
-		<div class="text-muted" >
-		These users can invite agents to a case.		</div>
-	</div>
+	<div class="" >
+		{$can_see_role_agent_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1064,21 +1007,19 @@
 {BEGIN is_assigned_to_case_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_assigned_to_case}  r-vertical-field" 
-	data-fieldname="is_assigned_to_case" 
-	data-signal-error-for="is_assigned_to_case{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="is_assigned_to_case" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_assigned_to_case}  r-vertical-field" data-fieldname="is_assigned_to_case" data-signal-error-for="is_assigned_to_case{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="is_assigned_to_case" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_assigned_to_case}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_assigned_to_case}">
+		
 		{BEGIN is_assigned_to_case_label}{$label Manage_User_Types is_assigned_to_case }{END is_assigned_to_case_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_assigned_to_case_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_assigned_to_case">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_assigned_to_case_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1105,21 +1046,19 @@
 {BEGIN is_invited_to_case_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_to_case}  r-vertical-field" 
-	data-fieldname="is_invited_to_case" 
-	data-signal-error-for="is_invited_to_case{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="is_invited_to_case" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_to_case}  r-vertical-field" data-fieldname="is_invited_to_case" data-signal-error-for="is_invited_to_case{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="is_invited_to_case" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_invited_to_case}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_invited_to_case}">
+		
 		{BEGIN is_invited_to_case_label}{$label Manage_User_Types is_invited_to_case }{END is_invited_to_case_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_invited_to_case_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_invited_to_case">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_invited_to_case_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1149,21 +1088,19 @@
 {BEGIN is_solution_updated_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_solution_updated}  r-vertical-field" 
-	data-fieldname="is_solution_updated" 
-	data-signal-error-for="is_solution_updated{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="is_solution_updated" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_solution_updated}  r-vertical-field" data-fieldname="is_solution_updated" data-signal-error-for="is_solution_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="is_solution_updated" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_solution_updated}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_solution_updated}">
+		
 		{BEGIN is_solution_updated_label}{$label Manage_User_Types is_solution_updated }{END is_solution_updated_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_solution_updated_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_solution_updated">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_solution_updated_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1190,21 +1127,19 @@
 {BEGIN is_next_step_updated_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_next_step_updated}  r-vertical-field" 
-	data-fieldname="is_next_step_updated" 
-	data-signal-error-for="is_next_step_updated{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="is_next_step_updated" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_next_step_updated}  r-vertical-field" data-fieldname="is_next_step_updated" data-signal-error-for="is_next_step_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="is_next_step_updated" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_next_step_updated}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_next_step_updated}">
+		
 		{BEGIN is_next_step_updated_label}{$label Manage_User_Types is_next_step_updated }{END is_next_step_updated_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_next_step_updated_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_next_step_updated">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_next_step_updated_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1231,21 +1166,19 @@
 {BEGIN is_deadline_updated_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_deadline_updated}  r-vertical-field" 
-	data-fieldname="is_deadline_updated" 
-	data-signal-error-for="is_deadline_updated{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="is_deadline_updated" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_deadline_updated}  r-vertical-field" data-fieldname="is_deadline_updated" data-signal-error-for="is_deadline_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="is_deadline_updated" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_deadline_updated}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_deadline_updated}">
+		
 		{BEGIN is_deadline_updated_label}{$label Manage_User_Types is_deadline_updated }{END is_deadline_updated_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_deadline_updated_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_deadline_updated">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_deadline_updated_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1272,21 +1205,19 @@
 {BEGIN is_case_resolved_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_resolved}  r-vertical-field" 
-	data-fieldname="is_case_resolved" 
-	data-signal-error-for="is_case_resolved{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="is_case_resolved" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_resolved}  r-vertical-field" data-fieldname="is_case_resolved" data-signal-error-for="is_case_resolved{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="is_case_resolved" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_case_resolved}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_resolved}">
+		
 		{BEGIN is_case_resolved_label}{$label Manage_User_Types is_case_resolved }{END is_case_resolved_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_case_resolved_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_case_resolved">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_case_resolved_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1335,21 +1266,19 @@
 {BEGIN is_message_from_mgt_cny_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_mgt_cny}  r-vertical-field" 
-	data-fieldname="is_message_from_mgt_cny" 
-	data-signal-error-for="is_message_from_mgt_cny{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="is_message_from_mgt_cny" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_mgt_cny}  r-vertical-field" data-fieldname="is_message_from_mgt_cny" data-signal-error-for="is_message_from_mgt_cny{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="is_message_from_mgt_cny" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_mgt_cny}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_mgt_cny}">
+		
 		{BEGIN is_message_from_mgt_cny_label}{$label Manage_User_Types is_message_from_mgt_cny }{END is_message_from_mgt_cny_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_mgt_cny_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_mgt_cny">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_mgt_cny_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1376,21 +1305,19 @@
 {BEGIN is_message_from_occupant_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_occupant}  r-vertical-field" 
-	data-fieldname="is_message_from_occupant" 
-	data-signal-error-for="is_message_from_occupant{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="is_message_from_occupant" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_occupant}  r-vertical-field" data-fieldname="is_message_from_occupant" data-signal-error-for="is_message_from_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="is_message_from_occupant" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_occupant}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_occupant}">
+		
 		{BEGIN is_message_from_occupant_label}{$label Manage_User_Types is_message_from_occupant }{END is_message_from_occupant_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_occupant_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_occupant">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_occupant_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1417,21 +1344,19 @@
 {BEGIN is_message_from_tenant_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_tenant}  r-vertical-field" 
-	data-fieldname="is_message_from_tenant" 
-	data-signal-error-for="is_message_from_tenant{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" {$item_integrated_edit_field28} data-pageid="{$pageid}" data-field="is_message_from_tenant" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_tenant}  r-vertical-field" data-fieldname="is_message_from_tenant" data-signal-error-for="is_message_from_tenant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" {$item_integrated_edit_field28} data-pageid="{$pageid}" data-field="is_message_from_tenant" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_tenant}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_tenant}">
+		
 		{BEGIN is_message_from_tenant_label}{$label Manage_User_Types is_message_from_tenant }{END is_message_from_tenant_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_tenant_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_tenant">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_tenant_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1461,21 +1386,19 @@
 {BEGIN is_message_from_contractor_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_contractor}  r-vertical-field" 
-	data-fieldname="is_message_from_contractor" 
-	data-signal-error-for="is_message_from_contractor{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="is_message_from_contractor" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_contractor}  r-vertical-field" data-fieldname="is_message_from_contractor" data-signal-error-for="is_message_from_contractor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="is_message_from_contractor" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_contractor}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_contractor}">
+		
 		{BEGIN is_message_from_contractor_label}{$label Manage_User_Types is_message_from_contractor }{END is_message_from_contractor_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_contractor_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_contractor">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_contractor_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1502,21 +1425,19 @@
 {BEGIN is_message_from_agent_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_agent}  r-vertical-field" 
-	data-fieldname="is_message_from_agent" 
-	data-signal-error-for="is_message_from_agent{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="is_message_from_agent" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_agent}  r-vertical-field" data-fieldname="is_message_from_agent" data-signal-error-for="is_message_from_agent{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="is_message_from_agent" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_agent}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_agent}">
+		
 		{BEGIN is_message_from_agent_label}{$label Manage_User_Types is_message_from_agent }{END is_message_from_agent_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_agent_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_agent">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_agent_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1543,21 +1464,19 @@
 {BEGIN is_message_from_ll_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_ll}  r-vertical-field" 
-	data-fieldname="is_message_from_ll" 
-	data-signal-error-for="is_message_from_ll{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" {$item_integrated_edit_field27} data-pageid="{$pageid}" data-field="is_message_from_ll" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_ll}  r-vertical-field" data-fieldname="is_message_from_ll" data-signal-error-for="is_message_from_ll{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" {$item_integrated_edit_field27} data-pageid="{$pageid}" data-field="is_message_from_ll" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_message_from_ll}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_ll}">
+		
 		{BEGIN is_message_from_ll_label}{$label Manage_User_Types is_message_from_ll }{END is_message_from_ll_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_message_from_ll_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_message_from_ll">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_message_from_ll_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1607,21 +1526,17 @@
 {BEGIN is_new_ir_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_ir}  r-vertical-field" 
-	data-fieldname="is_new_ir" 
-	data-signal-error-for="is_new_ir{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" {$item_integrated_edit_field30} data-pageid="{$pageid}" data-field="is_new_ir" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_ir}  r-vertical-field" data-fieldname="is_new_ir" data-signal-error-for="is_new_ir{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" {$item_integrated_edit_field30} data-pageid="{$pageid}" data-field="is_new_ir" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_new_ir}">
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_is_new_ir}">
+		
 		{BEGIN is_new_ir_label}{$label Manage_User_Types is_new_ir }{END is_new_ir_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_new_ir_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_new_ir">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="col-md-offset-3 col-md-6" >
+		{$is_new_ir_value}	</div>
+
+		
 </div>
 
 
@@ -1670,21 +1585,19 @@
 {BEGIN is_new_inventory_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_inventory}  r-vertical-field" 
-	data-fieldname="is_new_inventory" 
-	data-signal-error-for="is_new_inventory{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="is_new_inventory" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_inventory}  r-vertical-field" data-fieldname="is_new_inventory" data-signal-error-for="is_new_inventory{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="is_new_inventory" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_new_inventory}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_new_inventory}">
+		
 		{BEGIN is_new_inventory_label}{$label Manage_User_Types is_new_inventory }{END is_new_inventory_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_new_inventory_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_new_inventory">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_new_inventory_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1711,21 +1624,19 @@
 {BEGIN is_new_item_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_item}  r-vertical-field" 
-	data-fieldname="is_new_item" 
-	data-signal-error-for="is_new_item{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" {$item_integrated_edit_field32} data-pageid="{$pageid}" data-field="is_new_item" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_item}  r-vertical-field" data-fieldname="is_new_item" data-signal-error-for="is_new_item{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" {$item_integrated_edit_field32} data-pageid="{$pageid}" data-field="is_new_item" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_new_item}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_new_item}">
+		
 		{BEGIN is_new_item_label}{$label Manage_User_Types is_new_item }{END is_new_item_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_new_item_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_new_item">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_new_item_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1752,21 +1663,19 @@
 {BEGIN is_item_moved_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_moved}  r-vertical-field" 
-	data-fieldname="is_item_moved" 
-	data-signal-error-for="is_item_moved{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" {$item_integrated_edit_field33} data-pageid="{$pageid}" data-field="is_item_moved" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_moved}  r-vertical-field" data-fieldname="is_item_moved" data-signal-error-for="is_item_moved{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" {$item_integrated_edit_field33} data-pageid="{$pageid}" data-field="is_item_moved" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_item_moved}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_item_moved}">
+		
 		{BEGIN is_item_moved_label}{$label Manage_User_Types is_item_moved }{END is_item_moved_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_item_moved_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_item_moved">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_item_moved_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1793,21 +1702,19 @@
 {BEGIN is_item_removed_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_removed}  r-vertical-field" 
-	data-fieldname="is_item_removed" 
-	data-signal-error-for="is_item_removed{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" {$item_integrated_edit_field34} data-pageid="{$pageid}" data-field="is_item_removed" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_removed}  r-vertical-field" data-fieldname="is_item_removed" data-signal-error-for="is_item_removed{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" {$item_integrated_edit_field34} data-pageid="{$pageid}" data-field="is_item_removed" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_item_removed}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_item_removed}">
+		
 		{BEGIN is_item_removed_label}{$label Manage_User_Types is_item_removed }{END is_item_removed_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_item_removed_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_item_removed">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_item_removed_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1882,21 +1789,19 @@
 {BEGIN is_case_critical_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_critical}  r-vertical-field" 
-	data-fieldname="is_case_critical" 
-	data-signal-error-for="is_case_critical{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="is_case_critical" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_critical}  r-vertical-field" data-fieldname="is_case_critical" data-signal-error-for="is_case_critical{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="is_case_critical" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_case_critical}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_critical}">
+		
 		{BEGIN is_case_critical_label}{$label Manage_User_Types is_case_critical }{END is_case_critical_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_case_critical_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_case_critical">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_case_critical_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1923,21 +1828,19 @@
 {BEGIN is_case_blocker_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_blocker}  r-vertical-field" 
-	data-fieldname="is_case_blocker" 
-	data-signal-error-for="is_case_blocker{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="is_case_blocker" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_blocker}  r-vertical-field" data-fieldname="is_case_blocker" data-signal-error-for="is_case_blocker{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="is_case_blocker" >
 
-
-	<label class="r-edit-label control-label" for="{$labelfor_is_case_blocker}">
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_blocker}">
+		
 		{BEGIN is_case_blocker_label}{$label Manage_User_Types is_case_blocker }{END is_case_blocker_label}
 	</label>
-	<div class="r-edit-field">
-		{$is_case_blocker_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="is_case_blocker">
-		<div class="text-muted" >
-				</div>
-	</div>
+	<div class="" >
+		{$is_case_blocker_value}	</div>
+
+		</div>
+		
 </div>
 
 
@@ -1999,16 +1902,8 @@
 	
 ">
 		 
-		{BEGIN save_edit}
-<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
-	" {$savebutton_attrs} >
-							Save			</a>
-</span>
-{END save_edit}
-	 
 		{BEGIN back_button}
-<span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-button-item>
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-button-item>
 	<a type="button" class="btn btn-default   
 	" {$backbutton_attrs} >
 							Back to list			</a>
@@ -2016,10 +1911,10 @@
 {END back_button}
 	 
 		{BEGIN close_button}
-<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-button-item>
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-button-item>
 	<a type="button" class="btn btn-default   
-	" {$closebutton_attrs} >
-							Cancel			</a>
+	" href="#" {$closebutton_attrs} >
+							Close window			</a>
 </span>
 {END close_button}
 		</div>			 
@@ -2036,20 +1931,14 @@
 									<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-								<li data-itemtype="edit_reset" data-itemid="edit_reset" {$item_edit_reset} data-pageid="{$pageid}" >
-				<a  {$resetbutton_attrs} >
+							{BEGIN edit_page_button}
+	<li data-itemtype="view_edit" data-itemid="view_edit" {$item_view_edit} data-pageid="{$pageid}" >
+				<a  href="#" {$edit_page_button_attrs} >
 				
-		Reset		
+		Edit		
 		</a>
 	</li>
-							{BEGIN view_page_button}
-	<li data-itemtype="edit_view" data-itemid="edit_view" {$item_edit_view} data-pageid="{$pageid}" >
-				<a  {$view_page_button_attrs} >
-				
-		View		
-		</a>
-	</li>
-{END view_page_button}
+{END edit_page_button}
 					</ul>
 	</span>
 </span>

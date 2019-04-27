@@ -111,7 +111,6 @@ if ($values["unee_t_level_1_id"])
 			else
 				{
 				# This record does not exist - OK to create it
-
 					 DB::exec("
 							INSERT INTO `external_map_user_unit_role_permissions_level_1` (
 								`syst_created_datetime`

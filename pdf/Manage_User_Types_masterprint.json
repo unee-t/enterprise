@@ -71,6 +71,9 @@ pdfDocument = {
 										{BEGIN col_grid_6}
 					"%",
 					{END col_grid_6}
+										{BEGIN col_grid_7}
+					"%",
+					{END col_grid_7}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -258,7 +261,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field3}","text":"{$jslabel Manage_User_Types is_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel Manage_User_Types is_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -283,7 +286,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel Manage_User_Types is_dashboard_access }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field5}","text":"{$jslabel Manage_User_Types is_dashboard_access }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -308,13 +311,38 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field5}","text":"{$jslabel Manage_User_Types is_default_invited }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field6}","text":"{$jslabel Manage_User_Types is_default_invited }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
         },
 
 {END cellblock_grid_headcell_field6}
+																			{BEGIN cellblock_grid_headcell_field7}
+
+{
+	cellId: 'headcell_field7',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field7}","text":"{$jslabel Manage_User_Types is_all_unit }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_field7}
 											],
 				{END row_grid_0}
 								
@@ -499,6 +527,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_cell_field6}
+																			{BEGIN cellblock_grid_cell_field7}
+
+{
+	cellId: 'cell_field7',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field3}","text":{$is_all_unit_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_field7}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -670,6 +723,29 @@ pdfDocument = {
         },
 
 {END cellblock_grid_footcell_field6}
+																			{BEGIN cellblock_grid_footcell_field7}
+
+{
+	cellId: 'footcell_field7',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_field7}
 											],
 				{END row_grid_2}
 						{END totals_row}

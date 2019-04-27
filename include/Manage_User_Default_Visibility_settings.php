@@ -2949,6 +2949,7 @@ $proto45["m_columns"][] = "is_obsolete";
 $proto45["m_columns"][] = "designation";
 $proto45["m_columns"][] = "description";
 $proto45["m_columns"][] = "ut_user_role_type_id";
+$proto45["m_columns"][] = "is_all_unit";
 $proto45["m_columns"][] = "is_occupant";
 $proto45["m_columns"][] = "is_public";
 $proto45["m_columns"][] = "is_default_assignee";

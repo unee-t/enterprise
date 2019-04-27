@@ -1,0 +1,733 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{$pagetitle}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link REL="stylesheet" href="styles/default.css" type="text/css">
+		{BEGIN rtlCSS}
+		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
+		{END rtlCSS}
+		{BEGIN styleCSSFiles}
+		<link REL="stylesheet" href="{$stylepath}" type="text/css">
+		{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		
+		<div class="container r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel ut_map_external_source_units search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_map_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_map}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="id_map" 
+	
+	data-signal-error-for="id_map{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id_map" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id_map}">
+		{$label ut_map_external_source_units id_map }	</label>
+	<div class="r-search-option">
+		{$searchtype_id_map}
+	</div>
+	<div class="r-search-field">
+		{$id_map_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_map_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_map_fieldblock}
+											
+{BEGIN syst_created_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_created_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="syst_created_datetime" 
+	
+	data-signal-error-for="syst_created_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="syst_created_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_syst_created_datetime}">
+		{$label ut_map_external_source_units syst_created_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_syst_created_datetime}
+	</div>
+	<div class="r-search-field">
+		{$syst_created_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$syst_created_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END syst_created_datetime_fieldblock}
+											
+{BEGIN creation_system_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_system_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="creation_system_id" 
+	
+	data-signal-error-for="creation_system_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="creation_system_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_creation_system_id}">
+		{$label ut_map_external_source_units creation_system_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_creation_system_id}
+	</div>
+	<div class="r-search-field">
+		{$creation_system_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$creation_system_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END creation_system_id_fieldblock}
+											
+{BEGIN created_by_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_created_by_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="created_by_id" 
+	
+	data-signal-error-for="created_by_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="created_by_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_created_by_id}">
+		{$label ut_map_external_source_units created_by_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_created_by_id}
+	</div>
+	<div class="r-search-field">
+		{$created_by_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$created_by_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END created_by_id_fieldblock}
+											
+{BEGIN creation_method_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_method}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="creation_method" 
+	
+	data-signal-error-for="creation_method{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="creation_method" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_creation_method}">
+		{$label ut_map_external_source_units creation_method }	</label>
+	<div class="r-search-option">
+		{$searchtype_creation_method}
+	</div>
+	<div class="r-search-field">
+		{$creation_method_editcontrol}	</div>
+	<div class="r-search-field">
+		{$creation_method_editcontrol1}
+	</div>
+	
+</div>
+
+{END creation_method_fieldblock}
+											
+{BEGIN syst_updated_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_updated_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="syst_updated_datetime" 
+	
+	data-signal-error-for="syst_updated_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="syst_updated_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_syst_updated_datetime}">
+		{$label ut_map_external_source_units syst_updated_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_syst_updated_datetime}
+	</div>
+	<div class="r-search-field">
+		{$syst_updated_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$syst_updated_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END syst_updated_datetime_fieldblock}
+											
+{BEGIN update_system_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_system_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="update_system_id" 
+	
+	data-signal-error-for="update_system_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="update_system_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_update_system_id}">
+		{$label ut_map_external_source_units update_system_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_update_system_id}
+	</div>
+	<div class="r-search-field">
+		{$update_system_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$update_system_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END update_system_id_fieldblock}
+											
+{BEGIN updated_by_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_updated_by_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="updated_by_id" 
+	
+	data-signal-error-for="updated_by_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="updated_by_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_updated_by_id}">
+		{$label ut_map_external_source_units updated_by_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_updated_by_id}
+	</div>
+	<div class="r-search-field">
+		{$updated_by_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$updated_by_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END updated_by_id_fieldblock}
+											
+{BEGIN update_method_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_method}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="update_method" 
+	
+	data-signal-error-for="update_method{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="update_method" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_update_method}">
+		{$label ut_map_external_source_units update_method }	</label>
+	<div class="r-search-option">
+		{$searchtype_update_method}
+	</div>
+	<div class="r-search-field">
+		{$update_method_editcontrol}	</div>
+	<div class="r-search-field">
+		{$update_method_editcontrol1}
+	</div>
+	
+</div>
+
+{END update_method_fieldblock}
+											
+{BEGIN organization_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization_id" 
+	
+	data-signal-error-for="organization_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="organization_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization_id}">
+		{$label ut_map_external_source_units organization_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization_id}
+	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_id_fieldblock}
+											
+{BEGIN is_obsolete_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_obsolete}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_obsolete" 
+	
+	data-signal-error-for="is_obsolete{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="is_obsolete" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_obsolete}">
+		{$label ut_map_external_source_units is_obsolete }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_obsolete}
+	</div>
+	<div class="r-search-field">
+		{$is_obsolete_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_obsolete_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_obsolete_fieldblock}
+											
+{BEGIN is_update_needed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_update_needed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_update_needed" 
+	
+	data-signal-error-for="is_update_needed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="is_update_needed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_update_needed}">
+		{$label ut_map_external_source_units is_update_needed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_update_needed}
+	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_update_needed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_update_needed_fieldblock}
+											
+{BEGIN unee_t_mefe_unit_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_mefe_unit_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_mefe_unit_id" 
+	
+	data-signal-error-for="unee_t_mefe_unit_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="unee_t_mefe_unit_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_mefe_unit_id}">
+		{$label ut_map_external_source_units unee_t_mefe_unit_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_mefe_unit_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_mefe_unit_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_mefe_unit_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_mefe_unit_id_fieldblock}
+											
+{BEGIN uneet_created_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_created_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="uneet_created_datetime" 
+	
+	data-signal-error-for="uneet_created_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="uneet_created_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_uneet_created_datetime}">
+		{$label ut_map_external_source_units uneet_created_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_uneet_created_datetime}
+	</div>
+	<div class="r-search-field">
+		{$uneet_created_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$uneet_created_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END uneet_created_datetime_fieldblock}
+											
+{BEGIN is_unee_t_created_by_me_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_unee_t_created_by_me}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_unee_t_created_by_me" 
+	
+	data-signal-error-for="is_unee_t_created_by_me{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="is_unee_t_created_by_me" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_unee_t_created_by_me}">
+		{$label ut_map_external_source_units is_unee_t_created_by_me }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_unee_t_created_by_me}
+	</div>
+	<div class="r-search-field">
+		{$is_unee_t_created_by_me_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_unee_t_created_by_me_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_unee_t_created_by_me_fieldblock}
+											
+{BEGIN unee_t_unit_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_unit_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_unit_type" 
+	
+	data-signal-error-for="unee_t_unit_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="unee_t_unit_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_unit_type}">
+		{$label ut_map_external_source_units unee_t_unit_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_unit_type}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_unit_type_fieldblock}
+											
+{BEGIN uneet_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="uneet_name" 
+	
+	data-signal-error-for="uneet_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="uneet_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_uneet_name}">
+		{$label ut_map_external_source_units uneet_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_uneet_name}
+	</div>
+	<div class="r-search-field">
+		{$uneet_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$uneet_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END uneet_name_fieldblock}
+											
+{BEGIN new_record_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_new_record_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="new_record_id" 
+	
+	data-signal-error-for="new_record_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="new_record_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_new_record_id}">
+		{$label ut_map_external_source_units new_record_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_new_record_id}
+	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$new_record_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END new_record_id_fieldblock}
+											
+{BEGIN external_property_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_property_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_property_type_id" 
+	
+	data-signal-error-for="external_property_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="external_property_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_property_type_id}">
+		{$label ut_map_external_source_units external_property_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_property_type_id}
+	</div>
+	<div class="r-search-field">
+		{$external_property_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_property_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_property_type_id_fieldblock}
+											
+{BEGIN external_property_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_property_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_property_id" 
+	
+	data-signal-error-for="external_property_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="external_property_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_property_id}">
+		{$label ut_map_external_source_units external_property_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_property_id}
+	</div>
+	<div class="r-search-field">
+		{$external_property_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_property_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_property_id_fieldblock}
+											
+{BEGIN external_system_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_system" 
+	
+	data-signal-error-for="external_system{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="external_system" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_system}">
+		{$label ut_map_external_source_units external_system }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_system}
+	</div>
+	<div class="r-search-field">
+		{$external_system_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_system_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_system_fieldblock}
+											
+{BEGIN table_in_external_system_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_table_in_external_system}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="table_in_external_system" 
+	
+	data-signal-error-for="table_in_external_system{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="table_in_external_system" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_table_in_external_system}">
+		{$label ut_map_external_source_units table_in_external_system }	</label>
+	<div class="r-search-option">
+		{$searchtype_table_in_external_system}
+	</div>
+	<div class="r-search-field">
+		{$table_in_external_system_editcontrol}	</div>
+	<div class="r-search-field">
+		{$table_in_external_system_editcontrol1}
+	</div>
+	
+</div>
+
+{END table_in_external_system_fieldblock}
+											
+{BEGIN is_mefe_api_success_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_mefe_api_success}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_mefe_api_success" 
+	
+	data-signal-error-for="is_mefe_api_success{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="is_mefe_api_success" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_mefe_api_success}">
+		{$label ut_map_external_source_units is_mefe_api_success }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_mefe_api_success}
+	</div>
+	<div class="r-search-field">
+		{$is_mefe_api_success_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_mefe_api_success_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_mefe_api_success_fieldblock}
+											
+{BEGIN mefe_api_error_message_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_mefe_api_error_message}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="mefe_api_error_message" 
+	
+	data-signal-error-for="mefe_api_error_message{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="mefe_api_error_message" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_mefe_api_error_message}">
+		{$label ut_map_external_source_units mefe_api_error_message }	</label>
+	<div class="r-search-option">
+		{$searchtype_mefe_api_error_message}
+	</div>
+	<div class="r-search-field">
+		{$mefe_api_error_message_editcontrol}	</div>
+	<div class="r-search-field">
+		{$mefe_api_error_message_editcontrol1}
+	</div>
+	
+</div>
+
+{END mefe_api_error_message_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

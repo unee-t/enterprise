@@ -12,9 +12,9 @@ $tdataManage_User_Types[".searchableFields"] = array();
 	$tdataManage_User_Types[".OriginalTable"] = "ut_user_types";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
 
-$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
+$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataManage_User_Types[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -78,34 +78,34 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsManage_User_Types["English"]["role_type"] = "";
 	$placeHoldersManage_User_Types["English"]["role_type"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_public"] = "Public";
-	$fieldToolTipsManage_User_Types["English"]["is_public"] = "";
+	$fieldToolTipsManage_User_Types["English"]["is_public"] = "Tick if this user can be seen and invited by other roles.";
 	$placeHoldersManage_User_Types["English"]["is_public"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_default_assignee"] = "Default Assignee";
-	$fieldToolTipsManage_User_Types["English"]["is_default_assignee"] = "";
+	$fieldToolTipsManage_User_Types["English"]["is_default_assignee"] = "Tick if this is the user type you create for the PUBLIC user who is visible to the other roles.";
 	$placeHoldersManage_User_Types["English"]["is_default_assignee"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_dashboard_access"] = "Dashboard Access";
-	$fieldToolTipsManage_User_Types["English"]["is_dashboard_access"] = "";
+	$fieldToolTipsManage_User_Types["English"]["is_dashboard_access"] = "Tick if you want these users to have access to the Unee-T Dashboard";
 	$placeHoldersManage_User_Types["English"]["is_dashboard_access"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_occupant"] = "Occupant";
 	$fieldToolTipsManage_User_Types["English"]["is_occupant"] = "";
 	$placeHoldersManage_User_Types["English"]["is_occupant"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_role_contractor"] = "Can See Role Contractor";
-	$fieldToolTipsManage_User_Types["English"]["can_see_role_contractor"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_role_contractor"] = "These users can invite contractors to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_role_contractor"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_role_mgt_cny"] = "Can See Role Mgt Cny";
-	$fieldToolTipsManage_User_Types["English"]["can_see_role_mgt_cny"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_role_mgt_cny"] = "These users can invite teh Management Company to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_role_mgt_cny"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_occupant"] = "Can See Occupant";
-	$fieldToolTipsManage_User_Types["English"]["can_see_occupant"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_occupant"] = "These users can invite occupants to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_occupant"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_role_landlord"] = "Can See Role Landlord";
-	$fieldToolTipsManage_User_Types["English"]["can_see_role_landlord"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_role_landlord"] = "These users can invite Owner/Landlord to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_role_landlord"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_role_agent"] = "Can See Role Agent";
-	$fieldToolTipsManage_User_Types["English"]["can_see_role_agent"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_role_agent"] = "These users can invite agents to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_role_agent"] = "";
 	$fieldLabelsManage_User_Types["English"]["can_see_role_tenant"] = "Can See Role Tenant";
-	$fieldToolTipsManage_User_Types["English"]["can_see_role_tenant"] = "";
+	$fieldToolTipsManage_User_Types["English"]["can_see_role_tenant"] = "These users can invite tenants to a case.";
 	$placeHoldersManage_User_Types["English"]["can_see_role_tenant"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_assigned_to_case"] = "Assigned To Case";
 	$fieldToolTipsManage_User_Types["English"]["is_assigned_to_case"] = "";
@@ -168,8 +168,11 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsManage_User_Types["English"]["is_item_removed"] = "";
 	$placeHoldersManage_User_Types["English"]["is_item_removed"] = "";
 	$fieldLabelsManage_User_Types["English"]["is_default_invited"] = "Invited to All Cases";
-	$fieldToolTipsManage_User_Types["English"]["is_default_invited"] = "";
+	$fieldToolTipsManage_User_Types["English"]["is_default_invited"] = "Tick if this is these users are automatically invited to ALL the cases created and initially assigned to this role.";
 	$placeHoldersManage_User_Types["English"]["is_default_invited"] = "";
+	$fieldLabelsManage_User_Types["English"]["is_all_unit"] = "All Units";
+	$fieldToolTipsManage_User_Types["English"]["is_all_unit"] = "Tick if you want these users to be assigned to ALL units in your organiztion";
+	$placeHoldersManage_User_Types["English"]["is_all_unit"] = "";
 	if (count($fieldToolTipsManage_User_Types["English"]))
 		$tdataManage_User_Types[".isUseToolTips"] = true;
 }
@@ -296,37 +299,6 @@ $tdataManage_User_Types[".googleLikeFields"][] = "id_unee_t_user_type";
 $tdataManage_User_Types[".googleLikeFields"][] = "designation";
 $tdataManage_User_Types[".googleLikeFields"][] = "description";
 $tdataManage_User_Types[".googleLikeFields"][] = "role_type";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_occupant";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_public";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_default_assignee";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_default_invited";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_dashboard_access";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_role_contractor";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_role_mgt_cny";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_occupant";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_role_landlord";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_role_agent";
-$tdataManage_User_Types[".googleLikeFields"][] = "can_see_role_tenant";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_assigned_to_case";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_invited_to_case";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_solution_updated";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_next_step_updated";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_deadline_updated";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_case_resolved";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_case_critical";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_case_blocker";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_contractor";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_mgt_cny";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_agent";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_occupant";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_ll";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_message_from_tenant";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_any_new_message";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_new_ir";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_new_inventory";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_new_item";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_item_moved";
-$tdataManage_User_Types[".googleLikeFields"][] = "is_item_removed";
 
 
 
@@ -373,7 +345,7 @@ $tdataManage_User_Types[".orderindexes"] = array();
 	$tdataManage_User_Types[".orderindexes"][] = array(10, (0 ? "ASC" : "DESC"), "ut_user_types.organization_id");
 
 
-$tdataManage_User_Types[".sqlHead"] = "SELECT ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_default_invited,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
+$tdataManage_User_Types[".sqlHead"] = "SELECT ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_all_unit,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_default_invited,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
 $tdataManage_User_Types[".sqlFrom"] = "FROM ut_user_types  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $tdataManage_User_Types[".sqlWhereExpr"] = "";
 $tdataManage_User_Types[".sqlTail"] = "";
@@ -2566,10 +2538,130 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 
 	$tdataManage_User_Types["role_type"] = $fdata;
 		$tdataManage_User_Types[".searchableFields"][] = "role_type";
-//	is_occupant
+//	is_all_unit
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 17;
+	$fdata["strName"] = "is_all_unit";
+	$fdata["GoodName"] = "is_all_unit";
+	$fdata["ownerTable"] = "ut_user_types";
+	$fdata["Label"] = GetFieldLabel("Manage_User_Types","is_all_unit");
+	$fdata["FieldType"] = 16;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "is_all_unit";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_user_types.is_all_unit";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Checkbox");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+	
+	
+
+
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_User_Types["is_all_unit"] = $fdata;
+		$tdataManage_User_Types[".searchableFields"][] = "is_all_unit";
+//	is_occupant
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "is_occupant";
 	$fdata["GoodName"] = "is_occupant";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -2689,7 +2781,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_public
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "is_public";
 	$fdata["GoodName"] = "is_public";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -2809,7 +2901,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_default_assignee
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "is_default_assignee";
 	$fdata["GoodName"] = "is_default_assignee";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -2929,7 +3021,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_default_invited
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "is_default_invited";
 	$fdata["GoodName"] = "is_default_invited";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3049,7 +3141,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_dashboard_access
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "is_dashboard_access";
 	$fdata["GoodName"] = "is_dashboard_access";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3169,7 +3261,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_role_contractor
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "can_see_role_contractor";
 	$fdata["GoodName"] = "can_see_role_contractor";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3289,7 +3381,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_role_mgt_cny
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "can_see_role_mgt_cny";
 	$fdata["GoodName"] = "can_see_role_mgt_cny";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3409,7 +3501,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_occupant
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 25;
 	$fdata["strName"] = "can_see_occupant";
 	$fdata["GoodName"] = "can_see_occupant";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3529,7 +3621,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_role_landlord
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 26;
 	$fdata["strName"] = "can_see_role_landlord";
 	$fdata["GoodName"] = "can_see_role_landlord";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3649,7 +3741,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_role_agent
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "can_see_role_agent";
 	$fdata["GoodName"] = "can_see_role_agent";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3769,7 +3861,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	can_see_role_tenant
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 27;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "can_see_role_tenant";
 	$fdata["GoodName"] = "can_see_role_tenant";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -3889,7 +3981,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_assigned_to_case
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 28;
+	$fdata["Index"] = 29;
 	$fdata["strName"] = "is_assigned_to_case";
 	$fdata["GoodName"] = "is_assigned_to_case";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4009,7 +4101,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_invited_to_case
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 29;
+	$fdata["Index"] = 30;
 	$fdata["strName"] = "is_invited_to_case";
 	$fdata["GoodName"] = "is_invited_to_case";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4129,7 +4221,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_solution_updated
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 30;
+	$fdata["Index"] = 31;
 	$fdata["strName"] = "is_solution_updated";
 	$fdata["GoodName"] = "is_solution_updated";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4249,7 +4341,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_next_step_updated
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 31;
+	$fdata["Index"] = 32;
 	$fdata["strName"] = "is_next_step_updated";
 	$fdata["GoodName"] = "is_next_step_updated";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4369,7 +4461,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_deadline_updated
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 32;
+	$fdata["Index"] = 33;
 	$fdata["strName"] = "is_deadline_updated";
 	$fdata["GoodName"] = "is_deadline_updated";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4489,7 +4581,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_case_resolved
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 33;
+	$fdata["Index"] = 34;
 	$fdata["strName"] = "is_case_resolved";
 	$fdata["GoodName"] = "is_case_resolved";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4609,7 +4701,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_case_critical
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 34;
+	$fdata["Index"] = 35;
 	$fdata["strName"] = "is_case_critical";
 	$fdata["GoodName"] = "is_case_critical";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4729,7 +4821,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_case_blocker
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 35;
+	$fdata["Index"] = 36;
 	$fdata["strName"] = "is_case_blocker";
 	$fdata["GoodName"] = "is_case_blocker";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4849,7 +4941,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_contractor
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 36;
+	$fdata["Index"] = 37;
 	$fdata["strName"] = "is_message_from_contractor";
 	$fdata["GoodName"] = "is_message_from_contractor";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -4969,7 +5061,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_mgt_cny
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 37;
+	$fdata["Index"] = 38;
 	$fdata["strName"] = "is_message_from_mgt_cny";
 	$fdata["GoodName"] = "is_message_from_mgt_cny";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5089,7 +5181,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_agent
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 38;
+	$fdata["Index"] = 39;
 	$fdata["strName"] = "is_message_from_agent";
 	$fdata["GoodName"] = "is_message_from_agent";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5209,7 +5301,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_occupant
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 39;
+	$fdata["Index"] = 40;
 	$fdata["strName"] = "is_message_from_occupant";
 	$fdata["GoodName"] = "is_message_from_occupant";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5329,7 +5421,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_ll
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 40;
+	$fdata["Index"] = 41;
 	$fdata["strName"] = "is_message_from_ll";
 	$fdata["GoodName"] = "is_message_from_ll";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5449,7 +5541,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_message_from_tenant
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 41;
+	$fdata["Index"] = 42;
 	$fdata["strName"] = "is_message_from_tenant";
 	$fdata["GoodName"] = "is_message_from_tenant";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5569,7 +5661,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_any_new_message
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 42;
+	$fdata["Index"] = 43;
 	$fdata["strName"] = "is_any_new_message";
 	$fdata["GoodName"] = "is_any_new_message";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5693,7 +5785,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_new_ir
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 43;
+	$fdata["Index"] = 44;
 	$fdata["strName"] = "is_new_ir";
 	$fdata["GoodName"] = "is_new_ir";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5813,7 +5905,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_new_inventory
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 44;
+	$fdata["Index"] = 45;
 	$fdata["strName"] = "is_new_inventory";
 	$fdata["GoodName"] = "is_new_inventory";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -5933,7 +6025,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_new_item
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 45;
+	$fdata["Index"] = 46;
 	$fdata["strName"] = "is_new_item";
 	$fdata["GoodName"] = "is_new_item";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -6053,7 +6145,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_item_moved
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 46;
+	$fdata["Index"] = 47;
 	$fdata["strName"] = "is_item_moved";
 	$fdata["GoodName"] = "is_item_moved";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -6173,7 +6265,7 @@ $tdataManage_User_Types[".hideMobileList"] = array();
 //	is_item_removed
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 47;
+	$fdata["Index"] = 48;
 	$fdata["strName"] = "is_item_removed";
 	$fdata["GoodName"] = "is_item_removed";
 	$fdata["ownerTable"] = "ut_user_types";
@@ -6325,7 +6417,7 @@ function createSqlQuery_Manage_User_Types()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_default_invited,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
+$proto0["m_strFieldList"] = "ut_user_types.id_unee_t_user_type,  ut_user_types.syst_created_datetime,  ut_user_types.creation_system_id,  ut_user_types.created_by_id,  ut_user_types.creation_method,  ut_user_types.syst_updated_datetime,  ut_user_types.update_system_id,  ut_user_types.updated_by_id,  ut_user_types.update_method,  ut_user_types.organization_id,  ut_user_types.`order`,  ut_user_types.is_obsolete,  ut_user_types.designation,  ut_user_types.description,  ut_user_types.ut_user_role_type_id,  ut_user_role_types.role_type,  ut_user_types.is_all_unit,  ut_user_types.is_occupant,  ut_user_types.is_public,  ut_user_types.is_default_assignee,  ut_user_types.is_default_invited,  ut_user_types.is_dashboard_access,  ut_user_types.can_see_role_contractor,  ut_user_types.can_see_role_mgt_cny,  ut_user_types.can_see_occupant,  ut_user_types.can_see_role_landlord,  ut_user_types.can_see_role_agent,  ut_user_types.can_see_role_tenant,  ut_user_types.is_assigned_to_case,  ut_user_types.is_invited_to_case,  ut_user_types.is_solution_updated,  ut_user_types.is_next_step_updated,  ut_user_types.is_deadline_updated,  ut_user_types.is_case_resolved,  ut_user_types.is_case_critical,  ut_user_types.is_case_blocker,  ut_user_types.is_message_from_contractor,  ut_user_types.is_message_from_mgt_cny,  ut_user_types.is_message_from_agent,  ut_user_types.is_message_from_occupant,  ut_user_types.is_message_from_ll,  ut_user_types.is_message_from_tenant,  ut_user_types.is_any_new_message,  ut_user_types.is_new_ir,  ut_user_types.is_new_inventory,  ut_user_types.is_new_item,  ut_user_types.is_item_moved,  ut_user_types.is_item_removed";
 $proto0["m_strFrom"] = "FROM ut_user_types  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "ORDER BY ut_user_role_types.role_type, ut_user_types.is_obsolete, ut_user_types.`order`, ut_user_types.organization_id DESC";
@@ -6592,12 +6684,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_occupant",
+	"m_strName" => "is_all_unit",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto38["m_sql"] = "ut_user_types.is_occupant";
+$proto38["m_sql"] = "ut_user_types.is_all_unit";
 $proto38["m_srcTableName"] = "Manage User Types";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -6606,12 +6698,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_public",
+	"m_strName" => "is_occupant",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto40["m_sql"] = "ut_user_types.is_public";
+$proto40["m_sql"] = "ut_user_types.is_occupant";
 $proto40["m_srcTableName"] = "Manage User Types";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -6620,12 +6712,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_default_assignee",
+	"m_strName" => "is_public",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto42["m_sql"] = "ut_user_types.is_default_assignee";
+$proto42["m_sql"] = "ut_user_types.is_public";
 $proto42["m_srcTableName"] = "Manage User Types";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -6634,12 +6726,12 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_default_invited",
+	"m_strName" => "is_default_assignee",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto44["m_sql"] = "ut_user_types.is_default_invited";
+$proto44["m_sql"] = "ut_user_types.is_default_assignee";
 $proto44["m_srcTableName"] = "Manage User Types";
 $proto44["m_expr"]=$obj;
 $proto44["m_alias"] = "";
@@ -6648,12 +6740,12 @@ $obj = new SQLFieldListItem($proto44);
 $proto0["m_fieldlist"][]=$obj;
 						$proto46=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_dashboard_access",
+	"m_strName" => "is_default_invited",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto46["m_sql"] = "ut_user_types.is_dashboard_access";
+$proto46["m_sql"] = "ut_user_types.is_default_invited";
 $proto46["m_srcTableName"] = "Manage User Types";
 $proto46["m_expr"]=$obj;
 $proto46["m_alias"] = "";
@@ -6662,12 +6754,12 @@ $obj = new SQLFieldListItem($proto46);
 $proto0["m_fieldlist"][]=$obj;
 						$proto48=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_role_contractor",
+	"m_strName" => "is_dashboard_access",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto48["m_sql"] = "ut_user_types.can_see_role_contractor";
+$proto48["m_sql"] = "ut_user_types.is_dashboard_access";
 $proto48["m_srcTableName"] = "Manage User Types";
 $proto48["m_expr"]=$obj;
 $proto48["m_alias"] = "";
@@ -6676,12 +6768,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_role_mgt_cny",
+	"m_strName" => "can_see_role_contractor",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto50["m_sql"] = "ut_user_types.can_see_role_mgt_cny";
+$proto50["m_sql"] = "ut_user_types.can_see_role_contractor";
 $proto50["m_srcTableName"] = "Manage User Types";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -6690,12 +6782,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_occupant",
+	"m_strName" => "can_see_role_mgt_cny",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto52["m_sql"] = "ut_user_types.can_see_occupant";
+$proto52["m_sql"] = "ut_user_types.can_see_role_mgt_cny";
 $proto52["m_srcTableName"] = "Manage User Types";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -6704,12 +6796,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_role_landlord",
+	"m_strName" => "can_see_occupant",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto54["m_sql"] = "ut_user_types.can_see_role_landlord";
+$proto54["m_sql"] = "ut_user_types.can_see_occupant";
 $proto54["m_srcTableName"] = "Manage User Types";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -6718,12 +6810,12 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_role_agent",
+	"m_strName" => "can_see_role_landlord",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto56["m_sql"] = "ut_user_types.can_see_role_agent";
+$proto56["m_sql"] = "ut_user_types.can_see_role_landlord";
 $proto56["m_srcTableName"] = "Manage User Types";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
@@ -6732,12 +6824,12 @@ $obj = new SQLFieldListItem($proto56);
 $proto0["m_fieldlist"][]=$obj;
 						$proto58=array();
 			$obj = new SQLField(array(
-	"m_strName" => "can_see_role_tenant",
+	"m_strName" => "can_see_role_agent",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto58["m_sql"] = "ut_user_types.can_see_role_tenant";
+$proto58["m_sql"] = "ut_user_types.can_see_role_agent";
 $proto58["m_srcTableName"] = "Manage User Types";
 $proto58["m_expr"]=$obj;
 $proto58["m_alias"] = "";
@@ -6746,12 +6838,12 @@ $obj = new SQLFieldListItem($proto58);
 $proto0["m_fieldlist"][]=$obj;
 						$proto60=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_assigned_to_case",
+	"m_strName" => "can_see_role_tenant",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto60["m_sql"] = "ut_user_types.is_assigned_to_case";
+$proto60["m_sql"] = "ut_user_types.can_see_role_tenant";
 $proto60["m_srcTableName"] = "Manage User Types";
 $proto60["m_expr"]=$obj;
 $proto60["m_alias"] = "";
@@ -6760,12 +6852,12 @@ $obj = new SQLFieldListItem($proto60);
 $proto0["m_fieldlist"][]=$obj;
 						$proto62=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_invited_to_case",
+	"m_strName" => "is_assigned_to_case",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto62["m_sql"] = "ut_user_types.is_invited_to_case";
+$proto62["m_sql"] = "ut_user_types.is_assigned_to_case";
 $proto62["m_srcTableName"] = "Manage User Types";
 $proto62["m_expr"]=$obj;
 $proto62["m_alias"] = "";
@@ -6774,12 +6866,12 @@ $obj = new SQLFieldListItem($proto62);
 $proto0["m_fieldlist"][]=$obj;
 						$proto64=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_solution_updated",
+	"m_strName" => "is_invited_to_case",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto64["m_sql"] = "ut_user_types.is_solution_updated";
+$proto64["m_sql"] = "ut_user_types.is_invited_to_case";
 $proto64["m_srcTableName"] = "Manage User Types";
 $proto64["m_expr"]=$obj;
 $proto64["m_alias"] = "";
@@ -6788,12 +6880,12 @@ $obj = new SQLFieldListItem($proto64);
 $proto0["m_fieldlist"][]=$obj;
 						$proto66=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_next_step_updated",
+	"m_strName" => "is_solution_updated",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto66["m_sql"] = "ut_user_types.is_next_step_updated";
+$proto66["m_sql"] = "ut_user_types.is_solution_updated";
 $proto66["m_srcTableName"] = "Manage User Types";
 $proto66["m_expr"]=$obj;
 $proto66["m_alias"] = "";
@@ -6802,12 +6894,12 @@ $obj = new SQLFieldListItem($proto66);
 $proto0["m_fieldlist"][]=$obj;
 						$proto68=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_deadline_updated",
+	"m_strName" => "is_next_step_updated",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto68["m_sql"] = "ut_user_types.is_deadline_updated";
+$proto68["m_sql"] = "ut_user_types.is_next_step_updated";
 $proto68["m_srcTableName"] = "Manage User Types";
 $proto68["m_expr"]=$obj;
 $proto68["m_alias"] = "";
@@ -6816,12 +6908,12 @@ $obj = new SQLFieldListItem($proto68);
 $proto0["m_fieldlist"][]=$obj;
 						$proto70=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_case_resolved",
+	"m_strName" => "is_deadline_updated",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto70["m_sql"] = "ut_user_types.is_case_resolved";
+$proto70["m_sql"] = "ut_user_types.is_deadline_updated";
 $proto70["m_srcTableName"] = "Manage User Types";
 $proto70["m_expr"]=$obj;
 $proto70["m_alias"] = "";
@@ -6830,12 +6922,12 @@ $obj = new SQLFieldListItem($proto70);
 $proto0["m_fieldlist"][]=$obj;
 						$proto72=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_case_critical",
+	"m_strName" => "is_case_resolved",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto72["m_sql"] = "ut_user_types.is_case_critical";
+$proto72["m_sql"] = "ut_user_types.is_case_resolved";
 $proto72["m_srcTableName"] = "Manage User Types";
 $proto72["m_expr"]=$obj;
 $proto72["m_alias"] = "";
@@ -6844,12 +6936,12 @@ $obj = new SQLFieldListItem($proto72);
 $proto0["m_fieldlist"][]=$obj;
 						$proto74=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_case_blocker",
+	"m_strName" => "is_case_critical",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto74["m_sql"] = "ut_user_types.is_case_blocker";
+$proto74["m_sql"] = "ut_user_types.is_case_critical";
 $proto74["m_srcTableName"] = "Manage User Types";
 $proto74["m_expr"]=$obj;
 $proto74["m_alias"] = "";
@@ -6858,12 +6950,12 @@ $obj = new SQLFieldListItem($proto74);
 $proto0["m_fieldlist"][]=$obj;
 						$proto76=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_contractor",
+	"m_strName" => "is_case_blocker",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto76["m_sql"] = "ut_user_types.is_message_from_contractor";
+$proto76["m_sql"] = "ut_user_types.is_case_blocker";
 $proto76["m_srcTableName"] = "Manage User Types";
 $proto76["m_expr"]=$obj;
 $proto76["m_alias"] = "";
@@ -6872,12 +6964,12 @@ $obj = new SQLFieldListItem($proto76);
 $proto0["m_fieldlist"][]=$obj;
 						$proto78=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_mgt_cny",
+	"m_strName" => "is_message_from_contractor",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto78["m_sql"] = "ut_user_types.is_message_from_mgt_cny";
+$proto78["m_sql"] = "ut_user_types.is_message_from_contractor";
 $proto78["m_srcTableName"] = "Manage User Types";
 $proto78["m_expr"]=$obj;
 $proto78["m_alias"] = "";
@@ -6886,12 +6978,12 @@ $obj = new SQLFieldListItem($proto78);
 $proto0["m_fieldlist"][]=$obj;
 						$proto80=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_agent",
+	"m_strName" => "is_message_from_mgt_cny",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto80["m_sql"] = "ut_user_types.is_message_from_agent";
+$proto80["m_sql"] = "ut_user_types.is_message_from_mgt_cny";
 $proto80["m_srcTableName"] = "Manage User Types";
 $proto80["m_expr"]=$obj;
 $proto80["m_alias"] = "";
@@ -6900,12 +6992,12 @@ $obj = new SQLFieldListItem($proto80);
 $proto0["m_fieldlist"][]=$obj;
 						$proto82=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_occupant",
+	"m_strName" => "is_message_from_agent",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto82["m_sql"] = "ut_user_types.is_message_from_occupant";
+$proto82["m_sql"] = "ut_user_types.is_message_from_agent";
 $proto82["m_srcTableName"] = "Manage User Types";
 $proto82["m_expr"]=$obj;
 $proto82["m_alias"] = "";
@@ -6914,12 +7006,12 @@ $obj = new SQLFieldListItem($proto82);
 $proto0["m_fieldlist"][]=$obj;
 						$proto84=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_ll",
+	"m_strName" => "is_message_from_occupant",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto84["m_sql"] = "ut_user_types.is_message_from_ll";
+$proto84["m_sql"] = "ut_user_types.is_message_from_occupant";
 $proto84["m_srcTableName"] = "Manage User Types";
 $proto84["m_expr"]=$obj;
 $proto84["m_alias"] = "";
@@ -6928,12 +7020,12 @@ $obj = new SQLFieldListItem($proto84);
 $proto0["m_fieldlist"][]=$obj;
 						$proto86=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_message_from_tenant",
+	"m_strName" => "is_message_from_ll",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto86["m_sql"] = "ut_user_types.is_message_from_tenant";
+$proto86["m_sql"] = "ut_user_types.is_message_from_ll";
 $proto86["m_srcTableName"] = "Manage User Types";
 $proto86["m_expr"]=$obj;
 $proto86["m_alias"] = "";
@@ -6942,12 +7034,12 @@ $obj = new SQLFieldListItem($proto86);
 $proto0["m_fieldlist"][]=$obj;
 						$proto88=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_any_new_message",
+	"m_strName" => "is_message_from_tenant",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto88["m_sql"] = "ut_user_types.is_any_new_message";
+$proto88["m_sql"] = "ut_user_types.is_message_from_tenant";
 $proto88["m_srcTableName"] = "Manage User Types";
 $proto88["m_expr"]=$obj;
 $proto88["m_alias"] = "";
@@ -6956,12 +7048,12 @@ $obj = new SQLFieldListItem($proto88);
 $proto0["m_fieldlist"][]=$obj;
 						$proto90=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_new_ir",
+	"m_strName" => "is_any_new_message",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto90["m_sql"] = "ut_user_types.is_new_ir";
+$proto90["m_sql"] = "ut_user_types.is_any_new_message";
 $proto90["m_srcTableName"] = "Manage User Types";
 $proto90["m_expr"]=$obj;
 $proto90["m_alias"] = "";
@@ -6970,12 +7062,12 @@ $obj = new SQLFieldListItem($proto90);
 $proto0["m_fieldlist"][]=$obj;
 						$proto92=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_new_inventory",
+	"m_strName" => "is_new_ir",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto92["m_sql"] = "ut_user_types.is_new_inventory";
+$proto92["m_sql"] = "ut_user_types.is_new_ir";
 $proto92["m_srcTableName"] = "Manage User Types";
 $proto92["m_expr"]=$obj;
 $proto92["m_alias"] = "";
@@ -6984,12 +7076,12 @@ $obj = new SQLFieldListItem($proto92);
 $proto0["m_fieldlist"][]=$obj;
 						$proto94=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_new_item",
+	"m_strName" => "is_new_inventory",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto94["m_sql"] = "ut_user_types.is_new_item";
+$proto94["m_sql"] = "ut_user_types.is_new_inventory";
 $proto94["m_srcTableName"] = "Manage User Types";
 $proto94["m_expr"]=$obj;
 $proto94["m_alias"] = "";
@@ -6998,12 +7090,12 @@ $obj = new SQLFieldListItem($proto94);
 $proto0["m_fieldlist"][]=$obj;
 						$proto96=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_item_moved",
+	"m_strName" => "is_new_item",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto96["m_sql"] = "ut_user_types.is_item_moved";
+$proto96["m_sql"] = "ut_user_types.is_new_item";
 $proto96["m_srcTableName"] = "Manage User Types";
 $proto96["m_expr"]=$obj;
 $proto96["m_alias"] = "";
@@ -7012,161 +7104,163 @@ $obj = new SQLFieldListItem($proto96);
 $proto0["m_fieldlist"][]=$obj;
 						$proto98=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_item_removed",
+	"m_strName" => "is_item_moved",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto98["m_sql"] = "ut_user_types.is_item_removed";
+$proto98["m_sql"] = "ut_user_types.is_item_moved";
 $proto98["m_srcTableName"] = "Manage User Types";
 $proto98["m_expr"]=$obj;
 $proto98["m_alias"] = "";
 $obj = new SQLFieldListItem($proto98);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto100=array();
-$proto100["m_link"] = "SQLL_MAIN";
-			$proto101=array();
-$proto101["m_strName"] = "ut_user_types";
-$proto101["m_srcTableName"] = "Manage User Types";
-$proto101["m_columns"] = array();
-$proto101["m_columns"][] = "id_unee_t_user_type";
-$proto101["m_columns"][] = "syst_created_datetime";
-$proto101["m_columns"][] = "creation_system_id";
-$proto101["m_columns"][] = "created_by_id";
-$proto101["m_columns"][] = "creation_method";
-$proto101["m_columns"][] = "syst_updated_datetime";
-$proto101["m_columns"][] = "update_system_id";
-$proto101["m_columns"][] = "updated_by_id";
-$proto101["m_columns"][] = "update_method";
-$proto101["m_columns"][] = "organization_id";
-$proto101["m_columns"][] = "order";
-$proto101["m_columns"][] = "is_obsolete";
-$proto101["m_columns"][] = "designation";
-$proto101["m_columns"][] = "description";
-$proto101["m_columns"][] = "ut_user_role_type_id";
-$proto101["m_columns"][] = "is_occupant";
-$proto101["m_columns"][] = "is_public";
-$proto101["m_columns"][] = "is_default_assignee";
-$proto101["m_columns"][] = "is_default_invited";
-$proto101["m_columns"][] = "is_unit_owner";
-$proto101["m_columns"][] = "is_dashboard_access";
-$proto101["m_columns"][] = "can_see_role_contractor";
-$proto101["m_columns"][] = "can_see_role_mgt_cny";
-$proto101["m_columns"][] = "can_see_occupant";
-$proto101["m_columns"][] = "can_see_role_landlord";
-$proto101["m_columns"][] = "can_see_role_agent";
-$proto101["m_columns"][] = "can_see_role_tenant";
-$proto101["m_columns"][] = "is_assigned_to_case";
-$proto101["m_columns"][] = "is_invited_to_case";
-$proto101["m_columns"][] = "is_solution_updated";
-$proto101["m_columns"][] = "is_next_step_updated";
-$proto101["m_columns"][] = "is_deadline_updated";
-$proto101["m_columns"][] = "is_case_resolved";
-$proto101["m_columns"][] = "is_case_critical";
-$proto101["m_columns"][] = "is_case_blocker";
-$proto101["m_columns"][] = "is_message_from_contractor";
-$proto101["m_columns"][] = "is_message_from_mgt_cny";
-$proto101["m_columns"][] = "is_message_from_agent";
-$proto101["m_columns"][] = "is_message_from_occupant";
-$proto101["m_columns"][] = "is_message_from_ll";
-$proto101["m_columns"][] = "is_message_from_tenant";
-$proto101["m_columns"][] = "is_any_new_message";
-$proto101["m_columns"][] = "is_new_ir";
-$proto101["m_columns"][] = "is_new_inventory";
-$proto101["m_columns"][] = "is_new_item";
-$proto101["m_columns"][] = "is_item_moved";
-$proto101["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto101);
+						$proto100=array();
+			$obj = new SQLField(array(
+	"m_strName" => "is_item_removed",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Types"
+));
 
-$proto100["m_table"] = $obj;
-$proto100["m_sql"] = "ut_user_types";
-$proto100["m_alias"] = "";
+$proto100["m_sql"] = "ut_user_types.is_item_removed";
 $proto100["m_srcTableName"] = "Manage User Types";
-$proto102=array();
-$proto102["m_sql"] = "";
-$proto102["m_uniontype"] = "SQLL_UNKNOWN";
+$proto100["m_expr"]=$obj;
+$proto100["m_alias"] = "";
+$obj = new SQLFieldListItem($proto100);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto102=array();
+$proto102["m_link"] = "SQLL_MAIN";
+			$proto103=array();
+$proto103["m_strName"] = "ut_user_types";
+$proto103["m_srcTableName"] = "Manage User Types";
+$proto103["m_columns"] = array();
+$proto103["m_columns"][] = "id_unee_t_user_type";
+$proto103["m_columns"][] = "syst_created_datetime";
+$proto103["m_columns"][] = "creation_system_id";
+$proto103["m_columns"][] = "created_by_id";
+$proto103["m_columns"][] = "creation_method";
+$proto103["m_columns"][] = "syst_updated_datetime";
+$proto103["m_columns"][] = "update_system_id";
+$proto103["m_columns"][] = "updated_by_id";
+$proto103["m_columns"][] = "update_method";
+$proto103["m_columns"][] = "organization_id";
+$proto103["m_columns"][] = "order";
+$proto103["m_columns"][] = "is_obsolete";
+$proto103["m_columns"][] = "designation";
+$proto103["m_columns"][] = "description";
+$proto103["m_columns"][] = "ut_user_role_type_id";
+$proto103["m_columns"][] = "is_all_unit";
+$proto103["m_columns"][] = "is_occupant";
+$proto103["m_columns"][] = "is_public";
+$proto103["m_columns"][] = "is_default_assignee";
+$proto103["m_columns"][] = "is_default_invited";
+$proto103["m_columns"][] = "is_unit_owner";
+$proto103["m_columns"][] = "is_dashboard_access";
+$proto103["m_columns"][] = "can_see_role_contractor";
+$proto103["m_columns"][] = "can_see_role_mgt_cny";
+$proto103["m_columns"][] = "can_see_occupant";
+$proto103["m_columns"][] = "can_see_role_landlord";
+$proto103["m_columns"][] = "can_see_role_agent";
+$proto103["m_columns"][] = "can_see_role_tenant";
+$proto103["m_columns"][] = "is_assigned_to_case";
+$proto103["m_columns"][] = "is_invited_to_case";
+$proto103["m_columns"][] = "is_solution_updated";
+$proto103["m_columns"][] = "is_next_step_updated";
+$proto103["m_columns"][] = "is_deadline_updated";
+$proto103["m_columns"][] = "is_case_resolved";
+$proto103["m_columns"][] = "is_case_critical";
+$proto103["m_columns"][] = "is_case_blocker";
+$proto103["m_columns"][] = "is_message_from_contractor";
+$proto103["m_columns"][] = "is_message_from_mgt_cny";
+$proto103["m_columns"][] = "is_message_from_agent";
+$proto103["m_columns"][] = "is_message_from_occupant";
+$proto103["m_columns"][] = "is_message_from_ll";
+$proto103["m_columns"][] = "is_message_from_tenant";
+$proto103["m_columns"][] = "is_any_new_message";
+$proto103["m_columns"][] = "is_new_ir";
+$proto103["m_columns"][] = "is_new_inventory";
+$proto103["m_columns"][] = "is_new_item";
+$proto103["m_columns"][] = "is_item_moved";
+$proto103["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto103);
+
+$proto102["m_table"] = $obj;
+$proto102["m_sql"] = "ut_user_types";
+$proto102["m_alias"] = "";
+$proto102["m_srcTableName"] = "Manage User Types";
+$proto104=array();
+$proto104["m_sql"] = "";
+$proto104["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto102["m_column"]=$obj;
-$proto102["m_contained"] = array();
-$proto102["m_strCase"] = "";
-$proto102["m_havingmode"] = false;
-$proto102["m_inBrackets"] = false;
-$proto102["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto102);
+$proto104["m_column"]=$obj;
+$proto104["m_contained"] = array();
+$proto104["m_strCase"] = "";
+$proto104["m_havingmode"] = false;
+$proto104["m_inBrackets"] = false;
+$proto104["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto104);
 
-$proto100["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto100);
+$proto102["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto102);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto104=array();
-$proto104["m_link"] = "SQLL_LEFTJOIN";
-			$proto105=array();
-$proto105["m_strName"] = "ut_user_role_types";
-$proto105["m_srcTableName"] = "Manage User Types";
-$proto105["m_columns"] = array();
-$proto105["m_columns"][] = "id_role_type";
-$proto105["m_columns"][] = "syst_created_datetime";
-$proto105["m_columns"][] = "creation_system_id";
-$proto105["m_columns"][] = "created_by_id";
-$proto105["m_columns"][] = "syst_updated_datetime";
-$proto105["m_columns"][] = "update_system_id";
-$proto105["m_columns"][] = "updated_by_id";
-$proto105["m_columns"][] = "order";
-$proto105["m_columns"][] = "is_obsolete";
-$proto105["m_columns"][] = "role_type";
-$proto105["m_columns"][] = "bz_description";
-$proto105["m_columns"][] = "description";
-$obj = new SQLTable($proto105);
+												$proto106=array();
+$proto106["m_link"] = "SQLL_LEFTJOIN";
+			$proto107=array();
+$proto107["m_strName"] = "ut_user_role_types";
+$proto107["m_srcTableName"] = "Manage User Types";
+$proto107["m_columns"] = array();
+$proto107["m_columns"][] = "id_role_type";
+$proto107["m_columns"][] = "syst_created_datetime";
+$proto107["m_columns"][] = "creation_system_id";
+$proto107["m_columns"][] = "created_by_id";
+$proto107["m_columns"][] = "syst_updated_datetime";
+$proto107["m_columns"][] = "update_system_id";
+$proto107["m_columns"][] = "updated_by_id";
+$proto107["m_columns"][] = "order";
+$proto107["m_columns"][] = "is_obsolete";
+$proto107["m_columns"][] = "role_type";
+$proto107["m_columns"][] = "bz_description";
+$proto107["m_columns"][] = "description";
+$obj = new SQLTable($proto107);
 
-$proto104["m_table"] = $obj;
-$proto104["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$proto104["m_alias"] = "";
-$proto104["m_srcTableName"] = "Manage User Types";
-$proto106=array();
-$proto106["m_sql"] = "ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$proto106["m_uniontype"] = "SQLL_UNKNOWN";
+$proto106["m_table"] = $obj;
+$proto106["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto106["m_alias"] = "";
+$proto106["m_srcTableName"] = "Manage User Types";
+$proto108=array();
+$proto108["m_sql"] = "ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto108["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "ut_user_role_type_id",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
-$proto106["m_column"]=$obj;
-$proto106["m_contained"] = array();
-$proto106["m_strCase"] = "= ut_user_role_types.id_role_type";
-$proto106["m_havingmode"] = false;
-$proto106["m_inBrackets"] = false;
-$proto106["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto106);
+$proto108["m_column"]=$obj;
+$proto108["m_contained"] = array();
+$proto108["m_strCase"] = "= ut_user_role_types.id_role_type";
+$proto108["m_havingmode"] = false;
+$proto108["m_inBrackets"] = false;
+$proto108["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto108);
 
-$proto104["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto104);
+$proto106["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto106);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto108=array();
+												$proto110=array();
 						$obj = new SQLField(array(
 	"m_strName" => "role_type",
 	"m_strTable" => "ut_user_role_types",
-	"m_srcTableName" => "Manage User Types"
-));
-
-$proto108["m_column"]=$obj;
-$proto108["m_bAsc"] = 1;
-$proto108["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto108);
-
-$proto0["m_orderby"][]=$obj;					
-												$proto110=array();
-						$obj = new SQLField(array(
-	"m_strName" => "is_obsolete",
-	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
@@ -7178,7 +7272,7 @@ $obj = new SQLOrderByItem($proto110);
 $proto0["m_orderby"][]=$obj;					
 												$proto112=array();
 						$obj = new SQLField(array(
-	"m_strName" => "order",
+	"m_strName" => "is_obsolete",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
@@ -7191,15 +7285,28 @@ $obj = new SQLOrderByItem($proto112);
 $proto0["m_orderby"][]=$obj;					
 												$proto114=array();
 						$obj = new SQLField(array(
-	"m_strName" => "organization_id",
+	"m_strName" => "order",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Types"
 ));
 
 $proto114["m_column"]=$obj;
-$proto114["m_bAsc"] = 0;
+$proto114["m_bAsc"] = 1;
 $proto114["m_nColumn"] = 0;
 $obj = new SQLOrderByItem($proto114);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto116=array();
+						$obj = new SQLField(array(
+	"m_strName" => "organization_id",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Types"
+));
+
+$proto116["m_column"]=$obj;
+$proto116["m_bAsc"] = 0;
+$proto116["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto116);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage User Types";		
@@ -7214,7 +7321,7 @@ $queryData_Manage_User_Types = createSqlQuery_Manage_User_Types();
 					
 ;
 
-																																															
+																																																
 
 $tdataManage_User_Types[".sqlquery"] = $queryData_Manage_User_Types;
 

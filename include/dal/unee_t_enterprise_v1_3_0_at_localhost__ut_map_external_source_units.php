@@ -14,6 +14,8 @@ $dalTableut_map_external_source_units["is_obsolete"] = array("type"=>16,"varname
 $dalTableut_map_external_source_units["is_update_needed"] = array("type"=>16,"varname"=>"is_update_needed", "name" => "is_update_needed");
 $dalTableut_map_external_source_units["unee_t_mefe_unit_id"] = array("type"=>200,"varname"=>"unee_t_mefe_unit_id", "name" => "unee_t_mefe_unit_id");
 $dalTableut_map_external_source_units["uneet_created_datetime"] = array("type"=>135,"varname"=>"uneet_created_datetime", "name" => "uneet_created_datetime");
+$dalTableut_map_external_source_units["is_mefe_api_success"] = array("type"=>16,"varname"=>"is_mefe_api_success", "name" => "is_mefe_api_success");
+$dalTableut_map_external_source_units["mefe_api_error_message"] = array("type"=>201,"varname"=>"mefe_api_error_message", "name" => "mefe_api_error_message");
 $dalTableut_map_external_source_units["is_unee_t_created_by_me"] = array("type"=>16,"varname"=>"is_unee_t_created_by_me", "name" => "is_unee_t_created_by_me");
 $dalTableut_map_external_source_units["unee_t_unit_type"] = array("type"=>200,"varname"=>"unee_t_unit_type", "name" => "unee_t_unit_type");
 $dalTableut_map_external_source_units["uneet_name"] = array("type"=>200,"varname"=>"uneet_name", "name" => "uneet_name");

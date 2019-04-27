@@ -18,7 +18,7 @@ pdfDocument = {
 		{BEGIN body}
 		{BEGIN embedded_grid}
 		{
-			text: '{$jscaption Manage_User_Types}',
+			text: '{$jscaption Assign_Buildings_to_User}',
 		},
 		{END embedded_grid}
 		{ 
@@ -74,6 +74,12 @@ pdfDocument = {
 										{BEGIN col_grid_7}
 					"%",
 					{END col_grid_7}
+										{BEGIN col_grid_8}
+					"%",
+					{END col_grid_8}
+										{BEGIN col_grid_9}
+					"%",
+					{END col_grid_9}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -117,10 +123,34 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":""},
+			{"text":"","hidden":"{$item_hide_breadcrumb}"},
 				
+		  ],
+  "border": [ false, false, false, false ],
+        },
+
+											],
+								
+		[
+												
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
 				
-			{"text":"{$jspagetitlelabel Manage_User_Types masterlist}","hidden":"{$item_hide_masterlist_header}","fontSize":30},
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -133,7 +163,86 @@ pdfDocument = {
 ,
 								
 																										
-''
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+		 
+						'*', 
+					 
+						'*', 
+					 ],
+		
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_add}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_inline_add}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_delete}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+        },
+
+																			
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_details_found}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_page_size}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_columns_control}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'right',
+  },
+
+											],
+					]
+	}
+}
 ,
 															]
 						},
@@ -146,7 +255,55 @@ pdfDocument = {
 					{BEGIN row_grid_0}
 				
 		[
-												{BEGIN cellblock_grid_headcell_field}
+												{BEGIN cellblock_grid_headcell_icons}
+
+{
+	cellId: 'headcell_icons',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_icons}
+																			{BEGIN cellblock_grid_headcell_checkbox}
+
+{
+	cellId: 'headcell_checkbox',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_grid_checkbox_head}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_checkbox}
+																			{BEGIN cellblock_grid_headcell_field}
 
 {
 	cellId: 'headcell_field',
@@ -164,7 +321,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field13}","text":"{$jslabel Manage_User_Types designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field7}","text":"{$jslabel Assign_Buildings_to_User unee_t_level_1_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -189,7 +346,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field18}","text":"{$jslabel Manage_User_Types role_type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field17}","text":"{$jslabel Assign_Buildings_to_User unee_t_role_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -214,7 +371,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field19}","text":"{$jslabel Manage_User_Types is_public }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field8}","text":"{$jslabel Assign_Buildings_to_User is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -239,7 +396,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field20}","text":"{$jslabel Manage_User_Types is_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field9}","text":"{$jslabel Assign_Buildings_to_User unee_t_mefe_user_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -264,7 +421,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel Manage_User_Types is_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field10}","text":"{$jslabel Assign_Buildings_to_User unee_t_user_type_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -289,7 +446,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field5}","text":"{$jslabel Manage_User_Types is_dashboard_access }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field11}","text":"{$jslabel Assign_Buildings_to_User propagate_level_2 }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -314,7 +471,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field6}","text":"{$jslabel Manage_User_Types is_default_invited }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field12}","text":"{$jslabel Assign_Buildings_to_User propagate_level_3 }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -339,7 +496,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field7}","text":"{$jslabel Manage_User_Types is_all_unit }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field13}","text":"{$jslabel Assign_Buildings_to_User unee_t_update_ts }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -355,7 +512,57 @@ pdfDocument = {
 						{BEGIN row_grid_1}
 				
 		[
-												{BEGIN cellblock_grid_cell_field}
+												{BEGIN cellblock_grid_cell_icons}
+
+{
+	cellId: 'cell_icons',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_icons}
+																			{BEGIN cellblock_grid_cell_checkbox}
+
+{
+	cellId: 'cell_checkbox',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_grid_checkbox}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_checkbox}
+																			{BEGIN cellblock_grid_cell_field}
 
 {
 	cellId: 'cell_field',
@@ -373,7 +580,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field12}","text":{$designation_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field6}","bold":true,"text":{$unee_t_level_1_id_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -398,7 +605,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field15}","text":{$role_type_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field16}","text":{$unee_t_role_id_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -423,7 +630,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field16}","text":{$is_public_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$is_obsolete_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -448,7 +655,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field17}","text":{$is_default_assignee_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field1}","text":{$unee_t_mefe_user_id_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -473,7 +680,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":{$is_occupant_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field2}","text":{$unee_t_user_type_id_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -498,7 +705,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field1}","text":{$is_dashboard_access_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field3}","text":{$propagate_level_2_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -523,7 +730,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field2}","text":{$is_default_invited_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field4}","text":{$propagate_level_3_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -548,7 +755,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field3}","text":{$is_all_unit_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field5}","text":{$unee_t_update_ts_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -565,7 +772,53 @@ pdfDocument = {
 							{BEGIN row_grid_2}
 				
 		[
-												{BEGIN cellblock_grid_footcell_field}
+												{BEGIN cellblock_grid_footcell_icons}
+
+{
+	cellId: 'footcell_icons',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_icons}
+																			{BEGIN cellblock_grid_footcell_checkbox}
+
+{
+	cellId: 'footcell_checkbox',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_checkbox}
+																			{BEGIN cellblock_grid_footcell_field}
 
 {
 	cellId: 'footcell_field',

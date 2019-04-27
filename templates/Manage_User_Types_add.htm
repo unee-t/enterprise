@@ -174,9 +174,9 @@
 	data-location="section7" id="form_section7_{$pageid}" data-makeup="topbar" {$form_section7} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="4"
+		data-form-width="3"
 		
-		data-v-width="8"
+		data-v-width="6"
 	>
 	<tbody>
 										<tr>
@@ -189,8 +189,8 @@
 	
 			data-single
 			
-	ocolspan="2"		data-cellId="section7_c1" data-pageid="{$pageid}"
-		data-v-cell="4"
+			data-cellId="section7_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -223,14 +223,14 @@
 			 
 																
 
-{BEGIN cellblock_section7_c2}
+{BEGIN cellblock_section7_c3}
 <td
-	{$cell_section7_c2}
+	{$cell_section7_c3}
 	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section7_c2" data-pageid="{$pageid}"
+			data-cellId="section7_c3" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -260,18 +260,18 @@
 {END ut_user_role_type_id_fieldblock}
 	
 								</td>
-			{END cellblock_section7_c2}
+			{END cellblock_section7_c3}
 			 
 																
 
-{BEGIN cellblock_section7_c}
+{BEGIN cellblock_section7_c2}
 <td
-	{$cell_section7_c}
-	class="r-align-center r-ori-vert"
+	{$cell_section7_c2}
+	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section7_c" data-pageid="{$pageid}"
+			data-cellId="section7_c2" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -301,7 +301,7 @@
 {END is_occupant_fieldblock}
 	
 								</td>
-			{END cellblock_section7_c}
+			{END cellblock_section7_c2}
 								</tr>
 	 
 	 
@@ -337,7 +337,7 @@
 		{$is_public_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="is_public">
 		<div class="text-muted" >
-				</div>
+		Tick if this user can be seen and invited by other roles.		</div>
 	</div>
 </div>
 
@@ -378,7 +378,7 @@
 		{$is_default_assignee_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="is_default_assignee">
 		<div class="text-muted" >
-				</div>
+		Tick if this is the user type you create for the PUBLIC user who is visible to the other roles.		</div>
 	</div>
 </div>
 
@@ -419,7 +419,7 @@
 		{$is_default_invited_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="is_default_invited">
 		<div class="text-muted" >
-				</div>
+		Tick if this is these users are automatically invited to ALL the cases created and initially assigned to this role.		</div>
 	</div>
 </div>
 
@@ -428,17 +428,61 @@
 	
 								</td>
 			{END cellblock_section7_c10}
-			 
-																
+								</tr>
+	 
+	 
+														<tr>
+										
 
-{BEGIN cellblock_section7_c11}
+{BEGIN cellblock_section7_c12}
 <td
-	{$cell_section7_c11}
+	{$cell_section7_c12}
 	class="r-align-center r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section7_c11" data-pageid="{$pageid}"
+			data-cellId="section7_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_unit_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-vertical-field" 
+	data-fieldname="is_all_unit" 
+	data-signal-error-for="is_all_unit{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="is_all_unit" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_is_all_unit}">
+		{BEGIN is_all_unit_label}{$label Manage_User_Types is_all_unit }{END is_all_unit_label}
+	</label>
+	<div class="r-edit-field">
+		{$is_all_unit_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="is_all_unit">
+		<div class="text-muted" >
+		Tick if you want these users to be assigned to ALL units in your organiztion		</div>
+	</div>
+</div>
+
+
+{END is_all_unit_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c12}
+			 
+																
+
+{BEGIN cellblock_section7_c13}
+<td
+	{$cell_section7_c13}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c13" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -460,7 +504,7 @@
 		{$is_dashboard_access_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="is_dashboard_access">
 		<div class="text-muted" >
-				</div>
+		Tick if you want these users to have access to the Unee-T Dashboard		</div>
 	</div>
 </div>
 
@@ -468,7 +512,48 @@
 {END is_dashboard_access_fieldblock}
 	
 								</td>
-			{END cellblock_section7_c11}
+			{END cellblock_section7_c13}
+			 
+																
+
+{BEGIN cellblock_section7_c14}
+<td
+	{$cell_section7_c14}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c14" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN order_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_order}  r-vertical-field" 
+	data-fieldname="order" 
+	data-signal-error-for="order{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="order" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_order}">
+		{BEGIN order_label}{$label Manage_User_Types order }{END order_label}
+	</label>
+	<div class="r-edit-field">
+		{$order_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="order">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END order_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c14}
 								</tr>
 	 
 	 
@@ -481,9 +566,10 @@
 	class=" r-ori-vert"
 	
 			data-single
-			
-	ocolspan="2"		data-cellId="section7_c4" data-pageid="{$pageid}"
-		data-v-cell="4"
+				data-fullwidth
+		
+	ocolspan="3"		data-cellId="section7_c4" data-pageid="{$pageid}"
+		data-v-cell="6"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -513,47 +599,6 @@
 	
 								</td>
 			{END cellblock_section7_c4}
-			 
-																
-
-{BEGIN cellblock_section7_c6}
-<td
-	{$cell_section7_c6}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-			
-	ocolspan="2"		data-cellId="section7_c6" data-pageid="{$pageid}"
-		data-v-cell="4"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN order_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_order}  r-vertical-field" 
-	data-fieldname="order" 
-	data-signal-error-for="order{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="order" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_order}">
-		{BEGIN order_label}{$label Manage_User_Types order }{END order_label}
-	</label>
-	<div class="r-edit-field">
-		{$order_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="order">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END order_fieldblock}
-	
-								</td>
-			{END cellblock_section7_c6}
 								</tr>
 			</tbody></table>
 {END section7_block}
@@ -629,7 +674,7 @@
 		{$can_see_role_tenant_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_role_tenant">
 		<div class="text-muted" >
-				</div>
+		These users can invite tenants to a case.		</div>
 	</div>
 </div>
 
@@ -670,7 +715,7 @@
 		{$can_see_occupant_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_occupant">
 		<div class="text-muted" >
-				</div>
+		These users can invite occupants to a case.		</div>
 	</div>
 </div>
 
@@ -711,7 +756,7 @@
 		{$can_see_role_mgt_cny_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_role_mgt_cny">
 		<div class="text-muted" >
-				</div>
+		These users can invite teh Management Company to a case.		</div>
 	</div>
 </div>
 
@@ -755,7 +800,7 @@
 		{$can_see_role_contractor_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_role_contractor">
 		<div class="text-muted" >
-				</div>
+		These users can invite contractors to a case.		</div>
 	</div>
 </div>
 
@@ -796,7 +841,7 @@
 		{$can_see_role_landlord_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_role_landlord">
 		<div class="text-muted" >
-				</div>
+		These users can invite Owner/Landlord to a case.		</div>
 	</div>
 </div>
 
@@ -837,7 +882,7 @@
 		{$can_see_role_agent_editcontrol}	</div>
 	<div class="r-edit-tooltip" data-helpfor="can_see_role_agent">
 		<div class="text-muted" >
-				</div>
+		These users can invite agents to a case.		</div>
 	</div>
 </div>
 

@@ -4182,6 +4182,7 @@ $proto63["m_columns"][] = "is_obsolete";
 $proto63["m_columns"][] = "designation";
 $proto63["m_columns"][] = "description";
 $proto63["m_columns"][] = "ut_user_role_type_id";
+$proto63["m_columns"][] = "is_all_unit";
 $proto63["m_columns"][] = "is_occupant";
 $proto63["m_columns"][] = "is_public";
 $proto63["m_columns"][] = "is_default_assignee";
