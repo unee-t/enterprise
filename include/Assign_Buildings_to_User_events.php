@@ -165,6 +165,8 @@ if ($values["unee_t_level_1_id"])
 // Place event code here.
 // Use "Add Action" button to add code snippets.
 
+//unset($values["unee_t_level_1_id"]);
+
 return true;
 ;		
 } // function BeforeAdd

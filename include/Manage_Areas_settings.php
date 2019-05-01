@@ -510,25 +510,6 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	
 
-	$fdata["ViewFormats"]["print"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
 	$fdata["ViewFormats"]["export"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
@@ -793,25 +774,6 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["list"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
-	$fdata["ViewFormats"]["print"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
 	
@@ -1146,25 +1108,6 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["list"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
-	$fdata["ViewFormats"]["print"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
 	

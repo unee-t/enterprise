@@ -119,6 +119,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsAssign_Rooms_to_User["English"]["name"] = "Name";
 	$fieldToolTipsAssign_Rooms_to_User["English"]["name"] = "";
 	$placeHoldersAssign_Rooms_to_User["English"]["name"] = "";
+	$fieldLabelsAssign_Rooms_to_User["English"]["unee_t_mefe_unit_id"] = "Unee T Mefe Unit Id";
+	$fieldToolTipsAssign_Rooms_to_User["English"]["unee_t_mefe_unit_id"] = "";
+	$placeHoldersAssign_Rooms_to_User["English"]["unee_t_mefe_unit_id"] = "";
 	if (count($fieldToolTipsAssign_Rooms_to_User["English"]))
 		$tdataAssign_Rooms_to_User[".isUseToolTips"] = true;
 }
@@ -233,7 +236,7 @@ $tdataAssign_Rooms_to_User[".addPageEvents"] = false;
 $tdataAssign_Rooms_to_User[".isUseTimeForSearch"] = false;
 
 
-$tdataAssign_Rooms_to_User[".badgeColor"] = "CD5C5C";
+$tdataAssign_Rooms_to_User[".badgeColor"] = "002f6c";
 
 
 $tdataAssign_Rooms_to_User[".allSearchFields"] = array();
@@ -290,7 +293,7 @@ $tdataAssign_Rooms_to_User[".strOrderBy"] = $tstrOrderBy;
 
 $tdataAssign_Rooms_to_User[".orderindexes"] = array();
 
-$tdataAssign_Rooms_to_User[".sqlHead"] = "SELECT external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3,  external_map_user_unit_role_permissions_level_3.syst_created_datetime,  external_map_user_unit_role_permissions_level_3.creation_system_id,  external_map_user_unit_role_permissions_level_3.created_by_id,  external_map_user_unit_role_permissions_level_3.creation_method,  external_map_user_unit_role_permissions_level_3.syst_updated_datetime,  external_map_user_unit_role_permissions_level_3.update_system_id,  external_map_user_unit_role_permissions_level_3.updated_by_id,  external_map_user_unit_role_permissions_level_3.update_method,  external_map_user_unit_role_permissions_level_3.organization_id,  external_map_user_unit_role_permissions_level_3.is_obsolete AS is_permission_obsolete,  external_map_user_unit_role_permissions_level_3.is_update_needed,  external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.id_building,  property_level_1_buildings.designation AS building_name,  property_level_2_units.system_id_unit,  property_level_2_units.designation AS unit_name,  external_map_user_unit_role_permissions_level_3.unee_t_level_3_id,  property_level_3_rooms.room_designation AS room_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_3.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_3.unee_t_user_type_id,  ut_user_types.designation AS user_type,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_update_ts,  property_groups_countries.country_code,  property_groups_countries.country_name,  ut_info_mefe_users.name";
+$tdataAssign_Rooms_to_User[".sqlHead"] = "SELECT external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3,  external_map_user_unit_role_permissions_level_3.syst_created_datetime,  external_map_user_unit_role_permissions_level_3.creation_system_id,  external_map_user_unit_role_permissions_level_3.created_by_id,  external_map_user_unit_role_permissions_level_3.creation_method,  external_map_user_unit_role_permissions_level_3.syst_updated_datetime,  external_map_user_unit_role_permissions_level_3.update_system_id,  external_map_user_unit_role_permissions_level_3.updated_by_id,  external_map_user_unit_role_permissions_level_3.update_method,  external_map_user_unit_role_permissions_level_3.organization_id,  external_map_user_unit_role_permissions_level_3.is_obsolete AS is_permission_obsolete,  external_map_user_unit_role_permissions_level_3.is_update_needed,  external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.id_building,  property_level_1_buildings.designation AS building_name,  property_level_2_units.system_id_unit,  property_level_2_units.designation AS unit_name,  external_map_user_unit_role_permissions_level_3.unee_t_level_3_id,  property_level_3_rooms.room_designation AS room_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_3.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_3.unee_t_user_type_id,  ut_user_types.designation AS user_type,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_update_ts,  property_groups_countries.country_code,  property_groups_countries.country_name,  ut_info_mefe_users.name,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_mefe_unit_id";
 $tdataAssign_Rooms_to_User[".sqlFrom"] = "FROM external_map_user_unit_role_permissions_level_3  LEFT OUTER JOIN property_level_3_rooms ON external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_level_2_units ON property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit  LEFT OUTER JOIN property_level_1_buildings ON property_level_2_units.building_system_id = property_level_1_buildings.id_building  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_3 ON external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3  LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  LEFT OUTER JOIN ut_info_mefe_users ON external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
 $tdataAssign_Rooms_to_User[".sqlWhereExpr"] = "";
 $tdataAssign_Rooms_to_User[".sqlTail"] = "";
@@ -4795,6 +4798,127 @@ $tdataAssign_Rooms_to_User[".hideMobileList"] = array();
 
 	$tdataAssign_Rooms_to_User["name"] = $fdata;
 		$tdataAssign_Rooms_to_User[".searchableFields"][] = "name";
+//	unee_t_mefe_unit_id
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 31;
+	$fdata["strName"] = "unee_t_mefe_unit_id";
+	$fdata["GoodName"] = "unee_t_mefe_unit_id";
+	$fdata["ownerTable"] = "ut_check_unee_t_update_add_user_to_unit_level_3";
+	$fdata["Label"] = GetFieldLabel("Assign_Rooms_to_User","unee_t_mefe_unit_id");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "unee_t_mefe_unit_id";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_mefe_unit_id";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+	
+	
+
+
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataAssign_Rooms_to_User["unee_t_mefe_unit_id"] = $fdata;
+		$tdataAssign_Rooms_to_User[".searchableFields"][] = "unee_t_mefe_unit_id";
 
 
 $tables_data["Assign Rooms to User"]=&$tdataAssign_Rooms_to_User;
@@ -4812,6 +4936,38 @@ $masterTablesData["Assign Rooms to User"] = array();
 
 
 
+	
+				$strOriginalDetailsTable="external_persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Manage Unee-T Users";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "Manage_Unee_T_Users";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Assign Rooms to User"][0] = $masterParams;
+				$masterTablesData["Assign Rooms to User"][0]["masterKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][0]["masterKeys"][]="unee_t_mefe_user_id";
+				$masterTablesData["Assign Rooms to User"][0]["detailKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][0]["detailKeys"][]="unee_t_mefe_user_id";
+		
+	
+				$strOriginalDetailsTable="external_property_level_3_rooms";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Manage Rooms";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "Manage_Rooms";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Assign Rooms to User"][1] = $masterParams;
+				$masterTablesData["Assign Rooms to User"][1]["masterKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][1]["masterKeys"][]="unee_t_mefe_unit_id";
+				$masterTablesData["Assign Rooms to User"][1]["detailKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][1]["detailKeys"][]="unee_t_mefe_unit_id";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -4830,7 +4986,7 @@ function createSqlQuery_Assign_Rooms_to_User()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3,  external_map_user_unit_role_permissions_level_3.syst_created_datetime,  external_map_user_unit_role_permissions_level_3.creation_system_id,  external_map_user_unit_role_permissions_level_3.created_by_id,  external_map_user_unit_role_permissions_level_3.creation_method,  external_map_user_unit_role_permissions_level_3.syst_updated_datetime,  external_map_user_unit_role_permissions_level_3.update_system_id,  external_map_user_unit_role_permissions_level_3.updated_by_id,  external_map_user_unit_role_permissions_level_3.update_method,  external_map_user_unit_role_permissions_level_3.organization_id,  external_map_user_unit_role_permissions_level_3.is_obsolete AS is_permission_obsolete,  external_map_user_unit_role_permissions_level_3.is_update_needed,  external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.id_building,  property_level_1_buildings.designation AS building_name,  property_level_2_units.system_id_unit,  property_level_2_units.designation AS unit_name,  external_map_user_unit_role_permissions_level_3.unee_t_level_3_id,  property_level_3_rooms.room_designation AS room_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_3.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_3.unee_t_user_type_id,  ut_user_types.designation AS user_type,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_update_ts,  property_groups_countries.country_code,  property_groups_countries.country_name,  ut_info_mefe_users.name";
+$proto0["m_strFieldList"] = "external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3,  external_map_user_unit_role_permissions_level_3.syst_created_datetime,  external_map_user_unit_role_permissions_level_3.creation_system_id,  external_map_user_unit_role_permissions_level_3.created_by_id,  external_map_user_unit_role_permissions_level_3.creation_method,  external_map_user_unit_role_permissions_level_3.syst_updated_datetime,  external_map_user_unit_role_permissions_level_3.update_system_id,  external_map_user_unit_role_permissions_level_3.updated_by_id,  external_map_user_unit_role_permissions_level_3.update_method,  external_map_user_unit_role_permissions_level_3.organization_id,  external_map_user_unit_role_permissions_level_3.is_obsolete AS is_permission_obsolete,  external_map_user_unit_role_permissions_level_3.is_update_needed,  external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.id_building,  property_level_1_buildings.designation AS building_name,  property_level_2_units.system_id_unit,  property_level_2_units.designation AS unit_name,  external_map_user_unit_role_permissions_level_3.unee_t_level_3_id,  property_level_3_rooms.room_designation AS room_name,  ut_map_external_source_users.person_id,  external_map_user_unit_role_permissions_level_3.unee_t_role_id,  ut_user_role_types.role_type AS user_role,  external_map_user_unit_role_permissions_level_3.unee_t_user_type_id,  ut_user_types.designation AS user_type,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_update_ts,  property_groups_countries.country_code,  property_groups_countries.country_name,  ut_info_mefe_users.name,  ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_mefe_unit_id";
 $proto0["m_strFrom"] = "FROM external_map_user_unit_role_permissions_level_3  LEFT OUTER JOIN property_level_3_rooms ON external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id  LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type  INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id  LEFT OUTER JOIN property_level_2_units ON property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit  LEFT OUTER JOIN property_level_1_buildings ON property_level_2_units.building_system_id = property_level_1_buildings.id_building  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_3 ON external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3  LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  LEFT OUTER JOIN ut_info_mefe_users ON external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -5291,693 +5447,708 @@ $proto64["m_alias"] = "";
 $obj = new SQLFieldListItem($proto64);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto66=array();
-$proto66["m_link"] = "SQLL_MAIN";
-			$proto67=array();
-$proto67["m_strName"] = "external_map_user_unit_role_permissions_level_3";
-$proto67["m_srcTableName"] = "Assign Rooms to User";
-$proto67["m_columns"] = array();
-$proto67["m_columns"][] = "id_map_user_unit_permissions_level_3";
-$proto67["m_columns"][] = "syst_created_datetime";
-$proto67["m_columns"][] = "creation_system_id";
-$proto67["m_columns"][] = "created_by_id";
-$proto67["m_columns"][] = "creation_method";
-$proto67["m_columns"][] = "syst_updated_datetime";
-$proto67["m_columns"][] = "update_system_id";
-$proto67["m_columns"][] = "updated_by_id";
-$proto67["m_columns"][] = "update_method";
-$proto67["m_columns"][] = "organization_id";
-$proto67["m_columns"][] = "is_obsolete";
-$proto67["m_columns"][] = "is_update_needed";
-$proto67["m_columns"][] = "unee_t_update_ts";
-$proto67["m_columns"][] = "unee_t_mefe_user_id";
-$proto67["m_columns"][] = "unee_t_level_3_id";
-$proto67["m_columns"][] = "unee_t_user_type_id";
-$proto67["m_columns"][] = "unee_t_role_id";
-$obj = new SQLTable($proto67);
+						$proto66=array();
+			$obj = new SQLField(array(
+	"m_strName" => "unee_t_mefe_unit_id",
+	"m_strTable" => "ut_check_unee_t_update_add_user_to_unit_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
 
-$proto66["m_table"] = $obj;
-$proto66["m_sql"] = "external_map_user_unit_role_permissions_level_3";
-$proto66["m_alias"] = "";
+$proto66["m_sql"] = "ut_check_unee_t_update_add_user_to_unit_level_3.unee_t_mefe_unit_id";
 $proto66["m_srcTableName"] = "Assign Rooms to User";
-$proto68=array();
-$proto68["m_sql"] = "";
-$proto68["m_uniontype"] = "SQLL_UNKNOWN";
+$proto66["m_expr"]=$obj;
+$proto66["m_alias"] = "";
+$obj = new SQLFieldListItem($proto66);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto68=array();
+$proto68["m_link"] = "SQLL_MAIN";
+			$proto69=array();
+$proto69["m_strName"] = "external_map_user_unit_role_permissions_level_3";
+$proto69["m_srcTableName"] = "Assign Rooms to User";
+$proto69["m_columns"] = array();
+$proto69["m_columns"][] = "id_map_user_unit_permissions_level_3";
+$proto69["m_columns"][] = "syst_created_datetime";
+$proto69["m_columns"][] = "creation_system_id";
+$proto69["m_columns"][] = "created_by_id";
+$proto69["m_columns"][] = "creation_method";
+$proto69["m_columns"][] = "syst_updated_datetime";
+$proto69["m_columns"][] = "update_system_id";
+$proto69["m_columns"][] = "updated_by_id";
+$proto69["m_columns"][] = "update_method";
+$proto69["m_columns"][] = "organization_id";
+$proto69["m_columns"][] = "is_obsolete";
+$proto69["m_columns"][] = "is_update_needed";
+$proto69["m_columns"][] = "unee_t_update_ts";
+$proto69["m_columns"][] = "unee_t_mefe_user_id";
+$proto69["m_columns"][] = "unee_t_level_3_id";
+$proto69["m_columns"][] = "unee_t_user_type_id";
+$proto69["m_columns"][] = "unee_t_role_id";
+$obj = new SQLTable($proto69);
+
+$proto68["m_table"] = $obj;
+$proto68["m_sql"] = "external_map_user_unit_role_permissions_level_3";
+$proto68["m_alias"] = "";
+$proto68["m_srcTableName"] = "Assign Rooms to User";
+$proto70=array();
+$proto70["m_sql"] = "";
+$proto70["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto68["m_column"]=$obj;
-$proto68["m_contained"] = array();
-$proto68["m_strCase"] = "";
-$proto68["m_havingmode"] = false;
-$proto68["m_inBrackets"] = false;
-$proto68["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto68);
+$proto70["m_column"]=$obj;
+$proto70["m_contained"] = array();
+$proto70["m_strCase"] = "";
+$proto70["m_havingmode"] = false;
+$proto70["m_inBrackets"] = false;
+$proto70["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto70);
 
-$proto66["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto66);
+$proto68["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto68);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto70=array();
-$proto70["m_link"] = "SQLL_LEFTJOIN";
-			$proto71=array();
-$proto71["m_strName"] = "property_level_3_rooms";
-$proto71["m_srcTableName"] = "Assign Rooms to User";
-$proto71["m_columns"] = array();
-$proto71["m_columns"][] = "system_id_room";
-$proto71["m_columns"][] = "external_id";
-$proto71["m_columns"][] = "external_system_id";
-$proto71["m_columns"][] = "external_table";
-$proto71["m_columns"][] = "syst_created_datetime";
-$proto71["m_columns"][] = "creation_system_id";
-$proto71["m_columns"][] = "created_by_id";
-$proto71["m_columns"][] = "creation_method";
-$proto71["m_columns"][] = "syst_updated_datetime";
-$proto71["m_columns"][] = "update_system_id";
-$proto71["m_columns"][] = "updated_by_id";
-$proto71["m_columns"][] = "update_method";
-$proto71["m_columns"][] = "organization_id";
-$proto71["m_columns"][] = "is_obsolete";
-$proto71["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto71["m_columns"][] = "do_not_insert";
-$proto71["m_columns"][] = "unee_t_unit_type";
-$proto71["m_columns"][] = "system_id_unit";
-$proto71["m_columns"][] = "room_type_id";
-$proto71["m_columns"][] = "number_of_beds";
-$proto71["m_columns"][] = "surface";
-$proto71["m_columns"][] = "surface_measurment_unit";
-$proto71["m_columns"][] = "room_designation";
-$proto71["m_columns"][] = "room_description";
-$obj = new SQLTable($proto71);
+												$proto72=array();
+$proto72["m_link"] = "SQLL_LEFTJOIN";
+			$proto73=array();
+$proto73["m_strName"] = "property_level_3_rooms";
+$proto73["m_srcTableName"] = "Assign Rooms to User";
+$proto73["m_columns"] = array();
+$proto73["m_columns"][] = "system_id_room";
+$proto73["m_columns"][] = "external_id";
+$proto73["m_columns"][] = "external_system_id";
+$proto73["m_columns"][] = "external_table";
+$proto73["m_columns"][] = "syst_created_datetime";
+$proto73["m_columns"][] = "creation_system_id";
+$proto73["m_columns"][] = "created_by_id";
+$proto73["m_columns"][] = "creation_method";
+$proto73["m_columns"][] = "syst_updated_datetime";
+$proto73["m_columns"][] = "update_system_id";
+$proto73["m_columns"][] = "updated_by_id";
+$proto73["m_columns"][] = "update_method";
+$proto73["m_columns"][] = "organization_id";
+$proto73["m_columns"][] = "is_obsolete";
+$proto73["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto73["m_columns"][] = "do_not_insert";
+$proto73["m_columns"][] = "unee_t_unit_type";
+$proto73["m_columns"][] = "system_id_unit";
+$proto73["m_columns"][] = "room_type_id";
+$proto73["m_columns"][] = "number_of_beds";
+$proto73["m_columns"][] = "surface";
+$proto73["m_columns"][] = "surface_measurment_unit";
+$proto73["m_columns"][] = "room_designation";
+$proto73["m_columns"][] = "room_description";
+$obj = new SQLTable($proto73);
 
-$proto70["m_table"] = $obj;
-$proto70["m_sql"] = "LEFT OUTER JOIN property_level_3_rooms ON external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
-$proto70["m_alias"] = "";
-$proto70["m_srcTableName"] = "Assign Rooms to User";
-$proto72=array();
-$proto72["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
-$proto72["m_uniontype"] = "SQLL_AND";
+$proto72["m_table"] = $obj;
+$proto72["m_sql"] = "LEFT OUTER JOIN property_level_3_rooms ON external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
+$proto72["m_alias"] = "";
+$proto72["m_srcTableName"] = "Assign Rooms to User";
+$proto74=array();
+$proto74["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
+$proto74["m_uniontype"] = "SQLL_AND";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => "external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room AND external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id"
 ));
 
-$proto72["m_column"]=$obj;
-$proto72["m_contained"] = array();
-						$proto74=array();
-$proto74["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room";
-$proto74["m_uniontype"] = "SQLL_UNKNOWN";
+$proto74["m_column"]=$obj;
+$proto74["m_contained"] = array();
+						$proto76=array();
+$proto76["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_level_3_id = property_level_3_rooms.system_id_room";
+$proto76["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "unee_t_level_3_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
 	"m_srcTableName" => "Assign Rooms to User"
 ));
 
-$proto74["m_column"]=$obj;
-$proto74["m_contained"] = array();
-$proto74["m_strCase"] = "= property_level_3_rooms.system_id_room";
-$proto74["m_havingmode"] = false;
-$proto74["m_inBrackets"] = false;
-$proto74["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto74);
-
-			$proto72["m_contained"][]=$obj;
-						$proto76=array();
-$proto76["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
-$proto76["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "organization_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
 $proto76["m_column"]=$obj;
 $proto76["m_contained"] = array();
-$proto76["m_strCase"] = "= property_level_3_rooms.organization_id";
+$proto76["m_strCase"] = "= property_level_3_rooms.system_id_room";
 $proto76["m_havingmode"] = false;
 $proto76["m_inBrackets"] = false;
 $proto76["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto76);
 
-			$proto72["m_contained"][]=$obj;
-$proto72["m_strCase"] = "";
-$proto72["m_havingmode"] = false;
-$proto72["m_inBrackets"] = false;
-$proto72["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto72);
-
-$proto70["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto70);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto78=array();
-$proto78["m_link"] = "SQLL_LEFTJOIN";
-			$proto79=array();
-$proto79["m_strName"] = "ut_map_external_source_users";
-$proto79["m_srcTableName"] = "Assign Rooms to User";
-$proto79["m_columns"] = array();
-$proto79["m_columns"][] = "id_map";
-$proto79["m_columns"][] = "syst_created_datetime";
-$proto79["m_columns"][] = "creation_system_id";
-$proto79["m_columns"][] = "created_by_id";
-$proto79["m_columns"][] = "creation_method";
-$proto79["m_columns"][] = "syst_updated_datetime";
-$proto79["m_columns"][] = "update_system_id";
-$proto79["m_columns"][] = "updated_by_id";
-$proto79["m_columns"][] = "update_method";
-$proto79["m_columns"][] = "organization_id";
-$proto79["m_columns"][] = "is_obsolete";
-$proto79["m_columns"][] = "is_update_needed";
-$proto79["m_columns"][] = "person_id";
-$proto79["m_columns"][] = "unee_t_mefe_user_id";
-$proto79["m_columns"][] = "uneet_created_datetime";
-$proto79["m_columns"][] = "is_mefe_api_success";
-$proto79["m_columns"][] = "mefe_api_error_message";
-$proto79["m_columns"][] = "is_unee_t_created_by_me";
-$proto79["m_columns"][] = "uneet_login_name";
-$proto79["m_columns"][] = "external_person_id";
-$proto79["m_columns"][] = "external_system";
-$proto79["m_columns"][] = "table_in_external_system";
-$obj = new SQLTable($proto79);
-
-$proto78["m_table"] = $obj;
-$proto78["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
-$proto78["m_alias"] = "";
-$proto78["m_srcTableName"] = "Assign Rooms to User";
-$proto80=array();
-$proto80["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
-$proto80["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id"
-));
-
-$proto80["m_column"]=$obj;
-$proto80["m_contained"] = array();
-						$proto82=array();
-$proto82["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id";
-$proto82["m_uniontype"] = "SQLL_UNKNOWN";
+			$proto74["m_contained"][]=$obj;
+						$proto78=array();
+$proto78["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = property_level_3_rooms.organization_id";
+$proto78["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "organization_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
 	"m_srcTableName" => "Assign Rooms to User"
 ));
 
+$proto78["m_column"]=$obj;
+$proto78["m_contained"] = array();
+$proto78["m_strCase"] = "= property_level_3_rooms.organization_id";
+$proto78["m_havingmode"] = false;
+$proto78["m_inBrackets"] = false;
+$proto78["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto78);
+
+			$proto74["m_contained"][]=$obj;
+$proto74["m_strCase"] = "";
+$proto74["m_havingmode"] = false;
+$proto74["m_inBrackets"] = false;
+$proto74["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto74);
+
+$proto72["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto72);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto80=array();
+$proto80["m_link"] = "SQLL_LEFTJOIN";
+			$proto81=array();
+$proto81["m_strName"] = "ut_map_external_source_users";
+$proto81["m_srcTableName"] = "Assign Rooms to User";
+$proto81["m_columns"] = array();
+$proto81["m_columns"][] = "id_map";
+$proto81["m_columns"][] = "syst_created_datetime";
+$proto81["m_columns"][] = "creation_system_id";
+$proto81["m_columns"][] = "created_by_id";
+$proto81["m_columns"][] = "creation_method";
+$proto81["m_columns"][] = "syst_updated_datetime";
+$proto81["m_columns"][] = "update_system_id";
+$proto81["m_columns"][] = "updated_by_id";
+$proto81["m_columns"][] = "update_method";
+$proto81["m_columns"][] = "organization_id";
+$proto81["m_columns"][] = "is_obsolete";
+$proto81["m_columns"][] = "is_update_needed";
+$proto81["m_columns"][] = "person_id";
+$proto81["m_columns"][] = "unee_t_mefe_user_id";
+$proto81["m_columns"][] = "uneet_created_datetime";
+$proto81["m_columns"][] = "is_mefe_api_success";
+$proto81["m_columns"][] = "mefe_api_error_message";
+$proto81["m_columns"][] = "is_unee_t_created_by_me";
+$proto81["m_columns"][] = "uneet_login_name";
+$proto81["m_columns"][] = "external_person_id";
+$proto81["m_columns"][] = "external_system";
+$proto81["m_columns"][] = "table_in_external_system";
+$obj = new SQLTable($proto81);
+
+$proto80["m_table"] = $obj;
+$proto80["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
+$proto80["m_alias"] = "";
+$proto80["m_srcTableName"] = "Assign Rooms to User";
+$proto82=array();
+$proto82["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
+$proto82["m_uniontype"] = "SQLL_AND";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id AND external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id"
+));
+
 $proto82["m_column"]=$obj;
 $proto82["m_contained"] = array();
-$proto82["m_strCase"] = "= ut_map_external_source_users.organization_id";
-$proto82["m_havingmode"] = false;
-$proto82["m_inBrackets"] = false;
-$proto82["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto82);
-
-			$proto80["m_contained"][]=$obj;
 						$proto84=array();
-$proto84["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
+$proto84["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_map_external_source_users.organization_id";
 $proto84["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "unee_t_mefe_user_id",
+	"m_strName" => "organization_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
 	"m_srcTableName" => "Assign Rooms to User"
 ));
 
 $proto84["m_column"]=$obj;
 $proto84["m_contained"] = array();
-$proto84["m_strCase"] = "= ut_map_external_source_users.unee_t_mefe_user_id";
+$proto84["m_strCase"] = "= ut_map_external_source_users.organization_id";
 $proto84["m_havingmode"] = false;
 $proto84["m_inBrackets"] = false;
 $proto84["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto84);
 
-			$proto80["m_contained"][]=$obj;
-$proto80["m_strCase"] = "";
-$proto80["m_havingmode"] = false;
-$proto80["m_inBrackets"] = false;
-$proto80["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto80);
-
-$proto78["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto78);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto86=array();
-$proto86["m_link"] = "SQLL_LEFTJOIN";
-			$proto87=array();
-$proto87["m_strName"] = "ut_user_role_types";
-$proto87["m_srcTableName"] = "Assign Rooms to User";
-$proto87["m_columns"] = array();
-$proto87["m_columns"][] = "id_role_type";
-$proto87["m_columns"][] = "syst_created_datetime";
-$proto87["m_columns"][] = "creation_system_id";
-$proto87["m_columns"][] = "created_by_id";
-$proto87["m_columns"][] = "syst_updated_datetime";
-$proto87["m_columns"][] = "update_system_id";
-$proto87["m_columns"][] = "updated_by_id";
-$proto87["m_columns"][] = "order";
-$proto87["m_columns"][] = "is_obsolete";
-$proto87["m_columns"][] = "role_type";
-$proto87["m_columns"][] = "bz_description";
-$proto87["m_columns"][] = "description";
-$obj = new SQLTable($proto87);
-
-$proto86["m_table"] = $obj;
-$proto86["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type";
-$proto86["m_alias"] = "";
-$proto86["m_srcTableName"] = "Assign Rooms to User";
-$proto88=array();
-$proto88["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type";
-$proto88["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "unee_t_role_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto88["m_column"]=$obj;
-$proto88["m_contained"] = array();
-$proto88["m_strCase"] = "= ut_user_role_types.id_role_type";
-$proto88["m_havingmode"] = false;
-$proto88["m_inBrackets"] = false;
-$proto88["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto88);
-
-$proto86["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto86);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto90=array();
-$proto90["m_link"] = "SQLL_INNERJOIN";
-			$proto91=array();
-$proto91["m_strName"] = "ut_user_types";
-$proto91["m_srcTableName"] = "Assign Rooms to User";
-$proto91["m_columns"] = array();
-$proto91["m_columns"][] = "id_unee_t_user_type";
-$proto91["m_columns"][] = "syst_created_datetime";
-$proto91["m_columns"][] = "creation_system_id";
-$proto91["m_columns"][] = "created_by_id";
-$proto91["m_columns"][] = "creation_method";
-$proto91["m_columns"][] = "syst_updated_datetime";
-$proto91["m_columns"][] = "update_system_id";
-$proto91["m_columns"][] = "updated_by_id";
-$proto91["m_columns"][] = "update_method";
-$proto91["m_columns"][] = "organization_id";
-$proto91["m_columns"][] = "order";
-$proto91["m_columns"][] = "is_obsolete";
-$proto91["m_columns"][] = "designation";
-$proto91["m_columns"][] = "description";
-$proto91["m_columns"][] = "ut_user_role_type_id";
-$proto91["m_columns"][] = "is_all_unit";
-$proto91["m_columns"][] = "is_occupant";
-$proto91["m_columns"][] = "is_public";
-$proto91["m_columns"][] = "is_default_assignee";
-$proto91["m_columns"][] = "is_default_invited";
-$proto91["m_columns"][] = "is_unit_owner";
-$proto91["m_columns"][] = "is_dashboard_access";
-$proto91["m_columns"][] = "can_see_role_contractor";
-$proto91["m_columns"][] = "can_see_role_mgt_cny";
-$proto91["m_columns"][] = "can_see_occupant";
-$proto91["m_columns"][] = "can_see_role_landlord";
-$proto91["m_columns"][] = "can_see_role_agent";
-$proto91["m_columns"][] = "can_see_role_tenant";
-$proto91["m_columns"][] = "is_assigned_to_case";
-$proto91["m_columns"][] = "is_invited_to_case";
-$proto91["m_columns"][] = "is_solution_updated";
-$proto91["m_columns"][] = "is_next_step_updated";
-$proto91["m_columns"][] = "is_deadline_updated";
-$proto91["m_columns"][] = "is_case_resolved";
-$proto91["m_columns"][] = "is_case_critical";
-$proto91["m_columns"][] = "is_case_blocker";
-$proto91["m_columns"][] = "is_message_from_contractor";
-$proto91["m_columns"][] = "is_message_from_mgt_cny";
-$proto91["m_columns"][] = "is_message_from_agent";
-$proto91["m_columns"][] = "is_message_from_occupant";
-$proto91["m_columns"][] = "is_message_from_ll";
-$proto91["m_columns"][] = "is_message_from_tenant";
-$proto91["m_columns"][] = "is_any_new_message";
-$proto91["m_columns"][] = "is_new_ir";
-$proto91["m_columns"][] = "is_new_inventory";
-$proto91["m_columns"][] = "is_new_item";
-$proto91["m_columns"][] = "is_item_moved";
-$proto91["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto91);
-
-$proto90["m_table"] = $obj;
-$proto90["m_sql"] = "INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
-$proto90["m_alias"] = "";
-$proto90["m_srcTableName"] = "Assign Rooms to User";
-$proto92=array();
-$proto92["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
-$proto92["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id"
-));
-
-$proto92["m_column"]=$obj;
-$proto92["m_contained"] = array();
-						$proto94=array();
-$proto94["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto94["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "unee_t_user_type_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto94["m_column"]=$obj;
-$proto94["m_contained"] = array();
-$proto94["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
-$proto94["m_havingmode"] = false;
-$proto94["m_inBrackets"] = false;
-$proto94["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto94);
-
-			$proto92["m_contained"][]=$obj;
-						$proto96=array();
-$proto96["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
-$proto96["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "organization_id",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto96["m_column"]=$obj;
-$proto96["m_contained"] = array();
-$proto96["m_strCase"] = "= ut_user_types.organization_id";
-$proto96["m_havingmode"] = false;
-$proto96["m_inBrackets"] = false;
-$proto96["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto96);
-
-			$proto92["m_contained"][]=$obj;
-$proto92["m_strCase"] = "";
-$proto92["m_havingmode"] = false;
-$proto92["m_inBrackets"] = false;
-$proto92["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto92);
-
-$proto90["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto90);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto98=array();
-$proto98["m_link"] = "SQLL_LEFTJOIN";
-			$proto99=array();
-$proto99["m_strName"] = "property_level_2_units";
-$proto99["m_srcTableName"] = "Assign Rooms to User";
-$proto99["m_columns"] = array();
-$proto99["m_columns"][] = "system_id_unit";
-$proto99["m_columns"][] = "external_id";
-$proto99["m_columns"][] = "external_system_id";
-$proto99["m_columns"][] = "external_table";
-$proto99["m_columns"][] = "syst_created_datetime";
-$proto99["m_columns"][] = "creation_system_id";
-$proto99["m_columns"][] = "created_by_id";
-$proto99["m_columns"][] = "creation_method";
-$proto99["m_columns"][] = "syst_updated_datetime";
-$proto99["m_columns"][] = "update_system_id";
-$proto99["m_columns"][] = "updated_by_id";
-$proto99["m_columns"][] = "update_method";
-$proto99["m_columns"][] = "organization_id";
-$proto99["m_columns"][] = "activated_by_id";
-$proto99["m_columns"][] = "is_obsolete";
-$proto99["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto99["m_columns"][] = "do_not_insert";
-$proto99["m_columns"][] = "unee_t_unit_type";
-$proto99["m_columns"][] = "building_system_id";
-$proto99["m_columns"][] = "tower";
-$proto99["m_columns"][] = "unit_category_id";
-$proto99["m_columns"][] = "designation";
-$proto99["m_columns"][] = "count_rooms";
-$proto99["m_columns"][] = "unit_id";
-$proto99["m_columns"][] = "surface";
-$proto99["m_columns"][] = "surface_measurment_unit";
-$proto99["m_columns"][] = "description";
-$obj = new SQLTable($proto99);
-
-$proto98["m_table"] = $obj;
-$proto98["m_sql"] = "LEFT OUTER JOIN property_level_2_units ON property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit";
-$proto98["m_alias"] = "";
-$proto98["m_srcTableName"] = "Assign Rooms to User";
-$proto100=array();
-$proto100["m_sql"] = "property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit";
-$proto100["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "system_id_unit",
-	"m_strTable" => "property_level_3_rooms",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto100["m_column"]=$obj;
-$proto100["m_contained"] = array();
-$proto100["m_strCase"] = "= property_level_2_units.system_id_unit";
-$proto100["m_havingmode"] = false;
-$proto100["m_inBrackets"] = false;
-$proto100["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto100);
-
-$proto98["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto98);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto102=array();
-$proto102["m_link"] = "SQLL_LEFTJOIN";
-			$proto103=array();
-$proto103["m_strName"] = "property_level_1_buildings";
-$proto103["m_srcTableName"] = "Assign Rooms to User";
-$proto103["m_columns"] = array();
-$proto103["m_columns"][] = "id_building";
-$proto103["m_columns"][] = "external_id";
-$proto103["m_columns"][] = "external_system_id";
-$proto103["m_columns"][] = "external_table";
-$proto103["m_columns"][] = "syst_created_datetime";
-$proto103["m_columns"][] = "creation_system_id";
-$proto103["m_columns"][] = "created_by_id";
-$proto103["m_columns"][] = "creation_method";
-$proto103["m_columns"][] = "syst_updated_datetime";
-$proto103["m_columns"][] = "update_system_id";
-$proto103["m_columns"][] = "updated_by_id";
-$proto103["m_columns"][] = "update_method";
-$proto103["m_columns"][] = "organization_id";
-$proto103["m_columns"][] = "is_obsolete";
-$proto103["m_columns"][] = "order";
-$proto103["m_columns"][] = "area_id";
-$proto103["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto103["m_columns"][] = "do_not_insert";
-$proto103["m_columns"][] = "unee_t_unit_type";
-$proto103["m_columns"][] = "designation";
-$proto103["m_columns"][] = "tower";
-$proto103["m_columns"][] = "address_1";
-$proto103["m_columns"][] = "address_2";
-$proto103["m_columns"][] = "zip_postal_code";
-$proto103["m_columns"][] = "state";
-$proto103["m_columns"][] = "city";
-$proto103["m_columns"][] = "country_code";
-$proto103["m_columns"][] = "description";
-$obj = new SQLTable($proto103);
-
-$proto102["m_table"] = $obj;
-$proto102["m_sql"] = "LEFT OUTER JOIN property_level_1_buildings ON property_level_2_units.building_system_id = property_level_1_buildings.id_building";
-$proto102["m_alias"] = "";
-$proto102["m_srcTableName"] = "Assign Rooms to User";
-$proto104=array();
-$proto104["m_sql"] = "property_level_2_units.building_system_id = property_level_1_buildings.id_building";
-$proto104["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "building_system_id",
-	"m_strTable" => "property_level_2_units",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto104["m_column"]=$obj;
-$proto104["m_contained"] = array();
-$proto104["m_strCase"] = "= property_level_1_buildings.id_building";
-$proto104["m_havingmode"] = false;
-$proto104["m_inBrackets"] = false;
-$proto104["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto104);
-
-$proto102["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto102);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto106=array();
-$proto106["m_link"] = "SQLL_LEFTJOIN";
-			$proto107=array();
-$proto107["m_strName"] = "property_groups_areas";
-$proto107["m_srcTableName"] = "Assign Rooms to User";
-$proto107["m_columns"] = array();
-$proto107["m_columns"][] = "id_area";
-$proto107["m_columns"][] = "external_id";
-$proto107["m_columns"][] = "external_system_id";
-$proto107["m_columns"][] = "external_table";
-$proto107["m_columns"][] = "syst_created_datetime";
-$proto107["m_columns"][] = "creation_system_id";
-$proto107["m_columns"][] = "created_by_id";
-$proto107["m_columns"][] = "creation_method";
-$proto107["m_columns"][] = "syst_updated_datetime";
-$proto107["m_columns"][] = "update_system_id";
-$proto107["m_columns"][] = "updated_by_id";
-$proto107["m_columns"][] = "update_method";
-$proto107["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto107["m_columns"][] = "organization_id";
-$proto107["m_columns"][] = "country_code";
-$proto107["m_columns"][] = "is_obsolete";
-$proto107["m_columns"][] = "is_default";
-$proto107["m_columns"][] = "order";
-$proto107["m_columns"][] = "area_name";
-$proto107["m_columns"][] = "area_definition";
-$obj = new SQLTable($proto107);
-
-$proto106["m_table"] = $obj;
-$proto106["m_sql"] = "LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area";
-$proto106["m_alias"] = "";
-$proto106["m_srcTableName"] = "Assign Rooms to User";
-$proto108=array();
-$proto108["m_sql"] = "property_level_1_buildings.area_id = property_groups_areas.id_area";
-$proto108["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "area_id",
-	"m_strTable" => "property_level_1_buildings",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto108["m_column"]=$obj;
-$proto108["m_contained"] = array();
-$proto108["m_strCase"] = "= property_groups_areas.id_area";
-$proto108["m_havingmode"] = false;
-$proto108["m_inBrackets"] = false;
-$proto108["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto108);
-
-$proto106["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto106);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto110=array();
-$proto110["m_link"] = "SQLL_LEFTJOIN";
-			$proto111=array();
-$proto111["m_strName"] = "ut_check_unee_t_update_add_user_to_unit_level_3";
-$proto111["m_srcTableName"] = "Assign Rooms to User";
-$proto111["m_columns"] = array();
-$proto111["m_columns"][] = "id_map_user_unit_permissions_level_3";
-$proto111["m_columns"][] = "external_property_type_id";
-$proto111["m_columns"][] = "uneet_name";
-$proto111["m_columns"][] = "unee_t_mefe_user_id";
-$proto111["m_columns"][] = "unee_t_mefe_unit_id";
-$proto111["m_columns"][] = "unee_t_update_ts";
-$obj = new SQLTable($proto111);
-
-$proto110["m_table"] = $obj;
-$proto110["m_sql"] = "LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_3 ON external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
-$proto110["m_alias"] = "";
-$proto110["m_srcTableName"] = "Assign Rooms to User";
-$proto112=array();
-$proto112["m_sql"] = "external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
-$proto112["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "id_map_user_unit_permissions_level_3",
-	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto112["m_column"]=$obj;
-$proto112["m_contained"] = array();
-$proto112["m_strCase"] = "= ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
-$proto112["m_havingmode"] = false;
-$proto112["m_inBrackets"] = false;
-$proto112["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto112);
-
-$proto110["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto110);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto114=array();
-$proto114["m_link"] = "SQLL_LEFTJOIN";
-			$proto115=array();
-$proto115["m_strName"] = "property_groups_countries";
-$proto115["m_srcTableName"] = "Assign Rooms to User";
-$proto115["m_columns"] = array();
-$proto115["m_columns"][] = "id_country";
-$proto115["m_columns"][] = "syst_created_datetime";
-$proto115["m_columns"][] = "creation_system_id";
-$proto115["m_columns"][] = "created_by_id";
-$proto115["m_columns"][] = "syst_updated_datetime";
-$proto115["m_columns"][] = "update_system_id";
-$proto115["m_columns"][] = "updated_by_id";
-$proto115["m_columns"][] = "is_obsolete";
-$proto115["m_columns"][] = "is_default";
-$proto115["m_columns"][] = "is_system";
-$proto115["m_columns"][] = "order";
-$proto115["m_columns"][] = "country_code";
-$proto115["m_columns"][] = "country_name";
-$obj = new SQLTable($proto115);
-
-$proto114["m_table"] = $obj;
-$proto114["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code";
-$proto114["m_alias"] = "";
-$proto114["m_srcTableName"] = "Assign Rooms to User";
-$proto116=array();
-$proto116["m_sql"] = "property_level_1_buildings.country_code = property_groups_countries.country_code";
-$proto116["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "country_code",
-	"m_strTable" => "property_level_1_buildings",
-	"m_srcTableName" => "Assign Rooms to User"
-));
-
-$proto116["m_column"]=$obj;
-$proto116["m_contained"] = array();
-$proto116["m_strCase"] = "= property_groups_countries.country_code";
-$proto116["m_havingmode"] = false;
-$proto116["m_inBrackets"] = false;
-$proto116["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto116);
-
-$proto114["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto114);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto118=array();
-$proto118["m_link"] = "SQLL_LEFTJOIN";
-			$proto119=array();
-$proto119["m_strName"] = "ut_info_mefe_users";
-$proto119["m_srcTableName"] = "Assign Rooms to User";
-$proto119["m_columns"] = array();
-$proto119["m_columns"][] = "id_person";
-$proto119["m_columns"][] = "unee_t_mefe_user_id";
-$proto119["m_columns"][] = "external_person_id";
-$proto119["m_columns"][] = "external_system";
-$proto119["m_columns"][] = "table_in_external_system";
-$proto119["m_columns"][] = "uneet_login_name";
-$proto119["m_columns"][] = "name";
-$proto119["m_columns"][] = "email";
-$obj = new SQLTable($proto119);
-
-$proto118["m_table"] = $obj;
-$proto118["m_sql"] = "LEFT OUTER JOIN ut_info_mefe_users ON external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
-$proto118["m_alias"] = "";
-$proto118["m_srcTableName"] = "Assign Rooms to User";
-$proto120=array();
-$proto120["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
-$proto120["m_uniontype"] = "SQLL_UNKNOWN";
+			$proto82["m_contained"][]=$obj;
+						$proto86=array();
+$proto86["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_map_external_source_users.unee_t_mefe_user_id";
+$proto86["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "unee_t_mefe_user_id",
 	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
 	"m_srcTableName" => "Assign Rooms to User"
 ));
 
-$proto120["m_column"]=$obj;
-$proto120["m_contained"] = array();
-$proto120["m_strCase"] = "= ut_info_mefe_users.unee_t_mefe_user_id";
-$proto120["m_havingmode"] = false;
-$proto120["m_inBrackets"] = false;
-$proto120["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto120);
+$proto86["m_column"]=$obj;
+$proto86["m_contained"] = array();
+$proto86["m_strCase"] = "= ut_map_external_source_users.unee_t_mefe_user_id";
+$proto86["m_havingmode"] = false;
+$proto86["m_inBrackets"] = false;
+$proto86["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto86);
 
-$proto118["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto118);
+			$proto82["m_contained"][]=$obj;
+$proto82["m_strCase"] = "";
+$proto82["m_havingmode"] = false;
+$proto82["m_inBrackets"] = false;
+$proto82["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto82);
+
+$proto80["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto80);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto88=array();
+$proto88["m_link"] = "SQLL_LEFTJOIN";
+			$proto89=array();
+$proto89["m_strName"] = "ut_user_role_types";
+$proto89["m_srcTableName"] = "Assign Rooms to User";
+$proto89["m_columns"] = array();
+$proto89["m_columns"][] = "id_role_type";
+$proto89["m_columns"][] = "syst_created_datetime";
+$proto89["m_columns"][] = "creation_system_id";
+$proto89["m_columns"][] = "created_by_id";
+$proto89["m_columns"][] = "syst_updated_datetime";
+$proto89["m_columns"][] = "update_system_id";
+$proto89["m_columns"][] = "updated_by_id";
+$proto89["m_columns"][] = "order";
+$proto89["m_columns"][] = "is_obsolete";
+$proto89["m_columns"][] = "role_type";
+$proto89["m_columns"][] = "bz_description";
+$proto89["m_columns"][] = "description";
+$obj = new SQLTable($proto89);
+
+$proto88["m_table"] = $obj;
+$proto88["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type";
+$proto88["m_alias"] = "";
+$proto88["m_srcTableName"] = "Assign Rooms to User";
+$proto90=array();
+$proto90["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_role_id = ut_user_role_types.id_role_type";
+$proto90["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "unee_t_role_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto90["m_column"]=$obj;
+$proto90["m_contained"] = array();
+$proto90["m_strCase"] = "= ut_user_role_types.id_role_type";
+$proto90["m_havingmode"] = false;
+$proto90["m_inBrackets"] = false;
+$proto90["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto90);
+
+$proto88["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto88);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto92=array();
+$proto92["m_link"] = "SQLL_INNERJOIN";
+			$proto93=array();
+$proto93["m_strName"] = "ut_user_types";
+$proto93["m_srcTableName"] = "Assign Rooms to User";
+$proto93["m_columns"] = array();
+$proto93["m_columns"][] = "id_unee_t_user_type";
+$proto93["m_columns"][] = "syst_created_datetime";
+$proto93["m_columns"][] = "creation_system_id";
+$proto93["m_columns"][] = "created_by_id";
+$proto93["m_columns"][] = "creation_method";
+$proto93["m_columns"][] = "syst_updated_datetime";
+$proto93["m_columns"][] = "update_system_id";
+$proto93["m_columns"][] = "updated_by_id";
+$proto93["m_columns"][] = "update_method";
+$proto93["m_columns"][] = "organization_id";
+$proto93["m_columns"][] = "order";
+$proto93["m_columns"][] = "is_obsolete";
+$proto93["m_columns"][] = "designation";
+$proto93["m_columns"][] = "description";
+$proto93["m_columns"][] = "ut_user_role_type_id";
+$proto93["m_columns"][] = "is_all_unit";
+$proto93["m_columns"][] = "is_occupant";
+$proto93["m_columns"][] = "is_public";
+$proto93["m_columns"][] = "is_default_assignee";
+$proto93["m_columns"][] = "is_default_invited";
+$proto93["m_columns"][] = "is_unit_owner";
+$proto93["m_columns"][] = "is_dashboard_access";
+$proto93["m_columns"][] = "can_see_role_contractor";
+$proto93["m_columns"][] = "can_see_role_mgt_cny";
+$proto93["m_columns"][] = "can_see_occupant";
+$proto93["m_columns"][] = "can_see_role_landlord";
+$proto93["m_columns"][] = "can_see_role_agent";
+$proto93["m_columns"][] = "can_see_role_tenant";
+$proto93["m_columns"][] = "is_assigned_to_case";
+$proto93["m_columns"][] = "is_invited_to_case";
+$proto93["m_columns"][] = "is_solution_updated";
+$proto93["m_columns"][] = "is_next_step_updated";
+$proto93["m_columns"][] = "is_deadline_updated";
+$proto93["m_columns"][] = "is_case_resolved";
+$proto93["m_columns"][] = "is_case_critical";
+$proto93["m_columns"][] = "is_case_blocker";
+$proto93["m_columns"][] = "is_message_from_contractor";
+$proto93["m_columns"][] = "is_message_from_mgt_cny";
+$proto93["m_columns"][] = "is_message_from_agent";
+$proto93["m_columns"][] = "is_message_from_occupant";
+$proto93["m_columns"][] = "is_message_from_ll";
+$proto93["m_columns"][] = "is_message_from_tenant";
+$proto93["m_columns"][] = "is_any_new_message";
+$proto93["m_columns"][] = "is_new_ir";
+$proto93["m_columns"][] = "is_new_inventory";
+$proto93["m_columns"][] = "is_new_item";
+$proto93["m_columns"][] = "is_item_moved";
+$proto93["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto93);
+
+$proto92["m_table"] = $obj;
+$proto92["m_sql"] = "INNER JOIN ut_user_types ON external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
+$proto92["m_alias"] = "";
+$proto92["m_srcTableName"] = "Assign Rooms to User";
+$proto94=array();
+$proto94["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
+$proto94["m_uniontype"] = "SQLL_AND";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type AND external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id"
+));
+
+$proto94["m_column"]=$obj;
+$proto94["m_contained"] = array();
+						$proto96=array();
+$proto96["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto96["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "unee_t_user_type_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto96["m_column"]=$obj;
+$proto96["m_contained"] = array();
+$proto96["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
+$proto96["m_havingmode"] = false;
+$proto96["m_inBrackets"] = false;
+$proto96["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto96);
+
+			$proto94["m_contained"][]=$obj;
+						$proto98=array();
+$proto98["m_sql"] = "external_map_user_unit_role_permissions_level_3.organization_id = ut_user_types.organization_id";
+$proto98["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "organization_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto98["m_column"]=$obj;
+$proto98["m_contained"] = array();
+$proto98["m_strCase"] = "= ut_user_types.organization_id";
+$proto98["m_havingmode"] = false;
+$proto98["m_inBrackets"] = false;
+$proto98["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto98);
+
+			$proto94["m_contained"][]=$obj;
+$proto94["m_strCase"] = "";
+$proto94["m_havingmode"] = false;
+$proto94["m_inBrackets"] = false;
+$proto94["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto94);
+
+$proto92["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto92);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto100=array();
+$proto100["m_link"] = "SQLL_LEFTJOIN";
+			$proto101=array();
+$proto101["m_strName"] = "property_level_2_units";
+$proto101["m_srcTableName"] = "Assign Rooms to User";
+$proto101["m_columns"] = array();
+$proto101["m_columns"][] = "system_id_unit";
+$proto101["m_columns"][] = "external_id";
+$proto101["m_columns"][] = "external_system_id";
+$proto101["m_columns"][] = "external_table";
+$proto101["m_columns"][] = "syst_created_datetime";
+$proto101["m_columns"][] = "creation_system_id";
+$proto101["m_columns"][] = "created_by_id";
+$proto101["m_columns"][] = "creation_method";
+$proto101["m_columns"][] = "syst_updated_datetime";
+$proto101["m_columns"][] = "update_system_id";
+$proto101["m_columns"][] = "updated_by_id";
+$proto101["m_columns"][] = "update_method";
+$proto101["m_columns"][] = "organization_id";
+$proto101["m_columns"][] = "activated_by_id";
+$proto101["m_columns"][] = "is_obsolete";
+$proto101["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto101["m_columns"][] = "do_not_insert";
+$proto101["m_columns"][] = "unee_t_unit_type";
+$proto101["m_columns"][] = "building_system_id";
+$proto101["m_columns"][] = "tower";
+$proto101["m_columns"][] = "unit_category_id";
+$proto101["m_columns"][] = "designation";
+$proto101["m_columns"][] = "count_rooms";
+$proto101["m_columns"][] = "unit_id";
+$proto101["m_columns"][] = "surface";
+$proto101["m_columns"][] = "surface_measurment_unit";
+$proto101["m_columns"][] = "description";
+$obj = new SQLTable($proto101);
+
+$proto100["m_table"] = $obj;
+$proto100["m_sql"] = "LEFT OUTER JOIN property_level_2_units ON property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit";
+$proto100["m_alias"] = "";
+$proto100["m_srcTableName"] = "Assign Rooms to User";
+$proto102=array();
+$proto102["m_sql"] = "property_level_3_rooms.system_id_unit = property_level_2_units.system_id_unit";
+$proto102["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "system_id_unit",
+	"m_strTable" => "property_level_3_rooms",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto102["m_column"]=$obj;
+$proto102["m_contained"] = array();
+$proto102["m_strCase"] = "= property_level_2_units.system_id_unit";
+$proto102["m_havingmode"] = false;
+$proto102["m_inBrackets"] = false;
+$proto102["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto102);
+
+$proto100["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto100);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto104=array();
+$proto104["m_link"] = "SQLL_LEFTJOIN";
+			$proto105=array();
+$proto105["m_strName"] = "property_level_1_buildings";
+$proto105["m_srcTableName"] = "Assign Rooms to User";
+$proto105["m_columns"] = array();
+$proto105["m_columns"][] = "id_building";
+$proto105["m_columns"][] = "external_id";
+$proto105["m_columns"][] = "external_system_id";
+$proto105["m_columns"][] = "external_table";
+$proto105["m_columns"][] = "syst_created_datetime";
+$proto105["m_columns"][] = "creation_system_id";
+$proto105["m_columns"][] = "created_by_id";
+$proto105["m_columns"][] = "creation_method";
+$proto105["m_columns"][] = "syst_updated_datetime";
+$proto105["m_columns"][] = "update_system_id";
+$proto105["m_columns"][] = "updated_by_id";
+$proto105["m_columns"][] = "update_method";
+$proto105["m_columns"][] = "organization_id";
+$proto105["m_columns"][] = "is_obsolete";
+$proto105["m_columns"][] = "order";
+$proto105["m_columns"][] = "area_id";
+$proto105["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto105["m_columns"][] = "do_not_insert";
+$proto105["m_columns"][] = "unee_t_unit_type";
+$proto105["m_columns"][] = "designation";
+$proto105["m_columns"][] = "tower";
+$proto105["m_columns"][] = "address_1";
+$proto105["m_columns"][] = "address_2";
+$proto105["m_columns"][] = "zip_postal_code";
+$proto105["m_columns"][] = "state";
+$proto105["m_columns"][] = "city";
+$proto105["m_columns"][] = "country_code";
+$proto105["m_columns"][] = "description";
+$obj = new SQLTable($proto105);
+
+$proto104["m_table"] = $obj;
+$proto104["m_sql"] = "LEFT OUTER JOIN property_level_1_buildings ON property_level_2_units.building_system_id = property_level_1_buildings.id_building";
+$proto104["m_alias"] = "";
+$proto104["m_srcTableName"] = "Assign Rooms to User";
+$proto106=array();
+$proto106["m_sql"] = "property_level_2_units.building_system_id = property_level_1_buildings.id_building";
+$proto106["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "building_system_id",
+	"m_strTable" => "property_level_2_units",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto106["m_column"]=$obj;
+$proto106["m_contained"] = array();
+$proto106["m_strCase"] = "= property_level_1_buildings.id_building";
+$proto106["m_havingmode"] = false;
+$proto106["m_inBrackets"] = false;
+$proto106["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto106);
+
+$proto104["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto104);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto108=array();
+$proto108["m_link"] = "SQLL_LEFTJOIN";
+			$proto109=array();
+$proto109["m_strName"] = "property_groups_areas";
+$proto109["m_srcTableName"] = "Assign Rooms to User";
+$proto109["m_columns"] = array();
+$proto109["m_columns"][] = "id_area";
+$proto109["m_columns"][] = "external_id";
+$proto109["m_columns"][] = "external_system_id";
+$proto109["m_columns"][] = "external_table";
+$proto109["m_columns"][] = "syst_created_datetime";
+$proto109["m_columns"][] = "creation_system_id";
+$proto109["m_columns"][] = "created_by_id";
+$proto109["m_columns"][] = "creation_method";
+$proto109["m_columns"][] = "syst_updated_datetime";
+$proto109["m_columns"][] = "update_system_id";
+$proto109["m_columns"][] = "updated_by_id";
+$proto109["m_columns"][] = "update_method";
+$proto109["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto109["m_columns"][] = "organization_id";
+$proto109["m_columns"][] = "country_code";
+$proto109["m_columns"][] = "is_obsolete";
+$proto109["m_columns"][] = "is_default";
+$proto109["m_columns"][] = "order";
+$proto109["m_columns"][] = "area_name";
+$proto109["m_columns"][] = "area_definition";
+$obj = new SQLTable($proto109);
+
+$proto108["m_table"] = $obj;
+$proto108["m_sql"] = "LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area";
+$proto108["m_alias"] = "";
+$proto108["m_srcTableName"] = "Assign Rooms to User";
+$proto110=array();
+$proto110["m_sql"] = "property_level_1_buildings.area_id = property_groups_areas.id_area";
+$proto110["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "area_id",
+	"m_strTable" => "property_level_1_buildings",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto110["m_column"]=$obj;
+$proto110["m_contained"] = array();
+$proto110["m_strCase"] = "= property_groups_areas.id_area";
+$proto110["m_havingmode"] = false;
+$proto110["m_inBrackets"] = false;
+$proto110["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto110);
+
+$proto108["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto108);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto112=array();
+$proto112["m_link"] = "SQLL_LEFTJOIN";
+			$proto113=array();
+$proto113["m_strName"] = "ut_check_unee_t_update_add_user_to_unit_level_3";
+$proto113["m_srcTableName"] = "Assign Rooms to User";
+$proto113["m_columns"] = array();
+$proto113["m_columns"][] = "id_map_user_unit_permissions_level_3";
+$proto113["m_columns"][] = "external_property_type_id";
+$proto113["m_columns"][] = "uneet_name";
+$proto113["m_columns"][] = "unee_t_mefe_user_id";
+$proto113["m_columns"][] = "unee_t_mefe_unit_id";
+$proto113["m_columns"][] = "unee_t_update_ts";
+$obj = new SQLTable($proto113);
+
+$proto112["m_table"] = $obj;
+$proto112["m_sql"] = "LEFT OUTER JOIN ut_check_unee_t_update_add_user_to_unit_level_3 ON external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
+$proto112["m_alias"] = "";
+$proto112["m_srcTableName"] = "Assign Rooms to User";
+$proto114=array();
+$proto114["m_sql"] = "external_map_user_unit_role_permissions_level_3.id_map_user_unit_permissions_level_3 = ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
+$proto114["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "id_map_user_unit_permissions_level_3",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto114["m_column"]=$obj;
+$proto114["m_contained"] = array();
+$proto114["m_strCase"] = "= ut_check_unee_t_update_add_user_to_unit_level_3.id_map_user_unit_permissions_level_3";
+$proto114["m_havingmode"] = false;
+$proto114["m_inBrackets"] = false;
+$proto114["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto114);
+
+$proto112["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto112);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto116=array();
+$proto116["m_link"] = "SQLL_LEFTJOIN";
+			$proto117=array();
+$proto117["m_strName"] = "property_groups_countries";
+$proto117["m_srcTableName"] = "Assign Rooms to User";
+$proto117["m_columns"] = array();
+$proto117["m_columns"][] = "id_country";
+$proto117["m_columns"][] = "syst_created_datetime";
+$proto117["m_columns"][] = "creation_system_id";
+$proto117["m_columns"][] = "created_by_id";
+$proto117["m_columns"][] = "syst_updated_datetime";
+$proto117["m_columns"][] = "update_system_id";
+$proto117["m_columns"][] = "updated_by_id";
+$proto117["m_columns"][] = "is_obsolete";
+$proto117["m_columns"][] = "is_default";
+$proto117["m_columns"][] = "is_system";
+$proto117["m_columns"][] = "order";
+$proto117["m_columns"][] = "country_code";
+$proto117["m_columns"][] = "country_name";
+$obj = new SQLTable($proto117);
+
+$proto116["m_table"] = $obj;
+$proto116["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code";
+$proto116["m_alias"] = "";
+$proto116["m_srcTableName"] = "Assign Rooms to User";
+$proto118=array();
+$proto118["m_sql"] = "property_level_1_buildings.country_code = property_groups_countries.country_code";
+$proto118["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "country_code",
+	"m_strTable" => "property_level_1_buildings",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto118["m_column"]=$obj;
+$proto118["m_contained"] = array();
+$proto118["m_strCase"] = "= property_groups_countries.country_code";
+$proto118["m_havingmode"] = false;
+$proto118["m_inBrackets"] = false;
+$proto118["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto118);
+
+$proto116["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto116);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto120=array();
+$proto120["m_link"] = "SQLL_LEFTJOIN";
+			$proto121=array();
+$proto121["m_strName"] = "ut_info_mefe_users";
+$proto121["m_srcTableName"] = "Assign Rooms to User";
+$proto121["m_columns"] = array();
+$proto121["m_columns"][] = "id_person";
+$proto121["m_columns"][] = "unee_t_mefe_user_id";
+$proto121["m_columns"][] = "external_person_id";
+$proto121["m_columns"][] = "external_system";
+$proto121["m_columns"][] = "table_in_external_system";
+$proto121["m_columns"][] = "organization_id";
+$proto121["m_columns"][] = "uneet_login_name";
+$proto121["m_columns"][] = "name";
+$proto121["m_columns"][] = "email";
+$obj = new SQLTable($proto121);
+
+$proto120["m_table"] = $obj;
+$proto120["m_sql"] = "LEFT OUTER JOIN ut_info_mefe_users ON external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
+$proto120["m_alias"] = "";
+$proto120["m_srcTableName"] = "Assign Rooms to User";
+$proto122=array();
+$proto122["m_sql"] = "external_map_user_unit_role_permissions_level_3.unee_t_mefe_user_id = ut_info_mefe_users.unee_t_mefe_user_id";
+$proto122["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "unee_t_mefe_user_id",
+	"m_strTable" => "external_map_user_unit_role_permissions_level_3",
+	"m_srcTableName" => "Assign Rooms to User"
+));
+
+$proto122["m_column"]=$obj;
+$proto122["m_contained"] = array();
+$proto122["m_strCase"] = "= ut_info_mefe_users.unee_t_mefe_user_id";
+$proto122["m_havingmode"] = false;
+$proto122["m_inBrackets"] = false;
+$proto122["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto122);
+
+$proto120["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto120);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -5994,7 +6165,7 @@ $queryData_Assign_Rooms_to_User = createSqlQuery_Assign_Rooms_to_User();
 					
 ;
 
-																														
+																															
 
 $tdataAssign_Rooms_to_User[".sqlquery"] = $queryData_Assign_Rooms_to_User;
 

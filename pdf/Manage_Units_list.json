@@ -629,6 +629,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
+				
 		  ],
   "border": [ true, true, true, true ],
         },
@@ -863,6 +866,11 @@ pdfDocument = {
 			 {BEGIN details_Manage_Rooms}
 			{$displayDetailTable_Manage_Rooms }
 		{END details_Manage_Rooms},
+				
+				
+			 {BEGIN details_Assign_Units_to_User}
+			{$displayDetailTable_Assign_Units_to_User }
+		{END details_Assign_Units_to_User},
 				
 		  ],
   "border": [ true, true, true, true ],

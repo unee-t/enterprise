@@ -681,6 +681,53 @@
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
+		{BEGIN print_friendly}
+<span class="bs-printpanel" id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
+	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-print"></span>
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu pull-right">
+										 
+				 
+					<li class="container-fluid 
+										">
+									{BEGIN print_details}
+<div>
+	<label for="printDetailsToggler{$id}">
+		<input type="checkbox" id="printDetailsToggler{$id}">
+		Print details	</label>
+	<div  id="printdetailstables{$id}" style="display:none;">
+											{BEGIN print_details_Assign_Buildings_to_User}
+			<div>
+				<label for="printDetailsAssign_Buildings_to_User{$id}">
+					<input type="checkbox" value="Assign_Buildings_to_User" id="printDetailsAssign_Buildings_to_User{$id}" checked>
+					Assign Buildings to User				</label>
+			</div>
+			{END print_details_Assign_Buildings_to_User}
+														{BEGIN print_details_Assign_Units_to_User}
+			<div>
+				<label for="printDetailsAssign_Units_to_User{$id}">
+					<input type="checkbox" value="Assign_Units_to_User" id="printDetailsAssign_Units_to_User{$id}" checked>
+					Assign Units to User				</label>
+			</div>
+			{END print_details_Assign_Units_to_User}
+														{BEGIN print_details_Assign_Rooms_to_User}
+			<div>
+				<label for="printDetailsAssign_Rooms_to_User{$id}">
+					<input type="checkbox" value="Assign_Rooms_to_User" id="printDetailsAssign_Rooms_to_User{$id}" checked>
+					Assign Rooms to User				</label>
+			</div>
+			{END print_details_Assign_Rooms_to_User}
+						</div>
+</div>
+{END print_details}
+				 
+					</li>
+															</ul>
+</span>
+{END print_friendly}
+	 
 		<div id="fildhidepanel{$id}" class="bs-fildhidepanel 
 	 showHide	 reorder	keep-open btn-group"
 	data-itemtype="columns_control" data-itemid="columns_control" {$item_columns_control} data-pageid="{$pageid}"	title="Show/hide columns"
@@ -1008,11 +1055,15 @@
 		content: "{$label Manage_Unee_T_Users uneet_created_datetime}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
+		content: "{$label Manage_Unee_T_Users unee_t_mefe_user_id}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
 	cellpadding="0" data-brick="grid"
-	data-body-height="1"
+	data-body-height="2"
 >
 						<thead>
 			{BEGIN grid_header}
@@ -1063,6 +1114,22 @@
 	
 	</th>
 	{END cellblock_grid_headcell_checkbox}
+				 
+					{BEGIN cellblock_grid_headcell_details}
+	<th
+	
+	{$cell_grid_headcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_details}
 				 
 					{BEGIN cellblock_grid_headcell_field}
 	<th
@@ -1390,6 +1457,7 @@
 							</tr>
 					 
 					 
+					 
 					
 					{END grid_header}
 			</thead>
@@ -1494,6 +1562,97 @@
 	
 	</td>
 	{END cellblock_grid_cell_checkbox}
+				 
+					{BEGIN cellblock_grid_cell_details}
+	<td
+	
+	{$cell_grid_cell_details}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Unee_T_Users_list"		data-control-cell
+	
+	>
+
+	 
+		{BEGIN dtables_link}
+	<a 
+		data-itemtype="grid_alldetails_link" data-itemid="grid_alldetails_link" {$item_grid_alldetails_link} data-pageid="{$pageid}" data-record-id="{$recId}" 
+		{$dtables_link_attrs} 
+		class="{$dtables_link_class}" 
+		title="Show details"
+	>
+					<span class="glyphicon glyphicon-th-list"></span>
+					</a>
+{END dtables_link}
+	 
+		
+
+	{BEGIN Assign_Buildings_to_User_dtable_link}
+	<a data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}" class="{$Assign_Buildings_to_User_dlink_class}" {$Assign_Buildings_to_User_link_attrs} 
+		data-short-details="Assign_Buildings_to_User"
+	>
+								
+									{BEGIN Assign_Buildings_to_User_childcount}
+				<span class="details-badge badge Assign_Buildings_to_User_badge" {$Assign_Buildings_to_User_childnumber_attr}>
+					{$Assign_Buildings_to_User_childnumber}				
+				</span>
+				{END Assign_Buildings_to_User_childcount}
+						</a>
+	{END Assign_Buildings_to_User_dtable_link}
+
+
+
+
+
+
+	 
+		
+
+	{BEGIN Assign_Units_to_User_dtable_link}
+	<a data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}" class="{$Assign_Units_to_User_dlink_class}" {$Assign_Units_to_User_link_attrs} 
+		data-short-details="Assign_Units_to_User"
+	>
+								
+									{BEGIN Assign_Units_to_User_childcount}
+				<span class="details-badge badge Assign_Units_to_User_badge" {$Assign_Units_to_User_childnumber_attr}>
+					{$Assign_Units_to_User_childnumber}				
+				</span>
+				{END Assign_Units_to_User_childcount}
+						</a>
+	{END Assign_Units_to_User_dtable_link}
+
+
+
+
+
+
+	 
+		
+
+	{BEGIN Assign_Rooms_to_User_dtable_link}
+	<a data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}" class="{$Assign_Rooms_to_User_dlink_class}" {$Assign_Rooms_to_User_link_attrs} 
+		data-short-details="Assign_Rooms_to_User"
+	>
+								
+									{BEGIN Assign_Rooms_to_User_childcount}
+				<span class="details-badge badge Assign_Rooms_to_User_badge" {$Assign_Rooms_to_User_childnumber_attr}>
+					{$Assign_Rooms_to_User_childnumber}				
+				</span>
+				{END Assign_Rooms_to_User_childcount}
+						</a>
+	{END Assign_Rooms_to_User_dtable_link}
+
+
+
+
+
+
+	
+	</td>
+	{END cellblock_grid_cell_details}
 				 
 					{BEGIN cellblock_grid_cell_field}
 	<td
@@ -1772,6 +1931,42 @@
 	{END cellblock_grid_cell_field11}
 							</tr>
 					 
+						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+								
+							">
+				 
+					{BEGIN cellblock_grid_cell_dpreview}
+	<td
+	
+	{$cell_grid_cell_dpreview}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="Assign_Buildings_to_User,Assign_Units_to_User,Assign_Rooms_to_User"
+			data-details-Assign_Buildings_to_User			data-details-Assign_Units_to_User			data-details-Assign_Rooms_to_User	>
+		<span data-details-inside data-short-table="Assign_Buildings_to_User">
+			</span>
+		<span data-details-inside data-short-table="Assign_Units_to_User">
+			</span>
+		<span data-details-inside data-short-table="Assign_Rooms_to_User">
+			</span>
+		<div data-details-preview>
+	</div>
+</div>
+	 
+			 
+			
+	</td>
+	{END cellblock_grid_cell_dpreview}
+							</tr>
+					 
 					
 											{END grid_row}
 					</tbody>
@@ -1781,7 +1976,8 @@
 		 
 					 
 					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+					 
+						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
 									{$gridFooter_class}
 									
 								r-gridrow
@@ -1818,6 +2014,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_checkbox}
+				 
+					{BEGIN cellblock_grid_footcell_details}
+	<td
+	
+	{$cell_grid_footcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_details}
 				 
 					{BEGIN cellblock_grid_footcell_field}
 	<td

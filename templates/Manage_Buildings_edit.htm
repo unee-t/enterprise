@@ -1032,7 +1032,7 @@
 							{$caption Manage_Units }				
 							<span>
 					{$detailslButtons_Manage_Units}
-																				</span>
+																															</span>
 			</h4>
 		</div>
 		<div class="panel-body">
@@ -1041,6 +1041,24 @@
 	</div>
 </div>
 {END details_Manage_Units}
+											
+{BEGIN details_Assign_Buildings_to_User}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Assign_Buildings_to_User }				
+							<span>
+					{$detailslButtons_Assign_Buildings_to_User}
+																															</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_Assign_Buildings_to_User}
+		</div>
+	</div>
+</div>
+{END details_Assign_Buildings_to_User}
 	
 				{END grid_block}
 							</div>

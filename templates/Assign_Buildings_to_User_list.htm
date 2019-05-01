@@ -233,7 +233,12 @@
 	class=" r-ori-vert			col-md-12
 	
 ">
-			</div>					</div>
+		 
+		{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}		</div>					</div>
 	</div>		
 {END top_block}
 					</div>
@@ -689,6 +694,14 @@
 </span>
 {END add_link}
 	 
+		{BEGIN inlineadd_link}
+<span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$inlineaddlink_attrs} >
+							Inline Add			</a>
+</span>
+{END inlineadd_link}
+	 
 		{BEGIN deleteselected_link}
 <span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-button-item>
 	<a type="button" class="btn btn-default   
@@ -945,6 +958,23 @@
 								r-gridrow
 							">
 				 
+					{BEGIN cellblock_grid_headcell_icons}
+	<th
+	
+	{$cell_grid_headcell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Assign_Buildings_to_User_list"		data-control-cell
+	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_icons}
+				 
 					{BEGIN cellblock_grid_headcell_checkbox}
 	<th
 	
@@ -1199,6 +1229,32 @@
 								r-gridrow
 							">
 				 
+					{BEGIN cellblock_grid_cell_icons}
+	<td
+	
+	{$cell_grid_cell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Assign_Buildings_to_User_list"		data-control-cell
+	
+	>
+
+	 
+		{BEGIN inline_cancel}
+<span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
+	<a type="button" class="btn-link   
+	 glyphicon glyphicon-remove" {$inlinerevertlink_attrs} title="Cancel" >		
+				
+								</a>
+</span>
+{END inline_cancel}
+	
+	</td>
+	{END cellblock_grid_cell_icons}
+				 
 					{BEGIN cellblock_grid_cell_checkbox}
 	<td
 	
@@ -1422,6 +1478,22 @@
 									
 								r-gridrow
 							">
+				 
+					{BEGIN cellblock_grid_footcell_icons}
+	<td
+	
+	{$cell_grid_footcell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_icons}
 				 
 					{BEGIN cellblock_grid_footcell_checkbox}
 	<td

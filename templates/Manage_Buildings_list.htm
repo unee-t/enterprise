@@ -728,6 +728,13 @@
 					Manage Units				</label>
 			</div>
 			{END print_details_Manage_Units}
+														{BEGIN print_details_Assign_Buildings_to_User}
+			<div>
+				<label for="printDetailsAssign_Buildings_to_User{$id}">
+					<input type="checkbox" value="Assign_Buildings_to_User" id="printDetailsAssign_Buildings_to_User{$id}" checked>
+					Assign Buildings to User				</label>
+			</div>
+			{END print_details_Assign_Buildings_to_User}
 						</div>
 </div>
 {END print_details}
@@ -1415,21 +1422,53 @@
 	>
 
 	 
-			 
+		{BEGIN dtables_link}
+	<a 
+		data-itemtype="grid_alldetails_link" data-itemid="grid_alldetails_link" {$item_grid_alldetails_link} data-pageid="{$pageid}" data-record-id="{$recId}" 
+		{$dtables_link_attrs} 
+		class="{$dtables_link_class}" 
+		title="Show details"
+	>
+					<span class="glyphicon glyphicon-th-list"></span>
+					</a>
+{END dtables_link}
+	 
 		
-	{BEGIN dtables_link}
-				<a 
-			data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}" 
-			{$Manage_Units_link_attrs} 
-			class="{$dtables_link_class} details-badge badge Manage_Units_badge" 
-			title="Show details"
-		>
-							<span class="glyphicon glyphicon-th-list"></span>
-									<span class="{$Manage_Units_cntspan_class}" {$Manage_Units_childnumber_attr}>
-				{$Manage_Units_childnumber}				
-			</span>
-		</a>
-	{END dtables_link}
+
+	{BEGIN Manage_Units_dtable_link}
+	<a data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}" class="{$Manage_Units_dlink_class}" {$Manage_Units_link_attrs} 
+		data-short-details="Manage_Units"
+	>
+								
+									{BEGIN Manage_Units_childcount}
+				<span class="details-badge badge Manage_Units_badge" {$Manage_Units_childnumber_attr}>
+					{$Manage_Units_childnumber}				
+				</span>
+				{END Manage_Units_childcount}
+						</a>
+	{END Manage_Units_dtable_link}
+
+
+
+
+
+
+	 
+		
+
+	{BEGIN Assign_Buildings_to_User_dtable_link}
+	<a data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}" class="{$Assign_Buildings_to_User_dlink_class}" {$Assign_Buildings_to_User_link_attrs} 
+		data-short-details="Assign_Buildings_to_User"
+	>
+								
+									{BEGIN Assign_Buildings_to_User_childcount}
+				<span class="details-badge badge Assign_Buildings_to_User_badge" {$Assign_Buildings_to_User_childnumber_attr}>
+					{$Assign_Buildings_to_User_childnumber}				
+				</span>
+				{END Assign_Buildings_to_User_childcount}
+						</a>
+	{END Assign_Buildings_to_User_dtable_link}
+
 
 
 
@@ -1657,22 +1696,25 @@
 	{$cell_grid_cell_dpreview}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+					"
 
 	
 	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-			<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="Manage_Units"
-			data-details-Manage_Units	>
+				<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="Manage_Units,Assign_Buildings_to_User"
+			data-details-Manage_Units			data-details-Assign_Buildings_to_User	>
 		<span data-details-inside data-short-table="Manage_Units">
+			</span>
+		<span data-details-inside data-short-table="Assign_Buildings_to_User">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
-	
+	 
+			
 	</td>
 	{END cellblock_grid_cell_dpreview}
 							</tr>

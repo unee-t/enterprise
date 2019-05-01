@@ -145,8 +145,14 @@
 
  
 	 
-		
-					<table 
+												{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}	
+				 
+	 
+												<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
@@ -156,28 +162,7 @@
 		data-v-width="6"
 	>
 	<tbody>
-						<tr>
-						
-
-{BEGIN cellblock_grid_c5}
-<td
-	{$cell_grid_c5}
-	class=" r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-	ocolspan="3"		data-cellId="grid_c5" data-pageid="{$pageid}"
-		data-v-cell="6"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_grid_c5}
-								</tr>
-	 
-	 
-														<tr>
+										<tr>
 										
 
 {BEGIN cellblock_grid_c3}

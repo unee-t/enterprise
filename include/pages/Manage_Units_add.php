@@ -1,5 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'Manage Rooms' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'Assign Units to User' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'master' => array( 'Manage Buildings' => array( 'preview' => true ) ),
 'captcha' => array( 'captcha' => false ),

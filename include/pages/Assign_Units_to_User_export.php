@@ -18,6 +18,7 @@
 'building_name' => array( 'totalsType' => '' ),
 'unee_t_level_2_id' => array( 'totalsType' => '' ),
 'unit_name' => array( 'totalsType' => '' ),
+'unee_t_mefe_unit_id' => array( 'totalsType' => '' ),
 'person_id' => array( 'totalsType' => '' ),
 'unee_t_role_id' => array( 'totalsType' => '' ),
 'user_role' => array( 'totalsType' => '' ),

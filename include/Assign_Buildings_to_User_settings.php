@@ -230,7 +230,7 @@ $tdataAssign_Buildings_to_User[".addPageEvents"] = false;
 $tdataAssign_Buildings_to_User[".isUseTimeForSearch"] = false;
 
 
-$tdataAssign_Buildings_to_User[".badgeColor"] = "cd5c5c";
+$tdataAssign_Buildings_to_User[".badgeColor"] = "002f6c";
 
 
 $tdataAssign_Buildings_to_User[".allSearchFields"] = array();
@@ -4510,6 +4510,38 @@ $masterTablesData["Assign Buildings to User"] = array();
 
 
 
+	
+				$strOriginalDetailsTable="external_persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Manage Unee-T Users";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "Manage_Unee_T_Users";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Assign Buildings to User"][0] = $masterParams;
+				$masterTablesData["Assign Buildings to User"][0]["masterKeys"] = array();
+	$masterTablesData["Assign Buildings to User"][0]["masterKeys"][]="unee_t_mefe_user_id";
+				$masterTablesData["Assign Buildings to User"][0]["detailKeys"] = array();
+	$masterTablesData["Assign Buildings to User"][0]["detailKeys"][]="unee_t_mefe_user_id";
+		
+	
+				$strOriginalDetailsTable="external_property_level_1_buildings";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Manage Buildings";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "Manage_Buildings";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Assign Buildings to User"][1] = $masterParams;
+				$masterTablesData["Assign Buildings to User"][1]["masterKeys"] = array();
+	$masterTablesData["Assign Buildings to User"][1]["masterKeys"][]="unee_t_mefe_unit_id";
+				$masterTablesData["Assign Buildings to User"][1]["detailKeys"] = array();
+	$masterTablesData["Assign Buildings to User"][1]["detailKeys"][]="unee_t_mefe_unit_id";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -5519,6 +5551,7 @@ $proto109["m_columns"][] = "unee_t_mefe_user_id";
 $proto109["m_columns"][] = "external_person_id";
 $proto109["m_columns"][] = "external_system";
 $proto109["m_columns"][] = "table_in_external_system";
+$proto109["m_columns"][] = "organization_id";
 $proto109["m_columns"][] = "uneet_login_name";
 $proto109["m_columns"][] = "name";
 $proto109["m_columns"][] = "email";

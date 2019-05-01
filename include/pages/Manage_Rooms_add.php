@@ -1,5 +1,7 @@
 <?php
-			$optionsArray = array( 'master' => array( 'Manage Units' => array( 'preview' => true ) ),
+			$optionsArray = array( 'details' => array( 'Assign Rooms to User' => array( 'displayPreview' => 2,
+'previewPageId' => '' ) ),
+'master' => array( 'Manage Units' => array( 'preview' => true ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'external_id',
 'external_system_id',

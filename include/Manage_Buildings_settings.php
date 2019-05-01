@@ -239,7 +239,7 @@ $tdataManage_Buildings[".addPageEvents"] = false;
 $tdataManage_Buildings[".isUseTimeForSearch"] = false;
 
 
-$tdataManage_Buildings[".badgeColor"] = "5f9ea0";
+$tdataManage_Buildings[".badgeColor"] = "005662";
 
 
 $tdataManage_Buildings[".allSearchFields"] = array();
@@ -5216,6 +5216,35 @@ $detailsTablesData["Manage Buildings"] = array();
 				$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="building_system_id";
+//	Assign Buildings to User
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Assign Buildings to User";
+		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_1";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "Assign_Buildings_to_User";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Buildings_to_User");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Buildings"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="unee_t_mefe_unit_id";
+
+				$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="unee_t_mefe_unit_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Buildings"] = array();
