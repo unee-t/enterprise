@@ -117,6 +117,22 @@
 		Advanced search		
 		</a>
 	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" >
+				<a  id="showOptPanel{$id}" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" >
+				<a  id="hideOptPanel{$id}" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -190,6 +206,141 @@
 									<td 
 	class=" r-ori-vert			"
 			 
+	data-cellId="left_c1" data-pageid="{$pageid}">
+ 
+<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+
+	<div class="panel-heading">
+		<div class="btn-group" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_ut_user_role_type_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_ut_user_role_type_id}" {$filterRow_attrs_ut_user_role_type_id}>
+			<label>{$label Manage_User_Types ut_user_role_type_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_ut_user_role_type_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_ut_user_role_type_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_ut_user_role_type_id}</span>
+						</div>
+		{END searchCtrlBlock_ut_user_role_type_id}
+																{BEGIN searchCtrlBlock_is_all_units_in_level_2}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_level_2}" {$filterRow_attrs_is_all_units_in_level_2}>
+			<label>{$label Manage_User_Types is_all_units_in_level_2 }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_level_2}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_level_2}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_level_2}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_level_2}
+																{BEGIN searchCtrlBlock_is_all_units_in_level_1}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_level_1}" {$filterRow_attrs_is_all_units_in_level_1}>
+			<label>{$label Manage_User_Types is_all_units_in_level_1 }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_level_1}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_level_1}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_level_1}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_level_1}
+																{BEGIN searchCtrlBlock_is_all_units_in_area}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_area}" {$filterRow_attrs_is_all_units_in_area}>
+			<label>{$label Manage_User_Types is_all_units_in_area }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_area}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_area}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_area}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_area}
+																{BEGIN searchCtrlBlock_is_all_units_in_country}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_country}" {$filterRow_attrs_is_all_units_in_country}>
+			<label>{$label Manage_User_Types is_all_units_in_country }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_country}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_country}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_country}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_country}
+																{BEGIN searchCtrlBlock_is_all_unit}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_unit}" {$filterRow_attrs_is_all_unit}>
+			<label>{$label Manage_User_Types is_all_unit }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_unit}</span>
+						</div>
+		{END searchCtrlBlock_is_all_unit}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+</td>
+							</tr>
+											<tr>
+									<td 
+	class=" r-ori-vert			"
+			 
 	data-cellId="left_c2" data-pageid="{$pageid}">
  
 <div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
@@ -227,8 +378,6 @@
 				<li class="list-group-item filter-values filter-values-role_type {$collapsedClass_role_type} {$visibilityClass_role_type}">
 					{$role_type_filter}
 								
-			
-			
 			
 			
 			
@@ -303,8 +452,6 @@
 			
 			
 			
-			
-			
 				</li>				
 				{END filterCtrlBlock_is_public}
 
@@ -333,68 +480,6 @@
 
 		 	
 
-		{BEGIN filter_control_is_all_unit}
-		<div class="panel panel-info filter-field filter-is_all_unit-container">
-			<div class="panel-heading filter-expander">
-																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
-
-			
-				<label>{$label Manage_User_Types is_all_unit }</label>
-
-				{BEGIN clearLink_is_all_unit}
-				<a href="#" class="filter-clear filter-clear-is_all_unit">Clear</a>
-				{END clearLink_is_all_unit}				
-			</div>
-
-			<ul class="list-group">
-				{BEGIN filterCtrlBlock_is_all_unit}
-				<li class="list-group-item filter-values filter-values-is_all_unit {$collapsedClass_is_all_unit} {$visibilityClass_is_all_unit}">
-					{$is_all_unit_filter}
-								
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-				</li>				
-				{END filterCtrlBlock_is_all_unit}
-
-							{BEGIN filter_button_showmore_is_all_unit}
-				<li class="list-group-item filter-show-more {$collapsedClass_is_all_unit} {$showMoreBtnClass_is_all_unit}">
-					<a class="filter-show-more-link filterShowMore_is_all_unit" href="#">{$show_n_more_is_all_unit}</a>
-				</li>
-				{END filter_button_showmore_is_all_unit}			
-			
-
-
-			
-
-				
-	
-			</ul>			
-		</div>
-		{END filter_control_is_all_unit}
-	 
-			
-	 	
-
-		
-		 
-		 
-
-		 	
-
 		{BEGIN filter_control_is_dashboard_access}
 		<div class="panel panel-info filter-field filter-is_dashboard_access-container">
 			<div class="panel-heading filter-expander">
@@ -413,8 +498,6 @@
 				<li class="list-group-item filter-values filter-values-is_dashboard_access {$collapsedClass_is_dashboard_access} {$visibilityClass_is_dashboard_access}">
 					{$is_dashboard_access_filter}
 								
-			
-			
 			
 			
 			
@@ -489,8 +572,6 @@
 			
 			
 			
-			
-			
 				</li>				
 				{END filterCtrlBlock_is_default_assignee}
 
@@ -537,8 +618,6 @@
 				<li class="list-group-item filter-values filter-values-is_default_invited {$collapsedClass_is_default_invited} {$visibilityClass_is_default_invited}">
 					{$is_default_invited_filter}
 								
-			
-			
 			
 			
 			
@@ -613,8 +692,6 @@
 			
 			
 			
-			
-			
 				</li>				
 				{END filterCtrlBlock_is_occupant}
 
@@ -661,8 +738,6 @@
 				<li class="list-group-item filter-values filter-values-is_obsolete {$collapsedClass_is_obsolete} {$visibilityClass_is_obsolete}">
 					{$is_obsolete_filter}
 								
-			
-			
 			
 			
 			
@@ -861,6 +936,56 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_unit" checked="checked" value="1" data-field="is_all_unit">
+					<span>{$label Manage_User_Types is_all_unit }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_country" checked="checked" value="1" data-field="is_all_units_in_country">
+					<span>{$label Manage_User_Types is_all_units_in_country }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_area" checked="checked" value="1" data-field="is_all_units_in_area">
+					<span>{$label Manage_User_Types is_all_units_in_area }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_level_1" checked="checked" value="1" data-field="is_all_units_in_level_1">
+					<span>{$label Manage_User_Types is_all_units_in_level_1 }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_level_2" checked="checked" value="1" data-field="is_all_units_in_level_2">
+					<span>{$label Manage_User_Types is_all_units_in_level_2 }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -944,6 +1069,22 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_unit"]:before {
 		content: "{$label Manage_User_Types is_all_unit}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_country"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_country}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_area"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_area}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_level_1"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_level_1}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_level_2"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_level_2}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_occupant"]:before {
@@ -1120,7 +1261,7 @@
 	 
 		{BEGIN designation_fieldheadercolumn}
 	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
 	{$label Manage_User_Types designation }	{$arrow_icon_designation}
 	</SPAN>
 	{END designation_fieldheader}
@@ -1147,7 +1288,7 @@
 	 
 		{BEGIN ut_user_role_type_id_fieldheadercolumn}
 	{BEGIN ut_user_role_type_id_fieldheader}
-	<SPAN {$ut_user_role_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ut_user_role_type_id">
+	<SPAN {$ut_user_role_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ut_user_role_type_id">
 	{$label Manage_User_Types ut_user_role_type_id }	{$arrow_icon_ut_user_role_type_id}
 	</SPAN>
 	{END ut_user_role_type_id_fieldheader}
@@ -1174,7 +1315,7 @@
 	 
 		{BEGIN is_occupant_fieldheadercolumn}
 	{BEGIN is_occupant_fieldheader}
-	<SPAN {$is_occupant_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
+	<SPAN {$is_occupant_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
 	{$label Manage_User_Types is_occupant }	{$arrow_icon_is_occupant}
 	</SPAN>
 	{END is_occupant_fieldheader}
@@ -1201,7 +1342,7 @@
 	 
 		{BEGIN is_public_fieldheadercolumn}
 	{BEGIN is_public_fieldheader}
-	<SPAN {$is_public_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
+	<SPAN {$is_public_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
 	{$label Manage_User_Types is_public }	{$arrow_icon_is_public}
 	</SPAN>
 	{END is_public_fieldheader}
@@ -1228,7 +1369,7 @@
 	 
 		{BEGIN is_default_assignee_fieldheadercolumn}
 	{BEGIN is_default_assignee_fieldheader}
-	<SPAN {$is_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
+	<SPAN {$is_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
 	{$label Manage_User_Types is_default_assignee }	{$arrow_icon_is_default_assignee}
 	</SPAN>
 	{END is_default_assignee_fieldheader}
@@ -1255,7 +1396,7 @@
 	 
 		{BEGIN is_default_invited_fieldheadercolumn}
 	{BEGIN is_default_invited_fieldheader}
-	<SPAN {$is_default_invited_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
+	<SPAN {$is_default_invited_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
 	{$label Manage_User_Types is_default_invited }	{$arrow_icon_is_default_invited}
 	</SPAN>
 	{END is_default_invited_fieldheader}
@@ -1282,7 +1423,7 @@
 	 
 		{BEGIN description_fieldheadercolumn}
 	{BEGIN description_fieldheader}
-	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
+	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
 	{$label Manage_User_Types description }	{$arrow_icon_description}
 	</SPAN>
 	{END description_fieldheader}
@@ -1309,7 +1450,7 @@
 	 
 		{BEGIN is_dashboard_access_fieldheadercolumn}
 	{BEGIN is_dashboard_access_fieldheader}
-	<SPAN {$is_dashboard_access_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
+	<SPAN {$is_dashboard_access_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
 	{$label Manage_User_Types is_dashboard_access }	{$arrow_icon_is_dashboard_access}
 	</SPAN>
 	{END is_dashboard_access_fieldheader}
@@ -1325,18 +1466,153 @@
 	{$cell_grid_headcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$is_all_unit_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="is_all_unit"
 	
 	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
+		{BEGIN is_all_unit_fieldheadercolumn}
+	{BEGIN is_all_unit_fieldheader}
+	<SPAN {$is_all_unit_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit">
+	{$label Manage_User_Types is_all_unit }	{$arrow_icon_is_all_unit}
+	</SPAN>
+	{END is_all_unit_fieldheader}
+{END is_all_unit_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field8}
+				 
+					{BEGIN cellblock_grid_headcell_field9}
+	<th
+	
+	{$cell_grid_headcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_country_class}
+			"
+
+			data-field="is_all_units_in_country"
+	
+	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_country_fieldheadercolumn}
+	{BEGIN is_all_units_in_country_fieldheader}
+	<SPAN {$is_all_units_in_country_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country">
+	{$label Manage_User_Types is_all_units_in_country }	{$arrow_icon_is_all_units_in_country}
+	</SPAN>
+	{END is_all_units_in_country_fieldheader}
+{END is_all_units_in_country_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+				 
+					{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldheadercolumn}
+	{BEGIN is_all_units_in_area_fieldheader}
+	<SPAN {$is_all_units_in_area_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area">
+	{$label Manage_User_Types is_all_units_in_area }	{$arrow_icon_is_all_units_in_area}
+	</SPAN>
+	{END is_all_units_in_area_fieldheader}
+{END is_all_units_in_area_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldheadercolumn}
+	{BEGIN is_all_units_in_level_1_fieldheader}
+	<SPAN {$is_all_units_in_level_1_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1">
+	{$label Manage_User_Types is_all_units_in_level_1 }	{$arrow_icon_is_all_units_in_level_1}
+	</SPAN>
+	{END is_all_units_in_level_1_fieldheader}
+{END is_all_units_in_level_1_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
+				 
+					{BEGIN cellblock_grid_headcell_field12}
+	<th
+	
+	{$cell_grid_headcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_headcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldheadercolumn}
+	{BEGIN is_all_units_in_level_2_fieldheader}
+	<SPAN {$is_all_units_in_level_2_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2">
+	{$label Manage_User_Types is_all_units_in_level_2 }	{$arrow_icon_is_all_units_in_level_2}
+	</SPAN>
+	{END is_all_units_in_level_2_fieldheader}
+{END is_all_units_in_level_2_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field12}
+				 
+					{BEGIN cellblock_grid_headcell_field13}
+	<th
+	
+	{$cell_grid_headcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_obsolete_class}
+			"
+
+			data-field="is_obsolete"
+	
+	data-cellId="grid_headcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
 		{BEGIN is_obsolete_fieldheadercolumn}
 	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Manage_User_Types is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
 	{END is_obsolete_fieldheader}
@@ -1344,7 +1620,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field8}
+	{END cellblock_grid_headcell_field13}
 							</tr>
 					 
 					 
@@ -1590,12 +1866,127 @@
 	{$cell_grid_cell_field8}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$is_all_unit_class}
+			"
+
+			data-field="is_all_unit"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_unit_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit" data-default-width >
+{$is_all_unit_value}
+</span>
+{END is_all_unit_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+				 
+					{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_country_class}
+			"
+
+			data-field="is_all_units_in_country"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_country_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country" data-default-width >
+{$is_all_units_in_country_value}
+</span>
+{END is_all_units_in_country_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+				 
+					{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area" data-default-width >
+{$is_all_units_in_area_value}
+</span>
+{END is_all_units_in_area_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1" data-default-width >
+{$is_all_units_in_level_1_value}
+</span>
+{END is_all_units_in_level_1_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
+				 
+					{BEGIN cellblock_grid_cell_field12}
+	<td
+	
+	{$cell_grid_cell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2" data-default-width >
+{$is_all_units_in_level_2_value}
+</span>
+{END is_all_units_in_level_2_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field12}
+				 
+					{BEGIN cellblock_grid_cell_field13}
+	<td
+	
+	{$cell_grid_cell_field13}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$is_obsolete_class}
 			"
 
 			data-field="is_obsolete"
 	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1605,7 +1996,7 @@
 </span>
 {END is_obsolete_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field8}
+	{END cellblock_grid_cell_field13}
 							</tr>
 					 
 					
@@ -1782,6 +2173,86 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field8}
+				 
+					{BEGIN cellblock_grid_footcell_field9}
+	<td
+	
+	{$cell_grid_footcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field9}
+				 
+					{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
+				 
+					{BEGIN cellblock_grid_footcell_field12}
+	<td
+	
+	{$cell_grid_footcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field12}
+				 
+					{BEGIN cellblock_grid_footcell_field13}
+	<td
+	
+	{$cell_grid_footcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field13}
 							</tr>
 					
 					{END totals_row}

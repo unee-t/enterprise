@@ -684,6 +684,31 @@
 </div>
 
 {END mefe_api_error_message_fieldblock}
+											
+{BEGIN tower_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_tower}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="tower" 
+	
+	data-signal-error-for="tower{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="tower" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_tower}">
+		{$label ut_map_external_source_units tower }	</label>
+	<div class="r-search-option">
+		{$searchtype_tower}
+	</div>
+	<div class="r-search-field">
+		{$tower_editcontrol}	</div>
+	<div class="r-search-field">
+		{$tower_editcontrol1}
+	</div>
+	
+</div>
+
+{END tower_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

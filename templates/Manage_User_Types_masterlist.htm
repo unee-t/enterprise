@@ -164,7 +164,7 @@
 	 
 		{BEGIN is_occupant_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
 	{$label Manage_User_Types is_occupant }	</label>
 {END is_occupant_fieldheadercolumn}
 
@@ -189,7 +189,7 @@
 	 
 		{BEGIN is_dashboard_access_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
 	{$label Manage_User_Types is_dashboard_access }	</label>
 {END is_dashboard_access_fieldheadercolumn}
 
@@ -214,7 +214,7 @@
 	 
 		{BEGIN is_default_invited_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
 	{$label Manage_User_Types is_default_invited }	</label>
 {END is_default_invited_fieldheadercolumn}
 
@@ -239,13 +239,113 @@
 	 
 		{BEGIN is_all_unit_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit">
 	{$label Manage_User_Types is_all_unit }	</label>
 {END is_all_unit_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field7}
+				 
+					{BEGIN cellblock_grid_headcell_field8}
+	<th
+	
+	{$cell_grid_headcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_country_class}
+			"
+
+			data-field="is_all_units_in_country"
+	
+	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_country_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country">
+	{$label Manage_User_Types is_all_units_in_country }	</label>
+{END is_all_units_in_country_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field8}
+				 
+					{BEGIN cellblock_grid_headcell_field9}
+	<th
+	
+	{$cell_grid_headcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area">
+	{$label Manage_User_Types is_all_units_in_area }	</label>
+{END is_all_units_in_area_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+				 
+					{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1">
+	{$label Manage_User_Types is_all_units_in_level_1 }	</label>
+{END is_all_units_in_level_1_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2">
+	{$label Manage_User_Types is_all_units_in_level_2 }	</label>
+{END is_all_units_in_level_2_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
 							</tr>
 					 
 					 
@@ -445,6 +545,98 @@
 {END is_all_unit_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field7}
+				 
+					{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_country_class}
+			"
+
+			data-field="is_all_units_in_country"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_country_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country" data-default-width >
+{$is_all_units_in_country_value}
+</span>
+{END is_all_units_in_country_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+				 
+					{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area" data-default-width >
+{$is_all_units_in_area_value}
+</span>
+{END is_all_units_in_area_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+				 
+					{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1" data-default-width >
+{$is_all_units_in_level_1_value}
+</span>
+{END is_all_units_in_level_1_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2" data-default-width >
+{$is_all_units_in_level_2_value}
+</span>
+{END is_all_units_in_level_2_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
 							</tr>
 					 
 					
@@ -589,6 +781,70 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field7}
+				 
+					{BEGIN cellblock_grid_footcell_field8}
+	<td
+	
+	{$cell_grid_footcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_masterlist"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field8}
+				 
+					{BEGIN cellblock_grid_footcell_field9}
+	<td
+	
+	{$cell_grid_footcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_masterlist"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field9}
+				 
+					{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_masterlist"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_masterlist"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					{END totals_row}

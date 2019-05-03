@@ -56,6 +56,17 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Manage_Buildings_Add_Page';
 
+	// if we have no area id we use 1
+
+		IF (EMPTY($values['area_id']))
+			{
+			$values['area_id'] = 1 ;
+			}
+		ELSE
+			{
+			// we do nothing
+			}
+
 // Place event code here.
 // Use "Add Action" button to add code snippets.
 

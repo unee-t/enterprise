@@ -3218,6 +3218,7 @@ $proto49["m_columns"][] = "external_property_type_id";
 $proto49["m_columns"][] = "external_property_id";
 $proto49["m_columns"][] = "external_system";
 $proto49["m_columns"][] = "table_in_external_system";
+$proto49["m_columns"][] = "tower";
 $obj = new SQLTable($proto49);
 
 $proto48["m_table"] = $obj;

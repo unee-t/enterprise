@@ -1,6 +1,12 @@
+[data-cellid="top_c1"][data-page=".global_login"][data-cellid="top_c1"][data-page=".global_login"][data-cellid="top_c1"][data-page=".global_login"] {
+  padding-top: 20px;
+}
 [data-cellid="footer_c1"][data-page=".global_login"][data-cellid="footer_c1"][data-page=".global_login"][data-cellid="footer_c1"][data-page=".global_login"] {
   width: 33.33333333%;
 }
 [data-cellid="footer_c2"][data-page=".global_login"][data-cellid="footer_c2"][data-page=".global_login"][data-cellid="footer_c2"][data-page=".global_login"] {
   width: 66.66666667%;
+}
+[data-page=".global_login"][data-itemid="login_header"] {
+  font-weight: bold;
 }

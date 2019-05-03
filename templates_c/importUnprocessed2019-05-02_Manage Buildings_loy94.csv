@@ -1,0 +1,4 @@
+﻿"designation","is_creation_needed_in_unee_t","unee_t_unit_type","is_obsolete","order","area_id","description","tower","address_1","address_2","zip_postal_code","city","state","country_code","external_id","external_system_id","external_table","created_by_id","syst_created_datetime","creation_system_id","creation_method","updated_by_id","syst_updated_datetime","update_system_id","update_method"
+"Heritage View - A","1","Condominium","0","30","One North","test","A","8 Dover Rise","","138679","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+"Heritage View - B","1","Condominium","0","30","One North","test","B","10 Dover Rise","","138680","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+"Heritage View - C","1","Condominium","0","30","One North","test","C","6 Dover Rise","","138678","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
