@@ -353,6 +353,18 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("Search_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("Export_and_Import_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("List_of_Countries" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_User_Types" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -612,6 +624,36 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="Search Buildings";
 	}
+	$strPerm = GetUserPermissions("Export and Import Buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Buildings";
+	}
+	$strPerm = GetUserPermissions("Export and Import Areas");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Areas";
+	}
+	$strPerm = GetUserPermissions("Export and Import Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Units";
+	}
+	$strPerm = GetUserPermissions("List of Countries");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="List of Countries";
+	}
+	$strPerm = GetUserPermissions("Export and Import Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Rooms";
+	}
+	$strPerm = GetUserPermissions("Export and Import User Types");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import User Types";
+	}
 	return $arr;
 }
 
@@ -663,6 +705,12 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Search All Units";
 	$arr[]="ut_map_external_source_units";
 	$arr[]="Search Buildings";
+	$arr[]="Export and Import Buildings";
+	$arr[]="Export and Import Areas";
+	$arr[]="Export and Import Units";
+	$arr[]="List of Countries";
+	$arr[]="Export and Import Rooms";
+	$arr[]="Export and Import User Types";
 	return $arr;
 }
 
@@ -1555,6 +1603,11 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Search Units_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search All Units_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search Buildings_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Buildings_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Areas_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import User Types_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1733,6 +1786,36 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Export and Import Buildings")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import User Types")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	//	 check user group permissions
 	$localAction = strtolower($strAction);
@@ -1880,6 +1963,26 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Search Buildings")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Buildings")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Areas")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import User Types")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

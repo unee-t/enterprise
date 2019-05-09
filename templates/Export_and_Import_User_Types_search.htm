@@ -1,0 +1,1146 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{$pagetitle}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link REL="stylesheet" href="styles/default.css" type="text/css">
+		{BEGIN rtlCSS}
+		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
+		{END rtlCSS}
+		{BEGIN styleCSSFiles}
+		<link REL="stylesheet" href="{$stylepath}" type="text/css">
+		{END styleCSSFiles}
+	</head>
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				data-fixed 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default
+	bs-fullwidth-navbar
+" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+			 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-brick="logo" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+				 
+			 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main horizontal}			</span>
+				 
+						</nav>
+{END supertop_block}
+				</div>	
+			
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel Export_and_Import_User_Types search}</h2>
+		</div>					</div>
+	</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+										{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			{END firstAboveGridCell}	
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+							
+						<div class="r-grid">
+										{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_dashboard_access_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_dashboard_access}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_dashboard_access" 
+	
+	data-signal-error-for="is_dashboard_access{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="is_dashboard_access" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_dashboard_access}">
+		{$label Export_and_Import_User_Types is_dashboard_access }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_dashboard_access}
+	</div>
+	<div class="r-search-field">
+		{$is_dashboard_access_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_dashboard_access_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_dashboard_access_fieldblock}
+											
+{BEGIN id_unee_t_user_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_unee_t_user_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="id_unee_t_user_type" 
+	
+	data-signal-error-for="id_unee_t_user_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id_unee_t_user_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id_unee_t_user_type}">
+		{$label Export_and_Import_User_Types id_unee_t_user_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_id_unee_t_user_type}
+	</div>
+	<div class="r-search-field">
+		{$id_unee_t_user_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_unee_t_user_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_unee_t_user_type_fieldblock}
+											
+{BEGIN ut_user_role_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ut_user_role_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="ut_user_role_type_id" 
+	
+	data-signal-error-for="ut_user_role_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="ut_user_role_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_ut_user_role_type_id}">
+		{$label Export_and_Import_User_Types ut_user_role_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_ut_user_role_type_id}
+	</div>
+	<div class="r-search-field">
+		{$ut_user_role_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$ut_user_role_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END ut_user_role_type_id_fieldblock}
+											
+{BEGIN is_public_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_public}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_public" 
+	
+	data-signal-error-for="is_public{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="is_public" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_public}">
+		{$label Export_and_Import_User_Types is_public }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_public}
+	</div>
+	<div class="r-search-field">
+		{$is_public_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_public_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_public_fieldblock}
+											
+{BEGIN is_default_assignee_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_assignee}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_default_assignee" 
+	
+	data-signal-error-for="is_default_assignee{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="is_default_assignee" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_default_assignee}">
+		{$label Export_and_Import_User_Types is_default_assignee }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_default_assignee}
+	</div>
+	<div class="r-search-field">
+		{$is_default_assignee_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_default_assignee_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_default_assignee_fieldblock}
+											
+{BEGIN is_default_invited_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_default_invited" 
+	
+	data-signal-error-for="is_default_invited{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="is_default_invited" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_default_invited}">
+		{$label Export_and_Import_User_Types is_default_invited }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_default_invited}
+	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_default_invited_fieldblock}
+											
+{BEGIN is_occupant_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_occupant}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_occupant" 
+	
+	data-signal-error-for="is_occupant{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="is_occupant" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_occupant}">
+		{$label Export_and_Import_User_Types is_occupant }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_occupant}
+	</div>
+	<div class="r-search-field">
+		{$is_occupant_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_occupant_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_occupant_fieldblock}
+											
+{BEGIN can_see_role_contractor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_contractor}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_role_contractor" 
+	
+	data-signal-error-for="can_see_role_contractor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="can_see_role_contractor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_role_contractor}">
+		{$label Export_and_Import_User_Types can_see_role_contractor }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_role_contractor}
+	</div>
+	<div class="r-search-field">
+		{$can_see_role_contractor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_role_contractor_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_role_contractor_fieldblock}
+											
+{BEGIN can_see_role_mgt_cny_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_mgt_cny}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_role_mgt_cny" 
+	
+	data-signal-error-for="can_see_role_mgt_cny{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="can_see_role_mgt_cny" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_role_mgt_cny}">
+		{$label Export_and_Import_User_Types can_see_role_mgt_cny }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_role_mgt_cny}
+	</div>
+	<div class="r-search-field">
+		{$can_see_role_mgt_cny_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_role_mgt_cny_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_role_mgt_cny_fieldblock}
+											
+{BEGIN can_see_occupant_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_occupant}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_occupant" 
+	
+	data-signal-error-for="can_see_occupant{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="can_see_occupant" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_occupant}">
+		{$label Export_and_Import_User_Types can_see_occupant }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_occupant}
+	</div>
+	<div class="r-search-field">
+		{$can_see_occupant_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_occupant_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_occupant_fieldblock}
+											
+{BEGIN can_see_role_landlord_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_landlord}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_role_landlord" 
+	
+	data-signal-error-for="can_see_role_landlord{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="can_see_role_landlord" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_role_landlord}">
+		{$label Export_and_Import_User_Types can_see_role_landlord }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_role_landlord}
+	</div>
+	<div class="r-search-field">
+		{$can_see_role_landlord_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_role_landlord_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_role_landlord_fieldblock}
+											
+{BEGIN can_see_role_agent_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_agent}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_role_agent" 
+	
+	data-signal-error-for="can_see_role_agent{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="can_see_role_agent" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_role_agent}">
+		{$label Export_and_Import_User_Types can_see_role_agent }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_role_agent}
+	</div>
+	<div class="r-search-field">
+		{$can_see_role_agent_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_role_agent_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_role_agent_fieldblock}
+											
+{BEGIN can_see_role_tenant_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_tenant}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="can_see_role_tenant" 
+	
+	data-signal-error-for="can_see_role_tenant{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="can_see_role_tenant" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_can_see_role_tenant}">
+		{$label Export_and_Import_User_Types can_see_role_tenant }	</label>
+	<div class="r-search-option">
+		{$searchtype_can_see_role_tenant}
+	</div>
+	<div class="r-search-field">
+		{$can_see_role_tenant_editcontrol}	</div>
+	<div class="r-search-field">
+		{$can_see_role_tenant_editcontrol1}
+	</div>
+	
+</div>
+
+{END can_see_role_tenant_fieldblock}
+											
+{BEGIN is_assigned_to_case_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_assigned_to_case}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_assigned_to_case" 
+	
+	data-signal-error-for="is_assigned_to_case{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="is_assigned_to_case" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_assigned_to_case}">
+		{$label Export_and_Import_User_Types is_assigned_to_case }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_assigned_to_case}
+	</div>
+	<div class="r-search-field">
+		{$is_assigned_to_case_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_assigned_to_case_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_assigned_to_case_fieldblock}
+											
+{BEGIN is_invited_to_case_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_to_case}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_invited_to_case" 
+	
+	data-signal-error-for="is_invited_to_case{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="is_invited_to_case" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_invited_to_case}">
+		{$label Export_and_Import_User_Types is_invited_to_case }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_invited_to_case}
+	</div>
+	<div class="r-search-field">
+		{$is_invited_to_case_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_invited_to_case_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_invited_to_case_fieldblock}
+											
+{BEGIN is_solution_updated_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_solution_updated}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_solution_updated" 
+	
+	data-signal-error-for="is_solution_updated{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="is_solution_updated" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_solution_updated}">
+		{$label Export_and_Import_User_Types is_solution_updated }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_solution_updated}
+	</div>
+	<div class="r-search-field">
+		{$is_solution_updated_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_solution_updated_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_solution_updated_fieldblock}
+											
+{BEGIN is_next_step_updated_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_next_step_updated}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_next_step_updated" 
+	
+	data-signal-error-for="is_next_step_updated{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="is_next_step_updated" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_next_step_updated}">
+		{$label Export_and_Import_User_Types is_next_step_updated }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_next_step_updated}
+	</div>
+	<div class="r-search-field">
+		{$is_next_step_updated_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_next_step_updated_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_next_step_updated_fieldblock}
+											
+{BEGIN is_deadline_updated_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_deadline_updated}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_deadline_updated" 
+	
+	data-signal-error-for="is_deadline_updated{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="is_deadline_updated" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_deadline_updated}">
+		{$label Export_and_Import_User_Types is_deadline_updated }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_deadline_updated}
+	</div>
+	<div class="r-search-field">
+		{$is_deadline_updated_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_deadline_updated_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_deadline_updated_fieldblock}
+											
+{BEGIN is_case_resolved_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_resolved}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_case_resolved" 
+	
+	data-signal-error-for="is_case_resolved{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="is_case_resolved" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_case_resolved}">
+		{$label Export_and_Import_User_Types is_case_resolved }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_case_resolved}
+	</div>
+	<div class="r-search-field">
+		{$is_case_resolved_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_case_resolved_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_case_resolved_fieldblock}
+											
+{BEGIN is_case_critical_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_critical}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_case_critical" 
+	
+	data-signal-error-for="is_case_critical{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="is_case_critical" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_case_critical}">
+		{$label Export_and_Import_User_Types is_case_critical }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_case_critical}
+	</div>
+	<div class="r-search-field">
+		{$is_case_critical_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_case_critical_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_case_critical_fieldblock}
+											
+{BEGIN is_case_blocker_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_blocker}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_case_blocker" 
+	
+	data-signal-error-for="is_case_blocker{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="is_case_blocker" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_case_blocker}">
+		{$label Export_and_Import_User_Types is_case_blocker }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_case_blocker}
+	</div>
+	<div class="r-search-field">
+		{$is_case_blocker_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_case_blocker_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_case_blocker_fieldblock}
+											
+{BEGIN is_message_from_contractor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_contractor}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_contractor" 
+	
+	data-signal-error-for="is_message_from_contractor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="is_message_from_contractor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_contractor}">
+		{$label Export_and_Import_User_Types is_message_from_contractor }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_contractor}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_contractor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_contractor_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_contractor_fieldblock}
+											
+{BEGIN is_message_from_mgt_cny_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_mgt_cny}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_mgt_cny" 
+	
+	data-signal-error-for="is_message_from_mgt_cny{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field25" {$item_integrated_search_field25} data-pageid="{$pageid}" data-field="is_message_from_mgt_cny" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_mgt_cny}">
+		{$label Export_and_Import_User_Types is_message_from_mgt_cny }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_mgt_cny}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_mgt_cny_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_mgt_cny_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_mgt_cny_fieldblock}
+											
+{BEGIN is_message_from_agent_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_agent}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_agent" 
+	
+	data-signal-error-for="is_message_from_agent{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field26" {$item_integrated_search_field26} data-pageid="{$pageid}" data-field="is_message_from_agent" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_agent}">
+		{$label Export_and_Import_User_Types is_message_from_agent }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_agent}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_agent_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_agent_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_agent_fieldblock}
+											
+{BEGIN is_message_from_occupant_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_occupant}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_occupant" 
+	
+	data-signal-error-for="is_message_from_occupant{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field27" {$item_integrated_search_field27} data-pageid="{$pageid}" data-field="is_message_from_occupant" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_occupant}">
+		{$label Export_and_Import_User_Types is_message_from_occupant }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_occupant}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_occupant_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_occupant_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_occupant_fieldblock}
+											
+{BEGIN is_message_from_ll_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_ll}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_ll" 
+	
+	data-signal-error-for="is_message_from_ll{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field28" {$item_integrated_search_field28} data-pageid="{$pageid}" data-field="is_message_from_ll" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_ll}">
+		{$label Export_and_Import_User_Types is_message_from_ll }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_ll}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_ll_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_ll_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_ll_fieldblock}
+											
+{BEGIN is_message_from_tenant_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_tenant}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_message_from_tenant" 
+	
+	data-signal-error-for="is_message_from_tenant{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field29" {$item_integrated_search_field29} data-pageid="{$pageid}" data-field="is_message_from_tenant" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_message_from_tenant}">
+		{$label Export_and_Import_User_Types is_message_from_tenant }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_message_from_tenant}
+	</div>
+	<div class="r-search-field">
+		{$is_message_from_tenant_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_message_from_tenant_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_message_from_tenant_fieldblock}
+											
+{BEGIN is_any_new_message_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_any_new_message}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_any_new_message" 
+	
+	data-signal-error-for="is_any_new_message{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field30" {$item_integrated_search_field30} data-pageid="{$pageid}" data-field="is_any_new_message" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_any_new_message}">
+		{$label Export_and_Import_User_Types is_any_new_message }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_any_new_message}
+	</div>
+	<div class="r-search-field">
+		{$is_any_new_message_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_any_new_message_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_any_new_message_fieldblock}
+											
+{BEGIN is_new_ir_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_ir}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_new_ir" 
+	
+	data-signal-error-for="is_new_ir{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field31" {$item_integrated_search_field31} data-pageid="{$pageid}" data-field="is_new_ir" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_new_ir}">
+		{$label Export_and_Import_User_Types is_new_ir }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_new_ir}
+	</div>
+	<div class="r-search-field">
+		{$is_new_ir_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_new_ir_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_new_ir_fieldblock}
+											
+{BEGIN is_new_inventory_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_inventory}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_new_inventory" 
+	
+	data-signal-error-for="is_new_inventory{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field32" {$item_integrated_search_field32} data-pageid="{$pageid}" data-field="is_new_inventory" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_new_inventory}">
+		{$label Export_and_Import_User_Types is_new_inventory }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_new_inventory}
+	</div>
+	<div class="r-search-field">
+		{$is_new_inventory_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_new_inventory_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_new_inventory_fieldblock}
+											
+{BEGIN is_new_item_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_item}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_new_item" 
+	
+	data-signal-error-for="is_new_item{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field33" {$item_integrated_search_field33} data-pageid="{$pageid}" data-field="is_new_item" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_new_item}">
+		{$label Export_and_Import_User_Types is_new_item }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_new_item}
+	</div>
+	<div class="r-search-field">
+		{$is_new_item_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_new_item_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_new_item_fieldblock}
+											
+{BEGIN is_item_moved_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_moved}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_item_moved" 
+	
+	data-signal-error-for="is_item_moved{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field34" {$item_integrated_search_field34} data-pageid="{$pageid}" data-field="is_item_moved" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_item_moved}">
+		{$label Export_and_Import_User_Types is_item_moved }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_item_moved}
+	</div>
+	<div class="r-search-field">
+		{$is_item_moved_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_item_moved_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_item_moved_fieldblock}
+											
+{BEGIN is_item_removed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_removed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_item_removed" 
+	
+	data-signal-error-for="is_item_removed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field35" {$item_integrated_search_field35} data-pageid="{$pageid}" data-field="is_item_removed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_item_removed}">
+		{$label Export_and_Import_User_Types is_item_removed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_item_removed}
+	</div>
+	<div class="r-search-field">
+		{$is_item_removed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_item_removed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_item_removed_fieldblock}
+											
+{BEGIN is_all_unit_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_unit" 
+	
+	data-signal-error-for="is_all_unit{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="is_all_unit" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_unit}">
+		{$label Export_and_Import_User_Types is_all_unit }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_unit}
+	</div>
+	<div class="r-search-field">
+		{$is_all_unit_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_unit_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_unit_fieldblock}
+											
+{BEGIN is_all_units_in_country_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_country}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_country" 
+	
+	data-signal-error-for="is_all_units_in_country{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="is_all_units_in_country" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_country}">
+		{$label Export_and_Import_User_Types is_all_units_in_country }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_country}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_country_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_country_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_country_fieldblock}
+											
+{BEGIN is_all_units_in_area_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_area}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_area" 
+	
+	data-signal-error-for="is_all_units_in_area{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="is_all_units_in_area" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_area}">
+		{$label Export_and_Import_User_Types is_all_units_in_area }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_area}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_area_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_area_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_area_fieldblock}
+											
+{BEGIN is_all_units_in_level_1_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_1}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_level_1" 
+	
+	data-signal-error-for="is_all_units_in_level_1{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field36" {$item_integrated_search_field36} data-pageid="{$pageid}" data-field="is_all_units_in_level_1" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_level_1}">
+		{$label Export_and_Import_User_Types is_all_units_in_level_1 }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_level_1}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_1_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_1_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_level_1_fieldblock}
+											
+{BEGIN is_all_units_in_level_2_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_2}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_level_2" 
+	
+	data-signal-error-for="is_all_units_in_level_2{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field37" {$item_integrated_search_field37} data-pageid="{$pageid}" data-field="is_all_units_in_level_2" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_level_2}">
+		{$label Export_and_Import_User_Types is_all_units_in_level_2 }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_level_2}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_2_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_2_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_level_2_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+							</div>
+						
+										{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	
+">
+		 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-button-item>
+	<a type="button" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+		</div>					</div>
+	</div>		
+{END below-grid_block}
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

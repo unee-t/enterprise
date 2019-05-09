@@ -1,0 +1,6 @@
+Import into ut_user_types
+09/05/19 05:56:35
+
+15 out of 15 records processed successfully.
+0 records added.
+15 records updated.

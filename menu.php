@@ -116,6 +116,16 @@ include_once(getabspath("include/Assign_Units_to_User_events.php"));
 $tableEvents["Assign Units to User"] = new eventclass_Assign_Units_to_User;
 include_once(getabspath("include/Assign_Rooms_to_User_events.php"));
 $tableEvents["Assign Rooms to User"] = new eventclass_Assign_Rooms_to_User;
+include_once(getabspath("include/Export_and_Import_Buildings_events.php"));
+$tableEvents["Export and Import Buildings"] = new eventclass_Export_and_Import_Buildings;
+include_once(getabspath("include/Export_and_Import_Areas_events.php"));
+$tableEvents["Export and Import Areas"] = new eventclass_Export_and_Import_Areas;
+include_once(getabspath("include/Export_and_Import_Units_events.php"));
+$tableEvents["Export and Import Units"] = new eventclass_Export_and_Import_Units;
+include_once(getabspath("include/Export_and_Import_Rooms_events.php"));
+$tableEvents["Export and Import Rooms"] = new eventclass_Export_and_Import_Rooms;
+include_once(getabspath("include/Export_and_Import_User_Types_events.php"));
+$tableEvents["Export and Import User Types"] = new eventclass_Export_and_Import_User_Types;
 
 $xt = new Xtempl();
 

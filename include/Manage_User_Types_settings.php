@@ -12,9 +12,9 @@ $tdataManage_User_Types[".searchableFields"] = array();
 	$tdataManage_User_Types[".OriginalTable"] = "ut_user_types";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdataManage_User_Types[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -400,7 +400,8 @@ $tdataManage_User_Types[".arrGroupsPerPage"] = $arrGPP;
 $tdataManage_User_Types[".highlightSearchResults"] = true;
 
 $tableKeysManage_User_Types = array();
-$tableKeysManage_User_Types[] = "id_unee_t_user_type";
+$tableKeysManage_User_Types[] = "organization_id";
+$tableKeysManage_User_Types[] = "designation";
 $tdataManage_User_Types[".Keys"] = $tableKeysManage_User_Types;
 
 

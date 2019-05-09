@@ -54,6 +54,12 @@ $nonAdminTablesArr[] = "external_property_level_2_units";
 $nonAdminTablesArr[] = "Search All Units";
 $nonAdminTablesArr[] = "ut_map_external_source_units";
 $nonAdminTablesArr[] = "Search Buildings";
+$nonAdminTablesArr[] = "Export and Import Buildings";
+$nonAdminTablesArr[] = "Export and Import Areas";
+$nonAdminTablesArr[] = "Export and Import Units";
+$nonAdminTablesArr[] = "List of Countries";
+$nonAdminTablesArr[] = "Export and Import Rooms";
+$nonAdminTablesArr[] = "Export and Import User Types";
 
 $ug_connection = $cman->getForUserGroups();
 

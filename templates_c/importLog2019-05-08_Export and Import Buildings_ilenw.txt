@@ -1,0 +1,6 @@
+Import into external_property_level_1_buildings
+08/05/19 02:05:25
+
+5 out of 5 records processed successfully.
+0 records added.
+5 records updated.

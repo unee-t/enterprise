@@ -682,6 +682,12 @@ $tableCaptions["English"]["external_property_level_2_units"] = "External Propert
 $tableCaptions["English"]["Search_All_Units"] = "Search All Units";
 $tableCaptions["English"]["ut_map_external_source_units"] = "Ut Map External Source Units";
 $tableCaptions["English"]["Search_Buildings"] = "Search Buildings";
+$tableCaptions["English"]["Export_and_Import_Buildings"] = "Export and Import Buildings";
+$tableCaptions["English"]["Export_and_Import_Areas"] = "Export and Import Areas";
+$tableCaptions["English"]["Export_and_Import_Units"] = "Export and Import Units";
+$tableCaptions["English"]["List_of_Countries"] = "List of Countries";
+$tableCaptions["English"]["Export_and_Import_Rooms"] = "Export and Import Rooms";
+$tableCaptions["English"]["Export_and_Import_User_Types"] = "Export and Import User Types";
 
 
 $globalEvents = new class_GlobalEvents;

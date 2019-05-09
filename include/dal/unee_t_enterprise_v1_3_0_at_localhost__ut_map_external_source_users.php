@@ -14,6 +14,7 @@ $dalTableut_map_external_source_users["is_obsolete"] = array("type"=>16,"varname
 $dalTableut_map_external_source_users["is_update_needed"] = array("type"=>16,"varname"=>"is_update_needed", "name" => "is_update_needed");
 $dalTableut_map_external_source_users["person_id"] = array("type"=>3,"varname"=>"person_id", "name" => "person_id");
 $dalTableut_map_external_source_users["unee_t_mefe_user_id"] = array("type"=>200,"varname"=>"unee_t_mefe_user_id", "name" => "unee_t_mefe_user_id");
+$dalTableut_map_external_source_users["unee_t_mefe_user_api_key"] = array("type"=>200,"varname"=>"unee_t_mefe_user_api_key", "name" => "unee_t_mefe_user_api_key");
 $dalTableut_map_external_source_users["uneet_created_datetime"] = array("type"=>135,"varname"=>"uneet_created_datetime", "name" => "uneet_created_datetime");
 $dalTableut_map_external_source_users["is_mefe_api_success"] = array("type"=>16,"varname"=>"is_mefe_api_success", "name" => "is_mefe_api_success");
 $dalTableut_map_external_source_users["mefe_api_error_message"] = array("type"=>201,"varname"=>"mefe_api_error_message", "name" => "mefe_api_error_message");

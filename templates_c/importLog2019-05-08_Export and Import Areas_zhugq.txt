@@ -1,0 +1,6 @@
+Import into external_property_groups_areas
+08/05/19 13:11:24
+
+21 out of 21 records processed successfully.
+0 records added.
+21 records updated.

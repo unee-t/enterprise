@@ -52,7 +52,8 @@ $dalTableut_user_types["is_new_inventory"] = array("type"=>16,"varname"=>"is_new
 $dalTableut_user_types["is_new_item"] = array("type"=>16,"varname"=>"is_new_item", "name" => "is_new_item");
 $dalTableut_user_types["is_item_moved"] = array("type"=>16,"varname"=>"is_item_moved", "name" => "is_item_moved");
 $dalTableut_user_types["is_item_removed"] = array("type"=>16,"varname"=>"is_item_removed", "name" => "is_item_removed");
-	$dalTableut_user_types["id_unee_t_user_type"]["key"]=true;
+	$dalTableut_user_types["organization_id"]["key"]=true;
+	$dalTableut_user_types["designation"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__ut_user_types"] = &$dalTableut_user_types;
 ?>

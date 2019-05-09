@@ -167,9 +167,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Unee_T_Users["English"]["role_type"] = "Role Type";
 	$fieldToolTipsManage_Unee_T_Users["English"]["role_type"] = "";
 	$placeHoldersManage_Unee_T_Users["English"]["role_type"] = "";
-	$fieldLabelsManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "Unee T Mefe User Id";
-	$fieldToolTipsManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "";
-	$placeHoldersManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "";
+	$fieldLabelsManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "User Api Key";
+	$fieldToolTipsManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "";
+	$placeHoldersManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "";
 	if (count($fieldToolTipsManage_Unee_T_Users["English"]))
 		$tdataManage_Unee_T_Users[".isUseToolTips"] = true;
 }
@@ -352,8 +352,8 @@ $tdataManage_Unee_T_Users[".orderindexes"] = array();
 	$tdataManage_Unee_T_Users[".orderindexes"][] = array(23, (1 ? "ASC" : "DESC"), "external_persons.given_name");
 
 
-$tdataManage_Unee_T_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_info_mefe_users.unee_t_mefe_user_id";
-$tdataManage_Unee_T_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type  LEFT OUTER JOIN ut_info_mefe_users ON external_persons.external_id = ut_info_mefe_users.external_person_id AND external_persons.external_system = ut_info_mefe_users.external_system AND external_persons.external_table = ut_info_mefe_users.table_in_external_system AND external_persons.created_by_id = ut_info_mefe_users.organization_id";
+$tdataManage_Unee_T_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key";
+$tdataManage_Unee_T_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $tdataManage_Unee_T_Users[".sqlWhereExpr"] = "";
 $tdataManage_Unee_T_Users[".sqlTail"] = "";
 
@@ -6930,14 +6930,14 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	$tdataManage_Unee_T_Users["uneet_created_datetime"] = $fdata;
 		$tdataManage_Unee_T_Users[".searchableFields"][] = "uneet_created_datetime";
-//	unee_t_mefe_user_id
+//	unee_t_mefe_user_api_key
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 47;
-	$fdata["strName"] = "unee_t_mefe_user_id";
-	$fdata["GoodName"] = "unee_t_mefe_user_id";
-	$fdata["ownerTable"] = "ut_info_mefe_users";
-	$fdata["Label"] = GetFieldLabel("Manage_Unee_T_Users","unee_t_mefe_user_id");
+	$fdata["strName"] = "unee_t_mefe_user_api_key";
+	$fdata["GoodName"] = "unee_t_mefe_user_api_key";
+	$fdata["ownerTable"] = "ut_map_external_source_users";
+	$fdata["Label"] = GetFieldLabel("Manage_Unee_T_Users","unee_t_mefe_user_api_key");
 	$fdata["FieldType"] = 200;
 
 	
@@ -6945,10 +6945,10 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 										
 
-		$fdata["strField"] = "unee_t_mefe_user_id";
+		$fdata["strField"] = "unee_t_mefe_user_api_key";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "ut_info_mefe_users.unee_t_mefe_user_id";
+	$fdata["FullName"] = "ut_map_external_source_users.unee_t_mefe_user_api_key";
 
 	
 	
@@ -6981,7 +6981,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Readonly");
+	$edata = array("EditFormat" => "Text field");
 
 	
 	
@@ -7000,8 +7000,10 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 	
 	
-	
-	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -7049,8 +7051,8 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataManage_Unee_T_Users["unee_t_mefe_user_id"] = $fdata;
-		$tdataManage_Unee_T_Users[".searchableFields"][] = "unee_t_mefe_user_id";
+	$tdataManage_Unee_T_Users["unee_t_mefe_user_api_key"] = $fdata;
+		$tdataManage_Unee_T_Users[".searchableFields"][] = "unee_t_mefe_user_api_key";
 
 
 $tables_data["Manage Unee-T Users"]=&$tdataManage_Unee_T_Users;
@@ -7062,93 +7064,6 @@ $page_titles["Manage_Unee_T_Users"] = &$pageTitlesManage_Unee_T_Users;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["Manage Unee-T Users"] = array();
-//	Assign Buildings to User
-	
-	
-
-		$dIndex = 0;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="Assign Buildings to User";
-		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_1";
-
-
-
-				$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "Assign_Buildings_to_User";
-	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Buildings_to_User");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
-
-				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
-//	Assign Units to User
-	
-	
-
-		$dIndex = 1;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="Assign Units to User";
-		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_2";
-
-
-
-				$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "Assign_Units_to_User";
-	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Units_to_User");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
-
-				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
-//	Assign Rooms to User
-	
-	
-
-		$dIndex = 2;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="Assign Rooms to User";
-		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_3";
-
-
-
-				$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "Assign_Rooms_to_User";
-	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Rooms_to_User");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
-
-				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Unee-T Users"] = array();
@@ -7173,8 +7088,8 @@ function createSqlQuery_Manage_Unee_T_Users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_info_mefe_users.unee_t_mefe_user_id";
-$proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type  LEFT OUTER JOIN ut_info_mefe_users ON external_persons.external_id = ut_info_mefe_users.external_person_id AND external_persons.external_system = ut_info_mefe_users.external_system AND external_persons.external_table = ut_info_mefe_users.table_in_external_system AND external_persons.created_by_id = ut_info_mefe_users.organization_id";
+$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key";
+$proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "ORDER BY external_persons.unee_t_user_type_id, external_persons.given_name";
 	
@@ -7860,12 +7775,12 @@ $obj = new SQLFieldListItem($proto96);
 $proto0["m_fieldlist"][]=$obj;
 						$proto98=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_mefe_user_id",
-	"m_strTable" => "ut_info_mefe_users",
+	"m_strName" => "unee_t_mefe_user_api_key",
+	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto98["m_sql"] = "ut_info_mefe_users.unee_t_mefe_user_id";
+$proto98["m_sql"] = "ut_map_external_source_users.unee_t_mefe_user_api_key";
 $proto98["m_srcTableName"] = "Manage Unee-T Users";
 $proto98["m_expr"]=$obj;
 $proto98["m_alias"] = "";
@@ -8317,6 +8232,7 @@ $proto133["m_columns"][] = "is_obsolete";
 $proto133["m_columns"][] = "is_update_needed";
 $proto133["m_columns"][] = "person_id";
 $proto133["m_columns"][] = "unee_t_mefe_user_id";
+$proto133["m_columns"][] = "unee_t_mefe_user_api_key";
 $proto133["m_columns"][] = "uneet_created_datetime";
 $proto133["m_columns"][] = "is_mefe_api_success";
 $proto133["m_columns"][] = "mefe_api_error_message";
@@ -8397,144 +8313,32 @@ $proto136["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto136);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto140=array();
-$proto140["m_link"] = "SQLL_LEFTJOIN";
-			$proto141=array();
-$proto141["m_strName"] = "ut_info_mefe_users";
-$proto141["m_srcTableName"] = "Manage Unee-T Users";
-$proto141["m_columns"] = array();
-$proto141["m_columns"][] = "id_person";
-$proto141["m_columns"][] = "unee_t_mefe_user_id";
-$proto141["m_columns"][] = "external_person_id";
-$proto141["m_columns"][] = "external_system";
-$proto141["m_columns"][] = "table_in_external_system";
-$proto141["m_columns"][] = "organization_id";
-$proto141["m_columns"][] = "uneet_login_name";
-$proto141["m_columns"][] = "name";
-$proto141["m_columns"][] = "email";
-$obj = new SQLTable($proto141);
-
-$proto140["m_table"] = $obj;
-$proto140["m_sql"] = "LEFT OUTER JOIN ut_info_mefe_users ON external_persons.external_id = ut_info_mefe_users.external_person_id AND external_persons.external_system = ut_info_mefe_users.external_system AND external_persons.external_table = ut_info_mefe_users.table_in_external_system AND external_persons.created_by_id = ut_info_mefe_users.organization_id";
-$proto140["m_alias"] = "";
-$proto140["m_srcTableName"] = "Manage Unee-T Users";
-$proto142=array();
-$proto142["m_sql"] = "external_persons.external_id = ut_info_mefe_users.external_person_id AND external_persons.external_system = ut_info_mefe_users.external_system AND external_persons.external_table = ut_info_mefe_users.table_in_external_system AND external_persons.created_by_id = ut_info_mefe_users.organization_id";
-$proto142["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "external_persons.external_id = ut_info_mefe_users.external_person_id AND external_persons.external_system = ut_info_mefe_users.external_system AND external_persons.external_table = ut_info_mefe_users.table_in_external_system AND external_persons.created_by_id = ut_info_mefe_users.organization_id"
-));
-
-$proto142["m_column"]=$obj;
-$proto142["m_contained"] = array();
-						$proto144=array();
-$proto144["m_sql"] = "external_persons.external_id = ut_info_mefe_users.external_person_id";
-$proto144["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_id",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
-
-$proto144["m_column"]=$obj;
-$proto144["m_contained"] = array();
-$proto144["m_strCase"] = "= ut_info_mefe_users.external_person_id";
-$proto144["m_havingmode"] = false;
-$proto144["m_inBrackets"] = false;
-$proto144["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto144);
-
-			$proto142["m_contained"][]=$obj;
-						$proto146=array();
-$proto146["m_sql"] = "external_persons.external_system = ut_info_mefe_users.external_system";
-$proto146["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_system",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
-
-$proto146["m_column"]=$obj;
-$proto146["m_contained"] = array();
-$proto146["m_strCase"] = "= ut_info_mefe_users.external_system";
-$proto146["m_havingmode"] = false;
-$proto146["m_inBrackets"] = false;
-$proto146["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto146);
-
-			$proto142["m_contained"][]=$obj;
-						$proto148=array();
-$proto148["m_sql"] = "external_persons.external_table = ut_info_mefe_users.table_in_external_system";
-$proto148["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_table",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
-
-$proto148["m_column"]=$obj;
-$proto148["m_contained"] = array();
-$proto148["m_strCase"] = "= ut_info_mefe_users.table_in_external_system";
-$proto148["m_havingmode"] = false;
-$proto148["m_inBrackets"] = false;
-$proto148["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto148);
-
-			$proto142["m_contained"][]=$obj;
-						$proto150=array();
-$proto150["m_sql"] = "external_persons.created_by_id = ut_info_mefe_users.organization_id";
-$proto150["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "created_by_id",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
-
-$proto150["m_column"]=$obj;
-$proto150["m_contained"] = array();
-$proto150["m_strCase"] = "= ut_info_mefe_users.organization_id";
-$proto150["m_havingmode"] = false;
-$proto150["m_inBrackets"] = false;
-$proto150["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto150);
-
-			$proto142["m_contained"][]=$obj;
-$proto142["m_strCase"] = "";
-$proto142["m_havingmode"] = false;
-$proto142["m_inBrackets"] = false;
-$proto142["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto142);
-
-$proto140["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto140);
-
-$proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto152=array();
+												$proto140=array();
 						$obj = new SQLField(array(
 	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto152["m_column"]=$obj;
-$proto152["m_bAsc"] = 1;
-$proto152["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto152);
+$proto140["m_column"]=$obj;
+$proto140["m_bAsc"] = 1;
+$proto140["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto140);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto154=array();
+												$proto142=array();
 						$obj = new SQLField(array(
 	"m_strName" => "given_name",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto154["m_column"]=$obj;
-$proto154["m_bAsc"] = 1;
-$proto154["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto154);
+$proto142["m_column"]=$obj;
+$proto142["m_bAsc"] = 1;
+$proto142["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto142);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage Unee-T Users";		

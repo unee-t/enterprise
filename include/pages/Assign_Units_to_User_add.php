@@ -1,6 +1,5 @@
 <?php
-			$optionsArray = array( 'master' => array( 'Manage Unee-T Users' => array( 'preview' => true ),
-'Manage Units' => array( 'preview' => true ) ),
+			$optionsArray = array( 'master' => array( 'Manage Units' => array( 'preview' => true ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'unee_t_role_id',
 'unee_t_mefe_user_id',

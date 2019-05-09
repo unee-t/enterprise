@@ -94,7 +94,7 @@
 	 
 		{BEGIN is_obsolete_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Manage_Buildings is_obsolete }	</label>
 {END is_obsolete_fieldheadercolumn}
 
@@ -376,6 +376,31 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field11}
+				 
+					{BEGIN cellblock_grid_headcell_field12}
+	<th
+	
+	{$cell_grid_headcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$id_area_class}
+			"
+
+			data-field="id_area"
+	
+	data-cellId="grid_headcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_area_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_area">
+	{$label Manage_Buildings id_area }	</label>
+{END id_area_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field12}
 							</tr>
 					 
 					 
@@ -693,6 +718,29 @@
 {END city_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field11}
+				 
+					{BEGIN cellblock_grid_cell_field12}
+	<td
+	
+	{$cell_grid_cell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$id_area_class}
+			"
+
+			data-field="id_area"
+	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_area_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_area" data-default-width >
+{$id_area_value}
+</span>
+{END id_area_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field12}
 							</tr>
 					 
 					
@@ -917,6 +965,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field11}
+				 
+					{BEGIN cellblock_grid_footcell_field12}
+	<td
+	
+	{$cell_grid_footcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Buildings_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field12}
 							</tr>
 					
 					{END totals_row}

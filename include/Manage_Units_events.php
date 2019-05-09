@@ -56,6 +56,81 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Manage_Units_Add_Page';
 
+	# We  record the id of the system that is the source of truth for this organization
+		
+		# What is the organization id for the logged in user?
+
+			$data["organization_id"] = $_SESSION['organizationLoggedInUser'];
+
+		#  Make sure we have a default system id
+
+			if (EMPTY ($values["external_system_id"]))
+			{
+			
+				$rs_external_system_id = DB::Select("ut_organization_default_external_system", $data );
+
+				while( $record = $rs_external_system_id->fetchAssoc() )
+
+			# We replace the empty value with the default
+
+				$values["external_system_id"] = $record["designation"];
+			}
+
+			elseif ($values["external_system_id"] = 'null')
+			{
+			
+				$rs_external_system_id = DB::Select("ut_organization_default_external_system", $data );
+
+				while( $record = $rs_external_system_id->fetchAssoc() )
+
+			# We replace the 'null' value with the default
+
+				$values["external_system_id"] = $record["designation"];
+			}
+
+		#  Make sure we have a default table id
+
+			if (EMPTY ($values["external_table"]))
+			{
+			
+				$rs_external_table= DB::Select("ut_organization_default_table_level_2_properties", $data );
+
+				while( $record = $rs_external_table->fetchAssoc() )
+
+			# We replace the empty value with the default
+
+				$values["external_table"] = $record["properties_level_2_table"];
+			}
+
+			elseif ($values["external_table"] = 'null')
+			{
+			
+				$rs_external_table = DB::Select("ut_organization_default_table_level_2_properties", $data );
+
+				while( $record = $rs_external_table->fetchAssoc() )
+
+			# We replace the 'null' value with the default
+
+				$values["external_table"] = $record["properties_level_2_table"];
+			}
+
+		#  Make sure we have an external id. If empty, we use the name of the unit.
+
+			if (EMPTY ($values["external_id"]))
+			{
+	
+			# We replace the empty value with the default
+
+				$values["external_id"] = $values['unit_designation'];
+			}
+
+			elseif ($values["external_id"] = '')
+			{
+	
+			# We replace the empty value with the default
+
+				$values["external_id"] = $values['unit_designation'];
+			}
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

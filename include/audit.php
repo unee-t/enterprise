@@ -472,6 +472,30 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Export and Import Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+			return false;
+		}
+		if($table=="Export and Import Units")
+		{
+			return false;
+		}
+		if($table=="List of Countries")
+		{
+			return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+			return false;
+		}
+		if($table=="Export and Import User Types")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -945,6 +969,30 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Search Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+			return false;
+		}
+		if($table=="Export and Import Units")
+		{
+			return false;
+		}
+		if($table=="List of Countries")
+		{
+			return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+			return false;
+		}
+		if($table=="Export and Import User Types")
 		{
 			return false;
 		}

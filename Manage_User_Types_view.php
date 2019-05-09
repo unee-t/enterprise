@@ -89,7 +89,8 @@ $xt = new Xtempl();
 
 // $keys could not be set properly if editid params were no passed
 $keys = array();
-$keys["id_unee_t_user_type"] = postvalue("editid1");
+$keys["organization_id"] = postvalue("editid1");
+$keys["designation"] = postvalue("editid2");
 
 //array of params for classes
 $params = array();

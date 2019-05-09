@@ -1,0 +1,370 @@
+Import into external_property_level_1_buildings
+06/05/19 13:42:55
+
+0 out of 121 records processed successfully.
+0 records added.
+0 records updated.
+121 records processed with errors:
+
+Unknown column 'id_area' in 'field list'
+"4","Wan Chai","1-3 Swatow Street - 1","0","Condominium","0","","  .","1","","","","","","","58","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"4","Wan Chai","PLACEHOLDER - NEW BUILDING - 1","0","Condominium","0","","  .","1","","","","","","","59","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"17","HK Nam Cheong","Cullinan West - 1","0","Condominium","0","","  .","1","","","","","","","63","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","The TRIZON - 1","0","Condominium","1","130","  .","1","","","","","","","19","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","UNKNOWN - A","0","Condominium","1","110","  .","A","","","","","","","8","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"9","HK STRATA","HK Strata - 1","0","Condominium","0","0","  .","1","","","","","","","51","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"11","Little India","Kesa House - 1","0","Condominium","0","0","  .","1","","","","","","","49","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"19","Newtown","AU_SYD_601K - 1","1","Condominium","0","","  .","1","601 King Street","","2042","Newtown","","Australia","61","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"18","Marrickville","AU_SYD_380IW - 1","1","Condominium","0","","  .","1","","","","","","Australia","62","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"2","Redhill","Principal Garden - 95","1","Condominium","0","","  .","95","95 Prince Charles Crescent","","159026","Singapore","","Singapore","52","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"2","Redhill","Principal Garden - 1","1","Condominium","0",""," .","1","97 Prince Charles Crescent","","159026","Singapore","","Singapore","53","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"2","Redhill","Principal Garden - 97","1","Condominium","0","","  .","97","95 Prince Charles Crescent","","159026","Singapore","","Singapore","53","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"1","Holland Village","Lush on Holland Hill - 1","1","Condominium","0","","","1","21 Holland Hill","","278737","Singapore","","Singapore","56","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Normanton Park - 1","0","Condominium","1","10","  .","1","1 Normanton Park","","118998","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Normanton Park - 2","0","Condominium","1","10","  .","2","2 Normanton Park","","118999","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Normanton Park - 4","0","Condominium","1","10","  .","4","4 Normanton Park","","119001","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Normanton Park - 5","0","Condominium","1","10","  .","5","5 Normanton Park","","119002","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"1","Holland Village","Loft @ Holland - 1","1","Condominium","0","20","  .","1","151 Holland Road","","278580","Singapore ","","Singapore","22","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Rochester Park B&W - 44","0","Condominium","1","60","  .","44","Rochester Park ","","139248","Singapore","","Singapore","16","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Pandan Valley - 4","1","Condominium","0","60","  .","4","4 Pandan Valley Condo","","597628","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Pandan Valley - 7","0","Condominium","0","60","  .","7","7 Pandan Valley","","597631","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Pandan Valley - T3","0","Condominium","0","60","  .","T3","3 pandan Valley","","597627","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"1","Holland Village","The Ford @ Holland - 1","1","Condominium","0","80","  .","1","1 Ford Avenue","","268685","Singapore","","Singapore","14","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"1","Holland Village","The Ford @ Holland - 2","1","Condominium","0","80"," .","2","1 Ford Avenue","","268685","Singapore","","Singapore","14","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Hundred Trees - 87","0","Condominium","1","100","  .","87","87 West Coast Drive #12-14 Hundred Trees","","128015","Singapore","","Singapore","18","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Varsity Park - 22","1","Condominium","0","110","  .","22","West Coast Road","","127446","Singapore","","Singapore","20","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Varsity Park - 38","1","Condominium","0","110","  .","38","West Coast Road","","127452","Singapore","","Singapore","20","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Glentrees - F","0","Condominium","1","120","  .","F","11 F Mount Sinai Lane","","277055","Singapore","","Singapore","17","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Glentrees - G","0","Condominium","1","120","  .","G","11G Mount Sinai Lane","","277056","Singapore","","Singapore","17","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","The TRIZON - 2","0","Condominium","1","130","  .","2","2 RIDGEWOOD CLOSE","","276693","Singapore","","Singapore","19","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Mendon Spring - 1","1","Condominium","0","135","  .","1","198 Pasir Panjang Road ","","117526","Singapore","","Singapore","32","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","The Trilinq - 1","0","Condominium","1","140","  .","1","Jalan Lempeng ","","128808","Singapore","","Singapore","21","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Seahill - 119","0","Condominium","1","150","  .","119","119 West Coast Crescent ","","126777","Singapore","","Singapore","23","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"20","West","Park Imperial - 1","0","Condominium","1","160","  .","1","253 Pasir Panjang rd","","118618","Singapore","","Singapore","24","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"","","The Estuary - 89","0","Condominium","0","220","","89","89 Yishun av 1","","769134","Singapore","","Singapore","30","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Foresta@Mount Faber - 1","0","Condominium","1","90","  .","1","100, Wishart Road","","98748","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Foresta@Mount Faber - 2","0","Condominium","1","90","  .","2","102, Wishart Road","","98749","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Foresta@Mount Faber - 6","0","Condominium","1","90","  .","6","106, Wishart Road ","","98751","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Tulip Garden - T1","0","Condominium","1","100","  .","T1","1 Farrer Road","","268817","Singapore","","Singapore","11","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Holland Zion - 1","0","Condominium","1","100","  .","1","23, Holland Rise","","278711","Singapore","","Singapore","4","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Leedon Height - 18","0","Condominium","1","100","  .","18","18 Leedon Height","","267938","Singapore","","Singapore","5","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Nautical - 93","0","Condominium","1","170","  .","93","93 Jln Sendudock","","769472","Singapore","","Singapore","25","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Nautical - 99","0","Condominium","1","170","  .","99","99 Jln Sendudock","","769475","Singapore","","Singapore","25","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 501","0","Condominium","1","180","  .","501","501 Canberra Drive","","768124","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 503","0","Condominium","1","180","  .","503","Canberra Drive","","768125","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 505","0","Condominium","1","180","  .","505","505 Canberra Drive","","768126","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 517","0","Condominium","1","180","  .","517","517 Canberra Drive","","768132","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 523","0","Condominium","1","180","  .","523","523 Canberra Drive","","768135","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Canberra Residences - 525","0","Condominium","1","180","  .","525","525 Canberra Drive ","","768136","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 10A","0","Condominium","1","190","  .","10A","10A Canberra Drive","","768143","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 12 A","0","Condominium","1","190","  .","12 A","12A CANBERRA DRIVE","","768095","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 14","0","Condominium","1","190","  .","14","14 Canberra Drive","","768096","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 16","0","Condominium","1","190","  .","16","16 Canberra Drive","","768097","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 18 B","0","Condominium","1","190","  .","18 B","18B Canberra Dr","","768100","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 6","0","Condominium","1","190","  .","6","6 Canberra Drive","","768140","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Eight Courtyards - 8","0","Condominium","1","190","  .","8","8 Canberra Drive","","768141","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 1","0","Condominium","1","200","  .","1","","","","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 524","0","Condominium","1","200","  .","524","524 Miltonia Close","","768106","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 538","0","Condominium","1","200","  .","538","538 Miltonia Close","","768113","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 540","0","Condominium","1","200","  .","540","540 Miltonia Close","","768114","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 546","0","Condominium","1","200","  .","546","546 Miltonia Close","","768117","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 548","0","Condominium","1","200","  .","548","548 Miltonia Close","","768118","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 550","0","Condominium","1","200","  .","550","550 Miltonia close","","768119","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 554","0","Condominium","1","200","  .","554","554 Miltonia Close","","768121","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Miltonia Residences - 556","0","Condominium","1","200","  .","556","556 Miltonia Close","","768122","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Skies Miltonia - 1","0","Condominium","1","210","  .","1","","","","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Skies Miltonia - 27","0","Condominium","1","210","  .","27","27 Miltonia Close","","768061","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Skies Miltonia - 29","0","Condominium","1","210","  .","29","29 Miltonia Close","","768062","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Skies Miltonia - 33","0","Condominium","1","210","  .","33","33 Miltonia Close","","768064","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Skies Miltonia - 35","0","Condominium","1","210","  .","35","35 Miltonia Close","","768065","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","The Estuary - 1","1","Condominium","0","220","  .","1","","","","Singapore","","Singapore","30","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Commonwealth Towers - 230","0","Condominium","1","230","  .","230","230 Commonwealth  avenue","","149739","Singapore","","Singapore","31","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"5","UNKNOWN","Commonwealth Towers - 232","0","Condominium","1","230","  .","232","232 Commonwealth avenue","","149740","Singapore","","Singapore","31","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"8","CBD","Lumiere - 1","1","Condominium","0","","  .","1","2 Mistri Rd","","79624","Singapore","","Singapore","57","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"8","CBD","OS - 1","1","Condominium","0","0","","1","1 Shenton Way","","68803","Singapore","","Singapore","37","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"8","CBD","The Sail - 1","1","Condominium","0","0","  .","1","6 Marina Boulevard","","18985","Singapore","","Singapore","39","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"8","CBD","MBS - 1","1","Condominium","0","0","  .","1","Marina Bay Suites","","18965","Singapore","","Singapore","40","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"10","East","467 Joo Chiat - 1","1","Condominium","0",""," .","1","467 Joo Chiat Road","","427678","Singapore","","Singapore","55","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"10","East","Joo Chiat - 1","1","Condominium","0","0"," .","1","339 Joo Chiat Road","","427591","Singapore","","Singapore","41","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"10","East","Amber Gardens - 1","0","Condominium","1","0","  .","1","32 Amber Gardens","","439965","Singapore","","Singapore","43","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"10","East","Tanjong Katong - 1","1","Condominium","0","0"," .","1","332 Tanjong Katong","","437110","Singapore","","Singapore","47","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"10","East","Lorong G - 1","1","Condominium","0","0"," .","1","10 Lorong G Telok Kurau","","426175","Singapore","","Singapore","48","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"11","Little India","CSR - 1","0","Condominium","1","0","  .","1","4 Kitchener Link","","208539","Singapore","","Singapore","34","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"11","Little India","Starlight - 1","0","Condominium","1","0","  .","1","9 Starlight Road","","217762","Singapore","","Singapore","35","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"11","Little India","Upper Weld - 1","1","Condominium","0","0","","1","19 Upper Weld Road","","207376","Singapore","","Singapore","42","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"11","Little India","Sam Leong - 1","1","Condominium","0","0","  .","1","22 Sam Leong Road","","207913","Singapore","","Singapore","46","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"12","Newton - Orchard","Liberte - 1","1","Condominium","0","","  .","1","","","","","","Singapore","60","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"12","Newton - Orchard","Carinhill - 1","1","Condominium","0","0","  .","1","4 CarinhillRise","","229740","Singapore","","Singapore","44","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"12","Newton - Orchard","Sarkies - 1","1","Condominium","0","0","","1","6 Sarkies Road","","258126","Singapore","","Singapore","45","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","Urbana - 1","1","Condominium","0","","  .","1","1 River Valley Close","","238427","Singapore","","Singapore","54","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","Riverwalk - 1","1","Condominium","0","0","  .","1","20 Upper Circular Rd","","58416","Singapore","","Singapore","33","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","UES - 1","1","Condominium","0","0","","1","205 River Valley Road","","238274","Singapore","","Singapore","36","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","UES - 2","1","Condominium","0","0","","2","207 River Valley Road","","238275","Singapore","","Singapore","36","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","Regalia - 1","0","Condominium","0","0","  .","1","2 River Valley Close","","238428","Singapore","","Singapore","38","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"13","River Valley","Emerald Garden - 1","1","Condominium","0","0","  .","1","","","","","","Singapore","50","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Dover ParkView - A","0","Condominium","1","20","  .","A","38 Dover Rise","","138684","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Dover ParkView - B","0","Condominium","1","20","  .","B","36 Dover Rise","","138685","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Dover ParkView - C","0","Condominium","1","20","  .","C","32 Dover Rise","","138686","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Dover ParkView - D","0","Condominium","1","20","  .","D","30 Dover Rise","","138687","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Heritage View - A","1","Condominium","0","30","  .","A","8 Dover Rise","","138679","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Heritage View - B","1","Condominium","0","30","  .","B","10 Dover Rise","","138680","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","Heritage View - C","1","Condominium","0","30","  .","C","6 Dover Rise","","138678","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - 7","1","Condominium","0","40"," .","7","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - B","1","Condominium","0","40"," .","B","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - C","1","Condominium","0","40"," .","C","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - D","1","Condominium","0","40","  .","D","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - F","1","Condominium","0","40","  .","F","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - G","1","Condominium","0","40","  .","G","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - H","1","Condominium","0","40","  .","H","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"14","One North","One North - K","1","Condominium","0","40","  .","K","9 OneNorth Gateway","","138643","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"15","Alexandra","Alexis - 1","1","Condominium","0","70","  .","1","356 Alexandra Road","","159949","Singapore","","Singapore","-991570912","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 1","1","Condominium","0","50","  .","1","1 West Coast Walk","","127158","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 11","1","Condominium","0","50","  .","11","11 West Coast Walk","","127161","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 3","1","Condominium","0","50","  .","3","3 West Coast Walk","","127140","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 5","1","Condominium","0","50","  .","5","5 West Coast Walk","","127146","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 7","1","Condominium","0","50","  .","7","7 West Coast Walk","","127159","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","The Parc - 9","1","Condominium","0","50","  .","9","9 West Coast Walk","","127160","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","West Bay - 50","0","Condominium","1","100","  .","50","West Coast Crescent","","128035","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","West Bay - 54","0","Condominium","1","100","  .","54","West Coast Crescent","","128037","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","West Bay - 56","0","Condominium","1","100","  .","56","56 West Coast Crescent","","128038","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Unknown column 'id_area' in 'field list'
+"16","Clementi West Coast","West Cove - 2A","0","Condominium","1","100","  .","2A","12 West coast crescent","","128042","Singapore","","Singapore","13","ipi_hmlet","db_sourcing_ls_0_condo","2"

@@ -3024,6 +3024,7 @@ $proto71["m_columns"][] = "is_obsolete";
 $proto71["m_columns"][] = "is_update_needed";
 $proto71["m_columns"][] = "person_id";
 $proto71["m_columns"][] = "unee_t_mefe_user_id";
+$proto71["m_columns"][] = "unee_t_mefe_user_api_key";
 $proto71["m_columns"][] = "uneet_created_datetime";
 $proto71["m_columns"][] = "is_mefe_api_success";
 $proto71["m_columns"][] = "mefe_api_error_message";

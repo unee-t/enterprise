@@ -2974,6 +2974,18 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "ut_map_external_source_units" ] = "ut_map_external_source_units";
 	$projectEntities[ "Search Buildings" ] = array( "url" => "Search_Buildings", "type" => 1 );
 	$projectEntitiesReverse[ "Search_Buildings" ] = "Search Buildings";
+	$projectEntities[ "Export and Import Buildings" ] = array( "url" => "Export_and_Import_Buildings", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Buildings" ] = "Export and Import Buildings";
+	$projectEntities[ "Export and Import Areas" ] = array( "url" => "Export_and_Import_Areas", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Areas" ] = "Export and Import Areas";
+	$projectEntities[ "Export and Import Units" ] = array( "url" => "Export_and_Import_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Units" ] = "Export and Import Units";
+	$projectEntities[ "List of Countries" ] = array( "url" => "List_of_Countries", "type" => 1 );
+	$projectEntitiesReverse[ "List_of_Countries" ] = "List of Countries";
+	$projectEntities[ "Export and Import Rooms" ] = array( "url" => "Export_and_Import_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Rooms" ] = "Export and Import Rooms";
+	$projectEntities[ "Export and Import User Types" ] = array( "url" => "Export_and_Import_User_Types", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_User_Types" ] = "Export and Import User Types";
 }
 
 function findTable( $table ) {

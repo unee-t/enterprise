@@ -117,14 +117,6 @@
 		Edit selected		
 		</a>
 	</li>
-							{BEGIN exportselected_link}
-	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" >
-				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span} >
-				
-		Export selected		
-		</a>
-	</li>
-{END exportselected_link}
 							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" >
 				<a   href="Manage_Rooms_search.php" {$advsearchlink_attrs} >
 				
@@ -147,22 +139,6 @@
 		</a>
 	</li>
 {END searchPanelTopButtons}
-							<li role="separator" class="divider"></li>							{BEGIN export_link}
-	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" >
-				<a  href="#" {$exportlink_attrs} >
-				
-		Export results		
-		</a>
-	</li>
-{END export_link}
-							<li role="separator" class="divider"></li>							{BEGIN import_link}
-	<li data-itemtype="import" data-itemid="import" {$item_import} data-pageid="{$pageid}" >
-				<a  {$importlink_attrs} href="Manage_Rooms_import.php?{$crosstable_attrs}" >
-				
-		Import		
-		</a>
-	</li>
-{END import_link}
 					</ul>
 	</span>
 </span>

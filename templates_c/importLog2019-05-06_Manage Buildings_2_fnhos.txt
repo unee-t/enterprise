@@ -1,0 +1,367 @@
+Import into external_property_level_1_buildings
+06/05/19 13:04:43
+
+1 out of 121 records processed successfully.
+0 records added.
+1 records updated.
+120 records processed with errors:
+
+Duplicate entry '58-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"1-3 Swatow Street - 1","0","Condominium","0","","Wan Chai","  .","1","","","","","","","58","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '59-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"PLACEHOLDER - NEW BUILDING - 1","0","Condominium","0","","Wan Chai","  .","1","","","","","","","59","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '63-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Cullinan West - 1","0","Condominium","0","","HK Nam Cheong","  .","1","","","","","","","63","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '19-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The TRIZON - 1","0","Condominium","1","130","West","  .","1","","","","","","","19","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '8-ipi_hmlet-db_sourcing_ls_0_condo-2-A' for key 'PRIMARY'
+"UNKNOWN - A","0","Condominium","1","110","UNKNOWN","  .","A","","","","","","","8","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '51-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"HK Strata - 1","0","Condominium","0","0","HK STRATA","  .","1","","","","","","","51","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '49-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Kesa House - 1","0","Condominium","0","0","Little India","  .","1","","","","","","","49","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '61-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"AU_SYD_601K - 1","1","Condominium","0","","Newtown","  .","1","601 King Street","","2042","Newtown","","Australia","61","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '62-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"AU_SYD_380IW - 1","1","Condominium","0","","Marrickville","  .","1","","","","","","Australia","62","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '52-ipi_hmlet-db_sourcing_ls_0_condo-2-95' for key 'PRIMARY'
+"Principal Garden - 95","1","Condominium","0","","Redhill","  .","95","95 Prince Charles Crescent","","159026","Singapore","","Singapore","52","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '53-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Principal Garden - 1","1","Condominium","0","","Redhill"," .","1","97 Prince Charles Crescent","","159026","Singapore","","Singapore","53","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '53-ipi_hmlet-db_sourcing_ls_0_condo-2-97' for key 'PRIMARY'
+"Principal Garden - 97","1","Condominium","0","","Redhill","  .","97","95 Prince Charles Crescent","","159026","Singapore","","Singapore","53","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '56-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Lush on Holland Hill - 1","1","Condominium","0","","Holland Village","","1","21 Holland Hill","","278737","Singapore","","Singapore","56","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '6-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Normanton Park - 1","0","Condominium","1","10","West","  .","1","1 Normanton Park","","118998","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '6-ipi_hmlet-db_sourcing_ls_0_condo-2-2' for key 'PRIMARY'
+"Normanton Park - 2","0","Condominium","1","10","West","  .","2","2 Normanton Park","","118999","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '6-ipi_hmlet-db_sourcing_ls_0_condo-2-4' for key 'PRIMARY'
+"Normanton Park - 4","0","Condominium","1","10","West","  .","4","4 Normanton Park","","119001","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '6-ipi_hmlet-db_sourcing_ls_0_condo-2-5' for key 'PRIMARY'
+"Normanton Park - 5","0","Condominium","1","10","West","  .","5","5 Normanton Park","","119002","Singapore","","Singapore","6","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '22-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Loft @ Holland - 1","1","Condominium","0","20","Holland Village","  .","1","151 Holland Road","","278580","Singapore ","","Singapore","22","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '16-ipi_hmlet-db_sourcing_ls_0_condo-2-44' for key 'PRIMARY'
+"Rochester Park B&W - 44","0","Condominium","1","60","West","  .","44","Rochester Park ","","139248","Singapore","","Singapore","16","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '9-ipi_hmlet-db_sourcing_ls_0_condo-2-4' for key 'PRIMARY'
+"Pandan Valley - 4","1","Condominium","0","60","West","  .","4","4 Pandan Valley Condo","","597628","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '9-ipi_hmlet-db_sourcing_ls_0_condo-2-7' for key 'PRIMARY'
+"Pandan Valley - 7","0","Condominium","0","60","West","  .","7","7 Pandan Valley","","597631","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '9-ipi_hmlet-db_sourcing_ls_0_condo-2-T3' for key 'PRIMARY'
+"Pandan Valley - T3","0","Condominium","0","60","West","  .","T3","3 pandan Valley","","597627","Singapore","","Singapore","9","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '14-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Ford @ Holland - 1","1","Condominium","0","80","Holland Village","  .","1","1 Ford Avenue","","268685","Singapore","","Singapore","14","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '14-ipi_hmlet-db_sourcing_ls_0_condo-2-2' for key 'PRIMARY'
+"The Ford @ Holland - 2","1","Condominium","0","80","Holland Village"," .","2","1 Ford Avenue","","268685","Singapore","","Singapore","14","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '18-ipi_hmlet-db_sourcing_ls_0_condo-2-87' for key 'PRIMARY'
+"Hundred Trees - 87","0","Condominium","1","100","West","  .","87","87 West Coast Drive #12-14 Hundred Trees","","128015","Singapore","","Singapore","18","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '20-ipi_hmlet-db_sourcing_ls_0_condo-2-22' for key 'PRIMARY'
+"Varsity Park - 22","1","Condominium","0","110","West","  .","22","West Coast Road","","127446","Singapore","","Singapore","20","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '20-ipi_hmlet-db_sourcing_ls_0_condo-2-38' for key 'PRIMARY'
+"Varsity Park - 38","1","Condominium","0","110","West","  .","38","West Coast Road","","127452","Singapore","","Singapore","20","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '17-ipi_hmlet-db_sourcing_ls_0_condo-2-F' for key 'PRIMARY'
+"Glentrees - F","0","Condominium","1","120","West","  .","F","11 F Mount Sinai Lane","","277055","Singapore","","Singapore","17","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '17-ipi_hmlet-db_sourcing_ls_0_condo-2-G' for key 'PRIMARY'
+"Glentrees - G","0","Condominium","1","120","West","  .","G","11G Mount Sinai Lane","","277056","Singapore","","Singapore","17","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '19-ipi_hmlet-db_sourcing_ls_0_condo-2-2' for key 'PRIMARY'
+"The TRIZON - 2","0","Condominium","1","130","West","  .","2","2 RIDGEWOOD CLOSE","","276693","Singapore","","Singapore","19","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '32-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Mendon Spring - 1","1","Condominium","0","135","West","  .","1","198 Pasir Panjang Road ","","117526","Singapore","","Singapore","32","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '21-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Trilinq - 1","0","Condominium","1","140","West","  .","1","Jalan Lempeng ","","128808","Singapore","","Singapore","21","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '23-ipi_hmlet-db_sourcing_ls_0_condo-2-119' for key 'PRIMARY'
+"Seahill - 119","0","Condominium","1","150","West","  .","119","119 West Coast Crescent ","","126777","Singapore","","Singapore","23","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '24-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Park Imperial - 1","0","Condominium","1","160","West","  .","1","253 Pasir Panjang rd","","118618","Singapore","","Singapore","24","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '15-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Foresta@Mount Faber - 1","0","Condominium","1","90","UNKNOWN","  .","1","100, Wishart Road","","98748","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '15-ipi_hmlet-db_sourcing_ls_0_condo-2-2' for key 'PRIMARY'
+"The Foresta@Mount Faber - 2","0","Condominium","1","90","UNKNOWN","  .","2","102, Wishart Road","","98749","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '15-ipi_hmlet-db_sourcing_ls_0_condo-2-6' for key 'PRIMARY'
+"The Foresta@Mount Faber - 6","0","Condominium","1","90","UNKNOWN","  .","6","106, Wishart Road ","","98751","Singapore","","Singapore","15","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '11-ipi_hmlet-db_sourcing_ls_0_condo-2-T1' for key 'PRIMARY'
+"Tulip Garden - T1","0","Condominium","1","100","UNKNOWN","  .","T1","1 Farrer Road","","268817","Singapore","","Singapore","11","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '4-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Holland Zion - 1","0","Condominium","1","100","UNKNOWN","  .","1","23, Holland Rise","","278711","Singapore","","Singapore","4","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '5-ipi_hmlet-db_sourcing_ls_0_condo-2-18' for key 'PRIMARY'
+"Leedon Height - 18","0","Condominium","1","100","UNKNOWN","  .","18","18 Leedon Height","","267938","Singapore","","Singapore","5","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '25-ipi_hmlet-db_sourcing_ls_0_condo-2-93' for key 'PRIMARY'
+"The Nautical - 93","0","Condominium","1","170","UNKNOWN","  .","93","93 Jln Sendudock","","769472","Singapore","","Singapore","25","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '25-ipi_hmlet-db_sourcing_ls_0_condo-2-99' for key 'PRIMARY'
+"The Nautical - 99","0","Condominium","1","170","UNKNOWN","  .","99","99 Jln Sendudock","","769475","Singapore","","Singapore","25","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-501' for key 'PRIMARY'
+"Canberra Residences - 501","0","Condominium","1","180","UNKNOWN","  .","501","501 Canberra Drive","","768124","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-503' for key 'PRIMARY'
+"Canberra Residences - 503","0","Condominium","1","180","UNKNOWN","  .","503","Canberra Drive","","768125","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-505' for key 'PRIMARY'
+"Canberra Residences - 505","0","Condominium","1","180","UNKNOWN","  .","505","505 Canberra Drive","","768126","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-517' for key 'PRIMARY'
+"Canberra Residences - 517","0","Condominium","1","180","UNKNOWN","  .","517","517 Canberra Drive","","768132","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-523' for key 'PRIMARY'
+"Canberra Residences - 523","0","Condominium","1","180","UNKNOWN","  .","523","523 Canberra Drive","","768135","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '26-ipi_hmlet-db_sourcing_ls_0_condo-2-525' for key 'PRIMARY'
+"Canberra Residences - 525","0","Condominium","1","180","UNKNOWN","  .","525","525 Canberra Drive ","","768136","Singapore","","Singapore","26","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-10A' for key 'PRIMARY'
+"Eight Courtyards - 10A","0","Condominium","1","190","UNKNOWN","  .","10A","10A Canberra Drive","","768143","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-12 A' for key 'PRIMARY'
+"Eight Courtyards - 12 A","0","Condominium","1","190","UNKNOWN","  .","12 A","12A CANBERRA DRIVE","","768095","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-14' for key 'PRIMARY'
+"Eight Courtyards - 14","0","Condominium","1","190","UNKNOWN","  .","14","14 Canberra Drive","","768096","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-16' for key 'PRIMARY'
+"Eight Courtyards - 16","0","Condominium","1","190","UNKNOWN","  .","16","16 Canberra Drive","","768097","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-18 B' for key 'PRIMARY'
+"Eight Courtyards - 18 B","0","Condominium","1","190","UNKNOWN","  .","18 B","18B Canberra Dr","","768100","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-6' for key 'PRIMARY'
+"Eight Courtyards - 6","0","Condominium","1","190","UNKNOWN","  .","6","6 Canberra Drive","","768140","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '27-ipi_hmlet-db_sourcing_ls_0_condo-2-8' for key 'PRIMARY'
+"Eight Courtyards - 8","0","Condominium","1","190","UNKNOWN","  .","8","8 Canberra Drive","","768141","Singapore","","Singapore","27","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Miltonia Residences - 1","0","Condominium","1","200","UNKNOWN","  .","1","","","","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-524' for key 'PRIMARY'
+"The Miltonia Residences - 524","0","Condominium","1","200","UNKNOWN","  .","524","524 Miltonia Close","","768106","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-538' for key 'PRIMARY'
+"The Miltonia Residences - 538","0","Condominium","1","200","UNKNOWN","  .","538","538 Miltonia Close","","768113","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-540' for key 'PRIMARY'
+"The Miltonia Residences - 540","0","Condominium","1","200","UNKNOWN","  .","540","540 Miltonia Close","","768114","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-546' for key 'PRIMARY'
+"The Miltonia Residences - 546","0","Condominium","1","200","UNKNOWN","  .","546","546 Miltonia Close","","768117","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-548' for key 'PRIMARY'
+"The Miltonia Residences - 548","0","Condominium","1","200","UNKNOWN","  .","548","548 Miltonia Close","","768118","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-550' for key 'PRIMARY'
+"The Miltonia Residences - 550","0","Condominium","1","200","UNKNOWN","  .","550","550 Miltonia close","","768119","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-554' for key 'PRIMARY'
+"The Miltonia Residences - 554","0","Condominium","1","200","UNKNOWN","  .","554","554 Miltonia Close","","768121","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '28-ipi_hmlet-db_sourcing_ls_0_condo-2-556' for key 'PRIMARY'
+"The Miltonia Residences - 556","0","Condominium","1","200","UNKNOWN","  .","556","556 Miltonia Close","","768122","Singapore","","Singapore","28","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '29-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Skies Miltonia - 1","0","Condominium","1","210","UNKNOWN","  .","1","","","","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '29-ipi_hmlet-db_sourcing_ls_0_condo-2-27' for key 'PRIMARY'
+"Skies Miltonia - 27","0","Condominium","1","210","UNKNOWN","  .","27","27 Miltonia Close","","768061","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '29-ipi_hmlet-db_sourcing_ls_0_condo-2-29' for key 'PRIMARY'
+"Skies Miltonia - 29","0","Condominium","1","210","UNKNOWN","  .","29","29 Miltonia Close","","768062","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '29-ipi_hmlet-db_sourcing_ls_0_condo-2-33' for key 'PRIMARY'
+"Skies Miltonia - 33","0","Condominium","1","210","UNKNOWN","  .","33","33 Miltonia Close","","768064","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '29-ipi_hmlet-db_sourcing_ls_0_condo-2-35' for key 'PRIMARY'
+"Skies Miltonia - 35","0","Condominium","1","210","UNKNOWN","  .","35","35 Miltonia Close","","768065","Singapore","","Singapore","29","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '30-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Estuary - 1","1","Condominium","0","220","UNKNOWN","  .","1","","","","Singapore","","Singapore","30","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '31-ipi_hmlet-db_sourcing_ls_0_condo-2-230' for key 'PRIMARY'
+"Commonwealth Towers - 230","0","Condominium","1","230","UNKNOWN","  .","230","230 Commonwealth  avenue","","149739","Singapore","","Singapore","31","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '31-ipi_hmlet-db_sourcing_ls_0_condo-2-232' for key 'PRIMARY'
+"Commonwealth Towers - 232","0","Condominium","1","230","UNKNOWN","  .","232","232 Commonwealth avenue","","149740","Singapore","","Singapore","31","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '57-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Lumiere - 1","1","Condominium","0","","CBD","  .","1","2 Mistri Rd","","79624","Singapore","","Singapore","57","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '37-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"OS - 1","1","Condominium","0","0","CBD","","1","1 Shenton Way","","68803","Singapore","","Singapore","37","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '39-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Sail - 1","1","Condominium","0","0","CBD","  .","1","6 Marina Boulevard","","18985","Singapore","","Singapore","39","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '40-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"MBS - 1","1","Condominium","0","0","CBD","  .","1","Marina Bay Suites","","18965","Singapore","","Singapore","40","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '55-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"467 Joo Chiat - 1","1","Condominium","0","","East"," .","1","467 Joo Chiat Road","","427678","Singapore","","Singapore","55","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '41-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Joo Chiat - 1","1","Condominium","0","0","East"," .","1","339 Joo Chiat Road","","427591","Singapore","","Singapore","41","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '43-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Amber Gardens - 1","0","Condominium","1","0","East","  .","1","32 Amber Gardens","","439965","Singapore","","Singapore","43","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '47-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Tanjong Katong - 1","1","Condominium","0","0","East"," .","1","332 Tanjong Katong","","437110","Singapore","","Singapore","47","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '48-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Lorong G - 1","1","Condominium","0","0","East"," .","1","10 Lorong G Telok Kurau","","426175","Singapore","","Singapore","48","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '34-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"CSR - 1","0","Condominium","1","0","Little India","  .","1","4 Kitchener Link","","208539","Singapore","","Singapore","34","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '35-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Starlight - 1","0","Condominium","1","0","Little India","  .","1","9 Starlight Road","","217762","Singapore","","Singapore","35","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '42-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Upper Weld - 1","1","Condominium","0","0","Little India","","1","19 Upper Weld Road","","207376","Singapore","","Singapore","42","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '46-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Sam Leong - 1","1","Condominium","0","0","Little India","  .","1","22 Sam Leong Road","","207913","Singapore","","Singapore","46","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '60-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Liberte - 1","1","Condominium","0","","Newton - Orchard","  .","1","","","","","","Singapore","60","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '44-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Carinhill - 1","1","Condominium","0","0","Newton - Orchard","  .","1","4 CarinhillRise","","229740","Singapore","","Singapore","44","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '45-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Sarkies - 1","1","Condominium","0","0","Newton - Orchard","","1","6 Sarkies Road","","258126","Singapore","","Singapore","45","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '54-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Urbana - 1","1","Condominium","0","","River Valley","  .","1","1 River Valley Close","","238427","Singapore","","Singapore","54","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '33-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Riverwalk - 1","1","Condominium","0","0","River Valley","  .","1","20 Upper Circular Rd","","58416","Singapore","","Singapore","33","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '36-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"UES - 1","1","Condominium","0","0","River Valley","","1","205 River Valley Road","","238274","Singapore","","Singapore","36","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '36-ipi_hmlet-db_sourcing_ls_0_condo-2-2' for key 'PRIMARY'
+"UES - 2","1","Condominium","0","0","River Valley","","2","207 River Valley Road","","238275","Singapore","","Singapore","36","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '38-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Regalia - 1","0","Condominium","0","0","River Valley","  .","1","2 River Valley Close","","238428","Singapore","","Singapore","38","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '50-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Emerald Garden - 1","1","Condominium","0","0","River Valley","  .","1","","","","","","Singapore","50","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '2-ipi_hmlet-db_sourcing_ls_0_condo-2-A' for key 'PRIMARY'
+"Dover ParkView - A","0","Condominium","1","20","One North","  .","A","38 Dover Rise","","138684","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '2-ipi_hmlet-db_sourcing_ls_0_condo-2-B' for key 'PRIMARY'
+"Dover ParkView - B","0","Condominium","1","20","One North","  .","B","36 Dover Rise","","138685","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '2-ipi_hmlet-db_sourcing_ls_0_condo-2-C' for key 'PRIMARY'
+"Dover ParkView - C","0","Condominium","1","20","One North","  .","C","32 Dover Rise","","138686","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '2-ipi_hmlet-db_sourcing_ls_0_condo-2-D' for key 'PRIMARY'
+"Dover ParkView - D","0","Condominium","1","20","One North","  .","D","30 Dover Rise","","138687","Singapore","","Singapore","2","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '3-ipi_hmlet-db_sourcing_ls_0_condo-2-A' for key 'PRIMARY'
+"Heritage View - A","1","Condominium","0","30","One North","  .","A","8 Dover Rise","","138679","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '3-ipi_hmlet-db_sourcing_ls_0_condo-2-B' for key 'PRIMARY'
+"Heritage View - B","1","Condominium","0","30","One North","  .","B","10 Dover Rise","","138680","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '3-ipi_hmlet-db_sourcing_ls_0_condo-2-C' for key 'PRIMARY'
+"Heritage View - C","1","Condominium","0","30","One North","  .","C","6 Dover Rise","","138678","Singapore","","Singapore","3","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-7' for key 'PRIMARY'
+"One North - 7","1","Condominium","0","40","One North"," .","7","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-B' for key 'PRIMARY'
+"One North - B","1","Condominium","0","40","One North"," .","B","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-C' for key 'PRIMARY'
+"One North - C","1","Condominium","0","40","One North"," .","C","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-D' for key 'PRIMARY'
+"One North - D","1","Condominium","0","40","One North","  .","D","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-F' for key 'PRIMARY'
+"One North - F","1","Condominium","0","40","One North","  .","F","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-G' for key 'PRIMARY'
+"One North - G","1","Condominium","0","40","One North","  .","G","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-H' for key 'PRIMARY'
+"One North - H","1","Condominium","0","40","One North","  .","H","7 OneNorth Gateway","","138642","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '7-ipi_hmlet-db_sourcing_ls_0_condo-2-K' for key 'PRIMARY'
+"One North - K","1","Condominium","0","40","One North","  .","K","9 OneNorth Gateway","","138643","Singapore","","Singapore","7","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '-991570912-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"Alexis - 1","1","Condominium","0","70","Alexandra","  .","1","356 Alexandra Road","","159949","Singapore","","Singapore","-991570912","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-1' for key 'PRIMARY'
+"The Parc - 1","1","Condominium","0","50","Clementi West Coast","  .","1","1 West Coast Walk","","127158","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-11' for key 'PRIMARY'
+"The Parc - 11","1","Condominium","0","50","Clementi West Coast","  .","11","11 West Coast Walk","","127161","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-3' for key 'PRIMARY'
+"The Parc - 3","1","Condominium","0","50","Clementi West Coast","  .","3","3 West Coast Walk","","127140","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-5' for key 'PRIMARY'
+"The Parc - 5","1","Condominium","0","50","Clementi West Coast","  .","5","5 West Coast Walk","","127146","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-7' for key 'PRIMARY'
+"The Parc - 7","1","Condominium","0","50","Clementi West Coast","  .","7","7 West Coast Walk","","127159","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '10-ipi_hmlet-db_sourcing_ls_0_condo-2-9' for key 'PRIMARY'
+"The Parc - 9","1","Condominium","0","50","Clementi West Coast","  .","9","9 West Coast Walk","","127160","Singapore","","Singapore","10","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '12-ipi_hmlet-db_sourcing_ls_0_condo-2-50' for key 'PRIMARY'
+"West Bay - 50","0","Condominium","1","100","Clementi West Coast","  .","50","West Coast Crescent","","128035","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '12-ipi_hmlet-db_sourcing_ls_0_condo-2-54' for key 'PRIMARY'
+"West Bay - 54","0","Condominium","1","100","Clementi West Coast","  .","54","West Coast Crescent","","128037","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '12-ipi_hmlet-db_sourcing_ls_0_condo-2-56' for key 'PRIMARY'
+"West Bay - 56","0","Condominium","1","100","Clementi West Coast","  .","56","56 West Coast Crescent","","128038","Singapore","","Singapore","12","ipi_hmlet","db_sourcing_ls_0_condo","2"
+
+Duplicate entry '13-ipi_hmlet-db_sourcing_ls_0_condo-2-2A' for key 'PRIMARY'
+"West Cove - 2A","0","Condominium","1","100","Clementi West Coast","  .","2A","12 West coast crescent","","128042","Singapore","","Singapore","13","ipi_hmlet","db_sourcing_ls_0_condo","2"

@@ -1044,7 +1044,17 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
-		if($table=="Manage Units" && $field=="unee_t_unit_type")
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="search")
 	{
 		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
 		return $strWhere;
@@ -1171,7 +1181,7 @@ function GetLWWhere($field, $ptype, $table = "")
 	}
 		if($table=="Assign Rooms to User" && $field=="area_id" && $ptype=="search")
 	{
-		$strWhere = " `property_groups_area`.`is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Assign Rooms to User" && $field=="id_building" && $ptype=="search")
@@ -1194,6 +1204,91 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 ";
 		return $strWhere;
 	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_system_id" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_system_id" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_table" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_table" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="country_code" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="country_code" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND (`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " OR `created_by_id` IS NULL)";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="edit")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="unee_t_unit_type")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
 	return "";
 }
 
@@ -1210,6 +1305,10 @@ function GetDefaultValue($field, $ptype, $table="")
 		return 0;
 	}
 				if($table=="Manage Buildings" && $field=="tower")
+	{
+		return 1;
+	}
+				if($table=="Export and Import Buildings" && $field=="tower")
 	{
 		return 1;
 	}

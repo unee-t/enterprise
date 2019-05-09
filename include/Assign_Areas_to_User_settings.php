@@ -3973,6 +3973,7 @@ $proto65["m_columns"][] = "is_obsolete";
 $proto65["m_columns"][] = "is_update_needed";
 $proto65["m_columns"][] = "person_id";
 $proto65["m_columns"][] = "unee_t_mefe_user_id";
+$proto65["m_columns"][] = "unee_t_mefe_user_api_key";
 $proto65["m_columns"][] = "uneet_created_datetime";
 $proto65["m_columns"][] = "is_mefe_api_success";
 $proto65["m_columns"][] = "mefe_api_error_message";

@@ -89,6 +89,9 @@ pdfDocument = {
 										{BEGIN col_grid_12}
 					"%",
 					{END col_grid_12}
+										{BEGIN col_grid_13}
+					"%",
+					{END col_grid_13}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -241,7 +244,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":"{$jslabel Manage_Buildings is_obsolete }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field13}","text":"{$jslabel Manage_Buildings is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -523,6 +526,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_headcell_field11}
+																			{BEGIN cellblock_grid_headcell_field12}
+
+{
+	cellId: 'headcell_field12',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field1}","text":"{$jslabel Manage_Buildings id_area }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_field12}
 											],
 				{END row_grid_0}
 								
@@ -857,6 +885,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_cell_field11}
+																			{BEGIN cellblock_grid_cell_field12}
+
+{
+	cellId: 'cell_field12',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$id_area_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_field12}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -1166,6 +1219,29 @@ pdfDocument = {
         },
 
 {END cellblock_grid_footcell_field11}
+																			{BEGIN cellblock_grid_footcell_field12}
+
+{
+	cellId: 'footcell_field12',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_field12}
 											],
 				{END row_grid_2}
 						{END totals_row}

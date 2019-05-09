@@ -245,7 +245,6 @@ $tdataAssign_Rooms_to_User[".requiredSearchFields"] = array();
 
 $tdataAssign_Rooms_to_User[".googleLikeFields"] = array();
 $tdataAssign_Rooms_to_User[".googleLikeFields"][] = "id_map_user_unit_permissions_level_3";
-$tdataAssign_Rooms_to_User[".googleLikeFields"][] = "is_permission_obsolete";
 $tdataAssign_Rooms_to_User[".googleLikeFields"][] = "area_name";
 $tdataAssign_Rooms_to_User[".googleLikeFields"][] = "building_name";
 $tdataAssign_Rooms_to_User[".googleLikeFields"][] = "unit_name";
@@ -4937,22 +4936,6 @@ $masterTablesData["Assign Rooms to User"] = array();
 
 
 	
-				$strOriginalDetailsTable="external_persons";
-	$masterParams = array();
-	$masterParams["mDataSourceTable"]="Manage Unee-T Users";
-	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
-	$masterParams["mShortTable"]= "Manage_Unee_T_Users";
-	$masterParams["masterKeys"]= array();
-	$masterParams["detailKeys"]= array();
-
-	$masterParams["type"] = PAGE_LIST;
-					$masterTablesData["Assign Rooms to User"][0] = $masterParams;
-				$masterTablesData["Assign Rooms to User"][0]["masterKeys"] = array();
-	$masterTablesData["Assign Rooms to User"][0]["masterKeys"][]="unee_t_mefe_user_id";
-				$masterTablesData["Assign Rooms to User"][0]["detailKeys"] = array();
-	$masterTablesData["Assign Rooms to User"][0]["detailKeys"][]="unee_t_mefe_user_id";
-		
-	
 				$strOriginalDetailsTable="external_property_level_3_rooms";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="Manage Rooms";
@@ -4962,11 +4945,11 @@ $masterTablesData["Assign Rooms to User"] = array();
 	$masterParams["detailKeys"]= array();
 
 	$masterParams["type"] = PAGE_LIST;
-					$masterTablesData["Assign Rooms to User"][1] = $masterParams;
-				$masterTablesData["Assign Rooms to User"][1]["masterKeys"] = array();
-	$masterTablesData["Assign Rooms to User"][1]["masterKeys"][]="unee_t_mefe_unit_id";
-				$masterTablesData["Assign Rooms to User"][1]["detailKeys"] = array();
-	$masterTablesData["Assign Rooms to User"][1]["detailKeys"][]="unee_t_mefe_unit_id";
+					$masterTablesData["Assign Rooms to User"][0] = $masterParams;
+				$masterTablesData["Assign Rooms to User"][0]["masterKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][0]["masterKeys"][]="unee_t_mefe_unit_id";
+				$masterTablesData["Assign Rooms to User"][0]["detailKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][0]["detailKeys"][]="unee_t_mefe_unit_id";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
@@ -5621,6 +5604,7 @@ $proto81["m_columns"][] = "is_obsolete";
 $proto81["m_columns"][] = "is_update_needed";
 $proto81["m_columns"][] = "person_id";
 $proto81["m_columns"][] = "unee_t_mefe_user_id";
+$proto81["m_columns"][] = "unee_t_mefe_user_api_key";
 $proto81["m_columns"][] = "uneet_created_datetime";
 $proto81["m_columns"][] = "is_mefe_api_success";
 $proto81["m_columns"][] = "mefe_api_error_message";
