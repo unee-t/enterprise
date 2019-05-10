@@ -1312,6 +1312,10 @@ function GetDefaultValue($field, $ptype, $table="")
 	{
 		return 1;
 	}
+				if($table=="Export and Import Users" && $field=="gender")
+	{
+		return 0;
+	}
 	return "";
 }
 

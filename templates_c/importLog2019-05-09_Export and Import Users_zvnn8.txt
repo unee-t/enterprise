@@ -1,0 +1,6 @@
+Import into external_persons
+09/05/19 11:37:39
+
+12 out of 12 records processed successfully.
+12 records added.
+0 records updated.

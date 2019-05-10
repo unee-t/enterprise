@@ -688,6 +688,7 @@ $tableCaptions["English"]["Export_and_Import_Units"] = "Export and Import Units"
 $tableCaptions["English"]["List_of_Countries"] = "List of Countries";
 $tableCaptions["English"]["Export_and_Import_Rooms"] = "Export and Import Rooms";
 $tableCaptions["English"]["Export_and_Import_User_Types"] = "Export and Import User Types";
+$tableCaptions["English"]["Export_and_Import_Users"] = "Export and Import Users";
 
 
 $globalEvents = new class_GlobalEvents;

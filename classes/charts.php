@@ -583,6 +583,8 @@ class Chart
 			return true;
 		if("ut_user_types" == $this->chrt_array['tables'][0])
 			return true;
+		if("external_persons" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

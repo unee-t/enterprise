@@ -365,6 +365,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("Export_and_Import_User_Types" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("Export_and_Import_Users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -654,6 +656,11 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="Export and Import User Types";
 	}
+	$strPerm = GetUserPermissions("Export and Import Users");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Users";
+	}
 	return $arr;
 }
 
@@ -711,6 +718,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="List of Countries";
 	$arr[]="Export and Import Rooms";
 	$arr[]="Export and Import User Types";
+	$arr[]="Export and Import Users";
 	return $arr;
 }
 
@@ -1608,6 +1616,7 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Export and Import Units_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import User Types_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Users_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1816,6 +1825,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Export and Import Users")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	//	 check user group permissions
 	$localAction = strtolower($strAction);
@@ -1983,6 +1998,10 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Export and Import User Types")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Users")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

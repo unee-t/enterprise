@@ -1,0 +1,43 @@
+Import into external_persons
+09/05/19 11:35:10
+
+0 out of 12 records processed successfully.
+0 records added.
+0 records updated.
+12 records processed with errors:
+
+Unknown column 'external_system_id' in 'field list'
+"2090957368","2","4","Alexis","","Lin","0","","alexis@hmlet.com","2","","Alexis","","Hmlet Central","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"2090957336","2","2","Alisa Marie","","DETOITO","0","","alisa.detoito@lmbhousing.com","2","1999-9-9 0:0:0","Alisa","Customer Service Coordinator L1","LMB","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"2090957355","2","2","Andrea","","Loh","0","","andrea@hmlet.com","2","1999-1-1 0:0:0","andrea","Finance","LMB","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"2090957356","2","1","Ching","","yang","0","","chingyang@hmlet.com","1","1990-1-1 0:0:0","chingyang","Finance","LMB","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"2090957347","2","2","Kashmira","","PRAVINCHANDRA CHAUHAN","0","","kashmira.chauhan@lmbhousing.com","2","1984-11-13 0:0:0","Kashmira","Product Manager","LMB","+65 91801592","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"99911","2","1","Prachi","","","0","","prachi@hmlet.com","2","","prachi","Hmlet","Unknown","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"2090957362","2","3","Sui Wan (Candice)","","Lai","0","","candice@hmlet.com","2","1977-5-18 0:0:0","candice","","LMB","+65 9169 2608","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"help@hmlet.com","2","2","Support","","Hmlet","1","7","help@hmlet.com","0","","support","Generic Support","Hmlet SG","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"help@hmlet.com.au","2","2","Support","","Hmlet","1","7","help@hmlet.com.au","0","","","Generic Support","Hmlet AU","","","","","","","","","","","","AU"
+
+Unknown column 'external_system_id' in 'field list'
+"christina@hmlet.com","2","3","Christina","","Le Lievre","1","8","christina@hmlet.com.au","0","","","","","","","","","","","","","","","","AU"
+
+Unknown column 'external_system_id' in 'field list'
+"fadzlirhyme@hmlet.com","2","2","Fadzli","","Rhyme","1","8","fadzlirhyme@hmlet.com","1","","Fadzli","","","","","","","","","","","","","","SG"
+
+Unknown column 'external_system_id' in 'field list'
+"derp@derspon.com","2","2","Derp","","Derpson","1","8","derp@derspon.com","1","","","","","","","","","","","","","","","","SG"

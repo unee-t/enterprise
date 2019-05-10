@@ -113,29 +113,29 @@
 
 			</li>
 			{END item11_menulink}
-	{END item5_menulink}
-
-	{BEGIN item12_menulink}
-	<li id="item12" class="{$item12_groupclass} {$item12_current} menuGroup" level=1>
-			<div>
-{BEGIN item12_groupimage}
-<span class="groupbox">
-<img alt="*" src="images/plus.gif" class="groupImg">
-</span>
-{END item12_groupimage}
+	
+			{BEGIN item12_menulink}
+			<li id="item12" style="display:none" class="subitem level2 {$item12_groupclass} {$item12_current} menuLeaf" level=2>
+					<div>
 <a {$item12_menulink_attrs} class="{$item12_current}">{$item12_title}</a>
 </div>
 
-	</li>
-	
-			{BEGIN item13_menulink}
-			<li id="item13" style="display:none" class="subitem level2 {$item13_groupclass} {$item13_current} menuLeaf" level=2>
-					<div>
+			</li>
+			{END item12_menulink}
+	{END item5_menulink}
+
+	{BEGIN item13_menulink}
+	<li id="item13" class="{$item13_groupclass} {$item13_current} menuGroup" level=1>
+			<div>
+{BEGIN item13_groupimage}
+<span class="groupbox">
+<img alt="*" src="images/plus.gif" class="groupImg">
+</span>
+{END item13_groupimage}
 <a {$item13_menulink_attrs} class="{$item13_current}">{$item13_title}</a>
 </div>
 
-			</li>
-			{END item13_menulink}
+	</li>
 	
 			{BEGIN item14_menulink}
 			<li id="item14" style="display:none" class="subitem level2 {$item14_groupclass} {$item14_current} menuLeaf" level=2>
@@ -172,7 +172,25 @@
 
 			</li>
 			{END item17_menulink}
-	{END item12_menulink}
+	
+			{BEGIN item18_menulink}
+			<li id="item18" style="display:none" class="subitem level2 {$item18_groupclass} {$item18_current} menuLeaf" level=2>
+					<div>
+<a {$item18_menulink_attrs} class="{$item18_current}">{$item18_title}</a>
+</div>
+
+			</li>
+			{END item18_menulink}
+	
+			{BEGIN item19_menulink}
+			<li id="item19" style="display:none" class="subitem level2 {$item19_groupclass} {$item19_current} menuLeaf" level=2>
+					<div>
+<a {$item19_menulink_attrs} class="{$item19_current}">{$item19_title}</a>
+</div>
+
+			</li>
+			{END item19_menulink}
+	{END item13_menulink}
 </ul>
 {END mainmenu_block}
 

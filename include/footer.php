@@ -1,1 +1,1 @@
-<p align = center>Unee-T Enterprise - v2.17.0 - Alpha 4</p>
+<p align = center>Unee-T Enterprise - v2.17.0</p>

@@ -496,6 +496,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Export and Import Users")
+		{
+			return true;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -995,6 +999,10 @@ class AuditTrailFile
 		if($table=="Export and Import User Types")
 		{
 			return false;
+		}
+		if($table=="Export and Import Users")
+		{
+			return true;
 		}
 	}
 	

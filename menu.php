@@ -126,6 +126,8 @@ include_once(getabspath("include/Export_and_Import_Rooms_events.php"));
 $tableEvents["Export and Import Rooms"] = new eventclass_Export_and_Import_Rooms;
 include_once(getabspath("include/Export_and_Import_User_Types_events.php"));
 $tableEvents["Export and Import User Types"] = new eventclass_Export_and_Import_User_Types;
+include_once(getabspath("include/Export_and_Import_Users_events.php"));
+$tableEvents["Export and Import Users"] = new eventclass_Export_and_Import_Users;
 
 $xt = new Xtempl();
 

@@ -271,6 +271,30 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "12";
+	$menuNode["name"] = "Export Users";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Users";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = "Export";//
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-user";
+	$menuNode["iconType"] = "2";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Users";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "13";
 	$menuNode["name"] = "Import Data";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
@@ -294,14 +318,14 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "13";
+	$menuNode["id"] = "14";
 	$menuNode["name"] = "Import Areas";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "Export and Import Areas";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "12";
+	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = "Import";//
@@ -318,14 +342,14 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "14";
+	$menuNode["id"] = "15";
 	$menuNode["name"] = "Import Buildings";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "Export and Import Buildings";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "12";
+	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = "Import";//
@@ -342,14 +366,14 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "15";
+	$menuNode["id"] = "16";
 	$menuNode["name"] = "Import Units";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "Export and Import Units";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "12";
+	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = "Import";//
@@ -366,14 +390,14 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "16";
+	$menuNode["id"] = "17";
 	$menuNode["name"] = "Import Rooms";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "Export and Import Rooms";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "12";
+	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = "Import";//
@@ -390,14 +414,14 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "17";
+	$menuNode["id"] = "18";
 	$menuNode["name"] = "Import User Types";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "Export and Import User Types";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "12";
+	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = "Import";//
@@ -409,6 +433,30 @@ function getMenuNodes_main($menuNodesObject)
 			$menuNode["color"] = "";
 	
 	$menuNode["title"] = "Import User Types";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "19";
+	$menuNode["name"] = "Import Users";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Users";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = "Import";//
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-user";
+	$menuNode["iconType"] = "2";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Users";
 
 
 

@@ -12,9 +12,9 @@ $tdataperson_genders[".searchableFields"] = array();
 	$tdataperson_genders[".OriginalTable"] = "person_genders";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataperson_genders[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataperson_genders[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataperson_genders[".defaultPages"] = $defaultPages;
 
 //	field labels

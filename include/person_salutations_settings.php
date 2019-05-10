@@ -12,9 +12,9 @@ $tdataperson_salutations[".searchableFields"] = array();
 	$tdataperson_salutations[".OriginalTable"] = "person_salutations";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataperson_salutations[".defaultPages"] = $defaultPages;
 
 //	field labels
