@@ -47,11 +47,20 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
+			"
 
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
+
+	 
+		{BEGIN unee_t_mefe_user_id_fieldheadercolumn}
+ 
+	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
+	{$label Manage_Unee_T_Users unee_t_mefe_user_id }	</label>
+{END unee_t_mefe_user_id_fieldheadercolumn}
 
 	
 	</th>
@@ -78,13 +87,20 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
+			"
 
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
-	
+	 
+		{BEGIN unee_t_mefe_user_id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id" data-default-width >
+{$unee_t_mefe_user_id_value}
+</span>
+{END unee_t_mefe_user_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 							</tr>

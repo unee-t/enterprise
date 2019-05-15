@@ -4951,6 +4951,22 @@ $masterTablesData["Assign Rooms to User"] = array();
 				$masterTablesData["Assign Rooms to User"][0]["detailKeys"] = array();
 	$masterTablesData["Assign Rooms to User"][0]["detailKeys"][]="unee_t_mefe_unit_id";
 		
+	
+				$strOriginalDetailsTable="external_persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Manage Unee-T Users";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "Manage_Unee_T_Users";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Assign Rooms to User"][1] = $masterParams;
+				$masterTablesData["Assign Rooms to User"][1]["masterKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][1]["masterKeys"][]="unee_t_mefe_user_id";
+				$masterTablesData["Assign Rooms to User"][1]["detailKeys"] = array();
+	$masterTablesData["Assign Rooms to User"][1]["detailKeys"][]="unee_t_mefe_user_id";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

@@ -12,9 +12,9 @@ $tdataManage_User_Types[".searchableFields"] = array();
 	$tdataManage_User_Types[".OriginalTable"] = "ut_user_types";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
 
-$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
+$tdataManage_User_Types[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataManage_User_Types[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -232,7 +232,7 @@ if( $pages[PAGE_EDIT] ) {
 	$tdataManage_User_Types[".edit"] = true;
 	$tdataManage_User_Types[".afterEditAction"] = 1;
 	$tdataManage_User_Types[".closePopupAfterEdit"] = 1;
-	$tdataManage_User_Types[".afterEditActionDetTable"] = "";
+	$tdataManage_User_Types[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {

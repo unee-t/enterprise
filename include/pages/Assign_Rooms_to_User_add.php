@@ -1,5 +1,6 @@
 <?php
-			$optionsArray = array( 'master' => array( 'Manage Rooms' => array( 'preview' => true ) ),
+			$optionsArray = array( 'master' => array( 'Manage Rooms' => array( 'preview' => true ),
+'Manage Unee-T Users' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'unee_t_role_id',
 'unee_t_mefe_user_id',
@@ -226,8 +227,7 @@ array( 'cell' => 'c10' ) ) ) ),
 'type' => 'integrated_edit_field',
 'orientation' => 0 ),
 'master_info' => array( 'type' => 'master_info',
-'tables' => array( 'Manage Unee-T Users' => 'true',
-'Manage Rooms' => 'true' ) ) ),
+'tables' => array( 'Manage Rooms' => 'true' ) ) ),
 'dbProps' => array(  ),
 'version' => 2 );
 		?>

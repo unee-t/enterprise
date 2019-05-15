@@ -1,5 +1,11 @@
 <?php
-			$optionsArray = array( 'captcha' => array( 'captcha' => false ),
+			$optionsArray = array( 'details' => array( 'Assign Buildings to User' => array( 'displayPreview' => 1,
+'previewPageId' => 'list' ),
+'Assign Units to User' => array( 'displayPreview' => 1,
+'previewPageId' => 'list' ),
+'Assign Rooms to User' => array( 'displayPreview' => 1,
+'previewPageId' => 'list' ) ),
+'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'external_id',
 'external_system',
 'external_table',

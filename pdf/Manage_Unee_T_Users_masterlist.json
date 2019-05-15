@@ -68,6 +68,9 @@ pdfDocument = {
 										{BEGIN col_grid_5}
 					"%",
 					{END col_grid_5}
+										{BEGIN col_grid_6}
+					"%",
+					{END col_grid_6}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -158,7 +161,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":"{$jslabel Manage_Unee_T_Users unee_t_user_type_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field16}","text":"{$jslabel Manage_Unee_T_Users unee_t_user_type_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -290,6 +293,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_headcell_field5}
+																			{BEGIN cellblock_grid_headcell_field6}
+
+{
+	cellId: 'headcell_field6',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field1}","text":"{$jslabel Manage_Unee_T_Users unee_t_mefe_user_id }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_headcell_field6}
 											],
 				{END row_grid_0}
 								
@@ -449,6 +477,31 @@ pdfDocument = {
         },
 
 {END cellblock_grid_cell_field5}
+																			{BEGIN cellblock_grid_cell_field6}
+
+{
+	cellId: 'cell_field6',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$unee_t_mefe_user_id_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_cell_field6}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -597,6 +650,29 @@ pdfDocument = {
         },
 
 {END cellblock_grid_footcell_field5}
+																			{BEGIN cellblock_grid_footcell_field6}
+
+{
+	cellId: 'footcell_field6',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+        },
+
+{END cellblock_grid_footcell_field6}
 											],
 				{END row_grid_2}
 						{END totals_row}

@@ -139,8 +139,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_simple_grid_field1}","text":"{$jslabel Manage_Unee_T_Users unee_t_mefe_user_id }","bold":true},
+				
+		  ],
   "border": [ true, true, true, true ],
         },
 
@@ -171,8 +173,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$unee_t_mefe_user_id_pdfvalue}},
+				
+		  ],
   "border": [ true, true, true, true ],
         },
 
