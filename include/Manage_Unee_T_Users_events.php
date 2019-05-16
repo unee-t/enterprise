@@ -136,6 +136,11 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 				$values["external_id"] = $values['email'];
 			}
 
+			else
+			{
+				# We do nothing
+			}
+
 // Place event code here.
 // Use "Add Action" button to add code snippets.
 
