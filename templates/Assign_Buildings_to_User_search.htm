@@ -144,31 +144,8 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN area_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_area_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="area_id" 
-	
-	data-signal-error-for="area_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="area_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_area_id}">
-		{$label Assign_Buildings_to_User area_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_area_id}
-	</div>
-	<div class="r-search-field">
-		{$area_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$area_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END area_id_fieldblock}
+				<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="Assign_Buildings_to_User_search" > 
+	Search by Users</span>
 											
 {BEGIN unee_t_role_id_fieldblock}
 
@@ -220,81 +197,6 @@
 
 {END unee_t_user_type_id_fieldblock}
 											
-{BEGIN unee_t_level_1_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_level_1_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unee_t_level_1_id" 
-	
-	data-signal-error-for="unee_t_level_1_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="unee_t_level_1_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_level_1_id}">
-		{$label Assign_Buildings_to_User unee_t_level_1_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_unee_t_level_1_id}
-	</div>
-	<div class="r-search-field">
-		{$unee_t_level_1_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unee_t_level_1_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END unee_t_level_1_id_fieldblock}
-											
-{BEGIN building_name_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_building_name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="building_name" 
-	
-	data-signal-error-for="building_name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="building_name" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_building_name}">
-		{$label Assign_Buildings_to_User building_name }	</label>
-	<div class="r-search-option">
-		{$searchtype_building_name}
-	</div>
-	<div class="r-search-field">
-		{$building_name_editcontrol}	</div>
-	<div class="r-search-field">
-		{$building_name_editcontrol1}
-	</div>
-	
-</div>
-
-{END building_name_fieldblock}
-											
-{BEGIN unee_t_update_ts_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_update_ts}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unee_t_update_ts" 
-	
-	data-signal-error-for="unee_t_update_ts{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="unee_t_update_ts" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_update_ts}">
-		{$label Assign_Buildings_to_User unee_t_update_ts }	</label>
-	<div class="r-search-option">
-		{$searchtype_unee_t_update_ts}
-	</div>
-	<div class="r-search-field">
-		{$unee_t_update_ts_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unee_t_update_ts_editcontrol1}
-	</div>
-	
-</div>
-
-{END unee_t_update_ts_fieldblock}
-											
 {BEGIN name_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_name}  r-horizontal-field form-horizontal" 
@@ -322,6 +224,152 @@
 	
 								</td>
 			{END cellblock_grid_c3}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page="Assign_Buildings_to_User_search" > 
+	Reduce the list with these criterias</span>
+											
+{BEGIN country_code_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="country_code" 
+	
+	data-signal-error-for="country_code{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="country_code" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_country_code}">
+		{$label Assign_Buildings_to_User country_code }	</label>
+	<div class="r-search-option">
+		{$searchtype_country_code}
+	</div>
+	<div class="r-search-field">
+		{$country_code_editcontrol}	</div>
+	<div class="r-search-field">
+		{$country_code_editcontrol1}
+	</div>
+	
+</div>
+
+{END country_code_fieldblock}
+											
+{BEGIN area_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_area_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="area_id" 
+	
+	data-signal-error-for="area_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="area_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_area_id}">
+		{$label Assign_Buildings_to_User area_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_area_id}
+	</div>
+	<div class="r-search-field">
+		{$area_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$area_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END area_id_fieldblock}
+											
+{BEGIN unee_t_level_1_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_level_1_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_level_1_id" 
+	
+	data-signal-error-for="unee_t_level_1_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="unee_t_level_1_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_level_1_id}">
+		{$label Assign_Buildings_to_User unee_t_level_1_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_level_1_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_level_1_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_level_1_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_level_1_id_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-page="Assign_Buildings_to_User_search" > 
+	Or type the name of the Building</span>
+											
+{BEGIN building_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_building_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="building_name" 
+	
+	data-signal-error-for="building_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="building_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_building_name}">
+		{$label Assign_Buildings_to_User building_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_building_name}
+	</div>
+	<div class="r-search-field">
+		{$building_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$building_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END building_name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c}
 								</tr>
 			</tbody></table>
 {END grid_block}

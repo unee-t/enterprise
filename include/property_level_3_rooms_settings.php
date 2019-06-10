@@ -12,9 +12,9 @@ $tdataproperty_level_3_rooms[".searchableFields"] = array();
 	$tdataproperty_level_3_rooms[".OriginalTable"] = "property_level_3_rooms";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataproperty_level_3_rooms[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataproperty_level_3_rooms[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataproperty_level_3_rooms[".defaultPages"] = $defaultPages;
 
 //	field labels

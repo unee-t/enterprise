@@ -43,3 +43,6 @@
 [data-page=".global_menu"][data-itemid="welcome_item14"] > .bs-welcome-header {
   background-color: #005b4f;
 }
+[data-page=".global_menu"][data-itemid="welcome_item15"] > .bs-welcome-header {
+  background-color: #002f6c;
+}

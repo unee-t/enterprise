@@ -112,6 +112,7 @@ function InitLookupLinks()
 	$lookupTableLinks["property_groups_areas"]["Assign_Units_to_User.area_id"]["search"] = array("table" => "Assign Units to User", "field" => "area_id", "page" => "search");
 	$lookupTableLinks["property_level_1_buildings"]["Assign_Units_to_User.id_building"]["search"] = array("table" => "Assign Units to User", "field" => "id_building", "page" => "search");
 	$lookupTableLinks["Search Units"]["Assign_Units_to_User.unee_t_level_2_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_level_2_id", "page" => "edit");
+	$lookupTableLinks["Search Users"]["Assign_Units_to_User.person_id"]["search"] = array("table" => "Assign Units to User", "field" => "person_id", "page" => "search");
 	$lookupTableLinks["ut_user_role_types"]["Assign_Units_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_role_id", "page" => "edit");
 	$lookupTableLinks["ut_user_types"]["Assign_Units_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Units to User", "field" => "unee_t_user_type_id", "page" => "edit");
 	$lookupTableLinks["property_groups_countries"]["Assign_Units_to_User.country_code"]["search"] = array("table" => "Assign Units to User", "field" => "country_code", "page" => "search");
@@ -122,7 +123,9 @@ function InitLookupLinks()
 	$lookupTableLinks["Search Users"]["Assign_Rooms_to_User.unee_t_mefe_user_id"]["search"] = array("table" => "Assign Rooms to User", "field" => "unee_t_mefe_user_id", "page" => "search");
 	$lookupTableLinks["property_groups_areas"]["Assign_Rooms_to_User.area_id"]["search"] = array("table" => "Assign Rooms to User", "field" => "area_id", "page" => "search");
 	$lookupTableLinks["property_level_1_buildings"]["Assign_Rooms_to_User.id_building"]["search"] = array("table" => "Assign Rooms to User", "field" => "id_building", "page" => "search");
+	$lookupTableLinks["Search Units"]["Assign_Rooms_to_User.system_id_unit"]["search"] = array("table" => "Assign Rooms to User", "field" => "system_id_unit", "page" => "search");
 	$lookupTableLinks["Search Rooms"]["Assign_Rooms_to_User.unee_t_level_3_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_level_3_id", "page" => "edit");
+	$lookupTableLinks["Search Users"]["Assign_Rooms_to_User.person_id"]["search"] = array("table" => "Assign Rooms to User", "field" => "person_id", "page" => "search");
 	$lookupTableLinks["ut_user_role_types"]["Assign_Rooms_to_User.unee_t_role_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_role_id", "page" => "edit");
 	$lookupTableLinks["ut_user_types"]["Assign_Rooms_to_User.unee_t_user_type_id"]["edit"] = array("table" => "Assign Rooms to User", "field" => "unee_t_user_type_id", "page" => "edit");
 	$lookupTableLinks["property_groups_countries"]["Assign_Rooms_to_User.country_code"]["search"] = array("table" => "Assign Rooms to User", "field" => "country_code", "page" => "search");
@@ -158,6 +161,15 @@ function InitLookupLinks()
 	$lookupTableLinks["ut_unit_types"]["Export_and_Import_Rooms.unee_t_unit_type"]["edit"] = array("table" => "Export and Import Rooms", "field" => "unee_t_unit_type", "page" => "edit");
 	$lookupTableLinks["ut_unit_types"]["Export_and_Import_Rooms.unee_t_unit_type"]["add"] = array("table" => "Export and Import Rooms", "field" => "unee_t_unit_type", "page" => "add");
 	$lookupTableLinks["ut_unit_types"]["Export_and_Import_Rooms.unee_t_unit_type"]["search"] = array("table" => "Export and Import Rooms", "field" => "unee_t_unit_type", "page" => "search");
+	$lookupTableLinks["Search Users"]["Assign_Rooms.unee_t_mefe_user_id"]["add"] = array("table" => "Assign Rooms", "field" => "unee_t_mefe_user_id", "page" => "add");
+	$lookupTableLinks["Search Users"]["Assign_Rooms.unee_t_mefe_user_id"]["search"] = array("table" => "Assign Rooms", "field" => "unee_t_mefe_user_id", "page" => "search");
+	$lookupTableLinks["property_groups_areas"]["Assign_Rooms.area_id"]["search"] = array("table" => "Assign Rooms", "field" => "area_id", "page" => "search");
+	$lookupTableLinks["property_level_1_buildings"]["Assign_Rooms.id_building"]["search"] = array("table" => "Assign Rooms", "field" => "id_building", "page" => "search");
+	$lookupTableLinks["Search Units"]["Assign_Rooms.system_id_unit"]["search"] = array("table" => "Assign Rooms", "field" => "system_id_unit", "page" => "search");
+	$lookupTableLinks["Search Rooms"]["Assign_Rooms.unee_t_level_3_id"]["edit"] = array("table" => "Assign Rooms", "field" => "unee_t_level_3_id", "page" => "edit");
+	$lookupTableLinks["ut_user_role_types"]["Assign_Rooms.unee_t_role_id"]["edit"] = array("table" => "Assign Rooms", "field" => "unee_t_role_id", "page" => "edit");
+	$lookupTableLinks["ut_user_types"]["Assign_Rooms.unee_t_user_type_id"]["edit"] = array("table" => "Assign Rooms", "field" => "unee_t_user_type_id", "page" => "edit");
+	$lookupTableLinks["property_groups_countries"]["Assign_Rooms.country_code"]["search"] = array("table" => "Assign Rooms", "field" => "country_code", "page" => "search");
 }
 
 ?>

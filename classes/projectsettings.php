@@ -2988,6 +2988,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "Export_and_Import_User_Types" ] = "Export and Import User Types";
 	$projectEntities[ "Export and Import Users" ] = array( "url" => "Export_and_Import_Users", "type" => 1 );
 	$projectEntitiesReverse[ "Export_and_Import_Users" ] = "Export and Import Users";
+	$projectEntities[ "Assign Rooms" ] = array( "url" => "Assign_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Rooms" ] = "Assign Rooms";
 }
 
 function findTable( $table ) {

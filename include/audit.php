@@ -500,6 +500,10 @@ class AuditTrailTable
 		{
 			return true;
 		}
+		if($table=="Assign Rooms")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1003,6 +1007,10 @@ class AuditTrailFile
 		if($table=="Export and Import Users")
 		{
 			return true;
+		}
+		if($table=="Assign Rooms")
+		{
+			return false;
 		}
 	}
 	

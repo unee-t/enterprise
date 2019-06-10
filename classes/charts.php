@@ -585,6 +585,8 @@ class Chart
 			return true;
 		if("external_persons" == $this->chrt_array['tables'][0])
 			return true;
+		if("external_map_user_unit_role_permissions_level_3" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

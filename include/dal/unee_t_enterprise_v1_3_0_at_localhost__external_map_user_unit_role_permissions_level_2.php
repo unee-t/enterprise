@@ -18,10 +18,8 @@ $dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_level_2_id"] = 
 $dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_user_type_id"] = array("type"=>3,"varname"=>"unee_t_user_type_id", "name" => "unee_t_user_type_id");
 $dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_role_id"] = array("type"=>3,"varname"=>"unee_t_role_id", "name" => "unee_t_role_id");
 $dalTableexternal_map_user_unit_role_permissions_level_2["propagate_level_3"] = array("type"=>16,"varname"=>"propagate_level_3", "name" => "propagate_level_3");
-	$dalTableexternal_map_user_unit_role_permissions_level_2["created_by_id"]["key"]=true;
 	$dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_mefe_user_id"]["key"]=true;
 	$dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_level_2_id"]["key"]=true;
-	$dalTableexternal_map_user_unit_role_permissions_level_2["unee_t_user_type_id"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_2"] = &$dalTableexternal_map_user_unit_role_permissions_level_2;
 ?>

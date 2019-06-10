@@ -144,7 +144,132 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
+				<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-page="Assign_Rooms_to_User_search" > 
+	Search by Users</span>
+											
+{BEGIN unee_t_role_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_role_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_role_id" 
+	
+	data-signal-error-for="unee_t_role_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="unee_t_role_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_role_id}">
+		{$label Assign_Rooms_to_User unee_t_role_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_role_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_role_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_role_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_role_id_fieldblock}
+											
+{BEGIN unee_t_user_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_user_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_user_type_id" 
+	
+	data-signal-error-for="unee_t_user_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="unee_t_user_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_user_type_id}">
+		{$label Assign_Rooms_to_User unee_t_user_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_user_type_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_user_type_id_fieldblock}
+											
+{BEGIN unee_t_mefe_user_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_mefe_user_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_mefe_user_id" 
+	
+	data-signal-error-for="unee_t_mefe_user_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="unee_t_mefe_user_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_mefe_user_id}">
+		{$label Assign_Rooms_to_User unee_t_mefe_user_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_mefe_user_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_mefe_user_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_mefe_user_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_mefe_user_id_fieldblock}
+											
+{BEGIN name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="name" 
+	
+	data-signal-error-for="name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_name}">
+		{$label Assign_Rooms_to_User name }	</label>
+	<div class="r-search-option">
+		{$searchtype_name}
+	</div>
+	<div class="r-search-field">
+		{$name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$name_editcontrol1}
+	</div>
+	
+</div>
+
+{END name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text3" {$item_text3} data-pageid="{$pageid}" data-page="Assign_Rooms_to_User_search" > 
+	Reduce the list with these criterias</span>
+											
 {BEGIN country_code_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-horizontal-field form-horizontal" 
@@ -220,31 +345,6 @@
 
 {END id_building_fieldblock}
 											
-{BEGIN building_name_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_building_name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="building_name" 
-	
-	data-signal-error-for="building_name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="building_name" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_building_name}">
-		{$label Assign_Rooms_to_User building_name }	</label>
-	<div class="r-search-option">
-		{$searchtype_building_name}
-	</div>
-	<div class="r-search-field">
-		{$building_name_editcontrol}	</div>
-	<div class="r-search-field">
-		{$building_name_editcontrol1}
-	</div>
-	
-</div>
-
-{END building_name_fieldblock}
-											
 {BEGIN system_id_unit_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_system_id_unit}  r-horizontal-field form-horizontal" 
@@ -269,127 +369,6 @@
 </div>
 
 {END system_id_unit_fieldblock}
-											
-{BEGIN unit_name_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unit_name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unit_name" 
-	
-	data-signal-error-for="unit_name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="unit_name" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unit_name}">
-		{$label Assign_Rooms_to_User unit_name }	</label>
-	<div class="r-search-option">
-		{$searchtype_unit_name}
-	</div>
-	<div class="r-search-field">
-		{$unit_name_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unit_name_editcontrol1}
-	</div>
-	
-</div>
-
-{END unit_name_fieldblock}
-											
-{BEGIN room_name_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_room_name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="room_name" 
-	
-	data-signal-error-for="room_name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="room_name" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_room_name}">
-		{$label Assign_Rooms_to_User room_name }	</label>
-	<div class="r-search-option">
-		{$searchtype_room_name}
-	</div>
-	<div class="r-search-field">
-		{$room_name_editcontrol}	</div>
-	<div class="r-search-field">
-		{$room_name_editcontrol1}
-	</div>
-	
-</div>
-
-{END room_name_fieldblock}
-	
-								</td>
-			{END cellblock_grid_c3}
-								</tr>
-	 
-	 
-														<tr>
-										
-
-{BEGIN cellblock_grid_c4}
-<td
-	{$cell_grid_c4}
-	class=" r-ori-vert"
-	
-				data-fullwidth
-		
-			data-cellId="grid_c4" data-pageid="{$pageid}"
-		data-v-cell="6"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN unee_t_role_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_role_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unee_t_role_id" 
-	
-	data-signal-error-for="unee_t_role_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="unee_t_role_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_role_id}">
-		{$label Assign_Rooms_to_User unee_t_role_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_unee_t_role_id}
-	</div>
-	<div class="r-search-field">
-		{$unee_t_role_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unee_t_role_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END unee_t_role_id_fieldblock}
-											
-{BEGIN unee_t_user_type_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_user_type_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unee_t_user_type_id" 
-	
-	data-signal-error-for="unee_t_user_type_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="unee_t_user_type_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_user_type_id}">
-		{$label Assign_Rooms_to_User unee_t_user_type_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_unee_t_user_type_id}
-	</div>
-	<div class="r-search-field">
-		{$unee_t_user_type_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unee_t_user_type_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END unee_t_user_type_id_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c4}
@@ -411,56 +390,60 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN name_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="name" 
-	
-	data-signal-error-for="name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="name" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_name}">
-		{$label Assign_Rooms_to_User name }	</label>
-	<div class="r-search-option">
-		{$searchtype_name}
-	</div>
-	<div class="r-search-field">
-		{$name_editcontrol}	</div>
-	<div class="r-search-field">
-		{$name_editcontrol1}
-	</div>
-	
-</div>
-
-{END name_fieldblock}
+				<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page="Assign_Rooms_to_User_search" > 
+	Or type the name of the Room</span>
 											
-{BEGIN unee_t_update_ts_fieldblock}
+{BEGIN room_name_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_update_ts}  r-horizontal-field form-horizontal" 
+<div class="r-integrated-field form-group clearfix {$fielddispclass_room_name}  r-horizontal-field form-horizontal" 
 	
-		data-fieldname="unee_t_update_ts" 
+		data-fieldname="room_name" 
 	
-	data-signal-error-for="unee_t_update_ts{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="unee_t_update_ts" >
+	data-signal-error-for="room_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="room_name" >
 
 
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_update_ts}">
-		{$label Assign_Rooms_to_User unee_t_update_ts }	</label>
+	<label class="r-search-label control-label" for="{$labelfor_room_name}">
+		{$label Assign_Rooms_to_User room_name }	</label>
 	<div class="r-search-option">
-		{$searchtype_unee_t_update_ts}
+		{$searchtype_room_name}
 	</div>
 	<div class="r-search-field">
-		{$unee_t_update_ts_editcontrol}	</div>
+		{$room_name_editcontrol}	</div>
 	<div class="r-search-field">
-		{$unee_t_update_ts_editcontrol1}
+		{$room_name_editcontrol1}
 	</div>
 	
 </div>
 
-{END unee_t_update_ts_fieldblock}
+{END room_name_fieldblock}
+											<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="Assign_Rooms_to_User_search" > 
+	Or search the room directly</span>
+											
+{BEGIN unee_t_level_3_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_level_3_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_level_3_id" 
+	
+	data-signal-error-for="unee_t_level_3_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="unee_t_level_3_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_level_3_id}">
+		{$label Assign_Rooms_to_User unee_t_level_3_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_level_3_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_level_3_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_level_3_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_level_3_id_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c}

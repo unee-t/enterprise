@@ -367,6 +367,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("Export_and_Import_Users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("Assign_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -661,6 +663,11 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="Export and Import Users";
 	}
+	$strPerm = GetUserPermissions("Assign Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Rooms";
+	}
 	return $arr;
 }
 
@@ -719,6 +726,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Export and Import Rooms";
 	$arr[]="Export and Import User Types";
 	$arr[]="Export and Import Users";
+	$arr[]="Assign Rooms";
 	return $arr;
 }
 
@@ -1617,6 +1625,7 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Export and Import Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import User Types_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import Users_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Rooms_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1831,6 +1840,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Assign Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	//	 check user group permissions
 	$localAction = strtolower($strAction);
@@ -2002,6 +2017,10 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Export and Import Users")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Rooms")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

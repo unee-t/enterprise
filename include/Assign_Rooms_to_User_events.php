@@ -58,7 +58,15 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Assign_Rooms_to_Users_Add_Page';
 
-	# We check if we have already created this record:
+	// Mark the record as NOT obsolete
+
+		$values['is_obsolete'] = 0 ;
+
+	// Mark the record as is_update_needed
+
+		$values['is_update_needed'] = 1 ;
+
+# We check if we have already created this record:
 
 		# We establish the connection:
 		# We do that the old way AND the new way

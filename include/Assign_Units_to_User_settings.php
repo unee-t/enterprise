@@ -71,7 +71,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsAssign_Units_to_User["English"]["unee_t_role_id"] = "Role";
 	$fieldToolTipsAssign_Units_to_User["English"]["unee_t_role_id"] = "";
 	$placeHoldersAssign_Units_to_User["English"]["unee_t_role_id"] = "";
-	$fieldLabelsAssign_Units_to_User["English"]["person_id"] = "Person";
+	$fieldLabelsAssign_Units_to_User["English"]["person_id"] = "User";
 	$fieldToolTipsAssign_Units_to_User["English"]["person_id"] = "";
 	$placeHoldersAssign_Units_to_User["English"]["person_id"] = "";
 	$fieldLabelsAssign_Units_to_User["English"]["user_role"] = "Role";
@@ -113,7 +113,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsAssign_Units_to_User["English"]["country_name"] = "Country Name";
 	$fieldToolTipsAssign_Units_to_User["English"]["country_name"] = "";
 	$placeHoldersAssign_Units_to_User["English"]["country_name"] = "";
-	$fieldLabelsAssign_Units_to_User["English"]["name"] = "Name";
+	$fieldLabelsAssign_Units_to_User["English"]["name"] = "User Name";
 	$fieldToolTipsAssign_Units_to_User["English"]["name"] = "";
 	$placeHoldersAssign_Units_to_User["English"]["name"] = "";
 	$fieldLabelsAssign_Units_to_User["English"]["unee_t_mefe_unit_id"] = "Unee T Mefe Unit Id";
@@ -2064,7 +2064,10 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	$edata["LookupOrderBy"] = "name";
 
 	
-	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "unee_t_user_type_id", "lookup" => "unee_t_user_type_id" );
+
 	
 	
 
@@ -2345,7 +2348,10 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	$edata["LookupOrderBy"] = "order";
 
 	
-	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "country_code", "lookup" => "country_code" );
+
 	
 	
 				//dependent dropdowns @deprecated data ?
@@ -3388,12 +3394,69 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["view"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["list"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["print"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["export"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
 
 	
 	
@@ -3413,17 +3476,122 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+	$edata = array("EditFormat" => "Readonly");
+
+	
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["add"] = $edata;
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Search Users";
+		$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "person_id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "name";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "unee_t_user_type_id", "lookup" => "unee_t_user_type_id" );
+
+	
+	
+
+	
+		$edata["Multiselect"] = true;
+
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
@@ -3434,17 +3602,17 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	
 	
 	
-	$fdata["EditFormats"]["edit"] = $edata;
+	$fdata["EditFormats"]["search"] = $edata;
 //	End Edit Formats
 
 
-	$fdata["isSeparate"] = false;
+	$fdata["isSeparate"] = true;
 
 
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3828,6 +3996,10 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 				//dependent dropdowns @deprecated data ?
 	$edata["DependentLookups"] = array();
 	$edata["DependentLookups"][] = "unee_t_mefe_user_id";
+				$edata["DependentLookups"][] = "unee_t_mefe_user_id";
+				//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+	$edata["DependentLookups"][] = "person_id";
 
 	
 	
@@ -4473,6 +4645,9 @@ $tdataAssign_Units_to_User[".hideMobileList"] = array();
 	
 	
 	
+				//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+	$edata["DependentLookups"][] = "area_id";
 
 	
 		$edata["Multiselect"] = true;

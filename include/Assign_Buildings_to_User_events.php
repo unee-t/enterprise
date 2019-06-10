@@ -58,7 +58,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Assign_Buildings_to_Users_Add_Page';
 
-	// Mark the record as obsolete
+	// Mark the record as NOT obsolete
 
 		$values['is_obsolete'] = 0 ;
 

@@ -59,7 +59,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsSearch_Users["English"]["unee_t_user_type_id"] = "Unee-T User Type";
 	$fieldToolTipsSearch_Users["English"]["unee_t_user_type_id"] = "";
 	$placeHoldersSearch_Users["English"]["unee_t_user_type_id"] = "";
-	$fieldLabelsSearch_Users["English"]["organization_id_person"] = "Organization Id Person";
+	$fieldLabelsSearch_Users["English"]["organization_id_person"] = "Person";
 	$fieldToolTipsSearch_Users["English"]["organization_id_person"] = "";
 	$placeHoldersSearch_Users["English"]["organization_id_person"] = "";
 	$fieldLabelsSearch_Users["English"]["email"] = "Email";

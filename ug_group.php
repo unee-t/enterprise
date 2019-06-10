@@ -61,6 +61,7 @@ $nonAdminTablesArr[] = "List of Countries";
 $nonAdminTablesArr[] = "Export and Import Rooms";
 $nonAdminTablesArr[] = "Export and Import User Types";
 $nonAdminTablesArr[] = "Export and Import Users";
+$nonAdminTablesArr[] = "Assign Rooms";
 
 $ug_connection = $cman->getForUserGroups();
 
