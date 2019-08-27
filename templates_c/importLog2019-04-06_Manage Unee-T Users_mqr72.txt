@@ -1,6 +1,0 @@
-Import into external_persons
-06/04/19 03:14:10
-
-1 out of 1 records processed successfully.
-1 records added.
-0 records updated.
