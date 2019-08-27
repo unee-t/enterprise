@@ -302,7 +302,7 @@ $pageMode = EditPage::readEditModeFromRequest();
 
 $xt = new Xtempl();	
 	
-$id = postvalue("id");
+$id = postvalue_number("id");
 $id = intval($id) == 0 ? 1 : $id;
 
 

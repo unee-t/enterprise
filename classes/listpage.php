@@ -302,6 +302,8 @@ class ListPage extends RunnerPage
 			$this->pageData['urlParams'] = $this->getUrlParams();
 		}
 
+		// RunnerPage fillTableSettings doesn't work well with listGridLayout key
+		$this->jsSettings['tableSettings'][ $this->tName ]['listGridLayout'] = $this->listGridLayout;
 	}
 
 	protected function createOrderByObject() {
@@ -615,7 +617,8 @@ class ListPage extends RunnerPage
 			// add class for mobile columns hiding
 			if( isset( $this->hiddenColumnClasses[$goodName] ) )
 				$fieldClassStr .= " ".$this->hiddenColumnClasses[$goodName ];
-			$this->xt->assign(GoodFieldName($field)."_class", $fieldClassStr); 
+			$this->xt->assign(GoodFieldName($field)."_class", $fieldClassStr);						
+			$this->xt->assign(GoodFieldName($field)."_align", $this->fieldAlign($field));
 		}
 	}
 	
@@ -761,8 +764,11 @@ class ListPage extends RunnerPage
 					$grConnection = $cman->getForUserGroups();
 					
 					$sql = "delete from ". $grConnection->addTableWrappers( "uneet_enterprise_ugmembers" ) 
-						." where ". $grConnection->addFieldWrappers( "UserName" ) 
-						."=". $grConnection->prepareString( $deleted_values[ GetUserNameField() ] );
+						." where ". $grConnection->comparisonSQL( 
+							$grConnection->addFieldWrappers( "UserName" ),
+							$grConnection->prepareString( $deleted_values[ GetUserNameField() ] ),
+							$this->pSet->isCaseInsensitiveUsername()
+						);
 
 					$grConnection->exec( $sql );
 				}
@@ -800,8 +806,12 @@ class ListPage extends RunnerPage
 		
 		if(no_output_done() && count($this->selectedRecs) && !strlen($this->deleteMessage)) 
 		{	
+			$getParams = "a=return";
+			if ( postvalue("page") )			
+				$getParams .= "&page=" . postvalue("page");
+				
 			// redirect, add a=return param for saving SESSION
-			HeaderRedirect($this->shortTableName, $this->getPageType(), "a=return");
+			HeaderRedirect($this->shortTableName, $this->getPageType(), $getParams);
 			// turned on output buffering, so we need to stop script
 			exit();
 		}
@@ -963,7 +973,7 @@ class ListPage extends RunnerPage
 		// hiding header, if no rows
 		if(!$this->numRowsFromSQL){
 			$this->xt->assign("gridHeader_class", " ".$this->makeClassName("hiddenelem"));
-			$this->xt->assign("gridFooter_class", " ".$this->makeClassName("hiddenelem"));
+			$this->xt->assign("gridFooter_class", "r-grid-footer ".$this->makeClassName("hiddenelem"));
 		}
 		
 		
@@ -1742,6 +1752,7 @@ class ListPage extends RunnerPage
 		
 		//	add grid data
 		$data = $this->beforeProccessRow();
+		$prewData = false;
 		$lockRecIds = array();
 		
 		$tKeys = $this->pSet->getTableKeys();
@@ -1759,6 +1770,8 @@ class ListPage extends RunnerPage
 		{
 			$currentPageSize = $this->pSet->getRecordsLimit() - ( ($this->myPage-1) * $this->pageSize);
 		}		
+		
+		$_notEmptyFieldColumns = array();	
 		
 		while($data && ($this->recNo <= $currentPageSize || $currentPageSize == -1 ) ) 
 		{
@@ -1778,21 +1791,22 @@ class ListPage extends RunnerPage
 				$record["recId"] = $this->recId;
 				$gridRowInd = count($this->controlsMap['gridRows']);
 				$this->controlsMap['gridRows'][$gridRowInd] = array();
-				$this->controlsMap['gridRows'][$gridRowInd]['id'] = $this->recId;
-				$this->controlsMap['gridRows'][$gridRowInd]['rowInd'] = $gridRowInd;
+				$currentRow = &$this->controlsMap['gridRows'][$gridRowInd];
+				$currentRow['id'] = $this->recId;
+				$currentRow['rowInd'] = $gridRowInd;
 				//Add the connection with containing row. It's important for vertical layout's multiple records per row mode
-				$this->controlsMap['gridRows'][$gridRowInd]['contextRowId'] = $this->recId + $this->colsOnPage - $col;
+				$currentRow['contextRowId'] = $this->recId + $this->colsOnPage - $col;
 				$isEditable = $this->permis[$this->tName]['edit'] && CheckSecurity($data[$this->mainTableOwnerID], "Edit", $this->tName) 
 					|| $this->permis[$this->tName]['delete'] && CheckSecurity($data[$this->mainTableOwnerID], "Delete", $this->tName);
 				if($globalEvents->exists("IsRecordEditable", $this->tName))
 					$isEditable = $globalEvents->IsRecordEditable($data, $isEditable, $this->tName);
-				$this->controlsMap['gridRows'][$gridRowInd]['isEditOwnRow'] = $isEditable;
-				$this->controlsMap['gridRows'][$gridRowInd]['gridLayout'] = $this->listGridLayout;
-				$this->controlsMap['gridRows'][$gridRowInd]['keyFields'] = array();
-				$this->controlsMap['gridRows'][$gridRowInd]['keys'] = array();
+					$currentRow['isEditOwnRow'] = $isEditable;
+					$currentRow['gridLayout'] = $this->listGridLayout;
+					$currentRow['keyFields'] = array();
+					$currentRow['keys'] = array();
 				for($i = 0; $i < count($tKeys); $i ++) {
-					$this->controlsMap['gridRows'][$gridRowInd]['keyFields'][$i] = $tKeys[$i];
-					$this->controlsMap['gridRows'][$gridRowInd]['keys'][$i] = $data[$tKeys[$i]];
+					$currentRow['keyFields'][$i] = $tKeys[$i];
+					$currentRow['keys'][$i] = $data[$tKeys[$i]];
 				}
 				$record["edit_link"] = $isEditable;
 				$record["inlineedit_link"] = $isEditable;
@@ -1842,10 +1856,12 @@ class ListPage extends RunnerPage
 						$editlink.= "&";
 						$copylink.= "&";
 					}
-					$keyblock.= rawurlencode($data[$tKeys[$i]]);
-					$editlink.= "editid".($i + 1)."=".runner_htmlspecialchars(rawurlencode($data[$tKeys[$i]]));
-					$copylink.= "copyid".($i + 1)."=".runner_htmlspecialchars(rawurlencode($data[$tKeys[$i]]));
-					$keylink.= "&key".($i + 1)."=".runner_htmlspecialchars(rawurlencode(@$data[$tKeys[$i]]));
+					$keyValue = rawurlencode($data[$tKeys[$i]]);
+					$keyValueHtml = runner_htmlspecialchars( $keyValue );
+					$keyblock.= $keyValue;
+					$editlink.= "editid".($i + 1)."=".$keyValueHtml;
+					$copylink.= "copyid".($i + 1)."=".$keyValueHtml;
+					$keylink.= "&key".($i + 1)."=".$keyValueHtml;
 					$keys[$i] = $data[$tKeys[$i]];
 					
 				}
@@ -1892,6 +1908,8 @@ class ListPage extends RunnerPage
 				if( $this->hasBigMap() )
 					$this->addBigGoogleMapMarkers($data, $keys, $editlink);
 				
+				$fieldsToHideIfEmpty = $this->pSet->getFieldsToHideIfEmpty();
+				
 				for($i = 0; $i < count($this->listFields); $i ++) 
 				{
 					// call addGoogleMapData before call proccessRecordValue!!!
@@ -1899,6 +1917,18 @@ class ListPage extends RunnerPage
 						$this->addGoogleMapData( $this->listFields[$i]['fName'], $data, $keys, $editlink ); 
 				
 					$record[$this->listFields[$i]['valueFieldName']] = $this->proccessRecordValue($data, $keylink, $this->listFields[$i]);
+					
+					if(  in_array( $this->listFields[$i]['fName'], $fieldsToHideIfEmpty ) )
+					{
+						if( $this->listGridLayout != gltHORIZONTAL &&  $record[ $this->listFields[$i]['valueFieldName'] ] == "" )
+						{
+							$this->hideField( $this->listFields[$i]['fName'], $this->recId );
+						} 
+						else if ( $this->listGridLayout == gltHORIZONTAL &&  $record[ $this->listFields[$i]['valueFieldName'] ] != "" )
+						{
+							$_notEmptyFieldColumns[ $this->listFields[$i]['fName'] ] = true;
+						}	
+					}
 				}
 								
 				$this->addSpansForGridCells('edit', $record, $data);
@@ -1928,6 +1958,20 @@ class ListPage extends RunnerPage
 				//set the $row["grid_record"] value
 				$this->setRowsGridRecord($row, $record);
 				
+				// hide group fields
+				if ( $prewData )
+				{
+					$grFields = $this->pSet->getGroupFields();					
+					foreach ( $grFields as $grF )
+					{
+						if ( $data[$grF] != $prewData[$grF] )					
+							break;
+						foreach ( $this->pSet->getFieldItems( $grF ) as $fItemId)
+							$this->hideItem($fItemId, $this->recId);
+					}
+				}				
+				$prewData = $data;
+
 				$data = $this->beforeProccessRow();
 				
 				$this->recNo ++;
@@ -1983,6 +2027,15 @@ class ListPage extends RunnerPage
 		}
 		
 		$this->buildTotals($totals);
+		
+		if(  $this->listGridLayout == gltHORIZONTAL )
+		{
+			foreach( $this->pSet->getFieldsToHideIfEmpty() as $f ) 
+			{
+				if( !$_notEmptyFieldColumns[ $f ] ) 
+					$this->hideField( $f );
+			}
+		}
 	}
 	
 	/**
@@ -2056,9 +2109,9 @@ class ListPage extends RunnerPage
 			return ' rnr-field-checkbox';
 		
 		if( $format == FORMAT_NUMBER || IsNumberType( $this->pSet->getFieldType($f) ) )
-			return ' rnr-field-number';
+			return ' r-field-number';
 			
-		return 'rnr-field-text';
+		return 'r-field-text';
 	}
 	
 	/**
@@ -2119,7 +2172,9 @@ class ListPage extends RunnerPage
 							false,
 							$this );
 						
-						$total = "<span id=\"total".$this->id."_" . $goodName . "\">".$total."</span>";
+						if( !$this->pdfJsonMode() ) {
+							$total = "<span id=\"total".$this->id."_" . $goodName . "\">".$total."</span>";
+						}
 						
 						$this->xt->assign( $goodName ."_total", $total);
 						
@@ -2405,6 +2460,9 @@ class ListPage extends RunnerPage
 				$this->xt->assign("reorder_records", true);
 				$this->hideElement("reorder_records");			
 			}
+			else 
+				$this->hideItem("sort_dropdown");
+			
 			return;
 		}
 		
@@ -2690,10 +2748,10 @@ class ListPage extends RunnerPage
 	 * Hide the field on the page
 	 * @param String fieldName
 	 */
-	function hideField($fieldName)
+	function hideField($fieldName, $recordId = "")
 	{
 		if( $this->isPD() ) {
-			return parent::hideField( $fieldName );
+			return parent::hideField( $fieldName, $recordId );
 		}
 		$this->xt->assign(GoodFieldName($fieldName) ."_fieldheadercolumn", false);
 		$this->xt->assign(GoodFieldName($fieldName) . "_fieldcolumn", false);

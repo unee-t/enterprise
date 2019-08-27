@@ -17,7 +17,6 @@ class ViewFileDownloadField extends ViewFileField
 	public function addJSFiles()
 	{
 		if($this->container->pSet->showThumbnail($this->field)){
-						$this->AddJSFile("include/zoombox/zoombox.js");
 			$this->getJSControl();
 		}
 	}
@@ -28,8 +27,6 @@ class ViewFileDownloadField extends ViewFileField
 	 */ 
 	function addCSSFiles()
 	{
-		if($this->container->pSet->showThumbnail($this->field))
-			$this->AddCSSFile("include/zoombox/zoombox.css");
 	}
 	
 	public function showDBValue( &$data, $keylink, $html = true )
@@ -40,8 +37,7 @@ class ViewFileDownloadField extends ViewFileField
 		$showThumbnails = $this->container->pSet->showThumbnail($this->field);
 		$isExport = $this->container->pageType == PAGE_EXPORT
 			|| $this->container->forExport != ''; 
-		if($showThumbnails)
-			$zoomboxRand = rand(11111, 99999);
+
 		foreach ($filesArray as $file)
 		{
 			$userFile = $this->upload_handler->buildUserFile($file);
@@ -50,8 +46,7 @@ class ViewFileDownloadField extends ViewFileField
 				$value .= ($value != "" ? "<br>" : "");
 				if($showThumbnails && $userFile["thumbnail_url"] != "" && CheckImageExtension($file["name"])) 
 				{
-					$value .= "<a target=_blank href=\"".runner_htmlspecialchars($userFile["url"])
-						."\" class='zoombox zgallery".$zoomboxRand."'><img  border='0'";
+					$value .= "<a target=_blank href=\"".runner_htmlspecialchars($userFile["url"])."\" ><img  border='0'";
 					if($this->is508)
 						$value .= " alt=\"".runner_htmlspecialchars($userFile["name"])."\"";
 					$value .= " src=\"".runner_htmlspecialchars(GetRootPathForResources($userFile["thumbnail_url"]))."\" /></a>";

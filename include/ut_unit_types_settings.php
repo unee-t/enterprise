@@ -112,7 +112,7 @@ $tdataut_unit_types[".listAjax"] = false;
 	$tdataut_unit_types[".locking"] = false;
 
 
-$pages = $tdataut_unit_types[".pages"];
+$pages = $tdataut_unit_types[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataut_unit_types[".edit"] = true;
@@ -347,6 +347,10 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -354,6 +358,7 @@ $tdataut_unit_types[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -472,13 +477,17 @@ $tdataut_unit_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -598,11 +607,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -722,11 +736,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -845,13 +864,17 @@ $tdataut_unit_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -971,11 +994,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1095,11 +1123,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1219,11 +1252,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1343,11 +1381,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1467,11 +1510,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1591,11 +1639,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1715,11 +1768,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1839,11 +1897,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1963,11 +2026,16 @@ $tdataut_unit_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	

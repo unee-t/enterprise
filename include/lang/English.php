@@ -337,6 +337,7 @@ $mlang_messages["English"]["RECORD_NOT_UPDATED"]="Record was NOT edited";
 $mlang_messages["English"]["RECORD_UPDATED"]="Record updated";
 $mlang_messages["English"]["REENTER"]="Re-enter password";
 $mlang_messages["English"]["REGISTER"]="Register";
+$mlang_messages["English"]["REGISTER_ACTIVATE"]="An email has been sent to %email% containing further instructions. Click on the link provided in the email to complete the registration.";
 $mlang_messages["English"]["REGMAIL_ADMIN1"]="User registered at";
 $mlang_messages["English"]["REGMAIL_USER1"]="You have registered as a user at";
 $mlang_messages["English"]["REGMAIL_USER2"]="Click this link to confirm your account and finish the registration";

@@ -419,7 +419,9 @@ class ViewHTMLField extends ViewControl
 			$tName = $this->getContainer()->tName;
 			$params = 'pagetype='.$this->container->pSet->_viewPage.'&table='.GetTableURL($tName).'&field='.rawurlencode($this->field).$keylink;
 			
-			$dataField = 'data-field="'.runner_htmlspecialchars( $this->field ).'"';
+			$label = $this->container->pSet->label( $this->field );
+			$dataField = 'data-fieldlabel="'.runner_htmlspecialchars( $label ).'"';
+			
 			$link = ' <a href="javascript:void(0);" data-gridlink data-query="'.GetTableLink("fulltext").'?'.$params.'" '.$dataField.'>'
 				."More".'&nbsp;...</a>';
 			$processedValue.= $link;			
@@ -557,7 +559,7 @@ class ViewHTMLField extends ViewControl
 	 * @param Number cNumberOfChars		
 	 * @return String
 	 */	
-	protected function getShorteningText($value, $cNumberOfChars)
+	protected function getShorteningText($value, $cNumberOfChars, $html = true)
 	{
 		$data = $this->getPocessedHTMLValueData($value, $cNumberOfChars);
 		if( $data["isTruncated"] )		

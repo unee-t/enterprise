@@ -132,6 +132,17 @@ class MySQLFunctions extends DBFunctions
 	{
 		return false;
 	}
+
+	public function caseSensitiveComparison( $val1, $val2 )
+	{
+		return 'binary ' . $val1 . ' = ' . $val2;
+	}
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL.= " limit ".(($pageStart - 1) * $pageSize).",".$pageSize;
+		return $connection->query( $strSQL );
+	}
 	
 }
 ?>

@@ -96,7 +96,7 @@ $page_layouts["admin_rights_import"] = $layout;
 require_once('include/xtempl.php');
 $xt = new Xtempl();
 
-$id = postvalue("id");
+$id = postvalue_number("id");
 $id = $id != "" ? $id : 1;
 
 //an array of params for ImportPage constructor

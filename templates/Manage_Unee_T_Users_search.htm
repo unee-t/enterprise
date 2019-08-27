@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 	<body class="{$stylename} function-search" {$bodyattrs}>
 	{BEGIN body}
@@ -28,15 +28,17 @@
 				data-body-align="left"
 			>
 								{BEGIN supertop_block}
-<nav class="navbar navbar-default
-	bs-fullwidth-navbar
-" 
+<nav class="navbar navbar-default" 
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
-			 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
-	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-brick="logo" data-pageid="{$pageid}" {$logo_hiddenattr}>
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
 	</A>
 {END logo_block}
@@ -45,12 +47,12 @@
 					<span class="icon-bar"></span>					
 				</button>				
 			</span>
-				 
-			 
+							 
+							 
 				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu main horizontal}			</span>
-				 
-						</nav>
+							 
+													</nav>
 {END supertop_block}
 				</div>	
 			
@@ -141,156 +143,6 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN external_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="external_id" 
-	
-	data-signal-error-for="external_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="external_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_external_id}">
-		{$label Manage_Unee_T_Users external_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_external_id}
-	</div>
-	<div class="r-search-field">
-		{$external_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$external_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END external_id_fieldblock}
-											
-{BEGIN external_system_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="external_system" 
-	
-	data-signal-error-for="external_system{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="external_system" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_external_system}">
-		{$label Manage_Unee_T_Users external_system }	</label>
-	<div class="r-search-option">
-		{$searchtype_external_system}
-	</div>
-	<div class="r-search-field">
-		{$external_system_editcontrol}	</div>
-	<div class="r-search-field">
-		{$external_system_editcontrol1}
-	</div>
-	
-</div>
-
-{END external_system_fieldblock}
-											
-{BEGIN external_table_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_external_table}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="external_table" 
-	
-	data-signal-error-for="external_table{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="external_table" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_external_table}">
-		{$label Manage_Unee_T_Users external_table }	</label>
-	<div class="r-search-option">
-		{$searchtype_external_table}
-	</div>
-	<div class="r-search-field">
-		{$external_table_editcontrol}	</div>
-	<div class="r-search-field">
-		{$external_table_editcontrol1}
-	</div>
-	
-</div>
-
-{END external_table_fieldblock}
-											
-{BEGIN person_status_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_person_status_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="person_status_id" 
-	
-	data-signal-error-for="person_status_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="person_status_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_person_status_id}">
-		{$label Manage_Unee_T_Users person_status_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_person_status_id}
-	</div>
-	<div class="r-search-field">
-		{$person_status_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$person_status_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END person_status_id_fieldblock}
-											
-{BEGIN is_unee_t_account_needed_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_unee_t_account_needed}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="is_unee_t_account_needed" 
-	
-	data-signal-error-for="is_unee_t_account_needed{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="is_unee_t_account_needed" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_is_unee_t_account_needed}">
-		{$label Manage_Unee_T_Users is_unee_t_account_needed }	</label>
-	<div class="r-search-option">
-		{$searchtype_is_unee_t_account_needed}
-	</div>
-	<div class="r-search-field">
-		{$is_unee_t_account_needed_editcontrol}	</div>
-	<div class="r-search-field">
-		{$is_unee_t_account_needed_editcontrol1}
-	</div>
-	
-</div>
-
-{END is_unee_t_account_needed_fieldblock}
-											
-{BEGIN unee_t_user_type_id_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_user_type_id}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="unee_t_user_type_id" 
-	
-	data-signal-error-for="unee_t_user_type_id{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="unee_t_user_type_id" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_unee_t_user_type_id}">
-		{$label Manage_Unee_T_Users unee_t_user_type_id }	</label>
-	<div class="r-search-option">
-		{$searchtype_unee_t_user_type_id}
-	</div>
-	<div class="r-search-field">
-		{$unee_t_user_type_id_editcontrol}	</div>
-	<div class="r-search-field">
-		{$unee_t_user_type_id_editcontrol1}
-	</div>
-	
-</div>
-
-{END unee_t_user_type_id_fieldblock}
-											
 {BEGIN country_code_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-horizontal-field form-horizontal" 
@@ -315,31 +167,6 @@
 </div>
 
 {END country_code_fieldblock}
-											
-{BEGIN gender_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_gender}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="gender" 
-	
-	data-signal-error-for="gender{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="gender" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_gender}">
-		{$label Manage_Unee_T_Users gender }	</label>
-	<div class="r-search-option">
-		{$searchtype_gender}
-	</div>
-	<div class="r-search-field">
-		{$gender_editcontrol}	</div>
-	<div class="r-search-field">
-		{$gender_editcontrol1}
-	</div>
-	
-</div>
-
-{END gender_fieldblock}
 											
 {BEGIN email_fieldblock}
 
@@ -366,30 +193,205 @@
 
 {END email_fieldblock}
 											
-{BEGIN designation_fieldblock}
+{BEGIN person_status_id_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-horizontal-field form-horizontal" 
+<div class="r-integrated-field form-group clearfix {$fielddispclass_person_status_id}  r-horizontal-field form-horizontal" 
 	
-		data-fieldname="designation" 
+		data-fieldname="person_status_id" 
 	
-	data-signal-error-for="designation{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="designation" >
+	data-signal-error-for="person_status_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="person_status_id" >
 
 
-	<label class="r-search-label control-label" for="{$labelfor_designation}">
-		{$label Manage_Unee_T_Users designation }	</label>
+	<label class="r-search-label control-label" for="{$labelfor_person_status_id}">
+		{$label Manage_Unee_T_Users person_status_id }	</label>
 	<div class="r-search-option">
-		{$searchtype_designation}
+		{$searchtype_person_status_id}
 	</div>
 	<div class="r-search-field">
-		{$designation_editcontrol}	</div>
+		{$person_status_id_editcontrol}	</div>
 	<div class="r-search-field">
-		{$designation_editcontrol1}
+		{$person_status_id_editcontrol1}
 	</div>
 	
 </div>
 
-{END designation_fieldblock}
+{END person_status_id_fieldblock}
+											
+{BEGIN unee_t_user_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_user_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_user_type_id" 
+	
+	data-signal-error-for="unee_t_user_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="unee_t_user_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_user_type_id}">
+		{$label Manage_Unee_T_Users unee_t_user_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_user_type_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_user_type_id_fieldblock}
+											
+{BEGIN given_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_given_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="given_name" 
+	
+	data-signal-error-for="given_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="given_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_given_name}">
+		{$label Manage_Unee_T_Users given_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_given_name}
+	</div>
+	<div class="r-search-field">
+		{$given_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$given_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END given_name_fieldblock}
+											
+{BEGIN middle_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_middle_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="middle_name" 
+	
+	data-signal-error-for="middle_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="middle_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_middle_name}">
+		{$label Manage_Unee_T_Users middle_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_middle_name}
+	</div>
+	<div class="r-search-field">
+		{$middle_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$middle_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END middle_name_fieldblock}
+											
+{BEGIN family_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_family_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="family_name" 
+	
+	data-signal-error-for="family_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="family_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_family_name}">
+		{$label Manage_Unee_T_Users family_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_family_name}
+	</div>
+	<div class="r-search-field">
+		{$family_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$family_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END family_name_fieldblock}
+											
+{BEGIN job_title_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_job_title}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="job_title" 
+	
+	data-signal-error-for="job_title{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="job_title" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_job_title}">
+		{$label Manage_Unee_T_Users job_title }	</label>
+	<div class="r-search-option">
+		{$searchtype_job_title}
+	</div>
+	<div class="r-search-field">
+		{$job_title_editcontrol}	</div>
+	<div class="r-search-field">
+		{$job_title_editcontrol1}
+	</div>
+	
+</div>
+
+{END job_title_fieldblock}
+											
+{BEGIN organization_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization" 
+	
+	data-signal-error-for="organization{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="organization" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization}">
+		{$label Manage_Unee_T_Users organization }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization}
+	</div>
+	<div class="r-search-field">
+		{$organization_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_fieldblock}
+											
+{BEGIN is_unee_t_account_needed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_unee_t_account_needed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_unee_t_account_needed" 
+	
+	data-signal-error-for="is_unee_t_account_needed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="is_unee_t_account_needed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_unee_t_account_needed}">
+		{$label Manage_Unee_T_Users is_unee_t_account_needed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_unee_t_account_needed}
+	</div>
+	<div class="r-search-field">
+		{$is_unee_t_account_needed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_unee_t_account_needed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_unee_t_account_needed_fieldblock}
 											
 {BEGIN uneet_created_datetime_fieldblock}
 
@@ -415,6 +417,31 @@
 </div>
 
 {END uneet_created_datetime_fieldblock}
+											
+{BEGIN role_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="role_type" 
+	
+	data-signal-error-for="role_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="role_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_role_type}">
+		{$label Manage_Unee_T_Users role_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_role_type}
+	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END role_type_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -434,21 +461,21 @@
 	
 ">
 		 
-		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" {$searchbutton_attrs} >
 							Search			</a>
 </span>
 	 
-		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-default   
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
 	" {$resetbutton_attrs} >
 							Reset			</a>
 </span>
 	 
 		{BEGIN back_button}
-<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-default   
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
 	" {$backbutton_attrs} >
 							Back to list			</a>
 </span>

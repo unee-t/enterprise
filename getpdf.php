@@ -5,7 +5,7 @@
 require_once("include/dbcommon.php");
 
 $table = postvalue("table");
-$id = postvalue("id");
+$id = postvalue_number("id");
 if(!$table || !$id)
 	return;
 

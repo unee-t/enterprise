@@ -94,7 +94,7 @@ $tdatauneet_enterprise_users[".listAjax"] = false;
 	$tdatauneet_enterprise_users[".locking"] = false;
 
 
-$pages = $tdatauneet_enterprise_users[".pages"];
+$pages = $tdatauneet_enterprise_users[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatauneet_enterprise_users[".edit"] = true;
@@ -324,6 +324,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -331,6 +335,7 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -450,11 +455,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -574,11 +584,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Password");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -697,11 +712,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -821,11 +841,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -945,11 +970,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1069,11 +1099,16 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1193,13 +1228,17 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "uneet_enterprise_organizations";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -1226,6 +1265,7 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	

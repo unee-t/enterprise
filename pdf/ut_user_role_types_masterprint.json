@@ -104,10 +104,8 @@ pdfDocument = {
 		
 		
 		widths: [
-		 
-						'*', 
-					 ],
-		
+								"*", 
+					 ],	
 		
 		body: [
 				
@@ -133,7 +131,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-        },
+          },
 
 											],
 					]
@@ -177,7 +175,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$id_role_type_align}',
+  },
 
 {END cellblock_grid_headcell_field}
 																			{BEGIN cellblock_grid_headcell_field1}
@@ -202,7 +201,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_created_datetime_align}',
+  },
 
 {END cellblock_grid_headcell_field1}
 																			{BEGIN cellblock_grid_headcell_field2}
@@ -227,7 +227,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$creation_system_id_align}',
+  },
 
 {END cellblock_grid_headcell_field2}
 																			{BEGIN cellblock_grid_headcell_field3}
@@ -252,7 +253,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$created_by_id_align}',
+  },
 
 {END cellblock_grid_headcell_field3}
 																			{BEGIN cellblock_grid_headcell_field4}
@@ -277,7 +279,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_updated_datetime_align}',
+  },
 
 {END cellblock_grid_headcell_field4}
 																			{BEGIN cellblock_grid_headcell_field5}
@@ -302,7 +305,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_system_id_align}',
+  },
 
 {END cellblock_grid_headcell_field5}
 																			{BEGIN cellblock_grid_headcell_field6}
@@ -327,7 +331,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$updated_by_id_align}',
+  },
 
 {END cellblock_grid_headcell_field6}
 																			{BEGIN cellblock_grid_headcell_field7}
@@ -352,7 +357,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$order_align}',
+  },
 
 {END cellblock_grid_headcell_field7}
 																			{BEGIN cellblock_grid_headcell_field8}
@@ -377,7 +383,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_obsolete_align}',
+  },
 
 {END cellblock_grid_headcell_field8}
 																			{BEGIN cellblock_grid_headcell_field9}
@@ -402,7 +409,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$role_type_align}',
+  },
 
 {END cellblock_grid_headcell_field9}
 																			{BEGIN cellblock_grid_headcell_field10}
@@ -427,7 +435,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$bz_description_align}',
+  },
 
 {END cellblock_grid_headcell_field10}
 																			{BEGIN cellblock_grid_headcell_field11}
@@ -452,7 +461,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$description_align}',
+  },
 
 {END cellblock_grid_headcell_field11}
 											],
@@ -486,7 +496,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$id_role_type_align}',
+  },
 
 {END cellblock_grid_cell_field}
 																			{BEGIN cellblock_grid_cell_field1}
@@ -511,7 +522,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_created_datetime_align}',
+  },
 
 {END cellblock_grid_cell_field1}
 																			{BEGIN cellblock_grid_cell_field2}
@@ -536,7 +548,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$creation_system_id_align}',
+  },
 
 {END cellblock_grid_cell_field2}
 																			{BEGIN cellblock_grid_cell_field3}
@@ -561,7 +574,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$created_by_id_align}',
+  },
 
 {END cellblock_grid_cell_field3}
 																			{BEGIN cellblock_grid_cell_field4}
@@ -586,7 +600,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_updated_datetime_align}',
+  },
 
 {END cellblock_grid_cell_field4}
 																			{BEGIN cellblock_grid_cell_field5}
@@ -611,7 +626,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_system_id_align}',
+  },
 
 {END cellblock_grid_cell_field5}
 																			{BEGIN cellblock_grid_cell_field6}
@@ -636,7 +652,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$updated_by_id_align}',
+  },
 
 {END cellblock_grid_cell_field6}
 																			{BEGIN cellblock_grid_cell_field7}
@@ -661,7 +678,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$order_align}',
+  },
 
 {END cellblock_grid_cell_field7}
 																			{BEGIN cellblock_grid_cell_field8}
@@ -686,7 +704,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_obsolete_align}',
+  },
 
 {END cellblock_grid_cell_field8}
 																			{BEGIN cellblock_grid_cell_field9}
@@ -711,7 +730,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$role_type_align}',
+  },
 
 {END cellblock_grid_cell_field9}
 																			{BEGIN cellblock_grid_cell_field10}
@@ -736,7 +756,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$bz_description_align}',
+  },
 
 {END cellblock_grid_cell_field10}
 																			{BEGIN cellblock_grid_cell_field11}
@@ -761,7 +782,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$description_align}',
+  },
 
 {END cellblock_grid_cell_field11}
 											],
@@ -794,7 +816,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field}
 																			{BEGIN cellblock_grid_footcell_field1}
@@ -817,7 +839,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field1}
 																			{BEGIN cellblock_grid_footcell_field2}
@@ -840,7 +862,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field2}
 																			{BEGIN cellblock_grid_footcell_field3}
@@ -863,7 +885,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field3}
 																			{BEGIN cellblock_grid_footcell_field4}
@@ -886,7 +908,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field4}
 																			{BEGIN cellblock_grid_footcell_field5}
@@ -909,7 +931,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field5}
 																			{BEGIN cellblock_grid_footcell_field6}
@@ -932,7 +954,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field6}
 																			{BEGIN cellblock_grid_footcell_field7}
@@ -955,7 +977,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field7}
 																			{BEGIN cellblock_grid_footcell_field8}
@@ -978,7 +1000,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field8}
 																			{BEGIN cellblock_grid_footcell_field9}
@@ -1001,7 +1023,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field9}
 																			{BEGIN cellblock_grid_footcell_field10}
@@ -1024,7 +1046,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field10}
 																			{BEGIN cellblock_grid_footcell_field11}
@@ -1047,7 +1069,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field11}
 											],

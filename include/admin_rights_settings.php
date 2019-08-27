@@ -79,7 +79,7 @@ $tdataadmin_rights[".listAjax"] = false;
 	$tdataadmin_rights[".locking"] = false;
 
 
-$pages = $tdataadmin_rights[".pages"];
+$pages = $tdataadmin_rights[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataadmin_rights[".edit"] = true;
@@ -302,11 +302,16 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -426,6 +431,10 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -433,6 +442,7 @@ $tdataadmin_rights[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -552,11 +562,16 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	

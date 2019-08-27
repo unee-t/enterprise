@@ -30,7 +30,7 @@ class ViewDatabaseVideoField extends ViewControl
 			if($this->getContainer()->pageType != PAGE_ADD)
 				$videoId .= $this->getContainer()->recId;
 			else
-				$videoId .= postvalue("id");	
+				$videoId .= postvalue_number("id");	
 			$type = 'video/mp4';
 			$fileName = 'file.mp4';
 			$fileNameF = $this->getContainer()->pSet->getFilenameField($this->field);

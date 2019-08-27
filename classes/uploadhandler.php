@@ -224,8 +224,9 @@ class UploadHandler
     	$uploadDirRelative = $this->pSet->getUploadFolder($this->field, $fileInfo);
         $file = array();
         $file["error"] = false;
-        $file["name"] = trim_file_name($name, $type, $index, $this);
-        $file["usrName"] = $file["name"];
+		$goodFilename = trim_file_name($name, $type, $index, $this);
+		$file["usrName"] = $goodFilename;
+        $file["name"] = simplify_file_name($goodFilename);
         $file["size"] = intval($size);
         switch($type)
         {
@@ -240,7 +241,7 @@ class UploadHandler
         	default:
         		$file["type"] = $type;
         }
-        $path_parts = $this->pathinfo_local($name);
+        $path_parts = $this->pathinfo_local( $file["name"] );
         if($file["type"] == "")
         	$file["type"] = getContentTypeByExtension($path_parts["extension"]);
         $file["isImg"] = false;

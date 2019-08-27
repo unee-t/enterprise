@@ -331,6 +331,7 @@ class EditPage extends RunnerPage
 
 		$this->doCommonAssignments();
 		$this->prepareBreadcrumbs();
+		$this->prepareCollapseButton();
 		$this->prepareButtons();
 		$this->prepareSteps();
 		$this->prepareEditControls();
@@ -399,6 +400,8 @@ class EditPage extends RunnerPage
 				$this->xt->assign("menu_chiddenattr", "data-hidden" );
 			}
 		}
+		
+		$this->setLangParams();
 
 		//	display message
 		$this->xt->assign("message_block", true);

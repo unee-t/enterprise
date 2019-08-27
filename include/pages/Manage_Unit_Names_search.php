@@ -101,7 +101,9 @@
 'height' => 1 ) ) ),
 'loginForm' => array( 'loginForm' => 3 ),
 'page' => array( 'labeledButtons' => array( 'update_records' => array(  ),
-'print_pages' => array(  ) ) ),
+'print_pages' => array(  ),
+'register_activate_message' => array(  ),
+'details_found' => array(  ) ) ),
 'misc' => array( 'type' => 'search',
 'breadcrumb' => false ),
 'events' => array( 'maps' => array(  ),
@@ -198,5 +200,5 @@
 'orientation' => 0,
 'required' => false ) ),
 'dbProps' => array(  ),
-'version' => 2 );
+'version' => 4 );
 		?>

@@ -580,7 +580,7 @@ class LoginPage extends RunnerPage
 		
 		$message = "";
 		
-		//invalide login
+		// invalid login
 		if( $globalEvents->exists("AfterUnsuccessfulLogin") )
 			$globalEvents->AfterUnsuccessfulLogin( $this->var_pUsername, $this->var_pPassword, $message, $this );
 		
@@ -798,9 +798,9 @@ class LoginPage extends RunnerPage
 		{	
 			$strPassword = $this->getSqlPreparedLoginTableValue( $strPassword, $cPasswordField, $cPasswordFieldType, $cipherer );
 			if( $loginSet )
-				$passWhere = " and ".$this->getFieldSQLDecrypt($cPasswordField)."=".$strPassword;
+				$passWhere = " and ". $this->connection->comparisonSQL( $this->getFieldSQLDecrypt($cPasswordField), $strPassword, false );
 			else
-				$passWhere = " and ".$this->connection->addFieldWrappers($cPasswordField)."=".$strPassword;
+				$passWhere = " and ". $this->connection->comparisonSQL( $this->connection->addFieldWrappers($cPasswordField), $strPassword, false );
 		}
 		
 			
@@ -808,20 +808,14 @@ class LoginPage extends RunnerPage
 		
 		if( $loginSet )
 		{
-			if( !$this->pSet->isCaseInsensitiveUsername() ) 
-			{
-				$where = $this->getFieldSQLDecrypt($cUserNameField)."=".$strUsername.$passWhere;
-			} 
-			else 
-			{
-				$where = $this->connection->upper( $this->getFieldSQLDecrypt($cUserNameField) ).
-					"=".$this->pSet->getCaseSensitiveUsername($strUsername).$passWhere;
-			}
-			
-			$where.= $activateWhere;
+			$where = $this->connection->comparisonSQL( 
+				$this->getFieldSQLDecrypt($cUserNameField), 
+				$strUsername, 
+				$this->pSet->isCaseInsensitiveUsername() 
+				)
+				. $passWhere . $activateWhere;
 			
 			// don't remove $tempSQLQuery. PHP 5.0 compatibility
-			
 			$tempSQLQuery = $loginSet->GetTableData(".sqlquery");
 			return $tempSQLQuery->buildSQL_default( array( $where ) );
 		}
@@ -932,7 +926,7 @@ class LoginPage extends RunnerPage
 		$this->body['end'] .= "window.viewControlsMap = ".my_json_encode($this->viewControlsHTMLMap).";";
 		$this->body['end'] .= "Runner.applyPagesData( ".my_json_encode( $pagesData )." );";
 		$this->body['end'] .= "window.settings = ".my_json_encode($this->jsSettings).";</script>";
-				$this->body["end"] .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js")."\"></script>";
+				$this->body["end"] .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33576")."\"></script>";
 		$this->body["end"] .= '<script>'.$this->PrepareJS()."</script>";
 		
 		$this->xt->assignbyref("body", $this->body);
@@ -980,11 +974,11 @@ class LoginPage extends RunnerPage
 			$this->xt->assign("message_block", true);
 			if ( $this->isBootstrap() )
 			{
-				$this->xt->assign("message", $this->message);
+				$this->xt->assign("message", runner_htmlspecialchars( $this->message ) );
 			}
 			else
 			{
-				$this->xt->assign("message", "<div id='login_message' class='message rnr-error'>".$this->message."</div>");
+				$this->xt->assign("message", "<div id='login_message' class='message rnr-error'>". runner_htmlspecialchars( $this->message )."</div>");
 			}
 			
 			if( $this->isBootstrap() )

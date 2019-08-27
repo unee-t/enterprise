@@ -1,114 +1,110 @@
 <?php
-class ViewDatabaseImageField extends ViewControl
+include_once getabspath("classes/controls/ViewImageDownloadField.php");
+class ViewDatabaseImageField extends ViewImageDownloadField
 {
-	protected $showThumbnails = false;
-	
-	protected $thumbWidth;
-	protected $thumbHeight;
-	
-	function __construct($field, $container, $pageobject)
-	{
-		parent::__construct($field, $container, $pageobject);
-		$this->showThumbnails = $container->pSet->showThumbnail( $this->field );
-		
-		if( $this->showThumbnails )
-		{
-			$this->thumbWidth = $container->pSet->getThumbnailWidth( $this->field );
-			$this->thumbHeight = $container->pSet->getThumbnailHeight( $this->field );
-		}	
-	}
-	
-	/**
-	 * addJSFiles
-	 * Add control JS files to page object
-	 */
-	public function addJSFiles()
-	{
-				$this->AddJSFile("include/zoombox/zoombox.js");
-		$this->getJSControl();	
-	}
-	
-	/**
-	 * addCSSFiles
-	 * Add control CSS files to page object
-	 */ 
-	function addCSSFiles()
-	{
-		$this->AddCSSFile("include/zoombox/zoombox.css");
-	}
-	
+
 	/**
 	 * It returns makePdf image notation { image: ..., width: ..., height: ... }
 	*/
 	public function getPdfValue(&$data, $keylink = "")
-	{				 
+	{
 		if( !$data[ $this->field ] )
 			return '""';
-		
+
 		$width = $this->container->pSet->getImageWidth( $this->field );
-		
-		if( !$width ) 
-		{	
+
+		if( !$width )
+		{
 			$width = 100;
 			if ( $this->container->pageType === PAGE_VIEW )
 				$width = 300;
 		}
-		
+
 		$imageType = SupposeImageType( $data[ $this->field ] );
 		if( $imageType == "image/jpeg" || $imageType == "image/png" )
-		{		
-			return '{ 
-				image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode( $data[ $this->field ] ) ) . '",
-				width: ' . $width . ', 
-				height: ' .$this->container->pSet->getImageHeight( $this->field ) . ' 
+		{
+			return '{
+				image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode_binary( $data[ $this->field ] ) ) . '",
+				width: ' . $width . ',
+				height: ' .$this->container->pSet->getImageHeight( $this->field ) . '
 			}';
 		}
-		
+
 		return '""';
-	}	
-	
-	public function showDBValue(&$data, $keylink, $html = true )
+	}
+
+	public function getFileURLs(&$data, $keylink)
+	{
+		$fileURLs = array();
+
+		$this->upload_handler->tkeys = $keylink;
+		$fileName = 'file.jpg';
+		$fileNameF = $this->container->pSet->getFilenameField($this->field);
+		if( $fileNameF && $data[$fileNameF] )
+			$fileName = $data[$fileNameF];
+
+		$url = array(
+			"image" => GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table)
+						."&field=".rawurlencode($this->field)
+						."&nodisp=1"
+						."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768))."'>",
+			"filename" => $fileNameF
+		);
+		if( $this->showThumbnails ) {
+			$hrefBegin = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table));
+			$thumbPref = $this->container->pSet->getStrThumbnail($this->field);
+			$hasThumbnail = $thumbPref != "" && strlen($data[ $thumbPref ]);
+			$hrefEnd = "&nodisp=1&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
+
+			$url["thumbnail"] = $hrefBegin."&field=".( $hasThumbnail ? rawurlencode($thumbPref) : rawurlencode($this->field) ).$hrefEnd;
+		}
+		$fileURLs[] = $url;
+
+		return $fileURLs;
+	}
+
+/*	public function showDBValue(&$data, $keylink, $html = true )
 	{
 		if( !$data[ $this->field ] )
 			return "";
-			
+
 		$value = "";
 		$fileName = 'file.jpg';
 		$fileNameF = $this->container->pSet->getFilenameField($this->field);
 		if( $fileNameF && $data[$fileNameF] )
 			$fileName = $data[$fileNameF];
-			
-		if( $this->showThumbnails ) 
+
+		if( $this->showThumbnails )
 		{
 			$thumbPref = $this->container->pSet->getStrThumbnail($this->field);
 			$hrefBegin = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table));
-			$hrefEnd = "&nodisp=1&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);			
-			
-			$linkClass = "zoombox";
+			$hrefEnd = "&nodisp=1&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
+
+			$linkClass = "";
 			if( $this->thumbWidth && $this->thumbHeight )
 			{
 				$hasThumbnail = $thumbPref != "" && strlen($data[ $thumbPref ]);
 				$thumbFileUrl = $hrefBegin."&field=".( $hasThumbnail ? rawurlencode($thumbPref) : rawurlencode($this->field) ).$hrefEnd;
 				$smallThumbnailStyle = $this->getSmallThumbnailStyle( $thumbFileUrl, $hasThumbnail );
 				$linkClass.= " background-picture";
-			}			
-			
+			}
+
 			$value.= "<a target=_blank href='".$hrefBegin."&field=".rawurlencode($this->field).$hrefEnd."' class='".$linkClass."' ".$smallThumbnailStyle.">";
-			
+
 			$value.= "<img border=0 ";
 			if($this->is508)
 				$value.= " alt=\"Image from DB\"";
 			$value.= " src='".$hrefBegin."&field=".rawurlencode($thumbPref).$hrefEnd."'>";
-			
+
 			$value.= "</a>";
-		} 
-		else 
+		}
+		else
 		{
 			$value = "<img class=\"bs-dbimage\" ";
 			if($this->is508)
 				$value.= " alt=\"Image from DB\"";
-			
-			
+
+
 			$value.= " border=0";
 			$value.= $this->getImageSizeStyle(true)." src='".GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table)
 				."&field=".rawurlencode($this->field)
@@ -117,23 +113,23 @@ class ViewDatabaseImageField extends ViewControl
 		}
 		return $value;
 	}
-	
+	*/
 	/**
 	 * @param &Array data
-	 * @return String	 
+	 * @return String
 	 */
 	public function getTextValue(&$data)
 	{
-		if( !strlen( $data[ $this->field ] ) ) 
-			return "";		
-			
+		if( !strlen( $data[ $this->field ] ) )
+			return "";
+
 		$fileNameField = $this->container->pSet->getFilenameField( $this->field );
 		if( $fileNameField && $data[ $fileNameField ] )
-			return $data[ $fileNameField ];			
-			
-		return "<<Image>>";		
-	}	
-	
+			return $data[ $fileNameField ];
+
+		return "<<Image>>";
+	}
+
 	/**
 	 * Get the field's content that will be exported
 	 * @prarm &Array data
@@ -144,7 +140,7 @@ class ViewDatabaseImageField extends ViewControl
 	{
 		return "LONG BINARY DATA - CANNOT BE DISPLAYED";
 	}
-	
+
 	/**
 	 * Get the width and height setting for small thumbnails
 	 * wrapping in a style attribute
@@ -155,22 +151,22 @@ class ViewDatabaseImageField extends ViewControl
 	protected function getSmallThumbnailStyle( $imageSrc, $hasThumbnail )
 	{
 		$styles = array();
-		
-		if( $imageSrc ) 
+
+		if( $imageSrc )
 		{
 			//	this is required to avoid the corrupting of the tag by the html2xhtml function in html2ps library
 			$imageSrc = str_replace( "=", "&#61;", $imageSrc );
-			$styles[] = ' background-image: url('.$imageSrc.');';	
+			$styles[] = ' background-image: url('.$imageSrc.');';
 			if( !$hasThumbnail )
-				$styles[] = ' background-size: '. $this->thumbWidth.'px '.$this->thumbHeight.'px ;';	
+				$styles[] = ' background-size: '. $this->thumbWidth.'px '.$this->thumbHeight.'px ;';
 		}
-		
-		if( $this->thumbWidth )	
+
+		if( $this->thumbWidth )
 			$styles[] = ' width: '.$this->thumbWidth.'px;';
-		
-		if( $this->thumbHeight )	
+
+		if( $this->thumbHeight )
 			$styles[] = ' height: '.$this->thumbHeight.'px';
-		
+
 		return ' style="'. implode( '' , $styles ) .'"';
 	}
 }

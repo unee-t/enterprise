@@ -50,16 +50,6 @@ class EditSelectedPage extends EditPage
 			$this->parsedSelection[] = $parsed;
 		}
 	}
-
-	/**
-	 * get locking object
-	 * Disable locking proc
-	 * @retunr Mixed
-	 */
-	protected function getLockingObject()
-	{
-		return NULL;
-	}	
 	
 	/**
 	 * Get the page's fields list
@@ -641,10 +631,31 @@ class EditSelectedPage extends EditPage
 		}
 
 		$newRecordData = $this->getNewRecordCopy( $this->newRecordData );
+
+		$noLockedIdxs = array();
+		if ( $this->lockingObj )
+		{
+			foreach( $this->parsedSelection as $idx => $s )
+			{
+				if ( $this->lockingObj->LockRecord( $this->tName, $s) )
+				{
+					$noLockedIdxs[] = $idx;	
+				}
+			}
+		}
+		
 		
 		/* process the records and update 1 by one */
 		foreach( $this->parsedSelection as $idx => $s ) 
 		{
+			if ( $this->lockingObj )
+			{
+				if ( in_array($idx, $noLockedIdxs) ) 
+					$this->lockingObj->UnlockRecord( $this->tName, $s, "" );	
+				else
+					continue;
+			}
+
 			//restore initial new record data array
 			
 			/* ASP trick begin */

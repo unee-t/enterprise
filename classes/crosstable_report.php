@@ -65,6 +65,8 @@ class CrossTableReport
 	protected $dataGroupFunction = "";
 
 	protected $pdfJSON = false;
+
+	protected $selectedAxis ;
 	
 	/**
 	 * @constructor
@@ -86,6 +88,7 @@ class CrossTableReport
 		$this->groupFieldsData = $params["groupFields"];
 		$this->fieldsTotalsData = $params["totals"];
 		
+		$this->selectedAxis = $params["selectedAxis"];
 		$this->showXSummary = $params["xSummary"];
 		$this->showYSummary = $params["ySummary"];
 		$this->showTotalSummary = $params["totalSummary"];
@@ -99,6 +102,8 @@ class CrossTableReport
 	
 		$this->xIntervalType = $this->getIntervalTypeByParam( "x", $this->xFName, $params["xType"] );
 		$this->yIntervalType = $this->getIntervalTypeByParam( "y", $this->yFName, $params["yType"] );
+
+		$this->correctCrosstabParams();
 		
 		$this->fillGridData( $strSQL, $params["headerClass"], $params["dataClass"] );
 	}
@@ -562,6 +567,13 @@ class CrossTableReport
 		$gx1 = $group_x[1];
 		$gy0 = $group_y[0];
 		$gy1 = $group_y[1];
+
+		// #14475
+		if( $this->connection->dbType == nDATABASE_MySQL )
+		{
+			$gx1 = $group_x[0];
+			$gy1 = $group_y[0];
+		}
 		 
 		$selectClause = "select ".$select_field.$gy0.", ".$gx0. $avg_func;
 		$groupByClause = "group by ".$gx1.", ".$gy1;
@@ -818,7 +830,7 @@ class CrossTableReport
 	 * @param String $axis
 	 * @return Array
 	 */
-	public function getCrossFieldsData( $axis )
+	 public function getCrossFieldsData( $axis )
 	{
 		$dataList = array();
 
@@ -948,24 +960,6 @@ class CrossTableReport
 		if( IsNumberType( $ftype ) ) 
 		{
 			$start = $value - ($value % $intervalType);
-			/*
-			$mul = 1; 
-			$digits = 0;
-			while ( $mul < $intervalType ) {
-				++$digits;
-				$mul *= 10;
-			}
-			$modulus = $start > 0 ? $start : -$start;
-			if( strlen( $modulus ) < $digits + 1) {
-				$formatted = '0' . str_repeat("X", $digits );
-			} else {
-				$formatted = substr( $modulus, 0, strlen( $modulus ) - $digits ) . str_repeat("X", $digits );
-			}
-			if( $start < 0 ) {
-				$formatted = "-" . $formatted;
-			}
-			return $formatted;
-			*/
 
 			$end = $start + $intervalType;
 
@@ -1251,4 +1245,64 @@ class CrossTableReport
 		}
 		return $control->showDBValue( $data, "" );
 	}	
+	
+	/**
+	 * Indicates which axis to change in case when both axes point to the same field/interval
+	 * Returns 'x','y' or ''
+	 */
+	protected function getFreeAxis() {
+		if( $this->selectedAxis )
+			return $this->selectedAxis == "y" ? "x" : "y";
+
+		// select axis where there are more than one option available
+		$xCount = 0;
+		$yCount = 0;
+		foreach( $this->groupFieldsData as $fData )
+		{
+			
+			if( $fData["group_type"] == "all" ) {
+				++$xCount;
+				++$yCount;
+			} else if( $fData["group_type"] == "x" ) {
+				++$xCount;
+			} else {
+				++$yCount;
+			}
+			if( $xCount > 1 ) {
+				return 'x';
+			}
+			if( $yCount > 1 ) {
+				return 'y';
+			}
+		}
+		return '';
+	}
+	
+	/**
+	 * Change crosstab parameters to ensure X(field+interval) != Y(field+interval)
+	 */
+	protected function correctCrosstabParams() {
+		if( $this->xFName != $this->yFName || $this->xIntervalType != $this->yIntervalType)
+			return;
+		// determine which axis to change
+		$freeAxis = $this->getFreeAxis();
+		if( !$freeAxis ) {
+			return;
+		}
+		foreach( $this->groupFieldsData as $fData )
+		{
+			if( $fData["group_type"] == "all" || $fData["group_type"] == $freeAxis ) {
+				if( $this->xFName !== $fData["name"] || $this->xIntervalType !== $fData["int_type"] ) {
+					if( $freeAxis === 'x' ) {
+						$this->xFName = $fData["name"];
+						$this->xIntervalType = $fData["int_type"];
+					} else {
+						$this->yFName = $fData["name"];
+						$this->yIntervalType = $fData["int_type"];
+					}
+					break;
+				}
+			}
+		}
+	}
 }

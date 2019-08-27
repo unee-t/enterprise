@@ -103,7 +103,7 @@ $tdataut_property_types[".listAjax"] = false;
 	$tdataut_property_types[".locking"] = false;
 
 
-$pages = $tdataut_property_types[".pages"];
+$pages = $tdataut_property_types[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataut_property_types[".edit"] = true;
@@ -335,6 +335,10 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -342,6 +346,7 @@ $tdataut_property_types[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -460,13 +465,17 @@ $tdataut_property_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -586,11 +595,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -710,11 +724,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -833,13 +852,17 @@ $tdataut_property_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -959,11 +982,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1083,11 +1111,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1207,11 +1240,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1331,11 +1369,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1455,11 +1498,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1579,11 +1627,16 @@ $tdataut_property_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	

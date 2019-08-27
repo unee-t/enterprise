@@ -7,72 +7,494 @@ function getMenuNodes_main($menuNodesObject)
 
 	$menuNode = array();
 	$menuNode["id"] = "1";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
+	$menuNode["name"] = "Case";
+	$menuNode["href"] = "https://case.unee-t.com/case";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Manage Unee-T Users";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = "List";//
-	$menuNode["openType"] = "None";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower( "Search");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
 	
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
 
 			$menuNode["color"] = "";
 	
-	$menuNode["title"] = "Manage Unee-T Users";
+	$menuNode["title"] = "Case";
 
 
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "2";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
+	$menuNode["name"] = "Dashboard";
+	$menuNode["href"] = "https://dashboard.unee-t.com/";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Manage User Types";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = "List";//
-	$menuNode["openType"] = "None";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower( "Search");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
 	
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
 
 			$menuNode["color"] = "";
 	
-	$menuNode["title"] = "Manage User Types";
+	$menuNode["title"] = "Dashboard";
 
 
 
 	$menuNodesObject->menuNodes["main"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "3";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
+	$menuNode["name"] = "Documentation";
+	$menuNode["href"] = "https://documentation.unee-t.com/";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Unee-T Enterprise Configuration";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = "View";//
-	$menuNode["openType"] = "None";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
 	
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
 
 			$menuNode["color"] = "";
 	
-	$menuNode["title"] = "Unee-T Enterprise Configuration";
+	$menuNode["title"] = "Documentation";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "4";
+	$menuNode["name"] = "Videos and Tutorials";
+	$menuNode["href"] = "https://vimeo.com/uneet/albums";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-share";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Videos and Tutorials";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "5";
+	$menuNode["name"] = "Export Data";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+	
+	$menuNode["icon"] = "glyphicon-open";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Data";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "6";
+	$menuNode["name"] = "";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "List of Countries";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-globe";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "List of Countries";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "7";
+	$menuNode["name"] = "Export Areas";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Areas";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-cloud";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Areas";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "8";
+	$menuNode["name"] = "Export Buildings";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Buildings";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Buildings";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "9";
+	$menuNode["name"] = "Export Units";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Units";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th-large";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Units";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "10";
+	$menuNode["name"] = "Export Rooms";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Rooms";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-stop";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Rooms";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "11";
+	$menuNode["name"] = "Export User Types";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import User Types";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th-list";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export User Types";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "12";
+	$menuNode["name"] = "Export Users";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Users";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "5";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-user";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Export Users";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "13";
+	$menuNode["name"] = "Import Data";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+	
+	$menuNode["icon"] = "glyphicon-save";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Data";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "14";
+	$menuNode["name"] = "Import Areas";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Areas";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-cloud";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Areas";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "15";
+	$menuNode["name"] = "Import Buildings";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Buildings";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Buildings";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "16";
+	$menuNode["name"] = "Import Units";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Units";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th-large";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Units";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "17";
+	$menuNode["name"] = "Import Rooms";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Rooms";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-stop";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Rooms";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "18";
+	$menuNode["name"] = "Import User Types";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import User Types";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-th-list";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import User Types";
+
+
+
+	$menuNodesObject->menuNodes["main"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "19";
+	$menuNode["name"] = "Import Users";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "Export and Import Users";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "13";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "NewWindow";
+	
+	$menuNode["icon"] = "glyphicon-user";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+			$menuNode["color"] = "";
+	
+	$menuNode["title"] = "Import Users";
 
 
 

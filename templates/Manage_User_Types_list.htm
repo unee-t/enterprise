@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 	<body class="{$stylename} function-list" {$bodyattrs}>
 	{BEGIN body}
@@ -28,15 +28,17 @@
 				data-body-align="left"
 			>
 								{BEGIN supertop_block}
-<nav class="navbar navbar-default
-	bs-fullwidth-navbar
-" 
+<nav class="navbar navbar-default" 
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
-			 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
+							 
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
-	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-brick="logo" data-pageid="{$pageid}" {$logo_hiddenattr}>
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
 	</A>
 {END logo_block}
@@ -48,76 +50,8 @@
 		 
 				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu main horizontal}			</span>
-				 
-			 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
-				{BEGIN loggedas_message}
-<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-button-item>
-	<span class="dropdown ">
-		<button type="button" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-user"></span>
-						{$username}			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN logoutbutton}
-	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" >
-				<a  href="#" {$logoutlink_attrs} >
-				
-		Log out		
-		</a>
-	</li>
-{END logoutbutton}
-							{BEGIN adminarea_link}
-	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" >
-				<a  href="admin_rights_list.php" >
-				
-		Admin Area		
-		</a>
-	</li>
-{END adminarea_link}
-							{BEGIN changepwd_link}
-	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" >
-				<a  href="#" {$changepwdlink_attrs} >
-				
-		Change password		
-		</a>
-	</li>
-{END changepwd_link}
-					</ul>
-	</span>
-</span>
-{END loggedas_message}
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
-				{BEGIN guestloginbutton}
-<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
-	" href="#" {$guestloginlink_attrs} >
-							Login			</a>
-</span>
-{END guestloginbutton}
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-button-item>
-	<span class="dropdown ">
-		<button type="button" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" >
-				<a   href="Manage_User_Types_search.php" {$advsearchlink_attrs} >
-				
-		Advanced search		
-		</a>
-	</li>
-					</ul>
-	</span>
-</span>
-			</span>
-		 
+							 
+							 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
 				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
@@ -140,7 +74,91 @@
 </div>
 		
 </span>			</span>
-					</nav>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-cog"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+				<a   href="Manage_User_Types_search.php" {$advsearchlink_attrs}  title="" >
+				
+		Advanced search		
+		</a>
+	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-user"></span>
+						{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$changepwdlink_attrs}  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 				</div>	
 			
@@ -186,16 +204,811 @@
 									<td 
 	class=" r-ori-vert			"
 			 
+	data-cellId="left_c1" data-pageid="{$pageid}">
+ 
+<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+
+	<div class="panel-heading">
+		<div class="btn-group" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_ut_user_role_type_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_ut_user_role_type_id}" {$filterRow_attrs_ut_user_role_type_id}>
+			<label>{$label Manage_User_Types ut_user_role_type_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_ut_user_role_type_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_ut_user_role_type_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_ut_user_role_type_id}</span>
+						</div>
+		{END searchCtrlBlock_ut_user_role_type_id}
+																{BEGIN searchCtrlBlock_is_item_removed}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_item_removed}" {$filterRow_attrs_is_item_removed}>
+			<label>{$label Manage_User_Types is_item_removed }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_item_removed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_item_removed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_item_removed}</span>
+						</div>
+		{END searchCtrlBlock_is_item_removed}
+																{BEGIN searchCtrlBlock_is_item_moved}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_item_moved}" {$filterRow_attrs_is_item_moved}>
+			<label>{$label Manage_User_Types is_item_moved }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_item_moved}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_item_moved}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_item_moved}</span>
+						</div>
+		{END searchCtrlBlock_is_item_moved}
+																{BEGIN searchCtrlBlock_is_new_item}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_new_item}" {$filterRow_attrs_is_new_item}>
+			<label>{$label Manage_User_Types is_new_item }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_new_item}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_new_item}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_new_item}</span>
+						</div>
+		{END searchCtrlBlock_is_new_item}
+																{BEGIN searchCtrlBlock_is_new_inventory}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_new_inventory}" {$filterRow_attrs_is_new_inventory}>
+			<label>{$label Manage_User_Types is_new_inventory }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_new_inventory}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_new_inventory}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_new_inventory}</span>
+						</div>
+		{END searchCtrlBlock_is_new_inventory}
+																{BEGIN searchCtrlBlock_is_new_ir}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_new_ir}" {$filterRow_attrs_is_new_ir}>
+			<label>{$label Manage_User_Types is_new_ir }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_new_ir}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_new_ir}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_new_ir}</span>
+						</div>
+		{END searchCtrlBlock_is_new_ir}
+																{BEGIN searchCtrlBlock_is_any_new_message}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_any_new_message}" {$filterRow_attrs_is_any_new_message}>
+			<label>{$label Manage_User_Types is_any_new_message }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_any_new_message}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_any_new_message}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_any_new_message}</span>
+						</div>
+		{END searchCtrlBlock_is_any_new_message}
+																{BEGIN searchCtrlBlock_is_message_from_tenant}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_tenant}" {$filterRow_attrs_is_message_from_tenant}>
+			<label>{$label Manage_User_Types is_message_from_tenant }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_tenant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_tenant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_tenant}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_tenant}
+																{BEGIN searchCtrlBlock_is_message_from_ll}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_ll}" {$filterRow_attrs_is_message_from_ll}>
+			<label>{$label Manage_User_Types is_message_from_ll }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_ll}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_ll}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_ll}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_ll}
+																{BEGIN searchCtrlBlock_is_message_from_occupant}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_occupant}" {$filterRow_attrs_is_message_from_occupant}>
+			<label>{$label Manage_User_Types is_message_from_occupant }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_occupant}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_occupant}
+																{BEGIN searchCtrlBlock_is_message_from_agent}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_agent}" {$filterRow_attrs_is_message_from_agent}>
+			<label>{$label Manage_User_Types is_message_from_agent }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_agent}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_agent}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_agent}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_agent}
+																{BEGIN searchCtrlBlock_is_message_from_mgt_cny}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_mgt_cny}" {$filterRow_attrs_is_message_from_mgt_cny}>
+			<label>{$label Manage_User_Types is_message_from_mgt_cny }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_mgt_cny}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_mgt_cny}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_mgt_cny}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_mgt_cny}
+																{BEGIN searchCtrlBlock_is_message_from_contractor}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_message_from_contractor}" {$filterRow_attrs_is_message_from_contractor}>
+			<label>{$label Manage_User_Types is_message_from_contractor }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_message_from_contractor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_message_from_contractor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_message_from_contractor}</span>
+						</div>
+		{END searchCtrlBlock_is_message_from_contractor}
+																{BEGIN searchCtrlBlock_is_case_blocker}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_case_blocker}" {$filterRow_attrs_is_case_blocker}>
+			<label>{$label Manage_User_Types is_case_blocker }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_case_blocker}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_case_blocker}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_case_blocker}</span>
+						</div>
+		{END searchCtrlBlock_is_case_blocker}
+																{BEGIN searchCtrlBlock_is_case_critical}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_case_critical}" {$filterRow_attrs_is_case_critical}>
+			<label>{$label Manage_User_Types is_case_critical }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_case_critical}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_case_critical}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_case_critical}</span>
+						</div>
+		{END searchCtrlBlock_is_case_critical}
+																{BEGIN searchCtrlBlock_is_case_resolved}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_case_resolved}" {$filterRow_attrs_is_case_resolved}>
+			<label>{$label Manage_User_Types is_case_resolved }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_case_resolved}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_case_resolved}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_case_resolved}</span>
+						</div>
+		{END searchCtrlBlock_is_case_resolved}
+																{BEGIN searchCtrlBlock_is_deadline_updated}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_deadline_updated}" {$filterRow_attrs_is_deadline_updated}>
+			<label>{$label Manage_User_Types is_deadline_updated }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_deadline_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_deadline_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_deadline_updated}</span>
+						</div>
+		{END searchCtrlBlock_is_deadline_updated}
+																{BEGIN searchCtrlBlock_is_next_step_updated}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_next_step_updated}" {$filterRow_attrs_is_next_step_updated}>
+			<label>{$label Manage_User_Types is_next_step_updated }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_next_step_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_next_step_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_next_step_updated}</span>
+						</div>
+		{END searchCtrlBlock_is_next_step_updated}
+																{BEGIN searchCtrlBlock_is_solution_updated}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_solution_updated}" {$filterRow_attrs_is_solution_updated}>
+			<label>{$label Manage_User_Types is_solution_updated }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_solution_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_solution_updated}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_solution_updated}</span>
+						</div>
+		{END searchCtrlBlock_is_solution_updated}
+																{BEGIN searchCtrlBlock_is_invited_to_case}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_invited_to_case}" {$filterRow_attrs_is_invited_to_case}>
+			<label>{$label Manage_User_Types is_invited_to_case }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_invited_to_case}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_invited_to_case}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_invited_to_case}</span>
+						</div>
+		{END searchCtrlBlock_is_invited_to_case}
+																{BEGIN searchCtrlBlock_is_assigned_to_case}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_assigned_to_case}" {$filterRow_attrs_is_assigned_to_case}>
+			<label>{$label Manage_User_Types is_assigned_to_case }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_assigned_to_case}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_assigned_to_case}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_assigned_to_case}</span>
+						</div>
+		{END searchCtrlBlock_is_assigned_to_case}
+																{BEGIN searchCtrlBlock_can_see_role_tenant}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_role_tenant}" {$filterRow_attrs_can_see_role_tenant}>
+			<label>{$label Manage_User_Types can_see_role_tenant }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_role_tenant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_role_tenant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_role_tenant}</span>
+						</div>
+		{END searchCtrlBlock_can_see_role_tenant}
+																{BEGIN searchCtrlBlock_can_see_role_agent}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_role_agent}" {$filterRow_attrs_can_see_role_agent}>
+			<label>{$label Manage_User_Types can_see_role_agent }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_role_agent}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_role_agent}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_role_agent}</span>
+						</div>
+		{END searchCtrlBlock_can_see_role_agent}
+																{BEGIN searchCtrlBlock_can_see_role_landlord}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_role_landlord}" {$filterRow_attrs_can_see_role_landlord}>
+			<label>{$label Manage_User_Types can_see_role_landlord }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_role_landlord}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_role_landlord}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_role_landlord}</span>
+						</div>
+		{END searchCtrlBlock_can_see_role_landlord}
+																{BEGIN searchCtrlBlock_can_see_occupant}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_occupant}" {$filterRow_attrs_can_see_occupant}>
+			<label>{$label Manage_User_Types can_see_occupant }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_occupant}</span>
+						</div>
+		{END searchCtrlBlock_can_see_occupant}
+																{BEGIN searchCtrlBlock_can_see_role_mgt_cny}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_role_mgt_cny}" {$filterRow_attrs_can_see_role_mgt_cny}>
+			<label>{$label Manage_User_Types can_see_role_mgt_cny }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_role_mgt_cny}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_role_mgt_cny}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_role_mgt_cny}</span>
+						</div>
+		{END searchCtrlBlock_can_see_role_mgt_cny}
+																{BEGIN searchCtrlBlock_can_see_role_contractor}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_can_see_role_contractor}" {$filterRow_attrs_can_see_role_contractor}>
+			<label>{$label Manage_User_Types can_see_role_contractor }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_can_see_role_contractor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_can_see_role_contractor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_can_see_role_contractor}</span>
+						</div>
+		{END searchCtrlBlock_can_see_role_contractor}
+																{BEGIN searchCtrlBlock_is_dashboard_access}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_dashboard_access}" {$filterRow_attrs_is_dashboard_access}>
+			<label>{$label Manage_User_Types is_dashboard_access }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_dashboard_access}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_dashboard_access}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_dashboard_access}</span>
+						</div>
+		{END searchCtrlBlock_is_dashboard_access}
+																{BEGIN searchCtrlBlock_is_default_invited}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_default_invited}" {$filterRow_attrs_is_default_invited}>
+			<label>{$label Manage_User_Types is_default_invited }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_default_invited}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_default_invited}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_default_invited}</span>
+						</div>
+		{END searchCtrlBlock_is_default_invited}
+																{BEGIN searchCtrlBlock_is_default_assignee}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_default_assignee}" {$filterRow_attrs_is_default_assignee}>
+			<label>{$label Manage_User_Types is_default_assignee }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_default_assignee}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_default_assignee}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_default_assignee}</span>
+						</div>
+		{END searchCtrlBlock_is_default_assignee}
+																{BEGIN searchCtrlBlock_is_public}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_public}" {$filterRow_attrs_is_public}>
+			<label>{$label Manage_User_Types is_public }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_public}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_public}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_public}</span>
+						</div>
+		{END searchCtrlBlock_is_public}
+																{BEGIN searchCtrlBlock_is_occupant}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_occupant}" {$filterRow_attrs_is_occupant}>
+			<label>{$label Manage_User_Types is_occupant }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_occupant}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_occupant}</span>
+						</div>
+		{END searchCtrlBlock_is_occupant}
+																{BEGIN searchCtrlBlock_role_type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_role_type}" {$filterRow_attrs_role_type}>
+			<label>{$label Manage_User_Types role_type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
+						</div>
+		{END searchCtrlBlock_role_type}
+																{BEGIN searchCtrlBlock_description}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_description}" {$filterRow_attrs_description}>
+			<label>{$label Manage_User_Types description }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_description}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_description}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_description}</span>
+						</div>
+		{END searchCtrlBlock_description}
+																{BEGIN searchCtrlBlock_designation}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_designation}" {$filterRow_attrs_designation}>
+			<label>{$label Manage_User_Types designation }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_designation}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_designation}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_designation}</span>
+						</div>
+		{END searchCtrlBlock_designation}
+																{BEGIN searchCtrlBlock_is_obsolete}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_obsolete}" {$filterRow_attrs_is_obsolete}>
+			<label>{$label Manage_User_Types is_obsolete }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_obsolete}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_obsolete}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_obsolete}</span>
+						</div>
+		{END searchCtrlBlock_is_obsolete}
+																{BEGIN searchCtrlBlock_order}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_order}" {$filterRow_attrs_order}>
+			<label>{$label Manage_User_Types order }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_order}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_order}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_order}</span>
+						</div>
+		{END searchCtrlBlock_order}
+																{BEGIN searchCtrlBlock_organization_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_organization_id}" {$filterRow_attrs_organization_id}>
+			<label>{$label Manage_User_Types organization_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_organization_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_organization_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_organization_id}</span>
+						</div>
+		{END searchCtrlBlock_organization_id}
+																{BEGIN searchCtrlBlock_update_method}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_update_method}" {$filterRow_attrs_update_method}>
+			<label>{$label Manage_User_Types update_method }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_update_method}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_update_method}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_update_method}</span>
+						</div>
+		{END searchCtrlBlock_update_method}
+																{BEGIN searchCtrlBlock_updated_by_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_updated_by_id}" {$filterRow_attrs_updated_by_id}>
+			<label>{$label Manage_User_Types updated_by_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_updated_by_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_updated_by_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_updated_by_id}</span>
+						</div>
+		{END searchCtrlBlock_updated_by_id}
+																{BEGIN searchCtrlBlock_update_system_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_update_system_id}" {$filterRow_attrs_update_system_id}>
+			<label>{$label Manage_User_Types update_system_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_update_system_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_update_system_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_update_system_id}</span>
+						</div>
+		{END searchCtrlBlock_update_system_id}
+																{BEGIN searchCtrlBlock_syst_updated_datetime}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_syst_updated_datetime}" {$filterRow_attrs_syst_updated_datetime}>
+			<label>{$label Manage_User_Types syst_updated_datetime }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_syst_updated_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_syst_updated_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_syst_updated_datetime}</span>
+						</div>
+		{END searchCtrlBlock_syst_updated_datetime}
+																{BEGIN searchCtrlBlock_creation_method}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_creation_method}" {$filterRow_attrs_creation_method}>
+			<label>{$label Manage_User_Types creation_method }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_creation_method}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_creation_method}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_creation_method}</span>
+						</div>
+		{END searchCtrlBlock_creation_method}
+																{BEGIN searchCtrlBlock_created_by_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_created_by_id}" {$filterRow_attrs_created_by_id}>
+			<label>{$label Manage_User_Types created_by_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_created_by_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_created_by_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_created_by_id}</span>
+						</div>
+		{END searchCtrlBlock_created_by_id}
+																{BEGIN searchCtrlBlock_creation_system_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_creation_system_id}" {$filterRow_attrs_creation_system_id}>
+			<label>{$label Manage_User_Types creation_system_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_creation_system_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_creation_system_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_creation_system_id}</span>
+						</div>
+		{END searchCtrlBlock_creation_system_id}
+																{BEGIN searchCtrlBlock_syst_created_datetime}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_syst_created_datetime}" {$filterRow_attrs_syst_created_datetime}>
+			<label>{$label Manage_User_Types syst_created_datetime }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_syst_created_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_syst_created_datetime}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_syst_created_datetime}</span>
+						</div>
+		{END searchCtrlBlock_syst_created_datetime}
+																{BEGIN searchCtrlBlock_id_unee_t_user_type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_id_unee_t_user_type}" {$filterRow_attrs_id_unee_t_user_type}>
+			<label>{$label Manage_User_Types id_unee_t_user_type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_id_unee_t_user_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_id_unee_t_user_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_id_unee_t_user_type}</span>
+						</div>
+		{END searchCtrlBlock_id_unee_t_user_type}
+																{BEGIN searchCtrlBlock_is_all_units_in_level_2}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_level_2}" {$filterRow_attrs_is_all_units_in_level_2}>
+			<label>{$label Manage_User_Types is_all_units_in_level_2 }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_level_2}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_level_2}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_level_2}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_level_2}
+																{BEGIN searchCtrlBlock_is_all_units_in_level_1}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_level_1}" {$filterRow_attrs_is_all_units_in_level_1}>
+			<label>{$label Manage_User_Types is_all_units_in_level_1 }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_level_1}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_level_1}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_level_1}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_level_1}
+																{BEGIN searchCtrlBlock_is_all_units_in_area}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_area}" {$filterRow_attrs_is_all_units_in_area}>
+			<label>{$label Manage_User_Types is_all_units_in_area }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_area}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_area}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_area}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_area}
+																{BEGIN searchCtrlBlock_is_all_units_in_country}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_units_in_country}" {$filterRow_attrs_is_all_units_in_country}>
+			<label>{$label Manage_User_Types is_all_units_in_country }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_units_in_country}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_units_in_country}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_units_in_country}</span>
+						</div>
+		{END searchCtrlBlock_is_all_units_in_country}
+																{BEGIN searchCtrlBlock_is_all_unit}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_is_all_unit}" {$filterRow_attrs_is_all_unit}>
+			<label>{$label Manage_User_Types is_all_unit }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_is_all_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_is_all_unit}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_is_all_unit}</span>
+						</div>
+		{END searchCtrlBlock_is_all_unit}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+</td>
+							</tr>
+											<tr>
+									<td 
+	class=" r-ori-vert			"
+			 
 	data-cellId="left_c2" data-pageid="{$pageid}">
  
 <div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
+<!--
 	<button type="button" class="btn btn-info bs-togglebutton bottom-margin collapsed" data-runner-toggle="collapse" data-target=".filterPanelContainer">	
 		<span class="glyphicon glyphicon-filter"><span> Filter	
 	</button>
+-->	
 	<div class="filterPanelContainer {$filterPanelStateClass}">
 
 
 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_role_type}
+		<div class="panel panel-info filter-field filter-role_type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_User_Types role_type }</label>
+
+				{BEGIN clearLink_role_type}
+				<a href="#" class="filter-clear filter-clear-role_type">Clear</a>
+				{END clearLink_role_type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_role_type}
+				<li class="list-group-item filter-values filter-values-role_type {$collapsedClass_role_type} {$visibilityClass_role_type}">
+					{$role_type_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_role_type}
+
+							{BEGIN filter_button_showmore_role_type}
+				<li class="list-group-item filter-show-more {$collapsedClass_role_type} {$showMoreBtnClass_role_type}">
+					<a class="filter-show-more-link filterShowMore_role_type" href="#">{$show_n_more_role_type}</a>
+				</li>
+				{END filter_button_showmore_role_type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_role_type}
+	 
 			
 	 	
 
@@ -223,6 +1036,8 @@
 				<li class="list-group-item filter-values filter-values-is_public {$collapsedClass_is_public} {$visibilityClass_is_public}">
 					{$is_public_filter}
 								
+			
+			
 			
 			
 			
@@ -293,6 +1108,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_dashboard_access}
 
@@ -351,6 +1168,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_default_assignee}
 
@@ -379,23 +1198,23 @@
 
 		 	
 
-		{BEGIN filter_control_is_invited_all_cases}
-		<div class="panel panel-info filter-field filter-is_invited_all_cases-container">
+		{BEGIN filter_control_is_default_invited}
+		<div class="panel panel-info filter-field filter-is_default_invited-container">
 			<div class="panel-heading filter-expander">
 																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
 
 			
-				<label>{$label Manage_User_Types is_invited_all_cases }</label>
+				<label>{$label Manage_User_Types is_default_invited }</label>
 
-				{BEGIN clearLink_is_invited_all_cases}
-				<a href="#" class="filter-clear filter-clear-is_invited_all_cases">Clear</a>
-				{END clearLink_is_invited_all_cases}				
+				{BEGIN clearLink_is_default_invited}
+				<a href="#" class="filter-clear filter-clear-is_default_invited">Clear</a>
+				{END clearLink_is_default_invited}				
 			</div>
 
 			<ul class="list-group">
-				{BEGIN filterCtrlBlock_is_invited_all_cases}
-				<li class="list-group-item filter-values filter-values-is_invited_all_cases {$collapsedClass_is_invited_all_cases} {$visibilityClass_is_invited_all_cases}">
-					{$is_invited_all_cases_filter}
+				{BEGIN filterCtrlBlock_is_default_invited}
+				<li class="list-group-item filter-values filter-values-is_default_invited {$collapsedClass_is_default_invited} {$visibilityClass_is_default_invited}">
+					{$is_default_invited_filter}
 								
 			
 			
@@ -409,14 +1228,16 @@
 			
 			
 			
+			
+			
 				</li>				
-				{END filterCtrlBlock_is_invited_all_cases}
+				{END filterCtrlBlock_is_default_invited}
 
-							{BEGIN filter_button_showmore_is_invited_all_cases}
-				<li class="list-group-item filter-show-more {$collapsedClass_is_invited_all_cases} {$showMoreBtnClass_is_invited_all_cases}">
-					<a class="filter-show-more-link filterShowMore_is_invited_all_cases" href="#">{$show_n_more_is_invited_all_cases}</a>
+							{BEGIN filter_button_showmore_is_default_invited}
+				<li class="list-group-item filter-show-more {$collapsedClass_is_default_invited} {$showMoreBtnClass_is_default_invited}">
+					<a class="filter-show-more-link filterShowMore_is_default_invited" href="#">{$show_n_more_is_default_invited}</a>
 				</li>
-				{END filter_button_showmore_is_invited_all_cases}			
+				{END filter_button_showmore_is_default_invited}			
 			
 
 
@@ -426,7 +1247,7 @@
 	
 			</ul>			
 		</div>
-		{END filter_control_is_invited_all_cases}
+		{END filter_control_is_default_invited}
 	 
 			
 	 	
@@ -455,6 +1276,8 @@
 				<li class="list-group-item filter-values filter-values-is_occupant {$collapsedClass_is_occupant} {$visibilityClass_is_occupant}">
 					{$is_occupant_filter}
 								
+			
+			
 			
 			
 			
@@ -525,6 +1348,8 @@
 			
 			
 			
+			
+			
 				</li>				
 				{END filterCtrlBlock_is_obsolete}
 
@@ -567,8 +1392,8 @@
 		{BEGIN firstAboveGridCell}
 		 
 		{BEGIN add_link}
-<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" {$addlink_attrs} href="Manage_User_Types_add.php" data-popup >
 							Add new			</a>
 </span>
@@ -581,14 +1406,14 @@
 	
 ">
 		 
-		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" >
-{$records_indicator}
+		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
+{$details_found_labeldetails_found}
 </span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
 		{BEGIN print_friendly}
-<span class="bs-printpanel" id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
+<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
 	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-print"></span>
 				<span class="caret"></span>
@@ -683,16 +1508,6 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_is_invited_all_cases" checked="checked" value="1" data-field="is_invited_all_cases">
-					<span>{$label Manage_User_Types is_invited_all_cases }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_is_dashboard_access" checked="checked" value="1" data-field="is_dashboard_access">
 					<span>{$label Manage_User_Types is_dashboard_access }</span>
 				</label>
@@ -713,8 +1528,58 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_id_unee_t_user_type" checked="checked" value="1" data-field="id_unee_t_user_type">
-					<span>{$label Manage_User_Types id_unee_t_user_type }</span>
+					<input type="checkbox" id="hide_is_default_invited" checked="checked" value="1" data-field="is_default_invited">
+					<span>{$label Manage_User_Types is_default_invited }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_unit" checked="checked" value="1" data-field="is_all_unit">
+					<span>{$label Manage_User_Types is_all_unit }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_country" checked="checked" value="1" data-field="is_all_units_in_country">
+					<span>{$label Manage_User_Types is_all_units_in_country }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_area" checked="checked" value="1" data-field="is_all_units_in_area">
+					<span>{$label Manage_User_Types is_all_units_in_area }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_level_1" checked="checked" value="1" data-field="is_all_units_in_level_1">
+					<span>{$label Manage_User_Types is_all_units_in_level_1 }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_is_all_units_in_level_2" checked="checked" value="1" data-field="is_all_units_in_level_2">
+					<span>{$label Manage_User_Types is_all_units_in_level_2 }</span>
 				</label>
 			</div>
 		</a>
@@ -735,7 +1600,7 @@
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_unee_t_user_type"]:before {
 		content: "{$label Manage_User_Types id_unee_t_user_type}";
 	}
@@ -800,6 +1665,26 @@
 		content: "{$label Manage_User_Types role_type}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_unit"]:before {
+		content: "{$label Manage_User_Types is_all_unit}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_country"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_country}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_area"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_area}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_level_1"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_level_1}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_all_units_in_level_2"]:before {
+		content: "{$label Manage_User_Types is_all_units_in_level_2}";
+	}
+	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_occupant"]:before {
 		content: "{$label Manage_User_Types is_occupant}";
 	}
@@ -812,8 +1697,8 @@
 		content: "{$label Manage_User_Types is_default_assignee}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_invited_all_cases"]:before {
-		content: "{$label Manage_User_Types is_invited_all_cases}";
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_default_invited"]:before {
+		content: "{$label Manage_User_Types is_default_invited}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_dashboard_access"]:before {
@@ -927,7 +1812,7 @@
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
-	cellpadding="0" data-brick="grid"
+	cellpadding="0" 
 	data-body-height="1"
 >
 						<thead>
@@ -963,22 +1848,22 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$id_unee_t_user_type_class}
+		 r-ori-vert				{$designation_class}
 			"
 
-			data-field="id_unee_t_user_type"
+			data-field="designation"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_unee_t_user_type_fieldheadercolumn}
-	{BEGIN id_unee_t_user_type_fieldheader}
-	<SPAN {$id_unee_t_user_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_unee_t_user_type">
-	{$label Manage_User_Types id_unee_t_user_type }	{$arrow_icon_id_unee_t_user_type}
+		{BEGIN designation_fieldheadercolumn}
+	{BEGIN designation_fieldheader}
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	{$label Manage_User_Types designation }	{$arrow_icon_designation}
 	</SPAN>
-	{END id_unee_t_user_type_fieldheader}
-{END id_unee_t_user_type_fieldheadercolumn}
+	{END designation_fieldheader}
+{END designation_fieldheadercolumn}
 
 	
 	</th>
@@ -990,22 +1875,22 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$designation_class}
+		 r-ori-vert				{$ut_user_role_type_id_class}
 			"
 
-			data-field="designation"
+			data-field="ut_user_role_type_id"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN designation_fieldheadercolumn}
-	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
-	{$label Manage_User_Types designation }	{$arrow_icon_designation}
+		{BEGIN ut_user_role_type_id_fieldheadercolumn}
+	{BEGIN ut_user_role_type_id_fieldheader}
+	<SPAN {$ut_user_role_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ut_user_role_type_id">
+	{$label Manage_User_Types ut_user_role_type_id }	{$arrow_icon_ut_user_role_type_id}
 	</SPAN>
-	{END designation_fieldheader}
-{END designation_fieldheadercolumn}
+	{END ut_user_role_type_id_fieldheader}
+{END ut_user_role_type_id_fieldheadercolumn}
 
 	
 	</th>
@@ -1017,22 +1902,22 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$ut_user_role_type_id_class}
+		 r-ori-vert				{$is_occupant_class}
 			"
 
-			data-field="ut_user_role_type_id"
+			data-field="is_occupant"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN ut_user_role_type_id_fieldheadercolumn}
-	{BEGIN ut_user_role_type_id_fieldheader}
-	<SPAN {$ut_user_role_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ut_user_role_type_id">
-	{$label Manage_User_Types ut_user_role_type_id }	{$arrow_icon_ut_user_role_type_id}
+		{BEGIN is_occupant_fieldheadercolumn}
+	{BEGIN is_occupant_fieldheader}
+	<SPAN {$is_occupant_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
+	{$label Manage_User_Types is_occupant }	{$arrow_icon_is_occupant}
 	</SPAN>
-	{END ut_user_role_type_id_fieldheader}
-{END ut_user_role_type_id_fieldheadercolumn}
+	{END is_occupant_fieldheader}
+{END is_occupant_fieldheadercolumn}
 
 	
 	</th>
@@ -1044,22 +1929,22 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_occupant_class}
+		 r-ori-vert				{$is_public_class}
 			"
 
-			data-field="is_occupant"
+			data-field="is_public"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_occupant_fieldheadercolumn}
-	{BEGIN is_occupant_fieldheader}
-	<SPAN {$is_occupant_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_occupant">
-	{$label Manage_User_Types is_occupant }	{$arrow_icon_is_occupant}
+		{BEGIN is_public_fieldheadercolumn}
+	{BEGIN is_public_fieldheader}
+	<SPAN {$is_public_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
+	{$label Manage_User_Types is_public }	{$arrow_icon_is_public}
 	</SPAN>
-	{END is_occupant_fieldheader}
-{END is_occupant_fieldheadercolumn}
+	{END is_public_fieldheader}
+{END is_public_fieldheadercolumn}
 
 	
 	</th>
@@ -1071,22 +1956,22 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_public_class}
+		 r-ori-vert				{$is_default_assignee_class}
 			"
 
-			data-field="is_public"
+			data-field="is_default_assignee"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_public_fieldheadercolumn}
-	{BEGIN is_public_fieldheader}
-	<SPAN {$is_public_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_public">
-	{$label Manage_User_Types is_public }	{$arrow_icon_is_public}
+		{BEGIN is_default_assignee_fieldheadercolumn}
+	{BEGIN is_default_assignee_fieldheader}
+	<SPAN {$is_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
+	{$label Manage_User_Types is_default_assignee }	{$arrow_icon_is_default_assignee}
 	</SPAN>
-	{END is_public_fieldheader}
-{END is_public_fieldheadercolumn}
+	{END is_default_assignee_fieldheader}
+{END is_default_assignee_fieldheadercolumn}
 
 	
 	</th>
@@ -1098,22 +1983,22 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_default_assignee_class}
+		 r-ori-vert				{$is_default_invited_class}
 			"
 
-			data-field="is_default_assignee"
+			data-field="is_default_invited"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_default_assignee_fieldheadercolumn}
-	{BEGIN is_default_assignee_fieldheader}
-	<SPAN {$is_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_assignee">
-	{$label Manage_User_Types is_default_assignee }	{$arrow_icon_is_default_assignee}
+		{BEGIN is_default_invited_fieldheadercolumn}
+	{BEGIN is_default_invited_fieldheader}
+	<SPAN {$is_default_invited_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited">
+	{$label Manage_User_Types is_default_invited }	{$arrow_icon_is_default_invited}
 	</SPAN>
-	{END is_default_assignee_fieldheader}
-{END is_default_assignee_fieldheadercolumn}
+	{END is_default_invited_fieldheader}
+{END is_default_invited_fieldheadercolumn}
 
 	
 	</th>
@@ -1125,22 +2010,22 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
+		 r-ori-vert				{$description_class}
 			"
 
-			data-field="is_invited_all_cases"
+			data-field="description"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_invited_all_cases_fieldheadercolumn}
-	{BEGIN is_invited_all_cases_fieldheader}
-	<SPAN {$is_invited_all_cases_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases">
-	{$label Manage_User_Types is_invited_all_cases }	{$arrow_icon_is_invited_all_cases}
+		{BEGIN description_fieldheadercolumn}
+	{BEGIN description_fieldheader}
+	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
+	{$label Manage_User_Types description }	{$arrow_icon_description}
 	</SPAN>
-	{END is_invited_all_cases_fieldheader}
-{END is_invited_all_cases_fieldheadercolumn}
+	{END description_fieldheader}
+{END description_fieldheadercolumn}
 
 	
 	</th>
@@ -1152,22 +2037,22 @@
 	{$cell_grid_headcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$description_class}
+		 r-ori-vert				{$is_dashboard_access_class}
 			"
 
-			data-field="description"
+			data-field="is_dashboard_access"
 	
 	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN description_fieldheadercolumn}
-	{BEGIN description_fieldheader}
-	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
-	{$label Manage_User_Types description }	{$arrow_icon_description}
+		{BEGIN is_dashboard_access_fieldheadercolumn}
+	{BEGIN is_dashboard_access_fieldheader}
+	<SPAN {$is_dashboard_access_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
+	{$label Manage_User_Types is_dashboard_access }	{$arrow_icon_is_dashboard_access}
 	</SPAN>
-	{END description_fieldheader}
-{END description_fieldheadercolumn}
+	{END is_dashboard_access_fieldheader}
+{END is_dashboard_access_fieldheadercolumn}
 
 	
 	</th>
@@ -1179,22 +2064,22 @@
 	{$cell_grid_headcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_dashboard_access_class}
+		 r-ori-vert				{$is_all_unit_class}
 			"
 
-			data-field="is_dashboard_access"
+			data-field="is_all_unit"
 	
 	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_dashboard_access_fieldheadercolumn}
-	{BEGIN is_dashboard_access_fieldheader}
-	<SPAN {$is_dashboard_access_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_dashboard_access">
-	{$label Manage_User_Types is_dashboard_access }	{$arrow_icon_is_dashboard_access}
+		{BEGIN is_all_unit_fieldheadercolumn}
+	{BEGIN is_all_unit_fieldheader}
+	<SPAN {$is_all_unit_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit">
+	{$label Manage_User_Types is_all_unit }	{$arrow_icon_is_all_unit}
 	</SPAN>
-	{END is_dashboard_access_fieldheader}
-{END is_dashboard_access_fieldheadercolumn}
+	{END is_all_unit_fieldheader}
+{END is_all_unit_fieldheadercolumn}
 
 	
 	</th>
@@ -1206,18 +2091,126 @@
 	{$cell_grid_headcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$is_all_units_in_country_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="is_all_units_in_country"
 	
 	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
+		{BEGIN is_all_units_in_country_fieldheadercolumn}
+	{BEGIN is_all_units_in_country_fieldheader}
+	<SPAN {$is_all_units_in_country_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country">
+	{$label Manage_User_Types is_all_units_in_country }	{$arrow_icon_is_all_units_in_country}
+	</SPAN>
+	{END is_all_units_in_country_fieldheader}
+{END is_all_units_in_country_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+				 
+					{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldheadercolumn}
+	{BEGIN is_all_units_in_area_fieldheader}
+	<SPAN {$is_all_units_in_area_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area">
+	{$label Manage_User_Types is_all_units_in_area }	{$arrow_icon_is_all_units_in_area}
+	</SPAN>
+	{END is_all_units_in_area_fieldheader}
+{END is_all_units_in_area_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldheadercolumn}
+	{BEGIN is_all_units_in_level_1_fieldheader}
+	<SPAN {$is_all_units_in_level_1_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1">
+	{$label Manage_User_Types is_all_units_in_level_1 }	{$arrow_icon_is_all_units_in_level_1}
+	</SPAN>
+	{END is_all_units_in_level_1_fieldheader}
+{END is_all_units_in_level_1_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
+				 
+					{BEGIN cellblock_grid_headcell_field12}
+	<th
+	
+	{$cell_grid_headcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_headcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldheadercolumn}
+	{BEGIN is_all_units_in_level_2_fieldheader}
+	<SPAN {$is_all_units_in_level_2_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2">
+	{$label Manage_User_Types is_all_units_in_level_2 }	{$arrow_icon_is_all_units_in_level_2}
+	</SPAN>
+	{END is_all_units_in_level_2_fieldheader}
+{END is_all_units_in_level_2_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field12}
+				 
+					{BEGIN cellblock_grid_headcell_field13}
+	<th
+	
+	{$cell_grid_headcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_obsolete_class}
+			"
+
+			data-field="is_obsolete"
+	
+	data-cellId="grid_headcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
 		{BEGIN is_obsolete_fieldheadercolumn}
 	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Manage_User_Types is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
 	{END is_obsolete_fieldheader}
@@ -1225,7 +2218,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field9}
+	{END cellblock_grid_headcell_field13}
 							</tr>
 					 
 					 
@@ -1248,7 +2241,7 @@
 	{$cell_grid_cell_icons}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+					"
 
 	
 	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"		data-control-cell
@@ -1258,14 +2251,25 @@
 	 
 		{BEGIN edit_column}
 {BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
-	<a type="button" class="btn-link   
+<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Edit" class="btn-link   
 	 glyphicon glyphicon-pencil" href="Manage_User_Types_edit.php?{$editlink}" {$editlink_attrs} title="Edit" data-popup >		
 				
 								</a>
 </span>
 {END edit_link}
 {END edit_column}
+	 
+		{BEGIN view_column}
+{BEGIN view_link}
+<span data-itemtype="grid_view" data-itemid="grid_view" {$item_grid_view} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="View record" class="btn-link   
+	 glyphicon glyphicon-search" href="Manage_User_Types_view.php?{$editlink}" {$viewlink_attrs} title="View" >		
+				
+								</a>
+</span>
+{END view_link}
+{END view_column}
 	
 	</td>
 	{END cellblock_grid_cell_icons}
@@ -1276,20 +2280,20 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$id_unee_t_user_type_class}
+		 r-ori-vert				{$designation_class}
 			"
 
-			data-field="id_unee_t_user_type"
+			data-field="designation"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_unee_t_user_type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_unee_t_user_type" data-default-width >
-{$id_unee_t_user_type_value}
+		{BEGIN designation_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-page="Manage_User_Types_list" data-record-id="{$recId}" data-field="designation" data-default-width >
+{$designation_value}
 </span>
-{END id_unee_t_user_type_fieldcolumn}	
+{END designation_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 				 
@@ -1299,35 +2303,12 @@
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation" data-default-width >
-{$designation_value}
-</span>
-{END designation_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$ut_user_role_type_id_class}
 			"
 
 			data-field="ut_user_role_type_id"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1337,12 +2318,12 @@
 </span>
 {END ut_user_role_type_id_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field1}
 				 
-					{BEGIN cellblock_grid_cell_field3}
+					{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field3}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_occupant_class}
@@ -1350,7 +2331,7 @@
 
 			data-field="is_occupant"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1360,12 +2341,12 @@
 </span>
 {END is_occupant_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
+	{END cellblock_grid_cell_field2}
 				 
-					{BEGIN cellblock_grid_cell_field4}
+					{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_public_class}
@@ -1373,7 +2354,7 @@
 
 			data-field="is_public"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1383,12 +2364,12 @@
 </span>
 {END is_public_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field3}
 				 
-					{BEGIN cellblock_grid_cell_field5}
+					{BEGIN cellblock_grid_cell_field4}
 	<td
 	
-	{$cell_grid_cell_field5}
+	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_default_assignee_class}
@@ -1396,7 +2377,7 @@
 
 			data-field="is_default_assignee"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1406,6 +2387,29 @@
 </span>
 {END is_default_assignee_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field4}
+				 
+					{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_default_invited_class}
+			"
+
+			data-field="is_default_invited"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_default_invited_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default_invited" data-default-width >
+{$is_default_invited_value}
+</span>
+{END is_default_invited_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field5}
 				 
 					{BEGIN cellblock_grid_cell_field6}
@@ -1414,35 +2418,12 @@
 	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_invited_all_cases_class}
-			"
-
-			data-field="is_invited_all_cases"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN is_invited_all_cases_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_invited_all_cases" data-default-width >
-{$is_invited_all_cases_value}
-</span>
-{END is_invited_all_cases_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-				 
-					{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$description_class}
 			"
 
 			data-field="description"
 	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1452,12 +2433,12 @@
 </span>
 {END description_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field7}
+	{END cellblock_grid_cell_field6}
 				 
-					{BEGIN cellblock_grid_cell_field8}
+					{BEGIN cellblock_grid_cell_field7}
 	<td
 	
-	{$cell_grid_cell_field8}
+	{$cell_grid_cell_field7}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_dashboard_access_class}
@@ -1465,7 +2446,7 @@
 
 			data-field="is_dashboard_access"
 	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1475,6 +2456,29 @@
 </span>
 {END is_dashboard_access_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field7}
+				 
+					{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_unit_class}
+			"
+
+			data-field="is_all_unit"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_unit_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_unit" data-default-width >
+{$is_all_unit_value}
+</span>
+{END is_all_unit_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field8}
 				 
 					{BEGIN cellblock_grid_cell_field9}
@@ -1483,12 +2487,104 @@
 	{$cell_grid_cell_field9}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$is_all_units_in_country_class}
+			"
+
+			data-field="is_all_units_in_country"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_country_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_country" data-default-width >
+{$is_all_units_in_country_value}
+</span>
+{END is_all_units_in_country_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+				 
+					{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_area_class}
+			"
+
+			data-field="is_all_units_in_area"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_area_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_area" data-default-width >
+{$is_all_units_in_area_value}
+</span>
+{END is_all_units_in_area_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_1_class}
+			"
+
+			data-field="is_all_units_in_level_1"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_1_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_1" data-default-width >
+{$is_all_units_in_level_1_value}
+</span>
+{END is_all_units_in_level_1_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
+				 
+					{BEGIN cellblock_grid_cell_field12}
+	<td
+	
+	{$cell_grid_cell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_all_units_in_level_2_class}
+			"
+
+			data-field="is_all_units_in_level_2"
+	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_all_units_in_level_2_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_all_units_in_level_2" data-default-width >
+{$is_all_units_in_level_2_value}
+</span>
+{END is_all_units_in_level_2_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field12}
+				 
+					{BEGIN cellblock_grid_cell_field13}
+	<td
+	
+	{$cell_grid_cell_field13}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$is_obsolete_class}
 			"
 
 			data-field="is_obsolete"
 	
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1498,7 +2594,7 @@
 </span>
 {END is_obsolete_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field9}
+	{END cellblock_grid_cell_field13}
 							</tr>
 					 
 					
@@ -1691,6 +2787,70 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field9}
+				 
+					{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
+				 
+					{BEGIN cellblock_grid_footcell_field12}
+	<td
+	
+	{$cell_grid_footcell_field12}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field12}
+				 
+					{BEGIN cellblock_grid_footcell_field13}
+	<td
+	
+	{$cell_grid_footcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_User_Types_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field13}
 							</tr>
 					
 					{END totals_row}

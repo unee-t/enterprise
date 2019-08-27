@@ -12,9 +12,9 @@ $tdataManage_Unee_T_Users[".searchableFields"] = array();
 	$tdataManage_Unee_T_Users[".OriginalTable"] = "external_persons";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
 
-$tdataManage_Unee_T_Users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataManage_Unee_T_Users[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataManage_Unee_T_Users[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -164,6 +164,15 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Unee_T_Users["English"]["uneet_created_datetime"] = "Created On";
 	$fieldToolTipsManage_Unee_T_Users["English"]["uneet_created_datetime"] = "";
 	$placeHoldersManage_Unee_T_Users["English"]["uneet_created_datetime"] = "";
+	$fieldLabelsManage_Unee_T_Users["English"]["role_type"] = "Role Type";
+	$fieldToolTipsManage_Unee_T_Users["English"]["role_type"] = "";
+	$placeHoldersManage_Unee_T_Users["English"]["role_type"] = "";
+	$fieldLabelsManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "User Api Key";
+	$fieldToolTipsManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "";
+	$placeHoldersManage_Unee_T_Users["English"]["unee_t_mefe_user_api_key"] = "";
+	$fieldLabelsManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "Unee T Mefe User Id";
+	$fieldToolTipsManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "";
+	$placeHoldersManage_Unee_T_Users["English"]["unee_t_mefe_user_id"] = "";
 	if (count($fieldToolTipsManage_Unee_T_Users["English"]))
 		$tdataManage_Unee_T_Users[".isUseToolTips"] = true;
 }
@@ -205,7 +214,7 @@ $tdataManage_Unee_T_Users[".listAjax"] = false;
 	$tdataManage_Unee_T_Users[".locking"] = false;
 
 
-$pages = $tdataManage_Unee_T_Users[".pages"];
+$pages = $tdataManage_Unee_T_Users[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataManage_Unee_T_Users[".edit"] = true;
@@ -216,9 +225,9 @@ if( $pages[PAGE_EDIT] ) {
 
 if( $pages[PAGE_ADD] ) {
 $tdataManage_Unee_T_Users[".add"] = true;
-$tdataManage_Unee_T_Users[".afterAddAction"] = 1;
+$tdataManage_Unee_T_Users[".afterAddAction"] = 0;
 $tdataManage_Unee_T_Users[".closePopupAfterAdd"] = 1;
-$tdataManage_Unee_T_Users[".afterAddActionDetTable"] = "";
+$tdataManage_Unee_T_Users[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -290,6 +299,7 @@ $tdataManage_Unee_T_Users[".googleLikeFields"][] = "external_system";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "external_table";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "person_status";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "designation";
+$tdataManage_Unee_T_Users[".googleLikeFields"][] = "role_type";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "person_gender";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "salutation";
 $tdataManage_Unee_T_Users[".googleLikeFields"][] = "given_name";
@@ -342,11 +352,11 @@ $tdataManage_Unee_T_Users[".strOrderBy"] = $tstrOrderBy;
 $tdataManage_Unee_T_Users[".orderindexes"] = array();
 	$tdataManage_Unee_T_Users[".orderindexes"][] = array(16, (1 ? "ASC" : "DESC"), "external_persons.unee_t_user_type_id");
 
-	$tdataManage_Unee_T_Users[".orderindexes"][] = array(22, (1 ? "ASC" : "DESC"), "external_persons.given_name");
+	$tdataManage_Unee_T_Users[".orderindexes"][] = array(23, (1 ? "ASC" : "DESC"), "external_persons.given_name");
 
 
-$tdataManage_Unee_T_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime";
-$tdataManage_Unee_T_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
+$tdataManage_Unee_T_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key,  ut_map_external_source_users.unee_t_mefe_user_id";
+$tdataManage_Unee_T_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $tdataManage_Unee_T_Users[".sqlWhereExpr"] = "";
 $tdataManage_Unee_T_Users[".sqlTail"] = "";
 
@@ -384,7 +394,6 @@ $tdataManage_Unee_T_Users[".arrGroupsPerPage"] = $arrGPP;
 $tdataManage_Unee_T_Users[".highlightSearchResults"] = true;
 
 $tableKeysManage_Unee_T_Users = array();
-$tableKeysManage_Unee_T_Users[] = "id_person";
 $tableKeysManage_Unee_T_Users[] = "external_id";
 $tableKeysManage_Unee_T_Users[] = "external_system";
 $tableKeysManage_Unee_T_Users[] = "external_table";
@@ -452,6 +461,10 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -459,6 +472,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -575,16 +589,20 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -595,19 +613,15 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -701,16 +715,20 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -721,19 +739,15 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -827,16 +841,20 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -847,19 +865,15 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -956,11 +970,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1077,11 +1096,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1201,11 +1225,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1325,11 +1354,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1448,13 +1482,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1574,11 +1612,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1698,11 +1741,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1822,11 +1870,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1975,7 +2028,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	
 
-	$fdata["ViewFormats"]["print"] = $vdata;
+	$fdata["ViewFormats"]["export"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
 	
@@ -1994,7 +2047,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	
 
-	$fdata["ViewFormats"]["export"] = $vdata;
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -2003,13 +2056,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "person_statuses";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2037,6 +2094,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2069,13 +2127,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "person_statuses";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2103,6 +2165,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2135,13 +2198,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "person_statuses";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2170,6 +2237,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2286,11 +2354,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2408,11 +2481,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Checkbox");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2529,13 +2607,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "ut_user_types";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2565,6 +2647,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -2681,11 +2764,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2750,10 +2838,138 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	$tdataManage_Unee_T_Users["designation"] = $fdata;
 		$tdataManage_Unee_T_Users[".searchableFields"][] = "designation";
-//	gender
+//	role_type
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 18;
+	$fdata["strName"] = "role_type";
+	$fdata["GoodName"] = "role_type";
+	$fdata["ownerTable"] = "ut_user_role_types";
+	$fdata["Label"] = GetFieldLabel("Manage_Unee_T_Users","role_type");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "role_type";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_user_role_types.role_type";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Unee_T_Users["role_type"] = $fdata;
+		$tdataManage_Unee_T_Users[".searchableFields"][] = "role_type";
+//	gender
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "gender";
 	$fdata["GoodName"] = "gender";
 	$fdata["ownerTable"] = "external_persons";
@@ -2804,13 +3020,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "person_genders";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2838,6 +3058,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2903,7 +3124,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	person_gender
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "person_gender";
 	$fdata["GoodName"] = "person_gender";
 	$fdata["ownerTable"] = "person_genders";
@@ -2954,11 +3175,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3024,7 +3250,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	salutation_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "salutation_id";
 	$fdata["GoodName"] = "salutation_id";
 	$fdata["ownerTable"] = "external_persons";
@@ -3075,13 +3301,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "person_salutations";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -3109,6 +3339,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -3174,7 +3405,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	salutation
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "salutation";
 	$fdata["GoodName"] = "salutation";
 	$fdata["ownerTable"] = "person_salutations";
@@ -3225,11 +3456,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3295,7 +3531,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	given_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "given_name";
 	$fdata["GoodName"] = "given_name";
 	$fdata["ownerTable"] = "external_persons";
@@ -3346,6 +3582,10 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -3353,6 +3593,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -3421,7 +3662,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	middle_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "middle_name";
 	$fdata["GoodName"] = "middle_name";
 	$fdata["ownerTable"] = "external_persons";
@@ -3472,11 +3713,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3545,7 +3791,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	family_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 25;
 	$fdata["strName"] = "family_name";
 	$fdata["GoodName"] = "family_name";
 	$fdata["ownerTable"] = "external_persons";
@@ -3596,11 +3842,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3669,7 +3920,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	date_of_birth
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 26;
 	$fdata["strName"] = "date_of_birth";
 	$fdata["GoodName"] = "date_of_birth";
 	$fdata["ownerTable"] = "external_persons";
@@ -3720,11 +3971,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Date");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3793,7 +4049,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	alias
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "alias";
 	$fdata["GoodName"] = "alias";
 	$fdata["ownerTable"] = "external_persons";
@@ -3844,11 +4100,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3917,7 +4178,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	job_title
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 27;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "job_title";
 	$fdata["GoodName"] = "job_title";
 	$fdata["ownerTable"] = "external_persons";
@@ -3968,11 +4229,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4041,7 +4307,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	organization
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 28;
+	$fdata["Index"] = 29;
 	$fdata["strName"] = "organization";
 	$fdata["GoodName"] = "organization";
 	$fdata["ownerTable"] = "external_persons";
@@ -4092,11 +4358,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4165,7 +4436,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	email
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 29;
+	$fdata["Index"] = 30;
 	$fdata["strName"] = "email";
 	$fdata["GoodName"] = "email";
 	$fdata["ownerTable"] = "external_persons";
@@ -4216,6 +4487,10 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -4223,6 +4498,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -4291,7 +4567,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	tel_1
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 30;
+	$fdata["Index"] = 31;
 	$fdata["strName"] = "tel_1";
 	$fdata["GoodName"] = "tel_1";
 	$fdata["ownerTable"] = "external_persons";
@@ -4342,11 +4618,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4415,7 +4696,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	tel_2
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 31;
+	$fdata["Index"] = 32;
 	$fdata["strName"] = "tel_2";
 	$fdata["GoodName"] = "tel_2";
 	$fdata["ownerTable"] = "external_persons";
@@ -4466,11 +4747,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4539,7 +4825,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	whatsapp
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 32;
+	$fdata["Index"] = 33;
 	$fdata["strName"] = "whatsapp";
 	$fdata["GoodName"] = "whatsapp";
 	$fdata["ownerTable"] = "external_persons";
@@ -4590,11 +4876,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4663,7 +4954,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	linkedin
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 33;
+	$fdata["Index"] = 34;
 	$fdata["strName"] = "linkedin";
 	$fdata["GoodName"] = "linkedin";
 	$fdata["ownerTable"] = "external_persons";
@@ -4714,11 +5005,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4787,7 +5083,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	facebook
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 34;
+	$fdata["Index"] = 35;
 	$fdata["strName"] = "facebook";
 	$fdata["GoodName"] = "facebook";
 	$fdata["ownerTable"] = "external_persons";
@@ -4838,11 +5134,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -4911,7 +5212,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	adr1
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 35;
+	$fdata["Index"] = 36;
 	$fdata["strName"] = "adr1";
 	$fdata["GoodName"] = "adr1";
 	$fdata["ownerTable"] = "external_persons";
@@ -4962,11 +5263,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5035,7 +5341,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	adr2
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 36;
+	$fdata["Index"] = 37;
 	$fdata["strName"] = "adr2";
 	$fdata["GoodName"] = "adr2";
 	$fdata["ownerTable"] = "external_persons";
@@ -5086,11 +5392,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5159,7 +5470,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	adr3
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 37;
+	$fdata["Index"] = 38;
 	$fdata["strName"] = "adr3";
 	$fdata["GoodName"] = "adr3";
 	$fdata["ownerTable"] = "external_persons";
@@ -5210,11 +5521,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5283,7 +5599,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	City
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 38;
+	$fdata["Index"] = 39;
 	$fdata["strName"] = "City";
 	$fdata["GoodName"] = "City";
 	$fdata["ownerTable"] = "external_persons";
@@ -5334,11 +5650,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5407,7 +5728,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	zip_postcode
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 39;
+	$fdata["Index"] = 40;
 	$fdata["strName"] = "zip_postcode";
 	$fdata["GoodName"] = "zip_postcode";
 	$fdata["ownerTable"] = "external_persons";
@@ -5458,11 +5779,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5531,7 +5857,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	region_or_state
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 40;
+	$fdata["Index"] = 41;
 	$fdata["strName"] = "region_or_state";
 	$fdata["GoodName"] = "region_or_state";
 	$fdata["ownerTable"] = "external_persons";
@@ -5582,11 +5908,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -5655,7 +5986,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	country_code
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 41;
+	$fdata["Index"] = 42;
 	$fdata["strName"] = "country_code";
 	$fdata["GoodName"] = "country_code";
 	$fdata["ownerTable"] = "external_persons";
@@ -5735,7 +6066,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	
 
-	$fdata["ViewFormats"]["print"] = $vdata;
+	$fdata["ViewFormats"]["export"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
 	
@@ -5754,7 +6085,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	
 
-	$fdata["ViewFormats"]["export"] = $vdata;
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -5763,13 +6094,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "property_groups_countries";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -5797,6 +6132,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -5829,13 +6165,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "property_groups_countries";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -5863,6 +6203,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -5895,13 +6236,17 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "property_groups_countries";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -5930,6 +6275,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -5995,7 +6341,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	country
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 42;
+	$fdata["Index"] = 43;
 	$fdata["strName"] = "country";
 	$fdata["GoodName"] = "country";
 	$fdata["ownerTable"] = "external_persons";
@@ -6046,11 +6392,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -6119,7 +6470,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	dupe_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 43;
+	$fdata["Index"] = 44;
 	$fdata["strName"] = "dupe_id";
 	$fdata["GoodName"] = "dupe_id";
 	$fdata["ownerTable"] = "external_persons";
@@ -6170,11 +6521,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -6243,7 +6599,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	handler_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 44;
+	$fdata["Index"] = 45;
 	$fdata["strName"] = "handler_id";
 	$fdata["GoodName"] = "handler_id";
 	$fdata["ownerTable"] = "external_persons";
@@ -6294,11 +6650,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -6367,7 +6728,7 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 //	uneet_created_datetime
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 45;
+	$fdata["Index"] = 46;
 	$fdata["strName"] = "uneet_created_datetime";
 	$fdata["GoodName"] = "uneet_created_datetime";
 	$fdata["ownerTable"] = "ut_map_external_source_users";
@@ -6418,11 +6779,16 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -6485,6 +6851,258 @@ $tdataManage_Unee_T_Users[".hideMobileList"] = array();
 
 	$tdataManage_Unee_T_Users["uneet_created_datetime"] = $fdata;
 		$tdataManage_Unee_T_Users[".searchableFields"][] = "uneet_created_datetime";
+//	unee_t_mefe_user_api_key
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 47;
+	$fdata["strName"] = "unee_t_mefe_user_api_key";
+	$fdata["GoodName"] = "unee_t_mefe_user_api_key";
+	$fdata["ownerTable"] = "ut_map_external_source_users";
+	$fdata["Label"] = GetFieldLabel("Manage_Unee_T_Users","unee_t_mefe_user_api_key");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "unee_t_mefe_user_api_key";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_map_external_source_users.unee_t_mefe_user_api_key";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Unee_T_Users["unee_t_mefe_user_api_key"] = $fdata;
+		$tdataManage_Unee_T_Users[".searchableFields"][] = "unee_t_mefe_user_api_key";
+//	unee_t_mefe_user_id
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 48;
+	$fdata["strName"] = "unee_t_mefe_user_id";
+	$fdata["GoodName"] = "unee_t_mefe_user_id";
+	$fdata["ownerTable"] = "ut_map_external_source_users";
+	$fdata["Label"] = GetFieldLabel("Manage_Unee_T_Users","unee_t_mefe_user_id");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "unee_t_mefe_user_id";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_map_external_source_users.unee_t_mefe_user_id";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Unee_T_Users["unee_t_mefe_user_id"] = $fdata;
+		$tdataManage_Unee_T_Users[".searchableFields"][] = "unee_t_mefe_user_id";
 
 
 $tables_data["Manage Unee-T Users"]=&$tdataManage_Unee_T_Users;
@@ -6496,6 +7114,93 @@ $page_titles["Manage_Unee_T_Users"] = &$pageTitlesManage_Unee_T_Users;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["Manage Unee-T Users"] = array();
+//	Assign Buildings to User
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Assign Buildings to User";
+		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_1";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "Assign_Buildings_to_User";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Buildings_to_User");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
+
+				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
+//	Assign Units to User
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Assign Units to User";
+		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_2";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "Assign_Units_to_User";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Units_to_User");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
+
+				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
+//	Assign Rooms to User
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Assign Rooms to User";
+		$detailsParam["dOriginalTable"] = "external_map_user_unit_role_permissions_level_3";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "Assign_Rooms_to_User";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Assign_Rooms_to_User");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Unee-T Users"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["masterKeys"][]="unee_t_mefe_user_id";
+
+				$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Unee-T Users"][$dIndex]["detailKeys"][]="unee_t_mefe_user_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Unee-T Users"] = array();
@@ -6520,8 +7225,8 @@ function createSqlQuery_Manage_Unee_T_Users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime";
-$proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
+$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key,  ut_map_external_source_users.unee_t_mefe_user_id";
+$proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "ORDER BY external_persons.unee_t_user_type_id, external_persons.given_name";
 	
@@ -6801,12 +7506,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "gender",
-	"m_strTable" => "external_persons",
+	"m_strName" => "role_type",
+	"m_strTable" => "ut_user_role_types",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto40["m_sql"] = "external_persons.gender";
+$proto40["m_sql"] = "ut_user_role_types.role_type";
 $proto40["m_srcTableName"] = "Manage Unee-T Users";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -6815,12 +7520,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "person_gender",
-	"m_strTable" => "person_genders",
+	"m_strName" => "gender",
+	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto42["m_sql"] = "person_genders.person_gender";
+$proto42["m_sql"] = "external_persons.gender";
 $proto42["m_srcTableName"] = "Manage Unee-T Users";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -6829,12 +7534,12 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "salutation_id",
-	"m_strTable" => "external_persons",
+	"m_strName" => "person_gender",
+	"m_strTable" => "person_genders",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto44["m_sql"] = "external_persons.salutation_id";
+$proto44["m_sql"] = "person_genders.person_gender";
 $proto44["m_srcTableName"] = "Manage Unee-T Users";
 $proto44["m_expr"]=$obj;
 $proto44["m_alias"] = "";
@@ -6843,12 +7548,12 @@ $obj = new SQLFieldListItem($proto44);
 $proto0["m_fieldlist"][]=$obj;
 						$proto46=array();
 			$obj = new SQLField(array(
-	"m_strName" => "salutation",
-	"m_strTable" => "person_salutations",
+	"m_strName" => "salutation_id",
+	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto46["m_sql"] = "person_salutations.salutation";
+$proto46["m_sql"] = "external_persons.salutation_id";
 $proto46["m_srcTableName"] = "Manage Unee-T Users";
 $proto46["m_expr"]=$obj;
 $proto46["m_alias"] = "";
@@ -6857,12 +7562,12 @@ $obj = new SQLFieldListItem($proto46);
 $proto0["m_fieldlist"][]=$obj;
 						$proto48=array();
 			$obj = new SQLField(array(
-	"m_strName" => "given_name",
-	"m_strTable" => "external_persons",
+	"m_strName" => "salutation",
+	"m_strTable" => "person_salutations",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto48["m_sql"] = "external_persons.given_name";
+$proto48["m_sql"] = "person_salutations.salutation";
 $proto48["m_srcTableName"] = "Manage Unee-T Users";
 $proto48["m_expr"]=$obj;
 $proto48["m_alias"] = "";
@@ -6871,12 +7576,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "middle_name",
+	"m_strName" => "given_name",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto50["m_sql"] = "external_persons.middle_name";
+$proto50["m_sql"] = "external_persons.given_name";
 $proto50["m_srcTableName"] = "Manage Unee-T Users";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -6885,12 +7590,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "family_name",
+	"m_strName" => "middle_name",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto52["m_sql"] = "external_persons.family_name";
+$proto52["m_sql"] = "external_persons.middle_name";
 $proto52["m_srcTableName"] = "Manage Unee-T Users";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -6899,12 +7604,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "date_of_birth",
+	"m_strName" => "family_name",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto54["m_sql"] = "external_persons.date_of_birth";
+$proto54["m_sql"] = "external_persons.family_name";
 $proto54["m_srcTableName"] = "Manage Unee-T Users";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -6913,12 +7618,12 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "alias",
+	"m_strName" => "date_of_birth",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto56["m_sql"] = "external_persons.`alias`";
+$proto56["m_sql"] = "external_persons.date_of_birth";
 $proto56["m_srcTableName"] = "Manage Unee-T Users";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
@@ -6927,12 +7632,12 @@ $obj = new SQLFieldListItem($proto56);
 $proto0["m_fieldlist"][]=$obj;
 						$proto58=array();
 			$obj = new SQLField(array(
-	"m_strName" => "job_title",
+	"m_strName" => "alias",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto58["m_sql"] = "external_persons.job_title";
+$proto58["m_sql"] = "external_persons.`alias`";
 $proto58["m_srcTableName"] = "Manage Unee-T Users";
 $proto58["m_expr"]=$obj;
 $proto58["m_alias"] = "";
@@ -6941,12 +7646,12 @@ $obj = new SQLFieldListItem($proto58);
 $proto0["m_fieldlist"][]=$obj;
 						$proto60=array();
 			$obj = new SQLField(array(
-	"m_strName" => "organization",
+	"m_strName" => "job_title",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto60["m_sql"] = "external_persons.`organization`";
+$proto60["m_sql"] = "external_persons.job_title";
 $proto60["m_srcTableName"] = "Manage Unee-T Users";
 $proto60["m_expr"]=$obj;
 $proto60["m_alias"] = "";
@@ -6955,12 +7660,12 @@ $obj = new SQLFieldListItem($proto60);
 $proto0["m_fieldlist"][]=$obj;
 						$proto62=array();
 			$obj = new SQLField(array(
-	"m_strName" => "email",
+	"m_strName" => "organization",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto62["m_sql"] = "external_persons.email";
+$proto62["m_sql"] = "external_persons.`organization`";
 $proto62["m_srcTableName"] = "Manage Unee-T Users";
 $proto62["m_expr"]=$obj;
 $proto62["m_alias"] = "";
@@ -6969,12 +7674,12 @@ $obj = new SQLFieldListItem($proto62);
 $proto0["m_fieldlist"][]=$obj;
 						$proto64=array();
 			$obj = new SQLField(array(
-	"m_strName" => "tel_1",
+	"m_strName" => "email",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto64["m_sql"] = "external_persons.tel_1";
+$proto64["m_sql"] = "external_persons.email";
 $proto64["m_srcTableName"] = "Manage Unee-T Users";
 $proto64["m_expr"]=$obj;
 $proto64["m_alias"] = "";
@@ -6983,12 +7688,12 @@ $obj = new SQLFieldListItem($proto64);
 $proto0["m_fieldlist"][]=$obj;
 						$proto66=array();
 			$obj = new SQLField(array(
-	"m_strName" => "tel_2",
+	"m_strName" => "tel_1",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto66["m_sql"] = "external_persons.tel_2";
+$proto66["m_sql"] = "external_persons.tel_1";
 $proto66["m_srcTableName"] = "Manage Unee-T Users";
 $proto66["m_expr"]=$obj;
 $proto66["m_alias"] = "";
@@ -6997,12 +7702,12 @@ $obj = new SQLFieldListItem($proto66);
 $proto0["m_fieldlist"][]=$obj;
 						$proto68=array();
 			$obj = new SQLField(array(
-	"m_strName" => "whatsapp",
+	"m_strName" => "tel_2",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto68["m_sql"] = "external_persons.whatsapp";
+$proto68["m_sql"] = "external_persons.tel_2";
 $proto68["m_srcTableName"] = "Manage Unee-T Users";
 $proto68["m_expr"]=$obj;
 $proto68["m_alias"] = "";
@@ -7011,12 +7716,12 @@ $obj = new SQLFieldListItem($proto68);
 $proto0["m_fieldlist"][]=$obj;
 						$proto70=array();
 			$obj = new SQLField(array(
-	"m_strName" => "linkedin",
+	"m_strName" => "whatsapp",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto70["m_sql"] = "external_persons.linkedin";
+$proto70["m_sql"] = "external_persons.whatsapp";
 $proto70["m_srcTableName"] = "Manage Unee-T Users";
 $proto70["m_expr"]=$obj;
 $proto70["m_alias"] = "";
@@ -7025,12 +7730,12 @@ $obj = new SQLFieldListItem($proto70);
 $proto0["m_fieldlist"][]=$obj;
 						$proto72=array();
 			$obj = new SQLField(array(
-	"m_strName" => "facebook",
+	"m_strName" => "linkedin",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto72["m_sql"] = "external_persons.facebook";
+$proto72["m_sql"] = "external_persons.linkedin";
 $proto72["m_srcTableName"] = "Manage Unee-T Users";
 $proto72["m_expr"]=$obj;
 $proto72["m_alias"] = "";
@@ -7039,12 +7744,12 @@ $obj = new SQLFieldListItem($proto72);
 $proto0["m_fieldlist"][]=$obj;
 						$proto74=array();
 			$obj = new SQLField(array(
-	"m_strName" => "adr1",
+	"m_strName" => "facebook",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto74["m_sql"] = "external_persons.adr1";
+$proto74["m_sql"] = "external_persons.facebook";
 $proto74["m_srcTableName"] = "Manage Unee-T Users";
 $proto74["m_expr"]=$obj;
 $proto74["m_alias"] = "";
@@ -7053,12 +7758,12 @@ $obj = new SQLFieldListItem($proto74);
 $proto0["m_fieldlist"][]=$obj;
 						$proto76=array();
 			$obj = new SQLField(array(
-	"m_strName" => "adr2",
+	"m_strName" => "adr1",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto76["m_sql"] = "external_persons.adr2";
+$proto76["m_sql"] = "external_persons.adr1";
 $proto76["m_srcTableName"] = "Manage Unee-T Users";
 $proto76["m_expr"]=$obj;
 $proto76["m_alias"] = "";
@@ -7067,12 +7772,12 @@ $obj = new SQLFieldListItem($proto76);
 $proto0["m_fieldlist"][]=$obj;
 						$proto78=array();
 			$obj = new SQLField(array(
-	"m_strName" => "adr3",
+	"m_strName" => "adr2",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto78["m_sql"] = "external_persons.adr3";
+$proto78["m_sql"] = "external_persons.adr2";
 $proto78["m_srcTableName"] = "Manage Unee-T Users";
 $proto78["m_expr"]=$obj;
 $proto78["m_alias"] = "";
@@ -7081,12 +7786,12 @@ $obj = new SQLFieldListItem($proto78);
 $proto0["m_fieldlist"][]=$obj;
 						$proto80=array();
 			$obj = new SQLField(array(
-	"m_strName" => "City",
+	"m_strName" => "adr3",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto80["m_sql"] = "external_persons.City";
+$proto80["m_sql"] = "external_persons.adr3";
 $proto80["m_srcTableName"] = "Manage Unee-T Users";
 $proto80["m_expr"]=$obj;
 $proto80["m_alias"] = "";
@@ -7095,12 +7800,12 @@ $obj = new SQLFieldListItem($proto80);
 $proto0["m_fieldlist"][]=$obj;
 						$proto82=array();
 			$obj = new SQLField(array(
-	"m_strName" => "zip_postcode",
+	"m_strName" => "City",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto82["m_sql"] = "external_persons.zip_postcode";
+$proto82["m_sql"] = "external_persons.City";
 $proto82["m_srcTableName"] = "Manage Unee-T Users";
 $proto82["m_expr"]=$obj;
 $proto82["m_alias"] = "";
@@ -7109,12 +7814,12 @@ $obj = new SQLFieldListItem($proto82);
 $proto0["m_fieldlist"][]=$obj;
 						$proto84=array();
 			$obj = new SQLField(array(
-	"m_strName" => "region_or_state",
+	"m_strName" => "zip_postcode",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto84["m_sql"] = "external_persons.region_or_state";
+$proto84["m_sql"] = "external_persons.zip_postcode";
 $proto84["m_srcTableName"] = "Manage Unee-T Users";
 $proto84["m_expr"]=$obj;
 $proto84["m_alias"] = "";
@@ -7123,12 +7828,12 @@ $obj = new SQLFieldListItem($proto84);
 $proto0["m_fieldlist"][]=$obj;
 						$proto86=array();
 			$obj = new SQLField(array(
-	"m_strName" => "country_code",
+	"m_strName" => "region_or_state",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto86["m_sql"] = "external_persons.country_code";
+$proto86["m_sql"] = "external_persons.region_or_state";
 $proto86["m_srcTableName"] = "Manage Unee-T Users";
 $proto86["m_expr"]=$obj;
 $proto86["m_alias"] = "";
@@ -7137,12 +7842,12 @@ $obj = new SQLFieldListItem($proto86);
 $proto0["m_fieldlist"][]=$obj;
 						$proto88=array();
 			$obj = new SQLField(array(
-	"m_strName" => "country",
+	"m_strName" => "country_code",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto88["m_sql"] = "external_persons.country";
+$proto88["m_sql"] = "external_persons.country_code";
 $proto88["m_srcTableName"] = "Manage Unee-T Users";
 $proto88["m_expr"]=$obj;
 $proto88["m_alias"] = "";
@@ -7151,12 +7856,12 @@ $obj = new SQLFieldListItem($proto88);
 $proto0["m_fieldlist"][]=$obj;
 						$proto90=array();
 			$obj = new SQLField(array(
-	"m_strName" => "dupe_id",
+	"m_strName" => "country",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto90["m_sql"] = "external_persons.dupe_id";
+$proto90["m_sql"] = "external_persons.country";
 $proto90["m_srcTableName"] = "Manage Unee-T Users";
 $proto90["m_expr"]=$obj;
 $proto90["m_alias"] = "";
@@ -7165,12 +7870,12 @@ $obj = new SQLFieldListItem($proto90);
 $proto0["m_fieldlist"][]=$obj;
 						$proto92=array();
 			$obj = new SQLField(array(
-	"m_strName" => "handler_id",
+	"m_strName" => "dupe_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto92["m_sql"] = "external_persons.handler_id";
+$proto92["m_sql"] = "external_persons.dupe_id";
 $proto92["m_srcTableName"] = "Manage Unee-T Users";
 $proto92["m_expr"]=$obj;
 $proto92["m_alias"] = "";
@@ -7179,516 +7884,622 @@ $obj = new SQLFieldListItem($proto92);
 $proto0["m_fieldlist"][]=$obj;
 						$proto94=array();
 			$obj = new SQLField(array(
-	"m_strName" => "uneet_created_datetime",
-	"m_strTable" => "ut_map_external_source_users",
+	"m_strName" => "handler_id",
+	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto94["m_sql"] = "ut_map_external_source_users.uneet_created_datetime";
+$proto94["m_sql"] = "external_persons.handler_id";
 $proto94["m_srcTableName"] = "Manage Unee-T Users";
 $proto94["m_expr"]=$obj;
 $proto94["m_alias"] = "";
 $obj = new SQLFieldListItem($proto94);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto96=array();
-$proto96["m_link"] = "SQLL_MAIN";
-			$proto97=array();
-$proto97["m_strName"] = "external_persons";
-$proto97["m_srcTableName"] = "Manage Unee-T Users";
-$proto97["m_columns"] = array();
-$proto97["m_columns"][] = "id_person";
-$proto97["m_columns"][] = "external_id";
-$proto97["m_columns"][] = "external_system";
-$proto97["m_columns"][] = "external_table";
-$proto97["m_columns"][] = "syst_created_datetime";
-$proto97["m_columns"][] = "creation_system_id";
-$proto97["m_columns"][] = "created_by_id";
-$proto97["m_columns"][] = "creation_method";
-$proto97["m_columns"][] = "syst_updated_datetime";
-$proto97["m_columns"][] = "update_system_id";
-$proto97["m_columns"][] = "updated_by_id";
-$proto97["m_columns"][] = "update_method";
-$proto97["m_columns"][] = "person_status_id";
-$proto97["m_columns"][] = "dupe_id";
-$proto97["m_columns"][] = "handler_id";
-$proto97["m_columns"][] = "is_unee_t_account_needed";
-$proto97["m_columns"][] = "unee_t_user_type_id";
-$proto97["m_columns"][] = "country_code";
-$proto97["m_columns"][] = "gender";
-$proto97["m_columns"][] = "salutation_id";
-$proto97["m_columns"][] = "given_name";
-$proto97["m_columns"][] = "middle_name";
-$proto97["m_columns"][] = "family_name";
-$proto97["m_columns"][] = "date_of_birth";
-$proto97["m_columns"][] = "alias";
-$proto97["m_columns"][] = "job_title";
-$proto97["m_columns"][] = "organization";
-$proto97["m_columns"][] = "email";
-$proto97["m_columns"][] = "tel_1";
-$proto97["m_columns"][] = "tel_2";
-$proto97["m_columns"][] = "whatsapp";
-$proto97["m_columns"][] = "linkedin";
-$proto97["m_columns"][] = "facebook";
-$proto97["m_columns"][] = "adr1";
-$proto97["m_columns"][] = "adr2";
-$proto97["m_columns"][] = "adr3";
-$proto97["m_columns"][] = "City";
-$proto97["m_columns"][] = "zip_postcode";
-$proto97["m_columns"][] = "region_or_state";
-$proto97["m_columns"][] = "country";
-$obj = new SQLTable($proto97);
+						$proto96=array();
+			$obj = new SQLField(array(
+	"m_strName" => "uneet_created_datetime",
+	"m_strTable" => "ut_map_external_source_users",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
 
-$proto96["m_table"] = $obj;
-$proto96["m_sql"] = "external_persons";
-$proto96["m_alias"] = "";
+$proto96["m_sql"] = "ut_map_external_source_users.uneet_created_datetime";
 $proto96["m_srcTableName"] = "Manage Unee-T Users";
-$proto98=array();
-$proto98["m_sql"] = "";
-$proto98["m_uniontype"] = "SQLL_UNKNOWN";
+$proto96["m_expr"]=$obj;
+$proto96["m_alias"] = "";
+$obj = new SQLFieldListItem($proto96);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto98=array();
+			$obj = new SQLField(array(
+	"m_strName" => "unee_t_mefe_user_api_key",
+	"m_strTable" => "ut_map_external_source_users",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto98["m_sql"] = "ut_map_external_source_users.unee_t_mefe_user_api_key";
+$proto98["m_srcTableName"] = "Manage Unee-T Users";
+$proto98["m_expr"]=$obj;
+$proto98["m_alias"] = "";
+$obj = new SQLFieldListItem($proto98);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto100=array();
+			$obj = new SQLField(array(
+	"m_strName" => "unee_t_mefe_user_id",
+	"m_strTable" => "ut_map_external_source_users",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto100["m_sql"] = "ut_map_external_source_users.unee_t_mefe_user_id";
+$proto100["m_srcTableName"] = "Manage Unee-T Users";
+$proto100["m_expr"]=$obj;
+$proto100["m_alias"] = "";
+$obj = new SQLFieldListItem($proto100);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto102=array();
+$proto102["m_link"] = "SQLL_MAIN";
+			$proto103=array();
+$proto103["m_strName"] = "external_persons";
+$proto103["m_srcTableName"] = "Manage Unee-T Users";
+$proto103["m_columns"] = array();
+$proto103["m_columns"][] = "id_person";
+$proto103["m_columns"][] = "create_api_request_id";
+$proto103["m_columns"][] = "edit_api_request_id";
+$proto103["m_columns"][] = "external_id";
+$proto103["m_columns"][] = "external_system";
+$proto103["m_columns"][] = "external_table";
+$proto103["m_columns"][] = "syst_created_datetime";
+$proto103["m_columns"][] = "creation_system_id";
+$proto103["m_columns"][] = "created_by_id";
+$proto103["m_columns"][] = "creation_method";
+$proto103["m_columns"][] = "syst_updated_datetime";
+$proto103["m_columns"][] = "update_system_id";
+$proto103["m_columns"][] = "updated_by_id";
+$proto103["m_columns"][] = "update_method";
+$proto103["m_columns"][] = "is_update_on_duplicate_key";
+$proto103["m_columns"][] = "person_status_id";
+$proto103["m_columns"][] = "dupe_id";
+$proto103["m_columns"][] = "handler_id";
+$proto103["m_columns"][] = "is_unee_t_account_needed";
+$proto103["m_columns"][] = "unee_t_user_type_id";
+$proto103["m_columns"][] = "country_code";
+$proto103["m_columns"][] = "gender";
+$proto103["m_columns"][] = "salutation_id";
+$proto103["m_columns"][] = "given_name";
+$proto103["m_columns"][] = "middle_name";
+$proto103["m_columns"][] = "family_name";
+$proto103["m_columns"][] = "date_of_birth";
+$proto103["m_columns"][] = "alias";
+$proto103["m_columns"][] = "job_title";
+$proto103["m_columns"][] = "organization";
+$proto103["m_columns"][] = "email";
+$proto103["m_columns"][] = "tel_1";
+$proto103["m_columns"][] = "tel_2";
+$proto103["m_columns"][] = "whatsapp";
+$proto103["m_columns"][] = "linkedin";
+$proto103["m_columns"][] = "facebook";
+$proto103["m_columns"][] = "adr1";
+$proto103["m_columns"][] = "adr2";
+$proto103["m_columns"][] = "adr3";
+$proto103["m_columns"][] = "City";
+$proto103["m_columns"][] = "zip_postcode";
+$proto103["m_columns"][] = "region_or_state";
+$proto103["m_columns"][] = "country";
+$obj = new SQLTable($proto103);
+
+$proto102["m_table"] = $obj;
+$proto102["m_sql"] = "external_persons";
+$proto102["m_alias"] = "";
+$proto102["m_srcTableName"] = "Manage Unee-T Users";
+$proto104=array();
+$proto104["m_sql"] = "";
+$proto104["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto98["m_column"]=$obj;
-$proto98["m_contained"] = array();
-$proto98["m_strCase"] = "";
-$proto98["m_havingmode"] = false;
-$proto98["m_inBrackets"] = false;
-$proto98["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto98);
+$proto104["m_column"]=$obj;
+$proto104["m_contained"] = array();
+$proto104["m_strCase"] = "";
+$proto104["m_havingmode"] = false;
+$proto104["m_inBrackets"] = false;
+$proto104["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto104);
 
-$proto96["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto96);
+$proto102["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto102);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto100=array();
-$proto100["m_link"] = "SQLL_LEFTJOIN";
-			$proto101=array();
-$proto101["m_strName"] = "person_genders";
-$proto101["m_srcTableName"] = "Manage Unee-T Users";
-$proto101["m_columns"] = array();
-$proto101["m_columns"][] = "id_person_gender";
-$proto101["m_columns"][] = "creation_system_id";
-$proto101["m_columns"][] = "update_system_id";
-$proto101["m_columns"][] = "is_obsolete";
-$proto101["m_columns"][] = "is_default";
-$proto101["m_columns"][] = "is_active";
-$proto101["m_columns"][] = "order";
-$proto101["m_columns"][] = "person_gender";
-$proto101["m_columns"][] = "description";
-$obj = new SQLTable($proto101);
+												$proto106=array();
+$proto106["m_link"] = "SQLL_LEFTJOIN";
+			$proto107=array();
+$proto107["m_strName"] = "person_genders";
+$proto107["m_srcTableName"] = "Manage Unee-T Users";
+$proto107["m_columns"] = array();
+$proto107["m_columns"][] = "id_person_gender";
+$proto107["m_columns"][] = "creation_system_id";
+$proto107["m_columns"][] = "update_system_id";
+$proto107["m_columns"][] = "is_obsolete";
+$proto107["m_columns"][] = "is_default";
+$proto107["m_columns"][] = "is_active";
+$proto107["m_columns"][] = "order";
+$proto107["m_columns"][] = "person_gender";
+$proto107["m_columns"][] = "description";
+$obj = new SQLTable($proto107);
 
-$proto100["m_table"] = $obj;
-$proto100["m_sql"] = "LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender";
-$proto100["m_alias"] = "";
-$proto100["m_srcTableName"] = "Manage Unee-T Users";
-$proto102=array();
-$proto102["m_sql"] = "external_persons.gender = person_genders.id_person_gender";
-$proto102["m_uniontype"] = "SQLL_UNKNOWN";
+$proto106["m_table"] = $obj;
+$proto106["m_sql"] = "LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender";
+$proto106["m_alias"] = "";
+$proto106["m_srcTableName"] = "Manage Unee-T Users";
+$proto108=array();
+$proto108["m_sql"] = "external_persons.gender = person_genders.id_person_gender";
+$proto108["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "gender",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto102["m_column"]=$obj;
-$proto102["m_contained"] = array();
-$proto102["m_strCase"] = "= person_genders.id_person_gender";
-$proto102["m_havingmode"] = false;
-$proto102["m_inBrackets"] = false;
-$proto102["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto102);
+$proto108["m_column"]=$obj;
+$proto108["m_contained"] = array();
+$proto108["m_strCase"] = "= person_genders.id_person_gender";
+$proto108["m_havingmode"] = false;
+$proto108["m_inBrackets"] = false;
+$proto108["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto108);
 
-$proto100["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto100);
+$proto106["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto106);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto104=array();
-$proto104["m_link"] = "SQLL_LEFTJOIN";
-			$proto105=array();
-$proto105["m_strName"] = "person_salutations";
-$proto105["m_srcTableName"] = "Manage Unee-T Users";
-$proto105["m_columns"] = array();
-$proto105["m_columns"][] = "id_salutation";
-$proto105["m_columns"][] = "creation_system_id";
-$proto105["m_columns"][] = "update_system_id";
-$proto105["m_columns"][] = "is_obsolete";
-$proto105["m_columns"][] = "order";
-$proto105["m_columns"][] = "salutation";
-$proto105["m_columns"][] = "salutation_description";
-$obj = new SQLTable($proto105);
+												$proto110=array();
+$proto110["m_link"] = "SQLL_LEFTJOIN";
+			$proto111=array();
+$proto111["m_strName"] = "person_salutations";
+$proto111["m_srcTableName"] = "Manage Unee-T Users";
+$proto111["m_columns"] = array();
+$proto111["m_columns"][] = "id_salutation";
+$proto111["m_columns"][] = "creation_system_id";
+$proto111["m_columns"][] = "update_system_id";
+$proto111["m_columns"][] = "is_obsolete";
+$proto111["m_columns"][] = "order";
+$proto111["m_columns"][] = "salutation";
+$proto111["m_columns"][] = "salutation_description";
+$obj = new SQLTable($proto111);
 
-$proto104["m_table"] = $obj;
-$proto104["m_sql"] = "LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation";
-$proto104["m_alias"] = "";
-$proto104["m_srcTableName"] = "Manage Unee-T Users";
-$proto106=array();
-$proto106["m_sql"] = "external_persons.salutation_id = person_salutations.id_salutation";
-$proto106["m_uniontype"] = "SQLL_UNKNOWN";
+$proto110["m_table"] = $obj;
+$proto110["m_sql"] = "LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation";
+$proto110["m_alias"] = "";
+$proto110["m_srcTableName"] = "Manage Unee-T Users";
+$proto112=array();
+$proto112["m_sql"] = "external_persons.salutation_id = person_salutations.id_salutation";
+$proto112["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "salutation_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto106["m_column"]=$obj;
-$proto106["m_contained"] = array();
-$proto106["m_strCase"] = "= person_salutations.id_salutation";
-$proto106["m_havingmode"] = false;
-$proto106["m_inBrackets"] = false;
-$proto106["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto106);
+$proto112["m_column"]=$obj;
+$proto112["m_contained"] = array();
+$proto112["m_strCase"] = "= person_salutations.id_salutation";
+$proto112["m_havingmode"] = false;
+$proto112["m_inBrackets"] = false;
+$proto112["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto112);
 
-$proto104["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto104);
+$proto110["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto110);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto108=array();
-$proto108["m_link"] = "SQLL_LEFTJOIN";
-			$proto109=array();
-$proto109["m_strName"] = "person_statuses";
-$proto109["m_srcTableName"] = "Manage Unee-T Users";
-$proto109["m_columns"] = array();
-$proto109["m_columns"][] = "id_person_status";
-$proto109["m_columns"][] = "creation_system_id";
-$proto109["m_columns"][] = "update_system_id";
-$proto109["m_columns"][] = "is_obsolete";
-$proto109["m_columns"][] = "is_default";
-$proto109["m_columns"][] = "is_active";
-$proto109["m_columns"][] = "order";
-$proto109["m_columns"][] = "person_status";
-$proto109["m_columns"][] = "person_status_definition";
-$obj = new SQLTable($proto109);
+												$proto114=array();
+$proto114["m_link"] = "SQLL_LEFTJOIN";
+			$proto115=array();
+$proto115["m_strName"] = "person_statuses";
+$proto115["m_srcTableName"] = "Manage Unee-T Users";
+$proto115["m_columns"] = array();
+$proto115["m_columns"][] = "id_person_status";
+$proto115["m_columns"][] = "creation_system_id";
+$proto115["m_columns"][] = "update_system_id";
+$proto115["m_columns"][] = "is_obsolete";
+$proto115["m_columns"][] = "is_default";
+$proto115["m_columns"][] = "is_active";
+$proto115["m_columns"][] = "order";
+$proto115["m_columns"][] = "person_status";
+$proto115["m_columns"][] = "person_status_definition";
+$obj = new SQLTable($proto115);
 
-$proto108["m_table"] = $obj;
-$proto108["m_sql"] = "LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status";
-$proto108["m_alias"] = "";
-$proto108["m_srcTableName"] = "Manage Unee-T Users";
-$proto110=array();
-$proto110["m_sql"] = "external_persons.person_status_id = person_statuses.id_person_status";
-$proto110["m_uniontype"] = "SQLL_UNKNOWN";
+$proto114["m_table"] = $obj;
+$proto114["m_sql"] = "LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status";
+$proto114["m_alias"] = "";
+$proto114["m_srcTableName"] = "Manage Unee-T Users";
+$proto116=array();
+$proto116["m_sql"] = "external_persons.person_status_id = person_statuses.id_person_status";
+$proto116["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "person_status_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto110["m_column"]=$obj;
-$proto110["m_contained"] = array();
-$proto110["m_strCase"] = "= person_statuses.id_person_status";
-$proto110["m_havingmode"] = false;
-$proto110["m_inBrackets"] = false;
-$proto110["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto110);
+$proto116["m_column"]=$obj;
+$proto116["m_contained"] = array();
+$proto116["m_strCase"] = "= person_statuses.id_person_status";
+$proto116["m_havingmode"] = false;
+$proto116["m_inBrackets"] = false;
+$proto116["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto116);
 
-$proto108["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto108);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto112=array();
-$proto112["m_link"] = "SQLL_LEFTJOIN";
-			$proto113=array();
-$proto113["m_strName"] = "ut_user_types";
-$proto113["m_srcTableName"] = "Manage Unee-T Users";
-$proto113["m_columns"] = array();
-$proto113["m_columns"][] = "id_unee_t_user_type";
-$proto113["m_columns"][] = "syst_created_datetime";
-$proto113["m_columns"][] = "creation_system_id";
-$proto113["m_columns"][] = "created_by_id";
-$proto113["m_columns"][] = "creation_method";
-$proto113["m_columns"][] = "syst_updated_datetime";
-$proto113["m_columns"][] = "update_system_id";
-$proto113["m_columns"][] = "updated_by_id";
-$proto113["m_columns"][] = "update_method";
-$proto113["m_columns"][] = "organization_id";
-$proto113["m_columns"][] = "order";
-$proto113["m_columns"][] = "is_obsolete";
-$proto113["m_columns"][] = "designation";
-$proto113["m_columns"][] = "description";
-$proto113["m_columns"][] = "ut_user_role_type_id";
-$proto113["m_columns"][] = "is_occupant";
-$proto113["m_columns"][] = "is_public";
-$proto113["m_columns"][] = "is_default_assignee";
-$proto113["m_columns"][] = "is_invited_all_cases";
-$proto113["m_columns"][] = "is_dashboard_access";
-$proto113["m_columns"][] = "can_see_role_contractor";
-$proto113["m_columns"][] = "can_see_role_mgt_cny";
-$proto113["m_columns"][] = "can_see_occupant";
-$proto113["m_columns"][] = "can_see_role_landlord";
-$proto113["m_columns"][] = "can_see_role_agent";
-$proto113["m_columns"][] = "can_see_role_tenant";
-$proto113["m_columns"][] = "is_assigned_to_case";
-$proto113["m_columns"][] = "is_invited_to_case";
-$proto113["m_columns"][] = "is_solution_updated";
-$proto113["m_columns"][] = "is_next_step_updated";
-$proto113["m_columns"][] = "is_deadline_updated";
-$proto113["m_columns"][] = "is_case_resolved";
-$proto113["m_columns"][] = "is_case_critical";
-$proto113["m_columns"][] = "is_case_blocker";
-$proto113["m_columns"][] = "is_message_from_contractor";
-$proto113["m_columns"][] = "is_message_from_mgt_cny";
-$proto113["m_columns"][] = "is_message_from_agent";
-$proto113["m_columns"][] = "is_message_from_occupant";
-$proto113["m_columns"][] = "is_message_from_ll";
-$proto113["m_columns"][] = "is_message_from_tenant";
-$proto113["m_columns"][] = "is_any_new_message";
-$proto113["m_columns"][] = "is_new_ir";
-$proto113["m_columns"][] = "is_new_inventory";
-$proto113["m_columns"][] = "is_new_item";
-$proto113["m_columns"][] = "is_item_moved";
-$proto113["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto113);
-
-$proto112["m_table"] = $obj;
-$proto112["m_sql"] = "LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto112["m_alias"] = "";
-$proto112["m_srcTableName"] = "Manage Unee-T Users";
-$proto114=array();
-$proto114["m_sql"] = "external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto114["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "unee_t_user_type_id",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
-
-$proto114["m_column"]=$obj;
-$proto114["m_contained"] = array();
-$proto114["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
-$proto114["m_havingmode"] = false;
-$proto114["m_inBrackets"] = false;
-$proto114["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto114);
-
-$proto112["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto112);
+$proto114["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto114);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto116=array();
-$proto116["m_link"] = "SQLL_LEFTJOIN";
-			$proto117=array();
-$proto117["m_strName"] = "persons";
-$proto117["m_srcTableName"] = "Manage Unee-T Users";
-$proto117["m_columns"] = array();
-$proto117["m_columns"][] = "id_person";
-$proto117["m_columns"][] = "external_id";
-$proto117["m_columns"][] = "external_system";
-$proto117["m_columns"][] = "external_table";
-$proto117["m_columns"][] = "syst_created_datetime";
-$proto117["m_columns"][] = "creation_system_id";
-$proto117["m_columns"][] = "created_by_id";
-$proto117["m_columns"][] = "creation_method";
-$proto117["m_columns"][] = "syst_updated_datetime";
-$proto117["m_columns"][] = "update_system_id";
-$proto117["m_columns"][] = "updated_by_id";
-$proto117["m_columns"][] = "update_method";
-$proto117["m_columns"][] = "organization_id";
-$proto117["m_columns"][] = "person_status_id";
-$proto117["m_columns"][] = "dupe_id";
-$proto117["m_columns"][] = "handler_id";
-$proto117["m_columns"][] = "is_unee_t_account_needed";
-$proto117["m_columns"][] = "unee_t_user_type_id";
-$proto117["m_columns"][] = "country_code";
-$proto117["m_columns"][] = "gender";
-$proto117["m_columns"][] = "salutation_id";
-$proto117["m_columns"][] = "given_name";
-$proto117["m_columns"][] = "middle_name";
-$proto117["m_columns"][] = "family_name";
-$proto117["m_columns"][] = "date_of_birth";
-$proto117["m_columns"][] = "alias";
-$proto117["m_columns"][] = "job_title";
-$proto117["m_columns"][] = "organization";
-$proto117["m_columns"][] = "email";
-$proto117["m_columns"][] = "tel_1";
-$proto117["m_columns"][] = "tel_2";
-$proto117["m_columns"][] = "whatsapp";
-$proto117["m_columns"][] = "linkedin";
-$proto117["m_columns"][] = "facebook";
-$proto117["m_columns"][] = "adr1";
-$proto117["m_columns"][] = "adr2";
-$proto117["m_columns"][] = "adr3";
-$proto117["m_columns"][] = "City";
-$proto117["m_columns"][] = "zip_postcode";
-$proto117["m_columns"][] = "region_or_state";
-$proto117["m_columns"][] = "country";
-$obj = new SQLTable($proto117);
+												$proto118=array();
+$proto118["m_link"] = "SQLL_LEFTJOIN";
+			$proto119=array();
+$proto119["m_strName"] = "ut_user_types";
+$proto119["m_srcTableName"] = "Manage Unee-T Users";
+$proto119["m_columns"] = array();
+$proto119["m_columns"][] = "id_unee_t_user_type";
+$proto119["m_columns"][] = "syst_created_datetime";
+$proto119["m_columns"][] = "creation_system_id";
+$proto119["m_columns"][] = "created_by_id";
+$proto119["m_columns"][] = "creation_method";
+$proto119["m_columns"][] = "syst_updated_datetime";
+$proto119["m_columns"][] = "update_system_id";
+$proto119["m_columns"][] = "updated_by_id";
+$proto119["m_columns"][] = "update_method";
+$proto119["m_columns"][] = "organization_id";
+$proto119["m_columns"][] = "order";
+$proto119["m_columns"][] = "is_obsolete";
+$proto119["m_columns"][] = "designation";
+$proto119["m_columns"][] = "description";
+$proto119["m_columns"][] = "ut_user_role_type_id";
+$proto119["m_columns"][] = "is_all_unit";
+$proto119["m_columns"][] = "is_all_units_in_country";
+$proto119["m_columns"][] = "is_all_units_in_area";
+$proto119["m_columns"][] = "is_all_units_in_level_1";
+$proto119["m_columns"][] = "is_all_units_in_level_2";
+$proto119["m_columns"][] = "is_occupant";
+$proto119["m_columns"][] = "is_public";
+$proto119["m_columns"][] = "is_default_assignee";
+$proto119["m_columns"][] = "is_default_invited";
+$proto119["m_columns"][] = "is_unit_owner";
+$proto119["m_columns"][] = "is_dashboard_access";
+$proto119["m_columns"][] = "can_see_role_contractor";
+$proto119["m_columns"][] = "can_see_role_mgt_cny";
+$proto119["m_columns"][] = "can_see_occupant";
+$proto119["m_columns"][] = "can_see_role_landlord";
+$proto119["m_columns"][] = "can_see_role_agent";
+$proto119["m_columns"][] = "can_see_role_tenant";
+$proto119["m_columns"][] = "is_assigned_to_case";
+$proto119["m_columns"][] = "is_invited_to_case";
+$proto119["m_columns"][] = "is_solution_updated";
+$proto119["m_columns"][] = "is_next_step_updated";
+$proto119["m_columns"][] = "is_deadline_updated";
+$proto119["m_columns"][] = "is_case_resolved";
+$proto119["m_columns"][] = "is_case_critical";
+$proto119["m_columns"][] = "is_case_blocker";
+$proto119["m_columns"][] = "is_message_from_contractor";
+$proto119["m_columns"][] = "is_message_from_mgt_cny";
+$proto119["m_columns"][] = "is_message_from_agent";
+$proto119["m_columns"][] = "is_message_from_occupant";
+$proto119["m_columns"][] = "is_message_from_ll";
+$proto119["m_columns"][] = "is_message_from_tenant";
+$proto119["m_columns"][] = "is_any_new_message";
+$proto119["m_columns"][] = "is_new_ir";
+$proto119["m_columns"][] = "is_new_inventory";
+$proto119["m_columns"][] = "is_new_item";
+$proto119["m_columns"][] = "is_item_moved";
+$proto119["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto119);
 
-$proto116["m_table"] = $obj;
-$proto116["m_sql"] = "LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
-$proto116["m_alias"] = "";
-$proto116["m_srcTableName"] = "Manage Unee-T Users";
-$proto118=array();
-$proto118["m_sql"] = "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
-$proto118["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id"
-));
-
-$proto118["m_column"]=$obj;
-$proto118["m_contained"] = array();
-						$proto120=array();
-$proto120["m_sql"] = "external_persons.external_id = persons.external_id";
+$proto118["m_table"] = $obj;
+$proto118["m_sql"] = "LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto118["m_alias"] = "";
+$proto118["m_srcTableName"] = "Manage Unee-T Users";
+$proto120=array();
+$proto120["m_sql"] = "external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
 $proto120["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "external_id",
+	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
 $proto120["m_column"]=$obj;
 $proto120["m_contained"] = array();
-$proto120["m_strCase"] = "= persons.external_id";
+$proto120["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
 $proto120["m_havingmode"] = false;
 $proto120["m_inBrackets"] = false;
 $proto120["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto120);
 
-			$proto118["m_contained"][]=$obj;
-						$proto122=array();
-$proto122["m_sql"] = "external_persons.external_system = persons.external_system";
-$proto122["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_system",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
-));
+$proto118["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto118);
 
-$proto122["m_column"]=$obj;
-$proto122["m_contained"] = array();
-$proto122["m_strCase"] = "= persons.external_system";
-$proto122["m_havingmode"] = false;
-$proto122["m_inBrackets"] = false;
-$proto122["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto122);
+$proto0["m_fromlist"][]=$obj;
+												$proto122=array();
+$proto122["m_link"] = "SQLL_LEFTJOIN";
+			$proto123=array();
+$proto123["m_strName"] = "persons";
+$proto123["m_srcTableName"] = "Manage Unee-T Users";
+$proto123["m_columns"] = array();
+$proto123["m_columns"][] = "id_person";
+$proto123["m_columns"][] = "create_api_request_id";
+$proto123["m_columns"][] = "edit_api_request_id";
+$proto123["m_columns"][] = "external_id";
+$proto123["m_columns"][] = "external_system";
+$proto123["m_columns"][] = "external_table";
+$proto123["m_columns"][] = "syst_created_datetime";
+$proto123["m_columns"][] = "creation_system_id";
+$proto123["m_columns"][] = "created_by_id";
+$proto123["m_columns"][] = "creation_method";
+$proto123["m_columns"][] = "syst_updated_datetime";
+$proto123["m_columns"][] = "update_system_id";
+$proto123["m_columns"][] = "updated_by_id";
+$proto123["m_columns"][] = "update_method";
+$proto123["m_columns"][] = "is_update_on_duplicate_key";
+$proto123["m_columns"][] = "organization_id";
+$proto123["m_columns"][] = "person_status_id";
+$proto123["m_columns"][] = "dupe_id";
+$proto123["m_columns"][] = "handler_id";
+$proto123["m_columns"][] = "is_unee_t_account_needed";
+$proto123["m_columns"][] = "unee_t_user_type_id";
+$proto123["m_columns"][] = "country_code";
+$proto123["m_columns"][] = "gender";
+$proto123["m_columns"][] = "salutation_id";
+$proto123["m_columns"][] = "given_name";
+$proto123["m_columns"][] = "middle_name";
+$proto123["m_columns"][] = "family_name";
+$proto123["m_columns"][] = "date_of_birth";
+$proto123["m_columns"][] = "alias";
+$proto123["m_columns"][] = "job_title";
+$proto123["m_columns"][] = "organization";
+$proto123["m_columns"][] = "email";
+$proto123["m_columns"][] = "tel_1";
+$proto123["m_columns"][] = "tel_2";
+$proto123["m_columns"][] = "whatsapp";
+$proto123["m_columns"][] = "linkedin";
+$proto123["m_columns"][] = "facebook";
+$proto123["m_columns"][] = "adr1";
+$proto123["m_columns"][] = "adr2";
+$proto123["m_columns"][] = "adr3";
+$proto123["m_columns"][] = "City";
+$proto123["m_columns"][] = "zip_postcode";
+$proto123["m_columns"][] = "region_or_state";
+$proto123["m_columns"][] = "country";
+$obj = new SQLTable($proto123);
 
-			$proto118["m_contained"][]=$obj;
-						$proto124=array();
-$proto124["m_sql"] = "external_persons.external_table = persons.external_table";
-$proto124["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_table",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Manage Unee-T Users"
+$proto122["m_table"] = $obj;
+$proto122["m_sql"] = "LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
+$proto122["m_alias"] = "";
+$proto122["m_srcTableName"] = "Manage Unee-T Users";
+$proto124=array();
+$proto124["m_sql"] = "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
+$proto124["m_uniontype"] = "SQLL_AND";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id"
 ));
 
 $proto124["m_column"]=$obj;
 $proto124["m_contained"] = array();
-$proto124["m_strCase"] = "= persons.external_table";
-$proto124["m_havingmode"] = false;
-$proto124["m_inBrackets"] = false;
-$proto124["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto124);
-
-			$proto118["m_contained"][]=$obj;
 						$proto126=array();
-$proto126["m_sql"] = "external_persons.created_by_id = persons.organization_id";
+$proto126["m_sql"] = "external_persons.external_id = persons.external_id";
 $proto126["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "created_by_id",
+	"m_strName" => "external_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
 $proto126["m_column"]=$obj;
 $proto126["m_contained"] = array();
-$proto126["m_strCase"] = "= persons.organization_id";
+$proto126["m_strCase"] = "= persons.external_id";
 $proto126["m_havingmode"] = false;
 $proto126["m_inBrackets"] = false;
 $proto126["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto126);
 
-			$proto118["m_contained"][]=$obj;
-$proto118["m_strCase"] = "";
-$proto118["m_havingmode"] = false;
-$proto118["m_inBrackets"] = false;
-$proto118["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto118);
+			$proto124["m_contained"][]=$obj;
+						$proto128=array();
+$proto128["m_sql"] = "external_persons.external_system = persons.external_system";
+$proto128["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "external_system",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
 
-$proto116["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto116);
+$proto128["m_column"]=$obj;
+$proto128["m_contained"] = array();
+$proto128["m_strCase"] = "= persons.external_system";
+$proto128["m_havingmode"] = false;
+$proto128["m_inBrackets"] = false;
+$proto128["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto128);
+
+			$proto124["m_contained"][]=$obj;
+						$proto130=array();
+$proto130["m_sql"] = "external_persons.external_table = persons.external_table";
+$proto130["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "external_table",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto130["m_column"]=$obj;
+$proto130["m_contained"] = array();
+$proto130["m_strCase"] = "= persons.external_table";
+$proto130["m_havingmode"] = false;
+$proto130["m_inBrackets"] = false;
+$proto130["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto130);
+
+			$proto124["m_contained"][]=$obj;
+						$proto132=array();
+$proto132["m_sql"] = "external_persons.created_by_id = persons.organization_id";
+$proto132["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "created_by_id",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto132["m_column"]=$obj;
+$proto132["m_contained"] = array();
+$proto132["m_strCase"] = "= persons.organization_id";
+$proto132["m_havingmode"] = false;
+$proto132["m_inBrackets"] = false;
+$proto132["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto132);
+
+			$proto124["m_contained"][]=$obj;
+$proto124["m_strCase"] = "";
+$proto124["m_havingmode"] = false;
+$proto124["m_inBrackets"] = false;
+$proto124["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto124);
+
+$proto122["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto122);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto128=array();
-$proto128["m_link"] = "SQLL_LEFTJOIN";
-			$proto129=array();
-$proto129["m_strName"] = "ut_map_external_source_users";
-$proto129["m_srcTableName"] = "Manage Unee-T Users";
-$proto129["m_columns"] = array();
-$proto129["m_columns"][] = "id_map";
-$proto129["m_columns"][] = "syst_created_datetime";
-$proto129["m_columns"][] = "creation_system_id";
-$proto129["m_columns"][] = "created_by_id";
-$proto129["m_columns"][] = "creation_method";
-$proto129["m_columns"][] = "syst_updated_datetime";
-$proto129["m_columns"][] = "update_system_id";
-$proto129["m_columns"][] = "updated_by_id";
-$proto129["m_columns"][] = "update_method";
-$proto129["m_columns"][] = "organization_id";
-$proto129["m_columns"][] = "is_obsolete";
-$proto129["m_columns"][] = "is_update_needed";
-$proto129["m_columns"][] = "person_id";
-$proto129["m_columns"][] = "unee_t_mefe_user_id";
-$proto129["m_columns"][] = "uneet_created_datetime";
-$proto129["m_columns"][] = "is_unee_t_created_by_me";
-$proto129["m_columns"][] = "uneet_login_name";
-$proto129["m_columns"][] = "external_person_id";
-$proto129["m_columns"][] = "external_system";
-$proto129["m_columns"][] = "table_in_external_system";
-$obj = new SQLTable($proto129);
+												$proto134=array();
+$proto134["m_link"] = "SQLL_LEFTJOIN";
+			$proto135=array();
+$proto135["m_strName"] = "ut_map_external_source_users";
+$proto135["m_srcTableName"] = "Manage Unee-T Users";
+$proto135["m_columns"] = array();
+$proto135["m_columns"][] = "id_map";
+$proto135["m_columns"][] = "create_api_request_id";
+$proto135["m_columns"][] = "edit_api_request_id";
+$proto135["m_columns"][] = "syst_created_datetime";
+$proto135["m_columns"][] = "creation_system_id";
+$proto135["m_columns"][] = "created_by_id";
+$proto135["m_columns"][] = "creation_method";
+$proto135["m_columns"][] = "syst_updated_datetime";
+$proto135["m_columns"][] = "update_system_id";
+$proto135["m_columns"][] = "updated_by_id";
+$proto135["m_columns"][] = "update_method";
+$proto135["m_columns"][] = "is_update_on_duplicate_key";
+$proto135["m_columns"][] = "organization_id";
+$proto135["m_columns"][] = "is_obsolete";
+$proto135["m_columns"][] = "is_update_needed";
+$proto135["m_columns"][] = "person_id";
+$proto135["m_columns"][] = "mefe_user_id_parent";
+$proto135["m_columns"][] = "unee_t_mefe_user_id";
+$proto135["m_columns"][] = "unee_t_mefe_user_api_key";
+$proto135["m_columns"][] = "uneet_created_datetime";
+$proto135["m_columns"][] = "is_mefe_api_success";
+$proto135["m_columns"][] = "mefe_api_error_message";
+$proto135["m_columns"][] = "is_unee_t_created_by_me";
+$proto135["m_columns"][] = "uneet_login_name";
+$proto135["m_columns"][] = "external_person_id";
+$proto135["m_columns"][] = "external_system";
+$proto135["m_columns"][] = "table_in_external_system";
+$obj = new SQLTable($proto135);
 
-$proto128["m_table"] = $obj;
-$proto128["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
-$proto128["m_alias"] = "";
-$proto128["m_srcTableName"] = "Manage Unee-T Users";
-$proto130=array();
-$proto130["m_sql"] = "persons.id_person = ut_map_external_source_users.person_id";
-$proto130["m_uniontype"] = "SQLL_UNKNOWN";
+$proto134["m_table"] = $obj;
+$proto134["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
+$proto134["m_alias"] = "";
+$proto134["m_srcTableName"] = "Manage Unee-T Users";
+$proto136=array();
+$proto136["m_sql"] = "persons.id_person = ut_map_external_source_users.person_id";
+$proto136["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "id_person",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto130["m_column"]=$obj;
-$proto130["m_contained"] = array();
-$proto130["m_strCase"] = "= ut_map_external_source_users.person_id";
-$proto130["m_havingmode"] = false;
-$proto130["m_inBrackets"] = false;
-$proto130["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto130);
+$proto136["m_column"]=$obj;
+$proto136["m_contained"] = array();
+$proto136["m_strCase"] = "= ut_map_external_source_users.person_id";
+$proto136["m_havingmode"] = false;
+$proto136["m_inBrackets"] = false;
+$proto136["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto136);
 
-$proto128["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto128);
+$proto134["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto134);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto138=array();
+$proto138["m_link"] = "SQLL_LEFTJOIN";
+			$proto139=array();
+$proto139["m_strName"] = "ut_user_role_types";
+$proto139["m_srcTableName"] = "Manage Unee-T Users";
+$proto139["m_columns"] = array();
+$proto139["m_columns"][] = "id_role_type";
+$proto139["m_columns"][] = "syst_created_datetime";
+$proto139["m_columns"][] = "creation_system_id";
+$proto139["m_columns"][] = "created_by_id";
+$proto139["m_columns"][] = "syst_updated_datetime";
+$proto139["m_columns"][] = "update_system_id";
+$proto139["m_columns"][] = "updated_by_id";
+$proto139["m_columns"][] = "order";
+$proto139["m_columns"][] = "is_obsolete";
+$proto139["m_columns"][] = "role_type";
+$proto139["m_columns"][] = "bz_description";
+$proto139["m_columns"][] = "description";
+$obj = new SQLTable($proto139);
+
+$proto138["m_table"] = $obj;
+$proto138["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto138["m_alias"] = "";
+$proto138["m_srcTableName"] = "Manage Unee-T Users";
+$proto140=array();
+$proto140["m_sql"] = "ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto140["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "ut_user_role_type_id",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage Unee-T Users"
+));
+
+$proto140["m_column"]=$obj;
+$proto140["m_contained"] = array();
+$proto140["m_strCase"] = "= ut_user_role_types.id_role_type";
+$proto140["m_havingmode"] = false;
+$proto140["m_inBrackets"] = false;
+$proto140["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto140);
+
+$proto138["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto138);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto132=array();
+												$proto142=array();
 						$obj = new SQLField(array(
 	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto132["m_column"]=$obj;
-$proto132["m_bAsc"] = 1;
-$proto132["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto132);
+$proto142["m_column"]=$obj;
+$proto142["m_bAsc"] = 1;
+$proto142["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto142);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto134=array();
+												$proto144=array();
 						$obj = new SQLField(array(
 	"m_strName" => "given_name",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Manage Unee-T Users"
 ));
 
-$proto134["m_column"]=$obj;
-$proto134["m_bAsc"] = 1;
-$proto134["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto134);
+$proto144["m_column"]=$obj;
+$proto144["m_bAsc"] = 1;
+$proto144["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto144);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage Unee-T Users";		
@@ -7703,7 +8514,7 @@ $queryData_Manage_Unee_T_Users = createSqlQuery_Manage_Unee_T_Users();
 					
 ;
 
-																																													
+																																																
 
 $tdataManage_Unee_T_Users[".sqlquery"] = $queryData_Manage_Unee_T_Users;
 

@@ -62,5 +62,17 @@ class InformixFunctions extends DBFunctions
 	{
 		return $value;
 	}	
+
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL = AddTopIfx($strSQL, $pageStart * $pageSize);
+	
+		$qResult =  $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+		
+		return $qResult;
+}
+
 }
 ?>

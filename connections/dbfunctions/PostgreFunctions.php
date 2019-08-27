@@ -135,5 +135,13 @@ class PostgreFunctions extends DBFunctions
 	{
 		return false;
 	}
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) {
+			$strSQL.= " limit ".$pageSize." offset ".(($pageStart - 1) * $pageSize);
+		}
+		return $connection->query( $strSQL );
+	}
+
 }
 ?>

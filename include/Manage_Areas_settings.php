@@ -12,9 +12,9 @@ $tdataManage_Areas[".searchableFields"] = array();
 	$tdataManage_Areas[".OriginalTable"] = "external_property_groups_areas";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
 
-$tdataManage_Areas[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataManage_Areas[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataManage_Areas[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -86,6 +86,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Areas["English"]["area_definition"] = "Area Definition";
 	$fieldToolTipsManage_Areas["English"]["area_definition"] = "";
 	$placeHoldersManage_Areas["English"]["area_definition"] = "";
+	$fieldLabelsManage_Areas["English"]["mgt_cny_default_assignee"] = "Mgt Cny Default Assignee";
+	$fieldToolTipsManage_Areas["English"]["mgt_cny_default_assignee"] = "";
+	$placeHoldersManage_Areas["English"]["mgt_cny_default_assignee"] = "";
 	if (count($fieldToolTipsManage_Areas["English"]))
 		$tdataManage_Areas[".isUseToolTips"] = true;
 }
@@ -127,7 +130,7 @@ $tdataManage_Areas[".listAjax"] = false;
 	$tdataManage_Areas[".locking"] = false;
 
 
-$pages = $tdataManage_Areas[".pages"];
+$pages = $tdataManage_Areas[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataManage_Areas[".edit"] = true;
@@ -253,7 +256,7 @@ $tdataManage_Areas[".orderindexes"] = array();
 	$tdataManage_Areas[".orderindexes"][] = array(16, (1 ? "ASC" : "DESC"), "external_property_groups_areas.`order`");
 
 
-$tdataManage_Areas[".sqlHead"] = "SELECT external_property_groups_areas.id_area,  external_property_groups_areas.external_id,  external_property_groups_areas.external_system_id,  external_property_groups_areas.external_table,  external_property_groups_areas.syst_created_datetime,  external_property_groups_areas.creation_system_id,  external_property_groups_areas.created_by_id,  external_property_groups_areas.creation_method,  external_property_groups_areas.syst_updated_datetime,  external_property_groups_areas.update_system_id,  external_property_groups_areas.updated_by_id,  external_property_groups_areas.update_method,  external_property_groups_areas.is_creation_needed_in_unee_t,  external_property_groups_areas.is_obsolete,  external_property_groups_areas.is_default,  external_property_groups_areas.`order`,  external_property_groups_areas.country_code,  external_property_groups_areas.area_name,  external_property_groups_areas.area_definition";
+$tdataManage_Areas[".sqlHead"] = "SELECT external_property_groups_areas.id_area,  external_property_groups_areas.external_id,  external_property_groups_areas.external_system_id,  external_property_groups_areas.external_table,  external_property_groups_areas.syst_created_datetime,  external_property_groups_areas.creation_system_id,  external_property_groups_areas.created_by_id,  external_property_groups_areas.creation_method,  external_property_groups_areas.syst_updated_datetime,  external_property_groups_areas.update_system_id,  external_property_groups_areas.updated_by_id,  external_property_groups_areas.update_method,  external_property_groups_areas.is_creation_needed_in_unee_t,  external_property_groups_areas.is_obsolete,  external_property_groups_areas.is_default,  external_property_groups_areas.`order`,  external_property_groups_areas.country_code,  external_property_groups_areas.area_name,  external_property_groups_areas.area_definition,  external_property_groups_areas.mgt_cny_default_assignee";
 $tdataManage_Areas[".sqlFrom"] = "FROM external_property_groups_areas  LEFT OUTER JOIN property_groups_countries ON external_property_groups_areas.country_code = property_groups_countries.country_code";
 $tdataManage_Areas[".sqlWhereExpr"] = "";
 $tdataManage_Areas[".sqlTail"] = "";
@@ -359,6 +362,10 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -366,6 +373,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -473,14 +481,94 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["view"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["list"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterlist"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterprint"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -488,6 +576,50 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -519,11 +651,58 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 	
 	
-	$fdata["EditFormats"]["edit"] = $edata;
+	$fdata["EditFormats"]["add"] = $edata;
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=255";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["search"] = $edata;
 //	End Edit Formats
 
 
-	$fdata["isSeparate"] = false;
+	$fdata["isSeparate"] = true;
 
 
 
@@ -599,21 +778,144 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["view"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["list"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterlist"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterprint"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "ut_external_sot_for_unee_t_objects";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -645,6 +947,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
 
 		$edata["maxNumberOfFiles"] = 1;
@@ -671,11 +974,84 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 	
 	
-	$fdata["EditFormats"]["edit"] = $edata;
+	$fdata["EditFormats"]["add"] = $edata;
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_external_sot_for_unee_t_objects";
+			$edata["autoCompleteFieldsOnEdit"] = 1;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "designation";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "designation";
+
+				$edata["LookupWhereCode"] = true;
+
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["search"] = $edata;
 //	End Edit Formats
 
 
-	$fdata["isSeparate"] = false;
+	$fdata["isSeparate"] = true;
 
 
 
@@ -751,21 +1127,144 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 
 	$fdata["ViewFormats"]["view"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["list"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterlist"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["masterprint"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "ut_external_sot_for_unee_t_objects";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -797,6 +1296,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
 
 		$edata["maxNumberOfFiles"] = 1;
@@ -823,11 +1323,84 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	
 	
 	
-	$fdata["EditFormats"]["edit"] = $edata;
+	$fdata["EditFormats"]["add"] = $edata;
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_external_sot_for_unee_t_objects";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "area_table";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "area_table";
+
+				$edata["LookupWhereCode"] = true;
+
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["search"] = $edata;
 //	End Edit Formats
 
 
-	$fdata["isSeparate"] = false;
+	$fdata["isSeparate"] = true;
 
 
 
@@ -910,13 +1483,17 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1036,11 +1613,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1160,6 +1742,10 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -1167,6 +1753,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -1286,11 +1873,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1409,13 +2001,17 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1535,11 +2131,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1659,11 +2260,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1783,11 +2389,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1906,11 +2517,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Checkbox");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2026,11 +2642,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Checkbox");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2146,11 +2767,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Checkbox");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2267,11 +2893,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2429,13 +3060,17 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "property_groups_countries";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2463,6 +3098,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2495,13 +3131,17 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "property_groups_countries";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -2529,6 +3169,7 @@ $tdataManage_Areas[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -2561,11 +3202,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2682,11 +3328,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2806,11 +3457,16 @@ $tdataManage_Areas[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2875,6 +3531,162 @@ $tdataManage_Areas[".hideMobileList"] = array();
 
 	$tdataManage_Areas["area_definition"] = $fdata;
 		$tdataManage_Areas[".searchableFields"][] = "area_definition";
+//	mgt_cny_default_assignee
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 20;
+	$fdata["strName"] = "mgt_cny_default_assignee";
+	$fdata["GoodName"] = "mgt_cny_default_assignee";
+	$fdata["ownerTable"] = "external_property_groups_areas";
+	$fdata["Label"] = GetFieldLabel("Manage_Areas","mgt_cny_default_assignee");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "mgt_cny_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_groups_areas.mgt_cny_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_map_external_source_users";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "unee_t_mefe_user_id";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+			
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Areas["mgt_cny_default_assignee"] = $fdata;
+		$tdataManage_Areas[".searchableFields"][] = "mgt_cny_default_assignee";
 
 
 $tables_data["Manage Areas"]=&$tdataManage_Areas;
@@ -2939,7 +3751,7 @@ function createSqlQuery_Manage_Areas()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_property_groups_areas.id_area,  external_property_groups_areas.external_id,  external_property_groups_areas.external_system_id,  external_property_groups_areas.external_table,  external_property_groups_areas.syst_created_datetime,  external_property_groups_areas.creation_system_id,  external_property_groups_areas.created_by_id,  external_property_groups_areas.creation_method,  external_property_groups_areas.syst_updated_datetime,  external_property_groups_areas.update_system_id,  external_property_groups_areas.updated_by_id,  external_property_groups_areas.update_method,  external_property_groups_areas.is_creation_needed_in_unee_t,  external_property_groups_areas.is_obsolete,  external_property_groups_areas.is_default,  external_property_groups_areas.`order`,  external_property_groups_areas.country_code,  external_property_groups_areas.area_name,  external_property_groups_areas.area_definition";
+$proto0["m_strFieldList"] = "external_property_groups_areas.id_area,  external_property_groups_areas.external_id,  external_property_groups_areas.external_system_id,  external_property_groups_areas.external_table,  external_property_groups_areas.syst_created_datetime,  external_property_groups_areas.creation_system_id,  external_property_groups_areas.created_by_id,  external_property_groups_areas.creation_method,  external_property_groups_areas.syst_updated_datetime,  external_property_groups_areas.update_system_id,  external_property_groups_areas.updated_by_id,  external_property_groups_areas.update_method,  external_property_groups_areas.is_creation_needed_in_unee_t,  external_property_groups_areas.is_obsolete,  external_property_groups_areas.is_default,  external_property_groups_areas.`order`,  external_property_groups_areas.country_code,  external_property_groups_areas.area_name,  external_property_groups_areas.area_definition,  external_property_groups_areas.mgt_cny_default_assignee";
 $proto0["m_strFrom"] = "FROM external_property_groups_areas  LEFT OUTER JOIN property_groups_countries ON external_property_groups_areas.country_code = property_groups_countries.country_code";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "ORDER BY external_property_groups_areas.country_code, external_property_groups_areas.`order`";
@@ -3246,106 +4058,106 @@ $proto42["m_alias"] = "";
 $obj = new SQLFieldListItem($proto42);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto44=array();
-$proto44["m_link"] = "SQLL_MAIN";
-			$proto45=array();
-$proto45["m_strName"] = "external_property_groups_areas";
-$proto45["m_srcTableName"] = "Manage Areas";
-$proto45["m_columns"] = array();
-$proto45["m_columns"][] = "id_area";
-$proto45["m_columns"][] = "external_id";
-$proto45["m_columns"][] = "external_system_id";
-$proto45["m_columns"][] = "external_table";
-$proto45["m_columns"][] = "syst_created_datetime";
-$proto45["m_columns"][] = "creation_system_id";
-$proto45["m_columns"][] = "created_by_id";
-$proto45["m_columns"][] = "creation_method";
-$proto45["m_columns"][] = "syst_updated_datetime";
-$proto45["m_columns"][] = "update_system_id";
-$proto45["m_columns"][] = "updated_by_id";
-$proto45["m_columns"][] = "update_method";
-$proto45["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto45["m_columns"][] = "is_obsolete";
-$proto45["m_columns"][] = "is_default";
-$proto45["m_columns"][] = "order";
-$proto45["m_columns"][] = "country_code";
-$proto45["m_columns"][] = "area_name";
-$proto45["m_columns"][] = "area_definition";
-$obj = new SQLTable($proto45);
-
-$proto44["m_table"] = $obj;
-$proto44["m_sql"] = "external_property_groups_areas";
-$proto44["m_alias"] = "";
-$proto44["m_srcTableName"] = "Manage Areas";
-$proto46=array();
-$proto46["m_sql"] = "";
-$proto46["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
-));
-
-$proto46["m_column"]=$obj;
-$proto46["m_contained"] = array();
-$proto46["m_strCase"] = "";
-$proto46["m_havingmode"] = false;
-$proto46["m_inBrackets"] = false;
-$proto46["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto46);
-
-$proto44["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto44);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto48=array();
-$proto48["m_link"] = "SQLL_LEFTJOIN";
-			$proto49=array();
-$proto49["m_strName"] = "property_groups_countries";
-$proto49["m_srcTableName"] = "Manage Areas";
-$proto49["m_columns"] = array();
-$proto49["m_columns"][] = "id_country";
-$proto49["m_columns"][] = "syst_created_datetime";
-$proto49["m_columns"][] = "creation_system_id";
-$proto49["m_columns"][] = "created_by_id";
-$proto49["m_columns"][] = "syst_updated_datetime";
-$proto49["m_columns"][] = "update_system_id";
-$proto49["m_columns"][] = "updated_by_id";
-$proto49["m_columns"][] = "is_obsolete";
-$proto49["m_columns"][] = "is_default";
-$proto49["m_columns"][] = "is_system";
-$proto49["m_columns"][] = "order";
-$proto49["m_columns"][] = "country_code";
-$proto49["m_columns"][] = "country_name";
-$obj = new SQLTable($proto49);
-
-$proto48["m_table"] = $obj;
-$proto48["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON external_property_groups_areas.country_code = property_groups_countries.country_code";
-$proto48["m_alias"] = "";
-$proto48["m_srcTableName"] = "Manage Areas";
-$proto50=array();
-$proto50["m_sql"] = "external_property_groups_areas.country_code = property_groups_countries.country_code";
-$proto50["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "country_code",
+						$proto44=array();
+			$obj = new SQLField(array(
+	"m_strName" => "mgt_cny_default_assignee",
 	"m_strTable" => "external_property_groups_areas",
 	"m_srcTableName" => "Manage Areas"
 ));
 
-$proto50["m_column"]=$obj;
-$proto50["m_contained"] = array();
-$proto50["m_strCase"] = "= property_groups_countries.country_code";
-$proto50["m_havingmode"] = false;
-$proto50["m_inBrackets"] = false;
-$proto50["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto50);
+$proto44["m_sql"] = "external_property_groups_areas.mgt_cny_default_assignee";
+$proto44["m_srcTableName"] = "Manage Areas";
+$proto44["m_expr"]=$obj;
+$proto44["m_alias"] = "";
+$obj = new SQLFieldListItem($proto44);
 
-$proto48["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto48);
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto46=array();
+$proto46["m_link"] = "SQLL_MAIN";
+			$proto47=array();
+$proto47["m_strName"] = "external_property_groups_areas";
+$proto47["m_srcTableName"] = "Manage Areas";
+$proto47["m_columns"] = array();
+$proto47["m_columns"][] = "id_area";
+$proto47["m_columns"][] = "create_api_request_id";
+$proto47["m_columns"][] = "edit_api_request_id";
+$proto47["m_columns"][] = "external_id";
+$proto47["m_columns"][] = "external_system_id";
+$proto47["m_columns"][] = "external_table";
+$proto47["m_columns"][] = "syst_created_datetime";
+$proto47["m_columns"][] = "creation_system_id";
+$proto47["m_columns"][] = "created_by_id";
+$proto47["m_columns"][] = "creation_method";
+$proto47["m_columns"][] = "syst_updated_datetime";
+$proto47["m_columns"][] = "update_system_id";
+$proto47["m_columns"][] = "updated_by_id";
+$proto47["m_columns"][] = "update_method";
+$proto47["m_columns"][] = "is_update_on_duplicate_key";
+$proto47["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto47["m_columns"][] = "is_obsolete";
+$proto47["m_columns"][] = "is_default";
+$proto47["m_columns"][] = "order";
+$proto47["m_columns"][] = "country_code";
+$proto47["m_columns"][] = "area_name";
+$proto47["m_columns"][] = "area_definition";
+$proto47["m_columns"][] = "mgt_cny_default_assignee";
+$proto47["m_columns"][] = "landlord_default_assignee";
+$proto47["m_columns"][] = "tenant_default_assignee";
+$proto47["m_columns"][] = "agent_default_assignee";
+$obj = new SQLTable($proto47);
+
+$proto46["m_table"] = $obj;
+$proto46["m_sql"] = "external_property_groups_areas";
+$proto46["m_alias"] = "";
+$proto46["m_srcTableName"] = "Manage Areas";
+$proto48=array();
+$proto48["m_sql"] = "";
+$proto48["m_uniontype"] = "SQLL_UNKNOWN";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => ""
+));
+
+$proto48["m_column"]=$obj;
+$proto48["m_contained"] = array();
+$proto48["m_strCase"] = "";
+$proto48["m_havingmode"] = false;
+$proto48["m_inBrackets"] = false;
+$proto48["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto48);
+
+$proto46["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto46);
 
 $proto0["m_fromlist"][]=$obj;
-$proto0["m_groupby"] = array();
-$proto0["m_orderby"] = array();
-												$proto52=array();
+												$proto50=array();
+$proto50["m_link"] = "SQLL_LEFTJOIN";
+			$proto51=array();
+$proto51["m_strName"] = "property_groups_countries";
+$proto51["m_srcTableName"] = "Manage Areas";
+$proto51["m_columns"] = array();
+$proto51["m_columns"][] = "id_country";
+$proto51["m_columns"][] = "syst_created_datetime";
+$proto51["m_columns"][] = "creation_system_id";
+$proto51["m_columns"][] = "created_by_id";
+$proto51["m_columns"][] = "syst_updated_datetime";
+$proto51["m_columns"][] = "update_system_id";
+$proto51["m_columns"][] = "updated_by_id";
+$proto51["m_columns"][] = "is_obsolete";
+$proto51["m_columns"][] = "is_default";
+$proto51["m_columns"][] = "is_system";
+$proto51["m_columns"][] = "order";
+$proto51["m_columns"][] = "country_code";
+$proto51["m_columns"][] = "country_name";
+$obj = new SQLTable($proto51);
+
+$proto50["m_table"] = $obj;
+$proto50["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON external_property_groups_areas.country_code = property_groups_countries.country_code";
+$proto50["m_alias"] = "";
+$proto50["m_srcTableName"] = "Manage Areas";
+$proto52=array();
+$proto52["m_sql"] = "external_property_groups_areas.country_code = property_groups_countries.country_code";
+$proto52["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "country_code",
 	"m_strTable" => "external_property_groups_areas",
@@ -3353,14 +4165,22 @@ $proto0["m_orderby"] = array();
 ));
 
 $proto52["m_column"]=$obj;
-$proto52["m_bAsc"] = 1;
-$proto52["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto52);
+$proto52["m_contained"] = array();
+$proto52["m_strCase"] = "= property_groups_countries.country_code";
+$proto52["m_havingmode"] = false;
+$proto52["m_inBrackets"] = false;
+$proto52["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto52);
 
-$proto0["m_orderby"][]=$obj;					
+$proto50["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto50);
+
+$proto0["m_fromlist"][]=$obj;
+$proto0["m_groupby"] = array();
+$proto0["m_orderby"] = array();
 												$proto54=array();
 						$obj = new SQLField(array(
-	"m_strName" => "order",
+	"m_strName" => "country_code",
 	"m_strTable" => "external_property_groups_areas",
 	"m_srcTableName" => "Manage Areas"
 ));
@@ -3369,6 +4189,19 @@ $proto54["m_column"]=$obj;
 $proto54["m_bAsc"] = 1;
 $proto54["m_nColumn"] = 0;
 $obj = new SQLOrderByItem($proto54);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto56=array();
+						$obj = new SQLField(array(
+	"m_strName" => "order",
+	"m_strTable" => "external_property_groups_areas",
+	"m_srcTableName" => "Manage Areas"
+));
+
+$proto56["m_column"]=$obj;
+$proto56["m_bAsc"] = 1;
+$proto56["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto56);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage Areas";		
@@ -3383,7 +4216,7 @@ $queryData_Manage_Areas = createSqlQuery_Manage_Areas();
 					
 ;
 
-																			
+																				
 
 $tdataManage_Areas[".sqlquery"] = $queryData_Manage_Areas;
 

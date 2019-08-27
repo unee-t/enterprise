@@ -13,7 +13,6 @@ class FileFieldSingle extends EditControl
 	 */
 	function addJSFiles()
 	{
-		$this->pageObject->AddJSFile("include/zoombox/zoombox.js");
 	}
 	
 	/**
@@ -22,7 +21,6 @@ class FileFieldSingle extends EditControl
 	 */ 
 	function addCSSFiles()
 	{
-		$this->pageObject->AddCSSFile("include/zoombox/zoombox.css");
 	}
 	
 	function buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data)
@@ -160,7 +158,7 @@ class FileFieldSingle extends EditControl
 			}
 			
 			// show thumbnail			
-			return "<a target=\"_blank\" href=\"".GetRootPathForResources(runner_htmlspecialchars( $filePath ))."\" class='zoombox zgallery'>"
+			return "<a target=\"_blank\" href=\"".GetRootPathForResources(runner_htmlspecialchars( $filePath ))."\" >"
 				."<img". $altAttr ." border=0 src=\"".GetRootPathForResources(runner_htmlspecialchars( $thumbPath ))."\"></a>";
 		}
 

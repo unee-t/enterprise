@@ -37,6 +37,9 @@ class ViewMapField extends ViewControl
 	{
 		if( $markerData['lat'] == "" && $markerData['lng'] == "" )
 		{
+			if( !$markerData['address'] )
+				return '';
+				
 			if ( getMapProvider() == GOOGLE_MAPS )
 				return $markerData['address'];
 
@@ -69,22 +72,22 @@ class ViewMapField extends ViewControl
 				
 				if( $icon && $showCustomMarkerOnPrint )
 				{
-					$here = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
+					$here = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
 					$pos = strrpos($here, '/');
 					$here = substr($here, 0, $pos)."/images/menuicons/".$icon;
 					
 					$markerLocation = "icon:".$here."|".$location;
 				}
 				
-				return 'http://maps.googleapis.com/maps/api/staticmap?center='.$location.
+				return 'https://maps.googleapis.com/maps/api/staticmap?center='.$location.
 					'&zoom='.$zoom.'&size='.$width.'x'.$height.'&maptype=mobile&markers='.$markerLocation.'&key='.$apiKey;
 
 			case OPEN_STREET_MAPS:
-				return 'http://staticmap.openstreetmap.de/staticmap.php?center='.$location.
+				return 'https://staticmap.openstreetmap.de/staticmap.php?center='.$location.
 					'&zoom='.$zoom.'&size='.$width.'x'.$height.'&maptype=mobile&markers='.$markerLocation. ',ol-marker';
 
 			case BING_MAPS:			
-				return 'http://dev.virtualearth.net/REST/v1/Imagery/Map/Road/'.$location.'/'
+				return 'https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/'.$location.'/'
 					.$zoom.'?mapSize='.$width.','.$height.'&pp='.$markerLocation.';63;&key='.$apiKey;
 					
 			default:

@@ -13,6 +13,13 @@ $dalTableuneet_enterprise_organizations["order"] = array("type"=>2,"varname"=>"o
 $dalTableuneet_enterprise_organizations["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete", "name" => "is_obsolete");
 $dalTableuneet_enterprise_organizations["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
 $dalTableuneet_enterprise_organizations["description"] = array("type"=>201,"varname"=>"description", "name" => "description");
+$dalTableuneet_enterprise_organizations["default_sot_system"] = array("type"=>200,"varname"=>"default_sot_system", "name" => "default_sot_system");
+$dalTableuneet_enterprise_organizations["default_sot_persons"] = array("type"=>200,"varname"=>"default_sot_persons", "name" => "default_sot_persons");
+$dalTableuneet_enterprise_organizations["default_sot_areas"] = array("type"=>200,"varname"=>"default_sot_areas", "name" => "default_sot_areas");
+$dalTableuneet_enterprise_organizations["default_sot_properties"] = array("type"=>200,"varname"=>"default_sot_properties", "name" => "default_sot_properties");
+$dalTableuneet_enterprise_organizations["default_area"] = array("type"=>200,"varname"=>"default_area", "name" => "default_area");
+$dalTableuneet_enterprise_organizations["default_building"] = array("type"=>200,"varname"=>"default_building", "name" => "default_building");
+$dalTableuneet_enterprise_organizations["default_unit"] = array("type"=>200,"varname"=>"default_unit", "name" => "default_unit");
 	$dalTableuneet_enterprise_organizations["id_organization"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_organizations"] = &$dalTableuneet_enterprise_organizations;

@@ -833,5 +833,20 @@ class FilterIntervalDateSlider extends FilterIntervalSlider
 				return "";
 		}
 	}
+	
+	/**
+	 * Get the 'not null' condition to add it to the WHERE clause
+	 * @param String dbfName
+	 * @return String
+	 */
+	protected function getNotNullWhere()
+	{
+		$ret = parent::getNotNullWhere();
+		
+		if( $this->connection->dbType == nDATABASE_MySQL )
+			$ret[] = $this->connection->addFieldWrappers( $this->fName ) . " > 0";
+		
+		return $ret;
+	}	
 }
 ?>

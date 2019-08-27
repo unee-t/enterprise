@@ -118,39 +118,14 @@ class ViewControlsContainer
 	
 	function addControlsJSAndCSS()
 	{
-		switch ($this->pageType)
-		{
-			case PAGE_VIEW:
-				$pageTypeStr = "View";
-				break;
-			case PAGE_EDIT:
-				$pageTypeStr = "Edit";
-				break;
-			case PAGE_PRINT:
-			case PAGE_RPRINT:
-				$pageTypeStr = "Printer";
-				break;
-			case PAGE_LIST:
-			case PAGE_SEARCH:
-			case PAGE_REPORT:
-			case PAGE_CHART:
-				$pageTypeStr = "List";
-				break;
-			default:
-				return;
-		}
-		$getFieldsFunc = "get".$pageTypeStr."Fields";
-		$appearOnPageFunc = "appearOn".$pageTypeStr."Page";
-		$fields = $this->pSet->$getFieldsFunc();
+		$fields = $this->pSet->getPageFields();
 		for($i = 0; $i < count($fields); $i++)
 		{
-			if($this->pSet->$appearOnPageFunc($fields[$i]))
-			{
-				if ($this->getControl($fields[$i])->neededLoadJSFiles())
-					$this->getControl($fields[$i])->addJSFiles();
-				
-				$this->getControl($fields[$i])->addCSSFiles();
-			}
+			$control = $this->getControl($fields[$i]);
+			if ($control->neededLoadJSFiles())
+				$control->addJSFiles();
+			
+			$control->addCSSFiles();
 		}
 	}
 	

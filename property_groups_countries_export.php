@@ -15,101 +15,6 @@ if( !Security::processPageSecurity( $strtablename, 'P' ) )
 
 
 
-$layout = new TLayout("export_bootstrap", "OfficeOffice", "MobileOffice");
-$layout->version = 3;
-	$layout->bootstrapTheme = "default";
-		$layout->customCssPageName = "property_groups_countries_export";
-$layout->blocks["top"] = array();
-$layout->containers["page"] = array();
-$layout->container_properties["page"] = array(  );
-$layout->containers["page"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"page_1" );
-$layout->containers["page_1"] = array();
-$layout->container_properties["page_1"] = array(  );
-$layout->containers["page_1"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"panel" );
-$layout->containers["panel"] = array();
-$layout->container_properties["panel"] = array(  );
-$layout->containers["panel"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"header" );
-$layout->containers["header"] = array();
-$layout->container_properties["header"] = array(  );
-$layout->containers["header"][] = array("name"=>"exportheader",
-	"block"=>"exportheader", "substyle"=>1  );
-
-$layout->skins["header"] = "";
-
-
-$layout->containers["panel"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"body" );
-$layout->containers["body"] = array();
-$layout->container_properties["body"] = array(  );
-$layout->containers["body"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"range" );
-$layout->containers["range"] = array();
-$layout->container_properties["range"] = array(  );
-$layout->containers["range"][] = array("name"=>"bsexprange",
-	"block"=>"range_block", "substyle"=>1  );
-
-$layout->skins["range"] = "";
-
-
-$layout->containers["body"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"fields" );
-$layout->containers["fields"] = array();
-$layout->container_properties["fields"] = array(  );
-$layout->containers["fields"][] = array("name"=>"bsexportchoosefields",
-	"block"=>"choosefields", "substyle"=>1  );
-
-$layout->skins["fields"] = "";
-
-
-$layout->containers["body"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"fields_1" );
-$layout->containers["fields_1"] = array();
-$layout->container_properties["fields_1"] = array(  );
-$layout->containers["fields_1"][] = array("name"=>"bsexportformat",
-	"block"=>"exportformat", "substyle"=>1  );
-
-$layout->skins["fields_1"] = "";
-
-
-$layout->containers["body"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"fields_2" );
-$layout->containers["fields_2"] = array();
-$layout->container_properties["fields_2"] = array(  );
-$layout->containers["fields_2"][] = array("name"=>"bsexpoutput",
-	"block"=>"", "substyle"=>1  );
-
-$layout->skins["fields_2"] = "";
-
-
-$layout->containers["body"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"buttons" );
-$layout->containers["buttons"] = array();
-$layout->container_properties["buttons"] = array(  );
-$layout->containers["buttons"][] = array("name"=>"bsexpbuttons",
-	"block"=>"exportbuttons", "substyle"=>2  );
-
-$layout->skins["buttons"] = "";
-
-
-$layout->skins["body"] = "";
-
-
-$layout->skins["panel"] = "";
-
-
-$layout->skins["page_1"] = "";
-
-
-$layout->skins["page"] = "";
-
-$layout->blocks["top"][] = "page";
-$page_layouts["property_groups_countries_export"] = $layout;
-
-
-
 
 require_once("include/export_functions.php");
 require_once("classes/exportpage.php");
@@ -119,7 +24,7 @@ $xt = new Xtempl();
 
 //array of params for classes
 $params = array();
-$params["id"] = postvalue("id");
+$params["id"] = postvalue_number("id");
 $params["xt"] = &$xt;
 $params["tName"] = $strTableName;
 $params["pageType"] = PAGE_EXPORT;

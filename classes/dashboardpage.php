@@ -61,6 +61,7 @@ class DashboardPage extends RunnerPage
 					if( $this->CheckPermissions( $d['dDataSourceTable'], $d['dType'] ) )
 					{
 						$permissions = true;
+						$d['pageName'] = $elem['details'][ $d['dDataSourceTable'] ]['pageName'];
 						$newElem['details'][] = $d;
 						$this->jsSettings['tableSettings'][ $d['dDataSourceTable'] ]['shortTName'] = $d[ 'dShortTable' ];
 					}
@@ -147,14 +148,22 @@ class DashboardPage extends RunnerPage
 			if( $this->isBootstrap() )
 			{
 				if( $elem["width"] )
-					$style .= "#dashelement_" . $elem["elementName"] . $this->id . " > .panel > .panel-body, 
-						#dashelement_" . $elem["elementName"] . $this->id . " > * > .tab-content > * > * > .panel > .panel-body, 
-						#dashelement_" . $elem["elementName"] . $this->id . " > .bs-containedpage > .panel > .panel-body {
+					$selectors = array();
+					//$selectors []= str_repeat( "[data-dbelement=\"".$elem["elementName"]."\"]", 5 );
+					// $selectors []= "#dashelement_" . $elem["elementName"] . $this->id . " > .panel > .panel-body";
+					$selectors []= "#dashelement_" . $elem["elementName"] . $this->id . " > * > .tab-content > * > * > * > .panel > .panel-body";
+					$selectors []= "#dashelement_" . $elem["elementName"] . $this->id . " > * > .tab-content > * > * > .panel > .panel-body";
+					$selectors []= "#dashelement_" . $elem["elementName"] . $this->id . " > .panel > .panel-body";
+					$selectors []= "#dashelement_" . $elem["elementName"] . $this->id . " > .bs-containedpage > .panel > .panel-body";
+										
+					
+					$style.= join(",\n", $selectors ) . " {
 						width: " . $elem["width"] . "px;
 						overflow-x: auto;
 					}";
 				if( $elem["height"] )
 					$style .= "#dashelement_" . $elem["elementName"] . $this->id . " > .panel > .panel-body,
+						#dashelement_" . $elem["elementName"] . $this->id . " > * > .tab-content > * > * > * > .panel > .panel-body, 
 						#dashelement_" . $elem["elementName"] . $this->id . " > * > .tab-content > * > * > .panel > .panel-body, 
 						#dashelement_" . $elem["elementName"] . $this->id . " > .bs-containedpage > .panel > .panel-body {
 						height: " . $elem["height"] . "px;
@@ -173,8 +182,16 @@ class DashboardPage extends RunnerPage
 				$snippetData = callDashboardSnippet( $elem['snippetId'], $this->eventsObject );
 				$contentHtml = $this->getSnippetHtml($snippetData["header"], $snippetData["body"], $elem["width"], $elem["height"]);
 			}
-				
-			$this->xt->assign( "db_".$elem["elementName"] , $style."<div class=\"" . $this->getElementClass( $elem ) . "\" id=\"dashelement_" . $elem["elementName"] . $this->id . "\">".$contentHtml."</div>");
+			
+			$dbElementAttrs = "";
+			if( $elem["width"] ) {
+				$dbElementAttrs .= " data-fixed-width";
+			}
+			if( $elem["height"] ) {
+				$dbElementAttrs .= " data-fixed-height";
+			}
+			$dbElementAttrs .= ' data-dashtype="' . $elem['type'] . '"';
+			$this->xt->assign( "db_".$elem["elementName"] , $style."<div ".$dbElementAttrs." class=\"" . $this->getElementClass( $elem ) . "\" id=\"dashelement_" . $elem["elementName"] . $this->id . "\">".$contentHtml."</div>");
  		}
 	}
 
@@ -205,9 +222,6 @@ class DashboardPage extends RunnerPage
 				$headerCont = '<tr><td class="rnr-tabelemheader rnr-dbelemheader">'.$headerCont.'</td></tr>';
 			}
 
-			$bodyStyle = $width ? "width:" . $width . "px; overflow-x:auto; " : "";
-			$bodyStyle .= $height ? "height:" . $height . "px; overflow-y:auto; " : "";
-
 			$bodyCont = '<tr><td class="rnr-dbelembody"><div style="' . $bodyStyle . '">' . $bodyCont . '</div></td><tr>';
 			$html = '<table class="rnr-dbelemtable">' . $headerCont . $bodyCont . '</table>';
 		}
@@ -228,7 +242,7 @@ class DashboardPage extends RunnerPage
 
 		parent::clearSessionKeys();
 		
-		if( !count($_POST) && ( !count($_GET) || count($_GET) == 1 && isset($_GET["menuItemId"]) ) )
+		if( IsEmptyRequest() )
 		{
 			$this->unsetAllPageSessionKeys();
 		}
@@ -317,6 +331,8 @@ class DashboardPage extends RunnerPage
 	{
 		$this->xt->assign("asearch_link", true);
 		
+		$this->xt->assign("advsearchlink_attrs", "id=\"advButton".$this->id."\"");
+		
 		if( $this->mobileTemplateMode() )
 			$this->xt->assign('tableinfomobile_block', true);
 	}
@@ -349,7 +365,6 @@ class DashboardPage extends RunnerPage
 		$this->commonAssign();
 		$this->doCommonAssignments();
 		$this->addCommonHtml();
-		//$this->prepareBreadcrumbs();
 
 		if( $this->eventsObject->exists("BeforeShowDashboard") )
 		{
@@ -379,6 +394,9 @@ class DashboardPage extends RunnerPage
 	 */
 	function createElementLinks( &$elem )
 	{
+		$elem["parents"] = array();
+		$elem["children"] = array();
+
 		foreach( $this->pSet->getDashboardElements() as $key => $e ) 
 		{
 			if( $e["elementName"] == $elem["elementName"] )

@@ -1,0 +1,908 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel property_level_3_rooms search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN system_id_room_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_system_id_room}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="system_id_room" 
+	
+	data-signal-error-for="system_id_room{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="system_id_room" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_system_id_room}">
+		{$label property_level_3_rooms system_id_room }	</label>
+	<div class="r-search-option">
+		{$searchtype_system_id_room}
+	</div>
+	<div class="r-search-field">
+		{$system_id_room_editcontrol}	</div>
+	<div class="r-search-field">
+		{$system_id_room_editcontrol1}
+	</div>
+	
+</div>
+
+{END system_id_room_fieldblock}
+											
+{BEGIN external_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_id" 
+	
+	data-signal-error-for="external_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="external_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_id}">
+		{$label property_level_3_rooms external_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_id}
+	</div>
+	<div class="r-search-field">
+		{$external_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_id_fieldblock}
+											
+{BEGIN external_system_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_system_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_system_id" 
+	
+	data-signal-error-for="external_system_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="external_system_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_system_id}">
+		{$label property_level_3_rooms external_system_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_system_id}
+	</div>
+	<div class="r-search-field">
+		{$external_system_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_system_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_system_id_fieldblock}
+											
+{BEGIN external_table_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_external_table}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="external_table" 
+	
+	data-signal-error-for="external_table{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="external_table" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_external_table}">
+		{$label property_level_3_rooms external_table }	</label>
+	<div class="r-search-option">
+		{$searchtype_external_table}
+	</div>
+	<div class="r-search-field">
+		{$external_table_editcontrol}	</div>
+	<div class="r-search-field">
+		{$external_table_editcontrol1}
+	</div>
+	
+</div>
+
+{END external_table_fieldblock}
+											
+{BEGIN syst_created_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_created_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="syst_created_datetime" 
+	
+	data-signal-error-for="syst_created_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="syst_created_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_syst_created_datetime}">
+		{$label property_level_3_rooms syst_created_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_syst_created_datetime}
+	</div>
+	<div class="r-search-field">
+		{$syst_created_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$syst_created_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END syst_created_datetime_fieldblock}
+											
+{BEGIN creation_system_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_system_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="creation_system_id" 
+	
+	data-signal-error-for="creation_system_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="creation_system_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_creation_system_id}">
+		{$label property_level_3_rooms creation_system_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_creation_system_id}
+	</div>
+	<div class="r-search-field">
+		{$creation_system_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$creation_system_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END creation_system_id_fieldblock}
+											
+{BEGIN created_by_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_created_by_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="created_by_id" 
+	
+	data-signal-error-for="created_by_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="created_by_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_created_by_id}">
+		{$label property_level_3_rooms created_by_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_created_by_id}
+	</div>
+	<div class="r-search-field">
+		{$created_by_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$created_by_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END created_by_id_fieldblock}
+											
+{BEGIN creation_method_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_method}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="creation_method" 
+	
+	data-signal-error-for="creation_method{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="creation_method" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_creation_method}">
+		{$label property_level_3_rooms creation_method }	</label>
+	<div class="r-search-option">
+		{$searchtype_creation_method}
+	</div>
+	<div class="r-search-field">
+		{$creation_method_editcontrol}	</div>
+	<div class="r-search-field">
+		{$creation_method_editcontrol1}
+	</div>
+	
+</div>
+
+{END creation_method_fieldblock}
+											
+{BEGIN syst_updated_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_updated_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="syst_updated_datetime" 
+	
+	data-signal-error-for="syst_updated_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="syst_updated_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_syst_updated_datetime}">
+		{$label property_level_3_rooms syst_updated_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_syst_updated_datetime}
+	</div>
+	<div class="r-search-field">
+		{$syst_updated_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$syst_updated_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END syst_updated_datetime_fieldblock}
+											
+{BEGIN update_system_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_system_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="update_system_id" 
+	
+	data-signal-error-for="update_system_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="update_system_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_update_system_id}">
+		{$label property_level_3_rooms update_system_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_update_system_id}
+	</div>
+	<div class="r-search-field">
+		{$update_system_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$update_system_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END update_system_id_fieldblock}
+											
+{BEGIN updated_by_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_updated_by_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="updated_by_id" 
+	
+	data-signal-error-for="updated_by_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="updated_by_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_updated_by_id}">
+		{$label property_level_3_rooms updated_by_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_updated_by_id}
+	</div>
+	<div class="r-search-field">
+		{$updated_by_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$updated_by_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END updated_by_id_fieldblock}
+											
+{BEGIN update_method_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_method}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="update_method" 
+	
+	data-signal-error-for="update_method{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="update_method" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_update_method}">
+		{$label property_level_3_rooms update_method }	</label>
+	<div class="r-search-option">
+		{$searchtype_update_method}
+	</div>
+	<div class="r-search-field">
+		{$update_method_editcontrol}	</div>
+	<div class="r-search-field">
+		{$update_method_editcontrol1}
+	</div>
+	
+</div>
+
+{END update_method_fieldblock}
+											
+{BEGIN organization_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization_id" 
+	
+	data-signal-error-for="organization_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="organization_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization_id}">
+		{$label property_level_3_rooms organization_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization_id}
+	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_id_fieldblock}
+											
+{BEGIN is_obsolete_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_obsolete}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_obsolete" 
+	
+	data-signal-error-for="is_obsolete{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="is_obsolete" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_obsolete}">
+		{$label property_level_3_rooms is_obsolete }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_obsolete}
+	</div>
+	<div class="r-search-field">
+		{$is_obsolete_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_obsolete_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_obsolete_fieldblock}
+											
+{BEGIN is_creation_needed_in_unee_t_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_creation_needed_in_unee_t}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_creation_needed_in_unee_t" 
+	
+	data-signal-error-for="is_creation_needed_in_unee_t{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="is_creation_needed_in_unee_t" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_creation_needed_in_unee_t}">
+		{$label property_level_3_rooms is_creation_needed_in_unee_t }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_creation_needed_in_unee_t}
+	</div>
+	<div class="r-search-field">
+		{$is_creation_needed_in_unee_t_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_creation_needed_in_unee_t_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_creation_needed_in_unee_t_fieldblock}
+											
+{BEGIN do_not_insert_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_do_not_insert}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="do_not_insert" 
+	
+	data-signal-error-for="do_not_insert{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="do_not_insert" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_do_not_insert}">
+		{$label property_level_3_rooms do_not_insert }	</label>
+	<div class="r-search-option">
+		{$searchtype_do_not_insert}
+	</div>
+	<div class="r-search-field">
+		{$do_not_insert_editcontrol}	</div>
+	<div class="r-search-field">
+		{$do_not_insert_editcontrol1}
+	</div>
+	
+</div>
+
+{END do_not_insert_fieldblock}
+											
+{BEGIN unee_t_unit_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_unit_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_unit_type" 
+	
+	data-signal-error-for="unee_t_unit_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="unee_t_unit_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_unit_type}">
+		{$label property_level_3_rooms unee_t_unit_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_unit_type}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_unit_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_unit_type_fieldblock}
+											
+{BEGIN system_id_unit_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_system_id_unit}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="system_id_unit" 
+	
+	data-signal-error-for="system_id_unit{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="system_id_unit" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_system_id_unit}">
+		{$label property_level_3_rooms system_id_unit }	</label>
+	<div class="r-search-option">
+		{$searchtype_system_id_unit}
+	</div>
+	<div class="r-search-field">
+		{$system_id_unit_editcontrol}	</div>
+	<div class="r-search-field">
+		{$system_id_unit_editcontrol1}
+	</div>
+	
+</div>
+
+{END system_id_unit_fieldblock}
+											
+{BEGIN room_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_room_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="room_type_id" 
+	
+	data-signal-error-for="room_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="room_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_room_type_id}">
+		{$label property_level_3_rooms room_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_room_type_id}
+	</div>
+	<div class="r-search-field">
+		{$room_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$room_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END room_type_id_fieldblock}
+											
+{BEGIN number_of_beds_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_number_of_beds}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="number_of_beds" 
+	
+	data-signal-error-for="number_of_beds{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="number_of_beds" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_number_of_beds}">
+		{$label property_level_3_rooms number_of_beds }	</label>
+	<div class="r-search-option">
+		{$searchtype_number_of_beds}
+	</div>
+	<div class="r-search-field">
+		{$number_of_beds_editcontrol}	</div>
+	<div class="r-search-field">
+		{$number_of_beds_editcontrol1}
+	</div>
+	
+</div>
+
+{END number_of_beds_fieldblock}
+											
+{BEGIN surface_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_surface}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="surface" 
+	
+	data-signal-error-for="surface{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="surface" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_surface}">
+		{$label property_level_3_rooms surface }	</label>
+	<div class="r-search-option">
+		{$searchtype_surface}
+	</div>
+	<div class="r-search-field">
+		{$surface_editcontrol}	</div>
+	<div class="r-search-field">
+		{$surface_editcontrol1}
+	</div>
+	
+</div>
+
+{END surface_fieldblock}
+											
+{BEGIN surface_measurment_unit_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_surface_measurment_unit}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="surface_measurment_unit" 
+	
+	data-signal-error-for="surface_measurment_unit{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="surface_measurment_unit" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_surface_measurment_unit}">
+		{$label property_level_3_rooms surface_measurment_unit }	</label>
+	<div class="r-search-option">
+		{$searchtype_surface_measurment_unit}
+	</div>
+	<div class="r-search-field">
+		{$surface_measurment_unit_editcontrol}	</div>
+	<div class="r-search-field">
+		{$surface_measurment_unit_editcontrol1}
+	</div>
+	
+</div>
+
+{END surface_measurment_unit_fieldblock}
+											
+{BEGIN room_designation_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_room_designation}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="room_designation" 
+	
+	data-signal-error-for="room_designation{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="room_designation" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_room_designation}">
+		{$label property_level_3_rooms room_designation }	</label>
+	<div class="r-search-option">
+		{$searchtype_room_designation}
+	</div>
+	<div class="r-search-field">
+		{$room_designation_editcontrol}	</div>
+	<div class="r-search-field">
+		{$room_designation_editcontrol1}
+	</div>
+	
+</div>
+
+{END room_designation_fieldblock}
+											
+{BEGIN room_description_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_room_description}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="room_description" 
+	
+	data-signal-error-for="room_description{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="room_description" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_room_description}">
+		{$label property_level_3_rooms room_description }	</label>
+	<div class="r-search-option">
+		{$searchtype_room_description}
+	</div>
+	<div class="r-search-field">
+		{$room_description_editcontrol}	</div>
+	<div class="r-search-field">
+		{$room_description_editcontrol1}
+	</div>
+	
+</div>
+
+{END room_description_fieldblock}
+											
+{BEGIN mgt_cny_default_assignee_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_mgt_cny_default_assignee}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="mgt_cny_default_assignee" 
+	
+	data-signal-error-for="mgt_cny_default_assignee{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="mgt_cny_default_assignee" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_mgt_cny_default_assignee}">
+		{$label property_level_3_rooms mgt_cny_default_assignee }	</label>
+	<div class="r-search-option">
+		{$searchtype_mgt_cny_default_assignee}
+	</div>
+	<div class="r-search-field">
+		{$mgt_cny_default_assignee_editcontrol}	</div>
+	<div class="r-search-field">
+		{$mgt_cny_default_assignee_editcontrol1}
+	</div>
+	
+</div>
+
+{END mgt_cny_default_assignee_fieldblock}
+											
+{BEGIN landlord_default_assignee_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_landlord_default_assignee}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="landlord_default_assignee" 
+	
+	data-signal-error-for="landlord_default_assignee{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field25" {$item_integrated_search_field25} data-pageid="{$pageid}" data-field="landlord_default_assignee" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_landlord_default_assignee}">
+		{$label property_level_3_rooms landlord_default_assignee }	</label>
+	<div class="r-search-option">
+		{$searchtype_landlord_default_assignee}
+	</div>
+	<div class="r-search-field">
+		{$landlord_default_assignee_editcontrol}	</div>
+	<div class="r-search-field">
+		{$landlord_default_assignee_editcontrol1}
+	</div>
+	
+</div>
+
+{END landlord_default_assignee_fieldblock}
+											
+{BEGIN tenant_default_assignee_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_tenant_default_assignee}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="tenant_default_assignee" 
+	
+	data-signal-error-for="tenant_default_assignee{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field26" {$item_integrated_search_field26} data-pageid="{$pageid}" data-field="tenant_default_assignee" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_tenant_default_assignee}">
+		{$label property_level_3_rooms tenant_default_assignee }	</label>
+	<div class="r-search-option">
+		{$searchtype_tenant_default_assignee}
+	</div>
+	<div class="r-search-field">
+		{$tenant_default_assignee_editcontrol}	</div>
+	<div class="r-search-field">
+		{$tenant_default_assignee_editcontrol1}
+	</div>
+	
+</div>
+
+{END tenant_default_assignee_fieldblock}
+											
+{BEGIN agent_default_assignee_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_agent_default_assignee}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="agent_default_assignee" 
+	
+	data-signal-error-for="agent_default_assignee{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field27" {$item_integrated_search_field27} data-pageid="{$pageid}" data-field="agent_default_assignee" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_agent_default_assignee}">
+		{$label property_level_3_rooms agent_default_assignee }	</label>
+	<div class="r-search-option">
+		{$searchtype_agent_default_assignee}
+	</div>
+	<div class="r-search-field">
+		{$agent_default_assignee_editcontrol}	</div>
+	<div class="r-search-field">
+		{$agent_default_assignee_editcontrol1}
+	</div>
+	
+</div>
+
+{END agent_default_assignee_fieldblock}
+											
+{BEGIN create_api_request_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_create_api_request_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="create_api_request_id" 
+	
+	data-signal-error-for="create_api_request_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field28" {$item_integrated_search_field28} data-pageid="{$pageid}" data-field="create_api_request_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_create_api_request_id}">
+		{$label property_level_3_rooms create_api_request_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_create_api_request_id}
+	</div>
+	<div class="r-search-field">
+		{$create_api_request_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$create_api_request_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END create_api_request_id_fieldblock}
+											
+{BEGIN edit_api_request_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_edit_api_request_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="edit_api_request_id" 
+	
+	data-signal-error-for="edit_api_request_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field29" {$item_integrated_search_field29} data-pageid="{$pageid}" data-field="edit_api_request_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_edit_api_request_id}">
+		{$label property_level_3_rooms edit_api_request_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_edit_api_request_id}
+	</div>
+	<div class="r-search-field">
+		{$edit_api_request_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$edit_api_request_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END edit_api_request_id_fieldblock}
+											
+{BEGIN is_update_on_duplicate_key_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_update_on_duplicate_key}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_update_on_duplicate_key" 
+	
+	data-signal-error-for="is_update_on_duplicate_key{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field30" {$item_integrated_search_field30} data-pageid="{$pageid}" data-field="is_update_on_duplicate_key" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_update_on_duplicate_key}">
+		{$label property_level_3_rooms is_update_on_duplicate_key }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_update_on_duplicate_key}
+	</div>
+	<div class="r-search-field">
+		{$is_update_on_duplicate_key_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_update_on_duplicate_key_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_update_on_duplicate_key_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

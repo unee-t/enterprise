@@ -127,7 +127,7 @@ $tdataManage_Unit_Names[".listAjax"] = false;
 	$tdataManage_Unit_Names[".locking"] = false;
 
 
-$pages = $tdataManage_Unit_Names[".pages"];
+$pages = $tdataManage_Unit_Names[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataManage_Unit_Names[".edit"] = true;
@@ -363,6 +363,10 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -370,6 +374,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -489,11 +494,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -610,11 +620,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -731,11 +746,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -852,11 +872,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -973,11 +998,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1094,11 +1124,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1215,11 +1250,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1336,13 +1376,17 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "ut_unit_types";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -1370,6 +1414,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -1486,11 +1531,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1667,6 +1717,10 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -1674,6 +1728,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -1705,6 +1760,10 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -1712,6 +1771,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -1743,13 +1803,17 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "ut_property_types";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -1779,6 +1843,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -1895,11 +1960,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2016,11 +2086,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2137,11 +2212,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2258,11 +2338,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2379,11 +2464,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2500,11 +2590,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2621,6 +2716,10 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -2628,6 +2727,7 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -2742,11 +2842,16 @@ $tdataManage_Unit_Names[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -3195,6 +3300,8 @@ $proto49["m_strName"] = "ut_map_external_source_units";
 $proto49["m_srcTableName"] = "Manage Unit Names";
 $proto49["m_columns"] = array();
 $proto49["m_columns"][] = "id_map";
+$proto49["m_columns"][] = "create_api_request_id";
+$proto49["m_columns"][] = "edit_api_request_id";
 $proto49["m_columns"][] = "syst_created_datetime";
 $proto49["m_columns"][] = "creation_system_id";
 $proto49["m_columns"][] = "created_by_id";
@@ -3203,11 +3310,16 @@ $proto49["m_columns"][] = "syst_updated_datetime";
 $proto49["m_columns"][] = "update_system_id";
 $proto49["m_columns"][] = "updated_by_id";
 $proto49["m_columns"][] = "update_method";
+$proto49["m_columns"][] = "is_update_on_duplicate_key";
 $proto49["m_columns"][] = "organization_id";
 $proto49["m_columns"][] = "is_obsolete";
 $proto49["m_columns"][] = "is_update_needed";
+$proto49["m_columns"][] = "mefe_area_id";
+$proto49["m_columns"][] = "mefe_unit_id_parent";
 $proto49["m_columns"][] = "unee_t_mefe_unit_id";
 $proto49["m_columns"][] = "uneet_created_datetime";
+$proto49["m_columns"][] = "is_mefe_api_success";
+$proto49["m_columns"][] = "mefe_api_error_message";
 $proto49["m_columns"][] = "is_unee_t_created_by_me";
 $proto49["m_columns"][] = "unee_t_unit_type";
 $proto49["m_columns"][] = "uneet_name";
@@ -3216,6 +3328,7 @@ $proto49["m_columns"][] = "external_property_type_id";
 $proto49["m_columns"][] = "external_property_id";
 $proto49["m_columns"][] = "external_system";
 $proto49["m_columns"][] = "table_in_external_system";
+$proto49["m_columns"][] = "tower";
 $obj = new SQLTable($proto49);
 
 $proto48["m_table"] = $obj;

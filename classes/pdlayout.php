@@ -9,14 +9,18 @@ class PDLayout
 	var $bootstrapSize;
 	var $name="";
 	var $style="";
+	/**
+	 * True when 'this page has custom settings' is checked off
+	 */
+	var $customSettings = false;
 
-	function __construct( $table, $page, $theme, $size = "normal" )
+	function __construct( $table, $page, $theme, $size = "normal", $customSettings = false )
 	{
 		$this->page = $page;
 		$this->table = $table;
 		$this->bootstrapTheme = $theme;
 		$this->bootstrapSize = $size;
-		
+		$this->customSettings = $customSettings;
 	}
 
 	
@@ -30,16 +34,18 @@ class PDLayout
 		if( $rtl )
 			$suffix = "RTL";
 			
-			$files[] = "styles/bootstrap/".$this->bootstrapTheme."/".$this->bootstrapSize."/style.css";
+			$files[] = "styles/bootstrap/".$this->bootstrapTheme."/".$this->bootstrapSize."/style".$suffix.".css";
 
-		$files[] = "styles/bs".$suffix.".css";
+//		$files[] = "styles/bs".$suffix.".css";
 
 		$files[] = "styles/font-awesome/css/font-awesome.min.css";
 
-		if( file_exists( getabspath( "styles/custom/custom.css" ) ) )
-		$files[] = "styles/custom/custom".$suffix.".css";
+		if( !$this->customSettings ) {
+			if( file_exists( getabspath( "styles/custom/custom.css" ) ) )
+				$files[] = "styles/custom/custom".$suffix.".css";
+		}
 
-		$files[] = "styles/pages/".$this->table."_".$this->page["id"].".css";
+		$files[] = "styles/pages/".$this->table."_".$this->page["id"].$suffix.".css";
 
 
 		return $files;
@@ -157,40 +163,6 @@ class PDLayout
 			//	add cell attributes
 			$dummyData = null;
 			$this->assignCellAttrs( $hidingMap, $cell, $location, $pageObject, $xt, $dummyData );
-/*			
-			$cellAttrs = array();
-			$hCell =& $hidingMap->cells[$cell];
-
-			if( !$pageObject->pdfJsonMode() ) {
-				if( 0 == count( $hCell["rows"] ) ||  0 == count( $hCell["cols"] )) {
-					//	display cell hidden
-					$cellAttrs[] = 'data-hidden';
-				}
-				
-				if( count( $hCell["cols"] ) > 1 ) {
-					$cellAttrs[] = 'colspan="' . count( $hCell["cols"] ) . '"';
-				}
-				if( count( $hCell["rows"] ) > 1 ) {
-					$cellAttrs[] = 'rowspan="' . count( $hCell["rows"] ) . '"';
-				}
-				//	specify which cols and rows are visible
-
-				if( count( $cellAttrs ) ) {
-					$xt->assign( "cell_".$location."_" . $cell, implode( " ", $cellAttrs ) );
-				}
-			} else {
-				if( 0 == count( $hCell["rows"] ) ||  0 == count( $hCell["cols"] )) {
-					$xt->assign( "cellblock_" . $location . "_" . $cell, false );
-				}
-				
-				if( count( $hCell["cols"] ) > 1 ) {
-					$xt->assign( "colspan_" . $location . "_" . $cell, count( $hCell["cols"] ) );
-				}
-				if( count( $hCell["rows"] ) > 1 ) {
-					$xt->assign( "rowspan_" . $location . "_" . $cell, count( $hCell["rows"] ) );
-				}
-			}
-*/			
 			
 		}
 
@@ -497,8 +469,8 @@ class CellMapPD {
 				for( $i = 0; $i < count($colCells); ++$i ) {
 					$cell = $colCells[$i];
 					$colIdx = array_search( $col, $this->cells[$cell]["cols"] );
-					array_splice( $this->cells[$cell]["cols"], $colIdx, 1 );
-									}
+									array_splice( $this->cells[$cell]["cols"], $colIdx, 1 );
+				}
 				$ret["cols"][] = $col;
 			}
 		}
@@ -520,11 +492,8 @@ class CellMapPD {
 			for( $i = 0; $i < count($rowCells); ++$i ) {
 				$cell = $rowCells[$i];
 				$rowIdx = array_search( $row, $this->cells[$cell]["rows"] );
-				
-				//	ugly fix for .NET converter
-				$rowsArr = $this->cells[$cell]["rows"];
-				array_splice( $rowsArr, $rowIdx, 1 );
-				$this->cells[$cell]["rows"] = $rowsArr;
+
+								array_splice( $this->cells[$cell]["rows"], $rowIdx, 1 );
 			}
 			$ret["rows"][] = $row;
 		}

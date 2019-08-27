@@ -125,10 +125,8 @@ pdfDocument = {
 		
 		
 		widths: [
-		 
-						'*', 
-					 ],
-		
+								"*", 
+					 ],	
 		
 		body: [
 				
@@ -154,7 +152,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-        },
+          },
 
 											],
 					]
@@ -198,7 +196,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$id_unee_t_user_type_align}',
+  },
 
 {END cellblock_grid_headcell_field}
 																			{BEGIN cellblock_grid_headcell_field1}
@@ -223,7 +222,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_updated_datetime_align}',
+  },
 
 {END cellblock_grid_headcell_field1}
 																			{BEGIN cellblock_grid_headcell_field2}
@@ -248,7 +248,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_system_id_align}',
+  },
 
 {END cellblock_grid_headcell_field2}
 																			{BEGIN cellblock_grid_headcell_field3}
@@ -273,7 +274,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$updated_by_id_align}',
+  },
 
 {END cellblock_grid_headcell_field3}
 																			{BEGIN cellblock_grid_headcell_field4}
@@ -298,7 +300,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_method_align}',
+  },
 
 {END cellblock_grid_headcell_field4}
 																			{BEGIN cellblock_grid_headcell_field5}
@@ -323,7 +326,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$organization_id_align}',
+  },
 
 {END cellblock_grid_headcell_field5}
 																			{BEGIN cellblock_grid_headcell_field6}
@@ -348,7 +352,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_contractor_align}',
+  },
 
 {END cellblock_grid_headcell_field6}
 																			{BEGIN cellblock_grid_headcell_field7}
@@ -373,7 +378,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_mgt_cny_align}',
+  },
 
 {END cellblock_grid_headcell_field7}
 																			{BEGIN cellblock_grid_headcell_field8}
@@ -398,7 +404,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_agent_align}',
+  },
 
 {END cellblock_grid_headcell_field8}
 																			{BEGIN cellblock_grid_headcell_field9}
@@ -423,7 +430,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_occupant_align}',
+  },
 
 {END cellblock_grid_headcell_field9}
 																			{BEGIN cellblock_grid_headcell_field10}
@@ -448,7 +456,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_landlord_align}',
+  },
 
 {END cellblock_grid_headcell_field10}
 																			{BEGIN cellblock_grid_headcell_field11}
@@ -473,7 +482,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_tenant_align}',
+  },
 
 {END cellblock_grid_headcell_field11}
 																			{BEGIN cellblock_grid_headcell_field12}
@@ -498,7 +508,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$created_by_id_align}',
+  },
 
 {END cellblock_grid_headcell_field12}
 																			{BEGIN cellblock_grid_headcell_field13}
@@ -523,7 +534,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$designation_align}',
+  },
 
 {END cellblock_grid_headcell_field13}
 																			{BEGIN cellblock_grid_headcell_field14}
@@ -548,7 +560,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_occupant_align}',
+  },
 
 {END cellblock_grid_headcell_field14}
 																			{BEGIN cellblock_grid_headcell_field15}
@@ -573,7 +586,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_public_align}',
+  },
 
 {END cellblock_grid_headcell_field15}
 																			{BEGIN cellblock_grid_headcell_field16}
@@ -598,7 +612,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_assignee_align}',
+  },
 
 {END cellblock_grid_headcell_field16}
 																			{BEGIN cellblock_grid_headcell_field17}
@@ -619,11 +634,12 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Manage_User_Default_Visibility is_invited_all_cases }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Manage_User_Default_Visibility is_dashboard_access }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_dashboard_access_align}',
+  },
 
 {END cellblock_grid_headcell_field17}
 																			{BEGIN cellblock_grid_headcell_field18}
@@ -644,11 +660,12 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Manage_User_Default_Visibility is_dashboard_access }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Manage_User_Default_Visibility is_default_invited }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_invited_align}',
+  },
 
 {END cellblock_grid_headcell_field18}
 											],
@@ -682,7 +699,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$id_unee_t_user_type_align}',
+  },
 
 {END cellblock_grid_cell_field}
 																			{BEGIN cellblock_grid_cell_field1}
@@ -707,7 +725,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$syst_updated_datetime_align}',
+  },
 
 {END cellblock_grid_cell_field1}
 																			{BEGIN cellblock_grid_cell_field2}
@@ -732,7 +751,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_system_id_align}',
+  },
 
 {END cellblock_grid_cell_field2}
 																			{BEGIN cellblock_grid_cell_field3}
@@ -757,7 +777,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$updated_by_id_align}',
+  },
 
 {END cellblock_grid_cell_field3}
 																			{BEGIN cellblock_grid_cell_field4}
@@ -782,7 +803,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$update_method_align}',
+  },
 
 {END cellblock_grid_cell_field4}
 																			{BEGIN cellblock_grid_cell_field5}
@@ -807,7 +829,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$organization_id_align}',
+  },
 
 {END cellblock_grid_cell_field5}
 																			{BEGIN cellblock_grid_cell_field6}
@@ -832,7 +855,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_contractor_align}',
+  },
 
 {END cellblock_grid_cell_field6}
 																			{BEGIN cellblock_grid_cell_field7}
@@ -857,7 +881,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_mgt_cny_align}',
+  },
 
 {END cellblock_grid_cell_field7}
 																			{BEGIN cellblock_grid_cell_field8}
@@ -882,7 +907,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_agent_align}',
+  },
 
 {END cellblock_grid_cell_field8}
 																			{BEGIN cellblock_grid_cell_field9}
@@ -907,7 +933,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_occupant_align}',
+  },
 
 {END cellblock_grid_cell_field9}
 																			{BEGIN cellblock_grid_cell_field10}
@@ -932,7 +959,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_landlord_align}',
+  },
 
 {END cellblock_grid_cell_field10}
 																			{BEGIN cellblock_grid_cell_field11}
@@ -957,7 +985,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$can_see_role_tenant_align}',
+  },
 
 {END cellblock_grid_cell_field11}
 																			{BEGIN cellblock_grid_cell_field12}
@@ -982,7 +1011,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$created_by_id_align}',
+  },
 
 {END cellblock_grid_cell_field12}
 																			{BEGIN cellblock_grid_cell_field13}
@@ -1007,7 +1037,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$designation_align}',
+  },
 
 {END cellblock_grid_cell_field13}
 																			{BEGIN cellblock_grid_cell_field14}
@@ -1032,7 +1063,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_occupant_align}',
+  },
 
 {END cellblock_grid_cell_field14}
 																			{BEGIN cellblock_grid_cell_field15}
@@ -1057,7 +1089,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_public_align}',
+  },
 
 {END cellblock_grid_cell_field15}
 																			{BEGIN cellblock_grid_cell_field16}
@@ -1082,7 +1115,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_assignee_align}',
+  },
 
 {END cellblock_grid_cell_field16}
 																			{BEGIN cellblock_grid_cell_field17}
@@ -1103,11 +1137,12 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field11}","text":{$is_invited_all_cases_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field12}","text":{$is_dashboard_access_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_dashboard_access_align}',
+  },
 
 {END cellblock_grid_cell_field17}
 																			{BEGIN cellblock_grid_cell_field18}
@@ -1128,11 +1163,12 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field12}","text":{$is_dashboard_access_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field11}","text":{$is_default_invited_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_invited_align}',
+  },
 
 {END cellblock_grid_cell_field18}
 											],
@@ -1165,7 +1201,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field}
 																			{BEGIN cellblock_grid_footcell_field1}
@@ -1188,7 +1224,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field1}
 																			{BEGIN cellblock_grid_footcell_field2}
@@ -1211,7 +1247,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field2}
 																			{BEGIN cellblock_grid_footcell_field3}
@@ -1234,7 +1270,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field3}
 																			{BEGIN cellblock_grid_footcell_field4}
@@ -1257,7 +1293,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field4}
 																			{BEGIN cellblock_grid_footcell_field5}
@@ -1280,7 +1316,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field5}
 																			{BEGIN cellblock_grid_footcell_field6}
@@ -1303,7 +1339,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field6}
 																			{BEGIN cellblock_grid_footcell_field7}
@@ -1326,7 +1362,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field7}
 																			{BEGIN cellblock_grid_footcell_field8}
@@ -1349,7 +1385,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field8}
 																			{BEGIN cellblock_grid_footcell_field9}
@@ -1372,7 +1408,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field9}
 																			{BEGIN cellblock_grid_footcell_field10}
@@ -1395,7 +1431,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field10}
 																			{BEGIN cellblock_grid_footcell_field11}
@@ -1418,7 +1454,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field11}
 																			{BEGIN cellblock_grid_footcell_field12}
@@ -1441,7 +1477,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field12}
 																			{BEGIN cellblock_grid_footcell_field13}
@@ -1464,7 +1500,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field13}
 																			{BEGIN cellblock_grid_footcell_field14}
@@ -1487,7 +1523,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field14}
 																			{BEGIN cellblock_grid_footcell_field15}
@@ -1510,7 +1546,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field15}
 																			{BEGIN cellblock_grid_footcell_field16}
@@ -1533,7 +1569,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field16}
 																			{BEGIN cellblock_grid_footcell_field17}
@@ -1556,7 +1592,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field17}
 																			{BEGIN cellblock_grid_footcell_field18}
@@ -1579,7 +1615,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field18}
 											],

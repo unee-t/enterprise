@@ -1,4 +1,7 @@
 <?php
+
+require_once(getabspath("include/sms.php"));
+
 /**
  * That function  copies all elements from associative array to object, as object properties with same names
  * Usefull when you need to copy many properties
@@ -16,128 +19,73 @@ function RunnerApply (&$obj, &$argsArr)
 /**
  * @intellisense
  */
-function GetImageFromDB($gQuery, $forPDF = false, $params = array())
+function GetImageFromDB( $gQuery, $params )
 {
 	global $cman;
+	
+	$table = $params["table"];
+	$strTableName = GetTableByShort( $table );
+	$pSet = new ProjectSettings( $strTableName );
 
-	if(!$forPDF)
+	if( !checkTableName( $table ) )
 	{
-		$table = postvalue("table");
-		$strTableName = GetTableByShort($table);
-		$settings = new ProjectSettings($strTableName);
-
-		if (!checkTableName($table))
-		{
-			return '';
-		}
-
-		@ini_set("display_errors","1");
-		@ini_set("display_startup_errors","1");
-
-		if(!isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search"))
-		{
-			HeaderRedirect("login");
-			return;
-		}
-
-		$field = postvalue("field");
-		if(!$settings->checkFieldPermissions($field))
-			return DisplayNoImage();
-
-		//	construct sql
-		$keysArr = $settings->getTableKeys();
-		$keys = array();
-		foreach ($keysArr as $ind=>$k)
-		{
-			$keys[$k]=postvalue("key".($ind+1));
-		}
-	}
-	else
-	{
-		$table = @$params["table"];
-
-		$strTableName = GetTableByShort($table);
-
-		if (!checkTableName($table))
-		{
-			exit(0);
-		}
-
-		$settings = new ProjectSettings($strTableName);
-		$field = @$params["field"];
-		//	construct sql
-		$keysArr = $settings->getTableKeys();
-		$keys = array();
-		foreach ($keysArr as $ind=>$k)
-		{
-			$keys[$k]=@$params["key".($ind+1)];
-		}
+		return '';
 	}
 
-	$connection = $cman->byTable( $strTableName );
+	@ini_set("display_errors", "1");
+	@ini_set("display_startup_errors", "1");
 
-	if(!$gQuery->HasGroupBy())
+	if( !isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") )
+	{
+		HeaderRedirect("login");
+		return;
+	}
+
+	$field = $params["field"];
+	if( $pSet->checkFieldPermissions( $field ) )
+		return DisplayNoImage();
+
+	//	construct sql
+	if( !$gQuery->HasGroupBy() )
 	{
 		// Do not select any fields except current (image) field.
 		// If query has 'group by' clause then other fields are used in it and we may not simply cut 'em off.
 		// Just don't do anything in that case.
-		$gQuery->RemoveAllFieldsExcept($settings->getFieldIndex($field));
+		$gQuery->RemoveAllFieldsExcept( $pSet->getFieldIndex( $field ) );
 	}
 
-	$where = KeyWhere($keys);
+	$where = KeyWhere( $params["keys"] );
+	if ( $pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN )
+		$where = whereAdd( $where, SecuritySQL("Search") );
 
-	$secOpt = $settings->getAdvancedSecurityType();
-	if ($secOpt == ADVSECURITY_VIEW_OWN)
-	{
-		$where = whereAdd($where, SecuritySQL("Search"));
-	}
-
-	$sql = $gQuery->gSQLWhere($where);
+	$connection = $cman->byTable( $strTableName );
+	$sql = $gQuery->gSQLWhere( $where );
 	$data = $connection->query( $sql )->fetchAssoc();
 
-	if($forPDF)
-	{
-		if( $data )
-			return $data[ $field ];
-	}
+	if( !$data )
+		return DisplayNoImage();
+
+	if( $params["src"] )
+		$value = myfile_get_contents('images/icons/jpg.png');
 	else
-	{
-		if( !$data )
-			return DisplayNoImage();
+		$value = $connection->stripSlashesBinary( $data[ $field ] );
 
-		if(postvalue('src') == 1)
-		{
-			$value = myfile_get_contents('images/icons/jpg.png');
-		}
-		else
-			$value = $connection->stripSlashesBinary( $data[ $field ] );
+	if( !$value && $params["alt"] )
+		$value = $connection->stripSlashesBinary( $data[ $params["alt"] ] );
 
-		if(!$value)
-		{
-			if(postvalue("alt"))
-			{
-				$value = $connection->stripSlashesBinary( $data[ postvalue("alt") ] );
-				if(!$value)
-					return DisplayNoImage();
-			}
-			else
-				return DisplayNoImage();
-		}
+	if( !$value )
+		return DisplayNoImage();
+	
+	$itype = SupposeImageType( $value );
+	if( !$itype )
+		return DisplayFile();
 
-		$itype = SupposeImageType($value);
-
-		if(!$itype)
-			return DisplayFile();
-
-		if(!isset($pdf))
-		{
-			header("Content-Type: ".$itype);
-			header("Cache-Control: private");
-			SendContentLength(strlen_bin($value));
-		}
-		echoBinary($value);
-		return '';
-	}
+	header("Content-Type: ".$itype);
+	header("Cache-Control: private");
+	SendContentLength( strlen_bin( $value ) );	
+	echoBinary( $value );
+	
+	return '';
 }
 
 /**
@@ -250,8 +198,6 @@ function DisplayMap($params)
 	if (isset($params['zoom']))
 		$pageObject->googleMapCfg['mapsData'][$params['id']]['zoom'] = $params['zoom'];
 
-	//$pageObject->googleMapCfg['bigMapDefZoom'] = $pageObject->googleMapCfg['mapsData'][$params['id']]['zoom'];
-
 	if ($pageObject->googleMapCfg['mapsData'][$params['id']]['showCenterLink'])
 		$pageObject->googleMapCfg['mapsData'][$params['id']]['centerLinkText'] = $params['centerLinkText'] ? $params['centerLinkText'] : '';
 
@@ -313,8 +259,6 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("property_groups_areas" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
-	if ("Unee_T_Enterprise_Configuration" == $shortTName && ($type===false || ($type!==false && $type == 1)))
-		return true;
 	if ("ut_external_sot_for_unee_t_objects" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	if ("Manage_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
@@ -322,6 +266,58 @@ function checkTableName($shortTName, $type=false)
 	if ("external_property_groups_areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	if ("external_property_level_1_buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Manage_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Assign_Areas_to_User" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_Users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Assign_Buildings_to_User" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("property_level_1_buildings" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Assign_Units_to_User" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("property_level_2_units" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Assign_Rooms_to_User" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("property_level_3_rooms" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("Search_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("external_property_level_2_units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_All_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("ut_map_external_source_units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Search_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("List_of_Countries" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_User_Types" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Export_and_Import_Users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("Assign_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("ut_map_external_source_users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("unee_t_enterprise_account" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("all_properties_by_countries" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	return false;
 }
@@ -482,11 +478,6 @@ function GetTablesList($pdfMode = false)
 	{
 		$arr[]="property_groups_areas";
 	}
-	$strPerm = GetUserPermissions("Unee-T Enterprise Configuration");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
-		$arr[]="Unee-T Enterprise Configuration";
-	}
 	$strPerm = GetUserPermissions("ut_external_sot_for_unee_t_objects");
 	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
 	{
@@ -506,6 +497,136 @@ function GetTablesList($pdfMode = false)
 	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
 	{
 		$arr[]="external_property_level_1_buildings";
+	}
+	$strPerm = GetUserPermissions("Manage Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Manage Rooms";
+	}
+	$strPerm = GetUserPermissions("Assign Areas to User");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Areas to User";
+	}
+	$strPerm = GetUserPermissions("Search Users");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Users";
+	}
+	$strPerm = GetUserPermissions("Assign Buildings to User");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Buildings to User";
+	}
+	$strPerm = GetUserPermissions("property_level_1_buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="property_level_1_buildings";
+	}
+	$strPerm = GetUserPermissions("Assign Units to User");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Units to User";
+	}
+	$strPerm = GetUserPermissions("property_level_2_units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="property_level_2_units";
+	}
+	$strPerm = GetUserPermissions("Assign Rooms to User");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Rooms to User";
+	}
+	$strPerm = GetUserPermissions("property_level_3_rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="property_level_3_rooms";
+	}
+	$strPerm = GetUserPermissions("Search Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Rooms";
+	}
+	$strPerm = GetUserPermissions("Search Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Units";
+	}
+	$strPerm = GetUserPermissions("external_property_level_2_units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="external_property_level_2_units";
+	}
+	$strPerm = GetUserPermissions("Search All Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search All Units";
+	}
+	$strPerm = GetUserPermissions("ut_map_external_source_units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="ut_map_external_source_units";
+	}
+	$strPerm = GetUserPermissions("Search Buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Search Buildings";
+	}
+	$strPerm = GetUserPermissions("Export and Import Buildings");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Buildings";
+	}
+	$strPerm = GetUserPermissions("Export and Import Areas");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Areas";
+	}
+	$strPerm = GetUserPermissions("Export and Import Units");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Units";
+	}
+	$strPerm = GetUserPermissions("List of Countries");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="List of Countries";
+	}
+	$strPerm = GetUserPermissions("Export and Import Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Rooms";
+	}
+	$strPerm = GetUserPermissions("Export and Import User Types");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import User Types";
+	}
+	$strPerm = GetUserPermissions("Export and Import Users");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Export and Import Users";
+	}
+	$strPerm = GetUserPermissions("Assign Rooms");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Assign Rooms";
+	}
+	$strPerm = GetUserPermissions("ut_map_external_source_users");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="ut_map_external_source_users";
+	}
+	$strPerm = GetUserPermissions("Unee-T Enterprise Account");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="Unee-T Enterprise Account";
+	}
+	$strPerm = GetUserPermissions("All Properties by Countries");
+	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
+	{
+		$arr[]="All Properties by Countries";
 	}
 	return $arr;
 }
@@ -538,11 +659,36 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Manage Areas";
 	$arr[]="Manage Buildings";
 	$arr[]="property_groups_areas";
-	$arr[]="Unee-T Enterprise Configuration";
 	$arr[]="ut_external_sot_for_unee_t_objects";
 	$arr[]="Manage Units";
 	$arr[]="external_property_groups_areas";
 	$arr[]="external_property_level_1_buildings";
+	$arr[]="Manage Rooms";
+	$arr[]="Assign Areas to User";
+	$arr[]="Search Users";
+	$arr[]="Assign Buildings to User";
+	$arr[]="property_level_1_buildings";
+	$arr[]="Assign Units to User";
+	$arr[]="property_level_2_units";
+	$arr[]="Assign Rooms to User";
+	$arr[]="property_level_3_rooms";
+	$arr[]="Search Rooms";
+	$arr[]="Search Units";
+	$arr[]="external_property_level_2_units";
+	$arr[]="Search All Units";
+	$arr[]="ut_map_external_source_units";
+	$arr[]="Search Buildings";
+	$arr[]="Export and Import Buildings";
+	$arr[]="Export and Import Areas";
+	$arr[]="Export and Import Units";
+	$arr[]="List of Countries";
+	$arr[]="Export and Import Rooms";
+	$arr[]="Export and Import User Types";
+	$arr[]="Export and Import Users";
+	$arr[]="Assign Rooms";
+	$arr[]="ut_map_external_source_users";
+	$arr[]="Unee-T Enterprise Account";
+	$arr[]="All Properties by Countries";
 	return $arr;
 }
 
@@ -1198,11 +1344,7 @@ function ReadUserPermissions($userID = "")
 	if($userID != "Guest")
 	{
 
-		if($caseInsensitiveUsername)
-			$usernameClause = $gConn->upper($gConn->addFieldWrappers( "UserName" )) . "=" . $gConn->upper( $gConn->prepareString($userID) );
-		else
-			$usernameClause = $gConn->addFieldWrappers( "UserName" ) . "=" . $gConn->prepareString($userID);
-
+		$usernameClause = $gConn->comparisonSQL( $gConn->addFieldWrappers( "UserName" ), $gConn->prepareString($userID), $caseInsensitiveUsername );
 		$sql = "select ".$gConn->addFieldWrappers( "GroupID" )
 			.", ".$gConn->addFieldWrappers( "UserName" )
 			." from ". $gConn->addTableWrappers( "uneet_enterprise_ugmembers" )
@@ -1376,10 +1518,10 @@ function guestHasPermissions()
  * Set session variables and permissions after login via Facebook
  * @intellisense
  */
-function AfterFBLogIn( $pUsername, $pPassword, $pDisplayUsername, &$pageObject = null)
+function AfterFBLogIn( $pUsername, $pPassword, $pDisplayUsername, $usernameField, &$pageObject = null)
 {
 	global $cman, $cUserNameFieldType, $cUserNameField, $cDisplayNameField;
-
+	
 	$connection = $cman->getForLogin();
 
 	$strUsername = (string)$pUsername;
@@ -1389,7 +1531,7 @@ function AfterFBLogIn( $pUsername, $pPassword, $pDisplayUsername, &$pageObject =
 		$strUsername = (0 + $strUsername);
 
 	$strSQL = "select * from ".$connection->addTableWrappers("uneet_enterprise_users")
-		." where ".$connection->addFieldWrappers( $cUserNameField )."=".$strUsername."";
+		." where ".$connection->addFieldWrappers( $usernameField )."=".$strUsername;
 
  	$data = $connection->query( $strSQL )->fetchAssoc();
 	if( count($data) )
@@ -1423,8 +1565,26 @@ function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$page
 		$_SESSION["_Manage User Default Notifications_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Areas_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Buildings_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Unee-T Enterprise Configuration_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Manage Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Areas to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Users_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Buildings to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Units to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Rooms to User_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search All Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search Buildings_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Buildings_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Areas_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import User Types_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Export and Import Users_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Assign Rooms_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Unee-T Enterprise Account_OwnerID"] = $data["organization_id"];
+		$_SESSION["_All Properties by Countries_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -1531,13 +1691,121 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
-		if($table=="Unee-T Enterprise Configuration")
+		if($table=="Manage Units")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
-		if($table=="Manage Units")
+		if($table=="Manage Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Assign Areas to User")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Users")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Assign Buildings to User")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Assign Units to User")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Assign Rooms to User")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search All Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search Buildings")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Buildings")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Units")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import User Types")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Export and Import Users")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Assign Rooms")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Unee-T Enterprise Account")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="All Properties by Countries")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
@@ -1645,11 +1913,83 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
-		if($table=="Unee-T Enterprise Configuration")
+		if($table=="Manage Units")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
-		if($table=="Manage Units")
+		if($table=="Manage Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Areas to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Users")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Buildings to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Units to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Rooms to User")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search All Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search Buildings")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Buildings")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Areas")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Units")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import User Types")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Export and Import Users")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Assign Rooms")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Unee-T Enterprise Account")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="All Properties by Countries")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
@@ -2540,7 +2880,11 @@ function DoUpdateRecordSQL( $pageObject )
 	//	construct SQL string
 	foreach($evalues as $ekey=>$value)
 	{
-		if(in_array($ekey,$blobfields))
+		if ( $pageObject->pSet->insertNull($ekey) && trim($value) === "" )
+		{
+			$strValue = "NULL";
+		}
+		else if(in_array($ekey,$blobfields))
 			$strValue = $value;
 		else
 		{
@@ -2633,7 +2977,11 @@ function DoInsertRecordSQLOnAdd( &$pageObject )
 	{
 		$strFields.= $pageObject->getTableField($akey).", ";
 
-		if( in_array($akey, $blobfields) )
+		if ( $pageObject->pSet->insertNull($akey) && trim($value) === "" )
+		{
+			$strValues .= "NULL, ";
+		}
+		else if( in_array($akey, $blobfields) )
 			$strValues.= $value.", ";
 		else
 		{
@@ -2917,12 +3265,23 @@ function & GetPageLayout($table, $page, $suffixName = '')
 		return null;
 	}
 	
-	global $bsProjectTheme, $bsProjectSize;
+	global $bsProjectTheme, $bsProjectSize, $styleOverrides;
+	
+	$theme = $bsProjectTheme;
+	$size = $bsProjectSize;
+	$customSettings = false;
+	$override = $styleOverrides[ $table . "_" . $page ];
+	if( $override ) {
+		$theme = $override["theme"];
+		$size = $override["size"];
+		$customSettings = true;
+	}
 	$layout  = new PDLayout( 
 			$shortTableName, 
 			$pd_pages[ $table ][ $page ],
-			$bsProjectTheme, 
-			$bsProjectSize );
+			$theme, 
+			$size,
+			$customSettings );
 	$all_page_layouts[ $shortTableName."_".$page ] = $layout;
 	return $layout;
 }
@@ -3129,64 +3488,24 @@ function getContentTypeByExtension($ext)
 	return $ctype;
 }
 
-function common_runner_sms($number, $message, $parameters = array())
-{
-	global $twilioSID, $twilioAuth, $twilioNumber;
-
-	if ( !isset($parameters["To"]) )
-		$parameters["To"] = $number;
-
-	if ( !isset($parameters["Body"]) )
-		$parameters["Body"] = $message;
-
-	$parameters["From"] = $twilioNumber;
-
-	$url = "https://api.twilio.com/2010-04-01/Accounts/".$twilioSID."/Messages.json";
-
-	$headers = array();
-	$headers["User-Agent"] = "twilio-php/5.7.3 (PHP 5.6.12)";
-	$headers["Accept-Charset"] = "utf-8";
-	$headers["Content-Type"] = "application/x-www-form-urlencoded";
-	$headers["Accept"] = "application/json";
-	$headers["Authorization"] = "Basic " . base64_encode("$twilioSID:$twilioAuth");
-
-	$certPath = getabspath('include/cacert.pem');
-
-	$result = array();
-    $result["success"] = false;
-
-	$response = runner_post_request($url, $parameters, $headers, $certPath);
-	if ( !$response["error"] )
-	{
-	    $result["response"] = my_json_decode($response["content"]);
-	    if ( $result["response"]["status"] == "queued" )
-	    	$result["success"] = true;
-	    else
-	    	$result["error"] = "Twilio error: " . $result["response"]["message"];
-	}
-	else
-	{
-		$result["error"] = $response["error"];
-	}
-
-	return $result;
-}
-
 /**
  * @intellisense
  */
 function getLatLngByAddr($addr)
 {
 	global $globalSettings;
+	
+	$apiKey = $globalSettings["apiGoogleMapsCode"];
+	
 	switch( getMapProvider() ){
-		case GOOGLE_MAPS:	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.rawurlencode($addr).'&sensor=false&key=' . $globalSettings["apiGoogleMapsCode"];
+		case GOOGLE_MAPS:	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.rawurlencode($addr).'&sensor=false&key=' . $apiKey;
 				$result = my_json_decode(myurl_get_contents($url));
 				if($result['status'] == 'OK')
 				{
 					return $result['results'][0]['geometry']['location'];
 				}
 				break;
-		case OPEN_STREET_MAPS: $url = 'http://nominatim.openstreetmap.org/search/'.rawurlencode($addr).'?format=json&addressdetails=1&limit=1';
+		case OPEN_STREET_MAPS: $url = 'https://nominatim.openstreetmap.org/search/'.rawurlencode($addr).'?format=json&addressdetails=1&limit=1';
 				$result = my_json_decode(myurl_get_contents($url));
 				if($result)
 				{
@@ -3200,9 +3519,10 @@ function getLatLngByAddr($addr)
 				}
 				break;
 		case BING_MAPS:
-				if( !GetGlobalData("apiGoogleMapsCode","") )
+				if( !$apiKey || !$addr )
 					return false;
-				$url = 'https://dev.virtualearth.net/REST/v1/Locations?query='.rawurlencode( $addr ).'&output=json&key='.GetGlobalData("apiGoogleMapsCode","");
+				
+				$url = 'https://dev.virtualearth.net/REST/v1/Locations?query='.rawurlencode( $addr ).'&output=json&key='.$apiKey;
 				$result = my_json_decode(myurl_get_contents($url));
 				if($result)
 				{
@@ -3472,9 +3792,9 @@ function GetKeysArray($arr, $pageObject, $searchId = false)
 function GetBaseScriptsForPage($isDisplayLoading, $additionalScripts = "", $customText = "")
 {
 	$result = "";
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?33576")."\"></script>";
 	$result .= $additionalScripts;
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?33576")."\"></script>";
 
 	if( getMapProvider() == BING_MAPS )
 	{
@@ -3696,74 +4016,15 @@ function xt_showpdchart($params) {
 
 function xt_showchart($params)
 {
-	$width = 700;
-	$height = 530;
-
-	$chartPreview = "";
-	if( $params["chartPreview"] )
-		$chartPreview = "&chartPreview=true";
-
-	if( $params["pdMode"] ) { 
-		if( isset($params["custom3"]) )
-			$width = $params["custom3"];
-
-		if( isset($params["custom2"]) )
-			$height = $params["custom2"];
-		
-	}
-	
-	if( $params["dashResize"] )
-	{
-		if( $params["dashWidth"] && $params["dashHeight"] )
-		{
-			$width = $params["dashWidth"];
-			$height = $params["dashHeight"];
-		}
-		elseif( $params["dashWidth"] )
-		{
-			$height = round( $height * $params["dashWidth"] / $width );
-			$width = $params["dashWidth"];
-		}
-		elseif( $params["dashHeight"] )
-		{
-			$width = round( $width * $params["dashHeight"] / $height );
-			$height = $params["dashHeight"];
-		}
-
-		// adjust the chart size to fit it in the dash cell
-		$width*= 0.95;
-		$height*= 0.95;
-	}
-	elseif( $params["resize"] )
-	{
-		$maxWidth = 400;
-		$maxHeight = 280;
-		$r = $maxWidth / $maxHeight;
-		$r2 = $width / $height;
-		if (($width > $maxWidth) || ($height > $maxHeight))
-		{
-			if ($r2 >= $r)
-			{ // width
-				$height = round( $height * $maxWidth / $width );
-				$width = $maxWidth;
-			}
-			else
-			{
-				$width = round ( $width * $maxHeight / $height );
-				$height = $maxHeight;
-			}
-		}
-	}
 	$showDetails = isset( $params["showDetails"] ) ? $params["showDetails"] : true;
 
 	$settings = new ProjectSettings(GetTableByShort($params["chartName"]));
 	$refresh = $settings->getChartRefreshTime();
 
 	$chartParams = array();
-	$chartParams['width'] = $width;
-	$chartParams['height'] = $height;
 	$chartParams['showDetails'] = $showDetails;
 	$chartParams['chartName'] = $params["chartName"];
+
 	//css id identifiers are not allowed to start with a number or underscore
 	$chartParams['containerId'] = "rnr".$params["chartName"].$params["id"];
 	$chartParams['chartType'] = $params["ctype"];
@@ -3805,11 +4066,6 @@ function xt_showchart($params)
 		$chartParams['refreshTime'] = $params["refreshTime"];
 	}
 
-	if( !$params["pdMode"] ) {
-		echo '	<style>	@media (min-width:768px) { #' . $chartParams['containerId'] . 
-			' {width:' . $width . 'px; height:' . $height . 'px; } } </style>';
-	} 
-
 	echo '<div class="bs-chart" id="' . $chartParams['containerId'] . '"></div>';
 	if( true || !$params["singlePage"] )
 	{
@@ -3832,7 +4088,7 @@ function getPdfImageObject( $params )
 	$width = $params["custom2"];
 	$height = $params["custom3"];
 	
-	$content = myfile_get_contents( $imagePath );
+	$content = myfile_get_contents( urldecode( $imagePath ) );
 	$imageType = SupposeImageType( $content );
 	
 	if( $imageType != "image/jpeg" && $imageType != "image/png" )
@@ -3872,9 +4128,14 @@ function getHomePage()
 		return GetLocalLink("menu");
 
 	if( strlen($globalSettings["LandingTable"]) )
-		return GetLocalLink( GetTableURL($globalSettings["LandingTable"]), $globalSettings["LandingPage"] );
-	else
-		return GetLocalLink( $globalSettings["LandingPage"] );
+	{
+		if( !strlen( $globalSettings["LandingPageId"] ) )
+			return GetLocalLink( GetTableURL($globalSettings["LandingTable"]), $globalSettings["LandingPage"] );
+		
+		return GetLocalLink( GetTableURL($globalSettings["LandingTable"]), $globalSettings["LandingPage"], "page=".$globalSettings["LandingPageId"] );
+	}
+	
+	return GetLocalLink( $globalSettings["LandingPage"] );
 }
 
 
@@ -3949,6 +4210,11 @@ function xt_tooltip($params)
 function xt_custom($params)
 {
 	echo GetCustomLabel($params["custom1"]);
+}
+
+function xt_htmlcustom($params)
+{
+	echo runner_htmlspecialchars(GetCustomLabel($params["custom1"]));
 }
 
 // custom label comment length
@@ -4195,7 +4461,7 @@ function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, 
 		if( $conn->dbType == nDATABASE_Oracle && IsTextType( $fType ) )
 			continue;
 		
-		if( $searchField != '' && $searchField != GoodFieldName( $f ) || !$pSet->checkFieldPermissions( $f ) )
+		if( $searchField != '' && $searchField != GoodFieldName( $f ) )
 			continue;
 			
 		$fieldControl = $controls->getControl( $f );
@@ -4275,9 +4541,13 @@ function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, 
 }
 
 function IsEmptyRequest() {
-	return !count($_POST) && (!count($_GET) 
-	|| count($_GET) == 1 && isset($_GET["menuItemId"]) 
-	|| count($_GET) == 1 && isset($_GET["page"]) );
+	$allowedKeys = array( "menuItemId", "page" );
+	$allowedKeysCount = 0;
+	foreach( $allowedKeys as $k ) {
+		if( isset( $_GET[ $k ] ) )
+			++$allowedKeysCount;
+	}
+	return !count($_POST) && (count($_GET) <= $allowedKeysCount);
 }
 
 function xt_process_template(&$xt,$str)
@@ -4430,6 +4700,55 @@ function addToAssocArray( $assocArray, $arr ) {
 		$assocArray[ $e ] = true;
 	}
 	return $assocArray;
+}
+
+function postvalue_number( $key ) {
+	return 0 + postvalue($key);
+}
+
+/**
+ * Basic View Format doesn't need other field values. So passing of the record data can be omitted for performance reasons.
+ */
+function basicViewFormat( $format ) {
+	return $format === FORMAT_NONE
+		|| $format === FORMAT_DATE_SHORT
+		|| $format === FORMAT_DATE_LONG
+		|| $format === FORMAT_DATE_TIME
+		|| $format === FORMAT_TIME
+		|| $format === FORMAT_CURRENCY
+		|| $format === FORMAT_PERCENT
+		|| $format === FORMAT_LOOKUP_WIZARD
+		|| $format === FORMAT_PHONE_NUMBER
+		|| $format === FORMAT_NUMBER
+		|| $format === FORMAT_HTML
+		|| $format === FORMAT_CHECKBOX;
+}
+
+/**
+ * Currently used for MultilanguageString settings. Returns actual message string
+ */
+function getCustomMessage( $message ) {
+	if( !$message || !is_array( $message ) ) {
+		return "";
+	}
+	if( $message["messageType"] == "Text" )
+		return $message["message"];
+	else
+		return GetCustomLabel( $message["message"] );
+}
+
+function DN2Domain($dn)
+{
+	if( strpos( $dn, "=" ) === FALSE ) {
+		return $dn;
+	}
+	$dom = array();
+	foreach( explode(",", $dn) as $d ) {
+		if( strtoupper( substr( $d, 0, 3 ) ) == "DC=" ) {
+			$dom []= substr( $d, 3 );
+		}
+	}
+	return implode('.', $dom);
 }
 
 ?>

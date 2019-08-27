@@ -110,6 +110,10 @@ class ViewControl
 		$this->getContainer()->AddJSFile($fileName,  $req1, $req2, $req3);
 	}
 	
+	public function pSettings() {
+		return $this->getContainer()->pSet;
+	}
+
 	public function getContainer()
 	{
 		if(!is_null($this->pageObject))
@@ -242,7 +246,7 @@ class ViewControl
 		$isReportPage = $pageType == PAGE_REPORT || $pageType == PAGE_MASTER_INFO_REPORT;
 		$isListPage = $pageType == PAGE_LIST || $pageType == PAGE_MASTER_INFO_LIST;
 		
-		if( $needShortening && ( $isListPage || $isReportPage || $inlineOrFlyMode ) && !$isMobileLookup && !$isDetailPreview && $keylink != "" )
+		if( $html &&  $needShortening && ( $isListPage || $isReportPage || $inlineOrFlyMode ) && !$isMobileLookup && !$isDetailPreview && $keylink != "" )
 			return $this->getShorteningTextAndMoreLink($value, $cNumberOfChars, $keylink, $mode);
 		
 		if( $needShortening && ($isPagePrint || $isMobileLookup || $isDetailPreview) )
@@ -297,7 +301,8 @@ class ViewControl
 		$params[] = 'pagetype='.$this->container->pSet->_viewPage;
 		$params[] = 'table='.GetTableURL($tName);
 		$params[] = 'field='.rawurlencode($this->field);
-		$params[] = $keylink;
+		/* $keylink starts with & */
+		$params[] = substr( $keylink, 1 );
 		$params[] = 'page='.$this->container->pSet->pageName();
 		
 		if ( $mode == LIST_DASHBOARD )
@@ -309,7 +314,9 @@ class ViewControl
 			$params[] = 'mainfield='.$this->pageObject->mainField;
 		}
 		
-		$dataField = 'data-field="'.runner_htmlspecialchars( $this->field ).'"';	
+		$label = $this->container->pSet->label( $this->field );
+		$dataField = 'data-fieldlabel="'.runner_htmlspecialchars( $label ).'"';		
+		
 		return $truncatedValue.' <a href="javascript:void(0);" data-gridlink data-query="'.GetTableLink('fulltext', '', implode('&',$params)).'" '.$dataField.'>'
 			."More".'&nbsp;...</a>';
 	}
@@ -755,7 +762,7 @@ class ViewControl
 	 */
 	public function addHighlightingSpan($str)
 	{
-		return '<span class="rnr-search-highlight">'.$str.'</span>';
+		return '<span class="r-search-highlight">'.$str.'</span>';
 	}
 	
 	public function & getJSControl()

@@ -1,6 +1,8 @@
 <?php
 $dalTablepersons = array();
 $dalTablepersons["id_person"] = array("type"=>3,"varname"=>"id_person", "name" => "id_person");
+$dalTablepersons["create_api_request_id"] = array("type"=>200,"varname"=>"create_api_request_id", "name" => "create_api_request_id");
+$dalTablepersons["edit_api_request_id"] = array("type"=>200,"varname"=>"edit_api_request_id", "name" => "edit_api_request_id");
 $dalTablepersons["external_id"] = array("type"=>200,"varname"=>"external_id", "name" => "external_id");
 $dalTablepersons["external_system"] = array("type"=>200,"varname"=>"external_system", "name" => "external_system");
 $dalTablepersons["external_table"] = array("type"=>200,"varname"=>"external_table", "name" => "external_table");
@@ -12,6 +14,7 @@ $dalTablepersons["syst_updated_datetime"] = array("type"=>135,"varname"=>"syst_u
 $dalTablepersons["update_system_id"] = array("type"=>3,"varname"=>"update_system_id", "name" => "update_system_id");
 $dalTablepersons["updated_by_id"] = array("type"=>200,"varname"=>"updated_by_id", "name" => "updated_by_id");
 $dalTablepersons["update_method"] = array("type"=>200,"varname"=>"update_method", "name" => "update_method");
+$dalTablepersons["is_update_on_duplicate_key"] = array("type"=>16,"varname"=>"is_update_on_duplicate_key", "name" => "is_update_on_duplicate_key");
 $dalTablepersons["organization_id"] = array("type"=>3,"varname"=>"organization_id", "name" => "organization_id");
 $dalTablepersons["person_status_id"] = array("type"=>3,"varname"=>"person_status_id", "name" => "person_status_id");
 $dalTablepersons["dupe_id"] = array("type"=>3,"varname"=>"dupe_id", "name" => "dupe_id");

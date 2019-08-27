@@ -220,7 +220,6 @@ class RightsPage extends ListPage
 			
 		$this->hideElement("message");
 		
-		//$this->prepareBreadcrumbs("adminarea");
 	}
 
 	function getBreadcrumbMenuId() {

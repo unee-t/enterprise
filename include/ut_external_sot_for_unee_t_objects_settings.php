@@ -65,9 +65,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsut_external_sot_for_unee_t_objects["English"]["is_obsolete"] = "Is Obsolete";
 	$fieldToolTipsut_external_sot_for_unee_t_objects["English"]["is_obsolete"] = "";
 	$placeHoldersut_external_sot_for_unee_t_objects["English"]["is_obsolete"] = "";
-	$fieldLabelsut_external_sot_for_unee_t_objects["English"]["associated_mefe_user"] = "Associated Mefe User";
-	$fieldToolTipsut_external_sot_for_unee_t_objects["English"]["associated_mefe_user"] = "";
-	$placeHoldersut_external_sot_for_unee_t_objects["English"]["associated_mefe_user"] = "";
 	$fieldLabelsut_external_sot_for_unee_t_objects["English"]["designation"] = "Designation";
 	$fieldToolTipsut_external_sot_for_unee_t_objects["English"]["designation"] = "";
 	$placeHoldersut_external_sot_for_unee_t_objects["English"]["designation"] = "";
@@ -89,9 +86,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsut_external_sot_for_unee_t_objects["English"]["properties_level_3_table"] = "Properties Level 3 Table";
 	$fieldToolTipsut_external_sot_for_unee_t_objects["English"]["properties_level_3_table"] = "";
 	$placeHoldersut_external_sot_for_unee_t_objects["English"]["properties_level_3_table"] = "";
-	$fieldLabelsut_external_sot_for_unee_t_objects["English"]["properties_addresses_table"] = "Properties Addresses Table";
-	$fieldToolTipsut_external_sot_for_unee_t_objects["English"]["properties_addresses_table"] = "";
-	$placeHoldersut_external_sot_for_unee_t_objects["English"]["properties_addresses_table"] = "";
 	if (count($fieldToolTipsut_external_sot_for_unee_t_objects["English"]))
 		$tdataut_external_sot_for_unee_t_objects[".isUseToolTips"] = true;
 }
@@ -133,7 +127,7 @@ $tdataut_external_sot_for_unee_t_objects[".listAjax"] = false;
 	$tdataut_external_sot_for_unee_t_objects[".locking"] = false;
 
 
-$pages = $tdataut_external_sot_for_unee_t_objects[".pages"];
+$pages = $tdataut_external_sot_for_unee_t_objects[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataut_external_sot_for_unee_t_objects[".edit"] = true;
@@ -225,7 +219,6 @@ $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "update_method
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "organization_id";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "order";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "is_obsolete";
-$tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "associated_mefe_user";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "designation";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "description";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "person_table";
@@ -233,7 +226,6 @@ $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "area_table";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "properties_level_1_table";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "properties_level_2_table";
 $tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "properties_level_3_table";
-$tdataut_external_sot_for_unee_t_objects[".googleLikeFields"][] = "properties_addresses_table";
 
 
 
@@ -271,7 +263,7 @@ $tdataut_external_sot_for_unee_t_objects[".strOrderBy"] = $tstrOrderBy;
 
 $tdataut_external_sot_for_unee_t_objects[".orderindexes"] = array();
 
-$tdataut_external_sot_for_unee_t_objects[".sqlHead"] = "SELECT id_external_sot_for_unee_t,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	associated_mefe_user,  	designation,  	description,  	person_table,  	area_table,  	properties_level_1_table,  	properties_level_2_table,  	properties_level_3_table,  	properties_addresses_table";
+$tdataut_external_sot_for_unee_t_objects[".sqlHead"] = "SELECT id_external_sot_for_unee_t,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	person_table,  	area_table,  	properties_level_1_table,  	properties_level_2_table,  	properties_level_3_table";
 $tdataut_external_sot_for_unee_t_objects[".sqlFrom"] = "FROM ut_external_sot_for_unee_t_objects";
 $tdataut_external_sot_for_unee_t_objects[".sqlWhereExpr"] = "";
 $tdataut_external_sot_for_unee_t_objects[".sqlTail"] = "";
@@ -374,6 +366,10 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -381,6 +377,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -499,13 +496,17 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -625,11 +626,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -749,11 +755,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -873,11 +884,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -996,13 +1012,17 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1122,11 +1142,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1246,11 +1271,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1370,11 +1400,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1494,13 +1529,17 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "uneet_enterprise_organizations";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -1527,6 +1566,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 // End Lookup Settings
 
 
+	
 	
 	
 	
@@ -1643,11 +1683,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1767,11 +1812,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1837,134 +1887,10 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 
 	$tdataut_external_sot_for_unee_t_objects["is_obsolete"] = $fdata;
 		$tdataut_external_sot_for_unee_t_objects[".searchableFields"][] = "is_obsolete";
-//	associated_mefe_user
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 13;
-	$fdata["strName"] = "associated_mefe_user";
-	$fdata["GoodName"] = "associated_mefe_user";
-	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
-	$fdata["Label"] = GetFieldLabel("ut_external_sot_for_unee_t_objects","associated_mefe_user");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "associated_mefe_user";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "associated_mefe_user";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-	
-	
-
-
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-			
-	
-	
-//end of Filters settings
-
-
-	$tdataut_external_sot_for_unee_t_objects["associated_mefe_user"] = $fdata;
-		$tdataut_external_sot_for_unee_t_objects[".searchableFields"][] = "associated_mefe_user";
 //	designation
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 14;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "designation";
 	$fdata["GoodName"] = "designation";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2015,11 +1941,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2088,7 +2019,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	description
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "description";
 	$fdata["GoodName"] = "description";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2139,11 +2070,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2211,7 +2147,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	person_table
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "person_table";
 	$fdata["GoodName"] = "person_table";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2262,11 +2198,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2335,7 +2276,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	area_table
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "area_table";
 	$fdata["GoodName"] = "area_table";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2386,11 +2327,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2459,7 +2405,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	properties_level_1_table
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 17;
 	$fdata["strName"] = "properties_level_1_table";
 	$fdata["GoodName"] = "properties_level_1_table";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2510,11 +2456,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2583,7 +2534,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	properties_level_2_table
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "properties_level_2_table";
 	$fdata["GoodName"] = "properties_level_2_table";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2634,11 +2585,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2707,7 +2663,7 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 //	properties_level_3_table
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "properties_level_3_table";
 	$fdata["GoodName"] = "properties_level_3_table";
 	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
@@ -2758,11 +2714,16 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -2828,130 +2789,6 @@ $tdataut_external_sot_for_unee_t_objects[".hideMobileList"] = array();
 
 	$tdataut_external_sot_for_unee_t_objects["properties_level_3_table"] = $fdata;
 		$tdataut_external_sot_for_unee_t_objects[".searchableFields"][] = "properties_level_3_table";
-//	properties_addresses_table
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 21;
-	$fdata["strName"] = "properties_addresses_table";
-	$fdata["GoodName"] = "properties_addresses_table";
-	$fdata["ownerTable"] = "ut_external_sot_for_unee_t_objects";
-	$fdata["Label"] = GetFieldLabel("ut_external_sot_for_unee_t_objects","properties_addresses_table");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "properties_addresses_table";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "properties_addresses_table";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-	
-	
-
-
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-			
-	
-	
-//end of Filters settings
-
-
-	$tdataut_external_sot_for_unee_t_objects["properties_addresses_table"] = $fdata;
-		$tdataut_external_sot_for_unee_t_objects[".searchableFields"][] = "properties_addresses_table";
 
 
 $tables_data["ut_external_sot_for_unee_t_objects"]=&$tdataut_external_sot_for_unee_t_objects;
@@ -2987,7 +2824,7 @@ function createSqlQuery_ut_external_sot_for_unee_t_objects()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_external_sot_for_unee_t,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	associated_mefe_user,  	designation,  	description,  	person_table,  	area_table,  	properties_level_1_table,  	properties_level_2_table,  	properties_level_3_table,  	properties_addresses_table";
+$proto0["m_strFieldList"] = "id_external_sot_for_unee_t,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	organization_id,  	`order`,  	is_obsolete,  	designation,  	description,  	person_table,  	area_table,  	properties_level_1_table,  	properties_level_2_table,  	properties_level_3_table";
 $proto0["m_strFrom"] = "FROM ut_external_sot_for_unee_t_objects";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -3198,12 +3035,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "associated_mefe_user",
+	"m_strName" => "designation",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto30["m_sql"] = "associated_mefe_user";
+$proto30["m_sql"] = "designation";
 $proto30["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -3212,12 +3049,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "designation",
+	"m_strName" => "description",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto32["m_sql"] = "designation";
+$proto32["m_sql"] = "description";
 $proto32["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -3226,12 +3063,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "description",
+	"m_strName" => "person_table",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto34["m_sql"] = "description";
+$proto34["m_sql"] = "person_table";
 $proto34["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -3240,12 +3077,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "person_table",
+	"m_strName" => "area_table",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto36["m_sql"] = "person_table";
+$proto36["m_sql"] = "area_table";
 $proto36["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -3254,12 +3091,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "area_table",
+	"m_strName" => "properties_level_1_table",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto38["m_sql"] = "area_table";
+$proto38["m_sql"] = "properties_level_1_table";
 $proto38["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -3268,12 +3105,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "properties_level_1_table",
+	"m_strName" => "properties_level_2_table",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto40["m_sql"] = "properties_level_1_table";
+$proto40["m_sql"] = "properties_level_2_table";
 $proto40["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -3282,97 +3119,67 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "properties_level_2_table",
+	"m_strName" => "properties_level_3_table",
 	"m_strTable" => "ut_external_sot_for_unee_t_objects",
 	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
 ));
 
-$proto42["m_sql"] = "properties_level_2_table";
+$proto42["m_sql"] = "properties_level_3_table";
 $proto42["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
 $obj = new SQLFieldListItem($proto42);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto44=array();
-			$obj = new SQLField(array(
-	"m_strName" => "properties_level_3_table",
-	"m_strTable" => "ut_external_sot_for_unee_t_objects",
-	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
-));
-
-$proto44["m_sql"] = "properties_level_3_table";
-$proto44["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
-$proto44["m_expr"]=$obj;
-$proto44["m_alias"] = "";
-$obj = new SQLFieldListItem($proto44);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto46=array();
-			$obj = new SQLField(array(
-	"m_strName" => "properties_addresses_table",
-	"m_strTable" => "ut_external_sot_for_unee_t_objects",
-	"m_srcTableName" => "ut_external_sot_for_unee_t_objects"
-));
-
-$proto46["m_sql"] = "properties_addresses_table";
-$proto46["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
-$proto46["m_expr"]=$obj;
-$proto46["m_alias"] = "";
-$obj = new SQLFieldListItem($proto46);
-
-$proto0["m_fieldlist"][]=$obj;
 $proto0["m_fromlist"] = array();
-												$proto48=array();
-$proto48["m_link"] = "SQLL_MAIN";
-			$proto49=array();
-$proto49["m_strName"] = "ut_external_sot_for_unee_t_objects";
-$proto49["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
-$proto49["m_columns"] = array();
-$proto49["m_columns"][] = "id_external_sot_for_unee_t";
-$proto49["m_columns"][] = "syst_created_datetime";
-$proto49["m_columns"][] = "creation_system_id";
-$proto49["m_columns"][] = "created_by_id";
-$proto49["m_columns"][] = "creation_method";
-$proto49["m_columns"][] = "syst_updated_datetime";
-$proto49["m_columns"][] = "update_system_id";
-$proto49["m_columns"][] = "updated_by_id";
-$proto49["m_columns"][] = "update_method";
-$proto49["m_columns"][] = "organization_id";
-$proto49["m_columns"][] = "order";
-$proto49["m_columns"][] = "is_obsolete";
-$proto49["m_columns"][] = "associated_mefe_user";
-$proto49["m_columns"][] = "designation";
-$proto49["m_columns"][] = "description";
-$proto49["m_columns"][] = "person_table";
-$proto49["m_columns"][] = "area_table";
-$proto49["m_columns"][] = "properties_level_1_table";
-$proto49["m_columns"][] = "properties_level_2_table";
-$proto49["m_columns"][] = "properties_level_3_table";
-$proto49["m_columns"][] = "properties_addresses_table";
-$obj = new SQLTable($proto49);
+												$proto44=array();
+$proto44["m_link"] = "SQLL_MAIN";
+			$proto45=array();
+$proto45["m_strName"] = "ut_external_sot_for_unee_t_objects";
+$proto45["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
+$proto45["m_columns"] = array();
+$proto45["m_columns"][] = "id_external_sot_for_unee_t";
+$proto45["m_columns"][] = "syst_created_datetime";
+$proto45["m_columns"][] = "creation_system_id";
+$proto45["m_columns"][] = "created_by_id";
+$proto45["m_columns"][] = "creation_method";
+$proto45["m_columns"][] = "syst_updated_datetime";
+$proto45["m_columns"][] = "update_system_id";
+$proto45["m_columns"][] = "updated_by_id";
+$proto45["m_columns"][] = "update_method";
+$proto45["m_columns"][] = "organization_id";
+$proto45["m_columns"][] = "order";
+$proto45["m_columns"][] = "is_obsolete";
+$proto45["m_columns"][] = "designation";
+$proto45["m_columns"][] = "description";
+$proto45["m_columns"][] = "person_table";
+$proto45["m_columns"][] = "area_table";
+$proto45["m_columns"][] = "properties_level_1_table";
+$proto45["m_columns"][] = "properties_level_2_table";
+$proto45["m_columns"][] = "properties_level_3_table";
+$obj = new SQLTable($proto45);
 
-$proto48["m_table"] = $obj;
-$proto48["m_sql"] = "ut_external_sot_for_unee_t_objects";
-$proto48["m_alias"] = "";
-$proto48["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
-$proto50=array();
-$proto50["m_sql"] = "";
-$proto50["m_uniontype"] = "SQLL_UNKNOWN";
+$proto44["m_table"] = $obj;
+$proto44["m_sql"] = "ut_external_sot_for_unee_t_objects";
+$proto44["m_alias"] = "";
+$proto44["m_srcTableName"] = "ut_external_sot_for_unee_t_objects";
+$proto46=array();
+$proto46["m_sql"] = "";
+$proto46["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto50["m_column"]=$obj;
-$proto50["m_contained"] = array();
-$proto50["m_strCase"] = "";
-$proto50["m_havingmode"] = false;
-$proto50["m_inBrackets"] = false;
-$proto50["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto50);
+$proto46["m_column"]=$obj;
+$proto46["m_contained"] = array();
+$proto46["m_strCase"] = "";
+$proto46["m_havingmode"] = false;
+$proto46["m_inBrackets"] = false;
+$proto46["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto46);
 
-$proto48["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto48);
+$proto44["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto44);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -3389,7 +3196,7 @@ $queryData_ut_external_sot_for_unee_t_objects = createSqlQuery_ut_external_sot_f
 					
 ;
 
-																					
+																			
 
 $tdataut_external_sot_for_unee_t_objects[".sqlquery"] = $queryData_ut_external_sot_for_unee_t_objects;
 

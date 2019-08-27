@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 
 	<body class="{$stylename} function-search" {$bodyattrs}>
@@ -22,7 +22,7 @@
 			{$containerCss}
 		</style>
 		
-		<div class="container r-small-page" 
+		<div class="r-small-page" 
 			data-body-align="center"
 			data-body-width="standard"
 		>
@@ -584,31 +584,6 @@
 </div>
 
 {END is_dashboard_access_fieldblock}
-											
-{BEGIN is_invited_all_cases_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_all_cases}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="is_invited_all_cases" 
-	
-	data-signal-error-for="is_invited_all_cases{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="is_invited_all_cases" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_is_invited_all_cases}">
-		{$label ut_user_types is_invited_all_cases }	</label>
-	<div class="r-search-option">
-		{$searchtype_is_invited_all_cases}
-	</div>
-	<div class="r-search-field">
-		{$is_invited_all_cases_editcontrol}	</div>
-	<div class="r-search-field">
-		{$is_invited_all_cases_editcontrol1}
-	</div>
-	
-</div>
-
-{END is_invited_all_cases_fieldblock}
 											
 {BEGIN is_default_assignee_fieldblock}
 
@@ -1234,6 +1209,181 @@
 </div>
 
 {END is_occupant_fieldblock}
+											
+{BEGIN is_unit_owner_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_unit_owner}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_unit_owner" 
+	
+	data-signal-error-for="is_unit_owner{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field46" {$item_integrated_search_field46} data-pageid="{$pageid}" data-field="is_unit_owner" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_unit_owner}">
+		{$label ut_user_types is_unit_owner }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_unit_owner}
+	</div>
+	<div class="r-search-field">
+		{$is_unit_owner_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_unit_owner_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_unit_owner_fieldblock}
+											
+{BEGIN is_default_invited_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_default_invited" 
+	
+	data-signal-error-for="is_default_invited{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="is_default_invited" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_default_invited}">
+		{$label ut_user_types is_default_invited }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_default_invited}
+	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_default_invited_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_default_invited_fieldblock}
+											
+{BEGIN is_all_unit_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_unit" 
+	
+	data-signal-error-for="is_all_unit{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field47" {$item_integrated_search_field47} data-pageid="{$pageid}" data-field="is_all_unit" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_unit}">
+		{$label ut_user_types is_all_unit }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_unit}
+	</div>
+	<div class="r-search-field">
+		{$is_all_unit_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_unit_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_unit_fieldblock}
+											
+{BEGIN is_all_units_in_country_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_country}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_country" 
+	
+	data-signal-error-for="is_all_units_in_country{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field48" {$item_integrated_search_field48} data-pageid="{$pageid}" data-field="is_all_units_in_country" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_country}">
+		{$label ut_user_types is_all_units_in_country }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_country}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_country_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_country_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_country_fieldblock}
+											
+{BEGIN is_all_units_in_area_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_area}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_area" 
+	
+	data-signal-error-for="is_all_units_in_area{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field49" {$item_integrated_search_field49} data-pageid="{$pageid}" data-field="is_all_units_in_area" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_area}">
+		{$label ut_user_types is_all_units_in_area }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_area}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_area_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_area_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_area_fieldblock}
+											
+{BEGIN is_all_units_in_level_1_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_1}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_level_1" 
+	
+	data-signal-error-for="is_all_units_in_level_1{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field50" {$item_integrated_search_field50} data-pageid="{$pageid}" data-field="is_all_units_in_level_1" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_level_1}">
+		{$label ut_user_types is_all_units_in_level_1 }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_level_1}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_1_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_1_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_level_1_fieldblock}
+											
+{BEGIN is_all_units_in_level_2_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_2}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_all_units_in_level_2" 
+	
+	data-signal-error-for="is_all_units_in_level_2{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field51" {$item_integrated_search_field51} data-pageid="{$pageid}" data-field="is_all_units_in_level_2" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_all_units_in_level_2}">
+		{$label ut_user_types is_all_units_in_level_2 }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_all_units_in_level_2}
+	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_2_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_all_units_in_level_2_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_all_units_in_level_2_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -1254,21 +1404,21 @@
 	class="			col-md-12
 	">
 	 
-		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" {$searchbutton_attrs} >
 							Search			</a>
 </span>
 	 
-		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-default   
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
 	" {$resetbutton_attrs} >
 							Reset			</a>
 </span>
 	 
 		{BEGIN back_button}
-<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-default   
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
 	" {$backbutton_attrs} >
 							Back to list			</a>
 </span>

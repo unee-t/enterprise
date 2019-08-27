@@ -13,6 +13,8 @@ $page_titles = array();
 $placeHolders = array();
 $all_page_layouts = array();
 $all_page_types = null;
+$detailsTablesData = array();
+$masterTablesData = array();
 
 // .NET convertor needs this
 $tdataGLOBAL = array();
@@ -282,6 +284,7 @@ define("DL_NONE",2);
 define("SEARCH_SIMPLE", 0);
 define("SEARCH_LOAD_CONTROL", 1);
 define("SEARCH_DASHBOARD", 2);
+define("SEARCH_POPUP", 3);
 
 define("LCT_DROPDOWN",0);
 define("LCT_AJAX",1);
@@ -482,6 +485,8 @@ define('MEDIA_MOBILE_EXPANDED', 2);
 
 
 $globalSettings = array();
+$g_defaultOptionValues = array();
+$g_settingsType = array();
 
 $globalSettings["nLoginMethod"] = 1;
 
@@ -495,9 +500,9 @@ $globalSettings["bTwoFactorAuth"] = false;
 
 
 $globalSettings["popupPagesLayoutNames"] = array();
-						
-	;
-$globalSettings["popupPagesLayoutNames"]["login"] = "login_bootstrap";
+					
+;
+$globalSettings["popupPagesLayoutNames"]["login"] = "login";
 
 //mail settings
 $globalSettings["useBuiltInMailer"] = false;
@@ -524,6 +529,7 @@ $globalSettings["LandingPageType"] = 0;
 $globalSettings["LandingTable"] = "";
 $globalSettings["LandingPage"] = "";
 $globalSettings["LandingURL"] = "";
+$globalSettings["LandingPageId"] = "";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["English"] = "unee-t.enterprise";
@@ -572,6 +578,9 @@ $globalSettings["searchSuggestsNumber"] = 10;
 $globalSettings["override"] = array();
 
 
+$styleOverrides = array();
+
+
 $globalSettings["mapProvider"]=0;
 
 $globalSettings["CaptchaSettings"] = array();
@@ -594,10 +603,10 @@ $cUserNameField	= "username";
 $cPasswordField	= "password";
 $cUserGroupField = "groupid";
 $cEmailField = "email";
+$globalSettings["usersTableInProject"] = true;
 
-if ($cDisplayNameField == ''){
+if( $cDisplayNameField == '' )
 	$cDisplayNameField = $cUserNameField;
-}
 
 $cDisplayNameFieldType	= 200;
 $cUserNameFieldType	= 200;
@@ -618,6 +627,10 @@ $suggestAllContent = true;
 
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
+
+$projectBuildKey = "586_1566544923";
+$wizardBuildKey = "33576";
+$projectBuildNumber = "586";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -662,11 +675,36 @@ $tableCaptions["English"]["person_genders"] = "Person Genders";
 $tableCaptions["English"]["Manage_Areas"] = "Manage Areas";
 $tableCaptions["English"]["Manage_Buildings"] = "Manage Buildings";
 $tableCaptions["English"]["property_groups_areas"] = "Property Groups Areas";
-$tableCaptions["English"]["Unee_T_Enterprise_Configuration"] = "Unee-T Enterprise Configuration";
 $tableCaptions["English"]["ut_external_sot_for_unee_t_objects"] = "Ut External Sot For Unee T Objects";
 $tableCaptions["English"]["Manage_Units"] = "Manage Units";
 $tableCaptions["English"]["external_property_groups_areas"] = "External Property Groups Areas";
 $tableCaptions["English"]["external_property_level_1_buildings"] = "External Property Level 1 Buildings";
+$tableCaptions["English"]["Manage_Rooms"] = "Manage Rooms";
+$tableCaptions["English"]["Assign_Areas_to_User"] = "Assign Areas to User";
+$tableCaptions["English"]["Search_Users"] = "Search Users";
+$tableCaptions["English"]["Assign_Buildings_to_User"] = "Assign Buildings to User";
+$tableCaptions["English"]["property_level_1_buildings"] = "Property Level 1 Buildings";
+$tableCaptions["English"]["Assign_Units_to_User"] = "Assign Units to User";
+$tableCaptions["English"]["property_level_2_units"] = "Property Level 2 Units";
+$tableCaptions["English"]["Assign_Rooms_to_User"] = "Assign Rooms to User";
+$tableCaptions["English"]["property_level_3_rooms"] = "Property Level 3 Rooms";
+$tableCaptions["English"]["Search_Rooms"] = "Search Rooms";
+$tableCaptions["English"]["Search_Units"] = "Search Units";
+$tableCaptions["English"]["external_property_level_2_units"] = "External Property Level 2 Units";
+$tableCaptions["English"]["Search_All_Units"] = "Search All Units";
+$tableCaptions["English"]["ut_map_external_source_units"] = "Ut Map External Source Units";
+$tableCaptions["English"]["Search_Buildings"] = "Search Buildings";
+$tableCaptions["English"]["Export_and_Import_Buildings"] = "Export and Import Buildings";
+$tableCaptions["English"]["Export_and_Import_Areas"] = "Export and Import Areas";
+$tableCaptions["English"]["Export_and_Import_Units"] = "Export and Import Units";
+$tableCaptions["English"]["List_of_Countries"] = "List of Countries";
+$tableCaptions["English"]["Export_and_Import_Rooms"] = "Export and Import Rooms";
+$tableCaptions["English"]["Export_and_Import_User_Types"] = "Export and Import User Types";
+$tableCaptions["English"]["Export_and_Import_Users"] = "Export and Import Users";
+$tableCaptions["English"]["Assign_Rooms"] = "Assign Rooms";
+$tableCaptions["English"]["ut_map_external_source_users"] = "Ut Map External Source Users";
+$tableCaptions["English"]["Unee_T_Enterprise_Account"] = "Unee-T Enterprise Account";
+$tableCaptions["English"]["All_Properties_by_Countries"] = "All Properties by Countries";
 
 
 $globalEvents = new class_GlobalEvents;

@@ -122,5 +122,15 @@ class OracleFunctions extends DBFunctions
 		return false;
 	}
 	
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL = AddRowNumber($strSQL, $pageStart * $pageSize);
+		$qResult =  $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+	
+		return $qResult;
+	}
 }
+
 ?>

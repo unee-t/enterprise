@@ -998,7 +998,9 @@ class SearchClause extends SearchClauseBase
 		$this->wholeDashboardSearch = false;
 
 		//set session if show all records
-		if(@$_REQUEST["a"] == "showall" || $requestTable == $this->tName && $requestPage == "list" && IsEmptyRequest() )
+		if(@$_REQUEST["a"] == "showall" || $requestTable == $this->tName 
+			&& ( $requestPage == "list" || $requestPage == "chart" || $requestPage == "report"  || $requestPage == "dashboard" )
+			&& IsEmptyRequest() )
 		{
 			$this->_where["_search"] = 0;
 			$this->srchType = 'showall';

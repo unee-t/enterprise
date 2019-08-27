@@ -119,7 +119,22 @@ class MSSQLFunctions extends DBFunctions
 	{
 		$wrappedFieldName = $this->addTableWrappers($strName);
 		return "(DATEPART(HOUR, " . $wrappedFieldName . ") * 3600) + (DATEPART(MINUTE, " . $wrappedFieldName . ") * 60) + (DATEPART(SECOND, " . $wrappedFieldName . "))";
-	}	
+	}
+	
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL = AddTop($strSQL, $pageStart * $pageSize);
+	
+		$qResult = $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+		
+		return $qResult;
+	}
 
+	public function caseSensitiveComparison( $val1, $val2 )
+	{
+		return $val1 . ' = ' . $val2 .' COLLATE SQL_Latin1_General_CP1_CS_AS';
+	}	
 }
 ?>

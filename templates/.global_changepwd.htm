@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 
 	<body class="{$stylename} function-changepwd" {$bodyattrs}>
@@ -43,11 +43,19 @@
 		 
 			<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
-	class=" r-ori-vert			col-md-12
+	class="r-align-center r-ori-vert			col-md-6
 	
 ">
 		 
 		<h3 class="panel-title" data-itemtype="changepwd_header" data-itemid="changepwd_header" {$item_changepwd_header} data-pageid="{$pageid}" >{$pagetitlelabel  changepwd}</h3>
+		</div>		 
+			<div 
+	data-cellId="top_c" data-pageid="{$pageid}"	{$cell_top_c}
+	class="r-align-center r-ori-vert			col-md-6
+	
+">
+		 
+		<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
 		</div>			</div>		
 {END top_block}
 						</div>
@@ -85,7 +93,7 @@
 			
 									data-cellId="grid_c1" data-pageid="{$pageid}"		>
 			<div edit-form-cell class="clearfix">
-								<label data-itemtype="oldpass_label" data-itemid="oldpass_label" {$item_oldpass_label} data-pageid="{$pageid}" class="r-edit-label control-label" for="{$labelfor_oldpass}">
+								<label data-itemtype="oldpass_label" data-itemid="oldpass_label" {$item_oldpass_label} data-pageid="{$pageid}" data-small class="r-edit-label control-label" for="{$labelfor_oldpass}">
 	{BEGIN oldpass_label}Old password:{END oldpass_label}
 </label>					</div>
 		</td>
@@ -113,7 +121,7 @@
 			
 									data-cellId="grid_c3" data-pageid="{$pageid}"		>
 			<div edit-form-cell class="clearfix">
-								<label data-itemtype="newpass_label" data-itemid="newpass_label" {$item_newpass_label} data-pageid="{$pageid}" class="r-edit-label control-label" for="{$labelfor_newpass}">
+								<label data-itemtype="newpass_label" data-itemid="newpass_label" {$item_newpass_label} data-pageid="{$pageid}" data-small class="r-edit-label control-label" for="{$labelfor_newpass}">
 	{BEGIN newpass_label}New password:{END newpass_label}
 </label>					</div>
 		</td>
@@ -141,7 +149,7 @@
 			
 									data-cellId="grid_c5" data-pageid="{$pageid}"		>
 			<div edit-form-cell class="clearfix">
-								<label data-itemtype="confirm_label" data-itemid="confirm_label" {$item_confirm_label} data-pageid="{$pageid}" class="r-edit-label control-label" for="{$labelfor_confirm}">
+								<label data-itemtype="confirm_label" data-itemid="confirm_label" {$item_confirm_label} data-pageid="{$pageid}" data-small class="r-edit-label control-label" for="{$labelfor_confirm}">
 	{BEGIN confirm_label}Confirm password:{END confirm_label}
 </label>					</div>
 		</td>
@@ -173,14 +181,14 @@
 	
 ">
 		 
-		<span data-itemtype="changepwd_button" data-itemid="changepwd_button" {$item_changepwd_button} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+		<span data-itemtype="changepwd_button" data-itemid="changepwd_button" {$item_changepwd_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" {$submit_attrs} >
 							Submit			</a>
 </span>
 	 
-		<span data-itemtype="changepwd_back" data-itemid="changepwd_back" {$item_changepwd_back} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-link   
+		<span data-itemtype="changepwd_back" data-itemid="changepwd_back" {$item_changepwd_back} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-link   
 	" {$backlink_attrs} >
 							Back			</a>
 </span>

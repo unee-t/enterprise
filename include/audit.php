@@ -392,10 +392,6 @@ class AuditTrailTable
 		{
 			return false;
 		}
-		if($table=="Unee-T Enterprise Configuration")
-		{
-			return false;
-		}
 		if($table=="ut_external_sot_for_unee_t_objects")
 		{
 			return false;
@@ -409,6 +405,110 @@ class AuditTrailTable
 			return false;
 		}
 		if($table=="external_property_level_1_buildings")
+		{
+			return false;
+		}
+		if($table=="Manage Rooms")
+		{
+			return false;
+		}
+		if($table=="Assign Areas to User")
+		{
+			return false;
+		}
+		if($table=="Search Users")
+		{
+			return false;
+		}
+		if($table=="Assign Buildings to User")
+		{
+			return false;
+		}
+		if($table=="property_level_1_buildings")
+		{
+			return false;
+		}
+		if($table=="Assign Units to User")
+		{
+			return false;
+		}
+		if($table=="property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Assign Rooms to User")
+		{
+			return false;
+		}
+		if($table=="property_level_3_rooms")
+		{
+			return false;
+		}
+		if($table=="Search Rooms")
+		{
+			return false;
+		}
+		if($table=="Search Units")
+		{
+			return false;
+		}
+		if($table=="external_property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Search All Units")
+		{
+			return false;
+		}
+		if($table=="ut_map_external_source_units")
+		{
+			return false;
+		}
+		if($table=="Search Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+			return false;
+		}
+		if($table=="Export and Import Units")
+		{
+			return false;
+		}
+		if($table=="List of Countries")
+		{
+			return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+			return false;
+		}
+		if($table=="Export and Import User Types")
+		{
+			return false;
+		}
+		if($table=="Export and Import Users")
+		{
+			return true;
+		}
+		if($table=="Assign Rooms")
+		{
+			return false;
+		}
+		if($table=="ut_map_external_source_users")
+		{
+			return false;
+		}
+		if($table=="Unee-T Enterprise Account")
+		{
+			return false;
+		}
+		if($table=="All Properties by Countries")
 		{
 			return false;
 		}
@@ -808,10 +908,6 @@ class AuditTrailFile
 		{
 			return false;
 		}
-		if($table=="Unee-T Enterprise Configuration")
-		{
-			return false;
-		}
 		if($table=="ut_external_sot_for_unee_t_objects")
 		{
 			return false;
@@ -825,6 +921,110 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="external_property_level_1_buildings")
+		{
+			return false;
+		}
+		if($table=="Manage Rooms")
+		{
+			return false;
+		}
+		if($table=="Assign Areas to User")
+		{
+			return false;
+		}
+		if($table=="Search Users")
+		{
+			return false;
+		}
+		if($table=="Assign Buildings to User")
+		{
+			return false;
+		}
+		if($table=="property_level_1_buildings")
+		{
+			return false;
+		}
+		if($table=="Assign Units to User")
+		{
+			return false;
+		}
+		if($table=="property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Assign Rooms to User")
+		{
+			return false;
+		}
+		if($table=="property_level_3_rooms")
+		{
+			return false;
+		}
+		if($table=="Search Rooms")
+		{
+			return false;
+		}
+		if($table=="Search Units")
+		{
+			return false;
+		}
+		if($table=="external_property_level_2_units")
+		{
+			return false;
+		}
+		if($table=="Search All Units")
+		{
+			return false;
+		}
+		if($table=="ut_map_external_source_units")
+		{
+			return false;
+		}
+		if($table=="Search Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Buildings")
+		{
+			return false;
+		}
+		if($table=="Export and Import Areas")
+		{
+			return false;
+		}
+		if($table=="Export and Import Units")
+		{
+			return false;
+		}
+		if($table=="List of Countries")
+		{
+			return false;
+		}
+		if($table=="Export and Import Rooms")
+		{
+			return false;
+		}
+		if($table=="Export and Import User Types")
+		{
+			return false;
+		}
+		if($table=="Export and Import Users")
+		{
+			return true;
+		}
+		if($table=="Assign Rooms")
+		{
+			return false;
+		}
+		if($table=="ut_map_external_source_users")
+		{
+			return false;
+		}
+		if($table=="Unee-T Enterprise Account")
+		{
+			return false;
+		}
+		if($table=="All Properties by Countries")
 		{
 			return false;
 		}

@@ -234,6 +234,20 @@ class DBFunctions
 		return $dbval;
 	}
 
+	/**	
+	 * @param String dbval
+	 * @return String	 
+	 */	
+	public function caseSensitiveComparison( $val1, $val2 )
+	{
+		return $val1 . ' = ' . $val2;
+	}
+
+	public function caseInsensitiveComparison( $val1, $val2 )
+	{
+		return $this->upper( $val1 ) . ' = ' . $this->upper( $val2 );
+	}
+
 	/**
 	 * @param Mixed $val
 	 * @return String
@@ -266,5 +280,10 @@ class DBFunctions
 		return $value;
 	}	
 
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) {
+		$qResult =  $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+		return $qResult;
+	}
 }
 ?>

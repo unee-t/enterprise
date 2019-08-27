@@ -245,6 +245,7 @@ class ViewPage extends RunnerPage
 
 		$this->doCommonAssignments();
 		$this->prepareBreadcrumbs();
+		$this->prepareCollapseButton();
 		$this->prepareMockControls();
 		$this->prepareButtons();
 		$this->prepareSteps();
@@ -298,6 +299,8 @@ class ViewPage extends RunnerPage
 			}
 		}
 
+		$this->setLangParams();
+		
 		//	display legacy page caption - key values
 		$data = $this->getCurrentRecordInternal();
 		foreach( $this->pSet->getTableKeys() as $i => $k )

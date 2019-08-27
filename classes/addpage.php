@@ -364,6 +364,7 @@ class AddPage extends RunnerPage
 
 		$this->doCommonAssignments();	
 		$this->prepareBreadcrumbs();
+		$this->prepareCollapseButton();
 		
 		$this->displayAddPage();
 	}
@@ -775,7 +776,7 @@ class AddPage extends RunnerPage
 		{
 			$sessPrefix = $this->tName . "_" . $this->pageType;
 			if( isset($_SESSION["count_passes_captcha"]) || $_SESSION["count_passes_captcha"] > 0 || $_SESSION["count_passes_captcha"] < 5 )
-				$respJSON['hideCaptcha'] = true;						
+				$returnJSON['hideCaptcha'] = true;						
 		}
 
 		if( !$this->insertedSuccessfully )
@@ -878,11 +879,8 @@ class AddPage extends RunnerPage
 		$allFields = $this->pSet->getFieldsList();
 		foreach( $allFields as $f )
 		{
-			if( ($this->mode == ADD_MASTER || $this->mode == ADD_MASTER_POPUP || $this->mode == ADD_MASTER_DASH) && $this->pSet->appearOnAddPage($f) || $this->pSet->appearOnListPage($f) )
-			{
-				$showValues[ $f ] = $this->showDBValue($f, $data, $keylink);
-				$showFields[] = $f;
-			}
+			$showValues[ $f ] = $this->showDBValue($f, $data, $keylink);
+			$showFields[] = $f;
 			
 			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) )
 				$showRawValues[ $f ] = "";
@@ -1500,6 +1498,8 @@ class AddPage extends RunnerPage
 			}
 		}
 
+		$this->setLangParams();
+		
 		$this->xt->assign("message_block", true);
 		
 		if( $this->isMessageSet() )

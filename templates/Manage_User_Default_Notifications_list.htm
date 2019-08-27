@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 	<body class="{$stylename} function-list" {$bodyattrs}>
 	{BEGIN body}
@@ -28,15 +28,17 @@
 				data-body-align="left"
 			>
 								{BEGIN supertop_block}
-<nav class="navbar navbar-default
-	bs-fullwidth-navbar
-" 
+<nav class="navbar navbar-default" 
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
-			 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
+							 
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
-	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-brick="logo" data-pageid="{$pageid}" {$logo_hiddenattr}>
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
 	</A>
 {END logo_block}
@@ -48,76 +50,8 @@
 		 
 				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu main horizontal}			</span>
-				 
-			 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
-				{BEGIN loggedas_message}
-<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-button-item>
-	<span class="dropdown ">
-		<button type="button" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-user"></span>
-						{$username}			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN logoutbutton}
-	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" >
-				<a  href="#" {$logoutlink_attrs} >
-				
-		Log out		
-		</a>
-	</li>
-{END logoutbutton}
-							{BEGIN adminarea_link}
-	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" >
-				<a  href="admin_rights_list.php" >
-				
-		Admin Area		
-		</a>
-	</li>
-{END adminarea_link}
-							{BEGIN changepwd_link}
-	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" >
-				<a  href="#" {$changepwdlink_attrs} >
-				
-		Change password		
-		</a>
-	</li>
-{END changepwd_link}
-					</ul>
-	</span>
-</span>
-{END loggedas_message}
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
-				{BEGIN guestloginbutton}
-<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
-	" href="#" {$guestloginlink_attrs} >
-							Login			</a>
-</span>
-{END guestloginbutton}
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-button-item>
-	<span class="dropdown ">
-		<button type="button" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" >
-				<a   href="Manage_User_Default_Notifications_search.php" {$advsearchlink_attrs} >
-				
-		Advanced search		
-		</a>
-	</li>
-					</ul>
-	</span>
-</span>
-			</span>
-		 
+							 
+							 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
 				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
@@ -140,7 +74,75 @@
 </div>
 		
 </span>			</span>
-					</nav>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-cog"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+				<a   href="Manage_User_Default_Notifications_search.php" {$advsearchlink_attrs}  title="" >
+				
+		Advanced search		
+		</a>
+	</li>
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-user"></span>
+						{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$changepwdlink_attrs}  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 				</div>	
 			
@@ -198,69 +200,15 @@
 	data-cellId="left_c2" data-pageid="{$pageid}">
  
 <div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
+<!--
 	<button type="button" class="btn btn-info bs-togglebutton bottom-margin collapsed" data-runner-toggle="collapse" data-target=".filterPanelContainer">	
 		<span class="glyphicon glyphicon-filter"><span> Filter	
 	</button>
+-->	
 	<div class="filterPanelContainer {$filterPanelStateClass}">
 
 
 
-			
-	 	
-
-		
-		 
-		 
-
-		 	
-
-		{BEGIN filter_control_is_occupant}
-		<div class="panel panel-info filter-field filter-is_occupant-container">
-			<div class="panel-heading filter-expander">
-																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
-
-			
-				<label>{$label Manage_User_Default_Notifications is_occupant }</label>
-
-				{BEGIN clearLink_is_occupant}
-				<a href="#" class="filter-clear filter-clear-is_occupant">Clear</a>
-				{END clearLink_is_occupant}				
-			</div>
-
-			<ul class="list-group">
-				{BEGIN filterCtrlBlock_is_occupant}
-				<li class="list-group-item filter-values filter-values-is_occupant {$collapsedClass_is_occupant} {$visibilityClass_is_occupant}">
-					{$is_occupant_filter}
-								
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-				</li>				
-				{END filterCtrlBlock_is_occupant}
-
-							{BEGIN filter_button_showmore_is_occupant}
-				<li class="list-group-item filter-show-more {$collapsedClass_is_occupant} {$showMoreBtnClass_is_occupant}">
-					<a class="filter-show-more-link filterShowMore_is_occupant" href="#">{$show_n_more_is_occupant}</a>
-				</li>
-				{END filter_button_showmore_is_occupant}			
-			
-
-
-			
-
-				
-	
-			</ul>			
-		</div>
-		{END filter_control_is_occupant}
-	 
 			
 	 	
 
@@ -316,62 +264,6 @@
 			</ul>			
 		</div>
 		{END filter_control_is_dashboard_access}
-	 
-			
-	 	
-
-		
-		 
-		 
-
-		 	
-
-		{BEGIN filter_control_is_invited_all_cases}
-		<div class="panel panel-info filter-field filter-is_invited_all_cases-container">
-			<div class="panel-heading filter-expander">
-																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
-
-			
-				<label>{$label Manage_User_Default_Notifications is_invited_all_cases }</label>
-
-				{BEGIN clearLink_is_invited_all_cases}
-				<a href="#" class="filter-clear filter-clear-is_invited_all_cases">Clear</a>
-				{END clearLink_is_invited_all_cases}				
-			</div>
-
-			<ul class="list-group">
-				{BEGIN filterCtrlBlock_is_invited_all_cases}
-				<li class="list-group-item filter-values filter-values-is_invited_all_cases {$collapsedClass_is_invited_all_cases} {$visibilityClass_is_invited_all_cases}">
-					{$is_invited_all_cases_filter}
-								
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-				</li>				
-				{END filterCtrlBlock_is_invited_all_cases}
-
-							{BEGIN filter_button_showmore_is_invited_all_cases}
-				<li class="list-group-item filter-show-more {$collapsedClass_is_invited_all_cases} {$showMoreBtnClass_is_invited_all_cases}">
-					<a class="filter-show-more-link filterShowMore_is_invited_all_cases" href="#">{$show_n_more_is_invited_all_cases}</a>
-				</li>
-				{END filter_button_showmore_is_invited_all_cases}			
-			
-
-
-			
-
-				
-	
-			</ul>			
-		</div>
-		{END filter_control_is_invited_all_cases}
 	 
 			
 	 	
@@ -485,6 +377,118 @@
 		</div>
 		{END filter_control_is_public}
 	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_is_default_invited}
+		<div class="panel panel-info filter-field filter-is_default_invited-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_User_Default_Notifications is_default_invited }</label>
+
+				{BEGIN clearLink_is_default_invited}
+				<a href="#" class="filter-clear filter-clear-is_default_invited">Clear</a>
+				{END clearLink_is_default_invited}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_is_default_invited}
+				<li class="list-group-item filter-values filter-values-is_default_invited {$collapsedClass_is_default_invited} {$visibilityClass_is_default_invited}">
+					{$is_default_invited_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_is_default_invited}
+
+							{BEGIN filter_button_showmore_is_default_invited}
+				<li class="list-group-item filter-show-more {$collapsedClass_is_default_invited} {$showMoreBtnClass_is_default_invited}">
+					<a class="filter-show-more-link filterShowMore_is_default_invited" href="#">{$show_n_more_is_default_invited}</a>
+				</li>
+				{END filter_button_showmore_is_default_invited}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_is_default_invited}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_is_occupant}
+		<div class="panel panel-info filter-field filter-is_occupant-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label Manage_User_Default_Notifications is_occupant }</label>
+
+				{BEGIN clearLink_is_occupant}
+				<a href="#" class="filter-clear filter-clear-is_occupant">Clear</a>
+				{END clearLink_is_occupant}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_is_occupant}
+				<li class="list-group-item filter-values filter-values-is_occupant {$collapsedClass_is_occupant} {$visibilityClass_is_occupant}">
+					{$is_occupant_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_is_occupant}
+
+							{BEGIN filter_button_showmore_is_occupant}
+				<li class="list-group-item filter-show-more {$collapsedClass_is_occupant} {$showMoreBtnClass_is_occupant}">
+					<a class="filter-show-more-link filterShowMore_is_occupant" href="#">{$show_n_more_is_occupant}</a>
+				</li>
+				{END filter_button_showmore_is_occupant}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_is_occupant}
+	 
 	</div>
 </div></td>
 							</tr>
@@ -514,8 +518,8 @@
 	
 ">
 		 
-		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" >
-{$records_indicator}
+		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
+{$details_found_labeldetails_found}
 </span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
@@ -692,7 +696,7 @@
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_unee_t_user_type"]:before {
 		content: "{$label Manage_User_Default_Notifications id_unee_t_user_type}";
 	}
@@ -737,8 +741,8 @@
 		content: "{$label Manage_User_Default_Notifications is_default_assignee}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_invited_all_cases"]:before {
-		content: "{$label Manage_User_Default_Notifications is_invited_all_cases}";
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_default_invited"]:before {
+		content: "{$label Manage_User_Default_Notifications is_default_invited}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_dashboard_access"]:before {
@@ -808,7 +812,7 @@
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
-	cellpadding="0" data-brick="grid"
+	cellpadding="0" 
 	data-body-height="1"
 >
 						<thead>
@@ -1274,8 +1278,8 @@
 	 
 		{BEGIN edit_column}
 {BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-button-item>
-	<a type="button" class="btn-link   
+<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Edit" class="btn-link   
 	 glyphicon glyphicon-pencil" href="Manage_User_Default_Notifications_edit.php?{$editlink}" {$editlink_attrs} title="Edit" data-popup >		
 				
 								</a>

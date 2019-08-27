@@ -29,6 +29,8 @@ $_connection = $cman->byTable( $strTableName );
 
 $pSet = new ProjectSettings($strTableName, $pageType);
 $denyChecking = $pSet->allowDuplicateValues( $fieldName );
+$regEmailMode = false;
+$regUsernameMode = false;
 
 if( $denyChecking )
 {
@@ -53,6 +55,15 @@ else
 	$fieldSQL = RunnerPage::_getFieldSQLDecrypt($fieldName, $_connection, $pSet, $cipherer);
 }
 $where = $fieldSQL . ( $value == "null" ? ' is ' : '=' ) . $value; 
+
+/* emails should always be compared case-insensitively */
+if( $regEmailMode ) {
+	$where = $_connection->comparisonSQL( $fieldSQL, $value, true );
+}
+/* username on register page */
+if( $regUsernameMode ) {
+	$where = $_connection->comparisonSQL( $fieldSQL, $value, $pSet->isCaseInsensitiveUsername() );
+}
 $sql = "SELECT count(*) from ".$_connection->addTableWrappers( $pSet->getOriginalTableName() )." where ".$where;
 
 $qResult = $_connection->query( $sql );

@@ -6,8 +6,10 @@ class PrintPage extends RunnerPage
 	public $masterTable = "";
 	public $recordset = null;
 
+	// @deprecated
 	public $pdfWidth = PDF_PAGE_WIDTH;
 	public $pdfContent = "";
+	//
 	
 	public $fetchedRecordCount = 0;
 	public $splitByRecords = 0;
@@ -19,7 +21,6 @@ class PrintPage extends RunnerPage
 	public $countSQL = "";
 
 	protected $recordsRenderData = array();
-
 	
 	/**
 	 * Array of field names that used for totals
@@ -33,7 +34,6 @@ class PrintPage extends RunnerPage
 	 * @type array
 	 */
 	public $totals = array();
-	
 	
 	/**
 	 *	Total number of records in the query
@@ -53,6 +53,8 @@ class PrintPage extends RunnerPage
 	
 	public $hideColumns = array();
 	
+	protected $_notEmptyFieldColumns = array();
+	
 	/**
 	 * @constructor
 	 */
@@ -70,7 +72,6 @@ class PrintPage extends RunnerPage
 			$this->detailTables = array( $this->detailTables );		
 		
 		//	save selected records and detail tables in session in normal mode
-		//	read them in PDF mode	
 		$this->pageData["printSelection"] = $this->selection;
 		$this->pageData["printDetails"] = $this->detailTables;
 		$this->pageData["printAll"] = $this->allPagesMode;
@@ -93,15 +94,17 @@ class PrintPage extends RunnerPage
 		
 		$this->pageData["printRecords"] = $this->splitByRecords;
 		
-		if( $this->pdfMode )
-			$this->splitByRecords = $this->pSet->getPrinterPDFSplitRecords();
-		
 		if( $this->showHideFieldsFeatureEnabled() )
 		{
 			$hideColumns = $this->getColumnsToHide();
 			$this->hideColumns = $hideColumns[DESKTOP];
+			
 			if( !is_array( $this->hideColumns ) )
 				$this->hideColumns = array();
+			
+			foreach( $this->hideColumns  as $f ) {
+				$this->hideField( $this->pSet->getFieldByGoodFieldName($f) );
+			}
 		}
 	}
 
@@ -139,8 +142,7 @@ class PrintPage extends RunnerPage
 	 *
 	 */
 	protected function calcRowCount()
-	{
-		
+	{		
 //	custom GetRowCount event:
 		$rowcount = false;
 		
@@ -255,13 +257,6 @@ class PrintPage extends RunnerPage
 	 */
 	public function process()
 	{
-		// do PDF conversion only
-		if($this->pdfMode == "convert")
-		{
-			$this->convertToPDF();
-			return;
-		}
-
 		//	Before Process event
 		if( $this->eventsObject->exists("BeforeProcessPrint") )
 			$this->eventsObject->BeforeProcessPrint( $this );
@@ -284,8 +279,6 @@ class PrintPage extends RunnerPage
 			$this->showTotals();
 			// display the 'Back to Master' link and master table info
 			$this->displayMasterTableInfo();
-//			$this->printMasterTableInfo();
-
 			$this->addPage();
 		}
 		else
@@ -295,7 +288,6 @@ class PrintPage extends RunnerPage
 			{
 				if( !$masterAdded )
 				{
-					//$this->printMasterTableInfo();
 					$this->displayMasterTableInfo();
 					$masterAdded = true;
 				}
@@ -304,7 +296,6 @@ class PrintPage extends RunnerPage
 					//	hide master table info everywhere except the first page
 					$this->pageBody["container_master"] = false;
 					$this->pageBody["container_pdf"] = false;
-					
 				}
 				
 				$this->fillGridPage();
@@ -323,6 +314,8 @@ class PrintPage extends RunnerPage
 			$this->addPage();
 		}
 
+		$this->hideEmptyFields();	
+		
 		$this->prepareJsSettings();
 		$this->addButtonHandlers();
 		$this->addCommonJs();
@@ -337,34 +330,50 @@ class PrintPage extends RunnerPage
 		$this->displayPrintPage();		
 	}
 
+	protected function hideEmptyFields() 
+	{	
+		if(  $this->printGridLayout == gltHORIZONTAL )
+		{
+			foreach( $this->pSet->getFieldsToHideIfEmpty() as $f ) 
+			{
+				if( !$this->_notEmptyFieldColumns[ $f ] ) 
+					$this->hideField( $f );
+			}
+		}
+	}
+	
 	function addPage() {
 		$this->body["data"][] = $this->pageBody;
 		
 		// put into recordsRenderData links to all records
 		$pageIdx = count( $this->body["data"] ) - 1;
 		$pageRows = &$this->body["data"][ $pageIdx ]["grid_row"]["data"];
-		for( $rowIdx = 0; $rowIdx < count( $pageRows ); ++$rowIdx ) {
-			if( !$this->manyRecordsInRow() ) {
+		
+		$this->fillRenderedData( $pageRows ); 
+	}
+	
+	/**
+	 * put into recordsRenderData links to all records
+	 */
+	protected function fillRenderedData( &$pageRows ) 
+	{	
+		for( $rowIdx = 0; $rowIdx < count( $pageRows ); ++$rowIdx ) 
+		{
+			if( !$this->manyRecordsInRow() )
 				$this->recordsRenderData[ $pageRows[ $rowIdx ]['recId'] ] = &$pageRows[ $rowIdx ];
-			} else {
+			else 
+			{
 				$records = &$pageRows[ $rowIdx ]["grid_record"]["data"];
 				for( $recordIdx = 0; $recordIdx < count( $records ); ++$recordIdx ) {
 					$this->recordsRenderData[ $records[ $recordIdx ]['recId'] ] = &$records[ $recordIdx ];
 				}
 			}
-		}
-	}
+		}	
+	}	
 	
-	/**
-	 *
-	 */
 	protected function wrapPageBody()
 	{
-		if( $this->pdfMode )
-			$this->pageBody["begin"] = "<div class=\"rp-page\">";
-		else
-			$this->pageBody["begin"] = "<div class=\"rp-presplitpage rp-page\">";
-		
+		$this->pageBody["begin"] = "<div class=\"rp-presplitpage rp-page\">";		
 		$this->pageBody["end"] = "</div>";
 	}
 	
@@ -501,17 +510,33 @@ class PrintPage extends RunnerPage
 		if( $this->eventsObject->exists("BeforeMoveNextPrint") )
 			$this->eventsObject->BeforeMoveNextPrint($data, $row, $record, $record["recId"], $this);
 		
+		$fieldsToHideIfEmpty = $this->pSet->getFieldsToHideIfEmpty();
+		
 		$printFields = &$this->pSet->getPrinterFields();
 		for($i = 0; $i < count($printFields); $i++) 
 		{
+			$dbValue = $this->showDBValue( $printFields[$i], $data, $keylink );
 			if( !$this->pdfJsonMode() ) {
-				$record[GoodFieldName($printFields[$i])."_value"] = $this->showDBValue( $printFields[$i], $data, $keylink );
+				$record[GoodFieldName($printFields[$i])."_value"] = $dbValue;
 			} else {
-				$record[GoodFieldName($printFields[$i])."_pdfvalue"] = $this->showDBValue( $printFields[$i], $data, $keylink );
+				$record[GoodFieldName($printFields[$i])."_pdfvalue"] = $dbValue;
 			}
+			
+			$isEmptyValue = $this->pdfJsonMode() && $dbValue == "''" || !$this->pdfJsonMode() && $dbValue == "";
+			
+			if( in_array( $printFields[$i], $fieldsToHideIfEmpty ) ) 
+			{	
+				if( $this->printGridLayout != gltHORIZONTAL && $isEmptyValue )
+					$this->hideField( $printFields[$i], $this->recId );
+				else if( $this->printGridLayout == gltHORIZONTAL && !$isEmptyValue ) 
+				{ 
+					$this->_notEmptyFieldColumns[ $printFields[$i] ] = true;
+				}
+			}
+			
 			$this->setRowClassNames($record, $printFields[$i]);
 		}
-		
+		 
 		$this->spreadRowStyles($data, $row, $record);
 		$this->setRowCssRules($record);
 		
@@ -591,8 +616,7 @@ class PrintPage extends RunnerPage
 			//	add the record to the row
 			if( $this->manyRecordsInRow() )
 			{ 
-				$gridRecord = $this->buildGridRecord( $data, $row );
-	
+				$builtrow = $this->buildGridRecord( $data, $row );
 
 				if ( $this->isPD() )
 				{
@@ -602,8 +626,8 @@ class PrintPage extends RunnerPage
 						if ( $assignmentMethod )
 						{
 							$this->showItemType("details_preview");
-							$gridRecord["details_" . $dt] = true;
-							$gridRecord["displayDetailTable_" . $dt] = $assignmentMethod;
+							$builtrow["details_" . $dt] = true;
+							$builtrow["displayDetailTable_" . $dt] = $assignmentMethod;
 						}
 					}
 				}
@@ -617,7 +641,7 @@ class PrintPage extends RunnerPage
 					}
 				}
 				
-				$row["grid_record"]["data"][] = $gridRecord;			
+				$row["grid_record"]["data"][] = $builtrow;			
 			} 
 			else
 			{
@@ -627,8 +651,8 @@ class PrintPage extends RunnerPage
 				{
 					$row[ $index ] = $value;
 				}
-				$row["grid_record"] = true;
-
+				$row["grid_record"] = true;				
+				
 				if ( $this->isPD() )
 				{
 					foreach( $this->detailTables as $dt )
@@ -653,7 +677,24 @@ class PrintPage extends RunnerPage
 					}
 				}
 			}
-			
+
+			// hide group fields
+			if ( $prevData )
+			{
+				$grFields = $this->pSet->getGroupFields();					
+				foreach( $grFields as $grF )
+				{
+					if ( $data[ $grF ] != $prevData[ $grF ] )					
+						break;
+					
+					foreach ( $this->pSet->getFieldItems( $grF ) as $fItemId ) 
+					{
+						$this->hideItem( $fItemId, $builtrow['recId'] );
+					}
+				}
+			}				
+			$prevData = $data;
+	
 			//	finalize row if needed
 			++$col;
 			++$recno;
@@ -667,7 +708,6 @@ class PrintPage extends RunnerPage
 			
 			if( $this->splitByRecords && $recno >= $this->splitByRecords )
 				break;
-		
 		}
 		
 		//	finalize grid
@@ -691,7 +731,7 @@ class PrintPage extends RunnerPage
 				$label = str_replace( "%current%", $this->pageNo, GetMLString( $mLString ) );
 				$this->pageBody[ "print_pages_label".$itemId ] = $label;
 			}	
-		} 
+		}
 	}
 	
 	/**
@@ -741,7 +781,7 @@ class PrintPage extends RunnerPage
 		}
 		
 		//	display Prepare for printing or PDF buttons
-		if( !$this->pdfMode && ( !$this->splitByRecords || $this->pSet->isPrinterPagePDF() ))
+		if( !$this->splitByRecords || $this->pSet->isPrinterPagePDF() )
 		{
 			$this->xt->assign("printbuttons", true);
 		}
@@ -760,6 +800,7 @@ class PrintPage extends RunnerPage
 			$this->xt->assign( $gf . "_fieldheadercolumn", true );
 			$this->xt->assign( $gf . "_fieldheader", true);
 			$this->xt->assign( $gf . "_class", $this->fieldClass( $f ));
+			$this->xt->assign( $gf . "_align", $this->fieldAlign( $f ));
 			$this->xt->assign( $gf . "_fieldcolumn", true );
 			$this->xt->assign( $gf . "_fieldfootercolumn", true );
 		}
@@ -776,7 +817,7 @@ class PrintPage extends RunnerPage
 	function createMap( &$params ) 
 	{
 		$provider = getMapProvider();
-		if ( !$provider )
+		if ( $provider !== GOOGLE_MAPS && $provider !== OPEN_STREET_MAPS && $provider !== BING_MAPS )
 			return;
 		
 		$mapId = $params['mapId'];
@@ -818,20 +859,20 @@ class PrintPage extends RunnerPage
 		switch( $provider )
 		{
 			case GOOGLE_MAPS:
-				$src = 'http://maps.googleapis.com/maps/api/staticmap?size='.$width.'x'.$height.'&key='.$apiKey.'&';
+				$src = 'https://maps.googleapis.com/maps/api/staticmap?size='.$width.'x'.$height.'&key='.$apiKey.'&';
 				
 				if( !count( $markers ) )
 					$src.= "center=0,0&zoom=".( $zoom ? $zoom : 5 );
 				else
-					$src.= ( $zoom ? "zoom=".$zoom."&" : "" )."markers=".implode( '|', $locations );				
+					$src.= ( $zoom ? "zoom=".$zoom."&" : "" )."markers=".urlencode( implode( '|', $locations ) );				
 			break;
 			case OPEN_STREET_MAPS:
-				$src = 'http://staticmap.openstreetmap.de/staticmap.php?size='.$width.'x'.$height.'&';
+				$src = 'https://staticmap.openstreetmap.de/staticmap.php?size='.$width.'x'.$height.'&';
 				
 				if( !count( $markers ) )
 					$src.= "center=0,0&zoom=".( $zoom ? $zoom : 3 );
 				else
-					$src.= "center=".$locations[0]."&zoom=".( $zoom ? $zoom : 3 )."&markers=".implode( '|', $locations );	
+					$src.= "center=".$locations[0]."&zoom=".( $zoom ? $zoom : 3 )."&markers=".urlencode( implode( '|', $locations ) );
 			break;
 			case BING_MAPS:
 				if( !count( $markers ) )
@@ -840,7 +881,7 @@ class PrintPage extends RunnerPage
 				else 
 				{	
 					// You can specify up to 18 pushpins within a URL
-					$mParams = 'pp='.implode( '&pp=',  array_slice( $locations, 0, 17 ) );
+					$mParams = 'pp='.urlencode( implode( '&pp=',  array_slice( $locations, 0, 17 ) ));
 					$src = 'https://dev.virtualearth.net/REST/v1/Imagery/Map/Road?'.$mParams
 						.'&key='.$apiKey.'&mapSize='.$width.','.$height;
 					if( $zoom )
@@ -849,6 +890,25 @@ class PrintPage extends RunnerPage
 			break;
 			default:
 				$src = '';
+		}
+		
+		if( $this->pdfJsonMode() ) 
+		{
+			$content = myurl_get_contents_binary( $src );
+		
+			$imageType = SupposeImageType( $content );
+			if( $imageType == "image/jpeg" || $imageType == "image/png" )
+			{		
+				echo '{ 
+					image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode( $content ) ) . '",
+					width: '. $width .',
+					height:'. $height .',
+				}';
+				return;
+			}
+			
+			echo '""';
+			return;	
 		}
 		
 		echo '<img id="'.$params['mapId'].'" src="'.$src.'">';
@@ -897,34 +957,6 @@ class PrintPage extends RunnerPage
 	/**
 	 *
 	 */
-	public function convertToPDF()
-	{
-		$this->preparePDFDimensions();
-		$this->buildPdf($this->pSet->isLandscapePrinterPagePDFOrientation(), $this->pdfWidth, $this->pdfContent);
-	}
-	
-	/**
-	 *
-	 */
-	public function preparePDFDisplay()
-	{
-		if( !$this->pdfMode )
-			return;
-		
-		$this->AddCSSFile("styles/defaultPDF.css");
-		
-		if( $this->pdfMode == "prepare")
-		{
-			$this->jsSettings['tableSettings'][ $this->tName ]['pdfPrinterPageOrientation'] = $this->pSet->isLandscapePrinterPagePDFOrientation();
-			$this->setProxyValue('createPdf', 1);
-			$this->jsSettings['tableSettings'][ $this->tName ]['pdfFitToPage'] = $this->pSet->isPrinterPagePDFFitToPage();
-			$this->jsSettings['tableSettings'][ $this->tName ]['pdfPrinterPageScale'] = $this->pSet->getPrinterPagePDFScale();
-		}
-	}
-	
-	/**
-	 *
-	 */
 	public function displayPrintPage()
 	{
 		$templateFile = $this->templatefile;
@@ -937,40 +969,10 @@ class PrintPage extends RunnerPage
 			$this->xt->displayJSON($this->templatefile);
 			return;
 		}
-		$this->preparePDFDisplay();
 
-		if( $this->pdfMode == "build" )
-		{
-
-			$this->preparePDFDimensions();
-			$this->assignStyleFiles( true );
-			$this->xt->load_template($this->templatefile);
-			$page = $this->xt->fetch_loaded();
-			$this->buildPdf($this->pSet->isLandscapePrinterPagePDFOrientation(), $this->pdfWidth, $page);
-		}
-		else
-		{
-			$this->display($this->templatefile);
-		}
+		$this->display( $this->templatefile );		
 	}
 
-	/**
-	 *
-	 */
-	protected function preparePDFDimensions()
-	{
-		if( $this->pSet->isPrinterPagePDFFitToPage() )
-			return;
-			
-		if( !$this->pSet->isLandscapePrinterPagePDFOrientation() )
-		{
-			$this->pdfWidth = PDF_PAGE_WIDTH * 100 / $this->pSet->getPrinterPagePDFScale();
-		}
-		else
-		{
-			$this->pdfWidth = PDF_PAGE_HEIGHT * 100 / $this->pSet->getPrinterPagePDFScale();
-		}
-	}
 
 	public function doFirstPageAssignments() 
 	{
@@ -982,42 +984,15 @@ class PrintPage extends RunnerPage
 			{
 				$this->pageBody[ "map_".$mapId ] = true;
 			}
-		}
-		
+		}	
 
-		if( $this->pSet->isPrinterPagePDF() && !$this->pdfMode )
+		if( $this->pSet->isPrinterPagePDF() )
 		{
 			$this->pageBody["pdflink_block"] = true;
 		}
 		else
 		{
 			$this->hideItemType("print_pdf");
-		}
-	}
-	
-	/**
-	 *
-	 */
-	protected function buildPdf($_landscape, $_pagewidth, $_page)
-	{
-		$landscape = $_landscape;
-		$pagewidth = $_pagewidth;
-		$page = $_page;
-		include(getabspath("plugins/page2pdf.php"));
-	}
-
-	/**
-	 * Hide the field on the page
-	 * @param String fieldName
-	 */
-	function hideField($fieldName)
-	{
-		$gf = GoodFieldName($fieldName);
-		foreach ($this->body["data"] as $key => $value)
-		{
-			unset($this->body["data"][$key][ $gf . "_fieldheadercolumn"]);
-			unset($this->body["data"][$key][ $gf . "_fieldcolumn"]);
-			unset($this->body["data"][$key][ $gf . "_fieldfootercolumn"]);
 		}
 	}
 
@@ -1054,8 +1029,13 @@ class PrintPage extends RunnerPage
 				$pageLayout = GetPageLayout( $dtName, $dpSet->pageName() ); 		
 				$templatefile = GetTemplateName( GetTableURL( $dtName ), $dpSet->pageName() );
 				
-				$cssFiles = $pageLayout->getCSSFiles( isRTL(), isPageLayoutMobile( $templatefile ), $this->pdfMode != "" );
-				$this->AddCSSFile( $cssFiles );				
+				$cssFiles = $pageLayout->getCSSFiles( isRTL(), isPageLayoutMobile( $templatefile ), false );
+				$this->AddCSSFile( $cssFiles );
+
+				include_once getabspath('classes/controls/ViewControlsContainer.php');
+				$viewControls = new ViewControlsContainer(new ProjectSettings($dtName, $pageType), $pageType);
+				$viewControls->addControlsJSAndCSS();
+				$this->AddCSSFile( $viewControls->includes_css );					
 			}
 		}
 	}
@@ -1143,6 +1123,11 @@ class PrintPage extends RunnerPage
 			$detailsObject = new PrintPage_Details( $params );
 			$detailsObject->init();
 			$detailsObject->process();
+			
+			$this->includes_js = array_merge($this->includes_js, $detailsObject->includes_js);
+			
+			$this->viewControlsMap["dViewControlsMap"][ $params["tName"] ] = $detailsObject->viewControlsMap;
+			$this->viewControlsMap["dViewControlsMap"][ $params["tName"] ]["id"] = $detailsObject->id;
 		}
 	}
 
@@ -1150,15 +1135,11 @@ class PrintPage extends RunnerPage
 	{
 		return $this->getCombinedHiddenColumns();
 	}
-	
+
 	function fieldClass($f) {
 		$ret = parent::fieldClass($f);
 		if( $ret && $this->printGridLayout == gltVERTICAL || $this->printGridLayout == gltCOLUMNS )
 			$ret = '';
-		
-		if( array_search( GoodFieldname($f), $this->hideColumns ) !== FALSE )
-			$ret .= " bs-hidden-column";
-		
 		return $ret;
 	}
 	
@@ -1253,9 +1234,9 @@ class PrintPage extends RunnerPage
 	function pdfJsonMode() {
 		return $this->mode == PRINT_PDFJSON;
 	}
+	
 	function &findRecordAssigns( $recordId ) {
 		return $this->recordsRenderData[ $recordId ];
 	}
-
 }
 ?>

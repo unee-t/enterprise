@@ -311,8 +311,9 @@ class MembersPage extends ListPage_Simple
 	
 	function saveMembers( &$modifiedMembers )
 	{
-		foreach ($modifiedMembers as $user => $groups)
+		foreach ($modifiedMembers as $user => $groups) {
 			$this->updateUserGroups($user, $groups);
+		}	
 		echo my_json_encode(array( 'success' => true ));
 	}
 	
@@ -333,9 +334,15 @@ class MembersPage extends ListPage_Simple
 		{		
 			if ( $state == 1 )
 				$sql = "insert into ". $membersWTableName ." (". $userNameWFieldName .", ". $groupIdWFieldName .") values (". $grConnection->prepareString($user) .",".$group.")";
-			else
-				$sql = "delete from ". $membersWTableName ." where ". $userNameWFieldName ."=". $grConnection->prepareString($user) ." and ". $groupIdWFieldName ."=".$group;
-			
+			else 
+			{
+				$usernameClause = $this->connection->comparisonSQL( 
+					$userNameWFieldName, 
+					$grConnection->prepareString($user), 
+					$this->pSet->isCaseInsensitiveUsername() );
+					
+				$sql = "delete from ". $membersWTableName ." where ". $usernameClause ." and ". $groupIdWFieldName ."=".$group;
+			}
 			$grConnection->exec( $sql );	
 		}
 	}

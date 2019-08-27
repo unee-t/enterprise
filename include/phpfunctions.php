@@ -40,19 +40,19 @@ class facebookWrapper
 		return "fbsr_" . GetGlobalData("FBappId","");
 	}
 
-	function FBgetUserInfo() 
+	function FBgetUserInfo()
 	{
 		$fbme = array();
-		try 
+		try
 		{
 			$uid = $this->fbObj->getUser();
 			$fbme = $this->fbObj->api('/'.$uid."?fields=email,name");
-		} 
-		catch(FacebookApiException $e) 
+		}
+		catch(FacebookApiException $e)
 		{
 			runner_print_r($e);
 		}
-		
+
 		return $fbme;
 	}
 
@@ -61,9 +61,9 @@ class facebookWrapper
 		$url = "http://";
 		if( $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off")
 			$url = "https://";
-			
+
 		$url .= $_SERVER["HTTP_HOST"] . substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/') + 1) .GetTableLink("login");
-		
+
 		return $this->fbObj->getLoginUrl(array('display'=>'popup', 'redirect_uri'=>$url));
 	}
 
@@ -78,17 +78,13 @@ class facebookWrapper
 	}
 }
 
-function runner_sms($number, $message, $parameters = array())
-{
-	return common_runner_sms($number, $message, $parameters );
-}
 
 function runner_post_request($url, $parameters, $headers = array(), $certPath = false )
-{   
+{
 	$data = array();
 	foreach ($parameters as $key => $value)
     {
-    	$key = (string)$key; 
+    	$key = (string)$key;
         if ( is_array($value) )
         {
             foreach ($value as $item)
@@ -112,21 +108,23 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
         CURLOPT_TIMEOUT => 60,
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => $body,
+		CURLOPT_POSTFIELDS => $body,
+		CURLOPT_SSL_VERIFYHOST => false,
+		CURLOPT_SSL_VERIFYPEER => false,
         CURLOPT_HEADER => 0,
     );
 
-    if ( count($headers) ) 
+    if ( count($headers) )
     {
     	$dataHeaders = array();
 		foreach ($headers as $key => $value)
-	        $dataHeaders[] = $key . ': ' . $value;	
-   
+	        $dataHeaders[] = $key . ': ' . $value;
+
     	$options[CURLOPT_HTTPHEADER] = $dataHeaders;
     }
 
     if ( $certPath )
-    	$options[CURLOPT_CAINFO] = $certPath;     
+    	$options[CURLOPT_CAINFO] = $certPath;
 
     $result = array();
     $result["error"] = false;
@@ -136,13 +134,13 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
 	{
 	    if (!$curl = curl_init())
 	        throw new Exception('Unable to initialize cURL');
-	    
+
 	    if (!curl_setopt_array($curl, $options))
 	        throw new Exception(curl_error($curl));
 
 	    if (!$result["content"] = curl_exec($curl))
 	        throw new Exception(curl_error($curl));
-	  
+
 	   	curl_close($curl);
     }
     catch ( Exception $e )
@@ -150,7 +148,7 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
  	   	$result["error"] = "CURL error: " . $e->getMessage();
 	}
 
-	return $result;	
+	return $result;
 }
 
 
@@ -189,14 +187,14 @@ function runner_mail( $params )
 	$from = isset($params['from']) ? $params['from'] : "";
 	if( !$from )
 		$from = GetGlobalData("strFromEmail", "");
-	
+
 	$to = isset($params['to']) ? $params['to'] : "";
 	$body = isset($params['body']) ? $params['body'] : "";
 	$cc = isset($params['cc']) ? $params['cc'] : "";
 	$bcc = isset($params['bcc']) ? $params['bcc'] : "";
 	$replyTo = isset($params['replyTo']) ? $params['replyTo'] : "";
 	$priority = isset($params['priority']) ? $params['priority'] : "";
-	
+
 	$charset = "";
 	$isHtml = false;
 	if( !$body )
@@ -226,10 +224,10 @@ function runner_mail( $params )
 
 		@ini_set("sendmail_from", $from);
 	}
-	
+
 	if($cc)
 		$header .= 'Cc: ' . $cc . "\r\n";
-	
+
 	if($bcc)
 		$header .= 'Bcc: ' . $bcc . "\r\n";
 
@@ -385,12 +383,27 @@ function myfile_get_contents($filename, $mode = "rb")
 	return $contents;
 }
 
+function myfile_get_contents_binary( $filename )
+{
+	return myfile_get_contents($filename, "rb");
+}
+
 function myurl_get_contents_binary( $url )
 {
 	return myurl_get_contents( $url );
 }
 
 
+function base64_encode_binary( $data )
+{
+	return base64_encode( $data );
+}
+
+
+function base64_decode_binary( $data )
+{
+	return base64_decode( $data );
+}
 /**
  * @intellisense
  */
@@ -400,10 +413,10 @@ function myurl_get_contents( $url )
 	$opts = array(
 		'http'=> array(
 			'header'=> "User-Agent: PHPRunner 10\r\n" .
-						"Referer: ".$refferer."\r\n" 
+						"Referer: ".$refferer."\r\n"
 		)
-	);	
-	
+	);
+
 	$context = stream_context_create( $opts );
 	return file_get_contents( $url, false, $context );
 }
@@ -969,12 +982,22 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
-		if($table=="Manage Areas" && $field=="external_system_id")
+		if($table=="Manage Areas" && $field=="external_system_id" && $ptype=="add")
 	{
 		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
 		return $strWhere;
 	}
-		if($table=="Manage Areas" && $field=="external_table")
+		if($table=="Manage Areas" && $field=="external_system_id" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="external_table" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Manage Areas" && $field=="external_table" && $ptype=="search")
 	{
 		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
 		return $strWhere;
@@ -989,19 +1012,9 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="edit")
+		if($table=="Manage Buildings" && $field=="area_id")
 	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
-		return $strWhere;
-	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="add")
-	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
-		return $strWhere;
-	}
-		if($table=="Manage Buildings" && $field=="area_id" && $ptype=="search")
-	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
@@ -1044,9 +1057,284 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
-		if($table=="Manage Units" && $field=="unee_t_unit_type")
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="edit")
 	{
 		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Units" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Manage Rooms" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_area_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Areas to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Buildings to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="id_building" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Units to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="id_building" && $ptype=="search")
+	{
+		$strWhere = " `property_level_1_buildings`.`is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms to User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Buildings" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_1` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_system_id" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_system_id" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_table" && $ptype=="add")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="external_table" && $ptype=="search")
+	{
+		$strWhere = "`organization_id` = " . $_SESSION["organization_logged_in_user"] . "";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="country_code" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Areas" && $field=="country_code" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND (`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " OR `created_by_id` IS NULL)";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="edit")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="add")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="building_system_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Units" && $field=="unee_t_unit_type")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `is_level_2` = 1 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="edit")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="add")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Export and Import Rooms" && $field=="unee_t_unit_type" && $ptype=="search")
+	{
+		$strWhere = " `is_level_3` = 1 AND `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="unee_t_mefe_user_id" && $ptype=="add")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="unee_t_mefe_user_id" && $ptype=="search")
+	{
+		$strWhere = "`persons`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="area_id" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="id_building" && $ptype=="search")
+	{
+		$strWhere = " `property_level_1_buildings`.`is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="unee_t_role_id")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND `organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
+		if($table=="Assign Rooms" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " `is_obsolete` = 0 ";
 		return $strWhere;
 	}
 	return "";
@@ -1061,6 +1349,18 @@ function GetDefaultValue($field, $ptype, $table="")
 	if(!$table)
 		$table=$strTableName;
 				if($table=="Manage Unee-T Users" && $field=="gender")
+	{
+		return 0;
+	}
+				if($table=="Manage Buildings" && $field=="tower")
+	{
+		return 1;
+	}
+				if($table=="Export and Import Buildings" && $field=="tower")
+	{
+		return 1;
+	}
+				if($table=="Export and Import Users" && $field=="gender")
 	{
 		return 0;
 	}
@@ -1725,7 +2025,7 @@ function runner_mail_smtp( $params )
 
 	$useCustomSMTP = GetGlobalData("useCustomSMTPSettings", false);
 	$SMTPUser = GetGlobalData("strSMTPUser", "");
-	
+
 	if( $useCustomSMTP && $SMTPUser != "" || isset( $params['username'] ) )
 	{
 		$mail->SMTPAuth = true;  // enable SMTP authentication
@@ -1736,7 +2036,7 @@ function runner_mail_smtp( $params )
 	{
 		$mail->SMTPAuth = false;
 	}
-	
+
 	$SMTPServer = GetGlobalData("strSMTPServer", "");
 	if( $useCustomSMTP && $SMTPServer != "" || isset( $params['host'] ) )
 	{
@@ -1746,7 +2046,7 @@ function runner_mail_smtp( $params )
 	{
 		$mail->Host = ini_get('SMTP');
 	}
-	
+
 	$SMTPPort = GetGlobalData("strSMTPPort", "");
 	if( $useCustomSMTP && $SMTPPort != "" || isset( $params['port'] ) )
 	{
@@ -1758,14 +2058,14 @@ function runner_mail_smtp( $params )
 	}
 
 	$mail->SMTPSecure = GetGlobalData("SMTPSecure", "");
-		
+
 	$mail->Subject = $params['subject'];
 
 	$from = isset( $params['from'] ) ? $params['from'] : "";
 	if( !$from )
 		$from = GetGlobalData("strFromEmail", "");
-		
-	try 
+
+	try
 	{
 		$mail->SetFrom( $from, isset( $params['fromName'] ) ? $params['fromName'] : "" );
 	}
@@ -1773,7 +2073,7 @@ function runner_mail_smtp( $params )
 	{
 		return array( "mailed" => false, "message"=> nl2br( $e->getMessage() ) );
 	}
-	
+
 	$to = isset( $params['to'] ) ? $params['to'] : "";
 	if( $to != "" )
 	{
@@ -1789,7 +2089,7 @@ function runner_mail_smtp( $params )
 		$mail->AddReplyTo( $params['replyTo'], "" );
 
 	$body = isset( $params['body'] ) ? $params['body'] : "";
-	
+
 	// body, htmlbody
 	if ( isset( $params['htmlbody'] ) )
 	{
@@ -1820,7 +2120,7 @@ function runner_mail_smtp( $params )
 			$mail->AddCC( $cc['addr'], $cc['name'] );
 		}
 	}
-	
+
 	// BCC
 	if( isset( $params['bcc'] ) )
 	{
@@ -1841,7 +2141,7 @@ function runner_mail_smtp( $params )
 				isset( $attachment["type"] ) ? $attachment["type"] : 'application/octet-stream' );
 		}
 	}
-	
+
 	try
 	{
 		$res = $mail->Send();
@@ -1850,7 +2150,7 @@ function runner_mail_smtp( $params )
 	{
 		return array( "mailed" => false, "message"=> nl2br( $e->getMessage() ) );
 	}
-	
+
 	return array( "mailed" => $res, "message"=> nl2br( $mail->ErrorInfo ) );
 }
 
@@ -1950,13 +2250,13 @@ function getArrayWithoutObjects( $arr )
 	foreach( $arr as $idx => $val )
 	{
 		$type = gettype( $val );
-		
+
 		if( $type == "object" )
 			$copyArr[ $idx ] = get_class( $val )." Object";
-		
-		if( $type == "array" ) 
+
+		if( $type == "array" )
 		{
-			if( $print_r_depth < 5 ) 
+			if( $print_r_depth < 5 )
 				$copyArr[ $idx ] = getArrayWithoutObjects( $val );
 			else
 				$copyArr[ $idx ] = "Array";
@@ -1977,13 +2277,13 @@ function runner_print_r( $value, $return = false )
 	$print_r_depth = 0;
 	$valueCopy = $value;
 	$type = gettype( $value );
-	
+
 	if( $type == "object" )
 		$valueCopy = get_class( $valueCopy )." Object";
-	
+
 	if( $type == "array" )
 		$valueCopy = getArrayWithoutObjects( $valueCopy );
-	
+
 	return print_r( $valueCopy, $return );
 }
 
@@ -2261,7 +2561,7 @@ function GetTableLink($table, $pageType = "", $getParams = "")
 /**
  * GetLocalLink
  * Only needed in .NET
- * 
+ *
  * @param {string} Table name
  * @param {string} Page type
  * @param (string) GET query string
@@ -2714,12 +3014,12 @@ function callDashboardSnippet( $name, $eventsObject )
 	$funcName = "event_" . GoodFieldName( $name );
 	$eventsObject->$funcName( $header );
 	$snippetData["header"] = $header;
-	$snippetData["body"] = ob_get_contents();	
+	$snippetData["body"] = ob_get_contents();
 	ob_end_clean();
 	return $snippetData;
 }
 
-/** 
+/**
  *	Wrapper for preg_match_all function with PREG_OFFSET_CAPTURE parameter
  *  Returns array of these elements:
  *  Array (
@@ -2727,9 +3027,9 @@ function callDashboardSnippet( $name, $eventsObject )
  *		"offset" => <offset of the match in the original string>
  *		"submatches" => <array of submatch strings>
  *	)
- *   
+ *
  */
-function findMatches( $pattern, $str ) 
+function findMatches( $pattern, $str )
 {
 	$matches = array();
 	$ret = array();
@@ -2746,7 +3046,7 @@ function findMatches( $pattern, $str )
 		}
 		$ret[] = $match;
 	}
-	
+
 	return $ret;
 }
 
@@ -2770,7 +3070,7 @@ function importPageOptions( $table, $page )
 		$page_options[ $table ] = array();
 		$pd_pages[ $table ] = array();
 	}
-	if( isset( $page_options[ $table ][ $page ] ) )	
+	if( isset( $page_options[ $table ][ $page ] ) )
 		return;
 	include_once(getabspath("include/pages/".GetTableURL($table)."_".$page.".php"));
 	$page_options[ $table ][ $page ] = $optionsArray;
@@ -2787,8 +3087,34 @@ function loadMaps( $pSet ) {
 
 }
 
+function importTableInfo( $varname ) {
+	global $dal_info;
+	include_once( getabspath( "include/dal/" . $varname . ".php" ) );
+}
+
 function cloneArray( $arr ) {
-	return $arr;
+	//	workaround for some bug in PHP 5.5
+	$newArr = array();
+	foreach( array_keys( $arr ) as $k )
+	{
+		$newArr[$k] = $arr[$k];
+	}
+	return $newArr;
+}
+
+
+function simplify_file_name( $file_name )
+{
+	$newNameArr = array();
+
+	for( $i = 0; $i < strlen( $file_name ); ++$i ) {
+		$c = substr( $file_name, $i, 1 );
+		if( ord( $c ) < 128 )
+			$newNameArr[] = $c;
+		else
+			$newNameArr[] = "_";
+	}
+	return implode("", $newNameArr );
 }
 
 ?>

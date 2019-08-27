@@ -12,9 +12,9 @@ $tdataperson_salutations[".searchableFields"] = array();
 	$tdataperson_salutations[".OriginalTable"] = "person_salutations";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataperson_salutations[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -91,7 +91,7 @@ $tdataperson_salutations[".listAjax"] = false;
 	$tdataperson_salutations[".locking"] = false;
 
 
-$pages = $tdataperson_salutations[".pages"];
+$pages = $tdataperson_salutations[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataperson_salutations[".edit"] = true;
@@ -320,6 +320,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -327,6 +331,7 @@ $tdataperson_salutations[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -446,11 +451,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -570,11 +580,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -694,11 +709,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -818,11 +838,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -942,11 +967,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1066,11 +1096,16 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	

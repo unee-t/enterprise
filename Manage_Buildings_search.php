@@ -33,80 +33,22 @@ if(!$accessGranted)
 
 
 
-$layout = new TLayout("search_bootstrap", "OfficeOffice", "MobileOffice");
-$layout->version = 3;
-	$layout->bootstrapTheme = "default";
-		$layout->customCssPageName = "Manage_Buildings_search";
-$layout->blocks["top"] = array();
-$layout->containers["searchpage"] = array();
-$layout->container_properties["searchpage"] = array(  );
-$layout->containers["searchpage"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"header" );
-$layout->containers["header"] = array();
-$layout->container_properties["header"] = array(  );
-$layout->containers["header"][] = array("name"=>"bssearchheader",
-	"block"=>"searchheader", "substyle"=>1  );
-
-$layout->skins["header"] = "";
-
-
-$layout->skins["searchpage"] = "";
-
-$layout->blocks["top"][] = "searchpage";
-$layout->containers["fields"] = array();
-$layout->container_properties["fields"] = array(  );
-$layout->containers["fields"][] = array("name"=>"bssearchfields",
-	"block"=>"", "substyle"=>1  );
-
-$layout->skins["fields"] = "";
-
-$layout->blocks["top"][] = "fields";
-$layout->containers["bottombuttons"] = array();
-$layout->container_properties["bottombuttons"] = array(  );
-$layout->containers["bottombuttons"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"bbuttons" );
-$layout->containers["bbuttons"] = array();
-$layout->container_properties["bbuttons"] = array(  );
-$layout->containers["bbuttons"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"leftbuttons" );
-$layout->containers["leftbuttons"] = array();
-$layout->container_properties["leftbuttons"] = array(  );
-$layout->containers["leftbuttons"][] = array("name"=>"srchbuttons",
-	"block"=>"searchbuttons", "substyle"=>1  );
-
-$layout->skins["leftbuttons"] = "";
-
-
-$layout->skins["bbuttons"] = "";
-
-
-$layout->skins["bottombuttons"] = "";
-
-$layout->blocks["top"][] = "bottombuttons";
-$page_layouts["Manage_Buildings_search"] = $layout;
-
-
-
 
 require_once('include/xtempl.php');
 require_once('classes/searchpage.php');
 require_once('classes/searchpage_dash.php');
-$xt = new Xtempl();
-	
-$mode = SEARCH_SIMPLE;
-if( postvalue("mode") == "dashsearch" )
-	$mode = SEARCH_DASHBOARD;
-else if( postvalue("mode") == "inlineLoadCtrl" )
-{
-	// load search panel control
-	$mode = SEARCH_LOAD_CONTROL;
+
+$xt = new Xtempl();	
+$pageMode = SearchPage::readSearchModeFromRequest();
+
+if( $pageMode == SEARCH_LOAD_CONTROL )
 	$layoutVersion = postvalue("layoutVersion");
-}
+
 
 $params = array();
 $params['xt'] = &$xt;
-$params['id'] = postvalue("id");
-$params['mode'] = $mode;
+$params['id'] = postvalue_number("id");
+$params['mode'] = $pageMode;
 $params['tName'] = $strTableName;
 $params["pageName"] = postvalue("page");
 $params['pageType'] = PAGE_SEARCH;
@@ -121,7 +63,7 @@ $params['ctrlField'] = postvalue('ctrlField');
 
 $params['needSettings'] = postvalue('isNeedSettings');
 
-if( $mode == SEARCH_DASHBOARD )
+if( $pageMode == SEARCH_DASHBOARD )
 {
 	$params["dashTName"] = postvalue("table");
 	$params["dashElementName"] = postvalue("dashelement");
@@ -133,7 +75,7 @@ $params["extraPageParams"] = SearchPage::getExtraPageParams();
 
 $pageObject = new SearchPage($params);
 
-if( $mode == SEARCH_LOAD_CONTROL )
+if( $pageMode == SEARCH_LOAD_CONTROL )
 {
 	$pageObject->displaySearchControl();
 	return;

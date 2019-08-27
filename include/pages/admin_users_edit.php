@@ -120,7 +120,9 @@
 'height' => 2 ) ) ),
 'loginForm' => array( 'loginForm' => 3 ),
 'page' => array( 'labeledButtons' => array( 'update_records' => array(  ),
-'print_pages' => array(  ) ) ),
+'print_pages' => array(  ),
+'register_activate_message' => array(  ),
+'details_found' => array(  ) ) ),
 'misc' => array( 'type' => 'edit',
 'breadcrumb' => true,
 'nextPrev' => false ),
@@ -264,6 +266,6 @@ array( 'cell' => 'c9' ) ) ) ),
 'orientation' => 0,
 'updateOnEdit' => false ) ),
 'dbProps' => array(  ),
-'version' => 2,
+'version' => 4,
 'fixedTopbar' => true );
 		?>

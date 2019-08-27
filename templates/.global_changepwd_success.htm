@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 
 	<body class="{$stylename} function-changepwd_success" {$bodyattrs}>
@@ -43,11 +43,19 @@
 		 
 			<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
-	class=" r-ori-vert			col-md-12
+	class="r-align-center r-ori-vert			col-md-6
 	
 ">
 		 
 		<h3 class="panel-title" data-itemtype="changepwd_success_header" data-itemid="changepwd_success_header" {$item_changepwd_success_header} data-pageid="{$pageid}" >{$pagetitlelabel  changepwd_success}</h3>
+		</div>		 
+			<div 
+	data-cellId="top_c" data-pageid="{$pageid}"	{$cell_top_c}
+	class="r-align-center r-ori-vert			col-md-6
+	
+">
+		 
+		<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
 		</div>			</div>		
 {END top_block}
 						</div>
@@ -65,7 +73,7 @@
 			
 									data-cellId="grid_c1" data-pageid="{$pageid}"		>
 			<div edit-form-cell class="clearfix">
-								<div class="alert alert-success" data-itemtype="changepwd_success_message" data-itemid="changepwd_success_message" {$item_changepwd_success_message} data-pageid="{$pageid}" > 
+								<div class="alert alert-success" data-itemtype="changepwd_success_message" data-itemid="changepwd_success_message" {$item_changepwd_success_message} data-pageid="{$pageid}" data-small > 
 	Password was changed</div>
 					</div>
 		</td>
@@ -84,8 +92,8 @@
 	
 ">
 		 
-		<span data-itemtype="changepwd_success_back" data-itemid="changepwd_success_back" {$item_changepwd_success_back} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+		<span data-itemtype="changepwd_success_back" data-itemid="changepwd_success_back" {$item_changepwd_success_back} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" {$backlink_attrs} >
 							Back			</a>
 </span>

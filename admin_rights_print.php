@@ -67,21 +67,16 @@ $page_layouts["admin_rights_print"] = $layout;
 
 
 $xt = new Xtempl();
-$id = postvalue("id"); 
-$id = $id != "" ? $id : 1;
 
 //array of params for classes
 $params = array();
-$params["id"] = $id;
+$params["id"] = postvalue_number("id");
 $params["xt"] = &$xt;
 $params["pageType"] = PAGE_PRINT;
 $params["pageName"] = postvalue("page");
 $params["tName"] = $strTableName;
 $params["selection"] = postvalue("selection"); //PrintPage::readSelectedRecordsFromRequest( "admin_rights" );
 $params["allPagesMode"] = postvalue("all");
-$params["pdfMode"] = postvalue("pdf");
-$params["pdfContent"] = postvalue("htmlPdfContent");
-$params["pdfWidth"] = postvalue("width");
 $params["detailTables"] = postvalue("details");
 $params["splitByRecords"] = postvalue("records");
 $params["mode"] = postvalue( "pdfjson" ) ? PRINT_PDFJSON : PRINT_SIMPLE;

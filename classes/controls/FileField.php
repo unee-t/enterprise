@@ -25,7 +25,6 @@ class FileField extends EditControl
 			|| $this->pageObject->pageType == PAGE_EDIT
 			|| $this->pageObject->pageType == PAGE_REGISTER){
 			$this->pageObject->AddJSFile("include/mupload.js");
-			$this->pageObject->AddJSFile("include/zoombox/zoombox.js");
 		}
 	}
 	
@@ -34,7 +33,6 @@ class FileField extends EditControl
 		if($this->pageObject->pageType == PAGE_ADD 
 			|| $this->pageObject->pageType == PAGE_EDIT
 			|| $this->pageObject->pageType == PAGE_REGISTER){
-			$this->pageObject->AddCSSFile("include/zoombox/zoombox.css");
 		}
 	}
 	
@@ -127,12 +125,13 @@ class FileField extends EditControl
         <div class="fileupload-buttonbar">
             <div class="span7">
                 <!-- The fileinput-button span is used to style the file input field as button -->
- 				<SPAN class="btn btn-primary btn-sm fileinput-button">
-					<A class="rnr-button filesUpload button" href="#" ><input class="fileinput-button-input" type="file" name="files[]" value="'
+ 				<SPAN class="btn btn-primary btn-sm fileinput-button filesUpload">
+					<!--<A class="rnr-button filesUpload button" href="#" >-->
+					<input class="fileinput-button-input" type="file" name="files[]" value="'
 				."Add files"
 				.'" '. $multiple .' />'
 				."Add files"
-				.'</A>
+				.'<!--</A>-->
 				</SPAN>'
 		.'
                 
@@ -167,11 +166,11 @@ class FileField extends EditControl
         {% } else { %}
             <td class="preview">{% if (file.thumbnail_url) { %}
                 <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}" 
-                	{% if (!file.isIco) { %} class="zoombox zgallery" {% } %} 
+                	{% if (!file.isIco) { %} {% } %} 
                 	><img class="mupload-preview-img" src="{%=file.thumbnail_url%}&src=1"></a>
             {% } else { %}
             	{% if (file.isImg) { %}
-            		<a href="{%=file.url%}&nodisp=1" title="{%=file.name%}" rel="gallery" download="{%=file.name%}" class="zoombox zgallery"><img class="mupload-preview-img" src="{%=file.url%}&src=1"></a>
+            		<a href="{%=file.url%}&nodisp=1" title="{%=file.name%}" rel="gallery" download="{%=file.name%}" ><img class="mupload-preview-img" src="{%=file.url%}&src=1"></a>
             	{% } %}
             {% } %}</td>
             <td class="name">
@@ -182,9 +181,9 @@ class FileField extends EditControl
 			<td class="delete">
 				{% if (!file.error) { %}
 				<SPAN class="btn btn-xs btn-default delete" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}" data-name="{%=file.name%}">
-					<A href="#" >'
+				<!--<A href="#" >-->'
 				."Delete"
-				.'</A>
+				.'<!--</A>-->
 					</SPAN>
 				{% } %}
 			</td>
@@ -214,9 +213,9 @@ class FileField extends EditControl
         <td class="cancel">{% if (!i) { %}
         	{% if (!file.error) { %}
         	<SPAN class="btn btn-default btn-xs">
-				<A href="#" >'
+			<!--<A href="#" >-->'
 			."Cancel"
-			.'</A>
+			.'<!--</A>-->
 				</SPAN>
 			{% } %}
         {% } %}</td>
@@ -348,7 +347,7 @@ class FileField extends EditControl
 					$thumbname = $userFile["thumbnail_url"];
 					$imageValue .= "<a target=_blank";
 					
-					$imageValue .= " href=\"".runner_htmlspecialchars($userFile["url"])."\" class='zoombox'>";
+					$imageValue .= " href=\"".runner_htmlspecialchars($userFile["url"])."\" >";
 					$imageValue .= "<img";
 					if($thumbname == "" || $imageFile["name"] == $imageFile["thumbnail"]) {
 						$imgWidth = $this->pageObject->pSetEdit->getImageWidth($this->field);

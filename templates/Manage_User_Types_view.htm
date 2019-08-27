@@ -1,0 +1,2339 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+	<body class="{$stylename} function-view" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				data-fixed 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+							 
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main horizontal}			</span>
+							 
+													</nav>
+{END supertop_block}
+				</div>	
+			
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel Manage_User_Types view}</h2>
+		</div>					</div>
+	</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+										{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			{END firstAboveGridCell}	
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+							
+						<div class="r-grid">
+										{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section1_headattrs} data-toggle="collapse"   
+
+				href="#section1{$pageid}" aria-expanded="true" aria-controls="section1"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				About this User Role			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section1_xtrclass}" role="tabpanel"  {$section_section1_attrs}
+
+				id="section1{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section7_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section7" id="form_section7_{$pageid}" data-makeup="topbar" {$form_section7} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section7_c1}
+<td
+	{$cell_section7_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN designation_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" data-fieldname="designation" data-signal-error-for="designation{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="designation" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_designation}">
+		
+		{BEGIN designation_label}{$label Manage_User_Types designation }{END designation_label}
+	</label>
+	<div class="" >
+		{$designation_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END designation_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c1}
+			 
+																
+
+{BEGIN cellblock_section7_c3}
+<td
+	{$cell_section7_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN ut_user_role_type_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ut_user_role_type_id}  r-vertical-field" data-fieldname="ut_user_role_type_id" data-signal-error-for="ut_user_role_type_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="ut_user_role_type_id" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_ut_user_role_type_id}">
+		
+		{BEGIN ut_user_role_type_id_label}{$label Manage_User_Types ut_user_role_type_id }{END ut_user_role_type_id_label}
+	</label>
+	<div class="" >
+		{$ut_user_role_type_id_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END ut_user_role_type_id_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c3}
+			 
+																
+
+{BEGIN cellblock_section7_c2}
+<td
+	{$cell_section7_c2}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_occupant_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_occupant}  r-vertical-field" data-fieldname="is_occupant" data-signal-error-for="is_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="is_occupant" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_occupant}">
+		
+		{BEGIN is_occupant_label}{$label Manage_User_Types is_occupant }{END is_occupant_label}
+	</label>
+	<div class="" >
+		{$is_occupant_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_occupant_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c2}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section7_c8}
+<td
+	{$cell_section7_c8}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_public_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_public}  r-vertical-field" data-fieldname="is_public" data-signal-error-for="is_public{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="is_public" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_public}">
+		
+		{BEGIN is_public_label}{$label Manage_User_Types is_public }{END is_public_label}
+	</label>
+	<div class="" >
+		{$is_public_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_public_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c8}
+			 
+																
+
+{BEGIN cellblock_section7_c9}
+<td
+	{$cell_section7_c9}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_default_assignee_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_assignee}  r-vertical-field" data-fieldname="is_default_assignee" data-signal-error-for="is_default_assignee{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="is_default_assignee" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_default_assignee}">
+		
+		{BEGIN is_default_assignee_label}{$label Manage_User_Types is_default_assignee }{END is_default_assignee_label}
+	</label>
+	<div class="" >
+		{$is_default_assignee_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_default_assignee_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c9}
+			 
+																
+
+{BEGIN cellblock_section7_c10}
+<td
+	{$cell_section7_c10}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_default_invited_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_default_invited}  r-vertical-field" data-fieldname="is_default_invited" data-signal-error-for="is_default_invited{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="is_default_invited" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_default_invited}">
+		
+		{BEGIN is_default_invited_label}{$label Manage_User_Types is_default_invited }{END is_default_invited_label}
+	</label>
+	<div class="" >
+		{$is_default_invited_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_default_invited_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c10}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section7_c12}
+<td
+	{$cell_section7_c12}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_unee_t_user_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_unee_t_user_type}  r-vertical-field" data-fieldname="id_unee_t_user_type" data-signal-error-for="id_unee_t_user_type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" {$item_integrated_edit_field35} data-pageid="{$pageid}" data-field="id_unee_t_user_type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_id_unee_t_user_type}">
+		
+		{BEGIN id_unee_t_user_type_label}{$label Manage_User_Types id_unee_t_user_type }{END id_unee_t_user_type_label}
+	</label>
+	<div class="" >
+		{$id_unee_t_user_type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END id_unee_t_user_type_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c12}
+			 
+																
+
+{BEGIN cellblock_section7_c13}
+<td
+	{$cell_section7_c13}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_dashboard_access_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_dashboard_access}  r-vertical-field" data-fieldname="is_dashboard_access" data-signal-error-for="is_dashboard_access{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="is_dashboard_access" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_dashboard_access}">
+		
+		{BEGIN is_dashboard_access_label}{$label Manage_User_Types is_dashboard_access }{END is_dashboard_access_label}
+	</label>
+	<div class="" >
+		{$is_dashboard_access_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_dashboard_access_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c13}
+			 
+																
+
+{BEGIN cellblock_section7_c14}
+<td
+	{$cell_section7_c14}
+	class="r-align-center r-ori-vert"
+	
+			
+			data-cellId="section7_c14" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN order_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_order}  r-vertical-field" data-fieldname="order" data-signal-error-for="order{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="order" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_order}">
+		
+		{BEGIN order_label}{$label Manage_User_Types order }{END order_label}
+	</label>
+	<div class="" >
+		{$order_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END order_fieldblock}
+											
+{BEGIN is_obsolete_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_obsolete}  r-vertical-field" data-fieldname="is_obsolete" data-signal-error-for="is_obsolete{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="is_obsolete" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_obsolete}">
+		
+		{BEGIN is_obsolete_label}{$label Manage_User_Types is_obsolete }{END is_obsolete_label}
+	</label>
+	<div class="" >
+		{$is_obsolete_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_obsolete_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c14}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section7_c4}
+<td
+	{$cell_section7_c4}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+	ocolspan="3"		data-cellId="section7_c4" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN description_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" data-fieldname="description" data-signal-error-for="description{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="description" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_description}">
+		
+		{BEGIN description_label}{$label Manage_User_Types description }{END description_label}
+	</label>
+	<div class="" >
+		{$description_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END description_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c4}
+								</tr>
+			</tbody></table>
+{END section7_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section4" {$item_section4} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
+
+				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Automatically assign to			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
+
+				id="section2{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section8_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section8" id="form_section8_{$pageid}" data-makeup="topbar" {$form_section8} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="5"
+		
+		data-v-width="10"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section8_c1}
+<td
+	{$cell_section8_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_unit_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_unit}  r-vertical-field" data-fieldname="is_all_unit" data-signal-error-for="is_all_unit{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" {$item_integrated_edit_field36} data-pageid="{$pageid}" data-field="is_all_unit" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_unit}">
+		
+		{BEGIN is_all_unit_label}{$label Manage_User_Types is_all_unit }{END is_all_unit_label}
+	</label>
+	<div class="" >
+		{$is_all_unit_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_all_unit_fieldblock}
+	
+								</td>
+			{END cellblock_section8_c1}
+			 
+																
+
+{BEGIN cellblock_section8_c4}
+<td
+	{$cell_section8_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_units_in_country_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_country}  r-vertical-field" data-fieldname="is_all_units_in_country" data-signal-error-for="is_all_units_in_country{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field37" {$item_integrated_edit_field37} data-pageid="{$pageid}" data-field="is_all_units_in_country" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_units_in_country}">
+		
+		{BEGIN is_all_units_in_country_label}{$label Manage_User_Types is_all_units_in_country }{END is_all_units_in_country_label}
+	</label>
+	<div class="" >
+		{$is_all_units_in_country_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_all_units_in_country_fieldblock}
+	
+								</td>
+			{END cellblock_section8_c4}
+			 
+																
+
+{BEGIN cellblock_section8_c3}
+<td
+	{$cell_section8_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_units_in_area_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_area}  r-vertical-field" data-fieldname="is_all_units_in_area" data-signal-error-for="is_all_units_in_area{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field38" {$item_integrated_edit_field38} data-pageid="{$pageid}" data-field="is_all_units_in_area" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_units_in_area}">
+		
+		{BEGIN is_all_units_in_area_label}{$label Manage_User_Types is_all_units_in_area }{END is_all_units_in_area_label}
+	</label>
+	<div class="" >
+		{$is_all_units_in_area_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_all_units_in_area_fieldblock}
+	
+								</td>
+			{END cellblock_section8_c3}
+			 
+																
+
+{BEGIN cellblock_section8_c2}
+<td
+	{$cell_section8_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_units_in_level_1_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_1}  r-vertical-field" data-fieldname="is_all_units_in_level_1" data-signal-error-for="is_all_units_in_level_1{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field39" {$item_integrated_edit_field39} data-pageid="{$pageid}" data-field="is_all_units_in_level_1" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_units_in_level_1}">
+		
+		{BEGIN is_all_units_in_level_1_label}{$label Manage_User_Types is_all_units_in_level_1 }{END is_all_units_in_level_1_label}
+	</label>
+	<div class="" >
+		{$is_all_units_in_level_1_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_all_units_in_level_1_fieldblock}
+	
+								</td>
+			{END cellblock_section8_c2}
+			 
+																
+
+{BEGIN cellblock_section8_c}
+<td
+	{$cell_section8_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_all_units_in_level_2_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_all_units_in_level_2}  r-vertical-field" data-fieldname="is_all_units_in_level_2" data-signal-error-for="is_all_units_in_level_2{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field40" {$item_integrated_edit_field40} data-pageid="{$pageid}" data-field="is_all_units_in_level_2" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_all_units_in_level_2}">
+		
+		{BEGIN is_all_units_in_level_2_label}{$label Manage_User_Types is_all_units_in_level_2 }{END is_all_units_in_level_2_label}
+	</label>
+	<div class="" >
+		{$is_all_units_in_level_2_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_all_units_in_level_2_fieldblock}
+	
+								</td>
+			{END cellblock_section8_c}
+								</tr>
+			</tbody></table>
+{END section8_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+
+				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Ability to Invite other PUBLIC users			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+
+				id="section3{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section1_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section1" id="form_section1_{$pageid}" data-makeup="topbar" {$form_section1} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section1_c1}
+<td
+	{$cell_section1_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_role_tenant_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_tenant}  r-vertical-field" data-fieldname="can_see_role_tenant" data-signal-error-for="can_see_role_tenant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="can_see_role_tenant" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_tenant}">
+		
+		{BEGIN can_see_role_tenant_label}{$label Manage_User_Types can_see_role_tenant }{END can_see_role_tenant_label}
+	</label>
+	<div class="" >
+		{$can_see_role_tenant_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_role_tenant_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c1}
+			 
+																
+
+{BEGIN cellblock_section1_c2}
+<td
+	{$cell_section1_c2}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_occupant_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_occupant}  r-vertical-field" data-fieldname="can_see_occupant" data-signal-error-for="can_see_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="can_see_occupant" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_occupant}">
+		
+		{BEGIN can_see_occupant_label}{$label Manage_User_Types can_see_occupant }{END can_see_occupant_label}
+	</label>
+	<div class="" >
+		{$can_see_occupant_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_occupant_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c2}
+			 
+																
+
+{BEGIN cellblock_section1_c}
+<td
+	{$cell_section1_c}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_role_mgt_cny_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_mgt_cny}  r-vertical-field" data-fieldname="can_see_role_mgt_cny" data-signal-error-for="can_see_role_mgt_cny{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="can_see_role_mgt_cny" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_mgt_cny}">
+		
+		{BEGIN can_see_role_mgt_cny_label}{$label Manage_User_Types can_see_role_mgt_cny }{END can_see_role_mgt_cny_label}
+	</label>
+	<div class="" >
+		{$can_see_role_mgt_cny_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_role_mgt_cny_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section1_c3}
+<td
+	{$cell_section1_c3}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_role_contractor_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_contractor}  r-vertical-field" data-fieldname="can_see_role_contractor" data-signal-error-for="can_see_role_contractor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="can_see_role_contractor" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_contractor}">
+		
+		{BEGIN can_see_role_contractor_label}{$label Manage_User_Types can_see_role_contractor }{END can_see_role_contractor_label}
+	</label>
+	<div class="" >
+		{$can_see_role_contractor_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_role_contractor_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c3}
+			 
+																
+
+{BEGIN cellblock_section1_c4}
+<td
+	{$cell_section1_c4}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_role_landlord_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_landlord}  r-vertical-field" data-fieldname="can_see_role_landlord" data-signal-error-for="can_see_role_landlord{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="can_see_role_landlord" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_landlord}">
+		
+		{BEGIN can_see_role_landlord_label}{$label Manage_User_Types can_see_role_landlord }{END can_see_role_landlord_label}
+	</label>
+	<div class="" >
+		{$can_see_role_landlord_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_role_landlord_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c4}
+			 
+																
+
+{BEGIN cellblock_section1_c5}
+<td
+	{$cell_section1_c5}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN can_see_role_agent_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_can_see_role_agent}  r-vertical-field" data-fieldname="can_see_role_agent" data-signal-error-for="can_see_role_agent{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="can_see_role_agent" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_can_see_role_agent}">
+		
+		{BEGIN can_see_role_agent_label}{$label Manage_User_Types can_see_role_agent }{END can_see_role_agent_label}
+	</label>
+	<div class="" >
+		{$can_see_role_agent_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END can_see_role_agent_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c5}
+								</tr>
+			</tbody></table>
+{END section1_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section4_headattrs} data-toggle="collapse"   
+
+				href="#section4{$pageid}" aria-expanded="true" aria-controls="section4"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Notifications			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section4_xtrclass}" role="tabpanel"  {$section_section4_attrs}
+
+				id="section4{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<div class="panel with-tabs panel-default form-tabs" data-itemtype="tabs" data-itemid="tabs" {$item_tabs} data-pageid="{$pageid}">
+	<div class="panel-heading">
+		<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section2{$pageid}">
+					The Case has changed				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section3{$pageid}">
+					New Messages				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section4{$pageid}">
+					Inspection Reports				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section5{$pageid}">
+					Inventories and Items				</a>
+			</li>
+									</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="tab_section2{$pageid}"> 
+			{BEGIN section2_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section2" id="form_section2_{$pageid}" data-makeup="topbar" {$form_section2} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section2_c1}
+<td
+	{$cell_section2_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section2_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_assigned_to_case_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_assigned_to_case}  r-vertical-field" data-fieldname="is_assigned_to_case" data-signal-error-for="is_assigned_to_case{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="is_assigned_to_case" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_assigned_to_case}">
+		
+		{BEGIN is_assigned_to_case_label}{$label Manage_User_Types is_assigned_to_case }{END is_assigned_to_case_label}
+	</label>
+	<div class="" >
+		{$is_assigned_to_case_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_assigned_to_case_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c1}
+			 
+																
+
+{BEGIN cellblock_section2_c}
+<td
+	{$cell_section2_c}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section2_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_invited_to_case_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_invited_to_case}  r-vertical-field" data-fieldname="is_invited_to_case" data-signal-error-for="is_invited_to_case{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="is_invited_to_case" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_invited_to_case}">
+		
+		{BEGIN is_invited_to_case_label}{$label Manage_User_Types is_invited_to_case }{END is_invited_to_case_label}
+	</label>
+	<div class="" >
+		{$is_invited_to_case_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_invited_to_case_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section2_c4}
+<td
+	{$cell_section2_c4}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_solution_updated_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_solution_updated}  r-vertical-field" data-fieldname="is_solution_updated" data-signal-error-for="is_solution_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="is_solution_updated" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_solution_updated}">
+		
+		{BEGIN is_solution_updated_label}{$label Manage_User_Types is_solution_updated }{END is_solution_updated_label}
+	</label>
+	<div class="" >
+		{$is_solution_updated_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_solution_updated_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c4}
+			 
+																
+
+{BEGIN cellblock_section2_c8}
+<td
+	{$cell_section2_c8}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_next_step_updated_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_next_step_updated}  r-vertical-field" data-fieldname="is_next_step_updated" data-signal-error-for="is_next_step_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="is_next_step_updated" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_next_step_updated}">
+		
+		{BEGIN is_next_step_updated_label}{$label Manage_User_Types is_next_step_updated }{END is_next_step_updated_label}
+	</label>
+	<div class="" >
+		{$is_next_step_updated_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_next_step_updated_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c8}
+			 
+																
+
+{BEGIN cellblock_section2_c5}
+<td
+	{$cell_section2_c5}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_deadline_updated_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_deadline_updated}  r-vertical-field" data-fieldname="is_deadline_updated" data-signal-error-for="is_deadline_updated{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="is_deadline_updated" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_deadline_updated}">
+		
+		{BEGIN is_deadline_updated_label}{$label Manage_User_Types is_deadline_updated }{END is_deadline_updated_label}
+	</label>
+	<div class="" >
+		{$is_deadline_updated_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_deadline_updated_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c5}
+			 
+																
+
+{BEGIN cellblock_section2_c6}
+<td
+	{$cell_section2_c6}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_case_resolved_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_resolved}  r-vertical-field" data-fieldname="is_case_resolved" data-signal-error-for="is_case_resolved{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="is_case_resolved" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_resolved}">
+		
+		{BEGIN is_case_resolved_label}{$label Manage_User_Types is_case_resolved }{END is_case_resolved_label}
+	</label>
+	<div class="" >
+		{$is_case_resolved_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_case_resolved_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c6}
+								</tr>
+			</tbody></table>
+{END section2_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section3{$pageid}"> 
+			{BEGIN section3_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section3" id="form_section3_{$pageid}" data-makeup="topbar" {$form_section3} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section3_c1}
+<td
+	{$cell_section3_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_mgt_cny_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_mgt_cny}  r-vertical-field" data-fieldname="is_message_from_mgt_cny" data-signal-error-for="is_message_from_mgt_cny{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="is_message_from_mgt_cny" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_mgt_cny}">
+		
+		{BEGIN is_message_from_mgt_cny_label}{$label Manage_User_Types is_message_from_mgt_cny }{END is_message_from_mgt_cny_label}
+	</label>
+	<div class="" >
+		{$is_message_from_mgt_cny_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_mgt_cny_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c1}
+			 
+																
+
+{BEGIN cellblock_section3_c5}
+<td
+	{$cell_section3_c5}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_occupant_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_occupant}  r-vertical-field" data-fieldname="is_message_from_occupant" data-signal-error-for="is_message_from_occupant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="is_message_from_occupant" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_occupant}">
+		
+		{BEGIN is_message_from_occupant_label}{$label Manage_User_Types is_message_from_occupant }{END is_message_from_occupant_label}
+	</label>
+	<div class="" >
+		{$is_message_from_occupant_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_occupant_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c5}
+			 
+																
+
+{BEGIN cellblock_section3_c3}
+<td
+	{$cell_section3_c3}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_tenant_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_tenant}  r-vertical-field" data-fieldname="is_message_from_tenant" data-signal-error-for="is_message_from_tenant{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" {$item_integrated_edit_field28} data-pageid="{$pageid}" data-field="is_message_from_tenant" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_tenant}">
+		
+		{BEGIN is_message_from_tenant_label}{$label Manage_User_Types is_message_from_tenant }{END is_message_from_tenant_label}
+	</label>
+	<div class="" >
+		{$is_message_from_tenant_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_tenant_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c3}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section3_c}
+<td
+	{$cell_section3_c}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_contractor_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_contractor}  r-vertical-field" data-fieldname="is_message_from_contractor" data-signal-error-for="is_message_from_contractor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="is_message_from_contractor" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_contractor}">
+		
+		{BEGIN is_message_from_contractor_label}{$label Manage_User_Types is_message_from_contractor }{END is_message_from_contractor_label}
+	</label>
+	<div class="" >
+		{$is_message_from_contractor_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_contractor_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c}
+			 
+																
+
+{BEGIN cellblock_section3_c4}
+<td
+	{$cell_section3_c4}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_agent_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_agent}  r-vertical-field" data-fieldname="is_message_from_agent" data-signal-error-for="is_message_from_agent{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="is_message_from_agent" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_agent}">
+		
+		{BEGIN is_message_from_agent_label}{$label Manage_User_Types is_message_from_agent }{END is_message_from_agent_label}
+	</label>
+	<div class="" >
+		{$is_message_from_agent_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_agent_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c4}
+			 
+																
+
+{BEGIN cellblock_section3_c6}
+<td
+	{$cell_section3_c6}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_message_from_ll_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_message_from_ll}  r-vertical-field" data-fieldname="is_message_from_ll" data-signal-error-for="is_message_from_ll{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" {$item_integrated_edit_field27} data-pageid="{$pageid}" data-field="is_message_from_ll" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_message_from_ll}">
+		
+		{BEGIN is_message_from_ll_label}{$label Manage_User_Types is_message_from_ll }{END is_message_from_ll_label}
+	</label>
+	<div class="" >
+		{$is_message_from_ll_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_message_from_ll_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c6}
+								</tr>
+			</tbody></table>
+{END section3_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section4{$pageid}"> 
+			{BEGIN section4_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section4" id="form_section4_{$pageid}" data-makeup="topbar" {$form_section4} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section4_c1}
+<td
+	{$cell_section4_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="section4_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_new_ir_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_ir}  r-vertical-field" data-fieldname="is_new_ir" data-signal-error-for="is_new_ir{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" {$item_integrated_edit_field30} data-pageid="{$pageid}" data-field="is_new_ir" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_is_new_ir}">
+		
+		{BEGIN is_new_ir_label}{$label Manage_User_Types is_new_ir }{END is_new_ir_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$is_new_ir_value}	</div>
+
+		
+</div>
+
+
+{END is_new_ir_fieldblock}
+	
+								</td>
+			{END cellblock_section4_c1}
+								</tr>
+			</tbody></table>
+{END section4_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section5{$pageid}"> 
+			{BEGIN section5_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section5" id="form_section5_{$pageid}" data-makeup="topbar" {$form_section5} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section5_c1}
+<td
+	{$cell_section5_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_new_inventory_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_inventory}  r-vertical-field" data-fieldname="is_new_inventory" data-signal-error-for="is_new_inventory{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="is_new_inventory" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_new_inventory}">
+		
+		{BEGIN is_new_inventory_label}{$label Manage_User_Types is_new_inventory }{END is_new_inventory_label}
+	</label>
+	<div class="" >
+		{$is_new_inventory_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_new_inventory_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c1}
+			 
+																
+
+{BEGIN cellblock_section5_c3}
+<td
+	{$cell_section5_c3}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_new_item_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_new_item}  r-vertical-field" data-fieldname="is_new_item" data-signal-error-for="is_new_item{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" {$item_integrated_edit_field32} data-pageid="{$pageid}" data-field="is_new_item" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_new_item}">
+		
+		{BEGIN is_new_item_label}{$label Manage_User_Types is_new_item }{END is_new_item_label}
+	</label>
+	<div class="" >
+		{$is_new_item_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_new_item_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c3}
+			 
+																
+
+{BEGIN cellblock_section5_c2}
+<td
+	{$cell_section5_c2}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_item_moved_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_moved}  r-vertical-field" data-fieldname="is_item_moved" data-signal-error-for="is_item_moved{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" {$item_integrated_edit_field33} data-pageid="{$pageid}" data-field="is_item_moved" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_item_moved}">
+		
+		{BEGIN is_item_moved_label}{$label Manage_User_Types is_item_moved }{END is_item_moved_label}
+	</label>
+	<div class="" >
+		{$is_item_moved_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_item_moved_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c2}
+			 
+																
+
+{BEGIN cellblock_section5_c}
+<td
+	{$cell_section5_c}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section5_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_item_removed_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_item_removed}  r-vertical-field" data-fieldname="is_item_removed" data-signal-error-for="is_item_removed{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" {$item_integrated_edit_field34} data-pageid="{$pageid}" data-field="is_item_removed" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_item_removed}">
+		
+		{BEGIN is_item_removed_label}{$label Manage_User_Types is_item_removed }{END is_item_removed_label}
+	</label>
+	<div class="" >
+		{$is_item_removed_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_item_removed_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c}
+								</tr>
+			</tbody></table>
+{END section5_block}
+						</div>
+				</div>
+	</div>
+</div>  	
+				{END section_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section3" {$item_section3} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section5_headattrs} data-toggle="collapse"   
+
+				href="#section5{$pageid}" aria-expanded="true" aria-controls="section5"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Override - Notify me of everything if the case is			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section5_xtrclass}" role="tabpanel"  {$section_section5_attrs}
+
+				id="section5{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section6_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section6" id="form_section6_{$pageid}" data-makeup="topbar" {$form_section6} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section6_c1}
+<td
+	{$cell_section6_c1}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section6_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_case_critical_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_critical}  r-vertical-field" data-fieldname="is_case_critical" data-signal-error-for="is_case_critical{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="is_case_critical" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_critical}">
+		
+		{BEGIN is_case_critical_label}{$label Manage_User_Types is_case_critical }{END is_case_critical_label}
+	</label>
+	<div class="" >
+		{$is_case_critical_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_case_critical_fieldblock}
+	
+								</td>
+			{END cellblock_section6_c1}
+			 
+																
+
+{BEGIN cellblock_section6_c}
+<td
+	{$cell_section6_c}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section6_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN is_case_blocker_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_case_blocker}  r-vertical-field" data-fieldname="is_case_blocker" data-signal-error-for="is_case_blocker{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="is_case_blocker" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_is_case_blocker}">
+		
+		{BEGIN is_case_blocker_label}{$label Manage_User_Types is_case_blocker }{END is_case_blocker_label}
+	</label>
+	<div class="" >
+		{$is_case_blocker_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END is_case_blocker_fieldblock}
+	
+								</td>
+			{END cellblock_section6_c}
+								</tr>
+			</tbody></table>
+{END section6_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN syst_created_datetime_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_created_datetime}  r-vertical-field" data-fieldname="syst_created_datetime" data-signal-error-for="syst_created_datetime{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field41" {$item_integrated_edit_field41} data-pageid="{$pageid}" data-field="syst_created_datetime" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_syst_created_datetime}">
+		
+		{BEGIN syst_created_datetime_label}{$label Manage_User_Types syst_created_datetime }{END syst_created_datetime_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$syst_created_datetime_value}	</div>
+
+		
+</div>
+
+
+{END syst_created_datetime_fieldblock}
+											
+{BEGIN creation_system_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_system_id}  r-vertical-field" data-fieldname="creation_system_id" data-signal-error-for="creation_system_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field42" {$item_integrated_edit_field42} data-pageid="{$pageid}" data-field="creation_system_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_creation_system_id}">
+		
+		{BEGIN creation_system_id_label}{$label Manage_User_Types creation_system_id }{END creation_system_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$creation_system_id_value}	</div>
+
+		
+</div>
+
+
+{END creation_system_id_fieldblock}
+											
+{BEGIN created_by_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_created_by_id}  r-vertical-field" data-fieldname="created_by_id" data-signal-error-for="created_by_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field43" {$item_integrated_edit_field43} data-pageid="{$pageid}" data-field="created_by_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_created_by_id}">
+		
+		{BEGIN created_by_id_label}{$label Manage_User_Types created_by_id }{END created_by_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$created_by_id_value}	</div>
+
+		
+</div>
+
+
+{END created_by_id_fieldblock}
+											
+{BEGIN creation_method_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_creation_method}  r-vertical-field" data-fieldname="creation_method" data-signal-error-for="creation_method{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field44" {$item_integrated_edit_field44} data-pageid="{$pageid}" data-field="creation_method" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_creation_method}">
+		
+		{BEGIN creation_method_label}{$label Manage_User_Types creation_method }{END creation_method_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$creation_method_value}	</div>
+
+		
+</div>
+
+
+{END creation_method_fieldblock}
+											
+{BEGIN syst_updated_datetime_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_syst_updated_datetime}  r-vertical-field" data-fieldname="syst_updated_datetime" data-signal-error-for="syst_updated_datetime{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field45" {$item_integrated_edit_field45} data-pageid="{$pageid}" data-field="syst_updated_datetime" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_syst_updated_datetime}">
+		
+		{BEGIN syst_updated_datetime_label}{$label Manage_User_Types syst_updated_datetime }{END syst_updated_datetime_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$syst_updated_datetime_value}	</div>
+
+		
+</div>
+
+
+{END syst_updated_datetime_fieldblock}
+											
+{BEGIN update_system_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_system_id}  r-vertical-field" data-fieldname="update_system_id" data-signal-error-for="update_system_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field46" {$item_integrated_edit_field46} data-pageid="{$pageid}" data-field="update_system_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_update_system_id}">
+		
+		{BEGIN update_system_id_label}{$label Manage_User_Types update_system_id }{END update_system_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$update_system_id_value}	</div>
+
+		
+</div>
+
+
+{END update_system_id_fieldblock}
+											
+{BEGIN updated_by_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_updated_by_id}  r-vertical-field" data-fieldname="updated_by_id" data-signal-error-for="updated_by_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field47" {$item_integrated_edit_field47} data-pageid="{$pageid}" data-field="updated_by_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_updated_by_id}">
+		
+		{BEGIN updated_by_id_label}{$label Manage_User_Types updated_by_id }{END updated_by_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$updated_by_id_value}	</div>
+
+		
+</div>
+
+
+{END updated_by_id_fieldblock}
+											
+{BEGIN update_method_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_update_method}  r-vertical-field" data-fieldname="update_method" data-signal-error-for="update_method{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field48" {$item_integrated_edit_field48} data-pageid="{$pageid}" data-field="update_method" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_update_method}">
+		
+		{BEGIN update_method_label}{$label Manage_User_Types update_method }{END update_method_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$update_method_value}	</div>
+
+		
+</div>
+
+
+{END update_method_fieldblock}
+											
+{BEGIN organization_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization_id}  r-vertical-field" data-fieldname="organization_id" data-signal-error-for="organization_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field49" {$item_integrated_edit_field49} data-pageid="{$pageid}" data-field="organization_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_organization_id}">
+		
+		{BEGIN organization_id_label}{$label Manage_User_Types organization_id }{END organization_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$organization_id_value}	</div>
+
+		
+</div>
+
+
+{END organization_id_fieldblock}
+											
+{BEGIN role_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-vertical-field" data-fieldname="role_type" data-signal-error-for="role_type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field50" {$item_integrated_edit_field50} data-pageid="{$pageid}" data-field="role_type" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_role_type}">
+		
+		{BEGIN role_type_label}{$label Manage_User_Types role_type }{END role_type_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$role_type_value}	</div>
+
+		
+</div>
+
+
+{END role_type_fieldblock}
+											
+{BEGIN is_any_new_message_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_any_new_message}  r-vertical-field" data-fieldname="is_any_new_message" data-signal-error-for="is_any_new_message{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field51" {$item_integrated_edit_field51} data-pageid="{$pageid}" data-field="is_any_new_message" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_is_any_new_message}">
+		
+		{BEGIN is_any_new_message_label}{$label Manage_User_Types is_any_new_message }{END is_any_new_message_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$is_any_new_message_value}	</div>
+
+		
+</div>
+
+
+{END is_any_new_message_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+							</div>
+						
+										{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	
+">
+		 
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Close window			</a>
+</span>
+{END close_button}
+		</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN edit_page_button}
+	<li data-itemtype="view_edit" data-itemid="view_edit" {$item_view_edit} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$edit_page_button_attrs}  title="" >
+				
+		Edit		
+		</a>
+	</li>
+{END edit_page_button}
+					</ul>
+	</span>
+</span>
+		</div>					</div>
+	</div>		
+{END below-grid_block}
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

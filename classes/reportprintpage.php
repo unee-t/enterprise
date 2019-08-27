@@ -211,6 +211,9 @@ class ReportPrintPage extends ReportPage
 		// the table info params
 		$extraParams = $this->getExtraReportParams();	
 		$this->setGoogleMapsParams( $extraParams['fieldsArr'] );
+		if( $this->pdfJsonMode() ) {
+			$this->assignTotalsDefaults();
+		}
 		$this->setReportData( $extraParams );
 
 		// add button events if exist
@@ -253,6 +256,18 @@ class ReportPrintPage extends ReportPage
 			$curTabId = $this->getCurrentTabId();
 			$this->xt->assign("printtabheader",true);
 			$this->xt->assign("printtabheader_text", $this->getTabTitle($curTabId));
+		}
+	}
+
+	protected function setRecordsId() {
+		$pageCount = count( $this->arrReport['list'] );
+		for( $i = 0; $i < $pageCount; ++$i ) {
+			$page = &$this->arrReport['list'][ $i ];
+			$recCount = count( $page );
+			for( $j = 0; $j < $recCount; ++$j ) {
+				$this->genId();
+				$page[$j]["recId"] = $this->recId;
+			}
 		}
 	}
 
@@ -438,6 +453,7 @@ class ReportPrintPage extends ReportPage
 		$page = array( 'grid_row' => array("data" => array()) );
 		$pageno = 1;
 		
+		$this->setRecordsId();
 		foreach( $this->arrReport['list'] as $pagerecords)
 		{
 			$page['grid_row']['data'] = $pagerecords;
@@ -656,5 +672,28 @@ class ReportPrintPage extends ReportPage
 	function pdfJsonMode() {
 		return $this->mode == PRINT_PDFJSON;
 	}
+
+	function assignTotalsDefaults() {
+		$totals = array('min', 'max', 'avg', 'sum' );
+		$summaries = array();
+		foreach( $this->pSet->getReportGroupFieldsData() as $idx => $group ) {
+			$summaries[] = "group" . $group["strGroupField"];
+		}
+		$summaries[]= "page";
+		$summaries[]= "global";
+		$fields = array();
+		foreach( $this->pSet->getFieldsList() as $field ) {
+			$fields[] = GoodFieldName( $field );
+		}
+
+		foreach( $fields as $f ) {
+			foreach( $summaries as $s ) {
+				foreach( $totals as $t ) {
+					$this->xt->assign( $s . '_total' . $f . '_' . $t, "''" );
+				}
+			}
+		}
+	}	
+
 }
 ?>

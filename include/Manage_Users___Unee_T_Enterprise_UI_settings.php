@@ -100,7 +100,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".listAjax"] = false;
 	$tdataManage_Users___Unee_T_Enterprise_UI[".locking"] = false;
 
 
-$pages = $tdataManage_Users___Unee_T_Enterprise_UI[".pages"];
+$pages = $tdataManage_Users___Unee_T_Enterprise_UI[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataManage_Users___Unee_T_Enterprise_UI[".edit"] = true;
@@ -336,6 +336,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -343,6 +347,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -458,6 +463,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -465,6 +474,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -587,6 +597,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -594,6 +608,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -713,6 +728,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -720,6 +739,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -840,6 +860,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -847,6 +871,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -966,11 +991,16 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1089,11 +1119,16 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Checkbox");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1210,11 +1245,16 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1331,11 +1371,16 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
@@ -1452,6 +1497,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -1459,6 +1508,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 
 		$edata["IsRequired"] = true;
 
+	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
@@ -1799,6 +1849,13 @@ $proto31["m_columns"][] = "order";
 $proto31["m_columns"][] = "is_obsolete";
 $proto31["m_columns"][] = "designation";
 $proto31["m_columns"][] = "description";
+$proto31["m_columns"][] = "default_sot_system";
+$proto31["m_columns"][] = "default_sot_persons";
+$proto31["m_columns"][] = "default_sot_areas";
+$proto31["m_columns"][] = "default_sot_properties";
+$proto31["m_columns"][] = "default_area";
+$proto31["m_columns"][] = "default_building";
+$proto31["m_columns"][] = "default_unit";
 $obj = new SQLTable($proto31);
 
 $proto30["m_table"] = $obj;

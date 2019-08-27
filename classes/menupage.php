@@ -63,15 +63,15 @@ class MenuPage extends RunnerPage
 						$redirect = "add";
 					if($type == "E")
 						$redirect = "edit";
-					elseif($menuNodes[$i]["pageType"] == "List" && $type == "S")
+					elseif($menuNodes[$i]["pageType"] == "list" && $type == "S")
 						$redirect = "list";
-					elseif($menuNodes[$i]["pageType"] == "Report" && $type == "S")
+					elseif($menuNodes[$i]["pageType"] == "report" && $type == "S")
 						$redirect = "report";
-					elseif($menuNodes[$i]["pageType"] == "Chart" && $type == "S")
+					elseif($menuNodes[$i]["pageType"] == "chart" && $type == "S")
 						$redirect = "chart";
-					elseif($menuNodes[$i]["pageType"] == "View" && $type == "S")
+					elseif($menuNodes[$i]["pageType"] == "view" && $type == "S")
 						$redirect = "view";
-					elseif($menuNodes[$i]["pageType"] == "Dashboard" && $type == "S")
+					elseif($menuNodes[$i]["pageType"] == "dashboard" && $type == "S")
 						$redirect = "dashboard";
 					$redirect = GetTableLink(GetTableURL($menuNodes[$i]["table"]), $redirect);
 				}

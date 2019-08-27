@@ -12,10 +12,10 @@ $locale_info["LOCALE_CTRYNAME"]="US";
 //	date settings
 $locale_info["LOCALE_ICENTURY"]="0";
 $locale_info["LOCALE_IDATE"]="1";
-$locale_info["LOCALE_ILDATE"]="1";
-$locale_info["LOCALE_SDATE"]="/";
-$locale_info["LOCALE_SLONGDATE"]="dddd, d MMMM, yyyy";
-$locale_info["LOCALE_SSHORTDATE"]="dd/MM/yy";
+$locale_info["LOCALE_ILDATE"]="0";
+$locale_info["LOCALE_SDATE"]="-";
+$locale_info["LOCALE_SLONGDATE"]="dddd, MMMM d, yyyy";
+$locale_info["LOCALE_SSHORTDATE"]="dd-MMM-yy";
 //	weekday names
 $locale_info["LOCALE_IFIRSTDAYOFWEEK"]="6";
 $locale_info["LOCALE_SDAYNAME1"]="Monday";

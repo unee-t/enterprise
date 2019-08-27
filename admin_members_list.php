@@ -180,7 +180,7 @@ $xt = new Xtempl();
 $options = array();
 //array of params for classes
 $options["pageType"] = PAGE_LIST;
-$options["id"] = postvalue("id") ? postvalue("id") : 1;
+$options["id"] = postvalue_number("id") ? postvalue_number("id") : 1;
 $options["mode"] = MEMBERS_PAGE;
 $options['xt'] = &$xt;
 

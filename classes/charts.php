@@ -216,7 +216,10 @@ class Chart
 	protected function setBasicChartProp()
 	{
 		$this->header = $this->chrt_array['appearance']['head'];
+		$this->header = $this->header ? $this->header : '';
+		
 		$this->footer = $this->chrt_array['appearance']['foot'];
+		$this->footer = $this->footer ? $this->footer : '';
 			
 		for ( $i = 0; $i<count($this->chrt_array['parameters']) - 1; $i++) 
 		{								
@@ -533,13 +536,63 @@ class Chart
 			return true;
 		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
 			return true;
-		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
-			return true;
 		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
 			return true;
 		if("external_property_groups_areas" == $this->chrt_array['tables'][0])
 			return true;
 		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_map_user_unit_role_permissions_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_map_external_source_users" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_map_user_unit_role_permissions_level_1" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_map_user_unit_role_permissions_level_2" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_map_user_unit_role_permissions_level_3" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_map_external_source_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_groups_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_groups_countries" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_user_types" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_persons" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_map_user_unit_role_permissions_level_3" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_map_external_source_users" == $this->chrt_array['tables'][0])
+			return true;
+		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_verify_count_all_P_by_org_and_countries" == $this->chrt_array['tables'][0])
 			return true;
 		return false;
 	}

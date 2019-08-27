@@ -13,7 +13,6 @@ class DatabaseFileField extends EditControl
 	 */
 	function addJSFiles()
 	{
-		$this->pageObject->AddJSFile("include/zoombox/zoombox.js");
 	}
 	
 	/**
@@ -22,7 +21,6 @@ class DatabaseFileField extends EditControl
 	 */ 
 	function addCSSFiles()
 	{
-		$this->pageObject->AddCSSFile("include/zoombox/zoombox.css");
 	}
 	
 	function buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data)
@@ -36,13 +34,38 @@ class DatabaseFileField extends EditControl
 		{
 			$value = $this->connection->stripSlashesBinary( $value );
 			$itype = SupposeImageType($value);
+			
 			if($itype)
 			{
-				if($this->pageObject->pSetEdit->showThumbnail($this->field))
+				if( $this->format == EDIT_FORMAT_DATABASE_IMAGE && !$this->pageObject->pSetEdit->showThumbnail( $this->field ) ) 
+				{
+					// show real db image instead of icon
+					$src = GetTableLink( "mfhandler", "", "filename=file.jpg&table=".rawurlencode( $this->container->tName )
+						."&field=".rawurlencode( $this->field )
+						."&nodisp=1"
+						."&pageType=".$this->container->pageType.$this->keylink."&rndVal=".rand(0,32768) );
+					
+					$imgWidth = $this->container->pSetEdit->getImageWidth( $this->field );
+					$imgHeight = $this->container->pSetEdit->getImageHeight( $this->field );
+
+					$style = '';
+					if( $imgWidth )
+						$style.= 'max-width:'.$imgWidth.'px;';
+					if( $imgHeight )
+						$style.= 'max-height:'.$imgHeight.'px;';
+					
+					$style = $style ? ' style="'.$style.'"' : '';			
+					
+					$disp = '<img '.$style.' id="image_'.GoodFieldName( $this->field ).'_'.$this->id.'" name="'.$this->cfield.'"';
+					if( $this->is508 )
+						$disp.= ' alt="Image from DB"';
+					$disp.= ' border=0 src="'.$src.'">';					
+				}				
+				else if( $this->pageObject->pSetEdit->showThumbnail($this->field) )
 				{
 					$disp = "<a target=_blank";
 						
-					$disp.=" href=\"".GetTableLink("imager", "", "table=".GetTableURL($this->pageObject->tName)."&".$this->iquery."&rndVal=".rand(0,32768))."\" class='zoombox'>";
+					$disp.=" href=\"".GetTableLink("imager", "", "table=".GetTableURL($this->pageObject->tName)."&".$this->iquery."&rndVal=".rand(0,32768))."\" >";
 					$disp.= "<img id=\"image_".GoodFieldName($this->field)."_".$this->id."\" name=\"".$this->cfield."\" border=0";
 					if($this->is508)
 						$disp .= " alt=\"Image from DB\"";
@@ -69,7 +92,7 @@ class DatabaseFileField extends EditControl
 						$disp .= ' alt="file"';
 					$disp .= ' src="'.GetRootPathForResources("images/file.gif").'">';
 				}
-				}
+			}
 //	filename
 			if($this->format == EDIT_FORMAT_DATABASE_FILE && !$itype && strlen($value))
 			{

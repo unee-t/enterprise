@@ -137,7 +137,6 @@ class EditControlsContainer
 		{
 			$searchFields = $this->pSetEdit->getPanelSearchFields();
 			$searchFields = array_merge($searchFields, $this->pSetEdit->getAllSearchFields());
-			$searchFields = array_unique($searchFields);
 			$fields = array_merge($searchFields, $fields);
 			$fields = array_unique($fields);			
 		}
@@ -150,8 +149,9 @@ class EditControlsContainer
 				$appear = $this->pSetEdit->$appearOnPageFunc($f);
 			if($appear)
 			{
-				$this->getControl($f)->addJSFiles();
-				$this->getControl($f)->addCSSFiles();
+				$editControl = $this->getControl($f);
+				$editControl->addJSFiles();
+				$editControl->addCSSFiles();
 			}
 		}
 	}

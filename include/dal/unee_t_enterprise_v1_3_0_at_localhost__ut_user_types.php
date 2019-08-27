@@ -15,10 +15,16 @@ $dalTableut_user_types["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete
 $dalTableut_user_types["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
 $dalTableut_user_types["description"] = array("type"=>201,"varname"=>"description", "name" => "description");
 $dalTableut_user_types["ut_user_role_type_id"] = array("type"=>3,"varname"=>"ut_user_role_type_id", "name" => "ut_user_role_type_id");
+$dalTableut_user_types["is_all_unit"] = array("type"=>16,"varname"=>"is_all_unit", "name" => "is_all_unit");
+$dalTableut_user_types["is_all_units_in_country"] = array("type"=>16,"varname"=>"is_all_units_in_country", "name" => "is_all_units_in_country");
+$dalTableut_user_types["is_all_units_in_area"] = array("type"=>16,"varname"=>"is_all_units_in_area", "name" => "is_all_units_in_area");
+$dalTableut_user_types["is_all_units_in_level_1"] = array("type"=>16,"varname"=>"is_all_units_in_level_1", "name" => "is_all_units_in_level_1");
+$dalTableut_user_types["is_all_units_in_level_2"] = array("type"=>16,"varname"=>"is_all_units_in_level_2", "name" => "is_all_units_in_level_2");
 $dalTableut_user_types["is_occupant"] = array("type"=>16,"varname"=>"is_occupant", "name" => "is_occupant");
 $dalTableut_user_types["is_public"] = array("type"=>16,"varname"=>"is_public", "name" => "is_public");
 $dalTableut_user_types["is_default_assignee"] = array("type"=>16,"varname"=>"is_default_assignee", "name" => "is_default_assignee");
-$dalTableut_user_types["is_invited_all_cases"] = array("type"=>16,"varname"=>"is_invited_all_cases", "name" => "is_invited_all_cases");
+$dalTableut_user_types["is_default_invited"] = array("type"=>16,"varname"=>"is_default_invited", "name" => "is_default_invited");
+$dalTableut_user_types["is_unit_owner"] = array("type"=>16,"varname"=>"is_unit_owner", "name" => "is_unit_owner");
 $dalTableut_user_types["is_dashboard_access"] = array("type"=>16,"varname"=>"is_dashboard_access", "name" => "is_dashboard_access");
 $dalTableut_user_types["can_see_role_contractor"] = array("type"=>16,"varname"=>"can_see_role_contractor", "name" => "can_see_role_contractor");
 $dalTableut_user_types["can_see_role_mgt_cny"] = array("type"=>16,"varname"=>"can_see_role_mgt_cny", "name" => "can_see_role_mgt_cny");
@@ -46,7 +52,8 @@ $dalTableut_user_types["is_new_inventory"] = array("type"=>16,"varname"=>"is_new
 $dalTableut_user_types["is_new_item"] = array("type"=>16,"varname"=>"is_new_item", "name" => "is_new_item");
 $dalTableut_user_types["is_item_moved"] = array("type"=>16,"varname"=>"is_item_moved", "name" => "is_item_moved");
 $dalTableut_user_types["is_item_removed"] = array("type"=>16,"varname"=>"is_item_removed", "name" => "is_item_removed");
-	$dalTableut_user_types["id_unee_t_user_type"]["key"]=true;
+	$dalTableut_user_types["organization_id"]["key"]=true;
+	$dalTableut_user_types["designation"]["key"]=true;
 
 $dal_info["unee_t_enterprise_v1_3_0_at_localhost__ut_user_types"] = &$dalTableut_user_types;
 ?>

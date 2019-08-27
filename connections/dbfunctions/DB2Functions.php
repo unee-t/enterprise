@@ -16,11 +16,7 @@ class DB2Functions extends DBFunctions
 	 */		
 	public function addSlashes( $str )
 	{
-		//$search_array = array('\\', '\'', "\x00", "\x0a", "\x0d", "\x1a");
-		//$replace_array = array('\\\\', '\\\'', '\0', '\n', '\r', '\Z');
-		//return str_replace($search_array, $replace_array, $str);
 		return str_replace("'", "''", $str);
-		//return addslashes($str);
 	}
 	
 	/**
@@ -73,7 +69,23 @@ class DB2Functions extends DBFunctions
 	 */
 	public function getInsertedIdSQL( $key = null, $table = null, $oraSequenceName = false )
 	{
-		return "SELECT IDENTITY_VAL_LOCAL()";
+		return "SELECT IDENTITY_VAL_LOCAL() FROM SYSIBM.SYSDUMMY1";
 	}
+
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit && $connection->dbType == nDATABASE_DB2 ) 
+		{
+			$strSQL = "with DB2_QUERY as (".$strSQL.") select * from DB2_QUERY where DB2_ROW_NUMBER between "
+				.(($pageStart - 1) * $pageSize + 1)." and ".($pageStart * $pageSize);
+		}
+		$qResult = $connection->query( $strSQL );
+		if( $applyLimit && $connection->dbType != nDATABASE_DB2 ) {
+			$qResult->seekPage( $pageSize, $pageStart );
+		}
+		
+		return $qResult;
+	}
+
 }
 ?>
