@@ -66,6 +66,7 @@ $nonAdminTablesArr[] = "Unee-T Enterprise Account";
 $nonAdminTablesArr[] = "All Properties by Countries";
 $nonAdminTablesArr[] = "SuperAdmin - manage UNTE admins";
 $nonAdminTablesArr[] = "Super Admin - Manage Organization";
+$nonAdminTablesArr[] = "Super Admin - Manage API Keys";
 
 $ug_connection = $cman->getForUserGroups();
 

@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "592_1570422241";
+$projectBuildKey = "593_1570422241";
 $wizardBuildKey = "33839";
-$projectBuildNumber = "592";
+$projectBuildNumber = "593";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -717,6 +717,7 @@ $tableCaptions["English"]["Unee_T_Enterprise_Account"] = "Unee-T Enterprise Acco
 $tableCaptions["English"]["All_Properties_by_Countries"] = "All Properties by Countries";
 $tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "SuperAdmin - manage UNTE admins";
 $tableCaptions["English"]["Super_Admin___Manage_Organization"] = "Super Admin - Manage Organization";
+$tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Super Admin - Manage API Keys";
 
 
 $globalEvents = new class_GlobalEvents;

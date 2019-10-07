@@ -40,7 +40,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 			// we capture the organisation id of the user that created this record.
 
-	//	$values['created_by_id'] = $_SESSION['organization_logged_in_user'];
+	 $values['created_by_id'] = $_SESSION['organization_logged_in_user'];
 
 	// When was the record created?
 

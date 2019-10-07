@@ -3169,6 +3169,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "superadmin___manage_unte_admins" ] = "SuperAdmin - manage UNTE admins";
 	$projectEntities[ "Super Admin - Manage Organization" ] = array( "url" => "super_admin___manage_organization", "type" => 1 );
 	$projectEntitiesReverse[ "super_admin___manage_organization" ] = "Super Admin - Manage Organization";
+	$projectEntities[ "Super Admin - Manage API Keys" ] = array( "url" => "super_admin___manage_api_keys", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_api_keys" ] = "Super Admin - Manage API Keys";
 }
 
 function findTable( $table ) {

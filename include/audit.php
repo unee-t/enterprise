@@ -520,6 +520,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Super Admin - Manage API Keys")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1041,6 +1045,10 @@ class AuditTrailFile
 			return true;
 		}
 		if($table=="Super Admin - Manage Organization")
+		{
+			return false;
+		}
+		if($table=="Super Admin - Manage API Keys")
 		{
 			return false;
 		}

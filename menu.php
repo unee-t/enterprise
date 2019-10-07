@@ -81,6 +81,8 @@ include_once(getabspath("include/superadmin___manage_unte_admins_events.php"));
 $tableEvents["SuperAdmin - manage UNTE admins"] = new eventclass_superadmin___manage_unte_admins;
 include_once(getabspath("include/super_admin___manage_organization_events.php"));
 $tableEvents["Super Admin - Manage Organization"] = new eventclass_super_admin___manage_organization;
+include_once(getabspath("include/super_admin___manage_api_keys_events.php"));
+$tableEvents["Super Admin - Manage API Keys"] = new eventclass_super_admin___manage_api_keys;
 
 $xt = new Xtempl();
 

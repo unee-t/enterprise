@@ -165,7 +165,7 @@ $tdatasuperadmin___manage_unte_admins[".addPageEvents"] = false;
 $tdatasuperadmin___manage_unte_admins[".isUseTimeForSearch"] = false;
 
 
-$tdatasuperadmin___manage_unte_admins[".badgeColor"] = "4169E1";
+$tdatasuperadmin___manage_unte_admins[".badgeColor"] = "4169e1";
 
 
 $tdatasuperadmin___manage_unte_admins[".allSearchFields"] = array();
@@ -1541,6 +1541,22 @@ $masterTablesData["SuperAdmin - manage UNTE admins"] = array();
 
 
 
+	
+				$strOriginalDetailsTable="uneet_enterprise_organizations";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Super Admin - Manage Organization";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "super_admin___manage_organization";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["SuperAdmin - manage UNTE admins"][0] = $masterParams;
+				$masterTablesData["SuperAdmin - manage UNTE admins"][0]["masterKeys"] = array();
+	$masterTablesData["SuperAdmin - manage UNTE admins"][0]["masterKeys"][]="id_organization";
+				$masterTablesData["SuperAdmin - manage UNTE admins"][0]["detailKeys"] = array();
+	$masterTablesData["SuperAdmin - manage UNTE admins"][0]["detailKeys"][]="organization_id";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

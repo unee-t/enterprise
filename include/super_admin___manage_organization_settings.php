@@ -3674,6 +3674,64 @@ $page_titles["Super_Admin___Manage_Organization"] = &$pageTitlessuper_admin___ma
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["Super Admin - Manage Organization"] = array();
+//	Super Admin - Manage API Keys
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Super Admin - Manage API Keys";
+		$detailsParam["dOriginalTable"] = "ut_api_keys";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "super_admin___manage_api_keys";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Super_Admin___Manage_API_Keys");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"][]="id_organization";
+
+				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
+//	SuperAdmin - manage UNTE admins
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="SuperAdmin - manage UNTE admins";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_users";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "superadmin___manage_unte_admins";
+	$detailsParam["dCaptionTable"] = GetTableCaption("SuperAdmin___manage_UNTE_admins");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"][]="id_organization";
+
+				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Super Admin - Manage Organization"] = array();

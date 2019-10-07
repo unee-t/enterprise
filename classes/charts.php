@@ -598,6 +598,8 @@ class Chart
 			return true;
 		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
 			return true;
+		if("ut_api_keys" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

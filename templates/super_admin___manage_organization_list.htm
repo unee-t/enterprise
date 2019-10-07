@@ -238,7 +238,36 @@
 				<span class="caret"></span>
 	</button>
 	<ul class="dropdown-menu pull-right">
-					</ul>
+										 
+				 
+					<li class="container-fluid 
+										">
+									{BEGIN print_details}
+<div>
+	<label for="printDetailsToggler{$id}">
+		<input type="checkbox" id="printDetailsToggler{$id}">
+		Print details	</label>
+	<div  id="printdetailstables{$id}" style="display:none;">
+											{BEGIN print_details_super_admin___manage_api_keys}
+			<div>
+				<label for="printDetailssuper_admin___manage_api_keys{$id}">
+					<input type="checkbox" value="super_admin___manage_api_keys" id="printDetailssuper_admin___manage_api_keys{$id}" checked>
+					Super Admin - Manage API Keys				</label>
+			</div>
+			{END print_details_super_admin___manage_api_keys}
+														{BEGIN print_details_superadmin___manage_unte_admins}
+			<div>
+				<label for="printDetailssuperadmin___manage_unte_admins{$id}">
+					<input type="checkbox" value="superadmin___manage_unte_admins" id="printDetailssuperadmin___manage_unte_admins{$id}" checked>
+					SuperAdmin - manage UNTE admins				</label>
+			</div>
+			{END print_details_superadmin___manage_unte_admins}
+						</div>
+</div>
+{END print_details}
+				 
+					</li>
+															</ul>
 </span>
 {END print_friendly}
 	 
@@ -379,7 +408,7 @@
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
 	cellpadding="0" 
-	data-body-height="1"
+	data-body-height="2"
 >
 						<thead>
 			{BEGIN grid_header}
@@ -407,6 +436,23 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
+				 
+					{BEGIN cellblock_grid_headcell_details}
+	<th
+	
+	{$cell_grid_headcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
+	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_details}
 				 
 					{BEGIN cellblock_grid_headcell_field}
 	<th
@@ -491,6 +537,7 @@
 							</tr>
 					 
 					 
+					 
 					
 					{END grid_header}
 			</thead>
@@ -542,6 +589,72 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
+				 
+					{BEGIN cellblock_grid_cell_details}
+	<td
+	
+	{$cell_grid_cell_details}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="super_admin___manage_organization_list"		data-control-cell
+	
+	>
+
+	 
+		{BEGIN dtables_link}
+	<a 
+		data-itemtype="grid_alldetails_link" data-itemid="grid_alldetails_link" {$item_grid_alldetails_link} data-pageid="{$pageid}" data-record-id="{$recId}" 
+		{$dtables_link_attrs} 
+		class="{$dtables_link_class}" 
+		title="Show details"
+	>
+					<span class="glyphicon glyphicon-th-list"></span>
+					</a>
+{END dtables_link}
+	 
+		
+		
+	{BEGIN super_admin___manage_api_keys_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$super_admin___manage_api_keys_link_attrs} data-short-details="super_admin___manage_api_keys"
+		class="{$super_admin___manage_api_keys_dlink_class}" 
+		title="{$caption Super_Admin___Manage_API_Keys }"	>
+								
+									{BEGIN super_admin___manage_api_keys_childcount}
+				<span class="details-badge badge super_admin___manage_api_keys_badge" {$super_admin___manage_api_keys_childnumber_attr}>
+					{$super_admin___manage_api_keys_childnumber}				
+				</span>
+				{END super_admin___manage_api_keys_childcount}
+						</a>
+	</span>
+	{END super_admin___manage_api_keys_dtable_link}
+
+
+	 
+		
+		
+	{BEGIN superadmin___manage_unte_admins_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$superadmin___manage_unte_admins_link_attrs} data-short-details="superadmin___manage_unte_admins"
+		class="{$superadmin___manage_unte_admins_dlink_class}" 
+		title="{$caption SuperAdmin___manage_UNTE_admins }"	>
+								
+									{BEGIN superadmin___manage_unte_admins_childcount}
+				<span class="details-badge badge superadmin___manage_unte_admins_badge" {$superadmin___manage_unte_admins_childnumber_attr}>
+					{$superadmin___manage_unte_admins_childnumber}				
+				</span>
+				{END superadmin___manage_unte_admins_childcount}
+						</a>
+	</span>
+	{END superadmin___manage_unte_admins_dtable_link}
+
+
+	
+	</td>
+	{END cellblock_grid_cell_details}
 				 
 					{BEGIN cellblock_grid_cell_field}
 	<td
@@ -613,6 +726,39 @@
 	{END cellblock_grid_cell_field2}
 							</tr>
 					 
+						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+								
+							">
+				 
+					{BEGIN cellblock_grid_cell_dpreview}
+	<td
+	
+	{$cell_grid_cell_dpreview}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+				<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="super_admin___manage_api_keys,superadmin___manage_unte_admins"
+			data-details-super_admin___manage_api_keys			data-details-superadmin___manage_unte_admins	>
+		<span data-details-inside data-short-table="super_admin___manage_api_keys">
+			</span>
+		<span data-details-inside data-short-table="superadmin___manage_unte_admins">
+			</span>
+		<div data-details-preview>
+	</div>
+</div>
+	 
+			
+	</td>
+	{END cellblock_grid_cell_dpreview}
+							</tr>
+					 
 					
 											{END grid_row}
 					</tbody>
@@ -621,7 +767,8 @@
 		 
 					 
 					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+					 
+						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
 									{$gridFooter_class}
 									
 								r-gridrow
@@ -642,6 +789,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
+				 
+					{BEGIN cellblock_grid_footcell_details}
+	<td
+	
+	{$cell_grid_footcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_details}
 				 
 					{BEGIN cellblock_grid_footcell_field}
 	<td

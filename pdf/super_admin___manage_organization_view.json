@@ -420,6 +420,11 @@ pdfDocument = {
 		margin: [0,0,0,15],
 	},
 				
+				
+			 {BEGIN details_super_admin___manage_api_keys}
+			{$displayDetailTable_super_admin___manage_api_keys }
+		{END details_super_admin___manage_api_keys},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

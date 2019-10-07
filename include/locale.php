@@ -8,16 +8,16 @@ require_once(getabspath("include/LocaleFunctions.php"));
 $locale_info = array();
 
 $locale_info["LOCALE_LANGNAME"]="en";
-$locale_info["LOCALE_CTRYNAME"]="US";
+$locale_info["LOCALE_CTRYNAME"]="GB";
 //	date settings
-$locale_info["LOCALE_ICENTURY"]="0";
+$locale_info["LOCALE_ICENTURY"]="1";
 $locale_info["LOCALE_IDATE"]="1";
-$locale_info["LOCALE_ILDATE"]="0";
-$locale_info["LOCALE_SDATE"]="-";
-$locale_info["LOCALE_SLONGDATE"]="dddd, MMMM d, yyyy";
-$locale_info["LOCALE_SSHORTDATE"]="dd-MMM-yy";
+$locale_info["LOCALE_ILDATE"]="1";
+$locale_info["LOCALE_SDATE"]="/";
+$locale_info["LOCALE_SLONGDATE"]="dd MMMM yyyy";
+$locale_info["LOCALE_SSHORTDATE"]="dd/MM/yyyy";
 //	weekday names
-$locale_info["LOCALE_IFIRSTDAYOFWEEK"]="6";
+$locale_info["LOCALE_IFIRSTDAYOFWEEK"]="0";
 $locale_info["LOCALE_SDAYNAME1"]="Monday";
 $locale_info["LOCALE_SDAYNAME2"]="Tuesday";
 $locale_info["LOCALE_SDAYNAME3"]="Wednesday";
@@ -68,8 +68,8 @@ $locale_info["LOCALE_STIMEFORMAT"]="HH:mm:ss";
 //	currency settings
 $locale_info["LOCALE_ICURRDIGITS"]="2";
 $locale_info["LOCALE_ICURRENCY"]="0";
-$locale_info["LOCALE_INEGCURR"]="0";
-$locale_info["LOCALE_SCURRENCY"]="\$";
+$locale_info["LOCALE_INEGCURR"]="1";
+$locale_info["LOCALE_SCURRENCY"]="£";
 $locale_info["LOCALE_SMONDECIMALSEP"]=".";
 $locale_info["LOCALE_SMONGROUPING"]="3;0";
 $locale_info["LOCALE_SMONTHOUSANDSEP"]=",";
