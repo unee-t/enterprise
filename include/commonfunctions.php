@@ -313,6 +313,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("super_admin___manage_api_keys" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("super_admin___manage_mefe_master_user" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -858,6 +860,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Super Admin - Manage API Keys";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Super Admin - Manage MEFE Master User");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Super Admin - Manage MEFE Master User";
+	}
 	return $arr;
 }
 
@@ -922,6 +933,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="SuperAdmin - manage UNTE admins";
 	$arr[]="Super Admin - Manage Organization";
 	$arr[]="Super Admin - Manage API Keys";
+	$arr[]="Super Admin - Manage MEFE Master User";
 	return $arr;
 }
 
@@ -1958,6 +1970,11 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="Super Admin - Manage MEFE Master User" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2105,6 +2122,7 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_SuperAdmin - manage UNTE admins_OwnerID"] = $data["active"];
 		$_SESSION["_Super Admin - Manage Organization_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Super Admin - Manage API Keys_OwnerID"] = $data["active"];
+		$_SESSION["_Super Admin - Manage MEFE Master User_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 

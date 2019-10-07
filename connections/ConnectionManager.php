@@ -371,6 +371,7 @@ class ConnectionManager
 		$connectionsIds["SuperAdmin - manage UNTE admins"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Super Admin - Manage Organization"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Super Admin - Manage API Keys"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Super Admin - Manage MEFE Master User"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

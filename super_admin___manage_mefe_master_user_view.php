@@ -3,7 +3,7 @@
 @ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
-require_once("include/super_admin___manage_organization_variables.php");
+require_once("include/super_admin___manage_mefe_master_user_variables.php");
 require_once('include/xtempl.php');
 require_once('classes/viewpage.php');
 require_once("classes/searchclause.php");
@@ -18,18 +18,6 @@ if( !ViewPage::processEditPageSecurity( $strTableName ) )
 
 
 
-	
-			
-
-
-	
-			
-
-
-	
-			
-
-
 
 $pageMode = ViewPage::readViewModeFromRequest();
 
@@ -37,7 +25,10 @@ $xt = new Xtempl();
 
 // $keys could not be set properly if editid params were no passed
 $keys = array();
-$keys["id_organization"] = postvalue("editid1");
+$keys["organization_id"] = postvalue("editid1");
+$keys["external_person_id"] = postvalue("editid2");
+$keys["external_system"] = postvalue("editid3");
+$keys["table_in_external_system"] = postvalue("editid4");
 
 //array of params for classes
 $params = array();

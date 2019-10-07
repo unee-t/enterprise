@@ -3732,6 +3732,35 @@ $detailsTablesData["Super Admin - Manage Organization"] = array();
 				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
+//	Super Admin - Manage MEFE Master User
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Super Admin - Manage MEFE Master User";
+		$detailsParam["dOriginalTable"] = "ut_map_external_source_users";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "super_admin___manage_mefe_master_user";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Super_Admin___Manage_MEFE_Master_User");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"][]="id_organization";
+
+				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Super Admin - Manage Organization"] = array();

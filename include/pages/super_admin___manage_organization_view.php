@@ -2,6 +2,8 @@
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'details' => array( 'Super Admin - Manage API Keys' => array( 'displayPreview' => 1 ),
 'SuperAdmin - manage UNTE admins' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'Super Admin - Manage MEFE Master User' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'fields' => array( 'gridFields' => array( 'default_sot_system',
 'default_sot_properties',

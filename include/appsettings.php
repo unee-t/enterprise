@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "594_1570422241";
+$projectBuildKey = "595_1570422241";
 $wizardBuildKey = "33839";
-$projectBuildNumber = "594";
+$projectBuildNumber = "595";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -718,6 +718,7 @@ $tableCaptions["English"]["All_Properties_by_Countries"] = "All Properties by Co
 $tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "SuperAdmin - manage UNTE admins";
 $tableCaptions["English"]["Super_Admin___Manage_Organization"] = "Super Admin - Manage Organization";
 $tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Super Admin - Manage API Keys";
+$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "Super Admin - Manage MEFE Master User";
 
 
 $globalEvents = new class_GlobalEvents;

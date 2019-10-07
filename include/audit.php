@@ -524,6 +524,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Super Admin - Manage MEFE Master User")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1049,6 +1053,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Super Admin - Manage API Keys")
+		{
+			return false;
+		}
+		if($table=="Super Admin - Manage MEFE Master User")
 		{
 			return false;
 		}

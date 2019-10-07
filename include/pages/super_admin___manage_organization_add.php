@@ -2,6 +2,8 @@
 			$optionsArray = array( 'details' => array( 'Super Admin - Manage API Keys' => array( 'displayPreview' => 2,
 'previewPageId' => '' ),
 'SuperAdmin - manage UNTE admins' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'Super Admin - Manage MEFE Master User' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'default_sot_system',

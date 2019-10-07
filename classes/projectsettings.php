@@ -3171,6 +3171,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "super_admin___manage_organization" ] = "Super Admin - Manage Organization";
 	$projectEntities[ "Super Admin - Manage API Keys" ] = array( "url" => "super_admin___manage_api_keys", "type" => 1 );
 	$projectEntitiesReverse[ "super_admin___manage_api_keys" ] = "Super Admin - Manage API Keys";
+	$projectEntities[ "Super Admin - Manage MEFE Master User" ] = array( "url" => "super_admin___manage_mefe_master_user", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_mefe_master_user" ] = "Super Admin - Manage MEFE Master User";
 }
 
 function findTable( $table ) {

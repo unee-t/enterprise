@@ -600,6 +600,8 @@ class Chart
 			return true;
 		if("ut_api_keys" == $this->chrt_array['tables'][0])
 			return true;
+		if("ut_map_external_source_users" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	
