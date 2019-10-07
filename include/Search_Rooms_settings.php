@@ -2,18 +2,16 @@
 
 
 
-
 $tdataSearch_Rooms = array();
 $tdataSearch_Rooms[".searchableFields"] = array();
-	$tdataSearch_Rooms[".truncateText"] = true;
-	$tdataSearch_Rooms[".NumberOfChars"] = 80;
-	$tdataSearch_Rooms[".ShortName"] = "Search_Rooms";
-	$tdataSearch_Rooms[".OwnerID"] = "organization_id";
-	$tdataSearch_Rooms[".OriginalTable"] = "property_level_3_rooms";
+$tdataSearch_Rooms[".ShortName"] = "Search_Rooms";
+$tdataSearch_Rooms[".OwnerID"] = "organization_id";
+$tdataSearch_Rooms[".OriginalTable"] = "property_level_3_rooms";
 
 
 $defaultPages = my_json_decode( "{\"list\":\"list\",\"search\":\"search\"}" );
 
+$tdataSearch_Rooms[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" );
 $tdataSearch_Rooms[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataSearch_Rooms[".defaultPages"] = $defaultPages;
 
@@ -225,9 +223,6 @@ $tdataSearch_Rooms[".nPrinterPageScale"] = 100;
 
 $tdataSearch_Rooms[".nPrinterSplitRecords"] = 40;
 
-$tdataSearch_Rooms[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataSearch_Rooms[".geocodingEnabled"] = false;
 
 
@@ -362,6 +357,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -387,6 +384,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -437,7 +435,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -489,6 +490,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -513,6 +516,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -563,7 +567,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -615,6 +622,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -639,6 +648,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -689,7 +699,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -741,6 +754,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -765,6 +780,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -815,7 +831,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -867,6 +886,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -892,6 +913,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -942,7 +964,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -994,6 +1019,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1018,6 +1045,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1068,7 +1096,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1120,6 +1151,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1144,6 +1177,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1194,7 +1228,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1246,6 +1283,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1270,6 +1309,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1320,7 +1360,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1372,6 +1415,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1396,6 +1441,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1446,7 +1492,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1498,6 +1547,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1522,6 +1573,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1572,7 +1624,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1624,6 +1679,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1648,6 +1705,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1698,7 +1756,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1750,6 +1811,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1774,6 +1837,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1824,7 +1888,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1876,6 +1943,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1900,6 +1969,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1950,7 +2020,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2002,6 +2075,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2026,6 +2101,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2076,7 +2152,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2128,6 +2207,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2152,6 +2233,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2202,7 +2284,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2254,6 +2339,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2278,6 +2365,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2328,7 +2416,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2380,6 +2471,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2405,6 +2498,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2455,7 +2549,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2507,6 +2604,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2531,6 +2630,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2581,7 +2681,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2632,6 +2735,8 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2656,6 +2761,7 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2706,7 +2812,10 @@ $tdataSearch_Rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3381,6 +3490,8 @@ $proto65["m_columns"][] = "updated_by_id";
 $proto65["m_columns"][] = "update_method";
 $proto65["m_columns"][] = "is_update_on_duplicate_key";
 $proto65["m_columns"][] = "organization_id";
+$proto65["m_columns"][] = "datetime_latest_trigger";
+$proto65["m_columns"][] = "latest_trigger";
 $proto65["m_columns"][] = "is_obsolete";
 $proto65["m_columns"][] = "is_update_needed";
 $proto65["m_columns"][] = "mefe_area_id";

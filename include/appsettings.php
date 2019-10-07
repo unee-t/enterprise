@@ -13,6 +13,7 @@ $page_titles = array();
 $placeHolders = array();
 $all_page_layouts = array();
 $all_page_types = null;
+$all_pages = null;
 $detailsTablesData = array();
 $masterTablesData = array();
 
@@ -74,12 +75,13 @@ define('PAGE_RPRINT',"rprint");
 define('PAGE_MASTER_INFO_RPRINT',"masterrprint");
 define('PAGE_EXPORT',"export");
 define('PAGE_IMPORT',"import");
-define('PAGE_ADMIN_MEMBERS',"admin_members");
-define('PAGE_ADMIN_RIGHTS',"admin_rights");
 define('PAGE_INLINEADD',"inlineadd");
 define('PAGE_INLINEEDIT',"inlineedit");
 define('PAGE_DASHBOARD',"dashboard");
 define('PAGE_DASHMAP', "map");
+define('PAGE_ADMIN_RIGHTS', "admin_rights_list");
+define('PAGE_ADMIN_MEMBERS', "admin_members_list");
+define('PAGE_ADMIN_ADMEMBERS', "admin_admembers_list");
 
 define('ADMIN_USERS',"admin_users");
 
@@ -483,6 +485,8 @@ define('MEDIA_DESKTOP', 0);
 define('MEDIA_MOBILE', 1);
 define('MEDIA_MOBILE_EXPANDED', 2);
 
+define('WEBREPORTS_TABLE', "{04AFFBE6-86C0-47b0-ADD3-BA7FA19CA6FC}" );
+
 
 $globalSettings = array();
 $g_defaultOptionValues = array();
@@ -538,12 +542,17 @@ $globalSettings["CookieBanner"] = array();
 
 $globalSettings["useCookieBanner"] = 0 != 0;
 
+
 $globalSettings["createLoginPage"] = true;
+$globalSettings["userGroupCount"] = 1;
+
 
 $globalSettings["apiGoogleMapsCode"] = "";
 
+$globalSettings["SpUserIdField"] = "";
 
-
+	
+	
 
 
 /**
@@ -604,6 +613,9 @@ $cPasswordField	= "password";
 $cUserGroupField = "groupid";
 $cEmailField = "email";
 $globalSettings["usersTableInProject"] = true;
+$globalSettings["usersDatasourceTable"] = "uneet_enterprise_users";
+
+$globalSettings["jwtSecret"] = "s2dgfsg-43f";
 
 if( $cDisplayNameField == '' )
 	$cDisplayNameField = $cUserNameField;
@@ -628,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "587_1566544923";
-$wizardBuildKey = "33576";
-$projectBuildNumber = "587";
+$projectBuildKey = "588_1570422241";
+$wizardBuildKey = "33839";
+$projectBuildNumber = "588";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -643,8 +655,6 @@ $projectMenus[] = "main";
 $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
-$menuDrillDownFlags = array();
-$menuDrillDownFlags["main"] = 0;
 
 
 
@@ -723,6 +733,7 @@ include_once(getabspath("classes/controls/ViewControl.php"));
 require_once( getabspath('classes/db.php') );
 require_once( getabspath('classes/context.php') );
 require_once(getabspath("classes/cipherer.php"));
+require_once( getabspath('classes/wheretabs.php') );
 
 $contextStack = new RunnerContext;
 
@@ -753,8 +764,17 @@ $_cachedSeachClauses = array();
 $auditMaxFieldLength = 300;
 
 
+
 // default connection link #9875
 $conn = $cman->getDefault()->conn;
+
+
+//	delete old username & password cookies
+if( $_COOKIE["password"] ) {
+	setcookie("username", "", time() - 1, "", "", false, false);
+	setcookie("password", "", time() - 1, "", "", false, false);
+}
+
 
 $logoutPerformed = false;
 $scriptname = getFileNameFromURL();

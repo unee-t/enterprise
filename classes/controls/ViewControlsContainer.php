@@ -122,6 +122,12 @@ class ViewControlsContainer
 		for($i = 0; $i < count($fields); $i++)
 		{
 			$control = $this->getControl($fields[$i]);
+
+			//	admin pages
+			if( !$control ) {
+				continue;
+			}
+			
 			if ($control->neededLoadJSFiles())
 				$control->addJSFiles();
 			

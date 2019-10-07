@@ -22,28 +22,15 @@ function RunnerApply (&$obj, &$argsArr)
 function GetImageFromDB( $gQuery, $params )
 {
 	global $cman;
-	
-	$table = $params["table"];
-	$strTableName = GetTableByShort( $table );
-	$pSet = new ProjectSettings( $strTableName );
 
-	if( !checkTableName( $table ) )
-	{
-		return '';
-	}
+	$table = $params["table"];
+	$pSet = new ProjectSettings( $table );
 
 	@ini_set("display_errors", "1");
 	@ini_set("display_startup_errors", "1");
 
-	if( !isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") )
-	{
-		HeaderRedirect("login");
-		return;
-	}
 
 	$field = $params["field"];
-	if( $pSet->checkFieldPermissions( $field ) )
-		return DisplayNoImage();
 
 	//	construct sql
 	if( !$gQuery->HasGroupBy() )
@@ -54,37 +41,38 @@ function GetImageFromDB( $gQuery, $params )
 		$gQuery->RemoveAllFieldsExcept( $pSet->getFieldIndex( $field ) );
 	}
 
-	$where = KeyWhere( $params["keys"] );
-	if ( $pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN )
-		$where = whereAdd( $where, SecuritySQL("Search") );
+	$where = KeyWhere( $params["keys"], $table );
+	if( Security::loginMethod() == SECURITY_TABLE ) {
+		if ( $pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN )
+			$where = whereAdd( $where, SecuritySQL("Search", $table ) );
+	}
 
-	$connection = $cman->byTable( $strTableName );
+	$connection = $cman->byTable( $table );
 	$sql = $gQuery->gSQLWhere( $where );
 	$data = $connection->query( $sql )->fetchAssoc();
 
 	if( !$data )
 		return DisplayNoImage();
 
-	if( $params["src"] )
-		$value = myfile_get_contents('images/icons/jpg.png');
-	else
-		$value = $connection->stripSlashesBinary( $data[ $field ] );
+	$value = $connection->stripSlashesBinary( $data[ $field ] );
 
-	if( !$value && $params["alt"] )
-		$value = $connection->stripSlashesBinary( $data[ $params["alt"] ] );
+
+	// !Security violation. There was no check for the $params["alt"] field
+//	if( !$value && $params["alt"] )
+//		$value = $connection->stripSlashesBinary( $data[ $params["alt"] ] );
 
 	if( !$value )
 		return DisplayNoImage();
-	
+
 	$itype = SupposeImageType( $value );
 	if( !$itype )
 		return DisplayFile();
 
 	header("Content-Type: ".$itype);
 	header("Cache-Control: private");
-	SendContentLength( strlen_bin( $value ) );	
+	SendContentLength( strlen_bin( $value ) );
 	echoBinary( $value );
-	
+
 	return '';
 }
 
@@ -163,7 +151,7 @@ function getLangFileName($langName)
 /**
  * @intellisense
  */
-function GetGlobalData($name, $defValue)
+function GetGlobalData($name, $defValue = false )
 {
 	global $globalSettings;
 	if(!array_key_exists($name, $globalSettings))
@@ -368,264 +356,473 @@ function GetEmailField($table = "")
 function GetTablesList($pdfMode = false)
 {
 	$arr = array();
-	$strPerm = GetUserPermissions("Manage Unee-T Users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$checkPermissions = Security::permissionsAvailable();
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Unee-T Users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Unee-T Users";
 	}
-	$strPerm = GetUserPermissions("admin_rights");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("admin_rights");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="admin_rights";
 	}
-	$strPerm = GetUserPermissions("uneet_enterprise_users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("uneet_enterprise_users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="uneet_enterprise_users";
 	}
-	$strPerm = GetUserPermissions("admin_members");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("admin_members");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="admin_members";
 	}
-	$strPerm = GetUserPermissions("admin_users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("admin_users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="admin_users";
 	}
-	$strPerm = GetUserPermissions("Manage Users - Unee-T Enterprise UI");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Users - Unee-T Enterprise UI");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Users - Unee-T Enterprise UI";
 	}
-	$strPerm = GetUserPermissions("uneet_enterprise_organizations");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("uneet_enterprise_organizations");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="uneet_enterprise_organizations";
 	}
-	$strPerm = GetUserPermissions("ut_user_types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_user_types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_user_types";
 	}
-	$strPerm = GetUserPermissions("person_statuses");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("person_statuses");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="person_statuses";
 	}
-	$strPerm = GetUserPermissions("person_salutations");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("person_salutations");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="person_salutations";
 	}
-	$strPerm = GetUserPermissions("property_groups_countries");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("property_groups_countries");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="property_groups_countries";
 	}
-	$strPerm = GetUserPermissions("Manage Unit Names");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Unit Names");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Unit Names";
 	}
-	$strPerm = GetUserPermissions("ut_unit_types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_unit_types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_unit_types";
 	}
-	$strPerm = GetUserPermissions("ut_property_types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_property_types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_property_types";
 	}
-	$strPerm = GetUserPermissions("Manage User Types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage User Types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage User Types";
 	}
-	$strPerm = GetUserPermissions("ut_user_role_types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_user_role_types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_user_role_types";
 	}
-	$strPerm = GetUserPermissions("Manage User Default Visibility");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage User Default Visibility");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage User Default Visibility";
 	}
-	$strPerm = GetUserPermissions("Manage User Default Notifications");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage User Default Notifications");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage User Default Notifications";
 	}
-	$strPerm = GetUserPermissions("person_genders");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("person_genders");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="person_genders";
 	}
-	$strPerm = GetUserPermissions("Manage Areas");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Areas");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Areas";
 	}
-	$strPerm = GetUserPermissions("Manage Buildings");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Buildings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Buildings";
 	}
-	$strPerm = GetUserPermissions("property_groups_areas");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("property_groups_areas");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="property_groups_areas";
 	}
-	$strPerm = GetUserPermissions("ut_external_sot_for_unee_t_objects");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_external_sot_for_unee_t_objects");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_external_sot_for_unee_t_objects";
 	}
-	$strPerm = GetUserPermissions("Manage Units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Units";
 	}
-	$strPerm = GetUserPermissions("external_property_groups_areas");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("external_property_groups_areas");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="external_property_groups_areas";
 	}
-	$strPerm = GetUserPermissions("external_property_level_1_buildings");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("external_property_level_1_buildings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="external_property_level_1_buildings";
 	}
-	$strPerm = GetUserPermissions("Manage Rooms");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Manage Rooms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Manage Rooms";
 	}
-	$strPerm = GetUserPermissions("Assign Areas to User");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Assign Areas to User");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Assign Areas to User";
 	}
-	$strPerm = GetUserPermissions("Search Users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search Users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Search Users";
 	}
-	$strPerm = GetUserPermissions("Assign Buildings to User");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Assign Buildings to User");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Assign Buildings to User";
 	}
-	$strPerm = GetUserPermissions("property_level_1_buildings");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("property_level_1_buildings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="property_level_1_buildings";
 	}
-	$strPerm = GetUserPermissions("Assign Units to User");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Assign Units to User");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Assign Units to User";
 	}
-	$strPerm = GetUserPermissions("property_level_2_units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("property_level_2_units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="property_level_2_units";
 	}
-	$strPerm = GetUserPermissions("Assign Rooms to User");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Assign Rooms to User");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Assign Rooms to User";
 	}
-	$strPerm = GetUserPermissions("property_level_3_rooms");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("property_level_3_rooms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="property_level_3_rooms";
 	}
-	$strPerm = GetUserPermissions("Search Rooms");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search Rooms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Search Rooms";
 	}
-	$strPerm = GetUserPermissions("Search Units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search Units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Search Units";
 	}
-	$strPerm = GetUserPermissions("external_property_level_2_units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("external_property_level_2_units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="external_property_level_2_units";
 	}
-	$strPerm = GetUserPermissions("Search All Units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search All Units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Search All Units";
 	}
-	$strPerm = GetUserPermissions("ut_map_external_source_units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_map_external_source_units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_map_external_source_units";
 	}
-	$strPerm = GetUserPermissions("Search Buildings");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search Buildings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Search Buildings";
 	}
-	$strPerm = GetUserPermissions("Export and Import Buildings");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import Buildings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import Buildings";
 	}
-	$strPerm = GetUserPermissions("Export and Import Areas");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import Areas");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import Areas";
 	}
-	$strPerm = GetUserPermissions("Export and Import Units");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import Units");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import Units";
 	}
-	$strPerm = GetUserPermissions("List of Countries");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("List of Countries");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="List of Countries";
 	}
-	$strPerm = GetUserPermissions("Export and Import Rooms");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import Rooms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import Rooms";
 	}
-	$strPerm = GetUserPermissions("Export and Import User Types");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import User Types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import User Types";
 	}
-	$strPerm = GetUserPermissions("Export and Import Users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Export and Import Users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Export and Import Users";
 	}
-	$strPerm = GetUserPermissions("Assign Rooms");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Assign Rooms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Assign Rooms";
 	}
-	$strPerm = GetUserPermissions("ut_map_external_source_users");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("ut_map_external_source_users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="ut_map_external_source_users";
 	}
-	$strPerm = GetUserPermissions("Unee-T Enterprise Account");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Unee-T Enterprise Account");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="Unee-T Enterprise Account";
 	}
-	$strPerm = GetUserPermissions("All Properties by Countries");
-	if(strpos($strPerm, "P")!==false || ($pdfMode && strpos($strPerm, "S")!==false))
-	{
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("All Properties by Countries");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
 		$arr[]="All Properties by Countries";
 	}
 	return $arr;
@@ -830,7 +1027,7 @@ function GetTotals( $field, $value, $stype, $iNumberOfRows, $sFormat, $ptype, $p
 
 	if( $stype == "COUNT" || $useRawValue )
 		return $value;
-	
+
 	$sValue = $value;
 	if ( $sFormat == FORMAT_CURRENCY || $sFormat == FORMAT_PERCENT || $sFormat == FORMAT_NUMBER || $sFormat == FORMAT_CUSTOM )
 	{
@@ -842,11 +1039,11 @@ function GetTotals( $field, $value, $stype, $iNumberOfRows, $sFormat, $ptype, $p
 		} else {
 			$viewControls = $pageObject;
 		}
-		$sValue = $viewControls->showDBValue( $field, $data );		
-	} 
-	
+		$sValue = $viewControls->showDBValue( $field, $data );
+	}
+
 	/*$sValue = "";
-	
+
 	if($sFormat == FORMAT_CURRENCY)
 	 	$sValue = str_format_currency($value);
 	else if($sFormat == FORMAT_PERCENT)
@@ -866,7 +1063,7 @@ function GetTotals( $field, $value, $stype, $iNumberOfRows, $sFormat, $ptype, $p
 
 	if( $stype == "TOTAL" || $stype == "SUM" || $stype == "AVERAGE" )
 		return $sValue;
-	
+
 	// wrong stype ?
 	return "";
 }
@@ -1055,12 +1252,10 @@ function AddWhere($sql,$where)
  * @intellisense
  * @deprecated
  */
-function KeyWhere(&$keys, $table = "")
+function KeyWhere(&$keys, $table )
 {
-	global $strTableName, $cman;
+	global $cman;
 
-	if( !$table )
-		$table = $strTableName;
 	$strWhere="";
 
 	$pSet = new ProjectSettings($table);
@@ -1200,7 +1395,9 @@ function NeedQuotesNumeric($type)
 
 //	using ADO DataTypeEnum constants
 //	the full list available at:
-//	http://msdn.microsoft.com/library/default.asp?url=/library/en-us/ado270/htm/mdcstdatatypeenum.asp
+//	https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/datatypeenum?view=sql-server-2017
+//	or
+//	https://www.google.com/search?q=ADO+DataTypeEnum
 
 /**
  * @intellisense
@@ -1313,13 +1510,6 @@ function IsBigInt($type)
 	return false;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// security functions
-////////////////////////////////////////////////////////////////////////////////
-/**
- * @param String userID
- * @intellisense
- */
 function ReadUserPermissions($userID = "")
 {
 	global $gPermissionsRead, $gPermissionsRefreshTime, $caseInsensitiveUsername, $cman;
@@ -1377,21 +1567,34 @@ function ReadUserPermissions($userID = "")
 
 	$sql = "select ". $gConn->addFieldWrappers( "TableName" )
 		.", ". $gConn->addFieldWrappers( "AccessMask" )
+		.", ". $gConn->addFieldWrappers( "Page" )
 		." from ". $gConn->addTableWrappers( "uneet_enterprise_ugrights" )
 		." where ". $gConn->addFieldWrappers( "GroupID" ) ." in (".$groupstr.")";
 
 	$qResult = $gConn->query( $sql );
 	while( $data = $qResult->fetchNumeric() )
 	{
-		if(!array_key_exists($data[0], $rights))
+		$table = $data[0];
+		$mask = $data[1];
+		$restrictedPages = my_json_decode( $data[2] );
+		if( !is_array( $restrictedPages )) {
+			$restrictedPages = array();
+		}
+		if(!array_key_exists( $table, $rights))
 		{
-			$rights[ $data[0] ] = $data[1];
+			$rights[ $table ] = array( "mask" => $mask, "pages" => $restrictedPages );
 			continue;
 		}
-		for($i = 0; $i < strlen($data[1]); $i++)
+		$currentMask = $rights[ $table ]["mask"];
+		$currentPages = &$rights[ $table ]["pages"];
+		for($i = 0; $i < strlen($mask); $i++)
 		{
-			if( strpos($rights[ $data[0] ], substr($data[1], $i, 1)) === false )
-				$rights[ $data[0] ].= substr($data[1], $i, 1);
+			$perm = substr($mask, $i, 1);
+			if( strpos($currentMask, $perm ) === false )
+				$rights[ $table ]["mask"] .= $perm;
+		}
+		foreach( $restrictedPages as $page => $dummy ) {
+			$currentPages[$page] = true;
 		}
 	}
 
@@ -1430,11 +1633,283 @@ function GetUserPermissionsDynamic($table="")
 			return "ADESPIM";
 	}
 
-	return @$_SESSION["UserRights"][$_SESSION["UserID"]][$table];
+	return @$_SESSION["UserRights"][$_SESSION["UserID"]][$table]["mask"];
 }
 
-// end of the bCreateLoginPage block
 
+/**
+ * @intellisense
+ */
+function GetUserPermissionsStatic( $table )
+{
+	if( !isLogged() )
+		return "";
+
+	$extraPerm = $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP ? 'M' : '';
+	$sUserGroup = @$_SESSION["GroupID"];
+	if( $table=="Manage Unee-T Users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="admin_rights" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="uneet_enterprise_users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="admin_members" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="admin_users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Users - Unee-T Enterprise UI" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="uneet_enterprise_organizations" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_user_types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="person_statuses" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="person_salutations" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="property_groups_countries" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Unit Names" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_unit_types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_property_types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage User Types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_user_role_types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage User Default Visibility" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage User Default Notifications" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="person_genders" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Areas" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Buildings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="property_groups_areas" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_external_sot_for_unee_t_objects" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="external_property_groups_areas" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="external_property_level_1_buildings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Manage Rooms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Assign Areas to User" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search Users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Assign Buildings to User" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="property_level_1_buildings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Assign Units to User" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="property_level_2_units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Assign Rooms to User" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="property_level_3_rooms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search Rooms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search Units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="external_property_level_2_units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search All Units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_map_external_source_units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search Buildings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import Buildings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import Areas" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import Units" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="List of Countries" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import Rooms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import User Types" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Export and Import Users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Assign Rooms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="ut_map_external_source_users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Unee-T Enterprise Account" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="All Properties by Countries" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	// grant nothing by default
+	return "";
+}
 
 /**
  * Check if the current user is admin user
@@ -1443,6 +1918,9 @@ function GetUserPermissionsDynamic($table="")
  */
 function IsAdmin()
 {
+	if( !Security::dynamicPermissions() ) {
+		return false;
+	}
 	global $gPermissionsRefreshTime, $gPermissionsRead, $caseInsensitiveUsername;
 	ReadUserPermissions();
 	return array_key_exists(".IsAdmin", @$_SESSION["UserRights"][ $_SESSION["UserID"] ]);
@@ -1465,8 +1943,10 @@ function GetUserPermissions($table="")
 	if(!$table)
 		$table = $strTableName;
 	$permissions = "";
-	if( !IsLogged() )
-		return "";
+	if( Security::hasLogin() ) {
+		if( !IsLogged() )
+			return "";
+	}
 
 	if( is_array( $_SESSION["securityOverrides"] ) )
 	{
@@ -1474,7 +1954,15 @@ function GetUserPermissions($table="")
 			return $_SESSION["securityOverrides"][ $table ];
 	}
 
-		$permissions =  GetUserPermissionsDynamic($table);
+	if( Security::permissionsAvailable() ) {
+		if( Security::dynamicPermissions() ) {
+			$permissions =  GetUserPermissionsDynamic($table);
+		} else {
+			$permissions =  GetUserPermissionsStatic($table);
+		}
+	} else {
+		$permissions =  "ADESPI";
+	}
 
 	if($globalEvents->exists("GetTablePermissions", $table))
 	{
@@ -1488,13 +1976,15 @@ function GetUserPermissions($table="")
  */
 function isLogged()
 {
+	if( !Security::hasLogin() ) {
+		return true;
+	}
 
-if( @$_SESSION["UserID"] )
-	return true;
+	if( @$_SESSION["UserID"] )
+		return true;
 
 	return false;
 }
-
 
 
 /**
@@ -1503,57 +1993,33 @@ if( @$_SESSION["UserID"] )
 function guestHasPermissions()
 {
 	$tables = GetTablesListWithoutSecurity();
-	ReadUserPermissions("Guest");
-	if(!count($_SESSION["UserRights"]["Guest"]))
+	if( Security::dynamicPermissions() ) {
+		ReadUserPermissions("Guest");
+		if(!count($_SESSION["UserRights"]["Guest"]))
+			return false;
+		foreach($tables as $t) {
+			if(array_key_exists( $t ,$_SESSION["UserRights"]["Guest"]))
+				return true;
+		}
 		return false;
-	foreach($tables as $t) {
-		if(array_key_exists( $t ,$_SESSION["UserRights"]["Guest"]))
-			return true;
-	}
-	return false;
-}
-
-
-/**
- * Set session variables and permissions after login via Facebook
- * @intellisense
- */
-function AfterFBLogIn( $pUsername, $pPassword, $pDisplayUsername, $usernameField, &$pageObject = null)
-{
-	global $cman, $cUserNameFieldType, $cUserNameField, $cDisplayNameField;
-	
-	$connection = $cman->getForLogin();
-
-	$strUsername = (string)$pUsername;
-	if( NeedQuotes( $cUserNameFieldType ) )
-		$strUsername = $connection->prepareString( $strUsername );
-	else
-		$strUsername = (0 + $strUsername);
-
-	$strSQL = "select * from ".$connection->addTableWrappers("uneet_enterprise_users")
-		." where ".$connection->addFieldWrappers( $usernameField )."=".$strUsername;
-
- 	$data = $connection->query( $strSQL )->fetchAssoc();
-	if( count($data) )
-	{
-		DoLogin( false, $pUsername, $pDisplayUsername, "", ACCESS_LEVEL_USER, $pPassword, $pageObject );
-		SetAuthSessionData( $pUsername, $data, true, $pPassword, $pageObject );
+	} else {
+		return false;
 	}
 }
 
 /**
  * SetAuthSessionData
  * Add to session auth data and permissions
- * @param {string} user identifier
- * @param {string} user display name
- * @param {object} fetched row from DB with user data
- * @param {object} page object
  * @intellisense
  */
-function SetAuthSessionData($pUsername, &$data, $fromFacebook, $password, &$pageObject = null, $fireEvents = true )
+function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, $fireEvents = true )
 {
-	global $globalEvents;
-	$_SESSION["GroupID"] = $data["groupid"];
+	global $globalEvents, $cUserGroupField;
+	if( Security::permissionsAvailable() ) {
+		$_SESSION["GroupID"] = $data[ $cUserGroupField ];
+	} else {
+		$_SESSION["GroupID"] = "";
+	}
 
 
 		$_SESSION["OwnerID"] = $data["organization_id"];
@@ -1631,6 +2097,9 @@ function DoLogin($callAfterLoginEvent = false, $userID = "Guest", $userName = ""
  */
 function CheckSecurity($strValue, $strAction, $table = "")
 {
+	if( !Security::hasLogin() ) {
+		return true;
+	}
 
 	global $cAdvSecurityMethod, $strTableName;
 	if( $table == "" )
@@ -1812,17 +2281,17 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				return false;
 		}
 	}
-	//	 check user group permissions
-	$localAction = strtolower($strAction);
-	if($localAction=="add" && !(strpos($strPerm, "A")===false) ||
-	   $localAction=="edit" && !(strpos($strPerm, "E")===false) ||
-	   $localAction=="delete" && !(strpos($strPerm, "D")===false) ||
-	   $localAction=="search" && !(strpos($strPerm, "S")===false) ||
-	   $localAction=="import" && !(strpos($strPerm, "I")===false) ||
-	   $localAction=="export" && !(strpos($strPerm, "P")===false) )
-		return true;
-	else
-		return false;
+	if( Security::permissionsAvailable() )
+	{
+//	 check user group permissions
+		$localAction = strtolower($strAction);
+		return ( $localAction == "add" && strpos($strPerm, "A") !== false ||
+			$localAction == "edit" && strpos($strPerm, "E") !== false ||
+			$localAction == "delete" && strpos($strPerm, "D") !== false ||
+			$localAction == "search" && strpos($strPerm, "S") !== false ||
+			$localAction == "import" && strpos($strPerm, "I") !== false ||
+			$localAction == "export" && strpos($strPerm, "P") !== false );
+	}
 	return true;
 }
 
@@ -1861,7 +2330,7 @@ function pagetypeToPermissions($pageType)
  * Add security WHERE clause to SELECT SQL command
  * @intellisense
  */
-function SecuritySQL($strAction, $table="", $strPerm="")
+function SecuritySQL($strAction, $table, $strPerm="")
 {
 	global $cAdvSecurityMethod,$strTableName;
 
@@ -1870,7 +2339,7 @@ function SecuritySQL($strAction, $table="", $strPerm="")
 
 	$pSet = new ProjectSettings($table);
 
-   	$ownerid=@$_SESSION["_".$table."_OwnerID"];
+   	$ownerid = @$_SESSION["_".$table."_OwnerID"];
 	$ret="";
 	if(@$_SESSION["AccessLevel"]==ACCESS_LEVEL_ADMIN)
 		return "";
@@ -3237,13 +3706,13 @@ function & GetPageLayout($table, $page, $suffixName = '')
 {
 	$shortTableName = GetTableURL($table);
 	global $page_layouts, $arrCustomPages, $all_page_layouts, $pd_pages;
-	
+
 	// try open old layout first
 	$layoutName = ($shortTableName != '' ? $shortTableName.'_' : '').$page.($suffixName != '' ? '_'.$suffixName : '');
 	$oldLayoutName = $layoutName;
 	if( $shortTableName == ".global" )
 		$oldLayoutName = $page;
-	if( $arrCustomPages[ $oldLayoutName . ".htm" ] ||  isAdminPage( $shortTableName ) ) {
+	if( $arrCustomPages[ $oldLayoutName . ".htm" ] /*||  isAdminPage( $shortTableName ) */) {
 		$layout = $page_layouts[ $oldLayoutName ];
 		if($layout)
 		{
@@ -3257,16 +3726,16 @@ function & GetPageLayout($table, $page, $suffixName = '')
 	//	find and return new layout
 	$shortTableName = $shortTableName == "" ? GLOBAL_PAGES_SHORT : $shortTableName;
 	$pdLayoutName = $shortTableName . '_' .$page;
-	if( isset( $all_page_layouts[$pdLayoutName] )) 
+	if( isset( $all_page_layouts[$pdLayoutName] ))
 		return $all_page_layouts[$pdLayoutName];
 
 	importPageOptions( $table, $page );
 	if( !isset( $pd_pages[ $table ] ) || !isset( $pd_pages[ $table ][ $page ] ) ) {
 		return null;
 	}
-	
+
 	global $bsProjectTheme, $bsProjectSize, $styleOverrides;
-	
+
 	$theme = $bsProjectTheme;
 	$size = $bsProjectSize;
 	$customSettings = false;
@@ -3276,10 +3745,10 @@ function & GetPageLayout($table, $page, $suffixName = '')
 		$size = $override["size"];
 		$customSettings = true;
 	}
-	$layout  = new PDLayout( 
-			$shortTableName, 
+	$layout  = new PDLayout(
+			$shortTableName,
 			$pd_pages[ $table ][ $page ],
-			$theme, 
+			$theme,
 			$size,
 			$customSettings );
 	$all_page_layouts[ $shortTableName."_".$page ] = $layout;
@@ -3494,9 +3963,9 @@ function getContentTypeByExtension($ext)
 function getLatLngByAddr($addr)
 {
 	global $globalSettings;
-	
+
 	$apiKey = $globalSettings["apiGoogleMapsCode"];
-	
+
 	switch( getMapProvider() ){
 		case GOOGLE_MAPS:	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.rawurlencode($addr).'&sensor=false&key=' . $apiKey;
 				$result = my_json_decode(myurl_get_contents($url));
@@ -3521,7 +3990,7 @@ function getLatLngByAddr($addr)
 		case BING_MAPS:
 				if( !$apiKey || !$addr )
 					return false;
-				
+
 				$url = 'https://dev.virtualearth.net/REST/v1/Locations?query='.rawurlencode( $addr ).'&output=json&key='.$apiKey;
 				$result = my_json_decode(myurl_get_contents($url));
 				if($result)
@@ -3553,9 +4022,10 @@ function isLoggedAsGuest()
  */
 function isGuestLoginAvailable()
 {
-	// if guest have any permissions
-	if(guestHasPermissions())
-		return true;
+	if( Security::dynamicPermissions() ) {
+		return guestHasPermissions();
+	}
+
 	return false;
 }
 
@@ -3792,9 +4262,9 @@ function GetKeysArray($arr, $pageObject, $searchId = false)
 function GetBaseScriptsForPage($isDisplayLoading, $additionalScripts = "", $customText = "")
 {
 	$result = "";
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?33576")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?33839")."\"></script>";
 	$result .= $additionalScripts;
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?33576")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?33839")."\"></script>";
 
 	if( getMapProvider() == BING_MAPS )
 	{
@@ -4076,29 +4546,29 @@ function xt_showchart($params)
 }
 
 function getFileUrl( $params )
-{	
+{
 	echo GetRootPathForResources($params["custom1"]);
 }
 
 function getPdfImageObject( $params )
-{	
+{
 	$imagePath = GetRootPathForResources( $params["custom1"] );
 	$imagePath = getabspath( $imagePath );
-	
+
 	$width = $params["custom2"];
 	$height = $params["custom3"];
-	
-	$content = myfile_get_contents( urldecode( $imagePath ) );
+
+	$content = myfile_get_contents_binary( urldecode( $imagePath ) );
 	$imageType = SupposeImageType( $content );
-	
+
 	if( $imageType != "image/jpeg" && $imageType != "image/png" )
 	{
 		echo '""';
 		return;
 	}
-	
+
 	echo '{
-		image: "'.jsreplace( 'data:'. $imageType. ';base64,' . base64_encode( $content ) ) . '",
+		image: "'.jsreplace( 'data:'. $imageType. ';base64,' . base64_bin2str( $content ) ) . '",
 		width: '. $width .',
 		height: '. $height .'
 	}';
@@ -4131,10 +4601,10 @@ function getHomePage()
 	{
 		if( !strlen( $globalSettings["LandingPageId"] ) )
 			return GetLocalLink( GetTableURL($globalSettings["LandingTable"]), $globalSettings["LandingPage"] );
-		
+
 		return GetLocalLink( GetTableURL($globalSettings["LandingTable"]), $globalSettings["LandingPage"], "page=".$globalSettings["LandingPageId"] );
 	}
-	
+
 	return GetLocalLink( $globalSettings["LandingPage"] );
 }
 
@@ -4392,15 +4862,44 @@ function toSet( $arr ) {
 	return $ret;
 }
 
-function pageEnabled( $tablename, $page ) {
-	global $all_page_types;
+function _loadTablePages() {
+	global $all_pages;
 
-	if( !$all_page_types ) {
-		$all_page_types = my_json_decode(myfile_get_contents( getabspath("include/pages/pagetypes.json" ), "r" ));
+	if( !$all_pages ) {
+		$all_pages = my_json_decode( myfile_get_contents( getabspath("include/pages/pages.json" ), "r" ) );
 	}
-
-	return in_array( $page, $all_page_types[ $tablename ] );
 }
+
+function pageEnabled( $tablename, $type ) {
+	global $all_pages;
+	_loadTablePages();
+
+	return isset( $all_pages[ $tablename ][ $type ] );
+}
+
+/**
+ * returns list of all table pages in format
+ * { pageType: pageId }
+ */
+function tablePages( $tablename ) {
+	global $all_pages;
+	_loadTablePages();
+
+	return $all_pages[ $tablename ];
+}
+
+/**
+ * returns list of all pages in format
+ * { table: { pageType: pageId } }
+ */
+function & allTablePages() {
+	global $all_pages;
+	_loadTablePages();
+
+	return $all_pages;
+}
+
+
 
 function isAdminPage( $table ) {
 	return $table=="admin_rights" || $table=="admin_members" || $table=="admin_admembers";
@@ -4433,43 +4932,46 @@ function getMediaType() {
 	return $mediaType;
 }
 
-function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, $searchOpt, $searchFor, $searchField = '', $detailKeys = array() ) 
+/**
+ * @param String searchField - GoodFieldName ( field )
+ */
+function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, $searchOpt, $searchFor, $searchField = '', $detailKeys = array() )
 {
 	global $cman;
-	
+
 	if( !count( $whereClauses ) )
 		$whereClauses = array();
 	$whereClauses[] = SecuritySQL( "Search", $table );
-	
+
 	$conn = $cman->byTable( $table );
 	$pSet = new ProjectSettings( $table, PAGE_SEARCH );
 	$query = $pSet->getSQLQuery();
 	$cipherer = new RunnerCipherer( $table );
-	$controls = new EditControlsContainer( null, $pSet, PAGE_LIST, $cipherer );		
-	
+	$controls = new EditControlsContainer( null, $pSet, PAGE_LIST, $cipherer );
+
 	$response = array();
-	$result = array();	
-	
+	$result = array();
+
 	// traverse all searchable fields
-	foreach( $sfields as $f ) 
+	foreach( $sfields as $f )
 	{
 		// filter fields by type
-		$fType = $pSet->getFieldType( $f );	
+		$fType = $pSet->getFieldType( $f );
 		if( !IsCharType( $fType ) && !IsNumberType( $fType ) && !IsGuid( $fType )	|| in_array( $f, $detailKeys ) )
 			continue;
 
 		if( $conn->dbType == nDATABASE_Oracle && IsTextType( $fType ) )
 			continue;
-		
+
 		if( $searchField != '' && $searchField != GoodFieldName( $f ) )
 			continue;
-			
-		$fieldControl = $controls->getControl( $f );
-		
+
+		$fieldControl = $controls->getControl( $f, 1 );
+
 		$isAggregateField = $pSet->isAggregateField( $f );
 		$where = $fieldControl->getSuggestWhere( $searchOpt, $searchFor, $isAggregateField );
 		$having = $fieldControl->getSuggestHaving( $searchOpt, $searchFor, $isAggregateField );
-			
+
 		if( !strlen( $where ) && !strlen( $having ) )
 			continue;
 
@@ -4479,10 +4981,10 @@ function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, 
 			if( IsTextType( $fType ) )
 				$distinct = "";
 		}
-		
+
 		$sql = $query->getSQLComponents();
-		$clausesData = $fieldControl->getSelectColumnsAndJoinFromPart( $searchFor, $searchOpt, true );	
-		if( 0 == strlen( $clausesData["joinFromPart"] ) ) 
+		$clausesData = $fieldControl->getSelectColumnsAndJoinFromPart( $searchFor, $searchOpt, true );
+		if( 0 == strlen( $clausesData["joinFromPart"] ) )
 		{
 			//	no hassle, just make a subquery
 
@@ -4497,33 +4999,33 @@ function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, 
 			$subQuery = SQLQuery::buildSQL( $sql, $whereClauses, array(), array( $where ), array( $having ) );
 			$strSQL = "SELECT " . $conn->addFieldWrappers("_srchfld_") . " from (" . $subQuery . ") st";
 		}
-		
+
 		$qResult = $conn->queryPage( $strSQL, 1,  $numberOfSuggests, true );
-		
+
 		// fill $response array with the field's suggest value
-		while( ( $row = $qResult->fetchNumeric() ) && count($response) < $numberOfSuggests ) 
+		while( ( $row = $qResult->fetchNumeric() ) && count($response) < $numberOfSuggests )
 		{
 			$val = $cipherer->DecryptField($f, $row[0]);
 			if( IsGuid( $fType ) )
 				$val = substr($val, 1, -1);
-			
+
 			// "_" is added to conver number type to string
 			$fieldControl->suggestValue("_".$val, $searchFor, $response, $row);
-		}		
+		}
 	}
-	
+
 	ksort( $response, SORT_STRING );
 
 	foreach( $response as $value => $realValue )
 	{
-		if( count( $result ) > $numberOfSuggests ) 
+		if( count( $result ) > $numberOfSuggests )
 			break;
-		
+
 		$strValue = $value[0] == '_' ? substr($value, 1) : $value; // .net compatibility issue
 		$strRealValue = $realValue[0] == '_' ? substr($realValue, 1) : $realValue;
-		
+
 		$pos = my_stripos($strValue, $searchFor, 0);
-		
+
 		if( $pos === FALSE )
 		{
 			$result[] = array("value" => runner_htmlspecialchars( $strValue ), "realValue" => $strRealValue);
@@ -4532,10 +5034,10 @@ function getListOfSuggests( $sfields, $table, $whereClauses, $numberOfSuggests, 
 		{
 			$highlightedValue = runner_htmlspecialchars( substr($strValue, 0, $pos) )."<b>".runner_htmlspecialchars( substr($strValue, $pos, strlen($searchFor)) )."</b>"
 				.runner_htmlspecialchars( substr($strValue, $pos + strlen($searchFor)) );
-			
+
 			$result[] = array("value" => $highlightedValue, "realValue" => $strRealValue);
 		}
-	}	
+	}
 
 	return $result;
 }
@@ -4737,7 +5239,236 @@ function getCustomMessage( $message ) {
 		return GetCustomLabel( $message["message"] );
 }
 
-function DN2Domain($dn)
+/**
+ * Returns a page the user has access to.
+ */
+function availablePage( $table, $pageType, $page = "" ) {
+	$pSet = new ProjectSettings( $table, $pageType, $page );
+	return $pSet->pageName();
+}
+
+
+function formatDateIntervalValue( $value, $intervalType )
+{
+	global $locale_info;
+
+	$tm = array();
+	$tm[0] = 0 + substr( $value, 0, 4 ); // year
+	$tm[1] = 0 + substr( $value, 4, 2 ); // month or quarter or week
+	$tm[2] = 0 + substr( $value, 6, 2 ); // day
+	$tm[3] = 0 + substr( $value, 8, 2 ); //	hour
+	$tm[4] = 0 + substr( $value, 10, 2 ); // minute
+	$tm[5] = 0;
+
+	if( !$tm[0] )
+		return "";
+
+	switch( $intervalType )
+	{
+		case 1: // DATE_INTERVAL_YEAR
+			return substr( $value, 0, 4 );
+		case 2: // DATE_INTERVAL_QUARTER
+			return $tm[0]."/Q".$tm[1];
+		case 3: // DATE_INTERVAL_MONTH
+			return @$locale_info[ "LOCALE_SABBREVMONTHNAME".$tm[1] ]." ".$tm[0];
+		case 4: // DATE_INTERVAL_WEEK
+			$dates = getDatesByWeek( $tm[1] + 1, $tm[0] );
+			return format_shortdate( db2time( $dates[0] ) ) . ' - ' . format_shortdate( db2time( $dates[1] ) );
+		case 5: // DATE_INTERVAL_DAY
+			return format_shortdate( $tm );
+		case 6: // DATE_INTERVAL_HOUR
+			$tm[4] = 0;
+			$tm[5] = 0;
+			return str_format_datetime( $tm );
+		case 7: // DATE_INTERVAL_MINUTE
+			$tm[5] = 0;
+			return str_format_datetime( $tm );
+		default:
+			return str_format_datetime( $tm );
+	}
+}
+
+
+function getDatesByWeek( $week, $year )
+{
+	global $locale_info;
+	$startweekday = 0;
+	if($locale_info["LOCALE_IFIRSTDAYOFWEEK"]>0)
+		$startweekday = 7 - $locale_info["LOCALE_IFIRSTDAYOFWEEK"];
+
+	$L = isleapyear($year) ? 1 : 0;
+	$months = array(31, 28 + $L, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+	$total_days = ($week - 1) * 7;
+	$i = 0;
+	$sum = 0;
+	while($sum <= $total_days)
+	{
+		$sum += $months[$i++];
+	}
+	$sum -= $months[$i-1];
+	$month = $i;
+	$day = $total_days - $sum;
+	$day_of_week = getdayofweek(array($year, $month, $day));
+	if ($day_of_week == 0)
+		$day_of_week = 7;
+
+	$day = $day - ($day_of_week - 1) - $startweekday;
+	$dates = array();
+	$dates[0] = getYMDdate(mktime(0,0,0, $month, $day, $year));
+	$dates[1] = getYMDdate(mktime(1,1,1, $month, $day+6, $year));
+
+	return $dates;
+}
+
+/**
+ * @return Boolean
+ */
+function pageTypeShowsData( $pageType ) {
+	return $pageType == "list"
+	  || $pageType == "report"
+	  || $pageType == "chart"
+	  || $pageType == "view"
+	  || $pageType == "export"
+	  || $pageType == "edit"
+	  || $pageType == "print"
+	  || $pageType == "rprint"
+	  || $pageType == "masterlist"
+	  || $pageType == "masterprint";
+}
+
+/**
+ * @return Boolean
+ */
+function pageTypeInputsData( $pageType ) {
+	return $pageType == "add"
+	  || $pageType == "edit"
+	  || $pageType == "search"
+	  || $pageType == "register"
+	  || $pageType == "login";
+}
+
+function base64_encode_url( $str ) {
+	return str_replace( array( '+', '/', '='), array('-', '_', ''), base64_encode( $str ) );
+}
+
+function base64_encode_url_binary( $bin ) {
+	return str_replace( array( '+', '/', '='), array('-', '_', ''), base64_encode_binary( $bin ) );
+}
+
+function base64_decode_url( $str ) {
+	//	pad with =
+	while( strlen($str) % 4 !== 0 ) {
+		$str .= "=";
+	}
+	$ret = base64_decode( str_replace( array('-', '_'), array( '+', '/' ), $str ) );
+	return $ret;
+}
+
+function base64_decode_url_binary( $str ) {
+	//	pad with =
+	while( strlen($str) % 4 !== 0 ) {
+		$str .= "=";
+	}
+	$ret = base64_decode_binary( str_replace( array('-', '_'), array( '+', '/' ), $str ) );
+	return $ret;
+}
+
+function jwt_encode( $payload, $duration = 10 ) {
+
+	if( !$payload["exp"] ) {
+		$payload["exp"] = time() + $duration;
+	}
+	$header64 = base64_encode_url( my_json_encode( array('typ' => 'JWT', 'alg' => 'HS256') ) );
+	$payload64 = base64_encode_url( my_json_encode( $payload) );
+	$signature = hash_hmac_sha256($header64 . "." . $payload64, GetGlobalData("jwtSecret"), true);
+	$base64UrlSignature = base64_encode_url_binary( $signature );
+	return $header64 . "." . $payload64 . "." . $base64UrlSignature;
+}
+
+function jwt_verify_decode( $jwt ) {
+	$parts = explode('.', $jwt);
+	if( count( $parts) != 3 )
+		return false;
+	$signature = base64_decode_url_binary( $parts[2] );
+	if( hash_hmac_sha256( $parts[0] . "." . $parts[1], GetGlobalData("jwtSecret"), true ) !== $signature )
+		return false;
+	$ret = my_json_decode( base64_decode_url( $parts[1] ) );
+	if( !is_array( $ret ) )
+		return false;
+	if( !$ret[ "exp" ] || $ret[ "exp" ] <= time() )
+		return false;
+	return $ret;
+}
+
+/**
+ * returns http or https
+ */
+function request_protocol() {
+	return $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off"
+		? 'https'
+		: 'http';
+}
+
+/**
+ * Project base URL
+ * Ends with /
+ * May return empty string if server doesn't report it
+ * @return string
+ */
+function projectURL() {
+	return request_protocol() . "://" . $_SERVER['HTTP_HOST'] . projectPath();
+}
+
+function setProjectCookie( $name, $value, $expires = 0, $httpOnly = false) {
+	setcookie( $name, $value, $expires, projectPath(), "", false, $httpOnly );
+}
+
+/**
+ * Returns image data usl for PNG and JPG files
+ * false otherwise
+ */
+function imageDataUrl( $image ) {
+	$imageType = SupposeImageType( $image );
+	if( $imageType == "image/jpeg" || $imageType == "image/png" ) {
+		return 'data:'. $imageType. ';base64,' . base64_bin2str( $image );
+	}
+	return false;
+
+}
+
+function ldap_getUrl( $address ) {
+	if( strpos( $address , "://" ) !== false ) {
+		return $address;
+	}
+	return "ldap://" . $address;
+}
+
+function ldap_getServer( $address ) {
+	$pos = strpos( $address , "://" );
+	if( $pos !== false ) {
+		return substr( $address, $pos + 3 );
+	}
+	return $address;
+}
+
+/**
+ * Convert domain name test.xlinesoft.com
+ * return DC=test,DC=xlinesoft,DC=com
+ */
+function ldap_Domain2DN( $aDomain )
+{
+	if( strpos( $aDomain, "=" ) !== FALSE ) {
+		return $aDomain;
+	}
+	$arrDomain = explode(".", $aDomain);
+	for ($i = 0; $i < sizeof($arrDomain); $i++)
+	{
+		$arrDomain[$i] = "dc=".$arrDomain[$i];
+	}
+	return implode(',', $arrDomain);
+}
+
+function ldap_DN2Domain($dn)
 {
 	if( strpos( $dn, "=" ) === FALSE ) {
 		return $dn;
@@ -4751,4 +5482,14 @@ function DN2Domain($dn)
 	return implode('.', $dom);
 }
 
+function ldap_factory() {
+	return new RunnerLdap( 
+		GetGlobalData( "ADDomain", "" ), 
+		GetGlobalData( "ADServer", null ), 
+		GetGlobalData( "customLDAP", false ), 
+		GetGlobalData( "ADBaseDN", "" ),
+		GetGlobalData( "ADFollowRefs",false ) 
+	);
+}
+	
 ?>

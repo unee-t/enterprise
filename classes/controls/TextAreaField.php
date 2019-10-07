@@ -26,8 +26,18 @@ class TextAreaField extends TextControl
 				.$this->cfield."\" ".(($mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD) && $this->is508==true ? "alt=\""
 				.$this->strLabel."\" " : "")."name=\"".$this->cfield."\" title=\"Basic rich text editor\" style='";
 			echo "width: 100%; min-width:480px; height: " . ($nHeight+100) . "px;'";
-			echo " src=\"".GetTableLink("rte", "", "ptype=".$this->pageObject->pageType."&table=".GetTableURL($this->pageObject->tName)."&"."id="
-				.$this->id."&".$this->iquery.$browser."&".($mode==MODE_ADD || $mode==MODE_INLINE_ADD ? "action=add" : ''))."\">";
+			echo " src=\"".
+				GetTableLink(
+					"rte", 
+					"", 
+					"ptype=".$this->pageObject->pageType.
+						"&page=".$this->pageObject->pageName.
+						"&table=".GetTableURL($this->pageObject->tName).
+						"&id=".$this->id.
+						"&".$this->iquery.$browser.
+						"&".($mode==MODE_ADD || $mode==MODE_INLINE_ADD ? "action=add" : '')
+					).
+				"\">";
 			echo "</iframe>";
 		}
 		else

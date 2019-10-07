@@ -4,9 +4,9 @@
 				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{$pagetitle}</title>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -54,8 +54,8 @@
 							 
 													</nav>
 {END supertop_block}
-				</div>	
-			
+					{$locking}
+			</div>	
 			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
 				<div class="r-top">
 								{BEGIN top_block}
@@ -135,7 +135,6 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
@@ -168,6 +167,106 @@
 </div>
 
 {END country_fieldblock}
+											
+{BEGIN count_L1P_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_count_L1P}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="count_L1P" 
+	
+	data-signal-error-for="count_L1P{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="count_L1P" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_count_L1P}">
+		{$label All_Properties_by_Countries count_L1P }	</label>
+	<div class="r-search-option">
+		{$searchtype_count_L1P}
+	</div>
+	<div class="r-search-field">
+		{$count_L1P_editcontrol}	</div>
+	<div class="r-search-field">
+		{$count_L1P_editcontrol1}
+	</div>
+	
+</div>
+
+{END count_L1P_fieldblock}
+											
+{BEGIN count_L2P_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_count_L2P}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="count_L2P" 
+	
+	data-signal-error-for="count_L2P{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="count_L2P" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_count_L2P}">
+		{$label All_Properties_by_Countries count_L2P }	</label>
+	<div class="r-search-option">
+		{$searchtype_count_L2P}
+	</div>
+	<div class="r-search-field">
+		{$count_L2P_editcontrol}	</div>
+	<div class="r-search-field">
+		{$count_L2P_editcontrol1}
+	</div>
+	
+</div>
+
+{END count_L2P_fieldblock}
+											
+{BEGIN count_L3P_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_count_L3P}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="count_L3P" 
+	
+	data-signal-error-for="count_L3P{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="count_L3P" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_count_L3P}">
+		{$label All_Properties_by_Countries count_L3P }	</label>
+	<div class="r-search-option">
+		{$searchtype_count_L3P}
+	</div>
+	<div class="r-search-field">
+		{$count_L3P_editcontrol}	</div>
+	<div class="r-search-field">
+		{$count_L3P_editcontrol1}
+	</div>
+	
+</div>
+
+{END count_L3P_fieldblock}
+											
+{BEGIN total_non_obsolete_properties_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_total_non_obsolete_properties}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="total_non_obsolete_properties" 
+	
+	data-signal-error-for="total_non_obsolete_properties{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="total_non_obsolete_properties" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_total_non_obsolete_properties}">
+		{$label All_Properties_by_Countries total_non_obsolete_properties }	</label>
+	<div class="r-search-option">
+		{$searchtype_total_non_obsolete_properties}
+	</div>
+	<div class="r-search-field">
+		{$total_non_obsolete_properties_editcontrol}	</div>
+	<div class="r-search-field">
+		{$total_non_obsolete_properties_editcontrol1}
+	</div>
+	
+</div>
+
+{END total_non_obsolete_properties_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

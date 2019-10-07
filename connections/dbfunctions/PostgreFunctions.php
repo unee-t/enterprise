@@ -143,5 +143,34 @@ class PostgreFunctions extends DBFunctions
 		return $connection->query( $strSQL );
 	}
 
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstring( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		if($interval == 1) // DATE_INTERVAL_YEAR
+			return "date_part('year',".$expr.")*10000+0101";
+		if($interval == 2) // DATE_INTERVAL_QUARTER
+			return "date_part('year',".$expr.")*10000+date_part('quarter',".$expr.")*100+1";
+		if($interval == 3) // DATE_INTERVAL_MONTH
+			return "date_part('year',".$expr.")*10000+date_part('month',".$expr.")*100+1";
+		if($interval == 4) // DATE_INTERVAL_WEEK
+			return "date_part('year',".$expr.")*10000+(date_part('week',".$expr.")-1)*100+01";
+		if($interval == 5) // DATE_INTERVAL_DAY
+			return "date_part('year',".$expr.")*10000+date_part('month',".$expr.")*100+date_part('days',".$expr.")";
+		if($interval == 6) // DATE_INTERVAL_HOUR
+			return "date_part('year',".$expr.")*1000000+date_part('month',".$expr.")*10000+date_part('days',".$expr.")*100+date_part('hour',".$expr.")";
+		if($interval == 7) // DATE_INTERVAL_MINUTE
+			return "date_part('year',".$expr.")*100000000+date_part('month',".$expr.")*1000000+date_part('days',".$expr.")*10000+date_part('hour',".$expr.")*100+date_part('minute',".$expr.")";
+		return $expr;
+	}
+
 }
 ?>

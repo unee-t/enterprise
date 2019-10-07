@@ -8,7 +8,7 @@ class ViewVideoFileField extends ViewFileField
 	 */
 	public function addJSFiles()
 	{
-				$this->AddJSFile("include/video/projekktor.js");
+		$this->AddJSFile("include/video/projekktor.js");
 		$this->getJSControl();
 	}
 

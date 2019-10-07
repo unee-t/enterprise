@@ -285,5 +285,68 @@ class DBFunctions
 		$qResult->seekPage( $pageSize, $pageStart );
 		return $qResult;
 	}
+	
+	/**
+	 * Applies group type to a character expression.
+	 * <SQL expression> => substring(<SQL expression>, 0, N )
+	 * @param String expr - SQL expression
+	 * @param Integer interval - type of interval. 
+	 * 	0 - whole expression, 1 first character, 2 - first two chars etc
+	 * @return String
+	 */
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		//	default implementation
+		return $expr;
+	}
+
+	/**
+	 * Applies group type to a numeric expression.
+	 * @param String expr - SQL expression
+	 * @param Integer interval - type of interval. 
+	 * @return String
+	 */
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		//	default implementation
+		return $expr;
+	}
+
+	/**
+	 * Applies group type to a DATE expression.
+	 * @param String expr - SQL expression
+	 * @param Integer interval - type of interval. 
+	 * @return String
+	 */
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		//	default implementation
+		return $expr;
+	}
+
+	public static function intervalExprLeft( $expr, $interval ) {
+		if( !$interval )
+			return $expr;
+		return "left(" . $expr . ", " . $interval . ")";
+	}
+
+	public static function intervalExprSubstr( $expr, $interval ) {
+		if( !$interval )
+			return $expr;
+		return "substr(" . $expr . ", 1, " . $interval . ")";
+	}
+
+	public static function intervalExprSubstring( $expr, $interval ) {
+		if( !$interval )
+			return $expr;
+		return "substring(" . $expr . " from 1 for " . $interval . ")";
+	}
+
+	public static function intervalExprFloor( $expr, $interval ) {
+		if( !$interval )
+			return $expr;
+		return "floor( " . $expr . " / " . $interval . " ) * ".$interval;
+	}
+
 }
 ?>

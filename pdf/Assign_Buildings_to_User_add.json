@@ -1,0 +1,457 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Assign_Buildings_to_User add}","hidden":"{$item_hide_add_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_add_message}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								
+		[
+												
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_breadcrumb}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+												{BEGIN col_grid_1}
+						"*", 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"*", 
+							{END col_grid_2}
+					 ],	
+		
+		body: [
+				
+					{BEGIN row_grid_0}
+				
+		[
+												{BEGIN cellblock_grid_c5}
+
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c5}
+			colSpan: {$colspan_grid_c5},
+			{END colspan_grid_c5}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c5}
+																			{ 
+					cellId: 'c5',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c5',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+							],
+				{END row_grid_0}
+								{BEGIN row_grid_1}
+				
+		[
+												{BEGIN cellblock_grid_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel Assign_Buildings_to_User unee_t_role_id }","bold":true},{"text":{$unee_t_role_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c3}
+																			{BEGIN cellblock_grid_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Assign_Buildings_to_User unee_t_user_type_id }","bold":true},{"text":{$unee_t_user_type_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c4}
+																			{BEGIN cellblock_grid_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Assign_Buildings_to_User unee_t_mefe_user_id }","bold":true},{"text":{$unee_t_mefe_user_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c}
+											],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c6}
+
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Assign_Buildings_to_User propagate_level_2 }","bold":true},{"text":{$propagate_level_2_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_grid_c6}
+																			{BEGIN cellblock_grid_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c8}
+			colSpan: {$colspan_grid_c8},
+			{END colspan_grid_c8}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Assign_Buildings_to_User propagate_level_3 }","bold":true},{"text":{$propagate_level_3_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_grid_c8}
+																			{ 
+					cellId: 'c8',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+							],
+				{END row_grid_2}
+								{BEGIN row_grid_3}
+				
+		[
+												{BEGIN cellblock_grid_c7}
+
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c7}
+			colSpan: {$colspan_grid_c7},
+			{END colspan_grid_c7}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Assign_Buildings_to_User unee_t_level_1_id }","bold":true},{"text":{$unee_t_level_1_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c7}
+																			{ 
+					cellId: 'c7',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c7',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+							],
+				{END row_grid_3}
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":"","hidden":"{$item_hide_add_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_add_cancel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+			]
+}
+  

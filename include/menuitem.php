@@ -656,11 +656,7 @@ class MenuItem
 			else 
 			{
 				$attrs["class"] = "dropdown-toggle";
-				if( $this->isDrillDown() )
-					$attrs["data-toggle"] = "dropdown";
-				else {
-					$attrs["data-toggle"] = "nested-dropdown";
-				}
+				$attrs["data-toggle"] = "nested-dropdown";
 				$attrs["aria-haspopup"] = "true";
 				$attrs["aria-expanded"] = "false";
 			}
@@ -971,9 +967,5 @@ class MenuItem
 		return MENU_VERTICAL == $this->menuMode && ProjectSettings::isMenuTreelike( $this->menuId );
 	}
 
-	function isDrillDown() 
-	{
-		return !$this->isWelcome() && !$this->isTreelike() && ProjectSettings::isMenuDrillDown( $this->menuId );
-	}
 }
 ?>

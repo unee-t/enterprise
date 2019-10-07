@@ -2,18 +2,16 @@
 
 
 
-
 $tdataproperty_groups_countries = array();
 $tdataproperty_groups_countries[".searchableFields"] = array();
-	$tdataproperty_groups_countries[".truncateText"] = true;
-	$tdataproperty_groups_countries[".NumberOfChars"] = 80;
-	$tdataproperty_groups_countries[".ShortName"] = "property_groups_countries";
-	$tdataproperty_groups_countries[".OwnerID"] = "";
-	$tdataproperty_groups_countries[".OriginalTable"] = "property_groups_countries";
+$tdataproperty_groups_countries[".ShortName"] = "property_groups_countries";
+$tdataproperty_groups_countries[".OwnerID"] = "";
+$tdataproperty_groups_countries[".OriginalTable"] = "property_groups_countries";
 
 
 $defaultPages = my_json_decode( "{}" );
 
+$tdataproperty_groups_countries[".pagesByType"] = my_json_decode( "{}" );
 $tdataproperty_groups_countries[".pages"] = types2pages( my_json_decode( "{}" ) );
 $tdataproperty_groups_countries[".defaultPages"] = $defaultPages;
 
@@ -212,9 +210,6 @@ $tdataproperty_groups_countries[".nPrinterPageScale"] = 100;
 
 $tdataproperty_groups_countries[".nPrinterSplitRecords"] = 40;
 
-$tdataproperty_groups_countries[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataproperty_groups_countries[".geocodingEnabled"] = false;
 
 
@@ -334,6 +329,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -359,6 +356,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -413,7 +411,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -465,6 +466,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -489,6 +492,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -542,7 +546,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -594,6 +601,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -618,6 +627,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -671,7 +681,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -723,6 +736,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -747,6 +762,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -800,7 +816,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -852,6 +871,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -876,6 +897,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -929,7 +951,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -981,6 +1006,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1005,6 +1032,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1058,7 +1086,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1110,6 +1141,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1134,6 +1167,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1187,7 +1221,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1239,6 +1276,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1263,6 +1302,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1316,7 +1356,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1368,6 +1411,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1392,6 +1437,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1445,7 +1491,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1497,6 +1546,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1521,6 +1572,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1574,7 +1626,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1626,6 +1681,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1650,6 +1707,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1703,7 +1761,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1755,6 +1816,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1779,6 +1842,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1832,7 +1896,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1884,6 +1951,8 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1908,6 +1977,7 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1961,7 +2031,10 @@ $tdataproperty_groups_countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

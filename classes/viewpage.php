@@ -147,8 +147,8 @@ class ViewPage extends RunnerPage
 			$sql["mandatoryHaving"] = array();
 			$sql["mandatoryWhere"] = array();
 			
-			$sql["mandatoryWhere"][] = KeyWhere( $this->keys );
-			$sql["mandatoryWhere"][] = $this->SecuritySQL("Search", $this->tName);
+			$sql["mandatoryWhere"][] = KeyWhere( $this->keys, $this->tName );
+			$sql["mandatoryWhere"][] = $this->SecuritySQL("Search" );
 		}
 
 		$strSQL = SQLQuery::buildSQL( $sql["sqlParts"], $sql["mandatoryWhere"], $sql["mandatoryHaving"], $sql["optionalWhere"], $sql["optionalHaving"] );
@@ -350,6 +350,7 @@ class ViewPage extends RunnerPage
 		}	
 		if( $this->mode == VIEW_PDFJSON )
 		{
+			$this->preparePDFBackground();
 			$this->xt->displayJSON($this->templatefile);
 			return;
 		}
@@ -426,6 +427,8 @@ class ViewPage extends RunnerPage
 		$viewFields = $this->pSet->getViewFields();
 		$data = $this->getCurrentRecordInternal();
 		
+		RunnerContext::pushRecordContext( $data, $this );
+		
 		foreach($this->pSet->getTableKeys() as $i=>$kf)
 		{
 			$keyParams[] = "&key".($i + 1)."=".runner_htmlspecialchars( rawurlencode(@$data[ $kf ]) );
@@ -453,6 +456,8 @@ class ViewPage extends RunnerPage
 				$this->xt->assign( GoodFieldName($f) . "_fieldblock", false );
 			}
 		}
+		
+		RunnerContext::pop();
 	}
 	
 	/**
@@ -553,7 +558,7 @@ class ViewPage extends RunnerPage
 		if( $this->editAvailable() )
 		{
 			$data = $this->getCurrentRecordInternal();
-			$editable = CheckSecurity($data[ $this->pSet->getTableOwnerID() ], "Edit");
+			$editable = Security::userCan( 'E', $this->tName, $data[ $this->pSet->getTableOwnerID() ] );
 			
 			if( $globalEvents->exists("IsRecordEditable", $this->tName) )
 				$editable = $globalEvents->IsRecordEditable($this->getCurrentRecordInternal(), $editable, $this->tName);
@@ -629,7 +634,7 @@ class ViewPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 		
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search" );
 		
 		return $sql;
 	}

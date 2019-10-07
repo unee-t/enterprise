@@ -34,11 +34,8 @@ $params["var_pUsername"] = postvalue("username");
 $params["var_pPassword"] = postvalue("password");
 $params["redirectAfterLogin"] = postvalue("return");
  
- 
- 
 
 $params["tName"] = GLOBAL_PAGES;
-
  
 $pageObject = new LoginPage( $params ); 
 $pageObject->init();

@@ -10,8 +10,17 @@ class RightsPage extends ListPage
 	 * @var array
 	 */
 	var $tables = array();
+	
 	/**
-	 * Array of non all possible permission masks
+	 * Array of all pages
+	 *
+	 * @var array
+	 */
+	var $pages = array();
+
+	/**
+	 * Array of non all possible permission masks for tables
+	 * { "<table>": "<mask>" }
 	 *
 	 * @var array
 	 */
@@ -22,6 +31,12 @@ class RightsPage extends ListPage
 	 * @var array
 	 */
 	var $rights = array();
+	/**
+	 * Array of page-level restrictions
+	 *
+	 * @var array
+	 */
+	var $pageRestrictions = array();
 	/**
 	 * Array with groups data from DB
 	 *
@@ -84,6 +99,20 @@ class RightsPage extends ListPage
 		$this->sortTables();
 
 		$this->fillGroupsArr();
+
+		$this->fillPagesArr();
+	}
+
+	function fillPagesArr() {
+		$pages = allTablePages();
+		foreach( $pages as $table => $_tablePages ) {
+			$this->pages[ $table ] = array();
+			foreach( $pages[ $table ] as $pageType => $pageIds ) {
+				foreach( $pageIds as $p ) {
+					$this->pages[ $table ][$p] = Security::pageType2permission( $pageType );
+				}
+			}
+		}
 	}
 
 	/**
@@ -98,8 +127,12 @@ class RightsPage extends ListPage
 		$this->groups[-2] = "<"."Default".">";
 		$this->groups[-3] = "<"."Guest".">";
 
-		$sql = "select ". $grConnection->addFieldWrappers( "GroupID" ) .", ". $grConnection->addFieldWrappers( "Label" )
-			." from ". $grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) ." order by ". $grConnection->addFieldWrappers( "Label" );
+		$sql = "select ". 
+			$grConnection->addFieldWrappers( "GroupID" ) .", ". 
+			$grConnection->addFieldWrappers( "Label" ) 
+			." from ". 
+			$grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) .
+			" order by ". $grConnection->addFieldWrappers( "Label" );
 
 		$qResult = $grConnection->query( $sql );
 		while( $tdata = $qResult->fetchNumeric() )
@@ -139,6 +172,7 @@ class RightsPage extends ListPage
 		$sql = "select ". $this->connection->addFieldWrappers( "GroupID" )
 			.", ". $this->connection->addFieldWrappers( "TableName" )
 			.", ". $this->connection->addFieldWrappers( "AccessMask" )
+			.", ". $this->connection->addFieldWrappers( "Page" )
 			." from ". $this->connection->addTableWrappers( "uneet_enterprise_ugrights" )
 			." order by ". $this->connection->addFieldWrappers( "GroupID" );
 
@@ -148,6 +182,11 @@ class RightsPage extends ListPage
 			$group = $tdata[0];
 			$table = $tdata[1];
 			$mask = $tdata[2];
+			$strPages = $tdata[3];
+
+			$pages = array();
+			if( $strPages )
+				$pages = my_json_decode( $strPages );
 
 			// check whether the table exists in the project
 			if( !isset($this->tables[ $table ]) )
@@ -158,10 +197,13 @@ class RightsPage extends ListPage
 				continue;
 
 			//	add permissions
-			if( !isset($this->rights[ $table ]) )
+			if( !isset($this->rights[ $table ]) ) {
 				$this->rights[ $table ] = array();
-
+				$this->pageRestrictions[ $table ] = array();
+			}
 			$this->rights[ $table ][ $group ] = $this->fixMask($mask, $this->pageMasks[ $table ]);
+			if( $pages )
+				$this->pageRestrictions[ $table ][ $group ] = $pages;
 		}
 	}
 
@@ -172,8 +214,10 @@ class RightsPage extends ListPage
 	{
 		$this->jsSettings['tableSettings'][$this->tName]['warnOnLeaving'] = true;
 		$this->jsSettings['tableSettings'][$this->tName]['rights'] = $this->rights;
+		$this->jsSettings['tableSettings'][$this->tName]['pageRestrictions'] = $this->pageRestrictions;
 		$this->jsSettings['tableSettings'][$this->tName]['groups'] = $this->groups;
 		$this->jsSettings['tableSettings'][$this->tName]['tables'] = $this->tables;
+		$this->jsSettings['tableSettings'][$this->tName]['allPages'] = $this->pages;
 		$this->jsSettings['tableSettings'][$this->tName]['pageMasks'] = $this->pageMasks;
 		$this->jsSettings['tableSettings'][$this->tName]['menuOrderedTables'] = $this->menuOrderedTables;
 		$this->jsSettings['tableSettings'][$this->tName]['alphaOrderedTables'] = $this->alphaOrderedTables;
@@ -218,8 +262,7 @@ class RightsPage extends ListPage
 		if ($this->createLoginPage)
 			$this->xt->assign("userid", runner_htmlspecialchars($_SESSION["UserID"]));
 			
-		$this->hideElement("message");
-		
+		$this->hideElement("message");	
 	}
 
 	function getBreadcrumbMenuId() {
@@ -332,10 +375,30 @@ class RightsPage extends ListPage
 		$editlink = "";
 		$copylink = "";
 		$parentStack = array();
+		
+		$hasGroupsToExpand = false;
+		
 		foreach($this->menuOrderedTables as $idx => $tbl)
 		{
 			$table = @$tbl["table"];
 			$parent = @$tbl["parent"];
+
+			// update menu structure
+			if(!isset($parent))
+			{
+				$parentStack = array();
+			}
+			else
+			{
+				$stackPos = array_search( $parent, $parentStack );
+				if( $stackPos === FALSE )
+					$parentStack[] = $parent;
+				else
+				{
+					$parentStack = array_slice( $parentStack, 0, $stackPos + 1);
+				}
+			}
+
 			if( strlen($table) )
 			{
 				$caption = $this->tables[$table][1];
@@ -346,7 +409,7 @@ class RightsPage extends ListPage
 				else
 					$row["tablename"] = "<span dir='LTR'>".runner_htmlspecialchars($caption)."&nbsp;(".runner_htmlspecialchars($table).")</span>";
 
-				$row["tablerowattrs"] = " id=\"row_".$shortTable."\"";
+				$row["table_row_attrs"] = " id=\"row_".$shortTable."\"";
 				$row["tablecheckbox_attrs"]= "id=\"rowbox".$shortTable."\" data-table=\"".$shortTable."\" data-checked=0";
 				$row["tbl_cell"] = " id=\"tblcell".$shortTable."\"";
 
@@ -360,6 +423,11 @@ class RightsPage extends ListPage
 					$row[$perm."_checkbox"] = " id=\"box".$perm.$shortTable."\" data-checked=0";
 					$row[$perm."_cell"] = " id=\"cell".$perm.$shortTable."\"";
 				}
+
+				$row["hide_pages_attrs"] .= 'data-hide-pages data-hidden data-table="'.$shortTable.'"';
+				$row["show_pages_attrs"] .= 'data-show-pages data-table="'.$shortTable.'"';
+				$this->fillPageRows( $table, $shortTable, $row, count( $parentStack ) );
+
 			}
 			else
 			{
@@ -368,30 +436,19 @@ class RightsPage extends ListPage
 				$row["tablename"] = runner_htmlspecialchars($title);
 
 				$row["tablecheckbox_attrs"]= " data-checked=-2";
-				$row["tablerowattrs"] = " id=\"grouprow_".$idx."\"";
+				$row["table_row_attrs"] = " id=\"grouprow_".$idx."\"";
+				$row["hide_pages_attrs"] .= 'data-hidden';
+				$row["show_pages_attrs"] .= 'data-hidden';
 			}
-			if(!isset($parent))
-			{
-			//	clear stack
-				$parentStack = array();
-			}
-			else
-			{
-				$stackPos = array_search( $parent, $parentStack );
-				if( $stackPos === FALSE )
-					$parentStack[] = $parent;
-				else
-				{
-					$parentStack = array_slice( $parentStack, 0, $stackPos + 1);
-				}
-				$row["tblrowclass"] .= "rightsindent" . count($parentStack);
-			}
+			if( $parent )	
+				$row["table_row_attrs"] .= ' data-level="' . count($parentStack) . '"';
 
 			$childrenCount = $this->getItemsCount($idx);
 			if( isset($tbl["items"]) && $childrenCount )
 			{
+				$hasGroupsToExpand = true;
 				$row["tablename"] .= "<span class='tablecount' dir='LTR'>&nbsp;(".$this->getItemsCount($idx).")</span>";
-				$row["tablerowattrs"] .= " data-groupid=\"".$idx."\"";
+				$row["table_row_attrs"] .= " data-groupid=\"".$idx."\"";
 				$row["groupControl"] = true;
 				$row["groupControlState"] = " data-state='closed'";
 				$row["groupControlClass"] = " data-state='closed'";
@@ -411,11 +468,43 @@ class RightsPage extends ListPage
 			// hide second-level tables initially
 			if($parent)
 			{
-				$row["tablerowattrs"] .= " style='display:none;'";
+				$row["table_row_attrs"] .= " style='display:none;' data-ingroup='true' ";
 			}
 
 			$rowInfoArr[] = $row;
 		}
+		
+		if ( !$hasGroupsToExpand ) 
+			$this->hideItemType("rights_expand_all");
+	}
+
+	function fillPageRows($table, $shortTable, &$row, $level ) {
+		$allPages = tablePages( $table );
+		$pages = array();
+		foreach( $allPages as $ptype => $pids ) {
+			foreach( $allPages[$ptype] as $p ) {
+				$pages[$p] = $ptype;
+			}
+		}
+		// second param for ASP
+		ksort( $pages, SORT_STRING );
+
+		$pageRows = array();
+		foreach( $pages as $pageId => $pageType ) {
+			$pageRow = array();
+			
+			$perm = Security::pageType2permission( $pageType );
+			$pageRow[$perm."_pagebox"] = true;
+			$pageRow["pagebox"] = true;
+			$pageRow[$perm."_pagecheckbox"] = " data-table=\"".$shortTable."\" data-page=\"".$pageId."\" id=\"pagebox".$perm.$shortTable.'_'.$pageId."\" data-checked=0";
+			$pageRow["pagecheckbox"] = "data-permission=\"".$perm."\" data-table=\"".$shortTable."\" data-page=\"".$pageId."\" id=\"wholepagebox_".$shortTable.'_'.$pageId."\" data-checked=0";
+			$pageRow[$perm."_cell"] = " id=\"pagecell".$perm.$shortTable.'_'.$pageId."\"";
+			$pageRow["rights_page"] = runner_htmlspecialchars($pageId);
+			$pageRow["page_row_attrs"] = 'data-hidden data-table="'.$shortTable.'" data-page="'.$pageId.'" data-level="'.$level.'"';
+			$pageRows[] = $pageRow;
+		}
+
+		$row["page_row"] = array("data" => &$pageRows );
 	}
 
 	/**
@@ -512,9 +601,9 @@ class RightsPage extends ListPage
 	{
 		foreach($modifiedRights as $group => $rights)
 		{
-			foreach($modifiedRights[$group] as $table => $mask)
+			foreach($modifiedRights[$group] as $table => $tableRights)
 			{
-				$this->updateTablePermissions($table, $group, $mask);
+				$this->updateTablePermissions( $table, $group, $tableRights );
 			}
 		}
 		echo my_json_encode(array( 'success' => true ));
@@ -525,16 +614,27 @@ class RightsPage extends ListPage
 	 * This is required when using the same permission tables in several projects
 	 * @param String table
 	 * @param Number group
-	 * @param String mask
+	 * @param Array tableRights array( 
+	 * 						"permissions" => "<mask>",
+	 * 						"pages" => array( <restricted pages> => true )
+	 * 					)
 	 */
-	function updateTablePermissions( $table, $group, $mask )
+	function updateTablePermissions( $table, $group, $tableRights )
 	{
+		$mask = $tableRights["permissions"];
 		$rightWTableName = $this->connection->addTableWrappers( "uneet_enterprise_ugrights" );
 		$accessMaskWFieldName = $this->connection->addFieldWrappers( "AccessMask" );
 		$groupisWFieldName = $this->connection->addFieldWrappers( "GroupID" );
+		$pageWFieldName = $this->connection->addFieldWrappers( "Page" );
 		$tableNameWFieldName = $this->connection->addFieldWrappers( "TableName" );
-		$groupWhere = $groupisWFieldName."=". $group ." and ". $tableNameWFieldName ."=". $this->connection->prepareString( $table );
+		$groupWhere = $groupisWFieldName."=". $group 
+			." and ". $tableNameWFieldName ."=". $this->connection->prepareString( $table );
 
+		$strPages = "";
+		$pages = $tableRights["pages"];
+		if( $pages ) {
+			$strPages = my_json_encode( $pages );
+		}
 		// It's expected that $this->tName is equal to 'admin_right' so the page's db connection is used #9875
 		$sql = "select ". $accessMaskWFieldName ." from ". $rightWTableName. "where" . $groupWhere;
 		// select rights from the database
@@ -564,7 +664,11 @@ class RightsPage extends ListPage
 			if( strlen($mask) )
 			{
 				//	update the table name as well to address table renaming ( uppercase/lowercase ) issues
-				$sql = "update ". $rightWTableName ." set ". $accessMaskWFieldName ."='". $mask ."',".$tableNameWFieldName."=".$this->connection->prepareString( $table )." where ". $groupWhere;
+				$sql = "update ". $rightWTableName ." set ". 
+					$accessMaskWFieldName ."='". $mask ."',".
+					$tableNameWFieldName."=".$this->connection->prepareString( $table ).
+					"," . $pageWFieldName . "=" . $this->connection->prepareString( $strPages ).
+					" where ". $groupWhere;
 			}
 			else
 				$sql = "delete from ". $rightWTableName	." where ". $groupWhere;
@@ -575,8 +679,10 @@ class RightsPage extends ListPage
 			if( !strlen($mask) )
 				return;
 
-			$sql = "insert into ". $rightWTableName ." (". $groupisWFieldName .", ".$tableNameWFieldName.", ". $accessMaskWFieldName .")"
-				." values (". $group .", ".$this->connection->prepareString( $table ).", '". $mask ."')";
+			$sql = "insert into ". $rightWTableName .
+				" (". $groupisWFieldName .", ".$tableNameWFieldName.", ". $accessMaskWFieldName. ", ". $pageWFieldName .")"
+				." values (". $group .", ".$this->connection->prepareString( $table ).", '". $mask ."', "
+					.$this->connection->prepareString( $strPages ).")";
 		}
 
 		$this->connection->exec( $sql );
@@ -591,4 +697,5 @@ function rightsSortFunc($a, $b)
 		return -1;
 	return 1;
 }
+
 ?>

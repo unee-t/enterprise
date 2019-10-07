@@ -132,6 +132,8 @@ class FilterIntervalSlider extends FilterControl
 	 */
 	protected function buildControl( $data, $parentFiltersData = array() )
 	{
+		if( !$this->viewControl )
+			return "";
 		$this->minValue = $data['sliderMin'];
 		$this->maxValue = $data['sliderMax'];
 		
@@ -227,6 +229,8 @@ class FilterIntervalSlider extends FilterControl
 	 */
 	public function addFilterControlToControlsMap($pageObj)
 	{
+		if( !$this->viewControl )
+			return;
 		$ctrlsMap = $this->getBaseContolsMapParams();
 		
 		$ctrlsMap['minValue'] = $this->minValue;

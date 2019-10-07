@@ -126,6 +126,13 @@ class ProjectSettings
 		return $this->_page;
 	}
 
+	/**
+	 * Return table where the page belongs. <global> for Login, Register page desite table==usersTable
+	 */
+	function pageTable() {
+		return $this->_auxTable;
+	}
+
 	function getDefaultViewPageType($tableType)
 	{
 		if($tableType == PAGE_CHART || $tableType == PAGE_REPORT)
@@ -163,10 +170,12 @@ class ProjectSettings
 	}
 
 	function getDefaultPages() {
+		$this->updatePages();
 		return $this->getAuxTableData(".defaultPages");
 	}
 
 	function getDefaultPage( $type, $pageTable = "" ) {
+		$this->updatePages();
 		if( isAdminPage( $this->_auxTable ) )
 			return $this->_pageType;
 		$defPages =& $this->getAuxTableData(".defaultPages");
@@ -177,6 +186,7 @@ class ProjectSettings
 	}
 
 	function getPageIds() {
+		$this->updatePages();
 		$ret = $this->getAuxTableData(".pages");
 		if( !is_array( $ret ) )
 			return array();
@@ -972,8 +982,23 @@ class ProjectSettings
 		if( !$gridFields )
 			return false;
 
-		return array_search( $field, $gridFields ) !== FALSE;
+		$ret = ( array_search( $field, $gridFields ) !== FALSE );
+		if( !$ret ) {
+			if( $this->getPageType() === 'report' || $this->getPageType() === 'rprint' )
+				return array_search( $field, $this->getReportGroupFields() );
+		}
+		return $ret;
 	}
+
+	function appearOnSearchPanel($field)
+	{
+		$fields = &$this->getPageOption("fields", "searchPanelFields");
+		if( !$fields )
+			return false;
+
+		return array_search( $field, $fields ) !== FALSE;
+	}
+
 
 	function appearAlwaysOnSearchPanel( $field ) {
 		$fields  = &$this->getPageOption("listSearch", "alwaysOnPanelFields");
@@ -981,7 +1006,7 @@ class ProjectSettings
 			return false;
 
 		return array_search( $field, $fields ) !== FALSE;
-	
+
 	}
 
 	function getPageFields()
@@ -1249,7 +1274,7 @@ class ProjectSettings
 	}
 */
 
-	function getAllPageFields() 
+	function getAllPageFields()
 	{
 		return array_merge( $this->getPageFields(), $this->getAllSearchFields() );
 	}
@@ -1331,7 +1356,7 @@ class ProjectSettings
 
 	function isAddPageEvents()
 	{
-		return $this->getTableData(".addPageEvents");
+		return $this->getAuxTableData(".addPageEvents");
 	}
 
 	function hasAjaxSnippet()
@@ -1341,7 +1366,12 @@ class ProjectSettings
 
 	function hasButtonsAdded()
 	{
-		return $this->getTableData(".buttonsAdded");
+		return $this->getPageOption("page", "hasCustomButtons");
+	}
+
+	function customButtons()
+	{
+		return $this->getPageOption("page", "customButtons");
 	}
 
 	function isUseFieldsMaps()
@@ -1455,6 +1485,11 @@ class ProjectSettings
 		return $this->getFieldData($field, "acceptFileTypes");
 	}
 
+	function getAcceptFileTypesHtml($field)
+	{
+		return $this->getFieldData($field, "acceptFileTypesHtml");
+	}
+
 	/**
 	 * Get maximum allowed size for uploaded files
 	 */
@@ -1538,17 +1573,17 @@ class ProjectSettings
 		return $this->getTableData(".Keys");
 	}
 
-	function isLargeTextTruncationSet()
+	function isLargeTextTruncationSet($field)
 	{
-		return $this->getTableData(".truncateText");
+		return $this->getFieldData($field, "truncateText");
 	}
 
 	/**
 	 * Return number of chars to show before "More..." link
 	 */
-	function getNumberOfChars()
+	function getNumberOfChars($field)
 	{
-		return $this->getTableData(".NumberOfChars");
+		return $this->getFieldData($field, "NumberOfChars");
 	}
 
 	/**
@@ -1842,11 +1877,11 @@ class ProjectSettings
 	{
 		return $this->getPageOption("export","selectFields");
 	}
-	
+
 	function exportFileTypes()
 	{
 		return $this->getPageOption("export", "exportFileTypes");
-	}	
+	}
 
 	function getLoginFormType()
 	{
@@ -2326,11 +2361,10 @@ class ProjectSettings
 	function getFieldsToHideIfEmpty()
 	{
 		return $this->getPageOption("fields", "hideEmptyFields");
-	}	
-	
+	}
+
 	function getFilterFields()
 	{
-//		return $this->getTableData(".filterFields");
 		return $this->getPageOption("fields", "filterFields");
 	}
 
@@ -2364,29 +2398,14 @@ class ProjectSettings
 		return $this->getFieldData($field, "numberOfVisibleItems");
 	}
 
+	function getFilterByInterval($field)
+	{
+		return $this->getFieldData($field, "filterBy");
+	}
+
 	function getParentFilterName($field)
 	{
 		return $this->getFieldData($field, "parentFilterField");
-	}
-
-	function getParentFiltersNames($field)
-	{
-		return $this->getFieldData($field, "parentFilters");
-	}
-
-	function hasDependentFilter($field)
-	{
-		return $this->getDependentFilterName($field) != "";
-	}
-
-	function getDependentFilterName($field)
-	{
-		return $this->getFieldData($field, "dependentFilterName");
-	}
-
-	function getDependentFiltersNames($field)
-	{
-		return $this->getFieldData($field, "dependentFilters");
 	}
 
 	function getFilterIntervals($field)
@@ -2580,13 +2599,6 @@ class ProjectSettings
 		global $menuTreelikeFlags;
 		return $menuTreelikeFlags[$menuName];
 	}
-
-	static function isMenuDrillDown( $menuName )
-	{
-		global $menuDrillDownFlags;
-		return $menuDrillDownFlags[$menuName];
-	}
-
 
 	function setPageMode($pageMode)
 	{
@@ -2924,7 +2936,7 @@ class ProjectSettings
 	{
 		return $this->getPageOption("events", "maps" );
 	}
-	
+
 	function mapsData()
 	{
 		return $this->getPageOption("events", "mapsData" );
@@ -2935,9 +2947,11 @@ class ProjectSettings
 		return $this->getPageOption("events", "buttons" );
 	}
 
-	function getPageType()
+	function getPageType( $page = "" )
 	{
-		return $this->_auxTableData[ ".pages" ][ $this->_page ];
+		if( !$page )
+			$page = $this->_page;
+		return $this->_auxTableData[ ".pages" ][ $page ];
 	}
 
 	function welcomeItems()
@@ -2969,6 +2983,54 @@ class ProjectSettings
 	function getCaptionField( $field )
 	{
 		return $this->getFieldData( $field, "captionField" );
+	}
+
+	/**
+	 * @return boolean
+	 */
+	function getImageBorder( $field )
+	{
+		return $this->getFieldData( $field, "imageBorder" );
+	}
+
+	function getImageFullWidth( $field )
+	{
+		return $this->getFieldData( $field, "imageFullWidth" );
+	}
+
+	function updatePages() {
+		if( $this->_auxTableData[".pagesUpdated"] ) {
+			return;
+		}
+		$this->_auxTableData[".pagesUpdated"] = true;
+		if( !Security::permissionsAvailable() )
+			return;
+		$restrictedPages = Security::getRestrictedPages( $this->_auxTable );
+		if( !$restrictedPages ) {
+			return;
+		}
+		$pages =& $this->_auxTableData[".pages"];
+		$pagesByType =& $this->_auxTableData[".pagesByType"];
+		$newPages = array();
+		$defaultPages =& $this->_auxTableData[".defaultPages"];
+		foreach( $pages as $p => $type ) {
+			if( !$restrictedPages[$p] ) {
+				$newPages[ $p ] = $type;
+			}
+			else {
+				$idx = array_search( $p, $pagesByType[$type] );
+				unset( $pagesByType[$type][$idx] );
+				if( $defaultPages[ $type ] == $p ) {
+					$defaultPages[ $type ] = "";
+					//	pick the first available page
+					foreach( $pagesByType[$type] as $d ) {
+						$defaultPages[ $type ] = $d;
+						break;
+					}
+				}
+			}
+		}
+		$this->_auxTableData[".pages"] = &$newPages;
 	}
 }
 
@@ -3139,6 +3201,9 @@ function GetTableURL($table = "")
 	if(!$table)
 		$table=$strTableName;
 
+	if(!$table) {
+		return "";
+	}
 	fillProjectEntites();
 
 	if( isset( $projectEntities[ $table ] ) )
@@ -3233,8 +3298,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["DeleteAssociatedFile"] = false;
 	$g_defaultOptionValues["denyDuplicates"] = false;
 	$g_defaultOptionValues["DependentLookups"] = array();
-	$g_defaultOptionValues["dependentFilterName"] = "";
-	$g_defaultOptionValues["dependentFilters"] = array();
 	$g_defaultOptionValues["descendingOrder"] = false;
 	$g_defaultOptionValues["DisplayField"] = "";
 //	E
@@ -3251,6 +3314,7 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["FieldType"] = "";
 	$g_defaultOptionValues["FieldPermissions"] = false;
 	$g_defaultOptionValues["Filename"] = "";
+	$g_defaultOptionValues["filterBy"] = 0;
 	$g_defaultOptionValues["filterFields"] = array();
 	$g_defaultOptionValues["filterFormat"] = FF_VALUE_LIST;
 	$g_defaultOptionValues["filterIntervals"] = array();
@@ -3274,7 +3338,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["googleLikeFields"] = array();
 	$g_defaultOptionValues["GoodName"] = "";
 //	H
-	$g_defaultOptionValues["hasDependentFilter"] = false;
 	$g_defaultOptionValues["hasEncryptedFields"] = false;
 	$g_defaultOptionValues["hideEmptyFieldsOnView"] = false;
 	$g_defaultOptionValues["HorizontalLookup"] = false;
@@ -3384,7 +3447,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["pageSize"] = 0;
 	$g_defaultOptionValues["panelSearchFields"] = array();
 	$g_defaultOptionValues["parentFilterField"] = "";
-	$g_defaultOptionValues["parentFilters"] = array();
 	$g_defaultOptionValues["printFriendly"] = false;
 	$g_defaultOptionValues["printFields"] = array();
 	$g_defaultOptionValues["popupPagesLayoutNames"] = array();
@@ -3483,6 +3545,7 @@ function GetTableByShort( $shortTName )
 //	A
 	$g_settingsType["Absolute"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["acceptFileTypes"] = SETTING_TYPE_EDIT;
+	$g_settingsType["acceptFileTypesHtml"] = SETTING_TYPE_EDIT;
 	$g_settingsType["AllowToAdd"] = SETTING_TYPE_EDIT;
 	$g_settingsType["autoCompleteFields"] = SETTING_TYPE_EDIT;
 	$g_settingsType["autoCompleteFieldsOnEdit"] = SETTING_TYPE_EDIT;
@@ -3539,7 +3602,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["InitialYearFactor"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ImageHeight"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ImageWidth"] = SETTING_TYPE_VIEW;
-	$g_settingsType["insertNull"] = SETTING_TYPE_EDIT;	
+	$g_settingsType["insertNull"] = SETTING_TYPE_EDIT;
 	$g_settingsType["IsRequired"] = SETTING_TYPE_EDIT;
 	$g_settingsType["isSeparate"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["UpdateLatLng"] = SETTING_TYPE_EDIT;
@@ -3578,6 +3641,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["NewSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["nRows"] = SETTING_TYPE_EDIT;
 	$g_settingsType["nSecOptions"] = ADVSECURITY_NONE;
+	$g_settingsType["NumberOfChars"] = SETTING_TYPE_VIEW;
 //	O
 	$g_settingsType["ownerTable"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["OraSequenceName"] = SETTING_TYPE_GLOBAL;
@@ -3605,6 +3669,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["ThumbnailSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ThumbHeight"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ThumbWidth"] = SETTING_TYPE_VIEW;
+	$g_settingsType["truncateText"] = SETTING_TYPE_VIEW;
 //	U
 	$g_settingsType["UploadFolder"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["UploadCodeExpression"] = SETTING_TYPE_GLOBAL;
@@ -3624,6 +3689,8 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["galleryMode"] = SETTING_TYPE_VIEW;
 	$g_settingsType["captionMode"] = SETTING_TYPE_VIEW;
 	$g_settingsType["captionField"] = SETTING_TYPE_VIEW;
+	$g_settingsType["imageBorder"] = SETTING_TYPE_VIEW;
+	$g_settingsType["imageFullWidth"] = SETTING_TYPE_VIEW;
 
 	$g_settingsType["weekdays"] = SETTING_TYPE_EDIT;
 	$g_settingsType["weekdayMessage"] = SETTING_TYPE_EDIT;

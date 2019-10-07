@@ -2,18 +2,16 @@
 
 
 
-
 $tdataut_map_external_source_users = array();
 $tdataut_map_external_source_users[".searchableFields"] = array();
-	$tdataut_map_external_source_users[".truncateText"] = true;
-	$tdataut_map_external_source_users[".NumberOfChars"] = 80;
-	$tdataut_map_external_source_users[".ShortName"] = "ut_map_external_source_users";
-	$tdataut_map_external_source_users[".OwnerID"] = "";
-	$tdataut_map_external_source_users[".OriginalTable"] = "ut_map_external_source_users";
+$tdataut_map_external_source_users[".ShortName"] = "ut_map_external_source_users";
+$tdataut_map_external_source_users[".OwnerID"] = "";
+$tdataut_map_external_source_users[".OriginalTable"] = "ut_map_external_source_users";
 
 
 $defaultPages = my_json_decode( "{\"search\":\"search\"}" );
 
+$tdataut_map_external_source_users[".pagesByType"] = my_json_decode( "{\"search\":[\"search\"]}" );
 $tdataut_map_external_source_users[".pages"] = types2pages( my_json_decode( "{\"search\":[\"search\"]}" ) );
 $tdataut_map_external_source_users[".defaultPages"] = $defaultPages;
 
@@ -269,9 +267,6 @@ $tdataut_map_external_source_users[".nPrinterPageScale"] = 100;
 
 $tdataut_map_external_source_users[".nPrinterSplitRecords"] = 40;
 
-$tdataut_map_external_source_users[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataut_map_external_source_users[".geocodingEnabled"] = false;
 
 
@@ -392,6 +387,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -417,6 +414,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -471,7 +469,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -523,6 +524,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -547,6 +550,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -600,7 +604,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -652,6 +659,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -676,6 +685,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -729,7 +739,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -781,6 +794,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -805,6 +820,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -858,7 +874,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -910,6 +929,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -934,6 +955,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -987,7 +1009,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1039,6 +1064,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1063,6 +1090,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1116,7 +1144,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1168,6 +1199,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1192,6 +1225,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1245,7 +1279,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1297,6 +1334,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1321,6 +1360,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1374,7 +1414,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1426,6 +1469,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1450,6 +1495,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1503,7 +1549,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1555,6 +1604,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1579,6 +1630,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1632,7 +1684,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1684,6 +1739,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1708,6 +1765,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1761,7 +1819,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1813,6 +1874,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1837,6 +1900,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1890,7 +1954,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1942,6 +2009,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1995,6 +2064,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2046,7 +2116,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2098,6 +2171,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2122,6 +2197,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2175,7 +2251,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2227,6 +2306,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2251,6 +2332,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2304,7 +2386,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2356,6 +2441,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2410,6 +2497,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2460,7 +2548,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2512,6 +2603,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2564,6 +2657,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2614,7 +2708,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2666,6 +2763,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2690,6 +2789,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2743,7 +2843,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2795,6 +2898,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2819,6 +2924,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2872,7 +2978,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2924,6 +3033,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2948,6 +3059,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3001,7 +3113,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3053,6 +3168,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3077,6 +3194,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3130,7 +3248,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3182,6 +3303,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3206,6 +3329,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 0;
 
@@ -3261,7 +3385,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3313,6 +3440,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3337,6 +3466,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3390,7 +3520,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3442,6 +3575,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3466,6 +3601,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3519,7 +3655,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3571,6 +3710,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3595,6 +3736,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3648,7 +3790,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3700,6 +3845,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3724,6 +3871,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3777,7 +3925,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3829,6 +3980,8 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3853,6 +4006,7 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3906,7 +4060,10 @@ $tdataut_map_external_source_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

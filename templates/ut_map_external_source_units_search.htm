@@ -4,9 +4,9 @@
 				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{$pagetitle}</title>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -21,7 +21,7 @@
 		<style>
 			{$containerCss}
 		</style>
-		
+		{$locking}
 		<div class="r-small-page" 
 			data-body-align="center"
 			data-body-width="standard"
@@ -834,6 +834,56 @@
 </div>
 
 {END mefe_area_id_fieldblock}
+											
+{BEGIN datetime_latest_trigger_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_datetime_latest_trigger}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="datetime_latest_trigger" 
+	
+	data-signal-error-for="datetime_latest_trigger{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field30" {$item_integrated_search_field30} data-pageid="{$pageid}" data-field="datetime_latest_trigger" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_datetime_latest_trigger}">
+		{$label ut_map_external_source_units datetime_latest_trigger }	</label>
+	<div class="r-search-option">
+		{$searchtype_datetime_latest_trigger}
+	</div>
+	<div class="r-search-field">
+		{$datetime_latest_trigger_editcontrol}	</div>
+	<div class="r-search-field">
+		{$datetime_latest_trigger_editcontrol1}
+	</div>
+	
+</div>
+
+{END datetime_latest_trigger_fieldblock}
+											
+{BEGIN latest_trigger_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_latest_trigger}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="latest_trigger" 
+	
+	data-signal-error-for="latest_trigger{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field31" {$item_integrated_search_field31} data-pageid="{$pageid}" data-field="latest_trigger" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_latest_trigger}">
+		{$label ut_map_external_source_units latest_trigger }	</label>
+	<div class="r-search-option">
+		{$searchtype_latest_trigger}
+	</div>
+	<div class="r-search-field">
+		{$latest_trigger_editcontrol}	</div>
+	<div class="r-search-field">
+		{$latest_trigger_editcontrol1}
+	</div>
+	
+</div>
+
+{END latest_trigger_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

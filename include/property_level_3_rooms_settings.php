@@ -2,18 +2,16 @@
 
 
 
-
 $tdataproperty_level_3_rooms = array();
 $tdataproperty_level_3_rooms[".searchableFields"] = array();
-	$tdataproperty_level_3_rooms[".truncateText"] = true;
-	$tdataproperty_level_3_rooms[".NumberOfChars"] = 80;
-	$tdataproperty_level_3_rooms[".ShortName"] = "property_level_3_rooms";
-	$tdataproperty_level_3_rooms[".OwnerID"] = "";
-	$tdataproperty_level_3_rooms[".OriginalTable"] = "property_level_3_rooms";
+$tdataproperty_level_3_rooms[".ShortName"] = "property_level_3_rooms";
+$tdataproperty_level_3_rooms[".OwnerID"] = "";
+$tdataproperty_level_3_rooms[".OriginalTable"] = "property_level_3_rooms";
 
 
 $defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
+$tdataproperty_level_3_rooms[".pagesByType"] = my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
 $tdataproperty_level_3_rooms[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdataproperty_level_3_rooms[".defaultPages"] = $defaultPages;
 
@@ -285,9 +283,6 @@ $tdataproperty_level_3_rooms[".nPrinterPageScale"] = 100;
 
 $tdataproperty_level_3_rooms[".nPrinterSplitRecords"] = 40;
 
-$tdataproperty_level_3_rooms[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataproperty_level_3_rooms[".geocodingEnabled"] = false;
 
 
@@ -408,6 +403,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -433,6 +430,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -487,7 +485,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -539,6 +540,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -563,6 +566,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -616,7 +620,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -668,6 +675,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -692,6 +701,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -745,7 +755,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -797,6 +810,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -821,6 +836,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -874,7 +890,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -926,6 +945,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -950,6 +971,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1003,7 +1025,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1055,6 +1080,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1079,6 +1106,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1132,7 +1160,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1184,6 +1215,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1208,6 +1241,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1261,7 +1295,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1313,6 +1350,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1337,6 +1376,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1390,7 +1430,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1442,6 +1485,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1466,6 +1511,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1519,7 +1565,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1571,6 +1620,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1595,6 +1646,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1648,7 +1700,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1700,6 +1755,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1724,6 +1781,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1777,7 +1835,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1829,6 +1890,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1853,6 +1916,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1906,7 +1970,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1958,6 +2025,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1982,6 +2051,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2035,7 +2105,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2087,6 +2160,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2111,6 +2186,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2164,7 +2240,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2216,6 +2295,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2240,6 +2321,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2293,7 +2375,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2345,6 +2430,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2398,6 +2485,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2449,7 +2537,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2501,6 +2592,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2525,6 +2618,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2578,7 +2672,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2630,6 +2727,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2654,6 +2753,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2707,7 +2807,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2759,6 +2862,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2783,6 +2888,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2836,7 +2942,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2888,6 +2997,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2940,6 +3051,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2990,7 +3102,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3042,6 +3157,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3095,6 +3212,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3146,7 +3264,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3198,6 +3319,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3252,6 +3375,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3302,7 +3426,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3354,6 +3481,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3378,6 +3507,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3431,7 +3561,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3483,6 +3616,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3507,6 +3642,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3560,7 +3696,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3612,6 +3751,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3636,6 +3777,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3689,7 +3831,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3741,6 +3886,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3765,6 +3912,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3818,7 +3966,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3870,6 +4021,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3894,6 +4047,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3946,7 +4100,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3998,6 +4155,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4050,6 +4209,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4100,7 +4260,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4152,6 +4315,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4204,6 +4369,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4254,7 +4420,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4306,6 +4475,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4358,6 +4529,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4408,7 +4580,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4460,6 +4635,8 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4512,6 +4689,7 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4562,7 +4740,10 @@ $tdataproperty_level_3_rooms[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

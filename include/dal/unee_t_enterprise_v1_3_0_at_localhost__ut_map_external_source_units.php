@@ -13,6 +13,8 @@ $dalTableut_map_external_source_units["updated_by_id"] = array("type"=>200,"varn
 $dalTableut_map_external_source_units["update_method"] = array("type"=>200,"varname"=>"update_method", "name" => "update_method");
 $dalTableut_map_external_source_units["is_update_on_duplicate_key"] = array("type"=>16,"varname"=>"is_update_on_duplicate_key", "name" => "is_update_on_duplicate_key");
 $dalTableut_map_external_source_units["organization_id"] = array("type"=>3,"varname"=>"organization_id", "name" => "organization_id");
+$dalTableut_map_external_source_units["datetime_latest_trigger"] = array("type"=>135,"varname"=>"datetime_latest_trigger", "name" => "datetime_latest_trigger");
+$dalTableut_map_external_source_units["latest_trigger"] = array("type"=>200,"varname"=>"latest_trigger", "name" => "latest_trigger");
 $dalTableut_map_external_source_units["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete", "name" => "is_obsolete");
 $dalTableut_map_external_source_units["is_update_needed"] = array("type"=>16,"varname"=>"is_update_needed", "name" => "is_update_needed");
 $dalTableut_map_external_source_units["mefe_area_id"] = array("type"=>200,"varname"=>"mefe_area_id", "name" => "mefe_area_id");

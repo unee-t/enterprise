@@ -989,6 +989,19 @@ class SQLQuery extends SQLEntity
 		}
 		$this->ReplaceFieldsWithDummies($removeindices);
 	}	
+
+	function RemoveAllFieldsExceptList( $arr )
+	{
+		if($this->HasAsterisks())
+			return;
+		$removeindices=array();
+		for($i=0;$i<count($this->m_fieldlist);$i++)
+		{
+			if( array_search( $i + 1, $arr ) === false )
+				$removeindices[] = $i + 1;
+		}
+		$this->ReplaceFieldsWithDummies($removeindices);
+	}	
 	
 	function WhereToSql()
 	{

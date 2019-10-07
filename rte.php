@@ -4,25 +4,21 @@
 
 require_once("include/dbcommon.php");
 
-$table = postvalue("table");
-if (!checkTableName($table))
-{
+$shortTable = postvalue("table");
+$table = GetTableByShort( $shortTable );
+if( !$table )
 	exit(0);
-}
-require_once("include/".$table."_variables.php");
 
-if((!isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search")) && @$_GET["action"]<>"add")
-{ 
-	return;
-}
-
+$pageName = postvalue('page');
 $ptype = postvalue("ptype");
 $field = postvalue("field");
-$pSet = new ProjectSettings($strTableName, $ptype);
-if(!$pSet->checkFieldPermissions($field) && @$_GET["action"] <> "add")
+
+if( !Security::userHasFieldPermissions( $table, $field, $ptype, $pageName, true ) )
 	return;
 
-$_connection = $cman->byTable( $strTableName );	
+$pSet = new ProjectSettings($table, $ptype);
+$gQuery = $pSet->getSQLQuery();
+$_connection = $cman->byTable( $table );	
 	
 //	construct sql
 $data = false;
@@ -34,11 +30,11 @@ if(@$_GET["action"] <> "add")
 	{	
 		$keys[$k]=postvalue("key".($ind+1));
 	}
-	$where = KeyWhere($keys);
+	$where = KeyWhere($keys, $table);
 
 	if ($pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN)
 	{
-		$where = whereAdd($where,SecuritySQL("Search", $strTableName));
+		$where = whereAdd($where,SecuritySQL("Search", $table));
 	}
 
 	$sql = $gQuery->gSQLWhere($where);
@@ -51,7 +47,7 @@ if(@$_GET["action"] <> "add")
 else 
 {	
 	$data = array();
-	$data[$field] = @$_SESSION[$strTableName."_".$field."_rte"];
+	$data[$field] = @$_SESSION[$table."_".$field."_rte"];
 }
 
 $nWidth = $pSet->getNCols($field);

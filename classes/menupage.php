@@ -14,8 +14,8 @@ class MenuPage extends RunnerPage
 		//	Before Process event
 		global $globalEvents;
 		
-		if( $globalEvents->exists("BeforeProcessLogin") )
-			$globalEvents->BeforeProcessLogin( $this );
+		if( $globalEvents->exists("BeforeProcessMenu") )
+			$globalEvents->BeforeProcessMenu( $this );
 
 
 		// get redirect location for menu page
@@ -97,8 +97,10 @@ class MenuPage extends RunnerPage
 		$this->xt->assign("menu_block", true);
 		
 		// The user might rewrite $_SESSION["UserName"] value with HTML code in an event, so no encoding will be performed while printing this value.
+		
+		/*
 		$this->xt->assign("username", $_SESSION["UserName"]);
-		$this->xt->assign("changepwd_link",$_SESSION["AccessLevel"] != ACCESS_LEVEL_GUEST && $_SESSION["fromFacebook"] == false);
+		$this->xt->assign("changepwd_link",$_SESSION["AccessLevel"] != ACCESS_LEVEL_GUEST && !$_SESSION["pluginLogin"] );
 		$this->xt->assign("changepwdlink_attrs","onclick=\"window.location.href='".GetTableLink("changepwd")."';return false;\"");
 
 		$this->xt->assign("logoutlink_attrs", 'id="logoutButton'.$this->id.'"');
@@ -113,6 +115,7 @@ class MenuPage extends RunnerPage
 
 			if( IsAdmin() )
 			$this->xt->assign("adminarea_link", true);
+		*/
 
 		$this->assignBody();
 	}

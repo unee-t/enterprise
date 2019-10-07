@@ -30,6 +30,9 @@ class FilterControl
 	
 	protected $strSQL;
 
+	/**
+	 * can be NULL
+	 */
 	protected $viewControl;
 	
 	protected $aggregate;
@@ -44,6 +47,9 @@ class FilterControl
 	
 	protected $separator = '~~';
 	
+	/**
+	 * can be NULL
+	 */
 	protected $totalViewControl;
 	
 	protected $showCollapsed = false;
@@ -64,10 +70,15 @@ class FilterControl
 	public $dependent = false;	
 	
 	public $parentFilterName = "";
+
+	public $pageObject;
+
+	protected $parentFiltersNames = array();
 	
 	
 	public function __construct($fName, $pageObj, $id, $viewControls)
 	{		
+		$this->pageObject = $pageObj;
 		$this->id = $id;
 		$this->fName = $fName;
 		$this->gfName = GoodFieldName($this->fName);
@@ -121,6 +132,9 @@ class FilterControl
 	 */	
 	protected function assignViewControls($viewControls) 
 	{
+		if( !$viewControls ) {
+			return;
+		}
 		$this->viewControl = $viewControls->getControl($this->fName);
 		//prevent filter's values from highlighting
 		$this->viewControl->searchHighlight = false;
@@ -418,7 +432,7 @@ class FilterControl
 		$filterControl = array();
 		foreach($this->filteredFields[ $this->fName ]["values"] as $value)
 		{
-			$showValue = $this->getValueToShow( $value );
+			$showValue = $this->getControlCaption( $value );
 			$delButtonHtml = $this->getDelButtonHtml($this->gfName, $this->id, $value);
 			$filterControl = $delButtonHtml.'<span dir="LTR">'.$showValue.'</span>';
 			$parentFiltersData = $this->getParentFiltersDataForFilteredBlock($value);
@@ -427,6 +441,11 @@ class FilterControl
 		}
 		
 		return $filterCtrlBlocks;
+	}
+	
+	protected function getControlCaption( $value )
+	{
+		return $this->getValueToShow($value);
 	}
 	
 	/**
@@ -460,6 +479,8 @@ class FilterControl
 	{
 		$filterControl = '';
 		$encodeDataValue = runner_htmlspecialchars($dataValue);
+		$dataValueAttr = 'data-filtervalue="'.$encodeDataValue.'"';
+		
 		$extraDataAttrs = $this->getExtraDataAttrs($parentFiltersData);
 		
 		$pageType = 'list';
@@ -473,14 +494,17 @@ class FilterControl
 			$style = $this->filtered || $this->multiSelect == FM_ALWAYS ? '' : 'style="display: none;"';
 			$checkedAttr = $this->getCheckedAttr( $value, $parentFiltersData );
 						
-			$checkBox = '<input type="checkbox" '.$checkedAttr.' name="f[]" value="'.$encodeDataValue.'" '.$extraDataAttrs.' class="multifilter-checkbox filter_'.$this->gfName.'_'.$this->id.'" '.$style.'>';	
+			$checkBox = '<input type="checkbox" '.$checkedAttr.' name="f[]" value="'.$encodeDataValue.'" '
+				.$extraDataAttrs.' class="multifilter-checkbox filter_'.$this->gfName.'_'.$this->id.'" '.$style.'>';	
 			$filterControl.= $checkBox.'&nbsp;';
 		}
 				
 		if($this->multiSelect != FM_ALWAYS) 
 		{
-			$href = GetTableLink( GetTableURL($this->tName), $pageType, 'f=('.runner_htmlspecialchars( rawurlencode( $this->fName ) ).$separator.$encodeDataValue.')' );
-			$label = '<a href="'.$href.'" data-filtervalue="'.$encodeDataValue.'" '.$extraDataAttrs.' class="'.$this->gfName.'-filter-value">'.$showValue.'</a>';
+			$href = GetTableLink( GetTableURL($this->tName), $pageType, 'f=('.runner_htmlspecialchars( rawurlencode( $this->fName ) ).
+				$separator.$encodeDataValue.')' );
+				
+			$label = '<a href="'.$href.'" '.$dataValueAttr.' '.$extraDataAttrs.' class="'.$this->gfName.'-filter-value">'.$showValue.'</a>';
 		} 
 		else
 		{
@@ -659,7 +683,7 @@ class FilterControl
 	 * @param Object viewControls
 	 * @return Object
 	 */
-	static function getFilterControl($fName, $pageObj, $id, $viewControls) 
+	static function getFilterControl($fName, $pageObj, $id, $viewControls = null ) 
 	{
 		$contorlType = $pageObj->pSet->getFilterFieldFormat($fName);
 		switch($contorlType)
@@ -772,7 +796,7 @@ class FilterControl
 		if( !$this->dependent )
 			return $ret;
 			
-		foreach( $this->pSet->getParentFiltersNames($this->fName) as $p )
+		foreach( $this->parentFiltersNames as $p )
 		{
 			$wp = $this->connection->addFieldWrappers( $p );
 			$ret[] = $wp . " is not NULL";
@@ -783,6 +807,10 @@ class FilterControl
 		}
 		
 		return $ret;
+	}
+
+	public function hasDependentFilter() {
+		return false;
 	}
 	
 }

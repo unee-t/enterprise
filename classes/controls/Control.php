@@ -562,9 +562,9 @@ class EditControl
 	 */	
 	function suggestValue($value, $searchFor, &$response, &$row)
 	{
-		$SuggestStringSize = GetGlobalData("suggestStringSize", 40);
+		$suggestStringSize = GetGlobalData("suggestStringSize", 40);
 		
-		if( $SuggestStringSize <= runner_strlen($searchFor) )
+		if( $suggestStringSize <= runner_strlen($searchFor) )
 		{
 			$response[ "_".$searchFor ] = $searchFor;
 			return;
@@ -616,124 +616,118 @@ class EditControl
 		}
 		
 		// if large string cut value and add dots
-		if( $SuggestStringSize < runner_strlen($value) )
+		if( $suggestStringSize < runner_strlen($value) )
 		{
             $startPos = 0;
             $valueLength = 0;
-            $value = $this->cutStr($value, $searchFor, $SuggestStringSize, $startPos, $valueLength);
-			if( $viewFormat !== FORMAT_HTML ) // because realValue and value different (according to algorithm)
-				$realValue = $value;
-			
-			if( $startPos > 0 )
-				$value = "...".$value;
-			
-			if( $startPos + $SuggestStringSize != $valueLength )
-				$value.= "...";
+			$suggestValues = $this->cutSuggestString( $value, $searchFor );
+			if( $suggestValues ) {
+				if( $viewFormat == FORMAT_HTML ) {
+					$suggestValues["search"] = $realValue;
+				}
+				$response[ $suggestValues["display"] ] = $suggestValues["search"];
+			}
+		} else {
+			$response[ $value ] = $realValue;
+		}
+	}
+	
+	/**
+	 * Reduce long field value to leave only the text relevant to search suggest
+	 * ( "There was a time when Mary had a little lamb", "Mary" ) => "when Mary had"
+	 * @return Array - array of ( 
+	 * 	"search" => "when Mary had" - value that will be used for searching
+	 * 	"display" => "...when Mary had..." - value to show to the user in the suggest list
+	 * )
+	 * Returns false if anything went wrong
+	 */
+	function cutSuggestString( $_value, $searchFor ) 
+	{
+		$suggestStringSize = GetGlobalData("suggestStringSize", 40);
+		$caseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
+		
+		//	split to lines. Line breaks shouldn't appear in the suggested values
+		$lines = explode( "\n", $_value );
+		$value = "";
+		for( $lineIdx = 0; $lineIdx< count( $lines); ++$lineIdx ) {
+			$line = $lines[ $lineIdx ];
+			if( $this->pageObject->pSetEdit->getNCSearch() )
+			{
+					// case-insensitive search 
+					$startPos = stripos($line, $searchFor);
+					if( $startPos )
+						$startPos = runner_strlen( substr($line, 0 , $startPos) ); //UTF-8 support
+			}
+			else 
+			{
+					$startPos = runner_strpos($line, $searchFor);
+			}
+			if( $startPos !== false )
+			{
+				$value = $line;
+				break;
+			}
+		}
+		if( $startPos === false ) {
+			return false;
 		}
 		
-		$response[ $value ] = $realValue;
+		//	cut a chunk of the $value around the $searchFor. 
+		//	Paddings are parts of the chunk before and after $searchFor
+		//	There are two "gray zones" at the begining and end of the chunk.
+		//	If there are stop symbols ( spaces, commas ) in the gray zone, cut it up to them
+		//	"tion of the next occu" => "of the next"
+		
+		$grayZoneLength = 5;
+		
+		$leftPaddingLength = min( $suggestStringSize / 2, $startPos );
+		$leftPadding = runner_substr( $value, $startPos - $leftPaddingLength, $leftPaddingLength );
+		$leftGrayZoneLength = $leftPaddingLength < $suggestStringSize / 2
+			? 0
+			: $grayZoneLength;
+
+		$rightPaddingLength = min( $suggestStringSize - $leftPaddingLength, runner_strlen( $value ) - $startPos - runner_strlen( $searchFor ) );
+		$rightPadding = runner_substr( $value, $startPos + runner_strlen( $searchFor ), $rightPaddingLength );
+		$rightGrayZoneLength = $rightPaddingLength < $suggestStringSize / 2
+			? 0
+			: $grayZoneLength;
+
+		$leftGrayZone = runner_substr( $leftPadding, 0, $leftGrayZoneLength );
+		$stopPos = $this->findFirstStop( $leftGrayZone, true );
+		if( $stopPos !== false ) {
+			$leftPadding = runner_substr( $leftPadding, $stopPos );
+		}
+
+		$rightGrayZone = runner_substr( $rightPadding, $rightPaddingLength - $rightGrayZoneLength );
+		$stopPos = $this->findFirstStop( $rightGrayZone );
+		if( $stopPos !== false ) {
+			$rightPadding = runner_substr( $rightPadding, 0, runner_strlen( $rightPadding ) - $rightGrayZoneLength + $stopPos );
+		}
+
+		$leftEllipsis = $lineIdx > 0 || runner_strlen( $leftPadding ) < $startPos
+			? "... "
+			: "";
+		$rightEllipsis = $lineIdx < count( $lines) - 1 || runner_strlen( $rightPadding ) < runner_strlen( $value ) - $startPos - runner_strlen( $searchFor )
+			? " ..."
+			: "";
+		
+		$searchValue = $leftPadding . runner_substr( $value, $startPos,  runner_strlen( $searchFor )) . $rightPadding;
+		return array( 
+			"search" => $searchValue,
+			"display" => $leftEllipsis . $searchValue . $rightEllipsis
+		);
 	}
-	
-	/**
-	 *
-	 */
-	function cutStr($value, $searchFor, $SuggestStringSize, &$startPos, &$valueLength)
-	{
-		$diffLength = $SuggestStringSize - runner_strlen($searchFor);
-		$leftContextLength = floor($diffLength / 2);
-		$rigthContextLength = $diffLength - $leftContextLength;
 
-		if( $this->pageObject->pSetEdit->getNCSearch() )
-		{
-				// case-insensitive search 
-				$startPos = stripos($value, $searchFor);
-				$startPos = runner_strlen( substr($value, 0 , $startPos) ); //UTF-8 support
+	function findFirstStop( $str, $reverse = false ) {
+		$stopSymbols = " .,;:\"'?!|\\/=(){}[]*-+\n\r";
+		$length = runner_strlen( $str);
+		for( $i = 0; $i < $length; ++$i ) {
+			$idx = $reverse ? $length - $i - 1 : $i;
+			$c = runner_substr( $str, $idx, 1 );
+			if( runner_strpos( $stopSymbols, $c ) !== false )
+				return $idx;
 		}
-		else 
-				$startPos = runner_strpos($value, $searchFor);
-
-		$searchStartPos = $startPos;
-		$valueLength = runner_strlen($value);
-		if( $startPos < $leftContextLength )
-		{
-				$rigthContextLength -= $startPos - $leftContextLength;
-				$startPos = 0;
-		}
-		else 
-				$startPos -= $leftContextLength;
-
-		if( $startPos > 0 )
-		{
-				$found = false;
-				for($i = $startPos - 1;	$i >= $startPos - 5 && $i >= 0;	$i--)
-				{
-						if( $i == 0 || $this->isStopSymbol( runner_substr($value, $i, 1) ) )
-						{
-								if($i == 0)
-										$startPos = 0;
-								else 
-										$startPos = $i + 1;
-								$found = true;
-								break;
-						}
-				}
-				if( !$found )
-				{
-						for($i = $startPos;	$i <= $startPos + 5 && $i < $searchStartPos; $i++)
-						{
-								if( $this->isStopSymbol(runner_substr($value, $i, 1)) )
-								{
-										$startPos = $i + 1;
-										break;
-								}
-						}
-				}
-		}
-
-		if( $startPos + $SuggestStringSize > $valueLength )
-		{
-				$SuggestStringSize = $valueLength - $startPos;
-		}
-
-		if( $startPos + $SuggestStringSize < $valueLength )
-		{
-				$found = false;
-				$tempStartPos = $startPos + $SuggestStringSize;
-				for($i = $tempStartPos + 1; $i <= $tempStartPos + 5 && $i < $valueLength; $i++)
-				{
-						if( $i == $valueLength - 1 || $this->isStopSymbol( runner_substr($value, $i, 1) ) )
-						{
-								if($i == $valueLength - 1)
-										$SuggestStringSize = $i - $startPos + 1;
-								else 
-										$SuggestStringSize = $i - $startPos;
-								$found = true;
-								break;
-						}
-				}
-				if(!$found)
-				{
-						for($i = $tempStartPos; $i >= $tempStartPos - 5; $i--)
-						{
-								if( $this->isStopSymbol( runner_substr($value, $i, 1) ) )
-								{
-										$SuggestStringSize = $i - $startPos;
-										break;
-								}
-						}
-				}				
-		}
-
-		return runner_substr($value, $startPos, $SuggestStringSize);
-	}
-	
-	/**
-	 * @param String smb
-	 * @return Boolean
-	 */
-	function isStopSymbol($smb)
-	{
-		return strpos(" .,;:\"'?!|\\/=(){}[]*-+\n\r", $smb) !== FALSE;
+		return false;
 	}
 	
 	/**

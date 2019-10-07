@@ -1641,7 +1641,7 @@ class AddPage extends RunnerPage
 		$lookupIndexes = array("linkFieldIndex" => 0, "displayFieldIndex" => 0);
 		if( count($this->keys) )
 		{
-			$LookupSQL = $lookupQueryObj->buildSQL_default( KeyWhere($this->keys) );
+			$LookupSQL = $lookupQueryObj->buildSQL_default( KeyWhere($this->keys, $this->tName ) );
 				
 			$lookupIndexes = GetLookupFieldsIndexes($lookupMainSettings, $this->lookupField);
 			LogInfo($LookupSQL);
@@ -1855,5 +1855,20 @@ class AddPage extends RunnerPage
 	{
 		return $this->mode == ADD_SIMPLE;
 	}	
+	
+	function createProjectSettings() {
+		
+		$this->pSet = new ProjectSettings($this->tName, $this->pageType, $this->pageName, $this->pageTable );
+		if( $this->mode == ADD_INLINE && $this->pSet->getPageType() !== PAGE_LIST ) 
+		{
+			$pageName = $this->pSet->getDefaultPage( "list" );
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, $pageName, $this->pageTable );
+		} 
+		else if( $this->mode != ADD_INLINE && $this->pSet->getPageType() !== PAGE_ADD )
+		{
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, null, $this->pageTable );
+		}
+	}
+
 }
 ?>

@@ -1,4 +1,9 @@
 <?php
+/**
+ * not used anymore
+ */
+exit();
+
 @ini_set("display_errors","1");
 @ini_set("display_startup_errors","1");
 
@@ -47,7 +52,7 @@ foreach ($keysArr as $ind=>$k)
 {	
 	$keys[$k]=postvalue("key".($ind+1));
 }
-$where = KeyWhere($keys);
+$where = KeyWhere($keys, $table);
 
 
 if ($gSettings->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN)

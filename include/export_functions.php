@@ -44,6 +44,8 @@ function ExportToExcel($rs, $nPageSize, $eventObj, $cipherer, $pageObj)
 	
 	while( (!$nPageSize || $iNumberOfRows < $nPageSize) && $row )
 	{
+		RunnerContext::pushRecordContext( $row, $pageObj );
+		
 		countTotals($totals, $totalsFields, $row);
 		
 		$values = array();	
@@ -84,6 +86,8 @@ function ExportToExcel($rs, $nPageSize, $eventObj, $cipherer, $pageObj)
 			
 			ExportExcelRecord( $arrData, $arrDataType, $iNumberOfRows, $objPHPExcel, $pageObj );
 		}
+		
+		RunnerContext::pop();
 		
 		if( $eventObj->exists("ListFetchArray") )
 			$row = $eventObj->ListFetchArray( $rs, $pageObj );

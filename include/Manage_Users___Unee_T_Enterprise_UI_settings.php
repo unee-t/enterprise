@@ -2,18 +2,16 @@
 
 
 
-
 $tdataManage_Users___Unee_T_Enterprise_UI = array();
 $tdataManage_Users___Unee_T_Enterprise_UI[".searchableFields"] = array();
-	$tdataManage_Users___Unee_T_Enterprise_UI[".truncateText"] = true;
-	$tdataManage_Users___Unee_T_Enterprise_UI[".NumberOfChars"] = 80;
-	$tdataManage_Users___Unee_T_Enterprise_UI[".ShortName"] = "Manage_Users___Unee_T_Enterprise_UI";
-	$tdataManage_Users___Unee_T_Enterprise_UI[".OwnerID"] = "organization_id";
-	$tdataManage_Users___Unee_T_Enterprise_UI[".OriginalTable"] = "uneet_enterprise_users";
+$tdataManage_Users___Unee_T_Enterprise_UI[".ShortName"] = "Manage_Users___Unee_T_Enterprise_UI";
+$tdataManage_Users___Unee_T_Enterprise_UI[".OwnerID"] = "organization_id";
+$tdataManage_Users___Unee_T_Enterprise_UI[".OriginalTable"] = "uneet_enterprise_users";
 
 
 $defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 
+$tdataManage_Users___Unee_T_Enterprise_UI[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
 $tdataManage_Users___Unee_T_Enterprise_UI[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdataManage_Users___Unee_T_Enterprise_UI[".defaultPages"] = $defaultPages;
 
@@ -201,9 +199,6 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".nPrinterPageScale"] = 100;
 
 $tdataManage_Users___Unee_T_Enterprise_UI[".nPrinterSplitRecords"] = 40;
 
-$tdataManage_Users___Unee_T_Enterprise_UI[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataManage_Users___Unee_T_Enterprise_UI[".geocodingEnabled"] = false;
 
 
@@ -326,6 +321,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -351,6 +348,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -401,7 +399,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -453,6 +454,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -478,6 +481,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -535,7 +539,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -587,6 +594,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -612,6 +621,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -666,7 +676,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -718,6 +731,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -743,6 +758,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -798,7 +814,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -850,6 +869,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -875,6 +896,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -929,7 +951,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -981,6 +1006,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1005,6 +1032,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1058,7 +1086,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1109,6 +1140,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1133,6 +1166,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1183,7 +1217,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1235,6 +1272,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1259,6 +1298,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1309,7 +1349,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1361,6 +1404,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1385,6 +1430,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1435,7 +1481,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1487,6 +1536,8 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1512,6 +1563,7 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1566,7 +1618,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

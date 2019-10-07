@@ -103,7 +103,7 @@ class XTempl_Base
 		$this->assign_method("event",$this, "xt_event", array());
 		$this->assign_function("label","xt_label",array());
 		$this->assign_function("tooltip","xt_tooltip",array());
-		$this->assign_function("custom","xt_custom",array());
+		$this->assign_method("custom", $this, "customLabel",array());
 		$this->assign_function("htmlcustom","xt_htmlcustom",array());
 		$this->assign_function("cl_length","xt_cl_length",array());
 		$this->assign_function("caption","xt_caption",array());
@@ -120,6 +120,8 @@ class XTempl_Base
 		$this->assign_function("pdf_image","getPdfImageObject",array());
 		
 		$this->assign_method("map", $this, "xt_event_map", array());
+		
+		$this->assign( "projectPath", projectPath() );
 		
 		if( !$hideAddedCharts ) //#9607 1. Temporary fix
 		{
@@ -268,6 +270,14 @@ $mlang_charsets["English"]="Windows-1252";;
 			return;
 		}
 		return $this->xt_doevent( $params );
+	}
+
+	function customLabel($params)
+	{
+		$ret = GetCustomLabel($params["custom1"]);
+		echo $this->jsonMode 
+			? str_replace( "'", "\\'", $ret )
+			: $ret;
 	}
 	
 	

@@ -5,34 +5,23 @@
 require_once("include/dbcommon.php");
 
 
-$table = postvalue("table");
-$pageName = postvalue("pagename");
-$strTableName = GetTableByShort($table);
-
-if( !checkTableName($table) )
-{
+$shortTableName = postvalue("table");
+$table = GetTableByShort( $shortTableName );
+if( !$table )
 	exit(0);
-}
 
-require_once("include/".$table."_variables.php");
-
-
-if(!isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search"))
-{ 
-	return;
-}
+$pageName = postvalue("pagename");
 
 $strFilename = postvalue("filename");
 $ext = substr( $strFilename, strlen($strFilename) - 4 );
 $ctype = getContentTypeByExtension($ext);
-
 $field = postvalue("field");
 
+if( !Security::userHasFieldPermissions( $table, $field, PAGE_LIST, $pageName, false ) )
+	return;
 
-$pSet = new ProjectSettings( $strTableName, PAGE_LIST, $pageName );
-
-if( !$pSet->checkFieldPermissions( $field ) )
-	exit();
+$pSet = new ProjectSettings( $table, PAGE_LIST, $pageName );
+$gQuery = $pSet->getSQLQuery();
 
 if( !$gQuery->HasGroupBy() )
 {
@@ -42,7 +31,7 @@ if( !$gQuery->HasGroupBy() )
 	$gQuery->RemoveAllFieldsExcept( $pSet->getFieldIndex($field) );
 }
 
-$_connection = $cman->byTable( $strTableName );
+$_connection = $cman->byTable( $table );
 
 //	construct sql
 $keysArr = $pSet->getTableKeys();
@@ -51,11 +40,11 @@ foreach( $keysArr as $ind=>$k )
 {	
 	$keys[$k] = postvalue("key".($ind + 1));
 }
-$where = KeyWhere($keys);
+$where = KeyWhere($keys, $table);
 
 if( $pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN )
 {
-	$where = whereAdd( $where, SecuritySQL("Search") );	
+	$where = whereAdd( $where, SecuritySQL("Search", $table ) );	
 }
 
 

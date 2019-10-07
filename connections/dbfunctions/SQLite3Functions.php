@@ -94,6 +94,15 @@ class SQLite3Functions extends DBFunctions
 		return $connection->query( $strSQL );
 	}
 
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstr( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
 	
 }
 ?>

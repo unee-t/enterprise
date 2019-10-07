@@ -57,11 +57,12 @@ class FilterPanel
 		include_once getabspath("classes/controls/FilterControl.php");
 		foreach($this->filterFileds as $fieldName) 
 		{			
-			if( $this->pageObj->pSet->hasDependentFilter($fieldName) )
-				continue;
-							
 			$filterFieldName = $fieldName;
 			$filterControl = FilterControl::getFilterControl($filterFieldName, $this->pageObj, $this->id, $this->viewControls);			
+
+			if( $filterControl->hasDependentFilter() )
+				continue;
+							
 			
 			$filterCtrlBlocks = $filterControl->buildFilterCtrlBlockArray($this->pageObj);
 			$filterButtonParams = $filterControl->getFilterButtonParams();

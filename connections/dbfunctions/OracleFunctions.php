@@ -131,6 +131,36 @@ class OracleFunctions extends DBFunctions
 	
 		return $qResult;
 	}
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstr( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		if($interval == 1) // DATE_INTERVAL_YEAR
+			return "TO_CHAR(".$expr.", 'YYYY')*10000+0101";
+		if($interval == 2) // DATE_INTERVAL_QUARTER
+			return "TO_CHAR(".$expr.", 'YYYY')*10000+TO_CHAR(".$expr.",'Q')*100+1";
+		if($interval == 3) // DATE_INTERVAL_MONTH
+			return "TO_CHAR(".$expr.", 'YYYY')*10000+TO_CHAR(".$expr.",'MM')*100+1";
+		if($interval == 4) // DATE_INTERVAL_WEEK
+			return "TO_CHAR(".$expr.", 'YYYY')*10000+TO_CHAR(".$expr.",'W')*100+01";
+		if($interval == 5) // DATE_INTERVAL_DAY
+			return "TO_CHAR(".$expr.", 'YYYY')*10000+TO_CHAR(".$expr.",'MM')*100+TO_CHAR(".$expr.",'DD')";
+		if($interval == 6) // DATE_INTERVAL_HOUR
+			return "TO_CHAR(".$expr.", 'YYYY')*1000000+TO_CHAR(".$expr.",'MM')*10000+TO_CHAR(".$expr.",'DD')*100+TO_CHAR(".$expr.",'HH')";
+		if($interval == 7) // DATE_INTERVAL_MINUTE
+			return "TO_CHAR(".$expr.", 'YYYY')*100000000+TO_CHAR(".$expr.",'MM')*1000000+TO_CHAR(".$expr.",'DD')*10000+TO_CHAR(".$expr.",'HH')*100+TO_CHAR(".$expr.",'MI')";
+		return $expr;
+	}
+
 }
 
 ?>

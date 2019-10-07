@@ -1,0 +1,202 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Export_and_Import_Users import}","hidden":"{$item_hide_import_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_import_field1}","text":{$external_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field5}","text":{$person_status_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field17}","text":{$salutation_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field18}","text":{$given_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field19}","text":{$middle_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field20}","text":{$family_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field13}","text":{$is_unee_t_account_needed_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field4}","text":{$unee_t_user_type_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field25}","text":{$email_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field16}","text":{$gender_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field21}","text":{$date_of_birth_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field22}","text":{$alias_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field23}","text":{$job_title_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field24}","text":{$organization_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field26}","text":{$tel_1_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field27}","text":{$tel_2_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field28}","text":{$whatsapp_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field29}","text":{$linkedin_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field30}","text":{$facebook_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field31}","text":{$adr1_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field32}","text":{$adr2_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field33}","text":{$adr3_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field34}","text":{$City_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field35}","text":{$zip_postcode_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field36}","text":{$region_or_state_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field15}","text":{$country_code_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field2}","text":{$external_system_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field3}","text":{$external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field6}","text":{$created_by_id_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+					]
+}
+  

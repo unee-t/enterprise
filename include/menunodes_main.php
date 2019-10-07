@@ -16,16 +16,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "External";
-	$menuNode["pageType"] = strtolower( "Search");//
+	$menuNode["pageType"] = strtolower("Search");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-share";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Case";
 
 
@@ -42,16 +42,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "External";
-	$menuNode["pageType"] = strtolower( "Search");//
+	$menuNode["pageType"] = strtolower("Search");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-share";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Dashboard";
 
 
@@ -68,16 +68,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "External";
-	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageType"] = strtolower("List");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-share";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Documentation";
 
 
@@ -94,16 +94,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "External";
-	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageType"] = strtolower("List");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-share";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Videos and Tutorials";
 
 
@@ -120,16 +120,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
-	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageType"] = strtolower("List");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
-	
+
 	$menuNode["icon"] = "glyphicon-open";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Data";
 
 
@@ -146,16 +146,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-globe";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "List of Countries";
 
 
@@ -172,16 +172,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-cloud";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Areas";
 
 
@@ -198,16 +198,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Buildings";
 
 
@@ -224,16 +224,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th-large";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Units";
 
 
@@ -250,16 +250,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-stop";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Rooms";
 
 
@@ -276,16 +276,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th-list";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export User Types";
 
 
@@ -302,16 +302,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "5";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Export");//
+	$menuNode["pageType"] = strtolower("Export");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-user";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Export Users";
 
 
@@ -328,16 +328,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "0";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
-	$menuNode["pageType"] = strtolower( "List");//
+	$menuNode["pageType"] = strtolower("List");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
-	
+
 	$menuNode["icon"] = "glyphicon-save";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Data";
 
 
@@ -354,16 +354,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-cloud";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Areas";
 
 
@@ -380,16 +380,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Buildings";
 
 
@@ -406,16 +406,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th-large";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Units";
 
 
@@ -432,16 +432,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-stop";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Rooms";
 
 
@@ -458,16 +458,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-th-list";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import User Types";
 
 
@@ -484,16 +484,16 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["parent"] = "13";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower( "Import");//
+	$menuNode["pageType"] = strtolower("Import");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "NewWindow";
-	
+
 	$menuNode["icon"] = "glyphicon-user";
 	$menuNode["iconType"] = "2";
 	$menuNode["iconShow"] = "1";
 
-			$menuNode["color"] = "";
-	
+		$menuNode["color"] = "";
+
 	$menuNode["title"] = "Import Users";
 
 

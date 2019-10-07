@@ -466,18 +466,13 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 *
 	 */
-	function SecuritySQL($strAction, $table="")
+	function SecuritySQL( $strAction )
 	{
-		global $strTableName;
-		
-		if( !strlen($table) )	
-			$table = $strTableName;
-		
-		$strPerm = GetUserPermissions($table);
+		$strPerm = GetUserPermissions( $this->tName );
 		if( strpos( $strPerm, "S" ) === false )
 			$strPerm .=  "S" ;
 		
-		return SecuritySQL($strAction, $table, $strPerm);
+		return SecuritySQL($strAction, $this->tName, $strPerm);
 	}
 
 	function displayTabsInPage() 

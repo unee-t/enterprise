@@ -61,6 +61,7 @@ if( $params["masterTable"] )
 {
 	$params["masterKeysReq"] = ViewPage::processMasterKeys();
 }
+$params["pdfBackgroundImage"] = postvalue("pdfBackgroundImage");
 
 $pageObject = new ViewPage($params);
 $pageObject->init();

@@ -1,5 +1,14 @@
 
 pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
 	styles: {
 				bodycell: {
 			fontSize:12,
@@ -32,7 +41,6 @@ pdfDocument = {
 				hLineWidth: function(i, node) { return 0.1; },
 				vLineWidth: function(i, node) { 
 					if( node.table.embeddedPage ) {
-						console.log( node.table.widths.length, i );
 						return (i === 0 || i === node.table.widths.length) ? 0.1 : 0;
 					} else  {
 						return 0.1; 
@@ -1839,8 +1847,7 @@ pdfDocument = {
 						{END grid_record}
 	{END grid_row}
 			
-			{BEGIN totals_row}
-			
+					
 							{BEGIN row_grid_2}
 				
 		[
@@ -2559,8 +2566,7 @@ pdfDocument = {
 {END cellblock_grid_footcell_field30}
 											],
 				{END row_grid_2}
-						{END totals_row}
-		
+							
 									]
 			
 			}

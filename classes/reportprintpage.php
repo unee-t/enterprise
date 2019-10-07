@@ -232,16 +232,11 @@ class ReportPrintPage extends ReportPage
 		
 		$this->xt->assign("stylesheetlink", strlen( $this->format ) > 0);
 		
-		if( $this->pSet->getReportPrintPartitionType() == 0 )
-			$this->xt->assign( "divideintopages_block", true );
-
-
 		foreach( $this->pSet->getFieldsList() as $fName ) 
 		{
 			$this->xt->assign( $fName."_fieldheader", true );
 		}
 
-		$this->xt->assign( "divideintopages_block", false );
 		if( $this->format )
 		{
 			$this->xt->assign("pdflink_block", false);
@@ -592,12 +587,21 @@ class ReportPrintPage extends ReportPage
 	 */
 	public function showDetailPrint()
 	{
+		if( $this->pdfJsonMode() ) 
+		{
+			$this->xt->assign( "body", true );
+			$this->xt->assign( "embedded_grid", true );
+			
+			$this->xt->load_templateJSON( $this->templatefile );
+			echo  $this->xt->fetch_loadedJSON("body");
+			return;
+		}		
+		
 		$this->xt->hideAllBricksExcept( array( "grid" ) );
-
 		$this->xt->assign( "grid_block", true );
 
 		$this->xt->load_template( $this->templatefile );
-
+		
 		if( $this->isPD() ) 
 		{
 			echo '<div class="panel panel-info details-grid">
@@ -693,7 +697,6 @@ class ReportPrintPage extends ReportPage
 				}
 			}
 		}
-	}	
-
+	}
 }
 ?>

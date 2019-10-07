@@ -7,48 +7,20 @@ header("Expires: Thu, 01 Jan 1970 00:00:01 GMT");
 
 
 $shortTableName = postvalue("shortTName");
-if( !checkTableName( $shortTableName ) )
+$table = GetTableByShort( $shortTableName );
+if( !$table )
 	exit(0);
-	
-require_once("include/".$shortTableName."_variables.php");
 
 $mainField = postvalue('mainField');
 $linkFieldVal = postvalue('linkFieldVal');
 $pageName = postvalue('page');
 $pageType = postvalue('pageType');
 
-if( $strTableName != "uneet_enterprise_users" )
-{
-	if( !isLogged() )  
-		return;	
-	
-	if( !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Edit") && !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Add") 
-		&& !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") )
-	{
-		return;
-	}
-}
-else 
-{
-	$globalPSet = new ProjectSettings( GLOBAL_PAGES, $pageType, $pageName );
-	$checkResult = !$globalPSet->appearOnPage( $mainField );
-	
-	if( $checkResult )
-	{
-		if( !isLogged() ) 
-			return;
-			
-		if( !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Edit") && !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Add") 
-			&& !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") )
-		{
-			return;
-		}
-	}
-}
+if( !Security::userHasFieldPermissions( $table, $mainField, $pageType, $pageName, true ) )
+	return;
 
-
-$cipherer = new RunnerCipherer( $strTableName );
-$pSet = new ProjectSettings( $strTableName, $pageType );
+$cipherer = new RunnerCipherer( $table );
+$pSet = new ProjectSettings( $table, $pageType, $pageName );
 
 include_once getabspath("classes/controls/EditControlsContainer.php");
 $editControls = new EditControlsContainer( null, $pSet, $pageType, $cipherer );

@@ -142,7 +142,7 @@ class ChartPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 		
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL( "Search" );
 		
 		return $sql;
 	}

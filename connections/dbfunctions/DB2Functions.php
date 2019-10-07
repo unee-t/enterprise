@@ -86,6 +86,34 @@ class DB2Functions extends DBFunctions
 		
 		return $qResult;
 	}
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstr( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		if($interval == 1) // DATE_INTERVAL_YEAR
+			return "year(".$expr.")*10000+0101";
+		if($interval == 2) // DATE_INTERVAL_QUARTER
+			return "year(".$expr.")*10000+QUARTER(".$expr.")*100+1";
+		if($interval == 3) // DATE_INTERVAL_MONTH
+			return "year(".$expr.")*10000+month(".$expr.")*100+1";
+		if($interval == 4) // DATE_INTERVAL_WEEK
+			return "year(".$expr.")*10000+week(".$expr.")*100+01";
+		if($interval == 5) // DATE_INTERVAL_DAY
+			return "year(".$expr.")*10000+month(".$expr.")*100+day(".$expr.")";
+		if($interval == 6) // DATE_INTERVAL_HOUR
+			return "year(".$expr.")*1000000+month(".$expr.")*10000+day(".$expr.")*100+HOUR(".$expr.")";
+		if($interval == 7) // DATE_INTERVAL_MINUTE
+			return "year(".$expr.")*100000000+month(".$expr.")*1000000+day(".$expr.")*10000+HOUR(".$expr.")*100+minute(".$expr.")";
+		return $expr;
+	}
 
 }
 ?>

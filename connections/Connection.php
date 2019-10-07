@@ -663,5 +663,21 @@ class Connection
 		$this->setSilentMode( $silent );
 		return $ret;
 	}	
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionString( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionNumber( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionDate( $expr, $interval );
+	}
+	
 }
 ?>

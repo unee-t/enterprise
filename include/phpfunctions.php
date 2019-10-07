@@ -21,64 +21,6 @@ class ErrorHandler
 	}
 }
 
-class facebookWrapper
-{
-	var $fbObj = null;
-
-	function __construct()
-	{
-		include_once('plugins/facebook/facebook.php');
-		$this->fbObj = new Facebook(array(
-			'appId'  => GetGlobalData("FBappId",""),
-			'secret' => GetGlobalData("FBappSecret","")
-		));
-
-	}
-
-	function getCookieName()
-	{
-		return "fbsr_" . GetGlobalData("FBappId","");
-	}
-
-	function FBgetUserInfo()
-	{
-		$fbme = array();
-		try
-		{
-			$uid = $this->fbObj->getUser();
-			$fbme = $this->fbObj->api('/'.$uid."?fields=email,name");
-		}
-		catch(FacebookApiException $e)
-		{
-			runner_print_r($e);
-		}
-
-		return $fbme;
-	}
-
-	function FBgetLoginUrl($params=array())
-	{
-		$url = "http://";
-		if( $_SERVER["HTTPS"] && $_SERVER["HTTPS"] != "off")
-			$url = "https://";
-
-		$url .= $_SERVER["HTTP_HOST"] . substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/') + 1) .GetTableLink("login");
-
-		return $this->fbObj->getLoginUrl(array('display'=>'popup', 'redirect_uri'=>$url));
-	}
-
-	function FBgetSignedRequest()
-	{
-		return $this->fbObj->getSignedRequest();
-	}
-
-	function FBgetAppId()
-	{
-		return $this->fbObj->getAppId();
-	}
-}
-
-
 function runner_post_request($url, $parameters, $headers = array(), $certPath = false )
 {
 	$data = array();
@@ -150,6 +92,86 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
 
 	return $result;
 }
+
+function runner_http_request( $url, $parameters = array(), $method = "GET", $headers = array(), $certPath = false )
+{
+	$data = array();
+	foreach ($parameters as $key => $value)
+    {
+    	$key = (string)$key;
+        if ( is_array($value) )
+        {
+            foreach ($value as $item)
+            {
+				$item = (string)$item;
+                $data[] = urlencode($key) . '=' . urlencode($item);
+            }
+        }
+        else
+        {
+        	$value = (string)$value;
+            $data[] = urlencode($key) . '=' . urlencode($value);
+        }
+    }
+	$body = implode('&', $data);
+
+	$options = array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_INFILESIZE => -1,
+        CURLOPT_TIMEOUT => 60,
+        CURLOPT_CUSTOMREQUEST => $method,
+		CURLOPT_SSL_VERIFYHOST => false,
+		CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_HEADER => 0,
+	);
+
+	if( $method === "GET" ) {
+		if( strlen( $body ) )
+			$options[ CURLOPT_URL ] .= '?' . $body;
+	}
+	if( $method === "POST" ) {
+		$options[CURLOPT_POST] = true;
+		$options[CURLOPT_POSTFIELDS] = $body;
+	}
+
+    if ( count($headers) )
+    {
+    	$dataHeaders = array();
+		foreach ($headers as $key => $value)
+	        $dataHeaders[] = $key . ': ' . $value;
+
+    	$options[CURLOPT_HTTPHEADER] = $dataHeaders;
+    }
+
+    if ( $certPath )
+    	$options[CURLOPT_CAINFO] = $certPath;
+
+    $result = array();
+    $result["error"] = false;
+    $result["content"] = null;
+
+	try
+	{
+	    if (!$curl = curl_init())
+	        throw new Exception('Unable to initialize cURL');
+
+	    if (!curl_setopt_array($curl, $options))
+	        throw new Exception(curl_error($curl));
+
+	    if (!$result["content"] = curl_exec($curl))
+	        throw new Exception(curl_error($curl));
+
+	   	curl_close($curl);
+    }
+    catch ( Exception $e )
+    {
+ 	   	$result["error"] = "CURL error: " . $e->getMessage();
+	}
+
+	return $result;
+}
+
 
 
 /**
@@ -393,17 +415,26 @@ function myurl_get_contents_binary( $url )
 	return myurl_get_contents( $url );
 }
 
-
 function base64_encode_binary( $data )
 {
 	return base64_encode( $data );
 }
 
-
 function base64_decode_binary( $data )
 {
 	return base64_decode( $data );
 }
+
+function base64_bin2str( $data )
+{
+	return base64_encode( $data );
+}
+
+function base64_str2bin( $str )
+{
+	return base64_decode( $str );
+}
+
 /**
  * @intellisense
  */
@@ -2306,7 +2337,13 @@ function in_arrayi($needle, $haystack)
  */
 function f_printDebug()
 {
-	}
+
+	$f = fopen("_dataLog.txt", "a");
+	$trace = debug_backtrace();
+	fwrite($f, var_export($trace[0]['args'], true));
+	fclose($f);
+
+}
 
 if(!function_exists("hex2bin"))
 {
@@ -2803,8 +2840,11 @@ function runner_strrpos($haystack, $needle, $offset = 0)
  * @param Number length (>= 0)
  * @return String
  */
-function runner_substr($string, $start, $length)
+function runner_substr($string, $start, $length = -1)
 {
+	if( $length < 0 ) {
+		$length = runner_strlen( $string ) - $start;
+	}
 	if( !$length )
 		return "";
 
@@ -3116,5 +3156,82 @@ function simplify_file_name( $file_name )
 	}
 	return implode("", $newNameArr );
 }
+
+/**
+ * Returns project path
+ * Starts and ends with /
+ */
+function projectPath() {
+	$uri = $_SERVER['REQUEST_URI'];
+	$dash = strrpos( $uri, '/' );
+	if( $dash === false )
+		return '/';
+	return substr( $uri, 0, $dash + 1 );
+}
+
+function hash_hmac_sha256($data, $key, $raw_output = false) {
+	return hash_hmac('sha256', $data, $key, $raw_output);
+}
+
+
+function fbCreateObject( $appId, $appSecret ) {
+	include_once getabspath('plugins/facebook/facebook.php');
+	return new Facebook(array(
+		'appId'  => $appId,
+		'secret' => $appSecret
+	));
+}
+
+function fbGetUserInfo( $fbObj )
+{
+	$ret = array();
+	$ret["error"] = false;
+	$ret["info"] = array();
+
+	try
+	{
+		$uid = $fbObj->getUser();
+		$ret["info"] = $fbObj->api('/'.$uid.'?fields=email,name,picture');
+	}
+	catch( FacebookApiException $e )
+	{
+		//runner_print_r($e->getMessage());
+		$ret["error"] = $e->getMessage();
+	}
+
+	return $ret;
+}
+
+function fbGetSignedRequest( $fbObj ) {
+	return $fbObj->getSignedRequest();
+}
+
+function fbDestroySession( $fbObj ) {
+	return $fbObj->destroySession();
+}
+
+/**
+ * @param String $image - binary string
+ * @return Array array( width => x, height => y ) or false
+ */
+function getImageDimensions( $image )
+{
+	if(!function_exists("imagecreatefromstring"))
+		return false;
+
+	$error_handler=set_error_handler("empty_error_handler");
+	$img = imagecreatefromstring($image);
+	if($error_handler)
+		set_error_handler($error_handler);
+
+	if(!$img)
+		return false;
+
+	return array(
+		"width" => imagesx($img),
+		"height" => imagesy($img)
+	);
+}
+
 
 ?>

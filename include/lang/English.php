@@ -236,6 +236,7 @@ $mlang_messages["English"]["LANGUAGE"]="Language";
 $mlang_messages["English"]["LAST"]="Last";
 $mlang_messages["English"]["LESS_THAN"]="Less than";
 $mlang_messages["English"]["LOADING"]="loading";
+$mlang_messages["English"]["LOADING_FONTS"]="Loading fonts";
 $mlang_messages["English"]["LOCK_ADMIN_ABORTED"]="Administrator %s aborted your edit session";
 $mlang_messages["English"]["LOCK_CANT_DELETE"]="Record can't be deleted. It's edited by another user.";
 $mlang_messages["English"]["LOCK_EDIT"]="Edit record";

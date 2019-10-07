@@ -24,7 +24,7 @@ class ViewDatabaseImageField extends ViewImageDownloadField
 		if( $imageType == "image/jpeg" || $imageType == "image/png" )
 		{
 			return '{
-				image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode_binary( $data[ $this->field ] ) ) . '",
+				image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_bin2str( $data[ $this->field ] ) ) . '",
 				width: ' . $width . ',
 				height: ' .$this->container->pSet->getImageHeight( $this->field ) . '
 			}';
@@ -47,73 +47,23 @@ class ViewDatabaseImageField extends ViewImageDownloadField
 			"image" => GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table)
 						."&field=".rawurlencode($this->field)
 						."&nodisp=1"
-						."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768))."'>",
+						."&page=".$this->container->pSet->pageName()
+						."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768)),
 			"filename" => $fileNameF
 		);
 		if( $this->showThumbnails ) {
 			$hrefBegin = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table));
 			$thumbPref = $this->container->pSet->getStrThumbnail($this->field);
 			$hasThumbnail = $thumbPref != "" && strlen($data[ $thumbPref ]);
-			$hrefEnd = "&nodisp=1&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
+			$hrefEnd = "&nodisp=1&page=".$this->container->pSet->pageName()."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
 
-			$url["thumbnail"] = $hrefBegin."&field=".( $hasThumbnail ? rawurlencode($thumbPref) : rawurlencode($this->field) ).$hrefEnd;
+			$url["thumbnail"] = $hrefBegin."&field=".rawurlencode($this->field).( $hasThumbnail ? "&thumb=1" : ""  ).$hrefEnd;
 		}
 		$fileURLs[] = $url;
 
 		return $fileURLs;
 	}
 
-/*	public function showDBValue(&$data, $keylink, $html = true )
-	{
-		if( !$data[ $this->field ] )
-			return "";
-
-		$value = "";
-		$fileName = 'file.jpg';
-		$fileNameF = $this->container->pSet->getFilenameField($this->field);
-		if( $fileNameF && $data[$fileNameF] )
-			$fileName = $data[$fileNameF];
-
-		if( $this->showThumbnails )
-		{
-			$thumbPref = $this->container->pSet->getStrThumbnail($this->field);
-			$hrefBegin = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table));
-			$hrefEnd = "&nodisp=1&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
-
-			$linkClass = "";
-			if( $this->thumbWidth && $this->thumbHeight )
-			{
-				$hasThumbnail = $thumbPref != "" && strlen($data[ $thumbPref ]);
-				$thumbFileUrl = $hrefBegin."&field=".( $hasThumbnail ? rawurlencode($thumbPref) : rawurlencode($this->field) ).$hrefEnd;
-				$smallThumbnailStyle = $this->getSmallThumbnailStyle( $thumbFileUrl, $hasThumbnail );
-				$linkClass.= " background-picture";
-			}
-
-			$value.= "<a target=_blank href='".$hrefBegin."&field=".rawurlencode($this->field).$hrefEnd."' class='".$linkClass."' ".$smallThumbnailStyle.">";
-
-			$value.= "<img border=0 ";
-			if($this->is508)
-				$value.= " alt=\"Image from DB\"";
-			$value.= " src='".$hrefBegin."&field=".rawurlencode($thumbPref).$hrefEnd."'>";
-
-			$value.= "</a>";
-		}
-		else
-		{
-			$value = "<img class=\"bs-dbimage\" ";
-			if($this->is508)
-				$value.= " alt=\"Image from DB\"";
-
-
-			$value.= " border=0";
-			$value.= $this->getImageSizeStyle(true)." src='".GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table)
-				."&field=".rawurlencode($this->field)
-				."&nodisp=1"
-				."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768))."'>";
-		}
-		return $value;
-	}
-	*/
 	/**
 	 * @param &Array data
 	 * @return String

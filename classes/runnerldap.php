@@ -14,26 +14,33 @@ class RunnerLdap
 	var $ldapbind = null;
 	
 	var $ldap_useCustom = false;
+
+	var $baseDN = null;
+	var $followRefs = null;
 	
-	function __construct($aDomainName, $aServerIP, $useCustom)
+	function __construct($aDomainName, $aServerIP, $useCustom, $baseDN, $followRefs )
 	{
 		$this->ldap_domainName = $aDomainName;
 		$this->ldap_serverIP = $aServerIP;
 		$this->ldap_useCustom = $useCustom;
+		$this->baseDN = $baseDN;
+		$this->followRefs = $followRefs;
 	}
 	
+
 	/**
 	 *
 	 */
 	function runner_ldap_connect($aUsername, $aPassword)
 	{
 		// connect to ldap server
-		$this->ldapconn = ldap_connect("ldap://".$this->ldap_serverIP);
+		$this->ldapconn = ldap_connect( ldap_getUrl( ldap_getUrl( $this->ldap_serverIP ) ) );
 		if ( !$this->ldapconn || ldap_errno($this->ldapconn) != 0 )
 			return false;
 			
+		@ldap_set_option($this->ldapconn, LDAP_OPT_DEBUG_LEVEL, 7);
 		@ldap_set_option($this->ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
-		ldap_set_option($this->ldapconn, LDAP_OPT_REFERRALS, 0);
+		@ldap_set_option($this->ldapconn, LDAP_OPT_REFERRALS, $this->followRefs ? 1 : 0 );
 		
 		// binding to ldap server
 		$usernames = $this->getUserNames( $aUsername );	
@@ -59,12 +66,12 @@ class RunnerLdap
 		global $customLDAPSettings;
 		
 		$usernames = array();
-		$usernames[] = $aUsername."@". DN2Domain( $this->ldap_domainName ); // Active Directory string
-		$usernames[] = DN2Domain( $this->ldap_domainName ) . "\\" . $aUsername; // Active Directory secret string
+		$usernames[] = $aUsername."@". $this->ldap_domainName; // Active Directory string
+		$usernames[] = $this->ldap_domainName . "\\" . $aUsername; // old format Active Directory string
 		$usernames[] = $aUsername; 
-		$usernames[] = "uid=".$aUsername.",".$this->ldap_DomainToDN($this->ldap_domainName); // OpenLDAP string	
-		$usernames[] = "cname=".$aUsername.",cname=Users,".$this->ldap_DomainToDN($this->ldap_domainName); // AD string	
-		$usernames[] = "cn=".$aUsername.",cn=Users,".$this->ldap_DomainToDN($this->ldap_domainName); // AD string	
+		$usernames[] = "uid=".$aUsername.",".$this->baseDN; // OpenLDAP string	
+		$usernames[] = "cname=".$aUsername.",cname=Users,".$this->baseDN; // AD string	
+		$usernames[] = "cn=".$aUsername.",cn=Users,".$this->baseDN; // AD string	
 		
 		if( $this->ldap_useCustom && $customLDAPSettings["usernames"]) 
 		{			
@@ -82,7 +89,7 @@ class RunnerLdap
 	 */
 	public function getProcessedPattern( $pattern, $userName )
 	{
-		return str_replace( array("%u", "%d", "%e"), array( $userName, $this->ldap_domainName, $this->ldap_DomainToDN($this->ldap_domainName) ), $pattern );
+		return str_replace( array("%u", "%d", "%e"), array( $userName, $this->ldap_domainName, $this->baseDN ), $pattern );
 	}
 
 	/**
@@ -108,7 +115,7 @@ class RunnerLdap
 	*/
 	function runner_ldap_getData($filter, $attributes = array())
 	{
-		$ldap_dn = $this->ldap_DomainToDN($this->ldap_domainName);
+		$ldap_dn = $this->baseDN;
 		if( !count($attributes) )
 			$query = ldap_search($this->ldapconn, $ldap_dn, $filter);
 		else 
@@ -159,22 +166,6 @@ class RunnerLdap
 		return $resultArr;
 	}
 	
-	/**
-	 * Convert domain name test.xlinesoft.com
-	 * return DC=test,DC=xlinesoft,DC=com
-	 */
-	function ldap_DomainToDN($aDomain)
-	{
-		if( strpos( $aDomain, "=" ) !== FALSE ) {
-			return $aDomain;
-		}
-		$arrDomain = explode(".", $aDomain);
-		for ($i = 0; $i < sizeof($arrDomain); $i++)
-		{
-			$arrDomain[$i] = "dc=".$arrDomain[$i];
-		}
-		return implode(',', $arrDomain);
-	}
 
 	/**
 	 * Convert OU=users,DC=test,DC=xlinesoft,DC=com

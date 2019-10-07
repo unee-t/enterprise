@@ -2,18 +2,16 @@
 
 
 
-
 $tdataut_map_external_source_units = array();
 $tdataut_map_external_source_units[".searchableFields"] = array();
-	$tdataut_map_external_source_units[".truncateText"] = true;
-	$tdataut_map_external_source_units[".NumberOfChars"] = 80;
-	$tdataut_map_external_source_units[".ShortName"] = "ut_map_external_source_units";
-	$tdataut_map_external_source_units[".OwnerID"] = "";
-	$tdataut_map_external_source_units[".OriginalTable"] = "ut_map_external_source_units";
+$tdataut_map_external_source_units[".ShortName"] = "ut_map_external_source_units";
+$tdataut_map_external_source_units[".OwnerID"] = "";
+$tdataut_map_external_source_units[".OriginalTable"] = "ut_map_external_source_units";
 
 
 $defaultPages = my_json_decode( "{\"search\":\"search\"}" );
 
+$tdataut_map_external_source_units[".pagesByType"] = my_json_decode( "{\"search\":[\"search\"]}" );
 $tdataut_map_external_source_units[".pages"] = types2pages( my_json_decode( "{\"search\":[\"search\"]}" ) );
 $tdataut_map_external_source_units[".defaultPages"] = $defaultPages;
 
@@ -119,6 +117,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsut_map_external_source_units["English"]["mefe_area_id"] = "Mefe Area Id";
 	$fieldToolTipsut_map_external_source_units["English"]["mefe_area_id"] = "";
 	$placeHoldersut_map_external_source_units["English"]["mefe_area_id"] = "";
+	$fieldLabelsut_map_external_source_units["English"]["datetime_latest_trigger"] = "Datetime Latest Trigger";
+	$fieldToolTipsut_map_external_source_units["English"]["datetime_latest_trigger"] = "";
+	$placeHoldersut_map_external_source_units["English"]["datetime_latest_trigger"] = "";
+	$fieldLabelsut_map_external_source_units["English"]["latest_trigger"] = "Latest Trigger";
+	$fieldToolTipsut_map_external_source_units["English"]["latest_trigger"] = "";
+	$placeHoldersut_map_external_source_units["English"]["latest_trigger"] = "";
 	if (count($fieldToolTipsut_map_external_source_units["English"]))
 		$tdataut_map_external_source_units[".isUseToolTips"] = true;
 }
@@ -253,6 +257,8 @@ $tdataut_map_external_source_units[".googleLikeFields"][] = "updated_by_id";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "update_method";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "is_update_on_duplicate_key";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "organization_id";
+$tdataut_map_external_source_units[".googleLikeFields"][] = "datetime_latest_trigger";
+$tdataut_map_external_source_units[".googleLikeFields"][] = "latest_trigger";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "is_obsolete";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "is_update_needed";
 $tdataut_map_external_source_units[".googleLikeFields"][] = "mefe_area_id";
@@ -280,9 +286,6 @@ $tdataut_map_external_source_units[".nPrinterPageScale"] = 100;
 
 $tdataut_map_external_source_units[".nPrinterSplitRecords"] = 40;
 
-$tdataut_map_external_source_units[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataut_map_external_source_units[".geocodingEnabled"] = false;
 
 
@@ -307,7 +310,7 @@ $tdataut_map_external_source_units[".strOrderBy"] = $tstrOrderBy;
 
 $tdataut_map_external_source_units[".orderindexes"] = array();
 
-$tdataut_map_external_source_units[".sqlHead"] = "SELECT id_map,  	create_api_request_id,  	edit_api_request_id,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	is_update_on_duplicate_key,  	organization_id,  	is_obsolete,  	is_update_needed,  	mefe_area_id,  	mefe_unit_id_parent,  	unee_t_mefe_unit_id,  	uneet_created_datetime,  	is_mefe_api_success,  	mefe_api_error_message,  	is_unee_t_created_by_me,  	unee_t_unit_type,  	uneet_name,  	new_record_id,  	external_property_type_id,  	external_property_id,  	external_system,  	table_in_external_system,  	tower";
+$tdataut_map_external_source_units[".sqlHead"] = "SELECT id_map,  	create_api_request_id,  	edit_api_request_id,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	is_update_on_duplicate_key,  	organization_id,  	datetime_latest_trigger,  	latest_trigger,  	is_obsolete,  	is_update_needed,  	mefe_area_id,  	mefe_unit_id_parent,  	unee_t_mefe_unit_id,  	uneet_created_datetime,  	is_mefe_api_success,  	mefe_api_error_message,  	is_unee_t_created_by_me,  	unee_t_unit_type,  	uneet_name,  	new_record_id,  	external_property_type_id,  	external_property_id,  	external_system,  	table_in_external_system,  	tower";
 $tdataut_map_external_source_units[".sqlFrom"] = "FROM ut_map_external_source_units";
 $tdataut_map_external_source_units[".sqlWhereExpr"] = "";
 $tdataut_map_external_source_units[".sqlTail"] = "";
@@ -403,6 +406,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -428,6 +433,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -482,7 +488,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -534,6 +543,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -558,6 +569,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -611,7 +623,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -663,6 +678,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -687,6 +704,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -740,7 +758,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -792,6 +813,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -816,6 +839,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -869,7 +893,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -921,6 +948,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -945,6 +974,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -998,7 +1028,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1050,6 +1083,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1074,6 +1109,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1127,7 +1163,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1179,6 +1218,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1203,6 +1244,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1256,7 +1298,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1308,6 +1353,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1332,6 +1379,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1385,7 +1433,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1437,6 +1488,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1461,6 +1514,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1514,7 +1568,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1566,6 +1623,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1590,6 +1649,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1643,7 +1703,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1695,6 +1758,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1719,6 +1784,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1772,7 +1838,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1824,6 +1893,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1848,6 +1919,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1901,7 +1973,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1953,6 +2028,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2006,6 +2083,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2057,7 +2135,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2065,10 +2146,280 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 
 	$tdataut_map_external_source_units["organization_id"] = $fdata;
 		$tdataut_map_external_source_units[".searchableFields"][] = "organization_id";
-//	is_obsolete
+//	datetime_latest_trigger
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 14;
+	$fdata["strName"] = "datetime_latest_trigger";
+	$fdata["GoodName"] = "datetime_latest_trigger";
+	$fdata["ownerTable"] = "ut_map_external_source_units";
+	$fdata["Label"] = GetFieldLabel("ut_map_external_source_units","datetime_latest_trigger");
+	$fdata["FieldType"] = 135;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "datetime_latest_trigger";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "datetime_latest_trigger";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataut_map_external_source_units["datetime_latest_trigger"] = $fdata;
+		$tdataut_map_external_source_units[".searchableFields"][] = "datetime_latest_trigger";
+//	latest_trigger
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 15;
+	$fdata["strName"] = "latest_trigger";
+	$fdata["GoodName"] = "latest_trigger";
+	$fdata["ownerTable"] = "ut_map_external_source_units";
+	$fdata["Label"] = GetFieldLabel("ut_map_external_source_units","latest_trigger");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "latest_trigger";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "latest_trigger";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=255";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataut_map_external_source_units["latest_trigger"] = $fdata;
+		$tdataut_map_external_source_units[".searchableFields"][] = "latest_trigger";
+//	is_obsolete
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "is_obsolete";
 	$fdata["GoodName"] = "is_obsolete";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2109,6 +2460,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2133,6 +2486,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2186,7 +2540,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2197,7 +2554,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	is_update_needed
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 17;
 	$fdata["strName"] = "is_update_needed";
 	$fdata["GoodName"] = "is_update_needed";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2238,6 +2595,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2262,6 +2621,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2315,7 +2675,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2326,7 +2689,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	mefe_area_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "mefe_area_id";
 	$fdata["GoodName"] = "mefe_area_id";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2367,6 +2730,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2421,6 +2786,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2471,7 +2837,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2482,7 +2851,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	mefe_unit_id_parent
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "mefe_unit_id_parent";
 	$fdata["GoodName"] = "mefe_unit_id_parent";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2523,6 +2892,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2575,6 +2946,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2625,7 +2997,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2636,7 +3011,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	unee_t_mefe_unit_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "unee_t_mefe_unit_id";
 	$fdata["GoodName"] = "unee_t_mefe_unit_id";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2677,6 +3052,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2701,6 +3078,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2754,7 +3132,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2765,7 +3146,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	uneet_created_datetime
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "uneet_created_datetime";
 	$fdata["GoodName"] = "uneet_created_datetime";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2806,6 +3187,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2830,6 +3213,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2883,7 +3267,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2894,7 +3281,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	is_mefe_api_success
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "is_mefe_api_success";
 	$fdata["GoodName"] = "is_mefe_api_success";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -2935,6 +3322,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2959,6 +3348,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3012,7 +3402,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3023,7 +3416,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	mefe_api_error_message
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "mefe_api_error_message";
 	$fdata["GoodName"] = "mefe_api_error_message";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3064,6 +3457,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3088,6 +3483,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3140,7 +3536,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3151,7 +3550,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	is_unee_t_created_by_me
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "is_unee_t_created_by_me";
 	$fdata["GoodName"] = "is_unee_t_created_by_me";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3192,6 +3591,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3216,6 +3617,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3269,7 +3671,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3280,7 +3685,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	unee_t_unit_type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 25;
 	$fdata["strName"] = "unee_t_unit_type";
 	$fdata["GoodName"] = "unee_t_unit_type";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3321,6 +3726,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3373,6 +3780,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3423,7 +3831,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3434,7 +3845,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	uneet_name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 26;
 	$fdata["strName"] = "uneet_name";
 	$fdata["GoodName"] = "uneet_name";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3475,6 +3886,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3499,6 +3912,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3552,7 +3966,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3563,7 +3980,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	new_record_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "new_record_id";
 	$fdata["GoodName"] = "new_record_id";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3604,6 +4021,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3629,6 +4048,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3683,7 +4103,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3694,7 +4117,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	external_property_type_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "external_property_type_id";
 	$fdata["GoodName"] = "external_property_type_id";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3735,6 +4158,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3788,6 +4213,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3839,7 +4265,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3850,7 +4279,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	external_property_id
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 27;
+	$fdata["Index"] = 29;
 	$fdata["strName"] = "external_property_id";
 	$fdata["GoodName"] = "external_property_id";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -3891,6 +4320,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3915,6 +4346,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3968,7 +4400,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3979,7 +4414,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	external_system
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 28;
+	$fdata["Index"] = 30;
 	$fdata["strName"] = "external_system";
 	$fdata["GoodName"] = "external_system";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -4020,6 +4455,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4044,6 +4481,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4097,7 +4535,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4108,7 +4549,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	table_in_external_system
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 29;
+	$fdata["Index"] = 31;
 	$fdata["strName"] = "table_in_external_system";
 	$fdata["GoodName"] = "table_in_external_system";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -4149,6 +4590,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4173,6 +4616,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4226,7 +4670,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4237,7 +4684,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 //	tower
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 30;
+	$fdata["Index"] = 32;
 	$fdata["strName"] = "tower";
 	$fdata["GoodName"] = "tower";
 	$fdata["ownerTable"] = "ut_map_external_source_units";
@@ -4278,6 +4725,8 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -4302,6 +4751,7 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4355,7 +4805,10 @@ $tdataut_map_external_source_units[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -4398,7 +4851,7 @@ function createSqlQuery_ut_map_external_source_units()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_map,  	create_api_request_id,  	edit_api_request_id,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	is_update_on_duplicate_key,  	organization_id,  	is_obsolete,  	is_update_needed,  	mefe_area_id,  	mefe_unit_id_parent,  	unee_t_mefe_unit_id,  	uneet_created_datetime,  	is_mefe_api_success,  	mefe_api_error_message,  	is_unee_t_created_by_me,  	unee_t_unit_type,  	uneet_name,  	new_record_id,  	external_property_type_id,  	external_property_id,  	external_system,  	table_in_external_system,  	tower";
+$proto0["m_strFieldList"] = "id_map,  	create_api_request_id,  	edit_api_request_id,  	syst_created_datetime,  	creation_system_id,  	created_by_id,  	creation_method,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	is_update_on_duplicate_key,  	organization_id,  	datetime_latest_trigger,  	latest_trigger,  	is_obsolete,  	is_update_needed,  	mefe_area_id,  	mefe_unit_id_parent,  	unee_t_mefe_unit_id,  	uneet_created_datetime,  	is_mefe_api_success,  	mefe_api_error_message,  	is_unee_t_created_by_me,  	unee_t_unit_type,  	uneet_name,  	new_record_id,  	external_property_type_id,  	external_property_id,  	external_system,  	table_in_external_system,  	tower";
 $proto0["m_strFrom"] = "FROM ut_map_external_source_units";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -4623,12 +5076,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_obsolete",
+	"m_strName" => "datetime_latest_trigger",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto32["m_sql"] = "is_obsolete";
+$proto32["m_sql"] = "datetime_latest_trigger";
 $proto32["m_srcTableName"] = "ut_map_external_source_units";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -4637,12 +5090,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_update_needed",
+	"m_strName" => "latest_trigger",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto34["m_sql"] = "is_update_needed";
+$proto34["m_sql"] = "latest_trigger";
 $proto34["m_srcTableName"] = "ut_map_external_source_units";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -4651,12 +5104,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "mefe_area_id",
+	"m_strName" => "is_obsolete",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto36["m_sql"] = "mefe_area_id";
+$proto36["m_sql"] = "is_obsolete";
 $proto36["m_srcTableName"] = "ut_map_external_source_units";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -4665,12 +5118,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "mefe_unit_id_parent",
+	"m_strName" => "is_update_needed",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto38["m_sql"] = "mefe_unit_id_parent";
+$proto38["m_sql"] = "is_update_needed";
 $proto38["m_srcTableName"] = "ut_map_external_source_units";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -4679,12 +5132,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_mefe_unit_id",
+	"m_strName" => "mefe_area_id",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto40["m_sql"] = "unee_t_mefe_unit_id";
+$proto40["m_sql"] = "mefe_area_id";
 $proto40["m_srcTableName"] = "ut_map_external_source_units";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -4693,12 +5146,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "uneet_created_datetime",
+	"m_strName" => "mefe_unit_id_parent",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto42["m_sql"] = "uneet_created_datetime";
+$proto42["m_sql"] = "mefe_unit_id_parent";
 $proto42["m_srcTableName"] = "ut_map_external_source_units";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -4707,12 +5160,12 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_mefe_api_success",
+	"m_strName" => "unee_t_mefe_unit_id",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto44["m_sql"] = "is_mefe_api_success";
+$proto44["m_sql"] = "unee_t_mefe_unit_id";
 $proto44["m_srcTableName"] = "ut_map_external_source_units";
 $proto44["m_expr"]=$obj;
 $proto44["m_alias"] = "";
@@ -4721,12 +5174,12 @@ $obj = new SQLFieldListItem($proto44);
 $proto0["m_fieldlist"][]=$obj;
 						$proto46=array();
 			$obj = new SQLField(array(
-	"m_strName" => "mefe_api_error_message",
+	"m_strName" => "uneet_created_datetime",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto46["m_sql"] = "mefe_api_error_message";
+$proto46["m_sql"] = "uneet_created_datetime";
 $proto46["m_srcTableName"] = "ut_map_external_source_units";
 $proto46["m_expr"]=$obj;
 $proto46["m_alias"] = "";
@@ -4735,12 +5188,12 @@ $obj = new SQLFieldListItem($proto46);
 $proto0["m_fieldlist"][]=$obj;
 						$proto48=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_unee_t_created_by_me",
+	"m_strName" => "is_mefe_api_success",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto48["m_sql"] = "is_unee_t_created_by_me";
+$proto48["m_sql"] = "is_mefe_api_success";
 $proto48["m_srcTableName"] = "ut_map_external_source_units";
 $proto48["m_expr"]=$obj;
 $proto48["m_alias"] = "";
@@ -4749,12 +5202,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_unit_type",
+	"m_strName" => "mefe_api_error_message",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto50["m_sql"] = "unee_t_unit_type";
+$proto50["m_sql"] = "mefe_api_error_message";
 $proto50["m_srcTableName"] = "ut_map_external_source_units";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -4763,12 +5216,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "uneet_name",
+	"m_strName" => "is_unee_t_created_by_me",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto52["m_sql"] = "uneet_name";
+$proto52["m_sql"] = "is_unee_t_created_by_me";
 $proto52["m_srcTableName"] = "ut_map_external_source_units";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -4777,12 +5230,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "new_record_id",
+	"m_strName" => "unee_t_unit_type",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto54["m_sql"] = "new_record_id";
+$proto54["m_sql"] = "unee_t_unit_type";
 $proto54["m_srcTableName"] = "ut_map_external_source_units";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -4791,12 +5244,12 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "external_property_type_id",
+	"m_strName" => "uneet_name",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto56["m_sql"] = "external_property_type_id";
+$proto56["m_sql"] = "uneet_name";
 $proto56["m_srcTableName"] = "ut_map_external_source_units";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
@@ -4805,12 +5258,12 @@ $obj = new SQLFieldListItem($proto56);
 $proto0["m_fieldlist"][]=$obj;
 						$proto58=array();
 			$obj = new SQLField(array(
-	"m_strName" => "external_property_id",
+	"m_strName" => "new_record_id",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto58["m_sql"] = "external_property_id";
+$proto58["m_sql"] = "new_record_id";
 $proto58["m_srcTableName"] = "ut_map_external_source_units";
 $proto58["m_expr"]=$obj;
 $proto58["m_alias"] = "";
@@ -4819,12 +5272,12 @@ $obj = new SQLFieldListItem($proto58);
 $proto0["m_fieldlist"][]=$obj;
 						$proto60=array();
 			$obj = new SQLField(array(
-	"m_strName" => "external_system",
+	"m_strName" => "external_property_type_id",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto60["m_sql"] = "external_system";
+$proto60["m_sql"] = "external_property_type_id";
 $proto60["m_srcTableName"] = "ut_map_external_source_units";
 $proto60["m_expr"]=$obj;
 $proto60["m_alias"] = "";
@@ -4833,12 +5286,12 @@ $obj = new SQLFieldListItem($proto60);
 $proto0["m_fieldlist"][]=$obj;
 						$proto62=array();
 			$obj = new SQLField(array(
-	"m_strName" => "table_in_external_system",
+	"m_strName" => "external_property_id",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto62["m_sql"] = "table_in_external_system";
+$proto62["m_sql"] = "external_property_id";
 $proto62["m_srcTableName"] = "ut_map_external_source_units";
 $proto62["m_expr"]=$obj;
 $proto62["m_alias"] = "";
@@ -4847,78 +5300,108 @@ $obj = new SQLFieldListItem($proto62);
 $proto0["m_fieldlist"][]=$obj;
 						$proto64=array();
 			$obj = new SQLField(array(
-	"m_strName" => "tower",
+	"m_strName" => "external_system",
 	"m_strTable" => "ut_map_external_source_units",
 	"m_srcTableName" => "ut_map_external_source_units"
 ));
 
-$proto64["m_sql"] = "tower";
+$proto64["m_sql"] = "external_system";
 $proto64["m_srcTableName"] = "ut_map_external_source_units";
 $proto64["m_expr"]=$obj;
 $proto64["m_alias"] = "";
 $obj = new SQLFieldListItem($proto64);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto66=array();
-$proto66["m_link"] = "SQLL_MAIN";
-			$proto67=array();
-$proto67["m_strName"] = "ut_map_external_source_units";
-$proto67["m_srcTableName"] = "ut_map_external_source_units";
-$proto67["m_columns"] = array();
-$proto67["m_columns"][] = "id_map";
-$proto67["m_columns"][] = "create_api_request_id";
-$proto67["m_columns"][] = "edit_api_request_id";
-$proto67["m_columns"][] = "syst_created_datetime";
-$proto67["m_columns"][] = "creation_system_id";
-$proto67["m_columns"][] = "created_by_id";
-$proto67["m_columns"][] = "creation_method";
-$proto67["m_columns"][] = "syst_updated_datetime";
-$proto67["m_columns"][] = "update_system_id";
-$proto67["m_columns"][] = "updated_by_id";
-$proto67["m_columns"][] = "update_method";
-$proto67["m_columns"][] = "is_update_on_duplicate_key";
-$proto67["m_columns"][] = "organization_id";
-$proto67["m_columns"][] = "is_obsolete";
-$proto67["m_columns"][] = "is_update_needed";
-$proto67["m_columns"][] = "mefe_area_id";
-$proto67["m_columns"][] = "mefe_unit_id_parent";
-$proto67["m_columns"][] = "unee_t_mefe_unit_id";
-$proto67["m_columns"][] = "uneet_created_datetime";
-$proto67["m_columns"][] = "is_mefe_api_success";
-$proto67["m_columns"][] = "mefe_api_error_message";
-$proto67["m_columns"][] = "is_unee_t_created_by_me";
-$proto67["m_columns"][] = "unee_t_unit_type";
-$proto67["m_columns"][] = "uneet_name";
-$proto67["m_columns"][] = "new_record_id";
-$proto67["m_columns"][] = "external_property_type_id";
-$proto67["m_columns"][] = "external_property_id";
-$proto67["m_columns"][] = "external_system";
-$proto67["m_columns"][] = "table_in_external_system";
-$proto67["m_columns"][] = "tower";
-$obj = new SQLTable($proto67);
+						$proto66=array();
+			$obj = new SQLField(array(
+	"m_strName" => "table_in_external_system",
+	"m_strTable" => "ut_map_external_source_units",
+	"m_srcTableName" => "ut_map_external_source_units"
+));
 
-$proto66["m_table"] = $obj;
-$proto66["m_sql"] = "ut_map_external_source_units";
-$proto66["m_alias"] = "";
+$proto66["m_sql"] = "table_in_external_system";
 $proto66["m_srcTableName"] = "ut_map_external_source_units";
-$proto68=array();
-$proto68["m_sql"] = "";
-$proto68["m_uniontype"] = "SQLL_UNKNOWN";
+$proto66["m_expr"]=$obj;
+$proto66["m_alias"] = "";
+$obj = new SQLFieldListItem($proto66);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto68=array();
+			$obj = new SQLField(array(
+	"m_strName" => "tower",
+	"m_strTable" => "ut_map_external_source_units",
+	"m_srcTableName" => "ut_map_external_source_units"
+));
+
+$proto68["m_sql"] = "tower";
+$proto68["m_srcTableName"] = "ut_map_external_source_units";
+$proto68["m_expr"]=$obj;
+$proto68["m_alias"] = "";
+$obj = new SQLFieldListItem($proto68);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto70=array();
+$proto70["m_link"] = "SQLL_MAIN";
+			$proto71=array();
+$proto71["m_strName"] = "ut_map_external_source_units";
+$proto71["m_srcTableName"] = "ut_map_external_source_units";
+$proto71["m_columns"] = array();
+$proto71["m_columns"][] = "id_map";
+$proto71["m_columns"][] = "create_api_request_id";
+$proto71["m_columns"][] = "edit_api_request_id";
+$proto71["m_columns"][] = "syst_created_datetime";
+$proto71["m_columns"][] = "creation_system_id";
+$proto71["m_columns"][] = "created_by_id";
+$proto71["m_columns"][] = "creation_method";
+$proto71["m_columns"][] = "syst_updated_datetime";
+$proto71["m_columns"][] = "update_system_id";
+$proto71["m_columns"][] = "updated_by_id";
+$proto71["m_columns"][] = "update_method";
+$proto71["m_columns"][] = "is_update_on_duplicate_key";
+$proto71["m_columns"][] = "organization_id";
+$proto71["m_columns"][] = "datetime_latest_trigger";
+$proto71["m_columns"][] = "latest_trigger";
+$proto71["m_columns"][] = "is_obsolete";
+$proto71["m_columns"][] = "is_update_needed";
+$proto71["m_columns"][] = "mefe_area_id";
+$proto71["m_columns"][] = "mefe_unit_id_parent";
+$proto71["m_columns"][] = "unee_t_mefe_unit_id";
+$proto71["m_columns"][] = "uneet_created_datetime";
+$proto71["m_columns"][] = "is_mefe_api_success";
+$proto71["m_columns"][] = "mefe_api_error_message";
+$proto71["m_columns"][] = "is_unee_t_created_by_me";
+$proto71["m_columns"][] = "unee_t_unit_type";
+$proto71["m_columns"][] = "uneet_name";
+$proto71["m_columns"][] = "new_record_id";
+$proto71["m_columns"][] = "external_property_type_id";
+$proto71["m_columns"][] = "external_property_id";
+$proto71["m_columns"][] = "external_system";
+$proto71["m_columns"][] = "table_in_external_system";
+$proto71["m_columns"][] = "tower";
+$obj = new SQLTable($proto71);
+
+$proto70["m_table"] = $obj;
+$proto70["m_sql"] = "ut_map_external_source_units";
+$proto70["m_alias"] = "";
+$proto70["m_srcTableName"] = "ut_map_external_source_units";
+$proto72=array();
+$proto72["m_sql"] = "";
+$proto72["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto68["m_column"]=$obj;
-$proto68["m_contained"] = array();
-$proto68["m_strCase"] = "";
-$proto68["m_havingmode"] = false;
-$proto68["m_inBrackets"] = false;
-$proto68["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto68);
+$proto72["m_column"]=$obj;
+$proto72["m_contained"] = array();
+$proto72["m_strCase"] = "";
+$proto72["m_havingmode"] = false;
+$proto72["m_inBrackets"] = false;
+$proto72["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto72);
 
-$proto66["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto66);
+$proto70["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto70);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4935,7 +5418,7 @@ $queryData_ut_map_external_source_units = createSqlQuery_ut_map_external_source_
 					
 ;
 
-																														
+																																
 
 $tdataut_map_external_source_units[".sqlquery"] = $queryData_ut_map_external_source_units;
 

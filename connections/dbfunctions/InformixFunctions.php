@@ -72,7 +72,16 @@ class InformixFunctions extends DBFunctions
 		$qResult->seekPage( $pageSize, $pageStart );
 		
 		return $qResult;
-}
+	}
 
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstring( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
 }
 ?>

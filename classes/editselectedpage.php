@@ -427,7 +427,7 @@ class EditSelectedPage extends EditPage
 	
 	protected function getSingleRecordWhereClause( $keys ) 
 	{
-		$strWhereClause = KeyWhere($keys);
+		$strWhereClause = KeyWhere($keys, $this->tName );
 		
 		if( $this->pSet->getAdvancedSecurityType() != ADVSECURITY_ALL )
 		{
@@ -456,7 +456,7 @@ class EditSelectedPage extends EditPage
 			$components = array();
 			foreach( $this->parsedSelection as $s )
 			{
-				$components[] = KeyWhere( $s );
+				$components[] = KeyWhere( $s, $this->tName );
 			}
 			$strWhereClause = implode(" or ", $components );
 		}

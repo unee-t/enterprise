@@ -1,0 +1,136 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Assign_Rooms_to_User export}","hidden":"{$item_hide_export_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_export_field16}","text":{$unee_t_role_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field}","text":{$unee_t_mefe_user_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field1}","text":{$unee_t_user_type_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field2}","text":{$id_map_user_unit_permissions_level_3_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field3}","text":{$unee_t_level_3_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field4}","text":{$system_id_unit_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field6}","text":{$room_name_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+					]
+}
+  

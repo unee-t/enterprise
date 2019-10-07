@@ -4,9 +4,9 @@
 				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{$pagetitle}</title>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -102,8 +102,8 @@
 			</span>
 								</nav>
 {END supertop_block}
-				</div>	
-			
+					{$locking}
+			</div>	
 			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
 				<div class="r-top">
 										</div>

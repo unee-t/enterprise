@@ -114,6 +114,8 @@ switch(postvalue("a"))
 		echo printJSON( array('success' => true) );
 		break;
 	
+	// @deprecated 
+	// see ug_rights
 	case 'saveRights':
 		$error = '';
 		if( postvalue('state') )

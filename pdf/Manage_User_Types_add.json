@@ -1,0 +1,1782 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Manage_User_Types add}","hidden":"{$item_hide_add_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_add_message}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								
+		[
+												
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_breadcrumb}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+		body: [
+				
+					{BEGIN row_grid_0}
+				
+		[
+												{BEGIN cellblock_grid_c6}
+
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section7',
+			widths: ['*'],
+			body: [
+				[{text: 'About this User Role', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section7_0}
+								'*', 
+								{END col_section7_0}
+							 
+								{BEGIN col_section7_1}
+								'*', 
+								{END col_section7_1}
+							 
+								{BEGIN col_section7_2}
+								'*', 
+								{END col_section7_2}
+													],
+						body: [
+								
+					{BEGIN row_section7_0}
+				
+		[
+												{BEGIN cellblock_section7_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Manage_User_Types designation }","bold":true},{"text":{$designation_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section7_c1}
+																			{BEGIN cellblock_section7_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Manage_User_Types ut_user_role_type_id }","bold":true},{"text":{$ut_user_role_type_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section7_c3}
+																			{BEGIN cellblock_section7_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel Manage_User_Types is_occupant }","bold":true},{"text":{$is_occupant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section7_c2}
+											],
+				{END row_section7_0}
+								{BEGIN row_section7_1}
+				
+		[
+												{BEGIN cellblock_section7_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Manage_User_Types is_public }","bold":true},{"text":{$is_public_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section7_c8}
+																			{BEGIN cellblock_section7_c9}
+
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_User_Types is_default_assignee }","bold":true},{"text":{$is_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section7_c9}
+																			{BEGIN cellblock_section7_c10}
+
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Manage_User_Types is_default_invited }","bold":true},{"text":{$is_default_invited_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section7_c10}
+											],
+				{END row_section7_1}
+								{BEGIN row_section7_2}
+				
+		[
+												{BEGIN cellblock_section7_c12}
+
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section7_c12}
+			colSpan: {$colspan_section7_c12},
+			{END colspan_section7_c12}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel Manage_User_Types description }","bold":true},{"text":{$description_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section7_c12}
+																			{ 
+					cellId: 'c12',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{BEGIN cellblock_section7_c14}
+
+{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Manage_User_Types is_dashboard_access }","bold":true},{"text":{$is_dashboard_access_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section7_c14}
+											],
+				{END row_section7_2}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c6}
+											],
+				{END row_grid_0}
+								{BEGIN row_grid_1}
+				
+		[
+												{BEGIN cellblock_grid_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section8',
+			widths: ['*'],
+			body: [
+				[{text: 'Automatically assign to', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section8_0}
+								'*', 
+								{END col_section8_0}
+							 
+								{BEGIN col_section8_1}
+								'*', 
+								{END col_section8_1}
+							 
+								{BEGIN col_section8_2}
+								'*', 
+								{END col_section8_2}
+							 
+								{BEGIN col_section8_3}
+								'*', 
+								{END col_section8_3}
+							 
+								{BEGIN col_section8_4}
+								'*', 
+								{END col_section8_4}
+													],
+						body: [
+								
+					{BEGIN row_section8_0}
+				
+		[
+												{BEGIN cellblock_section8_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field29}","stack":[{"text":"{$jslabel Manage_User_Types is_all_unit }","bold":true},{"text":{$is_all_unit_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section8_c1}
+																			{BEGIN cellblock_section8_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field35}","stack":[{"text":"{$jslabel Manage_User_Types is_all_units_in_country }","bold":true},{"text":{$is_all_units_in_country_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section8_c4}
+																			{BEGIN cellblock_section8_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field36}","stack":[{"text":"{$jslabel Manage_User_Types is_all_units_in_area }","bold":true},{"text":{$is_all_units_in_area_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section8_c3}
+																			{BEGIN cellblock_section8_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field37}","stack":[{"text":"{$jslabel Manage_User_Types is_all_units_in_level_1 }","bold":true},{"text":{$is_all_units_in_level_1_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section8_c2}
+																			{BEGIN cellblock_section8_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field38}","stack":[{"text":"{$jslabel Manage_User_Types is_all_units_in_level_2 }","bold":true},{"text":{$is_all_units_in_level_2_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section8_c}
+											],
+				{END row_section8_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c7}
+
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section1',
+			widths: ['*'],
+			body: [
+				[{text: 'Ability to Invite other PUBLIC users', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section1_0}
+								'*', 
+								{END col_section1_0}
+							 
+								{BEGIN col_section1_1}
+								'*', 
+								{END col_section1_1}
+							 
+								{BEGIN col_section1_2}
+								'*', 
+								{END col_section1_2}
+													],
+						body: [
+								
+					{BEGIN row_section1_0}
+				
+		[
+												{BEGIN cellblock_section1_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Manage_User_Types can_see_role_tenant }","bold":true},{"text":{$can_see_role_tenant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c1}
+																			{BEGIN cellblock_section1_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel Manage_User_Types can_see_occupant }","bold":true},{"text":{$can_see_occupant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c2}
+																			{BEGIN cellblock_section1_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel Manage_User_Types can_see_role_mgt_cny }","bold":true},{"text":{$can_see_role_mgt_cny_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c}
+											],
+				{END row_section1_0}
+								{BEGIN row_section1_1}
+				
+		[
+												{BEGIN cellblock_section1_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel Manage_User_Types can_see_role_contractor }","bold":true},{"text":{$can_see_role_contractor_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c3}
+																			{BEGIN cellblock_section1_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel Manage_User_Types can_see_role_landlord }","bold":true},{"text":{$can_see_role_landlord_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c4}
+																			{BEGIN cellblock_section1_c5}
+
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Manage_User_Types can_see_role_agent }","bold":true},{"text":{$can_see_role_agent_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section1_c5}
+											],
+				{END row_section1_1}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c7}
+											],
+				{END row_grid_2}
+								{BEGIN row_grid_3}
+				
+		[
+												{BEGIN cellblock_grid_c9}
+
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section',
+			widths: ['*'],
+			body: [
+				[{text: 'Notifications', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section_0}
+								'*', 
+								{END col_section_0}
+													],
+						body: [
+								
+					{BEGIN row_section_0}
+				
+		[
+												{BEGIN cellblock_section_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section2',
+			widths: ['*'],
+			body: [
+				[{text: 'The Case has changed', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section2_0}
+								'*', 
+								{END col_section2_0}
+							 
+								{BEGIN col_section2_1}
+								'*', 
+								{END col_section2_1}
+							 
+								{BEGIN col_section2_2}
+								'*', 
+								{END col_section2_2}
+							 
+								{BEGIN col_section2_3}
+								'*', 
+								{END col_section2_3}
+													],
+						body: [
+								
+					{BEGIN row_section2_0}
+				
+		[
+												{BEGIN cellblock_section2_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section2_c1}
+			colSpan: {$colspan_section2_c1},
+			{END colspan_section2_c1}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel Manage_User_Types is_assigned_to_case }","bold":true},{"text":{$is_assigned_to_case_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c1}
+																			{ 
+					cellId: 'c1',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{BEGIN cellblock_section2_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section2_c}
+			colSpan: {$colspan_section2_c},
+			{END colspan_section2_c}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel Manage_User_Types is_invited_to_case }","bold":true},{"text":{$is_invited_to_case_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c}
+																			{ 
+					cellId: 'c',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+							],
+				{END row_section2_0}
+								{BEGIN row_section2_1}
+				
+		[
+												{BEGIN cellblock_section2_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel Manage_User_Types is_solution_updated }","bold":true},{"text":{$is_solution_updated_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c4}
+																			{BEGIN cellblock_section2_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel Manage_User_Types is_next_step_updated }","bold":true},{"text":{$is_next_step_updated_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c8}
+																			{BEGIN cellblock_section2_c5}
+
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel Manage_User_Types is_deadline_updated }","bold":true},{"text":{$is_deadline_updated_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c5}
+																			{BEGIN cellblock_section2_c6}
+
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel Manage_User_Types is_case_resolved }","bold":true},{"text":{$is_case_resolved_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section2_c6}
+											],
+				{END row_section2_1}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+ 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section3',
+			widths: ['*'],
+			body: [
+				[{text: 'New Messages', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section3_0}
+								'*', 
+								{END col_section3_0}
+							 
+								{BEGIN col_section3_1}
+								'*', 
+								{END col_section3_1}
+							 
+								{BEGIN col_section3_2}
+								'*', 
+								{END col_section3_2}
+													],
+						body: [
+								
+					{BEGIN row_section3_0}
+				
+		[
+												{BEGIN cellblock_section3_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field24}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_mgt_cny }","bold":true},{"text":{$is_message_from_mgt_cny_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c1}
+																			{BEGIN cellblock_section3_c5}
+
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field26}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_occupant }","bold":true},{"text":{$is_message_from_occupant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c5}
+																			{BEGIN cellblock_section3_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field28}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_tenant }","bold":true},{"text":{$is_message_from_tenant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c3}
+											],
+				{END row_section3_0}
+								{BEGIN row_section3_1}
+				
+		[
+												{BEGIN cellblock_section3_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field23}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_contractor }","bold":true},{"text":{$is_message_from_contractor_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c}
+																			{BEGIN cellblock_section3_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field25}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_agent }","bold":true},{"text":{$is_message_from_agent_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c4}
+																			{BEGIN cellblock_section3_c6}
+
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field27}","stack":[{"text":"{$jslabel Manage_User_Types is_message_from_ll }","bold":true},{"text":{$is_message_from_ll_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section3_c6}
+											],
+				{END row_section3_1}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+ 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section4',
+			widths: ['*'],
+			body: [
+				[{text: 'Inspection Reports', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section4_0}
+								'*', 
+								{END col_section4_0}
+													],
+						body: [
+								
+					{BEGIN row_section4_0}
+				
+		[
+												{BEGIN cellblock_section4_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field30}","stack":[{"text":"{$jslabel Manage_User_Types is_new_ir }","bold":true},{"text":{$is_new_ir_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section4_c1}
+											],
+				{END row_section4_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+ 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section5',
+			widths: ['*'],
+			body: [
+				[{text: 'Inventories and Items', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section5_0}
+								'*', 
+								{END col_section5_0}
+							 
+								{BEGIN col_section5_1}
+								'*', 
+								{END col_section5_1}
+							 
+								{BEGIN col_section5_2}
+								'*', 
+								{END col_section5_2}
+							 
+								{BEGIN col_section5_3}
+								'*', 
+								{END col_section5_3}
+													],
+						body: [
+								
+					{BEGIN row_section5_0}
+				
+		[
+												{BEGIN cellblock_section5_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field31}","stack":[{"text":"{$jslabel Manage_User_Types is_new_inventory }","bold":true},{"text":{$is_new_inventory_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section5_c1}
+																			{BEGIN cellblock_section5_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field32}","stack":[{"text":"{$jslabel Manage_User_Types is_new_item }","bold":true},{"text":{$is_new_item_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section5_c3}
+																			{BEGIN cellblock_section5_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field33}","stack":[{"text":"{$jslabel Manage_User_Types is_item_moved }","bold":true},{"text":{$is_item_moved_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section5_c2}
+																			{BEGIN cellblock_section5_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field34}","stack":[{"text":"{$jslabel Manage_User_Types is_item_removed }","bold":true},{"text":{$is_item_removed_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section5_c}
+											],
+				{END row_section5_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section_c1}
+											],
+				{END row_section_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c9}
+											],
+				{END row_grid_3}
+								{BEGIN row_grid_4}
+				
+		[
+												{BEGIN cellblock_grid_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section6',
+			widths: ['*'],
+			body: [
+				[{text: 'Override - Notify me of everything if the case is', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section6_0}
+								'*', 
+								{END col_section6_0}
+							 
+								{BEGIN col_section6_1}
+								'*', 
+								{END col_section6_1}
+													],
+						body: [
+								
+					{BEGIN row_section6_0}
+				
+		[
+												{BEGIN cellblock_section6_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel Manage_User_Types is_case_critical }","bold":true},{"text":{$is_case_critical_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section6_c1}
+																			{BEGIN cellblock_section6_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field22}","stack":[{"text":"{$jslabel Manage_User_Types is_case_blocker }","bold":true},{"text":{$is_case_blocker_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'center',
+    },
+
+{END cellblock_section6_c}
+											],
+				{END row_section6_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c}
+											],
+				{END row_grid_4}
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":"","hidden":"{$item_hide_add_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_add_cancel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+			]
+}
+  

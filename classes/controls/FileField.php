@@ -6,40 +6,40 @@ class FileField extends EditControl
 	 * @var {object}
 	 */
 	var $upload_handler = null;
-	
+
 	/**
-	 * Field random identifier for sessions values 
+	 * Field random identifier for sessions values
 	 * @var {string}
 	 */
 	var $formStamp = "";
-	
+
 	function __construct($field, $pageObject, $id, $connection)
 	{
 		parent::__construct($field, $pageObject, $id, $connection);
 		$this->format = EDIT_FORMAT_FILE;
 	}
-	
+
 	function addJSFiles()
 	{
-		if($this->pageObject->pageType == PAGE_ADD 
+		if($this->pageObject->pageType == PAGE_ADD
 			|| $this->pageObject->pageType == PAGE_EDIT
 			|| $this->pageObject->pageType == PAGE_REGISTER){
 			$this->pageObject->AddJSFile("include/mupload.js");
 		}
 	}
-	
+
 	function addCSSFiles()
 	{
-		if($this->pageObject->pageType == PAGE_ADD 
+		if($this->pageObject->pageType == PAGE_ADD
 			|| $this->pageObject->pageType == PAGE_EDIT
 			|| $this->pageObject->pageType == PAGE_REGISTER){
 		}
 	}
-	
+
 	function buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data)
 	{
 		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
-		
+
 		if($this->pageObject->pageType == PAGE_SEARCH || $this->pageObject->pageType == PAGE_LIST)
 		{
 			$classString = "";
@@ -49,16 +49,16 @@ class FileField extends EditControl
 				.($mode == MODE_SEARCH ? 'autocomplete="off" ' : '')
 				.(($mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD) && $this->is508==true ? 'alt="'.$this->strLabel.'" ' : '')
 				.'name="'.$this->cfield.'" '.$this->pageObject->pSetEdit->getEditParams($this->field).' value="'
-				.runner_htmlspecialchars($value).'">';	
+				.runner_htmlspecialchars($value).'">';
 			$this->buildControlEnd($validate, $mode);
 			return;
 		}
-		
+
 		if($mode == MODE_SEARCH)
 			$this->format = "";
 
 		$this->formStamp = generatePassword(15);
-			
+
 		$this->initUploadHandler();
 		$this->upload_handler->formStamp = $this->formStamp;
 		$filesArray = my_json_decode($value);
@@ -66,7 +66,7 @@ class FileField extends EditControl
 		{
 			if(!$value)
 				$jsonValue = "[]";
-			else 
+			else
 			{
 				$uploadedFile = $this->upload_handler->get_file_object($value);
 				if(is_null($uploadedFile))
@@ -75,7 +75,7 @@ class FileField extends EditControl
 					$filesArray = array(my_json_decode(my_json_encode($uploadedFile)));
 			}
 		}
-		
+
 		if($this->pageObject->pageType == PAGE_EDIT)
 		{
 			if(count($this->pageObject->keys) > 0)
@@ -99,7 +99,7 @@ class FileField extends EditControl
         		$sessionArray["fromDB"] = true;
         		$sessionArray["deleted"] = false;
         		$_SESSION["mupload_".$this->formStamp][$file["usrName"]] = $sessionArray;
-        		
+
 				$userFile = $this->upload_handler->buildUserFile($file);
 				if(!$userFile["isImg"]){
 					$userFile["isImg"] = true;
@@ -116,25 +116,25 @@ class FileField extends EditControl
 		echo '
  <!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload_'.$this->cfieldname.'" action="'.GetTableLink("mfhandler").'" method="POST" enctype="multipart/form-data">
-    
+
     <input type="hidden" name="formStamp_'.$this->cfieldname.'" id="formStamp_'.$this->cfieldname.'" value="'.$this->formStamp.'" />
     <input type="hidden" name="_action" value="POST" />
     <input type="hidden" id="value_'.$this->cfieldname.'" name="value_'.$this->cfieldname.'" value="'.runner_htmlspecialchars($jsonValue).'" />
-    
+
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="fileupload-buttonbar">
             <div class="span7">
                 <!-- The fileinput-button span is used to style the file input field as button -->
  				<SPAN class="btn btn-primary btn-sm fileinput-button filesUpload">
 					<!--<A class="rnr-button filesUpload button" href="#" >-->
-					<input class="fileinput-button-input" type="file" name="files[]" value="'
+					<input class="fileinput-button-input" type="file" accept="'.$this->pageObject->pSetEdit->getAcceptFileTypesHtml($this->field).'" name="files[]" value="'
 				."Add files"
 				.'" '. $multiple .' />'
 				."Add files"
 				.'<!--</A>-->
 				</SPAN>'
 		.'
-                
+
             </div>
             <!-- The global progress information -->
             <div class="fileupload-progress fade">
@@ -165,8 +165,8 @@ class FileField extends EditControl
 			.' {%=locale.fileupload.errors[file.error] || file.error%}</span></td>
         {% } else { %}
             <td class="preview">{% if (file.thumbnail_url) { %}
-                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}" 
-                	{% if (!file.isIco) { %} {% } %} 
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"
+                	{% if (!file.isIco) { %} {% } %}
                 	><img class="mupload-preview-img" src="{%=file.thumbnail_url%}&src=1"></a>
             {% } else { %}
             	{% if (file.isImg) { %}
@@ -204,7 +204,7 @@ class FileField extends EditControl
 			<td class="name"><span>{%=file.name%}</span></td>
 			<td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
             <td>
-                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" 
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0"
                 	aria-valuemax="100" aria-valuenow="0"><div class="progress-bar bar" style="width:0;"></div></div>
             </td>
         {% } else { %}
@@ -226,7 +226,7 @@ class FileField extends EditControl
 		$this->buildControlEnd($validate, $mode);
 	}
 
-	/** 
+	/**
 	* Create CSS code for specifying control's width
 	*/
 	function makeWidthStyle($widthPx)
@@ -235,7 +235,7 @@ class FileField extends EditControl
 			return "";
 		return "min-width: ".$widthPx."px";
 	}
-	
+
 	function initUploadHandler()
 	{
 		if(is_null($this->upload_handler))
@@ -247,8 +247,8 @@ class FileField extends EditControl
 			$this->upload_handler->table = $this->pageObject->tName;
 			$this->upload_handler->pageType = $this->pageObject->pageType;
 		}
-	} 
-	
+	}
+
 	function readWebValue(&$avalues, &$blobfields, $legacy1, $legacy2, &$filename_values)
 	{
 		$this->getPostValueAndType();
@@ -258,7 +258,7 @@ class FileField extends EditControl
 			$filesArray = my_json_decode($this->webValue);
 			if(!is_array($filesArray) || count($filesArray) == 0)
 				$this->webValue = "";
-			else 
+			else
 			{
 				if(count($_SESSION["mupload_".$this->formStamp]) > 0)
 				{
@@ -277,10 +277,10 @@ class FileField extends EditControl
 						$result[] = array("name" => $sessionFile["name"],
 							"usrName" => $file["name"], "size" => $sessionFile["size"], "type" => $sessionFile["type"]
 						);
-						if($this->pageObject->pSetEdit->getCreateThumbnail($this->field) 
+						if($this->pageObject->pSetEdit->getCreateThumbnail($this->field)
 							&& $sessionFile["thumbnail"] != "")
 						{
-							$lastIndex = count($result) - 1; 
+							$lastIndex = count($result) - 1;
 							$result[$lastIndex]["thumbnail"] = $sessionFile["thumbnail"];
 							$result[$lastIndex]["thumbnail_type"] = $sessionFile["thumbnail_type"];
 							$result[$lastIndex]["thumbnail_size"] = $sessionFile["thumbnail_size"];
@@ -293,13 +293,13 @@ class FileField extends EditControl
 					$result[0]["searchStr"] = $searchStr.":sStrEnd";
 					$this->webValue = my_json_encode_unescaped_unicode($result);
 				}
-				else 
+				else
 					$this->webValue = "";
 			}
 		}
 		else
 			$this->webValue = false;
-			
+
 		if(!($this->webValue===false))
 		{
 			if( $this->connection->dbType == nDATABASE_Informix )
@@ -309,8 +309,8 @@ class FileField extends EditControl
 			}
 			$avalues[$this->field] = $this->webValue;
 		}
-	} 
-	
+	}
+
 	public function showDBValue($value, $keyLink)
 	{
 		$imageValue = "";
@@ -321,7 +321,7 @@ class FileField extends EditControl
 		{
 			if($value == "")
 				$filesArray = array();
-			else 
+			else
 			{
 				$uploadedFile = $this->upload_handler->get_file_object($value);
 				if(is_null($uploadedFile))
@@ -339,39 +339,39 @@ class FileField extends EditControl
 				$imageValue .= '<a href="'.runner_htmlspecialchars($userFile["url"]).'">'
 					.runner_htmlspecialchars($imageFile["usrName"] != "" ? $imageFile["usrName"] : $imageFile["name"]).'</a>';
 			}
-			else if(CheckImageExtension($imageFile["name"])) 
+			else if(CheckImageExtension($imageFile["name"]))
 			{
 				$imageValue .= ($imageValue != "" ? "<br>" : "");
-				if($this->pageObject->pSetEdit->showThumbnail($this->field)) 
+				if($this->pageObject->pSetEdit->showThumbnail($this->field))
 				{
 					$thumbname = $userFile["thumbnail_url"];
 					$imageValue .= "<a target=_blank";
-					
+
 					$imageValue .= " href=\"".runner_htmlspecialchars($userFile["url"])."\" >";
 					$imageValue .= "<img";
 					if($thumbname == "" || $imageFile["name"] == $imageFile["thumbnail"]) {
 						$imgWidth = $this->pageObject->pSetEdit->getImageWidth($this->field);
 						$imageValue .=($imgWidth ? " width=".$imgWidth : "");
-						
+
 						$imgHeight = $this->pageObject->pSetEdit->getImageHeight($this->field);
 						$imageValue .=($imgHeight ? " height=".$imgHeight : "");
 					}
-					
+
 					$imageValue .= " border=0";
 					if($this->is508)
 						$imageValue .= " alt=\"".runner_htmlspecialchars($userFile["name"])."\"";
 					$imageValue .= " src=\"".runner_htmlspecialchars($userFile["thumbnail_url"])."\"></a>";
-				} 
-				else 
+				}
+				else
 				{
 					$imageValue .= "<img";
-					
+
 					$imgWidth = $this->pageObject->pSetEdit->getImageWidth($this->field);
 					$imageValue.=($imgWidth ? " width=".$imgWidth : "");
-					
+
 					$imgHeight = $this->pageObject->pSetEdit->getImageHeight($this->field);
 					$imageValue .=($imgHeight ? " height=".$imgHeight : "");
-					
+
 					$imageValue .= " border=0";
 					if($this->is508)
 						$imageValue.= " alt=\"".runner_htmlspecialchars($userFile["name"])."\"";
@@ -381,26 +381,26 @@ class FileField extends EditControl
 		}
 		return $imageValue;
 	}
-	
+
 	function SQLWhere($SearchFor, $strSearchOption, $SearchFor2, $etype, $isSuggest)
 	{
 		$baseResult = $this->baseSQLWhere($strSearchOption);
-		
+
 		if( $baseResult === false )
 			return "";
-		
+
 		if( $baseResult != "" )
 			return $baseResult;
-			
+
 		if( IsCharType($this->type) )
 		{
 			$gstrField = $this->getFieldSQLDecrypt();
-			
+
 			if( !$this->btexttype && !$this->pageObject->cipherer->isFieldPHPEncrypted($this->field) && $this->pageObject->pSetEdit->getNCSearch() )
 			{
-				// search is case-insensitive	
+				// search is case-insensitive
 				$gstrField = $this->connection->upper( $gstrField );
-			}				
+			}
 		}
 		elseif( $strSearchOption == "Contains" || $strSearchOption == "Starts with" )
 		{
@@ -410,33 +410,33 @@ class FileField extends EditControl
 		{
 			$gstrField = $this->getFieldSQLDecrypt();
 		}
-		
+
 		if( $strSearchOption == "Contains" || $strSearchOption == "Starts with" )
 			$SearchFor = $this->connection->escapeLIKEpattern( $SearchFor );
-			
+
 		if( $strSearchOption == "Contains" )
 			$SearchFor = "%".$SearchFor."%";
-		else if( $strSearchOption == "Starts with" ) 
+		else if( $strSearchOption == "Starts with" )
 			$SearchFor = $SearchFor."%";
 
-		if( $strSearchOption=="Contains" || $strSearchOption=="Starts with" || $strSearchOption == "Equals" ) 
+		if( $strSearchOption=="Contains" || $strSearchOption=="Starts with" || $strSearchOption == "Equals" )
 			return $this->buildWhere($gstrField, $SearchFor, $strSearchOption == "Equals");
-		
+
 		return "";
 	}
-	
+
 	function buildWhere($gstrField, $value, $equals = false)
-	{		
+	{
 		$likeVal = $this->connection->prepareString('%searchStr":"'.$value.':sStrEnd"%');
 		$notLikeVal = $this->connection->prepareString($value);
-		
+
 		if( !$this->btexttype && IsCharType($this->type) && $this->pageObject->pSetEdit->getNCSearch() )
 		{
 			// search is case-insensitive
 			$likeVal = $this->connection->upper( $likeVal );
 			$notLikeVal = $this->connection->upper( $notLikeVal);
 		}
-		
+
 		if( $this->connection->dbType == nDATABASE_Access )
 			$testSymbols = "'_{%}_'";
 		else
@@ -448,11 +448,11 @@ class FileField extends EditControl
 
 	/**
 	 * Form the control specified search options array and built the control's search options markup
-	 * @param String selOpt		The search option value	
-	 * @param Boolean not		It indicates if the search option negation is set 	
+	 * @param String selOpt		The search option value
+	 * @param Boolean not		It indicates if the search option negation is set
 	 * @param Boolean both		It indicates if the control needs 'NOT'-options
 	 * @return String			A string containing options markup
-	 */	
+	 */
 	function getSearchOptions($selOpt, $not, $both)
 	{
 		$optionsArray = array();
@@ -472,14 +472,14 @@ class FileField extends EditControl
 		}
 		return $this->buildSearchOptions($optionsArray, $selOpt, $not, $both);
 	}
-	
+
 	/**
 	 * Fill the response array with the suggest values
 	 *
-	 * @param String value	
-	 *		Note: the real value is preceeded with "_" so It's necessary to remove 
-	 *		the first character before json decoding . Also It's important to add "_" 
-	 *		to the beggining of the response suggest value because Searchsuggest 
+	 * @param String value
+	 *		Note: the real value is preceeded with "_" so It's necessary to remove
+	 *		the first character before json decoding . Also It's important to add "_"
+	 *		to the beggining of the response suggest value because Searchsuggest
 	 *		expects that it starts with this character.
 	 * @param String searchFor
 	 * @param &Array response
@@ -489,29 +489,29 @@ class FileField extends EditControl
 	{
 		if(!$value)
 			return;
-		
+
 		//value is preceeded with "_"
 		$value = substr($value, 1);
-		
+
 		$filesArray = my_json_decode($value);
-		
+
 		if(!is_array($filesArray) || count($filesArray) == 0)
 			$response[ "_".$value ] = "_".$value;
-		else 
+		else
 		{
 			for($i = 0; $i < count($filesArray) && count($response) < 10; $i++)
 			{
 				if($this->pageObject->pSetEdit->getNCSearch())
-					$pos = stripos($filesArray[$i]["usrName"], $searchFor); 
+					$pos = stripos($filesArray[$i]["usrName"], $searchFor);
 				else
 					$pos = strpos($filesArray[$i]["usrName"], $searchFor);
-					
+
 				if($pos !== false)
 					$response[ "_".$filesArray[$i]["usrName"] ] = "_".$filesArray[$i]["usrName"];
 			}
 		}
 	}
-	
+
 	function afterSuccessfulSave()
 	{
 		if(count($_SESSION["mupload_".$this->formStamp]) > 0)
@@ -535,7 +535,7 @@ class FileField extends EditControl
 		}
 		unset($_SESSION["mupload_".$this->formStamp]);
 	}
-	
+
 	/**
 	 * @param String fieldValue
 	 * @return String
@@ -543,31 +543,31 @@ class FileField extends EditControl
 	function getFieldValueCopy( $fieldValue )
 	{
 		$this->initUploadHandler();
-		
+
 		$uploadFolder = $this->pageObject->pSetEdit->getUploadFolder( $this->field );
 		$absoluteUploadDirPath = $this->pageObject->pSetEdit->getFinalUploadFolder( $this->field );
-		
-		$filesData = my_json_decode( $fieldValue );	
+
+		$filesData = my_json_decode( $fieldValue );
 		if( !is_array($filesData) || count($filesData) == 0 )
 			return $fieldValue;
-			
+
 		foreach( $filesData as $idx => $fileData )
 		{
 			$info = $this->upload_handler->pathinfo_local( $fileData["usrName"] );
-			
-			$newFieldName = $this->upload_handler->tempnam_sfx( $absoluteUploadDirPath, $info['filename'], $info['extension'] );						
+
+			$newFieldName = $this->upload_handler->tempnam_sfx( $absoluteUploadDirPath, $info['filename'], $info['extension'] );
 			runner_copy_file( getabspath($fileData["name"]), $absoluteUploadDirPath.$newFieldName );
 			$filesData[ $idx ]["name"] = $uploadFolder.$newFieldName;
-			
+
 			if( $this->pageObject->pSetEdit->getCreateThumbnail( $this->field ) )
 			{
 				$thumbnailPrefix = $this->pageObject->pSetEdit->getStrThumbnail( $this->field );
 				$newThumbName = $this->upload_handler->tempnam_sfx( $absoluteUploadDirPath, $thumbnailPrefix.$info['filename'], $info['extension'] );
 				runner_copy_file( getabspath($fileData["thumbnail"]), $absoluteUploadDirPath.$newThumbName );
 				$filesData[ $idx ]["thumbnail"] = $uploadFolder.$newThumbName;
-			}	
-		}	
-		
+			}
+		}
+
 		return my_json_encode( $filesData );
 	}
 }

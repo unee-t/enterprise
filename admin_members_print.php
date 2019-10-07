@@ -80,6 +80,7 @@ $params["allPagesMode"] = postvalue("all");
 $params["detailTables"] = postvalue("details");
 $params["splitByRecords"] = postvalue("records");
 $params["mode"] = postvalue( "pdfjson" ) ? PRINT_PDFJSON : PRINT_SIMPLE;
+$params["pdfBackgroundImage"] = postvalue("pdfBackgroundImage");
 
 
 $pageObject = new PrintPage($params);

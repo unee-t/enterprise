@@ -2,18 +2,16 @@
 
 
 
-
 $tdataList_of_Countries = array();
 $tdataList_of_Countries[".searchableFields"] = array();
-	$tdataList_of_Countries[".truncateText"] = true;
-	$tdataList_of_Countries[".NumberOfChars"] = 80;
-	$tdataList_of_Countries[".ShortName"] = "List_of_Countries";
-	$tdataList_of_Countries[".OwnerID"] = "";
-	$tdataList_of_Countries[".OriginalTable"] = "property_groups_countries";
+$tdataList_of_Countries[".ShortName"] = "List_of_Countries";
+$tdataList_of_Countries[".OwnerID"] = "";
+$tdataList_of_Countries[".OriginalTable"] = "property_groups_countries";
 
 
 $defaultPages = my_json_decode( "{\"export\":\"export\",\"list\":\"list\"}" );
 
+$tdataList_of_Countries[".pagesByType"] = my_json_decode( "{\"export\":[\"export\"],\"list\":[\"list\"]}" );
 $tdataList_of_Countries[".pages"] = types2pages( my_json_decode( "{\"export\":[\"export\"],\"list\":[\"list\"]}" ) );
 $tdataList_of_Countries[".defaultPages"] = $defaultPages;
 
@@ -169,9 +167,6 @@ $tdataList_of_Countries[".nPrinterPageScale"] = 100;
 
 $tdataList_of_Countries[".nPrinterSplitRecords"] = 40;
 
-$tdataList_of_Countries[".nPrinterPDFSplitRecords"] = 40;
-
-
 $tdataList_of_Countries[".geocodingEnabled"] = false;
 
 
@@ -291,6 +286,8 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -315,6 +312,7 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -368,7 +366,10 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -420,6 +421,8 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -444,6 +447,7 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -497,7 +501,10 @@ $tdataList_of_Countries[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

@@ -1,30 +1,26 @@
 <?php 
 include_once("include/dbcommon.php");
 
-$table = postvalue("table");
-
-if( !checkTableName($table) )
-{
+$shortTable = postvalue("table");
+$table = GetTableByShort( $shortTable );
+if( !$table )
 	exit(0);
-}
 
-include_once("include/" . $table . "_variables.php");
+$field = postvalue("field");
+$pageName = postvalue('page');
+if( !Security::userHasFieldPermissions( $table, $field, PAGE_EDIT, $pageName, false ) )
+	return;
 
-if( !isset($gQuery) )
-{
-	if( !isset($gSettings) )
-		$gSettings = new ProjectSettings( GetTableByShort( $table ) );
-	
-	$gQuery = $gSettings->getSQLQuery();
-}
+$pSet = new ProjectSettings( $table , $pageType, $pageName );
+$gQuery = $pSet->getSQLQuery();
 
 $params = array();
 $params["table"] = $table;
-$params["field"] = postvalue("field");
+$params["field"] = $field;
 $params["src"] = postvalue("src") == 1;
 $params["alt"] = postvalue("alt");
 
-$keysArr = $gSettings->getTableKeys();
+$keysArr = $pSet->getTableKeys();
 $keys = array();
 foreach( $keysArr as $ind => $k )
 {
@@ -32,5 +28,5 @@ foreach( $keysArr as $ind => $k )
 }
 $params["keys"] = $keys;
 
-$file = GetImageFromDB($gQuery, $params);
+GetImageFromDB($gQuery, $params);
 ?>

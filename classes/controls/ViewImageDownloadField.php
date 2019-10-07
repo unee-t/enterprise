@@ -84,7 +84,7 @@ class ViewImageDownloadField extends ViewFileField
 			if( $imageType == "image/jpeg" || $imageType == "image/png" )
 			{
 				return '{
-					image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode_binary( $content ) ) . '",
+					image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_bin2str( $content ) ) . '",
 					width: ' . $width  . ',
 					height: ' . $this->imageHeight . '
 				}';
@@ -127,7 +127,7 @@ class ViewImageDownloadField extends ViewFileField
 				if( $imageType == "image/jpeg" || $imageType == "image/png" )
 				{
 					$resultValues[] = '{
-						image: "' . jsreplace( 'data:'. $imageType. ';base64,' . base64_encode_binary( $content ) ) . '",
+						image: "' . jsreplace( 'data:'. $imageType. ';base64,' . base64_bin2str( $content ) ) . '",
 						width: ' . $width  . ',
 						height: ' . $this->imageHeight . '
 					}';
@@ -146,7 +146,7 @@ class ViewImageDownloadField extends ViewFileField
 				if( $imageType == "image/jpeg" || $imageType == "image/png" )
 				{
 					$resultValues[] = '{
-						image: "' . jsreplace( 'data:'. $imageType. ';base64,' . base64_encode_binary( $content ) ) . '",
+						image: "' . jsreplace( 'data:'. $imageType. ';base64,' . base64_bin2str( $content ) ) . '",
 						width: ' . $thumbWidth . ',
 						height: ' . $this->thumbHeight . '
 					}';
@@ -159,7 +159,7 @@ class ViewImageDownloadField extends ViewFileField
 				if( $imageType == "image/jpeg" || $imageType == "image/png" )
 				{
 					$resultValues[] = '{
-						image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_encode_binary( $content ) ) . '",
+						image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_bin2str( $content ) ) . '",
 						width: ' . $thumbWidth . ',
 						height: ' . $this->thumbHeight . '
 					}';
@@ -236,6 +236,10 @@ class ViewImageDownloadField extends ViewFileField
 			$attrs['th-width'] = $pSet->getThumbnailWidth( $this->field );
 			$attrs['th-height'] = $pSet->getThumbnailHeight( $this->field );
 		}
+		if( $pSet->getImageBorder( $this->field ) )
+			$attrs["border"] = "true";
+		if( $pSet->getImageFullWidth( $this->field ) ) 
+			$attrs["fullwidth"] = "true";
 
 		$htmlAttrs = array();
 		foreach( $attrs as $name => $value ) {

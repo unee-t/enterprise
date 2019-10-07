@@ -13,7 +13,7 @@ class ReadOnlyField extends TextControl
 		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
 		if($mode==MODE_EDIT || $mode==MODE_ADD || $mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD)
 		{
-			echo '<span id="readonly_'.$this->cfield.'" '.$this->inputStyle.'>'.$this->pageObject->readOnlyFields[$this->field].'</span>';
+			echo '<span class="r-readonly-control" id="readonly_'.$this->cfield.'" '.$this->inputStyle.'>'.$this->pageObject->readOnlyFields[$this->field].'</span>';
 		}
 		echo '<input id="'.$this->cfield.'" type="Hidden" name="'.$this->cfield.'" value="'.runner_htmlspecialchars($value).'">';
 		$this->buildControlEnd($validate, $mode);

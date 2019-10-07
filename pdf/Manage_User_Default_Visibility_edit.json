@@ -1,0 +1,531 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Manage_User_Default_Visibility edit}","hidden":"{$item_hide_edit_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_edit_message}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								
+		[
+												
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_breadcrumb}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+												{BEGIN col_grid_1}
+						"*", 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"*", 
+							{END col_grid_2}
+												{BEGIN col_grid_3}
+						"*", 
+							{END col_grid_3}
+												{BEGIN col_grid_4}
+						"*", 
+							{END col_grid_4}
+												{BEGIN col_grid_5}
+						"*", 
+							{END col_grid_5}
+					 ],	
+		
+		body: [
+				
+					{BEGIN row_grid_0}
+				
+		[
+												{BEGIN cellblock_grid_c9}
+
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c9}
+			colSpan: {$colspan_grid_c9},
+			{END colspan_grid_c9}
+		
+			
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c9}
+																			{ 
+					cellId: 'c9',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c9',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+															{ 
+					cellId: 'c9',
+					row:  0,
+					col:  3,
+					text: ''
+				},
+															{ 
+					cellId: 'c9',
+					row:  0,
+					col:  4,
+					text: ''
+				},
+															{ 
+					cellId: 'c9',
+					row:  0,
+					col:  5,
+					text: ''
+				},
+							],
+				{END row_grid_0}
+								{BEGIN row_grid_1}
+				
+		[
+												{BEGIN cellblock_grid_c11}
+
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c11}
+			colSpan: {$colspan_grid_c11},
+			{END colspan_grid_c11}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","bold":true,"stack":[{"text":"{$jslabel Manage_User_Default_Visibility designation }","bold":true},{"text":{$designation_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c11}
+																			{ 
+					cellId: 'c11',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c11',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+															{ 
+					cellId: 'c11',
+					row:  0,
+					col:  3,
+					text: ''
+				},
+															{ 
+					cellId: 'c11',
+					row:  0,
+					col:  4,
+					text: ''
+				},
+															{ 
+					cellId: 'c11',
+					row:  0,
+					col:  5,
+					text: ''
+				},
+							],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_role_mgt_cny }","bold":true},{"text":{$can_see_role_mgt_cny_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c3}
+																			{BEGIN cellblock_grid_c7}
+
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_role_tenant }","bold":true},{"text":{$can_see_role_tenant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c7}
+																			{BEGIN cellblock_grid_c6}
+
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_occupant }","bold":true},{"text":{$can_see_occupant_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c6}
+																			{BEGIN cellblock_grid_c5}
+
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_role_landlord }","bold":true},{"text":{$can_see_role_landlord_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c5}
+																			{BEGIN cellblock_grid_c4}
+
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_role_contractor }","bold":true},{"text":{$can_see_role_contractor_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c4}
+																			{BEGIN cellblock_grid_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel Manage_User_Default_Visibility can_see_role_agent }","bold":true},{"text":{$can_see_role_agent_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c}
+											],
+				{END row_grid_2}
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+		body: [
+				
+					
+		[
+												
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_edit_save}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_edit_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_edit_close}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+																			
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'right',
+    },
+
+											],
+					]
+	}
+}
+,
+			]
+}
+  

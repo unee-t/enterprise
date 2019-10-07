@@ -284,6 +284,8 @@ class ExportPage extends RunnerPage
 		$this->viewControls->setForExportVar("xml");
 		while( (!$nPageSize || $i < $nPageSize) && $row )
 		{
+			RunnerContext::pushRecordContext( $row, $this );
+			
 			$values = array();
 			foreach( $this->selectedFields as $field )
 			{
@@ -314,6 +316,8 @@ class ExportPage extends RunnerPage
 				echo "</row>\r\n";
 			}
 
+			RunnerContext::pop();
+			
 			if( $this->eventsObject->exists("ListFetchArray") )
 				$row = $this->eventsObject->ListFetchArray( $rs, $this );
 			else
@@ -358,6 +362,8 @@ class ExportPage extends RunnerPage
 		$iNumberOfRows = 0;
 		while( (!$nPageSize || $iNumberOfRows < $nPageSize) && $row )
 		{
+			RunnerContext::pushRecordContext( $row, $this );
+			
 			$values = array();
 			foreach( $this->selectedFields as $field )
 			{
@@ -381,7 +387,9 @@ class ExportPage extends RunnerPage
 				}
 				echo implode( $delimiter, $dataRowParts );
 			}
-
+			
+			RunnerContext::pop();
+			
 			$iNumberOfRows++;
 			if( $this->eventsObject->exists("ListFetchArray") )
 				$row = $this->eventsObject->ListFetchArray( $rs, $this );
@@ -444,7 +452,8 @@ class ExportPage extends RunnerPage
 				continue;
 
 			$totals[ $data["fName"] ] = array("value" => 0, "numRows" => 0);
-			$totalsFields[] = array('fName' => $data["fName"], 'totalsType' => $data["totalsType"], 'viewFormat' => $this->pSet->getViewFormat( $data["fName"] ));
+			$totalsFields[] = array('fName' => $data["fName"], 'totalsType' => $data["totalsType"], 
+				'viewFormat' => $this->pSet->getViewFormat( $data["fName"] ));
 		}
 
 		// write data rows
@@ -452,6 +461,8 @@ class ExportPage extends RunnerPage
 		$this->viewControls->setForExportVar( "export" );
 		while( (!$nPageSize || $iNumberOfRows < $nPageSize) && $row )
 		{
+			RunnerContext::pushRecordContext( $row, $this );
+			
 			countTotals( $totals, $totalsFields, $row );
 
 			$values = array();
@@ -527,6 +538,8 @@ class ExportPage extends RunnerPage
 				echo "</tr>";
 			}
 
+			RunnerContext::pop();
+			
 			if( $this->eventsObject->exists("ListFetchArray") )
 				$row = $this->eventsObject->ListFetchArray( $rs, $this );
 			else
@@ -642,7 +655,7 @@ class ExportPage extends RunnerPage
 			
 			$selectedWhereParts = array();
 			foreach( $selectedRecords as $keys )
-				$selectedWhereParts[] = KeyWhere( $keys );
+				$selectedWhereParts[] = KeyWhere( $keys, $this->tName );
 
 			$sql["mandatoryWhere"][] = implode(" or ", $selectedWhereParts );
 			if( 0 == count( $selectedRecords ) )
@@ -658,7 +671,7 @@ class ExportPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 	
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Export", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL("Export" );
 
 		return $sql;
 	}

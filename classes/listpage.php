@@ -191,6 +191,8 @@ class ListPage extends RunnerPage
 	protected $addedDetailsCountSubqueries = array();
 
 	protected $recordsRenderData = array();
+
+	protected $fieldsWithRawValues = array();
 	
 	
 	/**
@@ -675,15 +677,15 @@ class ListPage extends RunnerPage
 		$this->lockDelRec = array();
 		foreach($this->selectedRecs as $keys) 
 		{
-			$where = KeyWhere($keys);
+			$where = KeyWhere($keys, $this->tName);
 			$mandatoryWhere = array();
 			$mandatoryWhere[]= $where;
 
 			//	delete only owned records
 			if($this->nSecOptions != ADVSECURITY_ALL && $this->nLoginMethod == SECURITY_TABLE && $this->createLoginPage)
 			{
-				$where = whereAdd($where, SecuritySQL("Delete", $this->tName));
-				$mandatoryWhere[] = $this->SecuritySQL("Delete", $this->tName);
+				$where = whereAdd($where, $this->SecuritySQL("Delete" ) );
+				$mandatoryWhere[] = $this->SecuritySQL("Delete" );
 			}
 			
 			
@@ -1232,7 +1234,7 @@ class ListPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 		
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search" );
 
 		//	no records on first page
 		if( $this->mode != LIST_DETAILS && $this->noRecordsFirstPage && !$this->isSearchFunctionalityActivated() )
@@ -1776,6 +1778,7 @@ class ListPage extends RunnerPage
 		while($data && ($this->recNo <= $currentPageSize || $currentPageSize == -1 ) ) 
 		{
 			$row = array();
+			RunnerContext::pushRecordContext( $data, $this );
 			
 			$row["grid_record"]= array();
 			$row["grid_record"]["data"]= array();
@@ -1796,8 +1799,9 @@ class ListPage extends RunnerPage
 				$currentRow['rowInd'] = $gridRowInd;
 				//Add the connection with containing row. It's important for vertical layout's multiple records per row mode
 				$currentRow['contextRowId'] = $this->recId + $this->colsOnPage - $col;
-				$isEditable = $this->permis[$this->tName]['edit'] && CheckSecurity($data[$this->mainTableOwnerID], "Edit", $this->tName) 
-					|| $this->permis[$this->tName]['delete'] && CheckSecurity($data[$this->mainTableOwnerID], "Delete", $this->tName);
+				$isEditable = Security::userCan('E', $this->tName, $data[$this->mainTableOwnerID] ) 
+					|| Security::userCan('D', $this->tName, $data[$this->mainTableOwnerID] );
+
 				if($globalEvents->exists("IsRecordEditable", $this->tName))
 					$isEditable = $globalEvents->IsRecordEditable($data, $isEditable, $this->tName);
 					$currentRow['isEditOwnRow'] = $isEditable;
@@ -1971,7 +1975,8 @@ class ListPage extends RunnerPage
 					}
 				}				
 				$prewData = $data;
-
+				
+				RunnerContext::pop();
 				$data = $this->beforeProccessRow();
 				
 				$this->recNo ++;
@@ -2206,12 +2211,12 @@ class ListPage extends RunnerPage
 	 */
 	function addSpanVal($fName, &$data) 
 	{
-		$type = $this->pSet->getFieldType($fName);
-		if( !IsBinaryType($type) && ( @$this->arrFieldSpanVal [$fName ] == 2 || @$this->arrFieldSpanVal[ $fName ] == 1 
-			|| $this->pSet->hasAjaxSnippet() || $this->pSet->hasButtonsAdded() ) )
-		{
-			return "val=\"".runner_htmlspecialchars( $data[$fName ] )."\" ";
-		}
+		if( !$this->printRawValue( $fName ) )
+			return;
+		$fieldValue = $data[$fName ];
+		return "val=\"".runner_htmlspecialchars( $fieldValue )."\" ";
+
+		
 	}
 	
 	/**
@@ -2281,7 +2286,17 @@ class ListPage extends RunnerPage
 		if( $this->exportAvailable() || $this->printAvailable() || $this->deleteAvailable() || $this->inlineEditAvailable() || $this->updateSelectedAvailable() ) 
 		{
 			$record["checkbox"]= true;
-			$record["checkbox_attrs"]= "name=\"selection[]\" value=\"".runner_htmlspecialchars($keyblock)."\" id=\"check".$this->id."_".$this->recId."\"";
+			/*
+			$keyValues = array();
+			$keyFields = $this->pSet->getTableKeys();
+			foreach( $keyFields as $idx => $k ) {
+				$keyValues[ $idx ] = $data[ $k ];
+			}
+			*/
+			$record["checkbox_attrs"]= "name=\"selection[]\" ".
+				"value=\"".runner_htmlspecialchars($keyblock)."\" ".
+				"id=\"check".$this->id."_".$this->recId."\" ";
+				//"data-keys=\"".runner_htmlspecialchars(my_json_encode( $keyValues ))."\"";
 		}
 	}
 	
@@ -2564,7 +2579,7 @@ class ListPage extends RunnerPage
 			$pageObject = new ListPage_DPPopup($params);			
 		else if( $params["mode"]==LIST_DASHDETAILS )
 			$pageObject = new ListPage_DPDash($params);
-		else if($params["mode"]==RIGHTS_PAGE)
+		else if($params["mode"] == RIGHTS_PAGE)
 		{
 				$pageObject = new RightsPage($params);
 		}
@@ -2848,6 +2863,27 @@ class ListPage extends RunnerPage
 
 	function &findRecordAssigns( $recordId ) {
 		return $this->recordsRenderData[ $recordId ];
+	}
+
+	/**
+	 * Add raw values to the grid or not
+	 * @return Boolean
+	 */
+	function printRawValue( $field ) 
+	{
+		if( !isset( $this->fieldsWithRawValues[ $field ] )) {
+			$type = $this->pSet->getFieldType($field);
+			if( IsBinaryType($type) ) {
+				$this->fieldsWithRawValues[ $field ] = false;	
+			} else {
+				$this->fieldsWithRawValues[ $field ] = $this->addRawFieldValues
+					|| @$this->arrFieldSpanVal[ $field ] == 2 
+					|| @$this->arrFieldSpanVal[ $field ] == 1 
+					|| $this->pSet->hasAjaxSnippet() 
+					|| $this->pSet->hasButtonsAdded();
+			}
+		}
+		return $this->fieldsWithRawValues[ $field ];
 	}
 
 	

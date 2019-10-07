@@ -8,7 +8,12 @@ require_once('classes/menupage.php');
 
 
 Security::processLogoutRequest();
-if(!isLogged())
+if( !isLogged() || isLoggedAsGuest() ) 
+{
+	Security::tryRelogin();
+}
+
+if( !isLogged() )
 {
 	HeaderRedirect("login");
 	return;

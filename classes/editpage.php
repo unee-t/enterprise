@@ -27,7 +27,7 @@ class EditPage extends RunnerPage
 	public $lockingKeys = null;
 	public $lockingStart = null;
 
-	protected $lockingMessageStyle = "display:none;";
+	protected $lockingMessageAttr = "data-locked";
 	protected $lockingMessageText = "";
 	
 	protected $lockingMessageBlock = ""; 
@@ -513,10 +513,8 @@ class EditPage extends RunnerPage
 	 */
 	protected function getBodyMarkup( $templatefile )
 	{
-		if( $this->getLayoutVersion() === PD_BS_LAYOUT )
-			return $this->lockingMessageBlock . $this->fetchForms( $this->bodyForms );
-
-		return parent::getBodyMarkup( $templatefile );
+		$this->xt->assign("locking", "");
+		return $this->lockingMessageBlock . $this->fetchForms( $this->bodyForms );
 	}	
 	
 	/**
@@ -717,8 +715,9 @@ class EditPage extends RunnerPage
 		//	locked OK
 		if( $this->lockingObj->LockRecord( $this->tName, $this->keys) )
 		{
-			$this->body["begin"].= '<div class="rnr-locking" style="' .$this->lockingMessageStyle. '">' .$this->lockingMessageText. '</div>';
-			$this->lockingMessageBlock = '<div class="rnr-locking" style="' .$this->lockingMessageStyle. '">' .$this->lockingMessageText. '</div>';
+			
+			$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none" '.$this->lockingMessageAttr. '>' .$this->lockingMessageText. '</div>';
+			$this->xt->assign( "locking", $this->lockingMessageBlock );
 			return true;
 		}
 
@@ -742,7 +741,7 @@ class EditPage extends RunnerPage
 
 		//	other modes
 		$this->controlsDisabled = true;
-		$this->lockingMessageStyle = "style='display:block;'";
+		$this->lockingMessageAttr = "";
 		$this->lockingMessageText = $this->lockingObj->LockUser;
 
 		if(IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP)
@@ -752,11 +751,8 @@ class EditPage extends RunnerPage
 				$this->lockingMessageText = $ribbonMessage;
 		}
 
-		$this->body["begin"].= '<div class="rnr-locking" style="' .$this->lockingMessageStyle. '">' .
-			$this->lockingMessageText .
-			'</div>';
-			
-		$this->lockingMessageBlock = '<div class="rnr-locking" style="' .$this->lockingMessageStyle. '">' .$this->lockingMessageText. '</div>';
+		$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none" '.$this->lockingMessageAttr. '>' .$this->lockingMessageText. '</div>';
+		$this->xt->assign( "locking", $this->lockingMessageBlock );
 		
 		return true;
 	}
@@ -1033,9 +1029,9 @@ class EditPage extends RunnerPage
 		$strWhereClause = "";
 
 		if( $useOldKeys )
-			$strWhereClause = KeyWhere( $this->oldKeys );
+			$strWhereClause = KeyWhere( $this->oldKeys, $this->tName );
 		else 
-			$strWhereClause = KeyWhere( $this->keys );
+			$strWhereClause = KeyWhere( $this->keys, $this->tName );
 
 		if( $this->pSet->getAdvancedSecurityType() != ADVSECURITY_ALL )
 		{
@@ -1068,7 +1064,7 @@ class EditPage extends RunnerPage
 			$sql["mandatoryWhere"] = array();
 			
 			$sql["mandatoryWhere"][] = $this->getKeysWhereClause( false );
-			$sql["mandatoryWhere"][] = $this->SecuritySQL("Edit", $this->tName);
+			$sql["mandatoryWhere"][] = $this->SecuritySQL("Edit" );
 		}
 
 		$strSQL = SQLQuery::buildSQL( $sql["sqlParts"], $sql["mandatoryWhere"], $sql["mandatoryHaving"], $sql["optionalWhere"], $sql["optionalHaving"] );
@@ -1707,7 +1703,7 @@ class EditPage extends RunnerPage
 
 		if( !$lockConfirmed )
 		{
-			$this->lockingMessageStyle = "display:block";
+			$this->lockingMessageAttr = "";
 			if( $this->mode == EDIT_INLINE )
 			{
 				if( IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP )
@@ -1925,7 +1921,7 @@ class EditPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 		
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Edit", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL("Edit" );
 
 		//	map
 		if( $this->mode == EDIT_DASHBOARD && $this->mapRefresh )
@@ -1945,5 +1941,19 @@ class EditPage extends RunnerPage
 	{
 		return $this->mode == EDIT_SIMPLE;
 	}
+
+	function createProjectSettings() {
+		$this->pSet = new ProjectSettings($this->tName, $this->pageType, $this->pageName, $this->pageTable );
+		if( $this->mode == EDIT_INLINE && $this->pSet->getPageType() !== PAGE_LIST ) 
+		{
+			$pageName = $this->pSet->getDefaultPage( "list" );
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, $pageName, $this->pageTable );
+		} 
+		else if( $this->mode != EDIT_INLINE && $this->pSet->getPageType() !== PAGE_EDIT )
+		{
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, null, $this->pageTable );
+		}
+	}
+
 }
 ?>

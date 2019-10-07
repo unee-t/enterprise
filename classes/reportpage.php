@@ -30,6 +30,8 @@ class ReportPage extends RunnerPage
 	
 	protected $crossTableObj = null;
 	
+	public $pdfJson = false;
+	
 	public $x;
 	public $y;
 	public $dataField;
@@ -445,7 +447,7 @@ class ReportPage extends RunnerPage
 		if( $this->pdfJsonMode() )
 			$params["pdfJSON"] = true;		
 		
-		$this->crossTableObj = new CrossTableReport( $params, $this->getBasicCrossTableSQL() );
+		$this->crossTableObj = new CrossTableReport( $params, $this->getBasicCrossTableSQL(), $this );
 		
 		if( $this->crosstableRefresh )
 		{
@@ -1394,6 +1396,14 @@ class ReportPage extends RunnerPage
 
 	public function prepareDisplayDetailsPD()
 	{		
+		if( $this->pdfJsonMode() ) 
+		{
+			$this->xt->assign("embedded_grid", true );
+			$this->xt->load_templateJSON( $this->templatefile);
+			$this->renderedBody = $this->xt->fetch_loadedJSON("body");
+			return;
+		}
+				
 		$forms = array( "grid" );
 		$bodyContents = $this->fetchForms($forms);		
 		$this->renderedBody = '<div id="detailPreview'.$this->id.'">'.$bodyContents.'</div>';	
@@ -1507,5 +1517,10 @@ class ReportPage extends RunnerPage
 			$this->xt->assign("fieldclass_".$goodName, $this->getFieldClass($field) ); 
 		}
 	}
+	
+	function pdfJsonMode() 
+	{
+		return $this->pdfJson;
+	}	
 }
 ?>

@@ -21,37 +21,37 @@ class ViewControl
 	public $editFormat = EDIT_FORMAT_NONE;
 	public $localControlsContainer = null;
 	public $linkAndDisplaySame = null;
-	
+
 	/**
 	* The search clause object obtained from the page's object
 	*/
 	public $searchClauseObj = null;
-	
+
 	/**
-	 * Storage for control settings. It fills in the init() function. 
+	 * Storage for control settings. It fills in the init() function.
 	 * @var {array}
 	 */
 	public $settings = array();
-	
+
 	/**
 	 * Array of view controls map
 	 *
 	 * @var array
-	 */	
+	 */
 	public $viewControlsMap = array();
-	
+
 	/**
 	 * Set to true, if it is custom user control
 	 * @var boolean
 	 */
 	protected $userControl = false;
-	
+
 	/**
 	 * A flag indicating whether to higlight search results ot not
 	 * @var boolean
-	 */	
+	 */
 	public $searchHighlight = false;
-	
+
 	/**
 	 * A flag indicating whether the view control is used for a filter or not
 	 * @var boolean
@@ -60,18 +60,18 @@ class ViewControl
 
 	/**
 	 * A flag indicating if the field is table based multiselect
-	 * lookup with the same link and displayed fields 
+	 * lookup with the same link and displayed fields
 	 * and needs comma/quotes processing
 	 */
 	protected $needLookupValueProcessing = true;
-	
+
 	/**
 	 * A flag indicating if the field is lookup
 	 */
 	protected $isFieldLookup = false;
-	
+
 	protected $useUTF8 = false;
-	
+
 	/**
 	 * addJSFiles
 	 * Add control JS files to page object
@@ -81,11 +81,11 @@ class ViewControl
 		//example
 		// $this->AddJSFile("include/mupload.js");
 	}
-	
+
 	/**
 	 * addCSSFiles
 	 * Add control CSS files to page object
-	 */ 
+	 */
 	public function addCSSFiles()
 	{
 		//example
@@ -96,20 +96,20 @@ class ViewControl
 	 * The container's AddCSSFile method wrapper
 	 * @param {String}
 	 */
-	public function AddCSSFile($fileName) 
+	public function AddCSSFile($fileName)
 	{
 		$this->getContainer()->AddCSSFile($fileName);
 	}
-	
+
 	/**
 	 * The container's AddJSFile method wrapper
 	 * @param {String}
-	 */	
-	public function AddJSFile($fileName, $req1="", $req2="", $req3="") 
+	 */
+	public function AddJSFile($fileName, $req1="", $req2="", $req3="")
 	{
 		$this->getContainer()->AddJSFile($fileName,  $req1, $req2, $req3);
 	}
-	
+
 	public function pSettings() {
 		return $this->getContainer()->pSet;
 	}
@@ -121,27 +121,27 @@ class ViewControl
 		else
 			return $this->container;
 	}
-	
+
 	public function __construct($field, $container, $pageObject = null)
-	{	
+	{
 		$this->useUTF8 = "utf-8" == "utf-8";
 		$this->field = $field;
 		$this->container = $container;
 		$this->pageObject = $pageObject;
 		$this->is508 = isEnableSection508();
-		
+
 		$this->fieldType = $container->pSet->getFieldType($this->field);
 		$this->viewFormat = $container->pSet->getViewFormat($this->field);
 		$this->editFormat = $container->pSet->getEditFormat($this->field);
-		
+
 		if( $this->pageObject )
 		{
 			$this->searchClauseObj = $this->pageObject->searchClauseObj;
 			if ( $this->searchClauseObj )
-				$this->searchHighlight = $container->searchHighlight &&	$this->searchClauseObj->bIsUsedSrch; 
-		}	
+				$this->searchHighlight = $container->searchHighlight &&	$this->searchClauseObj->bIsUsedSrch;
+		}
 	}
-	
+
 	/**
 	 * Get the field's content that will be exported
 	 * @prarm &Array data
@@ -153,7 +153,7 @@ class ViewControl
 		return $this->showDBValue($data, $keylink);
 	}
 
-	
+
 	public function getPdfValue(&$data, $keylink = "")
 	{
 		return "'" . jsreplace( $this->showDBValue($data, $keylink, false) ) . "'";
@@ -163,63 +163,63 @@ class ViewControl
 	 * Get the field's content
 	 * @param &Array data
 	 * @param String keylink
-	 * @return String	 
+	 * @return String
 	 */
 	public function showDBValue(&$data, $keylink, $html = true )
 	{
 		$value = $data[$this->field];
-				
+
 		if(IsBinaryType($this->fieldType))
 		{
 			$value = "LONG BINARY DATA - CANNOT BE DISPLAYED";
-			$this->searchHighlight = false; 
-		} 
-		
+			$this->searchHighlight = false;
+		}
+
 		if($value === false)
 			$value = "";
-		
-	
+
+
 		if($this->editFormat == EDIT_FORMAT_CHECKBOX && $this->viewFormat == FORMAT_NONE)
 		{
 			if($value && $value!=0)
 				$value = "Yes";
 			else
 				$value = "No";
-				
-			$this->searchHighlight = false; 	
-		}		
-		
+
+			$this->searchHighlight = false;
+		}
+
 		if($this->container->forExport == "excel" || $this->container->forExport == "csv")
 		{
 			return $value;
 		}
-		
+
 		$processedText = $this->processText($value, $keylink, $html);
 		if( $html )
 			return nl2br( $processedText );
 		return $processedText;
 	}
-	
+
 	/**
 	 * @param &Array data
-	 * @return String	 
+	 * @return String
 	 */
 	public function getTextValue(&$data)
 	{
 		return $data[ $this->field ];
 	}
-	
+
 	/**
 	 * Format the text trunceting it or highlighting the search word within this text.
 	 * @param String value			The field's content
-	 * @param String keylink		
+	 * @param String keylink
 	 * @return String
-	 */			
+	 */
 	public function processText($value, $keylink, $html = true )
 	{
 		$isMobileLookup = false;
-		$inlineOrFlyMode = false; 
-		$pageType = $this->container->pageType;		
+		$inlineOrFlyMode = false;
+		$pageType = $this->container->pageType;
 		if( !is_null($this->pageObject) )
 		{
 			$mode = $this->pageObject->mode;
@@ -227,46 +227,46 @@ class ViewControl
 			$inlineOrFlyMode = $pageType == PAGE_EDIT && ($mode == EDIT_INLINE || $mode == EDIT_POPUP) || $pageType == PAGE_ADD && ($mode == ADD_INLINE || $mode == ADD_POPUP);
 		}
 		$isDetailPreview = $this->container->isDetailsPreview;
-		
+
 		if( $pageType == PAGE_ADD || $pageType == PAGE_EDIT )
 			$pageType = PAGE_VIEW;
 
 		$isPagePrint = ($pageType == PAGE_RPRINT && $this->container->forExport) || $pageType == PAGE_PRINT || $pageType == PAGE_RPRINT;
-			
+
 		if( $this->editFormat == EDIT_FORMAT_LOOKUP_WIZARD )
 		{
 			$this->isFieldLookup = true;
 			$this->needLookupValueProcessing = $this->checkIfLookupValueIsToProcess();
-			$value = $this->processMultiselectLWValue($value);	
+			$value = $this->processMultiselectLWValue($value);
 		}
-		
-		$cNumberOfChars = $this->container->pSet->getNumberOfChars();
+
+		$cNumberOfChars = $this->container->pSet->getNumberOfChars($this->field);
 		$needShortening = $this->textNeedsTruncating($value, $cNumberOfChars);
-		
+
 		$isReportPage = $pageType == PAGE_REPORT || $pageType == PAGE_MASTER_INFO_REPORT;
 		$isListPage = $pageType == PAGE_LIST || $pageType == PAGE_MASTER_INFO_LIST;
-		
+
 		if( $html &&  $needShortening && ( $isListPage || $isReportPage || $inlineOrFlyMode ) && !$isMobileLookup && !$isDetailPreview && $keylink != "" )
 			return $this->getShorteningTextAndMoreLink($value, $cNumberOfChars, $keylink, $mode);
-		
+
 		if( $needShortening && ($isPagePrint || $isMobileLookup || $isDetailPreview) )
 			return $this->getShorteningText($value, $cNumberOfChars, $html);
 
 		return $this->getText($value, $html );
 	}
-	
-	
+
+
 	/**
-	 * Check if the text needs truncating 
+	 * Check if the text needs truncating
 	 * @param String value				The field's content
-	 * @param Number cNumberOfChars		The number of chars from the 'value' string that will be visible after truncation 
+	 * @param Number cNumberOfChars		The number of chars from the 'value' string that will be visible after truncation
 	 * @return Boolean
 	 */
-	protected function textNeedsTruncating($value, $cNumberOfChars) 
+	protected function textNeedsTruncating($value, $cNumberOfChars)
 	{
 		return !$this->isUsedForFilter && !$this->container->fullText && $cNumberOfChars > 0 && runner_strlen($value) > $cNumberOfChars;
 	}
-	
+
 	/**
 	 * The object's wrapper for GetShorteningForLargeText function
 	 * @param String value				The field's content
@@ -281,21 +281,21 @@ class ViewControl
 		}
 		return GetShorteningForLargeText($value, $cNumberOfChars, $html ).$tail;
 	}
-	
+
 	/**
 	 * Get the More link following the truncated and highlighted field's content
 	 * @param String value				The field's content
-	 * @param Number cNumberOfChars		The number of chars from the 'value' string that will be visible after truncation 
-	 * @param String keylink	
-	 * @param Boolean isLookup			An indicator showing if this is a lookup list page control	
-	 * @return String	
+	 * @param Number cNumberOfChars		The number of chars from the 'value' string that will be visible after truncation
+	 * @param String keylink
+	 * @param Boolean isLookup			An indicator showing if this is a lookup list page control
+	 * @return String
 	 */
 	protected function getShorteningTextAndMoreLink($value, $cNumberOfChars, $keylink, $mode)
-	{		
+	{
 		$truncatedValue = GetShorteningForLargeText($value, $cNumberOfChars);
-		if( $this->searchHighlight ) 
+		if( $this->searchHighlight )
 			$truncatedValue = $this->highlightTruncatedBeforeMore($value, $truncatedValue, $cNumberOfChars, $cNumberOfChars);
-			
+
 		$tName = $this->getContainer()->tName;
 		$params = array();
 		$params[] = 'pagetype='.$this->container->pSet->_viewPage;
@@ -304,19 +304,19 @@ class ViewControl
 		/* $keylink starts with & */
 		$params[] = substr( $keylink, 1 );
 		$params[] = 'page='.$this->container->pSet->pageName();
-		
+
 		if ( $mode == LIST_DASHBOARD )
 			$params[] = 'mode='.$mode;
-		
-		if ( $mode == LIST_LOOKUP ) 
+
+		if ( $mode == LIST_LOOKUP )
 		{
 			$params[] = 'maintable='.$this->pageObject->mainTable;
 			$params[] = 'mainfield='.$this->pageObject->mainField;
 		}
-		
+
 		$label = $this->container->pSet->label( $this->field );
-		$dataField = 'data-fieldlabel="'.runner_htmlspecialchars( $label ).'"';		
-		
+		$dataField = 'data-fieldlabel="'.runner_htmlspecialchars( $label ).'"';
+
 		return $truncatedValue.' <a href="javascript:void(0);" data-gridlink data-query="'.GetTableLink('fulltext', '', implode('&',$params)).'" '.$dataField.'>'
 			."More".'&nbsp;...</a>';
 	}
@@ -332,31 +332,31 @@ class ViewControl
 			return $value;
 		}
 		$value = runner_htmlspecialchars($value);
-		if( $this->searchHighlight ) 
+		if( $this->searchHighlight )
 			$value = $this->highlightSearchWord($value, true, "");
-		
+
 		return $value;
 	}
-	
+
 	/**
-	 * Check if the fiedl is the project or database table's 
+	 * Check if the fiedl is the project or database table's
 	 * multiselect lookup wizard with the same link and display field
 	 */
 	protected function checkIfLookupValueIsToProcess()
 	{
 		$pSet = $this->container->pSet;
-		
+
 		if( ($pSet->getLookupType($this->field) == LT_LOOKUPTABLE || $pSet->getLookupType($this->field) == LT_QUERY) &&
-			$pSet->getLinkField($this->field) == $pSet->getDisplayField($this->field) && $pSet->multiSelect($this->field) ) 
+			$pSet->getLinkField($this->field) == $pSet->getDisplayField($this->field) && $pSet->multiSelect($this->field) )
 		{
 			return true;
 		}
-		
-		return false;	
+
+		return false;
 	}
-	
+
 	/**
-	 * Remove excessive quotes for the multiselect lookup wizard field with 
+	 * Remove excessive quotes for the multiselect lookup wizard field with
 	 * the same display and link field
 	 * @param string value
 	 * @return string
@@ -365,17 +365,17 @@ class ViewControl
 	{
 		if( !$this->needLookupValueProcessing )
 			return $value;
-		
+
 		return implode(",", splitvalues($value));
-	}	
-	
+	}
+
 	/**
 	 * Highlight the search word within the $value string
 	 * @param String value		The field's content
 	 * @param Boolean encoded	An indicator showing if the field's content is htmlspecialchars encoded
 	 * @param String dbValue	The database field's value
 	 * @return string
-	 */	
+	 */
 	public function highlightSearchWord($value, $encoded, $dbValue = "")
 	{
 		if( $dbValue == "" )
@@ -389,48 +389,48 @@ class ViewControl
 		{
 			return $value;
 		}
-		return $this->getValueHighlighted($value, $highlightData); 
-	}			
+		return $this->getValueHighlighted($value, $highlightData);
+	}
 
 	/**
 	 * Form the the string with the search word highlighted
 	 * @param String value			The field's content
 	 * @param Array highlightData
 	 * @return string
-	 */	
-	public function getValueHighlighted($value, $highlightData) 
+	 */
+	public function getValueHighlighted($value, $highlightData)
 	{
 		$searchOpt = $highlightData['searchOpt'];
 		$searchWordsPattern = $this->getSearchWordPattern($highlightData['searchWords'], false);
-		
+
 		switch($searchOpt)
 		{
 			case 'Equals':
 				return $this->addHighlightingSpan($value);
-	
+
 			case 'Starts with':
 				return preg_replace('/(^'.$searchWordsPattern.')/i', $this->addHighlightingSpan('$1'), $value);
-			
+
 			case 'Contains':
 				$pattern = '/('.$searchWordsPattern.')/i';
-				
-				if( !$this->haveTheSameSpChReference($pattern, $value) ) 
+
+				if( !$this->haveTheSameSpChReference($pattern, $value) )
 					return preg_replace($pattern, $this->addHighlightingSpan('$1'), $value);
 
 				return $this->highlightValueWithSpecialChars($value, $pattern);
-			
+
 			default:
 				return $value;
-		}		
+		}
 	}
 
 	/**
-	 * Check if the pattern string is contained in any special chars codes 
+	 * Check if the pattern string is contained in any special chars codes
 	 * occuring in the value string.
 	 * @param string pattern
 	 * @param string value
-	 * @return array	
-	 */	
+	 * @return array
+	 */
 	protected function haveTheSameSpChReference($pattern, $value)
 	{
 		$scContainedPattern = $this->getSpecialCharsContainingPattern($pattern);
@@ -438,36 +438,36 @@ class ViewControl
 		foreach($scContainedPattern as $sc)
 		{
 			if( array_search($sc, $scFromValue) !== FALSE )
-				return true;	
+				return true;
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Get the array of special chars contained the pattern
 	 * @param string pattern
-	 * @return array	
-	 */	
+	 * @return array
+	 */
 	protected function getSpecialCharsContainingPattern($pattern)
 	{
 		$chars = array('&amp;', '&quot;', '&lt;', '&gt;');
 		$csArray = array();
-		foreach($chars as $char) 
+		foreach($chars as $char)
 		{
 			if( preg_match($pattern, $char, $matches) )
 			{
 				if( $matches[0] != $char )
 					$csArray[] = $char;
 			}
-		}	
-		return $csArray;	
+		}
+		return $csArray;
 	}
 
 	/**
  	 * Get the array of special chars extracted from the string passed
 	 * @param string str
-	 * @return array	
-	 */	
+	 * @return array
+	 */
 	protected function getSpecialCharsFromString($str)
 	{
 		$chars = array('&amp;', '&quot;', '&lt;', '&gt;');
@@ -477,9 +477,9 @@ class ViewControl
 			if( strpos($str, $char) !== FALSE )
 				$csArray[] = $char;
 		}
-		
-		return $csArray;		
-	}		
+
+		return $csArray;
+	}
 
 	/**
 	 * Split the string into array that contains all the string's not overlaping
@@ -493,54 +493,54 @@ class ViewControl
 	protected function getSplitStringWithCapturedDelimiters($pattern, $str)
 	{
 		$resArray = array();
-		
+
 		if( !strlen($str) )
 			return $resArray ;
-		
-		if( !preg_match_all($pattern, $str, $matches) ) 
+
+		if( !preg_match_all($pattern, $str, $matches) )
 		{
-			$resArray[] = $str; 
+			$resArray[] = $str;
 			return $resArray;
 		}
-		
+
 		$delimiters = $matches[0];
 		$strArray = preg_split($pattern, $str);
 		foreach($strArray as $key=>$item)
 		{
 			$resArray[] = $item;
-			if( isset( $delimiters[$key] ) ) 
+			if( isset( $delimiters[$key] ) )
 				$resArray[] = $delimiters[$key];
 		}
-		
-		return $resArray;	
+
+		return $resArray;
 	}
-	
+
 	/**
-	 * Highlight the value escaping the special chars codes	
+	 * Highlight the value escaping the special chars codes
 	 * @param string pattern
 	 * @param string value
 	 * @return string
 	 */
-	protected function highlightValueWithSpecialChars($value, $pattern) 
+	protected function highlightValueWithSpecialChars($value, $pattern)
 	{
 		$chars = array('&amp;', '&quot;', '&lt;', '&gt;');
-		foreach($chars as $char) 
+		foreach($chars as $char)
 		{
 			$valueArr = $this->getSplitStringWithCapturedDelimiters('/'.$char.'/', $value);
-			if( count($valueArr) == 1 || !preg_match($pattern, $char, $matches) ) 
+			if( count($valueArr) == 1 || !preg_match($pattern, $char, $matches) )
 				continue;
-				
+
 			$valueArr2 = array();
-			
+
 			foreach($valueArr as $key=>$part)
-			{				
+			{
 				if( $part != $char )
 					$valueArr2[] = preg_replace($pattern, $this->addHighlightingSpan('$1'), $part);
-				else 
-					$valueArr2[] = $char;				
+				else
+					$valueArr2[] = $char;
 			}
-			
-			$value = implode("",$valueArr2);	
+
+			$value = implode("",$valueArr2);
 		}
 		return $value;
 	}
@@ -557,13 +557,13 @@ class ViewControl
 			foreach($matches[0] as $entity)
 			{
 				$data = getHTMLEntityData($entity);
-				if( $data['isHTMLEntity'] ) 
+				if( $data['isHTMLEntity'] )
 					return true;
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Highlight item string basing on the pattern value
 	 * skipping the HTML entities
@@ -578,17 +578,17 @@ class ViewControl
 		foreach($valueArr as $subitem)
 		{
 			$data = getHTMLEntityData($subitem);
-			if( $data['isHTMLEntity'] )	
+			if( $data['isHTMLEntity'] )
 				$valueArr2[] = $subitem;
 			else
 				$valueArr2[] = preg_replace($pattern, $this->addHighlightingSpan('$1'), $subitem);
 		}
-		return implode("",$valueArr2);	
+		return implode("",$valueArr2);
 	}
-	
+
 	/**
-	 * Get the lookup params and settings to pass it 
-	 * to the searchClause object's getSearchHighlightingData method 
+	 * Get the lookup params and settings to pass it
+	 * to the searchClause object's getSearchHighlightingData method
 	 * @return Array
 	 */
 	protected function getLookupParams()
@@ -597,7 +597,7 @@ class ViewControl
 
 		if( $this->isFieldLookup )
 		{
-			$pSet = $this->container->pSet;	
+			$pSet = $this->container->pSet;
 			$lookupParams["multiselect"] = $pSet->multiSelect($this->field);
 			$lookupParams["needLookupProcessing"] = $this->needLookupValueProcessing;
 			//linkFieldValue and originLinkValue params are set for looku fields with distinct Link and Displayed fields only
@@ -605,7 +605,7 @@ class ViewControl
 			//originLinkValue param is set for multiselet lookups only
 			$lookupParams["originLinkValue"] = $this->container->originlinkValues[$this->field];
 		}
-		return $lookupParams;		
+		return $lookupParams;
 	}
 
 	/**
@@ -615,93 +615,93 @@ class ViewControl
 	 * @return String
 	 */
 	protected function getFirstSearchWordInLargeText($searchWords, $value)
-	{	
+	{
 		$searchWordsPattern = $this->getSearchWordPattern($searchWords, false);
-		
+
 		if( preg_match('/'.$searchWordsPattern.'/i', $value, $matches) )
 			return $matches[0];
-			
-		return $searchWords[0];	
+
+		return $searchWords[0];
 	}
-	
+
 	/**
 	 * Format the string before the "More ..." link and highlight a search word depending on the search option's value.
 	 * @param String value				The raw field's content
 	 * @param String truncatedValue	 	The truncated, htmlspecialchars encoded field's content
-	 * @param Number cNumberOfChars	
-     * @prarm Number contenLength		The length of the truncated value	 
+	 * @param Number cNumberOfChars
+     * @prarm Number contenLength		The length of the truncated value
 	 * @return string
-	 */	
+	 */
 	protected function highlightTruncatedBeforeMore($value, $truncatedValue, $cNumberOfChars, $contenLength)
-	{			
-		$lookupParams = $this->getLookupParams();	
+	{
+		$lookupParams = $this->getLookupParams();
 		$highlightData = $this->searchClauseObj->getSearchHighlightingData($this->field, $value, false, $lookupParams);
 		if(!$highlightData)
 		{
 			return $truncatedValue;
 		}
-		
-		$searchWord = $this->getFirstSearchWordInLargeText($highlightData['searchWords'], $value);		
+
+		$searchWord = $this->getFirstSearchWordInLargeText($highlightData['searchWords'], $value);
 		$searchWordEncoded = runner_htmlspecialchars($searchWord);
-		$highlighting = $this->addHighlightingSpan($searchWordEncoded);	
+		$highlighting = $this->addHighlightingSpan($searchWordEncoded);
 		$searchOpt = $highlightData['searchOpt'];
 
-		switch ($searchOpt) 
+		switch ($searchOpt)
 		{
 			case 'Equals':
-				return $this->addHighlightingSpan($truncatedValue); 
+				return $this->addHighlightingSpan($truncatedValue);
 
 			case 'Starts with':
 				if( strlen($searchWordEncoded) > strlen($truncatedValue) )
-					return $this->addHighlightingSpan($truncatedValue);  
-					
-				return preg_replace('/^'.preg_quote($searchWordEncoded,"/").'/i', $highlighting, $truncatedValue);	
+					return $this->addHighlightingSpan($truncatedValue);
 
-			case 'Contains':		
+				return preg_replace('/^'.preg_quote($searchWordEncoded,"/").'/i', $highlighting, $truncatedValue);
+
+			case 'Contains':
 				$regExpModifier = $this->useUTF8 ? 'u' : '';
-				
+
 				$firstPos = $this->getFistOccurencePosition($value, $searchWord, $searchWordEncoded);
 				$lastPos = $this->getLastOccurencePosition($value, $searchWord, $searchWordEncoded);
 				$searchWordEncodedLen = runner_strlen($searchWordEncoded);
 				$truncLen = runner_strlen($truncatedValue);
-				
-				$pattern = '/('.$this->getSearchWordPattern($highlightData['searchWords'], true).')/i';	
-				
+
+				$pattern = '/('.$this->getSearchWordPattern($highlightData['searchWords'], true).')/i';
+
 				if( $lastPos + $searchWordEncodedLen <= $truncLen || $firstPos + $searchWordEncodedLen <= $truncLen )
 				{
 					if( !$this->haveTheSameSpChReference($pattern, $truncatedValue) )
 						return preg_replace($pattern.$regExpModifier, $this->addHighlightingSpan('$1'), $truncatedValue);
-						
-					return $this->highlightValueWithSpecialChars($truncatedValue, $pattern.$regExpModifier);	
+
+					return $this->highlightValueWithSpecialChars($truncatedValue, $pattern.$regExpModifier);
 				}
-				
+
 				if( $firstPos > $truncLen )
 				{
 					$newNumberOfChars = ceil($cNumberOfChars / 2);
 					$qNumberOfChars = ceil($cNumberOfChars / 4);
 					$firstPosDecoded = runner_strpos($value, $searchWord);
-					
+
 					$truncSubsr = runner_substr($value, 0, $cNumberOfChars);
 					$valueSubstr = runner_substr($value, $firstPosDecoded - $qNumberOfChars, $qNumberOfChars + runner_strlen($searchWord));
 					$truncSubsr = runner_substr($truncSubsr, 0, $newNumberOfChars);
 					$valueSubstr = runner_htmlspecialchars($valueSubstr);
-					
+
 					$pattern = '/('.preg_quote($searchWordEncoded,"/").')/i';
-					
+
 					if( !$this->haveTheSameSpChReference($pattern, $valueSubstr) )
 						$valueSubstr = preg_replace($pattern.$regExpModifier, $highlighting, $valueSubstr);
-					else 
+					else
 						$valueSubstr = $this->highlightValueWithSpecialChars($valueSubstr, $pattern.$regExpModifier);
-				
+
 					return runner_htmlspecialchars($truncSubsr)."&nbsp;&lt;...&gt;&nbsp;".$valueSubstr;;
 				}
-				
+
 				return runner_substr($truncatedValue, 0, $firstPos).$highlighting;
 
 			default:
 				return $truncatedValue;
-		}	
-	}	
+		}
+	}
 
 	/**
 	 * Get the first searchWord occurence in the encoded value string
@@ -715,26 +715,26 @@ class ViewControl
 		$planeFirstPos = strpos($value, $searchWord);
 		$planeSubstr = substr($value, 0, $planeFirstPos);
 		$encodedPlaneSubstr = runner_htmlspecialchars($planeSubstr);
-		
+
 		return runner_strpos( runner_htmlspecialchars($value), $searchWordEncoded, runner_strlen($encodedPlaneSubstr) );
 	}
-	
+
 	/**
 	 * Get the last searchWord occurence in the encoded value string
 	 * @param String value
 	 * @param String searchWord
 	 * @param String searchWordEncoded
 	 * @return Number
-	 */	
+	 */
 	protected function getLastOccurencePosition($value, $searchWord, $searchWordEncoded)
 	{
 		$planeLastPos = strrpos($value, $searchWord);
 		$planeSubstr = substr($value, 0, $planeLastPos);
 		$encodedPlaneSubstr = runner_htmlspecialchars($planeSubstr);
-		
+
 		return runner_strrpos(runner_htmlspecialchars($value), $searchWordEncoded, runner_strlen($encodedPlaneSubstr));
 	}
-	
+
 	/**
 	 * Get common search words pattern
 	 * @param Array searchWords
@@ -749,12 +749,12 @@ class ViewControl
 			$wordPattern = preg_quote($searchWord, "/");
 			if( $encoded )
 				$wordPattern = runner_htmlspecialchars($wordPattern);
-			
+
 			$searchWordsPatterns[] = $wordPattern;
 		}
-		return implode('|', $searchWordsPatterns);	
-	}	
-	
+		return implode('|', $searchWordsPatterns);
+	}
+
 	/**
 	 * Wrap the string value with a span element
 	 * @param String str
@@ -764,23 +764,23 @@ class ViewControl
 	{
 		return '<span class="r-search-highlight">'.$str.'</span>';
 	}
-	
+
 	public function & getJSControl()
 	{
 		if(!isset($this->getContainer()->viewControlsMap["controls"]))
 			$this->getContainer()->viewControlsMap["controls"] = array();
-			
-		for($i = 0; $i < count($this->getContainer()->viewControlsMap["controls"]); $i++) 
+
+		for($i = 0; $i < count($this->getContainer()->viewControlsMap["controls"]); $i++)
 		{
 			if($this->getContainer()->viewControlsMap["controls"][$i]["fieldName"] == $this->field)
 				return $this->getContainer()->viewControlsMap["controls"][$i];
 		}
-		
+
 		$controlData = array("fieldName" => $this->field, "viewFormat" => $this->viewFormat);
-		$this->getContainer()->viewControlsMap["controls"][] = $controlData ;			
+		$this->getContainer()->viewControlsMap["controls"][] = $controlData ;
 		return $controlData;
 	}
-	
+
 	/**
 	 * addJSControlSetting
 	 * Add setting for JS control to controls map
@@ -792,7 +792,7 @@ class ViewControl
 		$JScontrol =& $this->getJSControl();
 		$JScontrol[$name] = $value;
 	}
-	
+
 	/**
 	 * Check for need to load the javascript files
 	 * @return boolean
@@ -807,7 +807,7 @@ class ViewControl
 				return true;
 		}
 	}
-	
+
 	/**
 	 * Returns true if it is user control
 	 * @return boolean
@@ -849,7 +849,7 @@ class ViewControl
 			return ' style="'.$style.'"';
 		return $style;
 	}
-	
+
 	/**
 	 * User API function
 	 * @param Array data
@@ -862,10 +862,10 @@ class ViewControl
 		if(!$table)
 			$table = $strTableName;
 		$pSet = new ProjectSettings( $table );
-		
+
 		include_once getabspath("classes/controls/ViewControlsContainer.php");
 		$viewControls = new ViewControlsContainer( $pSet, PAGE_VIEW );
-		
+
 		return $viewControls->getControl( $field )->getTextValue( $data );
 	}
 }
@@ -873,9 +873,9 @@ class ViewControl
 class ViewControlTypes
 {
 	public $viewTypes = array();
-		
-	function __construct() 
-	{		
+
+	function __construct()
+	{
 		$this->viewTypes[FORMAT_NONE] = "";
 		$this->viewTypes[FORMAT_DATE_SHORT] = "ViewShortDateField";
 		$this->viewTypes[FORMAT_DATE_LONG] = "ViewLongDateField";
