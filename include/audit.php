@@ -512,6 +512,14 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="SuperAdmin - manage UNTE admins")
+		{
+			return true;
+		}
+		if($table=="Super Admin - Manage Organization")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1025,6 +1033,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="All Properties by Countries")
+		{
+			return false;
+		}
+		if($table=="SuperAdmin - manage UNTE admins")
+		{
+			return true;
+		}
+		if($table=="Super Admin - Manage Organization")
 		{
 			return false;
 		}

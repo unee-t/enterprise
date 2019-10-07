@@ -594,6 +594,10 @@ class Chart
 			return true;
 		if("ut_verify_count_all_P_by_org_and_countries" == $this->chrt_array['tables'][0])
 			return true;
+		if("uneet_enterprise_users" == $this->chrt_array['tables'][0])
+			return true;
+		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

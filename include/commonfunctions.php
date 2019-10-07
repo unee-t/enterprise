@@ -307,6 +307,10 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("all_properties_by_countries" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("superadmin___manage_unte_admins" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("super_admin___manage_organization" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -825,6 +829,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="All Properties by Countries";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("SuperAdmin - manage UNTE admins");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="SuperAdmin - manage UNTE admins";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Super Admin - Manage Organization");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Super Admin - Manage Organization";
+	}
 	return $arr;
 }
 
@@ -886,6 +908,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="ut_map_external_source_users";
 	$arr[]="Unee-T Enterprise Account";
 	$arr[]="All Properties by Countries";
+	$arr[]="SuperAdmin - manage UNTE admins";
+	$arr[]="Super Admin - Manage Organization";
 	return $arr;
 }
 
@@ -1907,6 +1931,16 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="SuperAdmin - manage UNTE admins" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Super Admin - Manage Organization" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2051,6 +2085,8 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Assign Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Unee-T Enterprise Account_OwnerID"] = $data["organization_id"];
 		$_SESSION["_All Properties by Countries_OwnerID"] = $data["organization_id"];
+		$_SESSION["_SuperAdmin - manage UNTE admins_OwnerID"] = $data["active"];
+		$_SESSION["_Super Admin - Manage Organization_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 

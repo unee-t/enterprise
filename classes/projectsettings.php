@@ -3165,6 +3165,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "unee_t_enterprise_account" ] = "Unee-T Enterprise Account";
 	$projectEntities[ "All Properties by Countries" ] = array( "url" => "all_properties_by_countries", "type" => 1 );
 	$projectEntitiesReverse[ "all_properties_by_countries" ] = "All Properties by Countries";
+	$projectEntities[ "SuperAdmin - manage UNTE admins" ] = array( "url" => "superadmin___manage_unte_admins", "type" => 1 );
+	$projectEntitiesReverse[ "superadmin___manage_unte_admins" ] = "SuperAdmin - manage UNTE admins";
+	$projectEntities[ "Super Admin - Manage Organization" ] = array( "url" => "super_admin___manage_organization", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_organization" ] = "Super Admin - Manage Organization";
 }
 
 function findTable( $table ) {

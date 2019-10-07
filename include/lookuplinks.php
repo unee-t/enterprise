@@ -1300,6 +1300,76 @@ function InitLookupLinks()
 			$lookupTableLinks["Search Units"]["unee_t_enterprise_account.default_unit"] = array();
 		}
 		$lookupTableLinks["Search Units"]["unee_t_enterprise_account.default_unit"]["search"] = array("table" => "Unee-T Enterprise Account", "field" => "default_unit", "page" => "search");
+		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"] ) ) {
+			$lookupTableLinks["uneet_enterprise_organizations"] = array();
+		}
+		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"]["superadmin___manage_unte_admins.organization_id"] )) {
+			$lookupTableLinks["uneet_enterprise_organizations"]["superadmin___manage_unte_admins.organization_id"] = array();
+		}
+		$lookupTableLinks["uneet_enterprise_organizations"]["superadmin___manage_unte_admins.organization_id"]["edit"] = array("table" => "SuperAdmin - manage UNTE admins", "field" => "organization_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
+			$lookupTableLinks["ut_map_external_source_units"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] )) {
+			$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] = array();
+		}
+		$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"]["edit"] = array("table" => "Super Admin - Manage Organization", "field" => "default_area", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
+			$lookupTableLinks["ut_map_external_source_units"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] )) {
+			$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] = array();
+		}
+		$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"]["add"] = array("table" => "Super Admin - Manage Organization", "field" => "default_area", "page" => "add");
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
+			$lookupTableLinks["ut_map_external_source_units"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] )) {
+			$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"] = array();
+		}
+		$lookupTableLinks["ut_map_external_source_units"]["super_admin___manage_organization.default_area"]["search"] = array("table" => "Super Admin - Manage Organization", "field" => "default_area", "page" => "search");
+		if( !isset( $lookupTableLinks["Search Buildings"] ) ) {
+			$lookupTableLinks["Search Buildings"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] )) {
+			$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] = array();
+		}
+		$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"]["edit"] = array("table" => "Super Admin - Manage Organization", "field" => "default_building", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search Buildings"] ) ) {
+			$lookupTableLinks["Search Buildings"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] )) {
+			$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] = array();
+		}
+		$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"]["add"] = array("table" => "Super Admin - Manage Organization", "field" => "default_building", "page" => "add");
+		if( !isset( $lookupTableLinks["Search Buildings"] ) ) {
+			$lookupTableLinks["Search Buildings"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] )) {
+			$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"] = array();
+		}
+		$lookupTableLinks["Search Buildings"]["super_admin___manage_organization.default_building"]["search"] = array("table" => "Super Admin - Manage Organization", "field" => "default_building", "page" => "search");
+		if( !isset( $lookupTableLinks["Search Units"] ) ) {
+			$lookupTableLinks["Search Units"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] )) {
+			$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] = array();
+		}
+		$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"]["edit"] = array("table" => "Super Admin - Manage Organization", "field" => "default_unit", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search Units"] ) ) {
+			$lookupTableLinks["Search Units"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] )) {
+			$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] = array();
+		}
+		$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"]["add"] = array("table" => "Super Admin - Manage Organization", "field" => "default_unit", "page" => "add");
+		if( !isset( $lookupTableLinks["Search Units"] ) ) {
+			$lookupTableLinks["Search Units"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] )) {
+			$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] = array();
+		}
+		$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"]["search"] = array("table" => "Super Admin - Manage Organization", "field" => "default_unit", "page" => "search");
 }
 
 ?>

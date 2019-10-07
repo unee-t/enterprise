@@ -1368,6 +1368,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `is_obsolete` = 0 ";
 		return $strWhere;
 	}
+		if($table=="SuperAdmin - manage UNTE admins" && $field=="organization_id")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
 	return "";
 }
 

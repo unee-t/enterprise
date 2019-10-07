@@ -77,6 +77,10 @@ include_once(getabspath("include/Assign_Rooms_events.php"));
 $tableEvents["Assign Rooms"] = new eventclass_Assign_Rooms;
 include_once(getabspath("include/unee_t_enterprise_account_events.php"));
 $tableEvents["Unee-T Enterprise Account"] = new eventclass_unee_t_enterprise_account;
+include_once(getabspath("include/superadmin___manage_unte_admins_events.php"));
+$tableEvents["SuperAdmin - manage UNTE admins"] = new eventclass_superadmin___manage_unte_admins;
+include_once(getabspath("include/super_admin___manage_organization_events.php"));
+$tableEvents["Super Admin - Manage Organization"] = new eventclass_super_admin___manage_organization;
 
 $xt = new Xtempl();
 

@@ -64,6 +64,8 @@ $nonAdminTablesArr[] = "Assign Rooms";
 $nonAdminTablesArr[] = "ut_map_external_source_users";
 $nonAdminTablesArr[] = "Unee-T Enterprise Account";
 $nonAdminTablesArr[] = "All Properties by Countries";
+$nonAdminTablesArr[] = "SuperAdmin - manage UNTE admins";
+$nonAdminTablesArr[] = "Super Admin - Manage Organization";
 
 $ug_connection = $cman->getForUserGroups();
 

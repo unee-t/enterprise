@@ -368,6 +368,8 @@ class ConnectionManager
 		$connectionsIds["ut_map_external_source_users"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Unee-T Enterprise Account"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["All Properties by Countries"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["SuperAdmin - manage UNTE admins"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Super Admin - Manage Organization"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	
