@@ -202,6 +202,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field14}","text":{$organization_id_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field15}","text":{$unee_t_mefe_user_api_key_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field16}","text":{$designation_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

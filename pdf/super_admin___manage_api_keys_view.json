@@ -172,6 +172,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Super_Admin___Manage_API_Keys organization_id }","bold":true},{"text":{$organization_id_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_API_Keys unee_t_mefe_user_api_key }","bold":true},{"text":{$unee_t_mefe_user_api_key_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Super_Admin___Manage_API_Keys designation }","bold":true},{"text":{$designation_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           },
