@@ -83,6 +83,10 @@ include_once(getabspath("include/super_admin___manage_organization_events.php"))
 $tableEvents["Super Admin - Manage Organization"] = new eventclass_super_admin___manage_organization;
 include_once(getabspath("include/super_admin___manage_api_keys_events.php"));
 $tableEvents["Super Admin - Manage API Keys"] = new eventclass_super_admin___manage_api_keys;
+include_once(getabspath("include/super_admin___manage_mefe_master_user1_events.php"));
+$tableEvents["Super Admin - Manage MEFE Master User"] = new eventclass_super_admin___manage_mefe_master_user1;
+include_once(getabspath("include/super_admin___manage_user_types_events.php"));
+$tableEvents["Super Admin - Manage User Types"] = new eventclass_super_admin___manage_user_types;
 
 $xt = new Xtempl();
 

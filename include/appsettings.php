@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "595_1570422241";
+$projectBuildKey = "609_1570539437";
 $wizardBuildKey = "33839";
-$projectBuildNumber = "595";
+$projectBuildNumber = "609";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -719,6 +719,8 @@ $tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "SuperAdmin - man
 $tableCaptions["English"]["Super_Admin___Manage_Organization"] = "Super Admin - Manage Organization";
 $tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Super Admin - Manage API Keys";
 $tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "Super Admin - Manage MEFE Master User";
+$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "Super Admin - Manage MEFE Master User";
+$tableCaptions["English"]["Super_Admin___Manage_User_Types"] = "Super Admin - Manage User Types";
 
 
 $globalEvents = new class_GlobalEvents;

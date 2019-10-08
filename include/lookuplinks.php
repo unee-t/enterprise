@@ -1370,6 +1370,76 @@ function InitLookupLinks()
 			$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] = array();
 		}
 		$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"]["search"] = array("table" => "Super Admin - Manage Organization", "field" => "default_unit", "page" => "search");
+		if( !isset( $lookupTableLinks["person_statuses"] ) ) {
+			$lookupTableLinks["person_statuses"] = array();
+		}
+		if( !isset( $lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] )) {
+			$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] = array();
+		}
+		$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"]["edit"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "person_status_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["person_statuses"] ) ) {
+			$lookupTableLinks["person_statuses"] = array();
+		}
+		if( !isset( $lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] )) {
+			$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] = array();
+		}
+		$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"]["add"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "person_status_id", "page" => "add");
+		if( !isset( $lookupTableLinks["person_statuses"] ) ) {
+			$lookupTableLinks["person_statuses"] = array();
+		}
+		if( !isset( $lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] )) {
+			$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"] = array();
+		}
+		$lookupTableLinks["person_statuses"]["super_admin___manage_mefe_master_user1.person_status_id"]["search"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "person_status_id", "page" => "search");
+		if( !isset( $lookupTableLinks["ut_user_types"] ) ) {
+			$lookupTableLinks["ut_user_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_types"]["super_admin___manage_mefe_master_user1.unee_t_user_type_id"] )) {
+			$lookupTableLinks["ut_user_types"]["super_admin___manage_mefe_master_user1.unee_t_user_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_types"]["super_admin___manage_mefe_master_user1.unee_t_user_type_id"]["edit"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "unee_t_user_type_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["property_groups_countries"] ) ) {
+			$lookupTableLinks["property_groups_countries"] = array();
+		}
+		if( !isset( $lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] )) {
+			$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] = array();
+		}
+		$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"]["edit"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "country_code", "page" => "edit");
+		if( !isset( $lookupTableLinks["property_groups_countries"] ) ) {
+			$lookupTableLinks["property_groups_countries"] = array();
+		}
+		if( !isset( $lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] )) {
+			$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] = array();
+		}
+		$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"]["add"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "country_code", "page" => "add");
+		if( !isset( $lookupTableLinks["property_groups_countries"] ) ) {
+			$lookupTableLinks["property_groups_countries"] = array();
+		}
+		if( !isset( $lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] )) {
+			$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] = array();
+		}
+		$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"]["search"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "country_code", "page" => "search");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["edit"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["add"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "add");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["search"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "search");
 }
 
 ?>

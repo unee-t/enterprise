@@ -1,0 +1,469 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				data-fixed 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+							 
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main horizontal}			</span>
+							 
+													</nav>
+{END supertop_block}
+					{$locking}
+			</div>	
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel Super_Admin___Manage_MEFE_Master_User search}</h2>
+		</div>					</div>
+	</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+										{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			{END firstAboveGridCell}	
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+							
+						<div class="r-grid">
+										{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN country_code_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="country_code" 
+	
+	data-signal-error-for="country_code{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="country_code" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_country_code}">
+		{$label Super_Admin___Manage_MEFE_Master_User country_code }	</label>
+	<div class="r-search-option">
+		{$searchtype_country_code}
+	</div>
+	<div class="r-search-field">
+		{$country_code_editcontrol}	</div>
+	<div class="r-search-field">
+		{$country_code_editcontrol1}
+	</div>
+	
+</div>
+
+{END country_code_fieldblock}
+											
+{BEGIN email_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_email}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="email" 
+	
+	data-signal-error-for="email{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field25" {$item_integrated_search_field25} data-pageid="{$pageid}" data-field="email" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_email}">
+		{$label Super_Admin___Manage_MEFE_Master_User email }	</label>
+	<div class="r-search-option">
+		{$searchtype_email}
+	</div>
+	<div class="r-search-field">
+		{$email_editcontrol}	</div>
+	<div class="r-search-field">
+		{$email_editcontrol1}
+	</div>
+	
+</div>
+
+{END email_fieldblock}
+											
+{BEGIN person_status_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_person_status_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="person_status_id" 
+	
+	data-signal-error-for="person_status_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="person_status_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_person_status_id}">
+		{$label Super_Admin___Manage_MEFE_Master_User person_status_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_person_status_id}
+	</div>
+	<div class="r-search-field">
+		{$person_status_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$person_status_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END person_status_id_fieldblock}
+											
+{BEGIN unee_t_user_type_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_user_type_id}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="unee_t_user_type_id" 
+	
+	data-signal-error-for="unee_t_user_type_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="unee_t_user_type_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_unee_t_user_type_id}">
+		{$label Super_Admin___Manage_MEFE_Master_User unee_t_user_type_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_unee_t_user_type_id}
+	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$unee_t_user_type_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END unee_t_user_type_id_fieldblock}
+											
+{BEGIN given_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_given_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="given_name" 
+	
+	data-signal-error-for="given_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="given_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_given_name}">
+		{$label Super_Admin___Manage_MEFE_Master_User given_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_given_name}
+	</div>
+	<div class="r-search-field">
+		{$given_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$given_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END given_name_fieldblock}
+											
+{BEGIN family_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_family_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="family_name" 
+	
+	data-signal-error-for="family_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="family_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_family_name}">
+		{$label Super_Admin___Manage_MEFE_Master_User family_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_family_name}
+	</div>
+	<div class="r-search-field">
+		{$family_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$family_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END family_name_fieldblock}
+											
+{BEGIN organization_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization" 
+	
+	data-signal-error-for="organization{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="organization" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization}">
+		{$label Super_Admin___Manage_MEFE_Master_User organization }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization}
+	</div>
+	<div class="r-search-field">
+		{$organization_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_fieldblock}
+											
+{BEGIN is_unee_t_account_needed_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_is_unee_t_account_needed}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="is_unee_t_account_needed" 
+	
+	data-signal-error-for="is_unee_t_account_needed{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="is_unee_t_account_needed" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_is_unee_t_account_needed}">
+		{$label Super_Admin___Manage_MEFE_Master_User is_unee_t_account_needed }	</label>
+	<div class="r-search-option">
+		{$searchtype_is_unee_t_account_needed}
+	</div>
+	<div class="r-search-field">
+		{$is_unee_t_account_needed_editcontrol}	</div>
+	<div class="r-search-field">
+		{$is_unee_t_account_needed_editcontrol1}
+	</div>
+	
+</div>
+
+{END is_unee_t_account_needed_fieldblock}
+											
+{BEGIN uneet_created_datetime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_uneet_created_datetime}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="uneet_created_datetime" 
+	
+	data-signal-error-for="uneet_created_datetime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="uneet_created_datetime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_uneet_created_datetime}">
+		{$label Super_Admin___Manage_MEFE_Master_User uneet_created_datetime }	</label>
+	<div class="r-search-option">
+		{$searchtype_uneet_created_datetime}
+	</div>
+	<div class="r-search-field">
+		{$uneet_created_datetime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$uneet_created_datetime_editcontrol1}
+	</div>
+	
+</div>
+
+{END uneet_created_datetime_fieldblock}
+											
+{BEGIN role_type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="role_type" 
+	
+	data-signal-error-for="role_type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="role_type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_role_type}">
+		{$label Super_Admin___Manage_MEFE_Master_User role_type }	</label>
+	<div class="r-search-option">
+		{$searchtype_role_type}
+	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$role_type_editcontrol1}
+	</div>
+	
+</div>
+
+{END role_type_fieldblock}
+											
+{BEGIN organization_name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_organization_name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="organization_name" 
+	
+	data-signal-error-for="organization_name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="organization_name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_organization_name}">
+		{$label Super_Admin___Manage_MEFE_Master_User organization_name }	</label>
+	<div class="r-search-option">
+		{$searchtype_organization_name}
+	</div>
+	<div class="r-search-field">
+		{$organization_name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$organization_name_editcontrol1}
+	</div>
+	
+</div>
+
+{END organization_name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+							</div>
+						
+										{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	
+">
+		 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+		</div>					</div>
+	</div>		
+{END below-grid_block}
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

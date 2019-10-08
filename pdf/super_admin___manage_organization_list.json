@@ -395,13 +395,13 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_grid_alldetails_link}"},
 				
 				
-			{"text":"","hidden":"{$item_hide_grid_details_link}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
 				
 				
-			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
+			{"text":"","hidden":"{$item_hide_grid_details_link3}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link}"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -512,19 +512,19 @@ pdfDocument = {
 			"stack": [
 		
 				
-			 {BEGIN details_super_admin___manage_api_keys}
-			{$displayDetailTable_super_admin___manage_api_keys }
-		{END details_super_admin___manage_api_keys},
-				
-				
 			 {BEGIN details_superadmin___manage_unte_admins}
 			{$displayDetailTable_superadmin___manage_unte_admins }
 		{END details_superadmin___manage_unte_admins},
 				
 				
-			 {BEGIN details_super_admin___manage_mefe_master_user}
-			{$displayDetailTable_super_admin___manage_mefe_master_user }
-		{END details_super_admin___manage_mefe_master_user},
+			 {BEGIN details_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
+		{END details_super_admin___manage_mefe_master_user1},
+				
+				
+			 {BEGIN details_super_admin___manage_api_keys}
+			{$displayDetailTable_super_admin___manage_api_keys }
+		{END details_super_admin___manage_api_keys},
 				
 		  ],
   "border": [ true, true, true, true ],

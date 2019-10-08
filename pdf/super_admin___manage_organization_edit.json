@@ -442,6 +442,11 @@ pdfDocument = {
 			{$displayDetailTable_super_admin___manage_api_keys }
 		{END details_super_admin___manage_api_keys},
 				
+				
+			 {BEGIN details_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
+		{END details_super_admin___manage_mefe_master_user1},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

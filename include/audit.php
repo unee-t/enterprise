@@ -526,6 +526,10 @@ class AuditTrailTable
 		}
 		if($table=="Super Admin - Manage MEFE Master User")
 		{
+			return true;
+		}
+		if($table=="Super Admin - Manage User Types")
+		{
 			return false;
 		}
 	}
@@ -1057,6 +1061,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Super Admin - Manage MEFE Master User")
+		{
+			return true;
+		}
+		if($table=="Super Admin - Manage User Types")
 		{
 			return false;
 		}

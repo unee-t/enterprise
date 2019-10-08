@@ -420,6 +420,33 @@ pdfDocument = {
 		margin: [0,0,0,15],
 	},
 				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c13}
+											],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c}
+
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
 				
 			 {BEGIN details_super_admin___manage_api_keys}
 			{$displayDetailTable_super_admin___manage_api_keys }
@@ -429,9 +456,41 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-{END cellblock_grid_c13}
+{END cellblock_grid_c}
 											],
-				{END row_grid_1}
+				{END row_grid_2}
+								{BEGIN row_grid_3}
+				
+		[
+												{BEGIN cellblock_grid_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
+		{END details_super_admin___manage_mefe_master_user1},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c1}
+											],
+				{END row_grid_3}
 					]
 	}
 }

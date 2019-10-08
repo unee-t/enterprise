@@ -1373,6 +1373,56 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="person_status_id" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="person_status_id" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="person_status_id" && $ptype=="search")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="unee_t_user_type_id")
+	{
+		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="country_code" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="country_code" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage MEFE Master User" && $field=="country_code" && $ptype=="search")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="edit")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="add")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="search")
+	{
+		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
 	return "";
 }
 

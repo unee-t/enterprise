@@ -338,6 +338,59 @@ pdfDocument = {
 {END cellblock_grid_c4}
 											],
 				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c7}
+
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c7}
+			colSpan: {$colspan_grid_c7},
+			{END colspan_grid_c7}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
+		{END details_super_admin___manage_mefe_master_user1},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c7}
+																			{ 
+					cellId: 'c7',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c7',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+															{ 
+					cellId: 'c7',
+					row:  0,
+					col:  3,
+					text: ''
+				},
+							],
+				{END row_grid_2}
 					]
 	}
 }

@@ -778,6 +778,7 @@ $proto13["m_columns"] = array();
 $proto13["m_columns"][] = "TableName";
 $proto13["m_columns"][] = "GroupID";
 $proto13["m_columns"][] = "AccessMask";
+$proto13["m_columns"][] = "Page";
 $obj = new SQLTable($proto13);
 
 $proto12["m_table"] = $obj;

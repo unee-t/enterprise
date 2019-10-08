@@ -2651,27 +2651,6 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
 
-	$fdata["ViewFormats"]["print"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
 	$fdata["ViewFormats"]["export"] = $vdata;
 //  End View Formats
 
@@ -2998,27 +2977,6 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["list"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["print"] = $vdata;
 	$vdata = array("ViewFormat" => "");
 
 	
@@ -3385,27 +3343,6 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
 
-	$fdata["ViewFormats"]["print"] = $vdata;
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
 	$fdata["ViewFormats"]["export"] = $vdata;
 //  End View Formats
 
@@ -3739,12 +3676,12 @@ $detailsTablesData["Super Admin - Manage Organization"] = array();
 		$dIndex = 2;
 	$detailsParam = array();
 	$detailsParam["dDataSourceTable"]="Super Admin - Manage MEFE Master User";
-		$detailsParam["dOriginalTable"] = "ut_map_external_source_users";
+		$detailsParam["dOriginalTable"] = "external_persons";
 
 
 
 				$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "super_admin___manage_mefe_master_user";
+	$detailsParam["dShortTable"] = "super_admin___manage_mefe_master_user1";
 	$detailsParam["dCaptionTable"] = GetTableCaption("Super_Admin___Manage_MEFE_Master_User");
 	$detailsParam["masterKeys"] =array();
 	$detailsParam["detailKeys"] =array();
@@ -3760,7 +3697,7 @@ $detailsTablesData["Super Admin - Manage Organization"] = array();
 
 				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="created_by_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Super Admin - Manage Organization"] = array();
