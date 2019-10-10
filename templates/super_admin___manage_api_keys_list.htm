@@ -22,7 +22,7 @@
 		</style>
 		<div class="r-topbar-page">
 			<div data-menu-width="full" 
-				 
+				data-fixed 
 				class="r-topheader" 
 				data-resize-name="topbar"
 				data-body-align="left"
@@ -32,7 +32,11 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/Unee-T%20Enterprise160x50.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -85,22 +89,6 @@
 		Advanced search		
 		</a>
 	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -215,69 +203,6 @@
 	class=" r-ori-vert			"
 			 
 	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
-
-	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_unee_t_mefe_user_api_key}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unee_t_mefe_user_api_key}" {$filterRow_attrs_unee_t_mefe_user_api_key}>
-			<label>{$label Super_Admin___Manage_API_Keys unee_t_mefe_user_api_key }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unee_t_mefe_user_api_key}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_mefe_user_api_key}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_mefe_user_api_key}</span>
-						</div>
-		{END searchCtrlBlock_unee_t_mefe_user_api_key}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
 </td>
 							</tr>
 					
@@ -449,22 +374,22 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$revoked_datetime_class}
+		 r-ori-vert				{$api_key_class}
 			"
 
-			data-field="revoked_datetime"
+			data-field="api_key"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN revoked_datetime_fieldheadercolumn}
-	{BEGIN revoked_datetime_fieldheader}
-	<SPAN {$revoked_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="revoked_datetime">
-	{$label Super_Admin___Manage_API_Keys revoked_datetime }	{$arrow_icon_revoked_datetime}
+		{BEGIN api_key_fieldheadercolumn}
+	{BEGIN api_key_fieldheader}
+	<SPAN {$api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="api_key">
+	{$label Super_Admin___Manage_API_Keys api_key }	{$arrow_icon_api_key}
 	</SPAN>
-	{END revoked_datetime_fieldheader}
-{END revoked_datetime_fieldheadercolumn}
+	{END api_key_fieldheader}
+{END api_key_fieldheadercolumn}
 
 	
 	</th>
@@ -476,22 +401,22 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$designation_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="designation"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_obsolete_fieldheadercolumn}
-	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
-	{$label Super_Admin___Manage_API_Keys is_obsolete }	{$arrow_icon_is_obsolete}
+		{BEGIN designation_fieldheadercolumn}
+	{BEGIN designation_fieldheader}
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	{$label Super_Admin___Manage_API_Keys designation }	{$arrow_icon_designation}
 	</SPAN>
-	{END is_obsolete_fieldheader}
-{END is_obsolete_fieldheadercolumn}
+	{END designation_fieldheader}
+{END designation_fieldheadercolumn}
 
 	
 	</th>
@@ -503,22 +428,22 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$api_key_class}
+		 r-ori-vert				{$revoked_datetime_class}
 			"
 
-			data-field="api_key"
+			data-field="revoked_datetime"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN api_key_fieldheadercolumn}
-	{BEGIN api_key_fieldheader}
-	<SPAN {$api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="api_key">
-	{$label Super_Admin___Manage_API_Keys api_key }	{$arrow_icon_api_key}
+		{BEGIN revoked_datetime_fieldheadercolumn}
+	{BEGIN revoked_datetime_fieldheader}
+	<SPAN {$revoked_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="revoked_datetime">
+	{$label Super_Admin___Manage_API_Keys revoked_datetime }	{$arrow_icon_revoked_datetime}
 	</SPAN>
-	{END api_key_fieldheader}
-{END api_key_fieldheadercolumn}
+	{END revoked_datetime_fieldheader}
+{END revoked_datetime_fieldheadercolumn}
 
 	
 	</th>
@@ -530,80 +455,26 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$mefe_user_id_class}
+		 r-ori-vert				{$is_obsolete_class}
 			"
 
-			data-field="mefe_user_id"
+			data-field="is_obsolete"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN mefe_user_id_fieldheadercolumn}
-	{BEGIN mefe_user_id_fieldheader}
-	<SPAN {$mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mefe_user_id">
-	{$label Super_Admin___Manage_API_Keys mefe_user_id }	{$arrow_icon_mefe_user_id}
+		{BEGIN is_obsolete_fieldheadercolumn}
+	{BEGIN is_obsolete_fieldheader}
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	{$label Super_Admin___Manage_API_Keys is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
-	{END mefe_user_id_fieldheader}
-{END mefe_user_id_fieldheadercolumn}
+	{END is_obsolete_fieldheader}
+{END is_obsolete_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
-			"
-
-			data-field="unee_t_mefe_user_api_key"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unee_t_mefe_user_api_key_fieldheadercolumn}
-	{BEGIN unee_t_mefe_user_api_key_fieldheader}
-	<SPAN {$unee_t_mefe_user_api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key">
-	{$label Super_Admin___Manage_API_Keys unee_t_mefe_user_api_key }	{$arrow_icon_unee_t_mefe_user_api_key}
-	</SPAN>
-	{END unee_t_mefe_user_api_key_fieldheader}
-{END unee_t_mefe_user_api_key_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field4}
-				 
-					{BEGIN cellblock_grid_headcell_field5}
-	<th
-	
-	{$cell_grid_headcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$designation_class}
-			"
-
-			data-field="designation"
-	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN designation_fieldheadercolumn}
-	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
-	{$label Super_Admin___Manage_API_Keys designation }	{$arrow_icon_designation}
-	</SPAN>
-	{END designation_fieldheader}
-{END designation_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field5}
 							</tr>
 					 
 					 
@@ -674,58 +545,12 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$revoked_datetime_class}
-			"
-
-			data-field="revoked_datetime"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN revoked_datetime_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="revoked_datetime" data-default-width >
-{$revoked_datetime_value}
-</span>
-{END revoked_datetime_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$is_obsolete_class}
-			"
-
-			data-field="is_obsolete"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN is_obsolete_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
-{$is_obsolete_value}
-</span>
-{END is_obsolete_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$api_key_class}
 			"
 
 			data-field="api_key"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -735,58 +560,12 @@
 </span>
 {END api_key_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field}
 				 
-					{BEGIN cellblock_grid_cell_field3}
+					{BEGIN cellblock_grid_cell_field1}
 	<td
 	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$mefe_user_id_class}
-			"
-
-			data-field="mefe_user_id"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN mefe_user_id_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mefe_user_id" data-default-width >
-{$mefe_user_id_value}
-</span>
-{END mefe_user_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-				 
-					{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
-			"
-
-			data-field="unee_t_mefe_user_api_key"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unee_t_mefe_user_api_key_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key" data-default-width >
-{$unee_t_mefe_user_api_key_value}
-</span>
-{END unee_t_mefe_user_api_key_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
+	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$designation_class}
@@ -794,7 +573,7 @@
 
 			data-field="designation"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -804,7 +583,53 @@
 </span>
 {END designation_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field5}
+	{END cellblock_grid_cell_field1}
+				 
+					{BEGIN cellblock_grid_cell_field2}
+	<td
+	
+	{$cell_grid_cell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$revoked_datetime_class}
+			"
+
+			data-field="revoked_datetime"
+	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN revoked_datetime_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="revoked_datetime" data-default-width >
+{$revoked_datetime_value}
+</span>
+{END revoked_datetime_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field2}
+				 
+					{BEGIN cellblock_grid_cell_field3}
+	<td
+	
+	{$cell_grid_cell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$is_obsolete_class}
+			"
+
+			data-field="is_obsolete"
+	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN is_obsolete_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
+{$is_obsolete_value}
+</span>
+{END is_obsolete_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field3}
 							</tr>
 					 
 					
@@ -900,38 +725,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
-				 
-					{BEGIN cellblock_grid_footcell_field4}
-	<td
-	
-	{$cell_grid_footcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="super_admin___manage_api_keys_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field4}
-				 
-					{BEGIN cellblock_grid_footcell_field5}
-	<td
-	
-	{$cell_grid_footcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="super_admin___manage_api_keys_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field5}
 							</tr>
 					
 					</tfoot>

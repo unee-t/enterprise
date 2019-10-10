@@ -118,6 +118,12 @@ pdfDocument = {
 										{BEGIN col_grid_19}
 					"%",
 					{END col_grid_19}
+										{BEGIN col_grid_20}
+					"%",
+					{END col_grid_20}
+										{BEGIN col_grid_21}
+					"%",
+					{END col_grid_21}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -203,7 +209,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field20}","text":"{$jslabel Unee_T_Enterprise_Account id_organization }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field22}","text":"{$jslabel Unee_T_Enterprise_Account id_organization }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -229,7 +235,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field21}","text":"{$jslabel Unee_T_Enterprise_Account syst_created_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field23}","text":"{$jslabel Unee_T_Enterprise_Account syst_created_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -255,7 +261,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":"{$jslabel Unee_T_Enterprise_Account creation_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field24}","text":"{$jslabel Unee_T_Enterprise_Account creation_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -281,7 +287,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":"{$jslabel Unee_T_Enterprise_Account creation_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field25}","text":"{$jslabel Unee_T_Enterprise_Account creation_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -307,7 +313,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field24}","text":"{$jslabel Unee_T_Enterprise_Account created_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field26}","text":"{$jslabel Unee_T_Enterprise_Account created_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -333,7 +339,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field25}","text":"{$jslabel Unee_T_Enterprise_Account syst_updated_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field27}","text":"{$jslabel Unee_T_Enterprise_Account syst_updated_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -359,7 +365,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field26}","text":"{$jslabel Unee_T_Enterprise_Account update_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field28}","text":"{$jslabel Unee_T_Enterprise_Account update_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -385,7 +391,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field27}","text":"{$jslabel Unee_T_Enterprise_Account updated_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel Unee_T_Enterprise_Account updated_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -411,7 +417,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field28}","text":"{$jslabel Unee_T_Enterprise_Account update_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel Unee_T_Enterprise_Account update_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -437,7 +443,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel Unee_T_Enterprise_Account order }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel Unee_T_Enterprise_Account order }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -463,7 +469,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel Unee_T_Enterprise_Account is_obsolete }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel Unee_T_Enterprise_Account is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -489,7 +495,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel Unee_T_Enterprise_Account designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel Unee_T_Enterprise_Account designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -515,7 +521,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel Unee_T_Enterprise_Account description }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel Unee_T_Enterprise_Account description }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -541,7 +547,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_system }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_system }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -567,7 +573,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_persons }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_persons }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -593,7 +599,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_areas }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_areas }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -619,7 +625,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_properties }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel Unee_T_Enterprise_Account default_sot_properties }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -645,7 +651,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Unee_T_Enterprise_Account default_area }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel Unee_T_Enterprise_Account default_area }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -671,7 +677,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel Unee_T_Enterprise_Account default_building }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel Unee_T_Enterprise_Account default_building }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -697,7 +703,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel Unee_T_Enterprise_Account default_unit }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel Unee_T_Enterprise_Account default_unit }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -705,6 +711,58 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_field19}
+																			{BEGIN cellblock_grid_headcell_field20}
+
+{
+	cellId: 'headcell_field20',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel Unee_T_Enterprise_Account default_role_type_id }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$default_role_type_id_align}',
+  },
+
+{END cellblock_grid_headcell_field20}
+																			{BEGIN cellblock_grid_headcell_field21}
+
+{
+	cellId: 'headcell_field21',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel Unee_T_Enterprise_Account country_code }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$country_code_align}',
+  },
+
+{END cellblock_grid_headcell_field21}
 											],
 				{END row_grid_0}
 								
@@ -1234,6 +1292,58 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_field19}
+																			{BEGIN cellblock_grid_cell_field20}
+
+{
+	cellId: 'cell_field20',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field20}","text":{$default_role_type_id_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$default_role_type_id_align}',
+  },
+
+{END cellblock_grid_cell_field20}
+																			{BEGIN cellblock_grid_cell_field21}
+
+{
+	cellId: 'cell_field21',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field21}","text":{$country_code_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$country_code_align}',
+  },
+
+{END cellblock_grid_cell_field21}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -1703,6 +1813,52 @@ pdfDocument = {
           },
 
 {END cellblock_grid_footcell_field19}
+																			{BEGIN cellblock_grid_footcell_field20}
+
+{
+	cellId: 'footcell_field20',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field20}
+																			{BEGIN cellblock_grid_footcell_field21}
+
+{
+	cellId: 'footcell_field21',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field21}
 											],
 				{END row_grid_2}
 							

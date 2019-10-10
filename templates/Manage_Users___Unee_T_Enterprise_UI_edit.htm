@@ -401,8 +401,29 @@
 								</td>
 			{END cellblock_grid_c5}
 								</tr>
-			</tbody></table>
-{END grid_block}
+	 
+	 
+																</tbody></table>
+				
+{BEGIN details_user_permissions}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption User_Permissions }				
+							<span>
+					{$detailslButtons_user_permissions}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_user_permissions}
+		</div>
+	</div>
+</div>
+{END details_user_permissions}
+	
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

@@ -256,6 +256,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_system }","bold":true},{"text":{$default_sot_system_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_role_type_id }","bold":true},{"text":{$default_role_type_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           },
@@ -280,6 +283,9 @@ pdfDocument = {
 		
 				
 			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_persons }","bold":true},{"text":{$default_sot_persons_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account country_code }","bold":true},{"text":{$country_code_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

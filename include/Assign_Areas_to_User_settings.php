@@ -4384,6 +4384,7 @@ $proto77["m_columns"][] = "is_obsolete";
 $proto77["m_columns"][] = "designation";
 $proto77["m_columns"][] = "description";
 $proto77["m_columns"][] = "ut_user_role_type_id";
+$proto77["m_columns"][] = "is_super_admin";
 $proto77["m_columns"][] = "is_all_unit";
 $proto77["m_columns"][] = "is_all_units_in_country";
 $proto77["m_columns"][] = "is_all_units_in_area";

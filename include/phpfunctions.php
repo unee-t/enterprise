@@ -1408,21 +1408,6 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " is_obsolete = 0 ";
 		return $strWhere;
 	}
-		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="edit")
-	{
-		$strWhere = " is_obsolete = 0 ";
-		return $strWhere;
-	}
-		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="add")
-	{
-		$strWhere = " is_obsolete = 0 ";
-		return $strWhere;
-	}
-		if($table=="Super Admin - Manage User Types" && $field=="ut_user_role_type_id" && $ptype=="search")
-	{
-		$strWhere = " is_obsolete = 0 ";
-		return $strWhere;
-	}
 	return "";
 }
 

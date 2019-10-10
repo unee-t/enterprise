@@ -6335,6 +6335,7 @@ $proto93["m_columns"][] = "is_obsolete";
 $proto93["m_columns"][] = "designation";
 $proto93["m_columns"][] = "description";
 $proto93["m_columns"][] = "ut_user_role_type_id";
+$proto93["m_columns"][] = "is_super_admin";
 $proto93["m_columns"][] = "is_all_unit";
 $proto93["m_columns"][] = "is_all_units_in_country";
 $proto93["m_columns"][] = "is_all_units_in_area";

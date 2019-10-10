@@ -177,9 +177,6 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
-					{BEGIN colspan_grid_c}
-			colSpan: {$colspan_grid_c},
-			{END colspan_grid_c}
 		
 			
 	
@@ -194,22 +191,10 @@ pdfDocument = {
           },
 
 {END cellblock_grid_c}
-																			{ 
-					cellId: 'c',
-					row:  0,
-					col:  1,
-					text: ''
-				},
-															{ 
-					cellId: 'c',
-					row:  0,
-					col:  2,
-					text: ''
-				},
-															{BEGIN cellblock_grid_c1}
+																			{BEGIN cellblock_grid_c9}
 
 {
-	cellId: 'c1',
+	cellId: 'c9',
 	col:0,
 	row:0,
 			style: 'undefinedcell',
@@ -230,115 +215,60 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
+{END cellblock_grid_c9}
+																			{BEGIN cellblock_grid_c1}
+
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_role_type_id }","bold":true},{"text":{$default_role_type_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
 {END cellblock_grid_c1}
+																			{BEGIN cellblock_grid_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization country_code }","bold":true},{"text":{$country_code_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c2}
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
-				
-		[
-												{BEGIN cellblock_grid_c3}
-
-{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_system }","bold":true},{"text":{$default_sot_system_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c3}
-																			{BEGIN cellblock_grid_c6}
-
-{
-	cellId: 'c6',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_persons }","bold":true},{"text":{$default_sot_persons_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c6}
-																			{BEGIN cellblock_grid_c5}
-
-{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_areas }","bold":true},{"text":{$default_sot_areas_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c5}
-																			{BEGIN cellblock_grid_c4}
-
-{
-	cellId: 'c4',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_properties }","bold":true},{"text":{$default_sot_properties_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c4}
-											],
-				{END row_grid_1}
-								{BEGIN row_grid_2}
 				
 		[
 												{BEGIN cellblock_grid_c7}
@@ -385,6 +315,59 @@ pdfDocument = {
 				},
 															{ 
 					cellId: 'c7',
+					row:  0,
+					col:  3,
+					text: ''
+				},
+							],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
+				
+		[
+												{BEGIN cellblock_grid_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c8}
+			colSpan: {$colspan_grid_c8},
+			{END colspan_grid_c8}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_super_admin___default_sot_for_unee_t_objects}
+			{$displayDetailTable_super_admin___default_sot_for_unee_t_objects }
+		{END details_super_admin___default_sot_for_unee_t_objects},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c8}
+																			{ 
+					cellId: 'c8',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+															{ 
+					cellId: 'c8',
+					row:  0,
+					col:  2,
+					text: ''
+				},
+															{ 
+					cellId: 'c8',
 					row:  0,
 					col:  3,
 					text: ''

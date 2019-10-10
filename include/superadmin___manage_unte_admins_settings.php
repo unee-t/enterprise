@@ -9,10 +9,10 @@ $tdatasuperadmin___manage_unte_admins[".OwnerID"] = "";
 $tdatasuperadmin___manage_unte_admins[".OriginalTable"] = "uneet_enterprise_users";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdatasuperadmin___manage_unte_admins[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
-$tdatasuperadmin___manage_unte_admins[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatasuperadmin___manage_unte_admins[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
+$tdatasuperadmin___manage_unte_admins[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdatasuperadmin___manage_unte_admins[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -1535,6 +1535,35 @@ $page_titles["SuperAdmin___manage_UNTE_admins"] = &$pageTitlessuperadmin___manag
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["SuperAdmin - manage UNTE admins"] = array();
+//	User Permissions
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="User Permissions";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_ugmembers";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "user_permissions";
+	$detailsParam["dCaptionTable"] = GetTableCaption("User_Permissions");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["SuperAdmin - manage UNTE admins"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["SuperAdmin - manage UNTE admins"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["SuperAdmin - manage UNTE admins"][$dIndex]["masterKeys"][]="username";
+
+				$detailsTablesData["SuperAdmin - manage UNTE admins"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["SuperAdmin - manage UNTE admins"][$dIndex]["detailKeys"][]="UserName";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["SuperAdmin - manage UNTE admins"] = array();

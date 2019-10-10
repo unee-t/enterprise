@@ -595,7 +595,77 @@
 		</div>
 	</div>
 	
-				{END grid_block}
+				 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN default_role_type_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_default_role_type_id}  r-vertical-field" data-fieldname="default_role_type_id" data-signal-error-for="default_role_type_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="default_role_type_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_default_role_type_id}">
+		
+		{BEGIN default_role_type_id_label}{$label Unee_T_Enterprise_Account default_role_type_id }{END default_role_type_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$default_role_type_id_value}	</div>
+
+		
+</div>
+
+
+{END default_role_type_id_fieldblock}
+											
+{BEGIN country_code_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" data-fieldname="country_code" data-signal-error-for="country_code{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="country_code" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_country_code}">
+		
+		{BEGIN country_code_label}{$label Unee_T_Enterprise_Account country_code }{END country_code_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$country_code_value}	</div>
+
+		
+</div>
+
+
+{END country_code_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

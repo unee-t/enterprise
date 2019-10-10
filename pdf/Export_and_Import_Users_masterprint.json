@@ -145,10 +145,13 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_simple_grid_field1}","text":"{$jslabel Export_and_Import_Users is_super_admin }","bold":true},
+				
+		  ],
   "border": [ true, true, true, true ],
-          },
+            "alignment": '{$is_super_admin_align}',
+  },
 
 {END cellblock_grid_headcell_field}
 											],
@@ -177,10 +180,13 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_simple_grid_field}","text":{$is_super_admin_pdfvalue}},
+				
+		  ],
   "border": [ true, true, true, true ],
-          },
+            "alignment": '{$is_super_admin_align}',
+  },
 
 {END cellblock_grid_cell_field}
 											],

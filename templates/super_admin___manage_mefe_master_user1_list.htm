@@ -278,19 +278,6 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_organization_name}</span>
 						</div>
 		{END searchCtrlBlock_organization_name}
-																{BEGIN searchCtrlBlock_role_type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_role_type}" {$filterRow_attrs_role_type}>
-			<label>{$label Super_Admin___Manage_MEFE_Master_User role_type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_role_type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_role_type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
-						</div>
-		{END searchCtrlBlock_role_type}
 																{BEGIN searchCtrlBlock_is_unee_t_account_needed}
 
 
@@ -647,14 +634,6 @@
 ">
 		{BEGIN firstAboveGridCell}
 		 
-		{BEGIN add_link}
-<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" {$addlink_attrs} href="super_admin___manage_mefe_master_user1_add.php" data-popup >
-							Add new			</a>
-</span>
-{END add_link}
-	 
 		{BEGIN inlineadd_link}
 <span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
@@ -789,16 +768,6 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_unee_t_user_type_id" checked="checked" value="1" data-field="unee_t_user_type_id">
-					<span>{$label Super_Admin___Manage_MEFE_Master_User unee_t_user_type_id }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_uneet_created_datetime" checked="checked" value="1" data-field="uneet_created_datetime">
 					<span>{$label Super_Admin___Manage_MEFE_Master_User uneet_created_datetime }</span>
 				</label>
@@ -809,8 +778,18 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_role_type" checked="checked" value="1" data-field="role_type">
-					<span>{$label Super_Admin___Manage_MEFE_Master_User role_type }</span>
+					<input type="checkbox" id="hide_unee_t_mefe_user_id" checked="checked" value="1" data-field="unee_t_mefe_user_id">
+					<span>{$label Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_id }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_unee_t_mefe_user_api_key" checked="checked" value="1" data-field="unee_t_mefe_user_api_key">
+					<span>{$label Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_api_key }</span>
 				</label>
 			</div>
 		</a>
@@ -938,6 +917,10 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
 		content: "{$label Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="is_super_admin"]:before {
+		content: "{$label Super_Admin___Manage_MEFE_Master_User is_super_admin}";
 	}
 	
 }
@@ -1099,39 +1082,12 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$unee_t_user_type_id_class}
-			"
-
-			data-field="unee_t_user_type_id"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unee_t_user_type_id_fieldheadercolumn}
-	{BEGIN unee_t_user_type_id_fieldheader}
-	<SPAN {$unee_t_user_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id">
-	{$label Super_Admin___Manage_MEFE_Master_User unee_t_user_type_id }	{$arrow_icon_unee_t_user_type_id}
-	</SPAN>
-	{END unee_t_user_type_id_fieldheader}
-{END unee_t_user_type_id_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$email_class}
 			"
 
 			data-field="email"
 	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1145,6 +1101,33 @@
 
 	
 	</th>
+	{END cellblock_grid_headcell_field3}
+				 
+					{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$uneet_created_datetime_class}
+			"
+
+			data-field="uneet_created_datetime"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN uneet_created_datetime_fieldheadercolumn}
+	{BEGIN uneet_created_datetime_fieldheader}
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	{$label Super_Admin___Manage_MEFE_Master_User uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
+	</SPAN>
+	{END uneet_created_datetime_fieldheader}
+{END uneet_created_datetime_fieldheadercolumn}
+
+	
+	</th>
 	{END cellblock_grid_headcell_field4}
 				 
 					{BEGIN cellblock_grid_headcell_field5}
@@ -1153,22 +1136,22 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$uneet_created_datetime_class}
+		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
 			"
 
-			data-field="uneet_created_datetime"
+			data-field="unee_t_mefe_user_api_key"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN uneet_created_datetime_fieldheadercolumn}
-	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
-	{$label Super_Admin___Manage_MEFE_Master_User uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
+		{BEGIN unee_t_mefe_user_api_key_fieldheadercolumn}
+	{BEGIN unee_t_mefe_user_api_key_fieldheader}
+	<SPAN {$unee_t_mefe_user_api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key">
+	{$label Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_api_key }	{$arrow_icon_unee_t_mefe_user_api_key}
 	</SPAN>
-	{END uneet_created_datetime_fieldheader}
-{END uneet_created_datetime_fieldheadercolumn}
+	{END unee_t_mefe_user_api_key_fieldheader}
+{END unee_t_mefe_user_api_key_fieldheadercolumn}
 
 	
 	</th>
@@ -1180,22 +1163,22 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$role_type_class}
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
 			"
 
-			data-field="role_type"
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN role_type_fieldheadercolumn}
-	{BEGIN role_type_fieldheader}
-	<SPAN {$role_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type">
-	{$label Super_Admin___Manage_MEFE_Master_User role_type }	{$arrow_icon_role_type}
+		{BEGIN unee_t_mefe_user_id_fieldheadercolumn}
+	{BEGIN unee_t_mefe_user_id_fieldheader}
+	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
+	{$label Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_id }	{$arrow_icon_unee_t_mefe_user_id}
 	</SPAN>
-	{END role_type_fieldheader}
-{END role_type_fieldheadercolumn}
+	{END unee_t_mefe_user_id_fieldheader}
+{END unee_t_mefe_user_id_fieldheadercolumn}
 
 	
 	</th>
@@ -1468,35 +1451,12 @@
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$unee_t_user_type_id_class}
-			"
-
-			data-field="unee_t_user_type_id"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN unee_t_user_type_id_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_user_type_id" data-default-width >
-{$unee_t_user_type_id_value}
-</span>
-{END unee_t_user_type_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-				 
-					{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$email_class}
 			"
 
 			data-field="email"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1506,12 +1466,12 @@
 </span>
 {END email_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field3}
 				 
-					{BEGIN cellblock_grid_cell_field5}
+					{BEGIN cellblock_grid_cell_field4}
 	<td
 	
-	{$cell_grid_cell_field5}
+	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$uneet_created_datetime_class}
@@ -1519,7 +1479,7 @@
 
 			data-field="uneet_created_datetime"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1529,6 +1489,29 @@
 </span>
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field4}
+				 
+					{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
+			"
+
+			data-field="unee_t_mefe_user_api_key"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_mefe_user_api_key_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key" data-default-width >
+{$unee_t_mefe_user_api_key_value}
+</span>
+{END unee_t_mefe_user_api_key_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field5}
 				 
 					{BEGIN cellblock_grid_cell_field6}
@@ -1537,20 +1520,20 @@
 	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$role_type_class}
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
 			"
 
-			data-field="role_type"
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN role_type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type" data-default-width >
-{$role_type_value}
+		{BEGIN unee_t_mefe_user_id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id" data-default-width >
+{$unee_t_mefe_user_id_value}
 </span>
-{END role_type_fieldcolumn}	
+{END unee_t_mefe_user_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field6}
 							</tr>

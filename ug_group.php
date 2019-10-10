@@ -68,7 +68,9 @@ $nonAdminTablesArr[] = "SuperAdmin - manage UNTE admins";
 $nonAdminTablesArr[] = "Super Admin - Manage Organization";
 $nonAdminTablesArr[] = "Super Admin - Manage API Keys";
 $nonAdminTablesArr[] = "Super Admin - Manage MEFE Master User";
-$nonAdminTablesArr[] = "Super Admin - Manage User Types";
+$nonAdminTablesArr[] = "Super Admin - Default sot for Unee-T objects";
+$nonAdminTablesArr[] = "User Permissions";
+$nonAdminTablesArr[] = "uneet_enterprise_uggroups";
 
 $ug_connection = $cman->getForUserGroups();
 

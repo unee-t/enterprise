@@ -890,7 +890,7 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 	$mask .= "P";
 
 $pageMask[$table] = $mask;
-$tables[$table] = array("superadmin___manage_unte_admins", " " . "SuperAdmin - manage UNTE admins");
+$tables[$table] = array("superadmin___manage_unte_admins", " " . "Manage UNTE admins");
 $table = "Super Admin - Manage Organization";
 $mask="";
 if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
@@ -924,7 +924,7 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 	$mask .= "P";
 
 $pageMask[$table] = $mask;
-$tables[$table] = array("super_admin___manage_api_keys", " " . "Super Admin - Manage API Keys");
+$tables[$table] = array("super_admin___manage_api_keys", " " . "Manage UNTE API Keys");
 $table = "Super Admin - Manage MEFE Master User";
 $mask="";
 if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
@@ -941,8 +941,8 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 	$mask .= "P";
 
 $pageMask[$table] = $mask;
-$tables[$table] = array("super_admin___manage_mefe_master_user1", " " . "Super Admin - Manage MEFE Master User");
-$table = "Super Admin - Manage User Types";
+$tables[$table] = array("super_admin___manage_mefe_master_user1", " " . "MEFE Master User");
+$table = "Super Admin - Default sot for Unee-T objects";
 $mask="";
 if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
 	$mask .= "A";
@@ -958,7 +958,41 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 	$mask .= "P";
 
 $pageMask[$table] = $mask;
-$tables[$table] = array("super_admin___manage_user_types", " " . "Super Admin - Manage User Types");
+$tables[$table] = array("super_admin___default_sot_for_unee_t_objects", " " . "Sources of Truth");
+$table = "User Permissions";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("user_permissions", " " . "User Permissions");
+$table = "uneet_enterprise_uggroups";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("uneet_enterprise_uggroups", " " . "Uneet Enterprise Uggroups");
 
 require_once('include/xtempl.php');
 require_once('classes/listpage.php');

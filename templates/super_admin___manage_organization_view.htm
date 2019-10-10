@@ -146,9 +146,9 @@
 	data-location="section2" id="form_section2_{$pageid}" data-makeup="topbar" {$form_section2} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="2"
+		data-form-width="4"
 		
-		data-v-width="4"
+		data-v-width="8"
 	>
 	<tbody>
 										<tr>
@@ -229,6 +229,84 @@
 	
 								</td>
 			{END cellblock_section2_c}
+			 
+																
+
+{BEGIN cellblock_section2_c2}
+<td
+	{$cell_section2_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN default_role_type_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_default_role_type_id}  r-vertical-field" data-fieldname="default_role_type_id" data-signal-error-for="default_role_type_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="default_role_type_id" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_default_role_type_id}">
+		
+		{BEGIN default_role_type_id_label}{$label Super_Admin___Manage_Organization default_role_type_id }{END default_role_type_id_label}
+	</label>
+	<div class="" >
+		{$default_role_type_id_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END default_role_type_id_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c2}
+			 
+																
+
+{BEGIN cellblock_section2_c3}
+<td
+	{$cell_section2_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN country_code_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" data-fieldname="country_code" data-signal-error-for="country_code{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="country_code" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_country_code}">
+		
+		{BEGIN country_code_label}{$label Super_Admin___Manage_Organization country_code }{END country_code_label}
+	</label>
+	<div class="" >
+		{$country_code_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END country_code_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c3}
 								</tr>
 			</tbody></table>
 {END section2_block}
@@ -238,202 +316,24 @@
 	
 				 
 	 
-												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
-
-				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
-
-		>
-		  <h4 class="panel-title">
-			<a role="button" >
-				External Source of Truth			</a>
-		  </h4>
+												
+{BEGIN details_super_admin___manage_mefe_master_user1}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Super_Admin___Manage_MEFE_Master_User }				
+							<span>
+					{$detailslButtons_super_admin___manage_mefe_master_user1}
+																				</span>
+			</h4>
 		</div>
-		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
-
-				id="section2{$pageid}" 
-		>
-		  <div class="panel-body">
-			{BEGIN section1_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="left"
-	data-location="section1" id="form_section1_{$pageid}" data-makeup="topbar" {$form_section1} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="4"
-		
-		data-v-width="8"
-	>
-	<tbody>
-										<tr>
-										
-
-{BEGIN cellblock_section1_c1}
-<td
-	{$cell_section1_c1}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c1" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN default_sot_system_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_system}  r-vertical-field" data-fieldname="default_sot_system" data-signal-error-for="default_sot_system{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="default_sot_system" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_default_sot_system}">
-		
-		{BEGIN default_sot_system_label}{$label Super_Admin___Manage_Organization default_sot_system }{END default_sot_system_label}
-	</label>
-	<div class="" >
-		{$default_sot_system_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END default_sot_system_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c1}
-			 
-																
-
-{BEGIN cellblock_section1_c3}
-<td
-	{$cell_section1_c3}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c3" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN default_sot_persons_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_persons}  r-vertical-field" data-fieldname="default_sot_persons" data-signal-error-for="default_sot_persons{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="default_sot_persons" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_default_sot_persons}">
-		
-		{BEGIN default_sot_persons_label}{$label Super_Admin___Manage_Organization default_sot_persons }{END default_sot_persons_label}
-	</label>
-	<div class="" >
-		{$default_sot_persons_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END default_sot_persons_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c3}
-			 
-																
-
-{BEGIN cellblock_section1_c2}
-<td
-	{$cell_section1_c2}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c2" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN default_sot_areas_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_areas}  r-vertical-field" data-fieldname="default_sot_areas" data-signal-error-for="default_sot_areas{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="default_sot_areas" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_default_sot_areas}">
-		
-		{BEGIN default_sot_areas_label}{$label Super_Admin___Manage_Organization default_sot_areas }{END default_sot_areas_label}
-	</label>
-	<div class="" >
-		{$default_sot_areas_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END default_sot_areas_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c2}
-			 
-																
-
-{BEGIN cellblock_section1_c}
-<td
-	{$cell_section1_c}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN default_sot_properties_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_properties}  r-vertical-field" data-fieldname="default_sot_properties" data-signal-error-for="default_sot_properties{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="default_sot_properties" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_default_sot_properties}">
-		
-		{BEGIN default_sot_properties_label}{$label Super_Admin___Manage_Organization default_sot_properties }{END default_sot_properties_label}
-	</label>
-	<div class="" >
-		{$default_sot_properties_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END default_sot_properties_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c}
-								</tr>
-			</tbody></table>
-{END section1_block}
-		  </div>
+		<div class="panel-body">
+			{$displayDetailTable_super_admin___manage_mefe_master_user1}
 		</div>
 	</div>
+</div>
+{END details_super_admin___manage_mefe_master_user1}
 	
 				 
 	 
@@ -459,23 +359,23 @@
 				 
 	 
 												
-{BEGIN details_super_admin___manage_mefe_master_user1}
-<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+{BEGIN details_super_admin___default_sot_for_unee_t_objects}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
 	<div class="panel panel-info details-grid">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-							{$caption Super_Admin___Manage_MEFE_Master_User }				
+							{$caption Super_Admin___Default_sot_for_Unee_T_objects }				
 							<span>
-					{$detailslButtons_super_admin___manage_mefe_master_user1}
+					{$detailslButtons_super_admin___default_sot_for_unee_t_objects}
 																				</span>
 			</h4>
 		</div>
 		<div class="panel-body">
-			{$displayDetailTable_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___default_sot_for_unee_t_objects}
 		</div>
 	</div>
 </div>
-{END details_super_admin___manage_mefe_master_user1}
+{END details_super_admin___default_sot_for_unee_t_objects}
 	
 				{END grid_block}
 							</div>

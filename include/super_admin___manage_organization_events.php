@@ -52,7 +52,7 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Unee-T Enterprise Account';
+		$values['creation_method'] = 'Super Admin - Manage Organization';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

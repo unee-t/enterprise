@@ -271,6 +271,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field37}","text":{$is_all_units_in_level_2_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field38}","text":{$is_super_admin_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

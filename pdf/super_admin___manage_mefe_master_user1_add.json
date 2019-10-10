@@ -183,7 +183,7 @@ pdfDocument = {
 			location: 'section1',
 			widths: ['*'],
 			body: [
-				[{text: 'The Person', style: 'tableHeader'}],
+				[{text: 'The Master User', style: 'tableHeader'}],
 				[{
 					table: {
 						tableForm: true,
@@ -328,93 +328,6 @@ pdfDocument = {
 {END cellblock_grid_c4}
 											],
 				{END row_grid_0}
-								{BEGIN row_grid_1}
-				
-		[
-												{BEGIN cellblock_grid_c5}
-
-{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-						 
-		{
-		layout: 'panel',
-		
-		table: {
-			tableForm: true,
-			location: 'section5',
-			widths: ['*'],
-			body: [
-				[{text: 'Unee-T Account', style: 'tableHeader'}],
-				[{
-					table: {
-						tableForm: true,
-						widths: [
-							 
-								{BEGIN col_section5_0}
-								'*', 
-								{END col_section5_0}
-													],
-						body: [
-								
-					{BEGIN row_section5_0}
-				
-		[
-												{BEGIN cellblock_section5_c}
-
-{
-	cellId: 'c',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User unee_t_user_type_id }","bold":true},{"text":{$unee_t_user_type_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section5_c}
-											],
-				{END row_section5_0}
-									]
-					}
-				}]
-
-			]
-		},
-		margin: [0,0,0,15],
-	},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c5}
-											],
-				{END row_grid_1}
 					]
 	}
 }

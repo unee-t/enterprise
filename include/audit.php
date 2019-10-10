@@ -528,7 +528,15 @@ class AuditTrailTable
 		{
 			return true;
 		}
-		if($table=="Super Admin - Manage User Types")
+		if($table=="Super Admin - Default sot for Unee-T objects")
+		{
+			return false;
+		}
+		if($table=="User Permissions")
+		{
+			return false;
+		}
+		if($table=="uneet_enterprise_uggroups")
 		{
 			return false;
 		}
@@ -1064,7 +1072,15 @@ class AuditTrailFile
 		{
 			return true;
 		}
-		if($table=="Super Admin - Manage User Types")
+		if($table=="Super Admin - Default sot for Unee-T objects")
+		{
+			return false;
+		}
+		if($table=="User Permissions")
+		{
+			return false;
+		}
+		if($table=="uneet_enterprise_uggroups")
 		{
 			return false;
 		}

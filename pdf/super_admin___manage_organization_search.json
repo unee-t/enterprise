@@ -163,6 +163,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field11}","text":{$designation_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field}","text":{$default_role_type_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field1}","text":{$country_code_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

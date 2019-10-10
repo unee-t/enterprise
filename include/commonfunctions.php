@@ -315,7 +315,11 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("super_admin___manage_mefe_master_user1" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
-	if ("super_admin___manage_user_types" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+	if ("super_admin___default_sot_for_unee_t_objects" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("user_permissions" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("uneet_enterprise_uggroups" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
 	return false;
 }
@@ -873,12 +877,30 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("Super Admin - Manage User Types");
+		$strPerm = GetUserPermissions("Super Admin - Default sot for Unee-T objects");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
 	}
 	if( $tableAvailable ) {
-		$arr[]="Super Admin - Manage User Types";
+		$arr[]="Super Admin - Default sot for Unee-T objects";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("User Permissions");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="User Permissions";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("uneet_enterprise_uggroups");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="uneet_enterprise_uggroups";
 	}
 	return $arr;
 }
@@ -945,7 +967,9 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Super Admin - Manage Organization";
 	$arr[]="Super Admin - Manage API Keys";
 	$arr[]="Super Admin - Manage MEFE Master User";
-	$arr[]="Super Admin - Manage User Types";
+	$arr[]="Super Admin - Default sot for Unee-T objects";
+	$arr[]="User Permissions";
+	$arr[]="uneet_enterprise_uggroups";
 	return $arr;
 }
 
@@ -1987,7 +2011,17 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="Super Admin - Manage User Types" )
+	if( $table=="Super Admin - Default sot for Unee-T objects" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="User Permissions" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="uneet_enterprise_uggroups" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -2140,7 +2174,8 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Super Admin - Manage Organization_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Super Admin - Manage API Keys_OwnerID"] = $data["active"];
 		$_SESSION["_Super Admin - Manage MEFE Master User_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Super Admin - Manage User Types_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Super Admin - Default sot for Unee-T objects_OwnerID"] = $data["active"];
+		$_SESSION["_User Permissions_OwnerID"] = $data["active"];
 
 	$_SESSION["UserData"] = $data;
 

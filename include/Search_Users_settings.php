@@ -81,6 +81,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsSearch_Users["English"]["user_type"] = "User Type";
 	$fieldToolTipsSearch_Users["English"]["user_type"] = "";
 	$placeHoldersSearch_Users["English"]["user_type"] = "";
+	$fieldLabelsSearch_Users["English"]["is_super_admin"] = "Is Super Admin";
+	$fieldToolTipsSearch_Users["English"]["is_super_admin"] = "";
+	$placeHoldersSearch_Users["English"]["is_super_admin"] = "";
 	if (count($fieldToolTipsSearch_Users["English"]))
 		$tdataSearch_Users[".isUseToolTips"] = true;
 }
@@ -210,6 +213,7 @@ $tdataSearch_Users[".googleLikeFields"][] = "organization-job";
 $tdataSearch_Users[".googleLikeFields"][] = "email";
 $tdataSearch_Users[".googleLikeFields"][] = "phones";
 $tdataSearch_Users[".googleLikeFields"][] = "country_code";
+$tdataSearch_Users[".googleLikeFields"][] = "is_super_admin";
 
 
 
@@ -247,9 +251,9 @@ $tdataSearch_Users[".orderindexes"] = array();
 	$tdataSearch_Users[".orderindexes"][] = array(13, (0 ? "ASC" : "DESC"), "persons.organization_id");
 
 
-$tdataSearch_Users[".sqlHead"] = "SELECT ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
+$tdataSearch_Users[".sqlHead"] = "SELECT ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code,  ut_user_types.is_super_admin";
 $tdataSearch_Users[".sqlFrom"] = "FROM ut_map_external_source_users  LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person  LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$tdataSearch_Users[".sqlWhereExpr"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)";
+$tdataSearch_Users[".sqlWhereExpr"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL) AND (ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0)";
 $tdataSearch_Users[".sqlTail"] = "";
 
 
@@ -2684,6 +2688,139 @@ $tdataSearch_Users[".hideMobileList"] = array();
 
 	$tdataSearch_Users["country_code"] = $fdata;
 		$tdataSearch_Users[".searchableFields"][] = "country_code";
+//	is_super_admin
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 19;
+	$fdata["strName"] = "is_super_admin";
+	$fdata["GoodName"] = "is_super_admin";
+	$fdata["ownerTable"] = "ut_user_types";
+	$fdata["Label"] = GetFieldLabel("Search_Users","is_super_admin");
+	$fdata["FieldType"] = 16;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "is_super_admin";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_user_types.is_super_admin";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataSearch_Users["is_super_admin"] = $fdata;
+		$tdataSearch_Users[".searchableFields"][] = "is_super_admin";
 
 
 $tables_data["Search Users"]=&$tdataSearch_Users;
@@ -2719,19 +2856,19 @@ function createSqlQuery_Search_Users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code";
+$proto0["m_strFieldList"] = "ut_map_external_source_users.id_map,  ut_map_external_source_users.organization_id,  ut_map_external_source_users.is_obsolete AS obsolete_unee_t_user,  ut_map_external_source_users.person_id,  ut_map_external_source_users.unee_t_mefe_user_id,  ut_map_external_source_users.external_person_id,  ut_map_external_source_users.external_system,  ut_map_external_source_users.table_in_external_system,  person_statuses.is_active AS active_person,  person_statuses.person_status,  persons.unee_t_user_type_id,  ut_user_types.designation AS user_type,  persons.organization_id AS organization_id_person,  CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')') AS name,  CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, '')) AS `organization-job`,  persons.email,  CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, '')) AS phones,  persons.country_code,  ut_user_types.is_super_admin";
 $proto0["m_strFrom"] = "FROM ut_map_external_source_users  LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person  LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto0["m_strWhere"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)";
+$proto0["m_strWhere"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL) AND (ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0)";
 $proto0["m_strOrderBy"] = "ORDER BY persons.organization_id DESC";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)";
+$proto2["m_sql"] = "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL) AND (ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0)";
 $proto2["m_uniontype"] = "SQLL_AND";
 	$obj = new SQLNonParsed(array(
-	"m_sql" => "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL)"
+	"m_sql" => "(ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL OR ut_map_external_source_users.unee_t_mefe_user_id IS NOT NULL) AND (person_statuses.is_active = 1 OR person_statuses.is_active IS NULL) AND (ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0)"
 ));
 
 $proto2["m_column"]=$obj;
@@ -2840,6 +2977,58 @@ $proto10["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto10);
 
 			$proto2["m_contained"][]=$obj;
+						$proto16=array();
+$proto16["m_sql"] = "ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0";
+$proto16["m_uniontype"] = "SQLL_OR";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => "ut_user_types.is_super_admin = 0 OR ut_user_types.is_super_admin = 0"
+));
+
+$proto16["m_column"]=$obj;
+$proto16["m_contained"] = array();
+						$proto18=array();
+$proto18["m_sql"] = "ut_user_types.is_super_admin = 0";
+$proto18["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto18["m_column"]=$obj;
+$proto18["m_contained"] = array();
+$proto18["m_strCase"] = "= 0";
+$proto18["m_havingmode"] = false;
+$proto18["m_inBrackets"] = false;
+$proto18["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto18);
+
+			$proto16["m_contained"][]=$obj;
+						$proto20=array();
+$proto20["m_sql"] = "ut_user_types.is_super_admin = 0";
+$proto20["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto20["m_column"]=$obj;
+$proto20["m_contained"] = array();
+$proto20["m_strCase"] = "= 0";
+$proto20["m_havingmode"] = false;
+$proto20["m_inBrackets"] = false;
+$proto20["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto20);
+
+			$proto16["m_contained"][]=$obj;
+$proto16["m_strCase"] = "";
+$proto16["m_havingmode"] = false;
+$proto16["m_inBrackets"] = true;
+$proto16["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto16);
+
+			$proto2["m_contained"][]=$obj;
 $proto2["m_strCase"] = "";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
@@ -2847,73 +3036,31 @@ $proto2["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto2);
 
 $proto0["m_where"] = $obj;
-$proto16=array();
-$proto16["m_sql"] = "";
-$proto16["m_uniontype"] = "SQLL_UNKNOWN";
+$proto22=array();
+$proto22["m_sql"] = "";
+$proto22["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto16["m_column"]=$obj;
-$proto16["m_contained"] = array();
-$proto16["m_strCase"] = "";
-$proto16["m_havingmode"] = false;
-$proto16["m_inBrackets"] = false;
-$proto16["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto16);
+$proto22["m_column"]=$obj;
+$proto22["m_contained"] = array();
+$proto22["m_strCase"] = "";
+$proto22["m_havingmode"] = false;
+$proto22["m_inBrackets"] = false;
+$proto22["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto22);
 
 $proto0["m_having"] = $obj;
 $proto0["m_fieldlist"] = array();
-						$proto18=array();
+						$proto24=array();
 			$obj = new SQLField(array(
 	"m_strName" => "id_map",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto18["m_sql"] = "ut_map_external_source_users.id_map";
-$proto18["m_srcTableName"] = "Search Users";
-$proto18["m_expr"]=$obj;
-$proto18["m_alias"] = "";
-$obj = new SQLFieldListItem($proto18);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto20=array();
-			$obj = new SQLField(array(
-	"m_strName" => "organization_id",
-	"m_strTable" => "ut_map_external_source_users",
-	"m_srcTableName" => "Search Users"
-));
-
-$proto20["m_sql"] = "ut_map_external_source_users.organization_id";
-$proto20["m_srcTableName"] = "Search Users";
-$proto20["m_expr"]=$obj;
-$proto20["m_alias"] = "";
-$obj = new SQLFieldListItem($proto20);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto22=array();
-			$obj = new SQLField(array(
-	"m_strName" => "is_obsolete",
-	"m_strTable" => "ut_map_external_source_users",
-	"m_srcTableName" => "Search Users"
-));
-
-$proto22["m_sql"] = "ut_map_external_source_users.is_obsolete";
-$proto22["m_srcTableName"] = "Search Users";
-$proto22["m_expr"]=$obj;
-$proto22["m_alias"] = "obsolete_unee_t_user";
-$obj = new SQLFieldListItem($proto22);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto24=array();
-			$obj = new SQLField(array(
-	"m_strName" => "person_id",
-	"m_strTable" => "ut_map_external_source_users",
-	"m_srcTableName" => "Search Users"
-));
-
-$proto24["m_sql"] = "ut_map_external_source_users.person_id";
+$proto24["m_sql"] = "ut_map_external_source_users.id_map";
 $proto24["m_srcTableName"] = "Search Users";
 $proto24["m_expr"]=$obj;
 $proto24["m_alias"] = "";
@@ -2922,12 +3069,12 @@ $obj = new SQLFieldListItem($proto24);
 $proto0["m_fieldlist"][]=$obj;
 						$proto26=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_mefe_user_id",
+	"m_strName" => "organization_id",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto26["m_sql"] = "ut_map_external_source_users.unee_t_mefe_user_id";
+$proto26["m_sql"] = "ut_map_external_source_users.organization_id";
 $proto26["m_srcTableName"] = "Search Users";
 $proto26["m_expr"]=$obj;
 $proto26["m_alias"] = "";
@@ -2936,26 +3083,26 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "external_person_id",
+	"m_strName" => "is_obsolete",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto28["m_sql"] = "ut_map_external_source_users.external_person_id";
+$proto28["m_sql"] = "ut_map_external_source_users.is_obsolete";
 $proto28["m_srcTableName"] = "Search Users";
 $proto28["m_expr"]=$obj;
-$proto28["m_alias"] = "";
+$proto28["m_alias"] = "obsolete_unee_t_user";
 $obj = new SQLFieldListItem($proto28);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "external_system",
+	"m_strName" => "person_id",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto30["m_sql"] = "ut_map_external_source_users.external_system";
+$proto30["m_sql"] = "ut_map_external_source_users.person_id";
 $proto30["m_srcTableName"] = "Search Users";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -2964,12 +3111,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "table_in_external_system",
+	"m_strName" => "unee_t_mefe_user_id",
 	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto32["m_sql"] = "ut_map_external_source_users.table_in_external_system";
+$proto32["m_sql"] = "ut_map_external_source_users.unee_t_mefe_user_id";
 $proto32["m_srcTableName"] = "Search Users";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -2978,26 +3125,26 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_active",
-	"m_strTable" => "person_statuses",
+	"m_strName" => "external_person_id",
+	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto34["m_sql"] = "person_statuses.is_active";
+$proto34["m_sql"] = "ut_map_external_source_users.external_person_id";
 $proto34["m_srcTableName"] = "Search Users";
 $proto34["m_expr"]=$obj;
-$proto34["m_alias"] = "active_person";
+$proto34["m_alias"] = "";
 $obj = new SQLFieldListItem($proto34);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "person_status",
-	"m_strTable" => "person_statuses",
+	"m_strName" => "external_system",
+	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto36["m_sql"] = "person_statuses.person_status";
+$proto36["m_sql"] = "ut_map_external_source_users.external_system";
 $proto36["m_srcTableName"] = "Search Users";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -3006,12 +3153,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "unee_t_user_type_id",
-	"m_strTable" => "persons",
+	"m_strName" => "table_in_external_system",
+	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto38["m_sql"] = "persons.unee_t_user_type_id";
+$proto38["m_sql"] = "ut_map_external_source_users.table_in_external_system";
 $proto38["m_srcTableName"] = "Search Users";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -3020,351 +3167,288 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
+	"m_strName" => "is_active",
+	"m_strTable" => "person_statuses",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto40["m_sql"] = "person_statuses.is_active";
+$proto40["m_srcTableName"] = "Search Users";
+$proto40["m_expr"]=$obj;
+$proto40["m_alias"] = "active_person";
+$obj = new SQLFieldListItem($proto40);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto42=array();
+			$obj = new SQLField(array(
+	"m_strName" => "person_status",
+	"m_strTable" => "person_statuses",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto42["m_sql"] = "person_statuses.person_status";
+$proto42["m_srcTableName"] = "Search Users";
+$proto42["m_expr"]=$obj;
+$proto42["m_alias"] = "";
+$obj = new SQLFieldListItem($proto42);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto44=array();
+			$obj = new SQLField(array(
+	"m_strName" => "unee_t_user_type_id",
+	"m_strTable" => "persons",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto44["m_sql"] = "persons.unee_t_user_type_id";
+$proto44["m_srcTableName"] = "Search Users";
+$proto44["m_expr"]=$obj;
+$proto44["m_alias"] = "";
+$obj = new SQLFieldListItem($proto44);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto46=array();
+			$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto40["m_sql"] = "ut_user_types.designation";
-$proto40["m_srcTableName"] = "Search Users";
-$proto40["m_expr"]=$obj;
-$proto40["m_alias"] = "user_type";
-$obj = new SQLFieldListItem($proto40);
+$proto46["m_sql"] = "ut_user_types.designation";
+$proto46["m_srcTableName"] = "Search Users";
+$proto46["m_expr"]=$obj;
+$proto46["m_alias"] = "user_type";
+$obj = new SQLFieldListItem($proto46);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto42=array();
+						$proto48=array();
 			$obj = new SQLField(array(
 	"m_strName" => "organization_id",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto42["m_sql"] = "persons.organization_id";
-$proto42["m_srcTableName"] = "Search Users";
-$proto42["m_expr"]=$obj;
-$proto42["m_alias"] = "organization_id_person";
-$obj = new SQLFieldListItem($proto42);
+$proto48["m_sql"] = "persons.organization_id";
+$proto48["m_srcTableName"] = "Search Users";
+$proto48["m_expr"]=$obj;
+$proto48["m_alias"] = "organization_id_person";
+$obj = new SQLFieldListItem($proto48);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto44=array();
-			$proto45=array();
-$proto45["m_functiontype"] = "SQLF_CUSTOM";
-$proto45["m_arguments"] = array();
+						$proto50=array();
+			$proto51=array();
+$proto51["m_functiontype"] = "SQLF_CUSTOM";
+$proto51["m_arguments"] = array();
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`given_name`  		, '')"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' '"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`middle_name`  		, '')"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' '"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`family_name`  		, '')"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' ('"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`alias`  		, '')"
 ));
 
-$proto45["m_arguments"][]=$obj;
+$proto51["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "')'"
 ));
 
-$proto45["m_arguments"][]=$obj;
-$proto45["m_strFunctionName"] = "CONCAT";
-$obj = new SQLFunctionCall($proto45);
+$proto51["m_arguments"][]=$obj;
+$proto51["m_strFunctionName"] = "CONCAT";
+$obj = new SQLFunctionCall($proto51);
 
-$proto44["m_sql"] = "CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')')";
-$proto44["m_srcTableName"] = "Search Users";
-$proto44["m_expr"]=$obj;
-$proto44["m_alias"] = "name";
-$obj = new SQLFieldListItem($proto44);
+$proto50["m_sql"] = "CONCAT(IFNULL(`persons`.`given_name`  		, ''), ' ', IFNULL(`persons`.`middle_name`  		, ''), ' ', IFNULL(`persons`.`family_name`  		, ''), ' (', IFNULL(`persons`.`alias`  		, ''), ')')";
+$proto50["m_srcTableName"] = "Search Users";
+$proto50["m_expr"]=$obj;
+$proto50["m_alias"] = "name";
+$obj = new SQLFieldListItem($proto50);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto54=array();
-			$proto55=array();
-$proto55["m_functiontype"] = "SQLF_CUSTOM";
-$proto55["m_arguments"] = array();
+						$proto60=array();
+			$proto61=array();
+$proto61["m_functiontype"] = "SQLF_CUSTOM";
+$proto61["m_arguments"] = array();
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`organization`  		, '')"
 ));
 
-$proto55["m_arguments"][]=$obj;
+$proto61["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' - '"
 ));
 
-$proto55["m_arguments"][]=$obj;
+$proto61["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`job_title`  		, '')"
 ));
 
-$proto55["m_arguments"][]=$obj;
-$proto55["m_strFunctionName"] = "CONCAT";
-$obj = new SQLFunctionCall($proto55);
+$proto61["m_arguments"][]=$obj;
+$proto61["m_strFunctionName"] = "CONCAT";
+$obj = new SQLFunctionCall($proto61);
 
-$proto54["m_sql"] = "CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, ''))";
-$proto54["m_srcTableName"] = "Search Users";
-$proto54["m_expr"]=$obj;
-$proto54["m_alias"] = "organization-job";
-$obj = new SQLFieldListItem($proto54);
+$proto60["m_sql"] = "CONCAT(IFNULL(`persons`.`organization`  		, ''), ' - ', IFNULL(`persons`.`job_title`  		, ''))";
+$proto60["m_srcTableName"] = "Search Users";
+$proto60["m_expr"]=$obj;
+$proto60["m_alias"] = "organization-job";
+$obj = new SQLFieldListItem($proto60);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto59=array();
+						$proto65=array();
 			$obj = new SQLField(array(
 	"m_strName" => "email",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto59["m_sql"] = "persons.email";
-$proto59["m_srcTableName"] = "Search Users";
-$proto59["m_expr"]=$obj;
-$proto59["m_alias"] = "";
-$obj = new SQLFieldListItem($proto59);
+$proto65["m_sql"] = "persons.email";
+$proto65["m_srcTableName"] = "Search Users";
+$proto65["m_expr"]=$obj;
+$proto65["m_alias"] = "";
+$obj = new SQLFieldListItem($proto65);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto61=array();
-			$proto62=array();
-$proto62["m_functiontype"] = "SQLF_CUSTOM";
-$proto62["m_arguments"] = array();
+						$proto67=array();
+			$proto68=array();
+$proto68["m_functiontype"] = "SQLF_CUSTOM";
+$proto68["m_arguments"] = array();
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`tel_1`  		, '')"
 ));
 
-$proto62["m_arguments"][]=$obj;
+$proto68["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' - '"
 ));
 
-$proto62["m_arguments"][]=$obj;
+$proto68["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`tel_2`  		, '')"
 ));
 
-$proto62["m_arguments"][]=$obj;
+$proto68["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "' - '"
 ));
 
-$proto62["m_arguments"][]=$obj;
+$proto68["m_arguments"][]=$obj;
 						$obj = new SQLNonParsed(array(
 	"m_sql" => "IFNULL(`persons`.`whatsapp`  		, '')"
 ));
 
-$proto62["m_arguments"][]=$obj;
-$proto62["m_strFunctionName"] = "CONCAT";
-$obj = new SQLFunctionCall($proto62);
+$proto68["m_arguments"][]=$obj;
+$proto68["m_strFunctionName"] = "CONCAT";
+$obj = new SQLFunctionCall($proto68);
 
-$proto61["m_sql"] = "CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, ''))";
-$proto61["m_srcTableName"] = "Search Users";
-$proto61["m_expr"]=$obj;
-$proto61["m_alias"] = "phones";
-$obj = new SQLFieldListItem($proto61);
+$proto67["m_sql"] = "CONCAT(IFNULL(`persons`.`tel_1`  		, ''), ' - ', IFNULL(`persons`.`tel_2`  		, ''), ' - ', IFNULL(`persons`.`whatsapp`  		, ''))";
+$proto67["m_srcTableName"] = "Search Users";
+$proto67["m_expr"]=$obj;
+$proto67["m_alias"] = "phones";
+$obj = new SQLFieldListItem($proto67);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto68=array();
+						$proto74=array();
 			$obj = new SQLField(array(
 	"m_strName" => "country_code",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto68["m_sql"] = "persons.country_code";
-$proto68["m_srcTableName"] = "Search Users";
-$proto68["m_expr"]=$obj;
-$proto68["m_alias"] = "";
-$obj = new SQLFieldListItem($proto68);
+$proto74["m_sql"] = "persons.country_code";
+$proto74["m_srcTableName"] = "Search Users";
+$proto74["m_expr"]=$obj;
+$proto74["m_alias"] = "";
+$obj = new SQLFieldListItem($proto74);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto76=array();
+			$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto76["m_sql"] = "ut_user_types.is_super_admin";
+$proto76["m_srcTableName"] = "Search Users";
+$proto76["m_expr"]=$obj;
+$proto76["m_alias"] = "";
+$obj = new SQLFieldListItem($proto76);
 
 $proto0["m_fieldlist"][]=$obj;
 $proto0["m_fromlist"] = array();
-												$proto70=array();
-$proto70["m_link"] = "SQLL_MAIN";
-			$proto71=array();
-$proto71["m_strName"] = "ut_map_external_source_users";
-$proto71["m_srcTableName"] = "Search Users";
-$proto71["m_columns"] = array();
-$proto71["m_columns"][] = "id_map";
-$proto71["m_columns"][] = "create_api_request_id";
-$proto71["m_columns"][] = "edit_api_request_id";
-$proto71["m_columns"][] = "syst_created_datetime";
-$proto71["m_columns"][] = "creation_system_id";
-$proto71["m_columns"][] = "created_by_id";
-$proto71["m_columns"][] = "creation_method";
-$proto71["m_columns"][] = "syst_updated_datetime";
-$proto71["m_columns"][] = "update_system_id";
-$proto71["m_columns"][] = "updated_by_id";
-$proto71["m_columns"][] = "update_method";
-$proto71["m_columns"][] = "is_update_on_duplicate_key";
-$proto71["m_columns"][] = "organization_id";
-$proto71["m_columns"][] = "is_obsolete";
-$proto71["m_columns"][] = "is_update_needed";
-$proto71["m_columns"][] = "person_id";
-$proto71["m_columns"][] = "mefe_user_id_parent";
-$proto71["m_columns"][] = "unee_t_mefe_user_id";
-$proto71["m_columns"][] = "unee_t_mefe_user_api_key";
-$proto71["m_columns"][] = "uneet_created_datetime";
-$proto71["m_columns"][] = "is_mefe_api_success";
-$proto71["m_columns"][] = "mefe_api_error_message";
-$proto71["m_columns"][] = "is_unee_t_created_by_me";
-$proto71["m_columns"][] = "uneet_login_name";
-$proto71["m_columns"][] = "external_person_id";
-$proto71["m_columns"][] = "external_system";
-$proto71["m_columns"][] = "table_in_external_system";
-$obj = new SQLTable($proto71);
+												$proto78=array();
+$proto78["m_link"] = "SQLL_MAIN";
+			$proto79=array();
+$proto79["m_strName"] = "ut_map_external_source_users";
+$proto79["m_srcTableName"] = "Search Users";
+$proto79["m_columns"] = array();
+$proto79["m_columns"][] = "id_map";
+$proto79["m_columns"][] = "create_api_request_id";
+$proto79["m_columns"][] = "edit_api_request_id";
+$proto79["m_columns"][] = "syst_created_datetime";
+$proto79["m_columns"][] = "creation_system_id";
+$proto79["m_columns"][] = "created_by_id";
+$proto79["m_columns"][] = "creation_method";
+$proto79["m_columns"][] = "syst_updated_datetime";
+$proto79["m_columns"][] = "update_system_id";
+$proto79["m_columns"][] = "updated_by_id";
+$proto79["m_columns"][] = "update_method";
+$proto79["m_columns"][] = "is_update_on_duplicate_key";
+$proto79["m_columns"][] = "organization_id";
+$proto79["m_columns"][] = "is_obsolete";
+$proto79["m_columns"][] = "is_update_needed";
+$proto79["m_columns"][] = "person_id";
+$proto79["m_columns"][] = "mefe_user_id_parent";
+$proto79["m_columns"][] = "unee_t_mefe_user_id";
+$proto79["m_columns"][] = "unee_t_mefe_user_api_key";
+$proto79["m_columns"][] = "uneet_created_datetime";
+$proto79["m_columns"][] = "is_mefe_api_success";
+$proto79["m_columns"][] = "mefe_api_error_message";
+$proto79["m_columns"][] = "is_unee_t_created_by_me";
+$proto79["m_columns"][] = "uneet_login_name";
+$proto79["m_columns"][] = "external_person_id";
+$proto79["m_columns"][] = "external_system";
+$proto79["m_columns"][] = "table_in_external_system";
+$obj = new SQLTable($proto79);
 
-$proto70["m_table"] = $obj;
-$proto70["m_sql"] = "ut_map_external_source_users";
-$proto70["m_alias"] = "";
-$proto70["m_srcTableName"] = "Search Users";
-$proto72=array();
-$proto72["m_sql"] = "";
-$proto72["m_uniontype"] = "SQLL_UNKNOWN";
+$proto78["m_table"] = $obj;
+$proto78["m_sql"] = "ut_map_external_source_users";
+$proto78["m_alias"] = "";
+$proto78["m_srcTableName"] = "Search Users";
+$proto80=array();
+$proto80["m_sql"] = "";
+$proto80["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto72["m_column"]=$obj;
-$proto72["m_contained"] = array();
-$proto72["m_strCase"] = "";
-$proto72["m_havingmode"] = false;
-$proto72["m_inBrackets"] = false;
-$proto72["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto72);
-
-$proto70["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto70);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto74=array();
-$proto74["m_link"] = "SQLL_LEFTJOIN";
-			$proto75=array();
-$proto75["m_strName"] = "persons";
-$proto75["m_srcTableName"] = "Search Users";
-$proto75["m_columns"] = array();
-$proto75["m_columns"][] = "id_person";
-$proto75["m_columns"][] = "create_api_request_id";
-$proto75["m_columns"][] = "edit_api_request_id";
-$proto75["m_columns"][] = "external_id";
-$proto75["m_columns"][] = "external_system";
-$proto75["m_columns"][] = "external_table";
-$proto75["m_columns"][] = "syst_created_datetime";
-$proto75["m_columns"][] = "creation_system_id";
-$proto75["m_columns"][] = "created_by_id";
-$proto75["m_columns"][] = "creation_method";
-$proto75["m_columns"][] = "syst_updated_datetime";
-$proto75["m_columns"][] = "update_system_id";
-$proto75["m_columns"][] = "updated_by_id";
-$proto75["m_columns"][] = "update_method";
-$proto75["m_columns"][] = "is_update_on_duplicate_key";
-$proto75["m_columns"][] = "organization_id";
-$proto75["m_columns"][] = "person_status_id";
-$proto75["m_columns"][] = "dupe_id";
-$proto75["m_columns"][] = "handler_id";
-$proto75["m_columns"][] = "is_unee_t_account_needed";
-$proto75["m_columns"][] = "unee_t_user_type_id";
-$proto75["m_columns"][] = "country_code";
-$proto75["m_columns"][] = "gender";
-$proto75["m_columns"][] = "salutation_id";
-$proto75["m_columns"][] = "given_name";
-$proto75["m_columns"][] = "middle_name";
-$proto75["m_columns"][] = "family_name";
-$proto75["m_columns"][] = "date_of_birth";
-$proto75["m_columns"][] = "alias";
-$proto75["m_columns"][] = "job_title";
-$proto75["m_columns"][] = "organization";
-$proto75["m_columns"][] = "email";
-$proto75["m_columns"][] = "tel_1";
-$proto75["m_columns"][] = "tel_2";
-$proto75["m_columns"][] = "whatsapp";
-$proto75["m_columns"][] = "linkedin";
-$proto75["m_columns"][] = "facebook";
-$proto75["m_columns"][] = "adr1";
-$proto75["m_columns"][] = "adr2";
-$proto75["m_columns"][] = "adr3";
-$proto75["m_columns"][] = "City";
-$proto75["m_columns"][] = "zip_postcode";
-$proto75["m_columns"][] = "region_or_state";
-$proto75["m_columns"][] = "country";
-$obj = new SQLTable($proto75);
-
-$proto74["m_table"] = $obj;
-$proto74["m_sql"] = "LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person";
-$proto74["m_alias"] = "";
-$proto74["m_srcTableName"] = "Search Users";
-$proto76=array();
-$proto76["m_sql"] = "ut_map_external_source_users.person_id = persons.id_person";
-$proto76["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "person_id",
-	"m_strTable" => "ut_map_external_source_users",
-	"m_srcTableName" => "Search Users"
-));
-
-$proto76["m_column"]=$obj;
-$proto76["m_contained"] = array();
-$proto76["m_strCase"] = "= persons.id_person";
-$proto76["m_havingmode"] = false;
-$proto76["m_inBrackets"] = false;
-$proto76["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto76);
-
-$proto74["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto74);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto78=array();
-$proto78["m_link"] = "SQLL_LEFTJOIN";
-			$proto79=array();
-$proto79["m_strName"] = "person_statuses";
-$proto79["m_srcTableName"] = "Search Users";
-$proto79["m_columns"] = array();
-$proto79["m_columns"][] = "id_person_status";
-$proto79["m_columns"][] = "creation_system_id";
-$proto79["m_columns"][] = "update_system_id";
-$proto79["m_columns"][] = "is_obsolete";
-$proto79["m_columns"][] = "is_default";
-$proto79["m_columns"][] = "is_active";
-$proto79["m_columns"][] = "order";
-$proto79["m_columns"][] = "person_status";
-$proto79["m_columns"][] = "person_status_definition";
-$obj = new SQLTable($proto79);
-
-$proto78["m_table"] = $obj;
-$proto78["m_sql"] = "LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status";
-$proto78["m_alias"] = "";
-$proto78["m_srcTableName"] = "Search Users";
-$proto80=array();
-$proto80["m_sql"] = "persons.person_status_id = person_statuses.id_person_status";
-$proto80["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "person_status_id",
-	"m_strTable" => "persons",
-	"m_srcTableName" => "Search Users"
-));
-
 $proto80["m_column"]=$obj;
 $proto80["m_contained"] = array();
-$proto80["m_strCase"] = "= person_statuses.id_person_status";
+$proto80["m_strCase"] = "";
 $proto80["m_havingmode"] = false;
 $proto80["m_inBrackets"] = false;
 $proto80["m_useAlias"] = false;
@@ -3377,10 +3461,15 @@ $proto0["m_fromlist"][]=$obj;
 												$proto82=array();
 $proto82["m_link"] = "SQLL_LEFTJOIN";
 			$proto83=array();
-$proto83["m_strName"] = "ut_user_types";
+$proto83["m_strName"] = "persons";
 $proto83["m_srcTableName"] = "Search Users";
 $proto83["m_columns"] = array();
-$proto83["m_columns"][] = "id_unee_t_user_type";
+$proto83["m_columns"][] = "id_person";
+$proto83["m_columns"][] = "create_api_request_id";
+$proto83["m_columns"][] = "edit_api_request_id";
+$proto83["m_columns"][] = "external_id";
+$proto83["m_columns"][] = "external_system";
+$proto83["m_columns"][] = "external_table";
 $proto83["m_columns"][] = "syst_created_datetime";
 $proto83["m_columns"][] = "creation_system_id";
 $proto83["m_columns"][] = "created_by_id";
@@ -3389,67 +3478,54 @@ $proto83["m_columns"][] = "syst_updated_datetime";
 $proto83["m_columns"][] = "update_system_id";
 $proto83["m_columns"][] = "updated_by_id";
 $proto83["m_columns"][] = "update_method";
+$proto83["m_columns"][] = "is_update_on_duplicate_key";
 $proto83["m_columns"][] = "organization_id";
-$proto83["m_columns"][] = "order";
-$proto83["m_columns"][] = "is_obsolete";
-$proto83["m_columns"][] = "designation";
-$proto83["m_columns"][] = "description";
-$proto83["m_columns"][] = "ut_user_role_type_id";
-$proto83["m_columns"][] = "is_all_unit";
-$proto83["m_columns"][] = "is_all_units_in_country";
-$proto83["m_columns"][] = "is_all_units_in_area";
-$proto83["m_columns"][] = "is_all_units_in_level_1";
-$proto83["m_columns"][] = "is_all_units_in_level_2";
-$proto83["m_columns"][] = "is_occupant";
-$proto83["m_columns"][] = "is_public";
-$proto83["m_columns"][] = "is_default_assignee";
-$proto83["m_columns"][] = "is_default_invited";
-$proto83["m_columns"][] = "is_unit_owner";
-$proto83["m_columns"][] = "is_dashboard_access";
-$proto83["m_columns"][] = "can_see_role_contractor";
-$proto83["m_columns"][] = "can_see_role_mgt_cny";
-$proto83["m_columns"][] = "can_see_occupant";
-$proto83["m_columns"][] = "can_see_role_landlord";
-$proto83["m_columns"][] = "can_see_role_agent";
-$proto83["m_columns"][] = "can_see_role_tenant";
-$proto83["m_columns"][] = "is_assigned_to_case";
-$proto83["m_columns"][] = "is_invited_to_case";
-$proto83["m_columns"][] = "is_solution_updated";
-$proto83["m_columns"][] = "is_next_step_updated";
-$proto83["m_columns"][] = "is_deadline_updated";
-$proto83["m_columns"][] = "is_case_resolved";
-$proto83["m_columns"][] = "is_case_critical";
-$proto83["m_columns"][] = "is_case_blocker";
-$proto83["m_columns"][] = "is_message_from_contractor";
-$proto83["m_columns"][] = "is_message_from_mgt_cny";
-$proto83["m_columns"][] = "is_message_from_agent";
-$proto83["m_columns"][] = "is_message_from_occupant";
-$proto83["m_columns"][] = "is_message_from_ll";
-$proto83["m_columns"][] = "is_message_from_tenant";
-$proto83["m_columns"][] = "is_any_new_message";
-$proto83["m_columns"][] = "is_new_ir";
-$proto83["m_columns"][] = "is_new_inventory";
-$proto83["m_columns"][] = "is_new_item";
-$proto83["m_columns"][] = "is_item_moved";
-$proto83["m_columns"][] = "is_item_removed";
+$proto83["m_columns"][] = "person_status_id";
+$proto83["m_columns"][] = "dupe_id";
+$proto83["m_columns"][] = "handler_id";
+$proto83["m_columns"][] = "is_unee_t_account_needed";
+$proto83["m_columns"][] = "unee_t_user_type_id";
+$proto83["m_columns"][] = "country_code";
+$proto83["m_columns"][] = "gender";
+$proto83["m_columns"][] = "salutation_id";
+$proto83["m_columns"][] = "given_name";
+$proto83["m_columns"][] = "middle_name";
+$proto83["m_columns"][] = "family_name";
+$proto83["m_columns"][] = "date_of_birth";
+$proto83["m_columns"][] = "alias";
+$proto83["m_columns"][] = "job_title";
+$proto83["m_columns"][] = "organization";
+$proto83["m_columns"][] = "email";
+$proto83["m_columns"][] = "tel_1";
+$proto83["m_columns"][] = "tel_2";
+$proto83["m_columns"][] = "whatsapp";
+$proto83["m_columns"][] = "linkedin";
+$proto83["m_columns"][] = "facebook";
+$proto83["m_columns"][] = "adr1";
+$proto83["m_columns"][] = "adr2";
+$proto83["m_columns"][] = "adr3";
+$proto83["m_columns"][] = "City";
+$proto83["m_columns"][] = "zip_postcode";
+$proto83["m_columns"][] = "region_or_state";
+$proto83["m_columns"][] = "country";
 $obj = new SQLTable($proto83);
 
 $proto82["m_table"] = $obj;
-$proto82["m_sql"] = "LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto82["m_sql"] = "LEFT OUTER JOIN persons ON ut_map_external_source_users.person_id = persons.id_person";
 $proto82["m_alias"] = "";
 $proto82["m_srcTableName"] = "Search Users";
 $proto84=array();
-$proto84["m_sql"] = "persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto84["m_sql"] = "ut_map_external_source_users.person_id = persons.id_person";
 $proto84["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "unee_t_user_type_id",
-	"m_strTable" => "persons",
+	"m_strName" => "person_id",
+	"m_strTable" => "ut_map_external_source_users",
 	"m_srcTableName" => "Search Users"
 ));
 
 $proto84["m_column"]=$obj;
 $proto84["m_contained"] = array();
-$proto84["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
+$proto84["m_strCase"] = "= persons.id_person";
 $proto84["m_havingmode"] = false;
 $proto84["m_inBrackets"] = false;
 $proto84["m_useAlias"] = false;
@@ -3459,19 +3535,147 @@ $proto82["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto82);
 
 $proto0["m_fromlist"][]=$obj;
+												$proto86=array();
+$proto86["m_link"] = "SQLL_LEFTJOIN";
+			$proto87=array();
+$proto87["m_strName"] = "person_statuses";
+$proto87["m_srcTableName"] = "Search Users";
+$proto87["m_columns"] = array();
+$proto87["m_columns"][] = "id_person_status";
+$proto87["m_columns"][] = "creation_system_id";
+$proto87["m_columns"][] = "update_system_id";
+$proto87["m_columns"][] = "is_obsolete";
+$proto87["m_columns"][] = "is_default";
+$proto87["m_columns"][] = "is_active";
+$proto87["m_columns"][] = "order";
+$proto87["m_columns"][] = "person_status";
+$proto87["m_columns"][] = "person_status_definition";
+$obj = new SQLTable($proto87);
+
+$proto86["m_table"] = $obj;
+$proto86["m_sql"] = "LEFT OUTER JOIN person_statuses ON persons.person_status_id = person_statuses.id_person_status";
+$proto86["m_alias"] = "";
+$proto86["m_srcTableName"] = "Search Users";
+$proto88=array();
+$proto88["m_sql"] = "persons.person_status_id = person_statuses.id_person_status";
+$proto88["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "person_status_id",
+	"m_strTable" => "persons",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto88["m_column"]=$obj;
+$proto88["m_contained"] = array();
+$proto88["m_strCase"] = "= person_statuses.id_person_status";
+$proto88["m_havingmode"] = false;
+$proto88["m_inBrackets"] = false;
+$proto88["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto88);
+
+$proto86["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto86);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto90=array();
+$proto90["m_link"] = "SQLL_LEFTJOIN";
+			$proto91=array();
+$proto91["m_strName"] = "ut_user_types";
+$proto91["m_srcTableName"] = "Search Users";
+$proto91["m_columns"] = array();
+$proto91["m_columns"][] = "id_unee_t_user_type";
+$proto91["m_columns"][] = "syst_created_datetime";
+$proto91["m_columns"][] = "creation_system_id";
+$proto91["m_columns"][] = "created_by_id";
+$proto91["m_columns"][] = "creation_method";
+$proto91["m_columns"][] = "syst_updated_datetime";
+$proto91["m_columns"][] = "update_system_id";
+$proto91["m_columns"][] = "updated_by_id";
+$proto91["m_columns"][] = "update_method";
+$proto91["m_columns"][] = "organization_id";
+$proto91["m_columns"][] = "order";
+$proto91["m_columns"][] = "is_obsolete";
+$proto91["m_columns"][] = "designation";
+$proto91["m_columns"][] = "description";
+$proto91["m_columns"][] = "ut_user_role_type_id";
+$proto91["m_columns"][] = "is_super_admin";
+$proto91["m_columns"][] = "is_all_unit";
+$proto91["m_columns"][] = "is_all_units_in_country";
+$proto91["m_columns"][] = "is_all_units_in_area";
+$proto91["m_columns"][] = "is_all_units_in_level_1";
+$proto91["m_columns"][] = "is_all_units_in_level_2";
+$proto91["m_columns"][] = "is_occupant";
+$proto91["m_columns"][] = "is_public";
+$proto91["m_columns"][] = "is_default_assignee";
+$proto91["m_columns"][] = "is_default_invited";
+$proto91["m_columns"][] = "is_unit_owner";
+$proto91["m_columns"][] = "is_dashboard_access";
+$proto91["m_columns"][] = "can_see_role_contractor";
+$proto91["m_columns"][] = "can_see_role_mgt_cny";
+$proto91["m_columns"][] = "can_see_occupant";
+$proto91["m_columns"][] = "can_see_role_landlord";
+$proto91["m_columns"][] = "can_see_role_agent";
+$proto91["m_columns"][] = "can_see_role_tenant";
+$proto91["m_columns"][] = "is_assigned_to_case";
+$proto91["m_columns"][] = "is_invited_to_case";
+$proto91["m_columns"][] = "is_solution_updated";
+$proto91["m_columns"][] = "is_next_step_updated";
+$proto91["m_columns"][] = "is_deadline_updated";
+$proto91["m_columns"][] = "is_case_resolved";
+$proto91["m_columns"][] = "is_case_critical";
+$proto91["m_columns"][] = "is_case_blocker";
+$proto91["m_columns"][] = "is_message_from_contractor";
+$proto91["m_columns"][] = "is_message_from_mgt_cny";
+$proto91["m_columns"][] = "is_message_from_agent";
+$proto91["m_columns"][] = "is_message_from_occupant";
+$proto91["m_columns"][] = "is_message_from_ll";
+$proto91["m_columns"][] = "is_message_from_tenant";
+$proto91["m_columns"][] = "is_any_new_message";
+$proto91["m_columns"][] = "is_new_ir";
+$proto91["m_columns"][] = "is_new_inventory";
+$proto91["m_columns"][] = "is_new_item";
+$proto91["m_columns"][] = "is_item_moved";
+$proto91["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto91);
+
+$proto90["m_table"] = $obj;
+$proto90["m_sql"] = "LEFT OUTER JOIN ut_user_types ON persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto90["m_alias"] = "";
+$proto90["m_srcTableName"] = "Search Users";
+$proto92=array();
+$proto92["m_sql"] = "persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto92["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "unee_t_user_type_id",
+	"m_strTable" => "persons",
+	"m_srcTableName" => "Search Users"
+));
+
+$proto92["m_column"]=$obj;
+$proto92["m_contained"] = array();
+$proto92["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
+$proto92["m_havingmode"] = false;
+$proto92["m_inBrackets"] = false;
+$proto92["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto92);
+
+$proto90["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto90);
+
+$proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto86=array();
+												$proto94=array();
 						$obj = new SQLField(array(
 	"m_strName" => "organization_id",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Search Users"
 ));
 
-$proto86["m_column"]=$obj;
-$proto86["m_bAsc"] = 0;
-$proto86["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto86);
+$proto94["m_column"]=$obj;
+$proto94["m_bAsc"] = 0;
+$proto94["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto94);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Search Users";		
@@ -3486,7 +3690,7 @@ $queryData_Search_Users = createSqlQuery_Search_Users();
 					
 ;
 
-																		
+																			
 
 $tdataSearch_Users[".sqlquery"] = $queryData_Search_Users;
 

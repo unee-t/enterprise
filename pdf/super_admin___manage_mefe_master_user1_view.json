@@ -353,42 +353,13 @@ pdfDocument = {
 								{BEGIN col_section5_1}
 								'*', 
 								{END col_section5_1}
-							 
-								{BEGIN col_section5_2}
-								'*', 
-								{END col_section5_2}
 													],
 						body: [
 								
 					{BEGIN row_section5_0}
 				
 		[
-												{BEGIN cellblock_section5_c}
-
-{
-	cellId: 'c',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User unee_t_user_type_id }","bold":true},{"text":{$unee_t_user_type_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section5_c}
-																			{BEGIN cellblock_section5_c2}
+												{BEGIN cellblock_section5_c2}
 
 {
 	cellId: 'c2',
@@ -459,60 +430,7 @@ pdfDocument = {
 								{BEGIN row_grid_2}
 				
 		[
-												{BEGIN cellblock_grid_c6}
-
-{
-	cellId: 'c6',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-						 
-		{
-		layout: 'panel',
-		
-		table: {
-			tableForm: true,
-			location: 'section',
-			widths: ['*'],
-			body: [
-				[{text: 'Source of the information', style: 'tableHeader'}],
-				[{
-					table: {
-						tableForm: true,
-						widths: [
-							 
-								{BEGIN col_section_0}
-								'*', 
-								{END col_section_0}
-							 
-								{BEGIN col_section_1}
-								'*', 
-								{END col_section_1}
-							 
-								{BEGIN col_section_2}
-								'*', 
-								{END col_section_2}
-							 
-								{BEGIN col_section_3}
-								'*', 
-								{END col_section_3}
-													],
-						body: [
-								
-					{BEGIN row_section_0}
-				
-		[
-												{BEGIN cellblock_section_c3}
+												{BEGIN cellblock_grid_c3}
 
 {
 	cellId: 'c3',
@@ -530,104 +448,13 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User person_status_id }","bold":true},{"text":{$person_status_id_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User unee_t_mefe_user_id }","bold":true},{"text":{$unee_t_mefe_user_id_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
           },
 
-{END cellblock_section_c3}
-																			{BEGIN cellblock_section_c1}
-
-{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User external_system }","bold":true},{"text":{$external_system_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section_c1}
-																			{BEGIN cellblock_section_c2}
-
-{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User external_table }","bold":true},{"text":{$external_table_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section_c2}
-																			{BEGIN cellblock_section_c}
-
-{
-	cellId: 'c',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_MEFE_Master_User external_id }","bold":true},{"text":{$external_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section_c}
-											],
-				{END row_section_0}
-									]
-					}
-				}]
-
-			]
-		},
-		margin: [0,0,0,15],
-	},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c6}
+{END cellblock_grid_c3}
 											],
 				{END row_grid_2}
 					]

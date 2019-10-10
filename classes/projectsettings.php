@@ -3173,8 +3173,12 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "super_admin___manage_api_keys" ] = "Super Admin - Manage API Keys";
 	$projectEntities[ "Super Admin - Manage MEFE Master User" ] = array( "url" => "super_admin___manage_mefe_master_user1", "type" => 1 );
 	$projectEntitiesReverse[ "super_admin___manage_mefe_master_user1" ] = "Super Admin - Manage MEFE Master User";
-	$projectEntities[ "Super Admin - Manage User Types" ] = array( "url" => "super_admin___manage_user_types", "type" => 1 );
-	$projectEntitiesReverse[ "super_admin___manage_user_types" ] = "Super Admin - Manage User Types";
+	$projectEntities[ "Super Admin - Default sot for Unee-T objects" ] = array( "url" => "super_admin___default_sot_for_unee_t_objects", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___default_sot_for_unee_t_objects" ] = "Super Admin - Default sot for Unee-T objects";
+	$projectEntities[ "User Permissions" ] = array( "url" => "user_permissions", "type" => 1 );
+	$projectEntitiesReverse[ "user_permissions" ] = "User Permissions";
+	$projectEntities[ "uneet_enterprise_uggroups" ] = array( "url" => "uneet_enterprise_uggroups", "type" => 0 );
+	$projectEntitiesReverse[ "uneet_enterprise_uggroups" ] = "uneet_enterprise_uggroups";
 }
 
 function findTable( $table ) {

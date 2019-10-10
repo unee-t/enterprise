@@ -5692,6 +5692,7 @@ $proto89["m_columns"][] = "is_obsolete";
 $proto89["m_columns"][] = "designation";
 $proto89["m_columns"][] = "description";
 $proto89["m_columns"][] = "ut_user_role_type_id";
+$proto89["m_columns"][] = "is_super_admin";
 $proto89["m_columns"][] = "is_all_unit";
 $proto89["m_columns"][] = "is_all_units_in_country";
 $proto89["m_columns"][] = "is_all_units_in_area";

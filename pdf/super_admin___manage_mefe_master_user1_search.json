@@ -190,6 +190,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field7}","text":{$organization_name_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field2}","text":{$is_super_admin_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

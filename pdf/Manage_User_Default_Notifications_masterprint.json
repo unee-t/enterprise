@@ -142,6 +142,9 @@ pdfDocument = {
 										{BEGIN col_grid_27}
 					"%",
 					{END col_grid_27}
+										{BEGIN col_grid_28}
+					"%",
+					{END col_grid_28}
 													],
 				body: [
 				{BEGIN standalone_page}
@@ -227,7 +230,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field28}","text":"{$jslabel Manage_User_Default_Notifications id_unee_t_user_type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel Manage_User_Default_Notifications id_unee_t_user_type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -253,7 +256,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel Manage_User_Default_Notifications syst_updated_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel Manage_User_Default_Notifications syst_updated_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -279,7 +282,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel Manage_User_Default_Notifications update_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel Manage_User_Default_Notifications update_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -305,7 +308,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel Manage_User_Default_Notifications updated_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel Manage_User_Default_Notifications updated_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -331,7 +334,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel Manage_User_Default_Notifications update_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel Manage_User_Default_Notifications update_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -357,7 +360,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel Manage_User_Default_Notifications organization_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel Manage_User_Default_Notifications organization_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -383,7 +386,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel Manage_User_Default_Notifications created_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel Manage_User_Default_Notifications created_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -409,7 +412,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel Manage_User_Default_Notifications designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Manage_User_Default_Notifications designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -435,7 +438,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel Manage_User_Default_Notifications is_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Manage_User_Default_Notifications is_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -461,7 +464,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel Manage_User_Default_Notifications is_public }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel Manage_User_Default_Notifications is_public }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -487,7 +490,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel Manage_User_Default_Notifications is_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel Manage_User_Default_Notifications is_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -513,7 +516,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel Manage_User_Default_Notifications is_dashboard_access }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel Manage_User_Default_Notifications is_dashboard_access }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -539,7 +542,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel Manage_User_Default_Notifications is_assigned_to_case }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel Manage_User_Default_Notifications is_assigned_to_case }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -565,7 +568,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel Manage_User_Default_Notifications is_invited_to_case }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel Manage_User_Default_Notifications is_invited_to_case }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -591,7 +594,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel Manage_User_Default_Notifications is_solution_updated }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel Manage_User_Default_Notifications is_solution_updated }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -617,7 +620,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel Manage_User_Default_Notifications is_next_step_updated }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel Manage_User_Default_Notifications is_next_step_updated }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -643,7 +646,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel Manage_User_Default_Notifications is_deadline_updated }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel Manage_User_Default_Notifications is_deadline_updated }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -669,7 +672,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel Manage_User_Default_Notifications is_case_resolved }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel Manage_User_Default_Notifications is_case_resolved }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -695,7 +698,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel Manage_User_Default_Notifications is_case_critical }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel Manage_User_Default_Notifications is_case_critical }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -721,7 +724,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel Manage_User_Default_Notifications is_case_blocker }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel Manage_User_Default_Notifications is_case_blocker }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -747,7 +750,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_contractor }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_contractor }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -773,7 +776,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_mgt_cny }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_mgt_cny }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -799,7 +802,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_agent }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_agent }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -825,7 +828,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_occupant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_occupant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -851,7 +854,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_ll }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field53}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_ll }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -877,7 +880,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field53}","text":"{$jslabel Manage_User_Default_Notifications is_any_new_message }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field54}","text":"{$jslabel Manage_User_Default_Notifications is_any_new_message }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -903,7 +906,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field54}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_tenant }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field55}","text":"{$jslabel Manage_User_Default_Notifications is_message_from_tenant }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -929,7 +932,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field55}","text":"{$jslabel Manage_User_Default_Notifications is_default_invited }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field56}","text":"{$jslabel Manage_User_Default_Notifications is_default_invited }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -937,6 +940,32 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_field27}
+																			{BEGIN cellblock_grid_headcell_field28}
+
+{
+	cellId: 'headcell_field28',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field57}","text":"{$jslabel Manage_User_Default_Notifications is_super_admin }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$is_super_admin_align}',
+  },
+
+{END cellblock_grid_headcell_field28}
 											],
 				{END row_grid_0}
 								
@@ -1674,6 +1703,32 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_field27}
+																			{BEGIN cellblock_grid_cell_field28}
+
+{
+	cellId: 'cell_field28',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field28}","text":{$is_super_admin_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$is_super_admin_align}',
+  },
+
+{END cellblock_grid_cell_field28}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -2327,6 +2382,29 @@ pdfDocument = {
           },
 
 {END cellblock_grid_footcell_field27}
+																			{BEGIN cellblock_grid_footcell_field28}
+
+{
+	cellId: 'footcell_field28',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field28}
 											],
 				{END row_grid_2}
 							

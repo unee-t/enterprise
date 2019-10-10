@@ -158,52 +158,19 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$id_api_key_pdfvalue}},
-				
-				
 			{"hidden":"{$item_hide_integrated_search_field1}","text":{$syst_created_datetime_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field2}","text":{$creation_system_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field3}","text":{$created_by_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field4}","text":{$creation_method_pdfvalue}},
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field5}","text":{$syst_updated_datetime_pdfvalue}},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field6}","text":{$update_system_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field7}","text":{$updated_by_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field8}","text":{$update_method_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field9}","text":{$external_system_id_pdfvalue}},
+			{"hidden":"{$item_hide_integrated_search_field12}","text":{$api_key_pdfvalue}},
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field10}","text":{$revoked_datetime_pdfvalue}},
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field11}","text":{$is_obsolete_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field12}","text":{$api_key_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field13}","text":{$mefe_user_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field14}","text":{$organization_id_pdfvalue}},
-				
-				
-			{"hidden":"{$item_hide_integrated_search_field15}","text":{$unee_t_mefe_user_api_key_pdfvalue}},
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field16}","text":{$designation_pdfvalue}},

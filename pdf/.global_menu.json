@@ -193,29 +193,6 @@ pdfDocument = {
           },
 
 											],
-								
-		[
-												
-{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
 					]
 	}
 }

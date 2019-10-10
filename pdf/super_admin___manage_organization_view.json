@@ -179,6 +179,14 @@ pdfDocument = {
 								{BEGIN col_section2_1}
 								'*', 
 								{END col_section2_1}
+							 
+								{BEGIN col_section2_2}
+								'*', 
+								{END col_section2_2}
+							 
+								{BEGIN col_section2_3}
+								'*', 
+								{END col_section2_3}
 													],
 						body: [
 								
@@ -235,6 +243,56 @@ pdfDocument = {
           },
 
 {END cellblock_section2_c}
+																			{BEGIN cellblock_section2_c2}
+
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_role_type_id }","bold":true},{"text":{$default_role_type_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c2}
+																			{BEGIN cellblock_section2_c3}
+
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization country_code }","bold":true},{"text":{$country_code_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c3}
 											],
 				{END row_section2_0}
 									]
@@ -256,135 +314,7 @@ pdfDocument = {
 								{BEGIN row_grid_1}
 				
 		[
-												{BEGIN cellblock_grid_c13}
-
-{
-	cellId: 'c13',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-						 
-		{
-		layout: 'panel',
-		
-		table: {
-			tableForm: true,
-			location: 'section1',
-			widths: ['*'],
-			body: [
-				[{text: 'External Source of Truth', style: 'tableHeader'}],
-				[{
-					table: {
-						tableForm: true,
-						widths: [
-							 
-								{BEGIN col_section1_0}
-								'*', 
-								{END col_section1_0}
-							 
-								{BEGIN col_section1_1}
-								'*', 
-								{END col_section1_1}
-							 
-								{BEGIN col_section1_2}
-								'*', 
-								{END col_section1_2}
-							 
-								{BEGIN col_section1_3}
-								'*', 
-								{END col_section1_3}
-													],
-						body: [
-								
-					{BEGIN row_section1_0}
-				
-		[
-												{BEGIN cellblock_section1_c1}
-
-{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_system }","bold":true},{"text":{$default_sot_system_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c1}
-																			{BEGIN cellblock_section1_c3}
-
-{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_persons }","bold":true},{"text":{$default_sot_persons_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c3}
-																			{BEGIN cellblock_section1_c2}
-
-{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_areas }","bold":true},{"text":{$default_sot_areas_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c2}
-																			{BEGIN cellblock_section1_c}
+												{BEGIN cellblock_grid_c}
 
 {
 	cellId: 'c',
@@ -402,38 +332,24 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel Super_Admin___Manage_Organization default_sot_properties }","bold":true},{"text":{$default_sot_properties_pdfvalue}}],"margin":[0,0,0,15]},
+			 {BEGIN details_super_admin___manage_mefe_master_user1}
+			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
+		{END details_super_admin___manage_mefe_master_user1},
 				
 		  ],
   "border": [ false, false, false, false ],
           },
 
-{END cellblock_section1_c}
-											],
-				{END row_section1_0}
-									]
-					}
-				}]
-
-			]
-		},
-		margin: [0,0,0,15],
-	},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c13}
+{END cellblock_grid_c}
 											],
 				{END row_grid_1}
 								{BEGIN row_grid_2}
 				
 		[
-												{BEGIN cellblock_grid_c}
+												{BEGIN cellblock_grid_c2}
 
 {
-	cellId: 'c',
+	cellId: 'c2',
 	col:0,
 	row:0,
 			style: 'undefinedcell',
@@ -456,7 +372,7 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-{END cellblock_grid_c}
+{END cellblock_grid_c2}
 											],
 				{END row_grid_2}
 								{BEGIN row_grid_3}
@@ -480,9 +396,9 @@ pdfDocument = {
 			"stack": [
 		
 				
-			 {BEGIN details_super_admin___manage_mefe_master_user1}
-			{$displayDetailTable_super_admin___manage_mefe_master_user1 }
-		{END details_super_admin___manage_mefe_master_user1},
+			 {BEGIN details_super_admin___default_sot_for_unee_t_objects}
+			{$displayDetailTable_super_admin___default_sot_for_unee_t_objects }
+		{END details_super_admin___default_sot_for_unee_t_objects},
 				
 		  ],
   "border": [ false, false, false, false ],

@@ -200,23 +200,9 @@ $tdatasuper_admin___manage_api_keys[".filterFields"] = array();
 $tdatasuper_admin___manage_api_keys[".requiredSearchFields"] = array();
 
 $tdatasuper_admin___manage_api_keys[".googleLikeFields"] = array();
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "id_api_key";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "syst_created_datetime";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "creation_system_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "created_by_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "creation_method";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "syst_updated_datetime";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "update_system_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "updated_by_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "update_method";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "external_system_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "revoked_datetime";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "is_obsolete";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "organization_id";
 $tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "designation";
 $tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "api_key";
 $tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "mefe_user_id";
-$tdatasuper_admin___manage_api_keys[".googleLikeFields"][] = "unee_t_mefe_user_api_key";
 
 
 
@@ -3011,6 +2997,8 @@ $proto49["m_columns"][] = "order";
 $proto49["m_columns"][] = "is_obsolete";
 $proto49["m_columns"][] = "designation";
 $proto49["m_columns"][] = "description";
+$proto49["m_columns"][] = "country_code";
+$proto49["m_columns"][] = "default_role_type_id";
 $proto49["m_columns"][] = "default_sot_system";
 $proto49["m_columns"][] = "default_sot_persons";
 $proto49["m_columns"][] = "default_sot_areas";

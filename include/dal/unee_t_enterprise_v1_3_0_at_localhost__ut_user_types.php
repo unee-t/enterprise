@@ -15,6 +15,7 @@ $dalTableut_user_types["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete
 $dalTableut_user_types["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
 $dalTableut_user_types["description"] = array("type"=>201,"varname"=>"description", "name" => "description");
 $dalTableut_user_types["ut_user_role_type_id"] = array("type"=>3,"varname"=>"ut_user_role_type_id", "name" => "ut_user_role_type_id");
+$dalTableut_user_types["is_super_admin"] = array("type"=>16,"varname"=>"is_super_admin", "name" => "is_super_admin");
 $dalTableut_user_types["is_all_unit"] = array("type"=>16,"varname"=>"is_all_unit", "name" => "is_all_unit");
 $dalTableut_user_types["is_all_units_in_country"] = array("type"=>16,"varname"=>"is_all_units_in_country", "name" => "is_all_units_in_country");
 $dalTableut_user_types["is_all_units_in_area"] = array("type"=>16,"varname"=>"is_all_units_in_area", "name" => "is_all_units_in_area");

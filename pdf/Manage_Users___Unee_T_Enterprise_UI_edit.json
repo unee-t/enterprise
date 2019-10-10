@@ -322,6 +322,47 @@ pdfDocument = {
 {END cellblock_grid_c5}
 											],
 				{END row_grid_2}
+								{BEGIN row_grid_3}
+				
+		[
+												{BEGIN cellblock_grid_c8}
+
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c8}
+			colSpan: {$colspan_grid_c8},
+			{END colspan_grid_c8}
+		
+			
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_user_permissions}
+			{$displayDetailTable_user_permissions }
+		{END details_user_permissions},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c8}
+																			{ 
+					cellId: 'c8',
+					row:  0,
+					col:  1,
+					text: ''
+				},
+							],
+				{END row_grid_3}
 					]
 	}
 }

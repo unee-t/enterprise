@@ -9,10 +9,10 @@ $tdataManage_Users___Unee_T_Enterprise_UI[".OwnerID"] = "organization_id";
 $tdataManage_Users___Unee_T_Enterprise_UI[".OriginalTable"] = "uneet_enterprise_users";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdataManage_Users___Unee_T_Enterprise_UI[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
-$tdataManage_Users___Unee_T_Enterprise_UI[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdataManage_Users___Unee_T_Enterprise_UI[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
+$tdataManage_Users___Unee_T_Enterprise_UI[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdataManage_Users___Unee_T_Enterprise_UI[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -1640,6 +1640,35 @@ $page_titles["Manage_Users___Unee_T_Enterprise_UI"] = &$pageTitlesManage_Users__
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["Manage Users - Unee-T Enterprise UI"] = array();
+//	User Permissions
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="User Permissions";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_ugmembers";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "user_permissions";
+	$detailsParam["dCaptionTable"] = GetTableCaption("User_Permissions");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Users - Unee-T Enterprise UI"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Users - Unee-T Enterprise UI"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Users - Unee-T Enterprise UI"][$dIndex]["masterKeys"][]="username";
+
+				$detailsTablesData["Manage Users - Unee-T Enterprise UI"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Users - Unee-T Enterprise UI"][$dIndex]["detailKeys"][]="UserName";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Users - Unee-T Enterprise UI"] = array();
@@ -1904,6 +1933,8 @@ $proto31["m_columns"][] = "order";
 $proto31["m_columns"][] = "is_obsolete";
 $proto31["m_columns"][] = "designation";
 $proto31["m_columns"][] = "description";
+$proto31["m_columns"][] = "country_code";
+$proto31["m_columns"][] = "default_role_type_id";
 $proto31["m_columns"][] = "default_sot_system";
 $proto31["m_columns"][] = "default_sot_persons";
 $proto31["m_columns"][] = "default_sot_areas";

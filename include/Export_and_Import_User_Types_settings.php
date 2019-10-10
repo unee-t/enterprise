@@ -8077,6 +8077,7 @@ $proto111["m_columns"][] = "is_obsolete";
 $proto111["m_columns"][] = "designation";
 $proto111["m_columns"][] = "description";
 $proto111["m_columns"][] = "ut_user_role_type_id";
+$proto111["m_columns"][] = "is_super_admin";
 $proto111["m_columns"][] = "is_all_unit";
 $proto111["m_columns"][] = "is_all_units_in_country";
 $proto111["m_columns"][] = "is_all_units_in_area";

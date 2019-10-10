@@ -84,6 +84,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Visibility["English"]["is_default_invited"] = "Is Invited to All Cases";
 	$fieldToolTipsManage_User_Default_Visibility["English"]["is_default_invited"] = "";
 	$placeHoldersManage_User_Default_Visibility["English"]["is_default_invited"] = "";
+	$fieldLabelsManage_User_Default_Visibility["English"]["is_super_admin"] = "Is Super Admin";
+	$fieldToolTipsManage_User_Default_Visibility["English"]["is_super_admin"] = "";
+	$placeHoldersManage_User_Default_Visibility["English"]["is_super_admin"] = "";
 	if (count($fieldToolTipsManage_User_Default_Visibility["English"]))
 		$tdataManage_User_Default_Visibility[".isUseToolTips"] = true;
 }
@@ -207,6 +210,7 @@ $tdataManage_User_Default_Visibility[".requiredSearchFields"] = array();
 
 $tdataManage_User_Default_Visibility[".googleLikeFields"] = array();
 $tdataManage_User_Default_Visibility[".googleLikeFields"][] = "designation";
+$tdataManage_User_Default_Visibility[".googleLikeFields"][] = "is_super_admin";
 
 
 
@@ -242,9 +246,9 @@ $tdataManage_User_Default_Visibility[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_User_Default_Visibility[".orderindexes"] = array();
 
-$tdataManage_User_Default_Visibility[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access";
+$tdataManage_User_Default_Visibility[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_super_admin";
 $tdataManage_User_Default_Visibility[".sqlFrom"] = "FROM ut_user_types";
-$tdataManage_User_Default_Visibility[".sqlWhereExpr"] = "";
+$tdataManage_User_Default_Visibility[".sqlWhereExpr"] = "(is_super_admin = 0)";
 $tdataManage_User_Default_Visibility[".sqlTail"] = "";
 
 
@@ -2789,6 +2793,138 @@ $tdataManage_User_Default_Visibility[".hideMobileList"] = array();
 
 	$tdataManage_User_Default_Visibility["is_dashboard_access"] = $fdata;
 		$tdataManage_User_Default_Visibility[".searchableFields"][] = "is_dashboard_access";
+//	is_super_admin
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 20;
+	$fdata["strName"] = "is_super_admin";
+	$fdata["GoodName"] = "is_super_admin";
+	$fdata["ownerTable"] = "ut_user_types";
+	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Visibility","is_super_admin");
+	$fdata["FieldType"] = 16;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "is_super_admin";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "is_super_admin";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_User_Default_Visibility["is_super_admin"] = $fdata;
+		$tdataManage_User_Default_Visibility[".searchableFields"][] = "is_super_admin";
 
 
 $tables_data["Manage User Default Visibility"]=&$tdataManage_User_Default_Visibility;
@@ -2824,24 +2960,26 @@ function createSqlQuery_Manage_User_Default_Visibility()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access";
+$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  can_see_role_contractor,  can_see_role_mgt_cny,  can_see_occupant,  can_see_role_landlord,  can_see_role_agent,  can_see_role_tenant,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_super_admin";
 $proto0["m_strFrom"] = "FROM ut_user_types";
-$proto0["m_strWhere"] = "";
+$proto0["m_strWhere"] = "(is_super_admin = 0)";
 $proto0["m_strOrderBy"] = "";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "is_super_admin = 0";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Default Visibility"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "= 0";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -3131,88 +3269,103 @@ $proto42["m_alias"] = "";
 $obj = new SQLFieldListItem($proto42);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto44=array();
-$proto44["m_link"] = "SQLL_MAIN";
-			$proto45=array();
-$proto45["m_strName"] = "ut_user_types";
-$proto45["m_srcTableName"] = "Manage User Default Visibility";
-$proto45["m_columns"] = array();
-$proto45["m_columns"][] = "id_unee_t_user_type";
-$proto45["m_columns"][] = "syst_created_datetime";
-$proto45["m_columns"][] = "creation_system_id";
-$proto45["m_columns"][] = "created_by_id";
-$proto45["m_columns"][] = "creation_method";
-$proto45["m_columns"][] = "syst_updated_datetime";
-$proto45["m_columns"][] = "update_system_id";
-$proto45["m_columns"][] = "updated_by_id";
-$proto45["m_columns"][] = "update_method";
-$proto45["m_columns"][] = "organization_id";
-$proto45["m_columns"][] = "order";
-$proto45["m_columns"][] = "is_obsolete";
-$proto45["m_columns"][] = "designation";
-$proto45["m_columns"][] = "description";
-$proto45["m_columns"][] = "ut_user_role_type_id";
-$proto45["m_columns"][] = "is_all_unit";
-$proto45["m_columns"][] = "is_all_units_in_country";
-$proto45["m_columns"][] = "is_all_units_in_area";
-$proto45["m_columns"][] = "is_all_units_in_level_1";
-$proto45["m_columns"][] = "is_all_units_in_level_2";
-$proto45["m_columns"][] = "is_occupant";
-$proto45["m_columns"][] = "is_public";
-$proto45["m_columns"][] = "is_default_assignee";
-$proto45["m_columns"][] = "is_default_invited";
-$proto45["m_columns"][] = "is_unit_owner";
-$proto45["m_columns"][] = "is_dashboard_access";
-$proto45["m_columns"][] = "can_see_role_contractor";
-$proto45["m_columns"][] = "can_see_role_mgt_cny";
-$proto45["m_columns"][] = "can_see_occupant";
-$proto45["m_columns"][] = "can_see_role_landlord";
-$proto45["m_columns"][] = "can_see_role_agent";
-$proto45["m_columns"][] = "can_see_role_tenant";
-$proto45["m_columns"][] = "is_assigned_to_case";
-$proto45["m_columns"][] = "is_invited_to_case";
-$proto45["m_columns"][] = "is_solution_updated";
-$proto45["m_columns"][] = "is_next_step_updated";
-$proto45["m_columns"][] = "is_deadline_updated";
-$proto45["m_columns"][] = "is_case_resolved";
-$proto45["m_columns"][] = "is_case_critical";
-$proto45["m_columns"][] = "is_case_blocker";
-$proto45["m_columns"][] = "is_message_from_contractor";
-$proto45["m_columns"][] = "is_message_from_mgt_cny";
-$proto45["m_columns"][] = "is_message_from_agent";
-$proto45["m_columns"][] = "is_message_from_occupant";
-$proto45["m_columns"][] = "is_message_from_ll";
-$proto45["m_columns"][] = "is_message_from_tenant";
-$proto45["m_columns"][] = "is_any_new_message";
-$proto45["m_columns"][] = "is_new_ir";
-$proto45["m_columns"][] = "is_new_inventory";
-$proto45["m_columns"][] = "is_new_item";
-$proto45["m_columns"][] = "is_item_moved";
-$proto45["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto45);
+						$proto44=array();
+			$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Default Visibility"
+));
 
-$proto44["m_table"] = $obj;
-$proto44["m_sql"] = "ut_user_types";
-$proto44["m_alias"] = "";
+$proto44["m_sql"] = "is_super_admin";
 $proto44["m_srcTableName"] = "Manage User Default Visibility";
-$proto46=array();
-$proto46["m_sql"] = "";
-$proto46["m_uniontype"] = "SQLL_UNKNOWN";
+$proto44["m_expr"]=$obj;
+$proto44["m_alias"] = "";
+$obj = new SQLFieldListItem($proto44);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto46=array();
+$proto46["m_link"] = "SQLL_MAIN";
+			$proto47=array();
+$proto47["m_strName"] = "ut_user_types";
+$proto47["m_srcTableName"] = "Manage User Default Visibility";
+$proto47["m_columns"] = array();
+$proto47["m_columns"][] = "id_unee_t_user_type";
+$proto47["m_columns"][] = "syst_created_datetime";
+$proto47["m_columns"][] = "creation_system_id";
+$proto47["m_columns"][] = "created_by_id";
+$proto47["m_columns"][] = "creation_method";
+$proto47["m_columns"][] = "syst_updated_datetime";
+$proto47["m_columns"][] = "update_system_id";
+$proto47["m_columns"][] = "updated_by_id";
+$proto47["m_columns"][] = "update_method";
+$proto47["m_columns"][] = "organization_id";
+$proto47["m_columns"][] = "order";
+$proto47["m_columns"][] = "is_obsolete";
+$proto47["m_columns"][] = "designation";
+$proto47["m_columns"][] = "description";
+$proto47["m_columns"][] = "ut_user_role_type_id";
+$proto47["m_columns"][] = "is_super_admin";
+$proto47["m_columns"][] = "is_all_unit";
+$proto47["m_columns"][] = "is_all_units_in_country";
+$proto47["m_columns"][] = "is_all_units_in_area";
+$proto47["m_columns"][] = "is_all_units_in_level_1";
+$proto47["m_columns"][] = "is_all_units_in_level_2";
+$proto47["m_columns"][] = "is_occupant";
+$proto47["m_columns"][] = "is_public";
+$proto47["m_columns"][] = "is_default_assignee";
+$proto47["m_columns"][] = "is_default_invited";
+$proto47["m_columns"][] = "is_unit_owner";
+$proto47["m_columns"][] = "is_dashboard_access";
+$proto47["m_columns"][] = "can_see_role_contractor";
+$proto47["m_columns"][] = "can_see_role_mgt_cny";
+$proto47["m_columns"][] = "can_see_occupant";
+$proto47["m_columns"][] = "can_see_role_landlord";
+$proto47["m_columns"][] = "can_see_role_agent";
+$proto47["m_columns"][] = "can_see_role_tenant";
+$proto47["m_columns"][] = "is_assigned_to_case";
+$proto47["m_columns"][] = "is_invited_to_case";
+$proto47["m_columns"][] = "is_solution_updated";
+$proto47["m_columns"][] = "is_next_step_updated";
+$proto47["m_columns"][] = "is_deadline_updated";
+$proto47["m_columns"][] = "is_case_resolved";
+$proto47["m_columns"][] = "is_case_critical";
+$proto47["m_columns"][] = "is_case_blocker";
+$proto47["m_columns"][] = "is_message_from_contractor";
+$proto47["m_columns"][] = "is_message_from_mgt_cny";
+$proto47["m_columns"][] = "is_message_from_agent";
+$proto47["m_columns"][] = "is_message_from_occupant";
+$proto47["m_columns"][] = "is_message_from_ll";
+$proto47["m_columns"][] = "is_message_from_tenant";
+$proto47["m_columns"][] = "is_any_new_message";
+$proto47["m_columns"][] = "is_new_ir";
+$proto47["m_columns"][] = "is_new_inventory";
+$proto47["m_columns"][] = "is_new_item";
+$proto47["m_columns"][] = "is_item_moved";
+$proto47["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto47);
+
+$proto46["m_table"] = $obj;
+$proto46["m_sql"] = "ut_user_types";
+$proto46["m_alias"] = "";
+$proto46["m_srcTableName"] = "Manage User Default Visibility";
+$proto48=array();
+$proto48["m_sql"] = "";
+$proto48["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto46["m_column"]=$obj;
-$proto46["m_contained"] = array();
-$proto46["m_strCase"] = "";
-$proto46["m_havingmode"] = false;
-$proto46["m_inBrackets"] = false;
-$proto46["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto46);
+$proto48["m_column"]=$obj;
+$proto48["m_contained"] = array();
+$proto48["m_strCase"] = "";
+$proto48["m_havingmode"] = false;
+$proto48["m_inBrackets"] = false;
+$proto48["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto48);
 
-$proto44["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto44);
+$proto46["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto46);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -3229,7 +3382,7 @@ $queryData_Manage_User_Default_Visibility = createSqlQuery_Manage_User_Default_V
 					
 ;
 
-																			
+																				
 
 $tdataManage_User_Default_Visibility[".sqlquery"] = $queryData_Manage_User_Default_Visibility;
 

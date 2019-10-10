@@ -168,6 +168,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsExport_and_Import_Users["English"]["unee_t_mefe_user_api_key"] = "User Api Key";
 	$fieldToolTipsExport_and_Import_Users["English"]["unee_t_mefe_user_api_key"] = "";
 	$placeHoldersExport_and_Import_Users["English"]["unee_t_mefe_user_api_key"] = "";
+	$fieldLabelsExport_and_Import_Users["English"]["is_super_admin"] = "Is Super Admin";
+	$fieldToolTipsExport_and_Import_Users["English"]["is_super_admin"] = "";
+	$placeHoldersExport_and_Import_Users["English"]["is_super_admin"] = "";
 	if (count($fieldToolTipsExport_and_Import_Users["English"]))
 		$tdataExport_and_Import_Users[".isUseToolTips"] = true;
 }
@@ -308,6 +311,7 @@ $tdataExport_and_Import_Users[".googleLikeFields"][] = "tel_1";
 $tdataExport_and_Import_Users[".googleLikeFields"][] = "tel_2";
 $tdataExport_and_Import_Users[".googleLikeFields"][] = "whatsapp";
 $tdataExport_and_Import_Users[".googleLikeFields"][] = "country_code";
+$tdataExport_and_Import_Users[".googleLikeFields"][] = "is_super_admin";
 
 
 
@@ -347,9 +351,9 @@ $tdataExport_and_Import_Users[".orderindexes"] = array();
 	$tdataExport_and_Import_Users[".orderindexes"][] = array(23, (1 ? "ASC" : "DESC"), "external_persons.given_name");
 
 
-$tdataExport_and_Import_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key";
+$tdataExport_and_Import_Users[".sqlHead"] = "SELECT external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key,  ut_user_types.is_super_admin";
 $tdataExport_and_Import_Users[".sqlFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$tdataExport_and_Import_Users[".sqlWhereExpr"] = "";
+$tdataExport_and_Import_Users[".sqlWhereExpr"] = "(ut_user_types.is_super_admin = 0)";
 $tdataExport_and_Import_Users[".sqlTail"] = "";
 
 
@@ -6862,6 +6866,139 @@ $tdataExport_and_Import_Users[".hideMobileList"] = array();
 
 	$tdataExport_and_Import_Users["unee_t_mefe_user_api_key"] = $fdata;
 		$tdataExport_and_Import_Users[".searchableFields"][] = "unee_t_mefe_user_api_key";
+//	is_super_admin
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 48;
+	$fdata["strName"] = "is_super_admin";
+	$fdata["GoodName"] = "is_super_admin";
+	$fdata["ownerTable"] = "ut_user_types";
+	$fdata["Label"] = GetFieldLabel("Export_and_Import_Users","is_super_admin");
+	$fdata["FieldType"] = 16;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "is_super_admin";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ut_user_types.is_super_admin";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataExport_and_Import_Users["is_super_admin"] = $fdata;
+		$tdataExport_and_Import_Users[".searchableFields"][] = "is_super_admin";
 
 
 $tables_data["Export and Import Users"]=&$tdataExport_and_Import_Users;
@@ -6897,24 +7034,26 @@ function createSqlQuery_Export_and_Import_Users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key";
+$proto0["m_strFieldList"] = "external_persons.id_person,  external_persons.external_id,  external_persons.external_system,  external_persons.external_table,  external_persons.syst_created_datetime,  external_persons.creation_system_id,  external_persons.created_by_id,  external_persons.creation_method,  external_persons.syst_updated_datetime,  external_persons.update_system_id,  external_persons.updated_by_id,  external_persons.update_method,  external_persons.person_status_id,  person_statuses.person_status,  external_persons.is_unee_t_account_needed,  external_persons.unee_t_user_type_id,  ut_user_types.designation,  ut_user_role_types.role_type,  external_persons.gender,  person_genders.person_gender,  external_persons.salutation_id,  person_salutations.salutation,  external_persons.given_name,  external_persons.middle_name,  external_persons.family_name,  external_persons.date_of_birth,  external_persons.`alias`,  external_persons.job_title,  external_persons.`organization`,  external_persons.email,  external_persons.tel_1,  external_persons.tel_2,  external_persons.whatsapp,  external_persons.linkedin,  external_persons.facebook,  external_persons.adr1,  external_persons.adr2,  external_persons.adr3,  external_persons.City,  external_persons.zip_postcode,  external_persons.region_or_state,  external_persons.country_code,  external_persons.country,  external_persons.dupe_id,  external_persons.handler_id,  ut_map_external_source_users.uneet_created_datetime,  ut_map_external_source_users.unee_t_mefe_user_api_key,  ut_user_types.is_super_admin";
 $proto0["m_strFrom"] = "FROM external_persons  LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender  LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation  LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status  LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type  LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id  LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id  LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$proto0["m_strWhere"] = "";
+$proto0["m_strWhere"] = "(ut_user_types.is_super_admin = 0)";
 $proto0["m_strOrderBy"] = "ORDER BY external_persons.unee_t_user_type_id, external_persons.given_name";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "ut_user_types.is_super_admin = 0";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Export and Import Users"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "= 0";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -7596,560 +7735,562 @@ $proto98["m_alias"] = "";
 $obj = new SQLFieldListItem($proto98);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto100=array();
-$proto100["m_link"] = "SQLL_MAIN";
-			$proto101=array();
-$proto101["m_strName"] = "external_persons";
-$proto101["m_srcTableName"] = "Export and Import Users";
-$proto101["m_columns"] = array();
-$proto101["m_columns"][] = "id_person";
-$proto101["m_columns"][] = "create_api_request_id";
-$proto101["m_columns"][] = "edit_api_request_id";
-$proto101["m_columns"][] = "external_id";
-$proto101["m_columns"][] = "external_system";
-$proto101["m_columns"][] = "external_table";
-$proto101["m_columns"][] = "syst_created_datetime";
-$proto101["m_columns"][] = "creation_system_id";
-$proto101["m_columns"][] = "created_by_id";
-$proto101["m_columns"][] = "creation_method";
-$proto101["m_columns"][] = "syst_updated_datetime";
-$proto101["m_columns"][] = "update_system_id";
-$proto101["m_columns"][] = "updated_by_id";
-$proto101["m_columns"][] = "update_method";
-$proto101["m_columns"][] = "is_update_on_duplicate_key";
-$proto101["m_columns"][] = "person_status_id";
-$proto101["m_columns"][] = "dupe_id";
-$proto101["m_columns"][] = "handler_id";
-$proto101["m_columns"][] = "is_unee_t_account_needed";
-$proto101["m_columns"][] = "unee_t_user_type_id";
-$proto101["m_columns"][] = "country_code";
-$proto101["m_columns"][] = "gender";
-$proto101["m_columns"][] = "salutation_id";
-$proto101["m_columns"][] = "given_name";
-$proto101["m_columns"][] = "middle_name";
-$proto101["m_columns"][] = "family_name";
-$proto101["m_columns"][] = "date_of_birth";
-$proto101["m_columns"][] = "alias";
-$proto101["m_columns"][] = "job_title";
-$proto101["m_columns"][] = "organization";
-$proto101["m_columns"][] = "email";
-$proto101["m_columns"][] = "tel_1";
-$proto101["m_columns"][] = "tel_2";
-$proto101["m_columns"][] = "whatsapp";
-$proto101["m_columns"][] = "linkedin";
-$proto101["m_columns"][] = "facebook";
-$proto101["m_columns"][] = "adr1";
-$proto101["m_columns"][] = "adr2";
-$proto101["m_columns"][] = "adr3";
-$proto101["m_columns"][] = "City";
-$proto101["m_columns"][] = "zip_postcode";
-$proto101["m_columns"][] = "region_or_state";
-$proto101["m_columns"][] = "country";
-$obj = new SQLTable($proto101);
+						$proto100=array();
+			$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Export and Import Users"
+));
 
-$proto100["m_table"] = $obj;
-$proto100["m_sql"] = "external_persons";
-$proto100["m_alias"] = "";
+$proto100["m_sql"] = "ut_user_types.is_super_admin";
 $proto100["m_srcTableName"] = "Export and Import Users";
-$proto102=array();
-$proto102["m_sql"] = "";
-$proto102["m_uniontype"] = "SQLL_UNKNOWN";
+$proto100["m_expr"]=$obj;
+$proto100["m_alias"] = "";
+$obj = new SQLFieldListItem($proto100);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto102=array();
+$proto102["m_link"] = "SQLL_MAIN";
+			$proto103=array();
+$proto103["m_strName"] = "external_persons";
+$proto103["m_srcTableName"] = "Export and Import Users";
+$proto103["m_columns"] = array();
+$proto103["m_columns"][] = "id_person";
+$proto103["m_columns"][] = "create_api_request_id";
+$proto103["m_columns"][] = "edit_api_request_id";
+$proto103["m_columns"][] = "external_id";
+$proto103["m_columns"][] = "external_system";
+$proto103["m_columns"][] = "external_table";
+$proto103["m_columns"][] = "syst_created_datetime";
+$proto103["m_columns"][] = "creation_system_id";
+$proto103["m_columns"][] = "created_by_id";
+$proto103["m_columns"][] = "creation_method";
+$proto103["m_columns"][] = "syst_updated_datetime";
+$proto103["m_columns"][] = "update_system_id";
+$proto103["m_columns"][] = "updated_by_id";
+$proto103["m_columns"][] = "update_method";
+$proto103["m_columns"][] = "is_update_on_duplicate_key";
+$proto103["m_columns"][] = "person_status_id";
+$proto103["m_columns"][] = "dupe_id";
+$proto103["m_columns"][] = "handler_id";
+$proto103["m_columns"][] = "is_unee_t_account_needed";
+$proto103["m_columns"][] = "unee_t_user_type_id";
+$proto103["m_columns"][] = "country_code";
+$proto103["m_columns"][] = "gender";
+$proto103["m_columns"][] = "salutation_id";
+$proto103["m_columns"][] = "given_name";
+$proto103["m_columns"][] = "middle_name";
+$proto103["m_columns"][] = "family_name";
+$proto103["m_columns"][] = "date_of_birth";
+$proto103["m_columns"][] = "alias";
+$proto103["m_columns"][] = "job_title";
+$proto103["m_columns"][] = "organization";
+$proto103["m_columns"][] = "email";
+$proto103["m_columns"][] = "tel_1";
+$proto103["m_columns"][] = "tel_2";
+$proto103["m_columns"][] = "whatsapp";
+$proto103["m_columns"][] = "linkedin";
+$proto103["m_columns"][] = "facebook";
+$proto103["m_columns"][] = "adr1";
+$proto103["m_columns"][] = "adr2";
+$proto103["m_columns"][] = "adr3";
+$proto103["m_columns"][] = "City";
+$proto103["m_columns"][] = "zip_postcode";
+$proto103["m_columns"][] = "region_or_state";
+$proto103["m_columns"][] = "country";
+$obj = new SQLTable($proto103);
+
+$proto102["m_table"] = $obj;
+$proto102["m_sql"] = "external_persons";
+$proto102["m_alias"] = "";
+$proto102["m_srcTableName"] = "Export and Import Users";
+$proto104=array();
+$proto104["m_sql"] = "";
+$proto104["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto102["m_column"]=$obj;
-$proto102["m_contained"] = array();
-$proto102["m_strCase"] = "";
-$proto102["m_havingmode"] = false;
-$proto102["m_inBrackets"] = false;
-$proto102["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto102);
+$proto104["m_column"]=$obj;
+$proto104["m_contained"] = array();
+$proto104["m_strCase"] = "";
+$proto104["m_havingmode"] = false;
+$proto104["m_inBrackets"] = false;
+$proto104["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto104);
 
-$proto100["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto100);
+$proto102["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto102);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto104=array();
-$proto104["m_link"] = "SQLL_LEFTJOIN";
-			$proto105=array();
-$proto105["m_strName"] = "person_genders";
-$proto105["m_srcTableName"] = "Export and Import Users";
-$proto105["m_columns"] = array();
-$proto105["m_columns"][] = "id_person_gender";
-$proto105["m_columns"][] = "creation_system_id";
-$proto105["m_columns"][] = "update_system_id";
-$proto105["m_columns"][] = "is_obsolete";
-$proto105["m_columns"][] = "is_default";
-$proto105["m_columns"][] = "is_active";
-$proto105["m_columns"][] = "order";
-$proto105["m_columns"][] = "person_gender";
-$proto105["m_columns"][] = "description";
-$obj = new SQLTable($proto105);
+												$proto106=array();
+$proto106["m_link"] = "SQLL_LEFTJOIN";
+			$proto107=array();
+$proto107["m_strName"] = "person_genders";
+$proto107["m_srcTableName"] = "Export and Import Users";
+$proto107["m_columns"] = array();
+$proto107["m_columns"][] = "id_person_gender";
+$proto107["m_columns"][] = "creation_system_id";
+$proto107["m_columns"][] = "update_system_id";
+$proto107["m_columns"][] = "is_obsolete";
+$proto107["m_columns"][] = "is_default";
+$proto107["m_columns"][] = "is_active";
+$proto107["m_columns"][] = "order";
+$proto107["m_columns"][] = "person_gender";
+$proto107["m_columns"][] = "description";
+$obj = new SQLTable($proto107);
 
-$proto104["m_table"] = $obj;
-$proto104["m_sql"] = "LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender";
-$proto104["m_alias"] = "";
-$proto104["m_srcTableName"] = "Export and Import Users";
-$proto106=array();
-$proto106["m_sql"] = "external_persons.gender = person_genders.id_person_gender";
-$proto106["m_uniontype"] = "SQLL_UNKNOWN";
+$proto106["m_table"] = $obj;
+$proto106["m_sql"] = "LEFT OUTER JOIN person_genders ON external_persons.gender = person_genders.id_person_gender";
+$proto106["m_alias"] = "";
+$proto106["m_srcTableName"] = "Export and Import Users";
+$proto108=array();
+$proto108["m_sql"] = "external_persons.gender = person_genders.id_person_gender";
+$proto108["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "gender",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto106["m_column"]=$obj;
-$proto106["m_contained"] = array();
-$proto106["m_strCase"] = "= person_genders.id_person_gender";
-$proto106["m_havingmode"] = false;
-$proto106["m_inBrackets"] = false;
-$proto106["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto106);
+$proto108["m_column"]=$obj;
+$proto108["m_contained"] = array();
+$proto108["m_strCase"] = "= person_genders.id_person_gender";
+$proto108["m_havingmode"] = false;
+$proto108["m_inBrackets"] = false;
+$proto108["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto108);
 
-$proto104["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto104);
+$proto106["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto106);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto108=array();
-$proto108["m_link"] = "SQLL_LEFTJOIN";
-			$proto109=array();
-$proto109["m_strName"] = "person_salutations";
-$proto109["m_srcTableName"] = "Export and Import Users";
-$proto109["m_columns"] = array();
-$proto109["m_columns"][] = "id_salutation";
-$proto109["m_columns"][] = "creation_system_id";
-$proto109["m_columns"][] = "update_system_id";
-$proto109["m_columns"][] = "is_obsolete";
-$proto109["m_columns"][] = "order";
-$proto109["m_columns"][] = "salutation";
-$proto109["m_columns"][] = "salutation_description";
-$obj = new SQLTable($proto109);
+												$proto110=array();
+$proto110["m_link"] = "SQLL_LEFTJOIN";
+			$proto111=array();
+$proto111["m_strName"] = "person_salutations";
+$proto111["m_srcTableName"] = "Export and Import Users";
+$proto111["m_columns"] = array();
+$proto111["m_columns"][] = "id_salutation";
+$proto111["m_columns"][] = "creation_system_id";
+$proto111["m_columns"][] = "update_system_id";
+$proto111["m_columns"][] = "is_obsolete";
+$proto111["m_columns"][] = "order";
+$proto111["m_columns"][] = "salutation";
+$proto111["m_columns"][] = "salutation_description";
+$obj = new SQLTable($proto111);
 
-$proto108["m_table"] = $obj;
-$proto108["m_sql"] = "LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation";
-$proto108["m_alias"] = "";
-$proto108["m_srcTableName"] = "Export and Import Users";
-$proto110=array();
-$proto110["m_sql"] = "external_persons.salutation_id = person_salutations.id_salutation";
-$proto110["m_uniontype"] = "SQLL_UNKNOWN";
+$proto110["m_table"] = $obj;
+$proto110["m_sql"] = "LEFT OUTER JOIN person_salutations ON external_persons.salutation_id = person_salutations.id_salutation";
+$proto110["m_alias"] = "";
+$proto110["m_srcTableName"] = "Export and Import Users";
+$proto112=array();
+$proto112["m_sql"] = "external_persons.salutation_id = person_salutations.id_salutation";
+$proto112["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "salutation_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto110["m_column"]=$obj;
-$proto110["m_contained"] = array();
-$proto110["m_strCase"] = "= person_salutations.id_salutation";
-$proto110["m_havingmode"] = false;
-$proto110["m_inBrackets"] = false;
-$proto110["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto110);
+$proto112["m_column"]=$obj;
+$proto112["m_contained"] = array();
+$proto112["m_strCase"] = "= person_salutations.id_salutation";
+$proto112["m_havingmode"] = false;
+$proto112["m_inBrackets"] = false;
+$proto112["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto112);
 
-$proto108["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto108);
+$proto110["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto110);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto112=array();
-$proto112["m_link"] = "SQLL_LEFTJOIN";
-			$proto113=array();
-$proto113["m_strName"] = "person_statuses";
-$proto113["m_srcTableName"] = "Export and Import Users";
-$proto113["m_columns"] = array();
-$proto113["m_columns"][] = "id_person_status";
-$proto113["m_columns"][] = "creation_system_id";
-$proto113["m_columns"][] = "update_system_id";
-$proto113["m_columns"][] = "is_obsolete";
-$proto113["m_columns"][] = "is_default";
-$proto113["m_columns"][] = "is_active";
-$proto113["m_columns"][] = "order";
-$proto113["m_columns"][] = "person_status";
-$proto113["m_columns"][] = "person_status_definition";
-$obj = new SQLTable($proto113);
+												$proto114=array();
+$proto114["m_link"] = "SQLL_LEFTJOIN";
+			$proto115=array();
+$proto115["m_strName"] = "person_statuses";
+$proto115["m_srcTableName"] = "Export and Import Users";
+$proto115["m_columns"] = array();
+$proto115["m_columns"][] = "id_person_status";
+$proto115["m_columns"][] = "creation_system_id";
+$proto115["m_columns"][] = "update_system_id";
+$proto115["m_columns"][] = "is_obsolete";
+$proto115["m_columns"][] = "is_default";
+$proto115["m_columns"][] = "is_active";
+$proto115["m_columns"][] = "order";
+$proto115["m_columns"][] = "person_status";
+$proto115["m_columns"][] = "person_status_definition";
+$obj = new SQLTable($proto115);
 
-$proto112["m_table"] = $obj;
-$proto112["m_sql"] = "LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status";
-$proto112["m_alias"] = "";
-$proto112["m_srcTableName"] = "Export and Import Users";
-$proto114=array();
-$proto114["m_sql"] = "external_persons.person_status_id = person_statuses.id_person_status";
-$proto114["m_uniontype"] = "SQLL_UNKNOWN";
+$proto114["m_table"] = $obj;
+$proto114["m_sql"] = "LEFT OUTER JOIN person_statuses ON external_persons.person_status_id = person_statuses.id_person_status";
+$proto114["m_alias"] = "";
+$proto114["m_srcTableName"] = "Export and Import Users";
+$proto116=array();
+$proto116["m_sql"] = "external_persons.person_status_id = person_statuses.id_person_status";
+$proto116["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "person_status_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto114["m_column"]=$obj;
-$proto114["m_contained"] = array();
-$proto114["m_strCase"] = "= person_statuses.id_person_status";
-$proto114["m_havingmode"] = false;
-$proto114["m_inBrackets"] = false;
-$proto114["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto114);
+$proto116["m_column"]=$obj;
+$proto116["m_contained"] = array();
+$proto116["m_strCase"] = "= person_statuses.id_person_status";
+$proto116["m_havingmode"] = false;
+$proto116["m_inBrackets"] = false;
+$proto116["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto116);
 
-$proto112["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto112);
+$proto114["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto114);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto116=array();
-$proto116["m_link"] = "SQLL_LEFTJOIN";
-			$proto117=array();
-$proto117["m_strName"] = "ut_user_types";
-$proto117["m_srcTableName"] = "Export and Import Users";
-$proto117["m_columns"] = array();
-$proto117["m_columns"][] = "id_unee_t_user_type";
-$proto117["m_columns"][] = "syst_created_datetime";
-$proto117["m_columns"][] = "creation_system_id";
-$proto117["m_columns"][] = "created_by_id";
-$proto117["m_columns"][] = "creation_method";
-$proto117["m_columns"][] = "syst_updated_datetime";
-$proto117["m_columns"][] = "update_system_id";
-$proto117["m_columns"][] = "updated_by_id";
-$proto117["m_columns"][] = "update_method";
-$proto117["m_columns"][] = "organization_id";
-$proto117["m_columns"][] = "order";
-$proto117["m_columns"][] = "is_obsolete";
-$proto117["m_columns"][] = "designation";
-$proto117["m_columns"][] = "description";
-$proto117["m_columns"][] = "ut_user_role_type_id";
-$proto117["m_columns"][] = "is_all_unit";
-$proto117["m_columns"][] = "is_all_units_in_country";
-$proto117["m_columns"][] = "is_all_units_in_area";
-$proto117["m_columns"][] = "is_all_units_in_level_1";
-$proto117["m_columns"][] = "is_all_units_in_level_2";
-$proto117["m_columns"][] = "is_occupant";
-$proto117["m_columns"][] = "is_public";
-$proto117["m_columns"][] = "is_default_assignee";
-$proto117["m_columns"][] = "is_default_invited";
-$proto117["m_columns"][] = "is_unit_owner";
-$proto117["m_columns"][] = "is_dashboard_access";
-$proto117["m_columns"][] = "can_see_role_contractor";
-$proto117["m_columns"][] = "can_see_role_mgt_cny";
-$proto117["m_columns"][] = "can_see_occupant";
-$proto117["m_columns"][] = "can_see_role_landlord";
-$proto117["m_columns"][] = "can_see_role_agent";
-$proto117["m_columns"][] = "can_see_role_tenant";
-$proto117["m_columns"][] = "is_assigned_to_case";
-$proto117["m_columns"][] = "is_invited_to_case";
-$proto117["m_columns"][] = "is_solution_updated";
-$proto117["m_columns"][] = "is_next_step_updated";
-$proto117["m_columns"][] = "is_deadline_updated";
-$proto117["m_columns"][] = "is_case_resolved";
-$proto117["m_columns"][] = "is_case_critical";
-$proto117["m_columns"][] = "is_case_blocker";
-$proto117["m_columns"][] = "is_message_from_contractor";
-$proto117["m_columns"][] = "is_message_from_mgt_cny";
-$proto117["m_columns"][] = "is_message_from_agent";
-$proto117["m_columns"][] = "is_message_from_occupant";
-$proto117["m_columns"][] = "is_message_from_ll";
-$proto117["m_columns"][] = "is_message_from_tenant";
-$proto117["m_columns"][] = "is_any_new_message";
-$proto117["m_columns"][] = "is_new_ir";
-$proto117["m_columns"][] = "is_new_inventory";
-$proto117["m_columns"][] = "is_new_item";
-$proto117["m_columns"][] = "is_item_moved";
-$proto117["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto117);
+												$proto118=array();
+$proto118["m_link"] = "SQLL_LEFTJOIN";
+			$proto119=array();
+$proto119["m_strName"] = "ut_user_types";
+$proto119["m_srcTableName"] = "Export and Import Users";
+$proto119["m_columns"] = array();
+$proto119["m_columns"][] = "id_unee_t_user_type";
+$proto119["m_columns"][] = "syst_created_datetime";
+$proto119["m_columns"][] = "creation_system_id";
+$proto119["m_columns"][] = "created_by_id";
+$proto119["m_columns"][] = "creation_method";
+$proto119["m_columns"][] = "syst_updated_datetime";
+$proto119["m_columns"][] = "update_system_id";
+$proto119["m_columns"][] = "updated_by_id";
+$proto119["m_columns"][] = "update_method";
+$proto119["m_columns"][] = "organization_id";
+$proto119["m_columns"][] = "order";
+$proto119["m_columns"][] = "is_obsolete";
+$proto119["m_columns"][] = "designation";
+$proto119["m_columns"][] = "description";
+$proto119["m_columns"][] = "ut_user_role_type_id";
+$proto119["m_columns"][] = "is_super_admin";
+$proto119["m_columns"][] = "is_all_unit";
+$proto119["m_columns"][] = "is_all_units_in_country";
+$proto119["m_columns"][] = "is_all_units_in_area";
+$proto119["m_columns"][] = "is_all_units_in_level_1";
+$proto119["m_columns"][] = "is_all_units_in_level_2";
+$proto119["m_columns"][] = "is_occupant";
+$proto119["m_columns"][] = "is_public";
+$proto119["m_columns"][] = "is_default_assignee";
+$proto119["m_columns"][] = "is_default_invited";
+$proto119["m_columns"][] = "is_unit_owner";
+$proto119["m_columns"][] = "is_dashboard_access";
+$proto119["m_columns"][] = "can_see_role_contractor";
+$proto119["m_columns"][] = "can_see_role_mgt_cny";
+$proto119["m_columns"][] = "can_see_occupant";
+$proto119["m_columns"][] = "can_see_role_landlord";
+$proto119["m_columns"][] = "can_see_role_agent";
+$proto119["m_columns"][] = "can_see_role_tenant";
+$proto119["m_columns"][] = "is_assigned_to_case";
+$proto119["m_columns"][] = "is_invited_to_case";
+$proto119["m_columns"][] = "is_solution_updated";
+$proto119["m_columns"][] = "is_next_step_updated";
+$proto119["m_columns"][] = "is_deadline_updated";
+$proto119["m_columns"][] = "is_case_resolved";
+$proto119["m_columns"][] = "is_case_critical";
+$proto119["m_columns"][] = "is_case_blocker";
+$proto119["m_columns"][] = "is_message_from_contractor";
+$proto119["m_columns"][] = "is_message_from_mgt_cny";
+$proto119["m_columns"][] = "is_message_from_agent";
+$proto119["m_columns"][] = "is_message_from_occupant";
+$proto119["m_columns"][] = "is_message_from_ll";
+$proto119["m_columns"][] = "is_message_from_tenant";
+$proto119["m_columns"][] = "is_any_new_message";
+$proto119["m_columns"][] = "is_new_ir";
+$proto119["m_columns"][] = "is_new_inventory";
+$proto119["m_columns"][] = "is_new_item";
+$proto119["m_columns"][] = "is_item_moved";
+$proto119["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto119);
 
-$proto116["m_table"] = $obj;
-$proto116["m_sql"] = "LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto116["m_alias"] = "";
-$proto116["m_srcTableName"] = "Export and Import Users";
-$proto118=array();
-$proto118["m_sql"] = "external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
-$proto118["m_uniontype"] = "SQLL_UNKNOWN";
+$proto118["m_table"] = $obj;
+$proto118["m_sql"] = "LEFT OUTER JOIN ut_user_types ON external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto118["m_alias"] = "";
+$proto118["m_srcTableName"] = "Export and Import Users";
+$proto120=array();
+$proto120["m_sql"] = "external_persons.unee_t_user_type_id = ut_user_types.id_unee_t_user_type";
+$proto120["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto118["m_column"]=$obj;
-$proto118["m_contained"] = array();
-$proto118["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
-$proto118["m_havingmode"] = false;
-$proto118["m_inBrackets"] = false;
-$proto118["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto118);
+$proto120["m_column"]=$obj;
+$proto120["m_contained"] = array();
+$proto120["m_strCase"] = "= ut_user_types.id_unee_t_user_type";
+$proto120["m_havingmode"] = false;
+$proto120["m_inBrackets"] = false;
+$proto120["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto120);
 
-$proto116["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto116);
+$proto118["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto118);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto120=array();
-$proto120["m_link"] = "SQLL_LEFTJOIN";
-			$proto121=array();
-$proto121["m_strName"] = "persons";
-$proto121["m_srcTableName"] = "Export and Import Users";
-$proto121["m_columns"] = array();
-$proto121["m_columns"][] = "id_person";
-$proto121["m_columns"][] = "create_api_request_id";
-$proto121["m_columns"][] = "edit_api_request_id";
-$proto121["m_columns"][] = "external_id";
-$proto121["m_columns"][] = "external_system";
-$proto121["m_columns"][] = "external_table";
-$proto121["m_columns"][] = "syst_created_datetime";
-$proto121["m_columns"][] = "creation_system_id";
-$proto121["m_columns"][] = "created_by_id";
-$proto121["m_columns"][] = "creation_method";
-$proto121["m_columns"][] = "syst_updated_datetime";
-$proto121["m_columns"][] = "update_system_id";
-$proto121["m_columns"][] = "updated_by_id";
-$proto121["m_columns"][] = "update_method";
-$proto121["m_columns"][] = "is_update_on_duplicate_key";
-$proto121["m_columns"][] = "organization_id";
-$proto121["m_columns"][] = "person_status_id";
-$proto121["m_columns"][] = "dupe_id";
-$proto121["m_columns"][] = "handler_id";
-$proto121["m_columns"][] = "is_unee_t_account_needed";
-$proto121["m_columns"][] = "unee_t_user_type_id";
-$proto121["m_columns"][] = "country_code";
-$proto121["m_columns"][] = "gender";
-$proto121["m_columns"][] = "salutation_id";
-$proto121["m_columns"][] = "given_name";
-$proto121["m_columns"][] = "middle_name";
-$proto121["m_columns"][] = "family_name";
-$proto121["m_columns"][] = "date_of_birth";
-$proto121["m_columns"][] = "alias";
-$proto121["m_columns"][] = "job_title";
-$proto121["m_columns"][] = "organization";
-$proto121["m_columns"][] = "email";
-$proto121["m_columns"][] = "tel_1";
-$proto121["m_columns"][] = "tel_2";
-$proto121["m_columns"][] = "whatsapp";
-$proto121["m_columns"][] = "linkedin";
-$proto121["m_columns"][] = "facebook";
-$proto121["m_columns"][] = "adr1";
-$proto121["m_columns"][] = "adr2";
-$proto121["m_columns"][] = "adr3";
-$proto121["m_columns"][] = "City";
-$proto121["m_columns"][] = "zip_postcode";
-$proto121["m_columns"][] = "region_or_state";
-$proto121["m_columns"][] = "country";
-$obj = new SQLTable($proto121);
+												$proto122=array();
+$proto122["m_link"] = "SQLL_LEFTJOIN";
+			$proto123=array();
+$proto123["m_strName"] = "persons";
+$proto123["m_srcTableName"] = "Export and Import Users";
+$proto123["m_columns"] = array();
+$proto123["m_columns"][] = "id_person";
+$proto123["m_columns"][] = "create_api_request_id";
+$proto123["m_columns"][] = "edit_api_request_id";
+$proto123["m_columns"][] = "external_id";
+$proto123["m_columns"][] = "external_system";
+$proto123["m_columns"][] = "external_table";
+$proto123["m_columns"][] = "syst_created_datetime";
+$proto123["m_columns"][] = "creation_system_id";
+$proto123["m_columns"][] = "created_by_id";
+$proto123["m_columns"][] = "creation_method";
+$proto123["m_columns"][] = "syst_updated_datetime";
+$proto123["m_columns"][] = "update_system_id";
+$proto123["m_columns"][] = "updated_by_id";
+$proto123["m_columns"][] = "update_method";
+$proto123["m_columns"][] = "is_update_on_duplicate_key";
+$proto123["m_columns"][] = "organization_id";
+$proto123["m_columns"][] = "person_status_id";
+$proto123["m_columns"][] = "dupe_id";
+$proto123["m_columns"][] = "handler_id";
+$proto123["m_columns"][] = "is_unee_t_account_needed";
+$proto123["m_columns"][] = "unee_t_user_type_id";
+$proto123["m_columns"][] = "country_code";
+$proto123["m_columns"][] = "gender";
+$proto123["m_columns"][] = "salutation_id";
+$proto123["m_columns"][] = "given_name";
+$proto123["m_columns"][] = "middle_name";
+$proto123["m_columns"][] = "family_name";
+$proto123["m_columns"][] = "date_of_birth";
+$proto123["m_columns"][] = "alias";
+$proto123["m_columns"][] = "job_title";
+$proto123["m_columns"][] = "organization";
+$proto123["m_columns"][] = "email";
+$proto123["m_columns"][] = "tel_1";
+$proto123["m_columns"][] = "tel_2";
+$proto123["m_columns"][] = "whatsapp";
+$proto123["m_columns"][] = "linkedin";
+$proto123["m_columns"][] = "facebook";
+$proto123["m_columns"][] = "adr1";
+$proto123["m_columns"][] = "adr2";
+$proto123["m_columns"][] = "adr3";
+$proto123["m_columns"][] = "City";
+$proto123["m_columns"][] = "zip_postcode";
+$proto123["m_columns"][] = "region_or_state";
+$proto123["m_columns"][] = "country";
+$obj = new SQLTable($proto123);
 
-$proto120["m_table"] = $obj;
-$proto120["m_sql"] = "LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
-$proto120["m_alias"] = "";
-$proto120["m_srcTableName"] = "Export and Import Users";
-$proto122=array();
-$proto122["m_sql"] = "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
-$proto122["m_uniontype"] = "SQLL_AND";
+$proto122["m_table"] = $obj;
+$proto122["m_sql"] = "LEFT OUTER JOIN persons ON external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
+$proto122["m_alias"] = "";
+$proto122["m_srcTableName"] = "Export and Import Users";
+$proto124=array();
+$proto124["m_sql"] = "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id";
+$proto124["m_uniontype"] = "SQLL_AND";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => "external_persons.external_id = persons.external_id AND external_persons.external_system = persons.external_system AND external_persons.external_table = persons.external_table AND external_persons.created_by_id = persons.organization_id"
 ));
 
-$proto122["m_column"]=$obj;
-$proto122["m_contained"] = array();
-						$proto124=array();
-$proto124["m_sql"] = "external_persons.external_id = persons.external_id";
-$proto124["m_uniontype"] = "SQLL_UNKNOWN";
+$proto124["m_column"]=$obj;
+$proto124["m_contained"] = array();
+						$proto126=array();
+$proto126["m_sql"] = "external_persons.external_id = persons.external_id";
+$proto126["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "external_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto124["m_column"]=$obj;
-$proto124["m_contained"] = array();
-$proto124["m_strCase"] = "= persons.external_id";
-$proto124["m_havingmode"] = false;
-$proto124["m_inBrackets"] = false;
-$proto124["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto124);
+$proto126["m_column"]=$obj;
+$proto126["m_contained"] = array();
+$proto126["m_strCase"] = "= persons.external_id";
+$proto126["m_havingmode"] = false;
+$proto126["m_inBrackets"] = false;
+$proto126["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto126);
 
-			$proto122["m_contained"][]=$obj;
-						$proto126=array();
-$proto126["m_sql"] = "external_persons.external_system = persons.external_system";
-$proto126["m_uniontype"] = "SQLL_UNKNOWN";
+			$proto124["m_contained"][]=$obj;
+						$proto128=array();
+$proto128["m_sql"] = "external_persons.external_system = persons.external_system";
+$proto128["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "external_system",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto126["m_column"]=$obj;
-$proto126["m_contained"] = array();
-$proto126["m_strCase"] = "= persons.external_system";
-$proto126["m_havingmode"] = false;
-$proto126["m_inBrackets"] = false;
-$proto126["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto126);
+$proto128["m_column"]=$obj;
+$proto128["m_contained"] = array();
+$proto128["m_strCase"] = "= persons.external_system";
+$proto128["m_havingmode"] = false;
+$proto128["m_inBrackets"] = false;
+$proto128["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto128);
 
-			$proto122["m_contained"][]=$obj;
-						$proto128=array();
-$proto128["m_sql"] = "external_persons.external_table = persons.external_table";
-$proto128["m_uniontype"] = "SQLL_UNKNOWN";
+			$proto124["m_contained"][]=$obj;
+						$proto130=array();
+$proto130["m_sql"] = "external_persons.external_table = persons.external_table";
+$proto130["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "external_table",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto128["m_column"]=$obj;
-$proto128["m_contained"] = array();
-$proto128["m_strCase"] = "= persons.external_table";
-$proto128["m_havingmode"] = false;
-$proto128["m_inBrackets"] = false;
-$proto128["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto128);
+$proto130["m_column"]=$obj;
+$proto130["m_contained"] = array();
+$proto130["m_strCase"] = "= persons.external_table";
+$proto130["m_havingmode"] = false;
+$proto130["m_inBrackets"] = false;
+$proto130["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto130);
 
-			$proto122["m_contained"][]=$obj;
-						$proto130=array();
-$proto130["m_sql"] = "external_persons.created_by_id = persons.organization_id";
-$proto130["m_uniontype"] = "SQLL_UNKNOWN";
+			$proto124["m_contained"][]=$obj;
+						$proto132=array();
+$proto132["m_sql"] = "external_persons.created_by_id = persons.organization_id";
+$proto132["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "created_by_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto130["m_column"]=$obj;
-$proto130["m_contained"] = array();
-$proto130["m_strCase"] = "= persons.organization_id";
-$proto130["m_havingmode"] = false;
-$proto130["m_inBrackets"] = false;
-$proto130["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto130);
+$proto132["m_column"]=$obj;
+$proto132["m_contained"] = array();
+$proto132["m_strCase"] = "= persons.organization_id";
+$proto132["m_havingmode"] = false;
+$proto132["m_inBrackets"] = false;
+$proto132["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto132);
 
-			$proto122["m_contained"][]=$obj;
-$proto122["m_strCase"] = "";
-$proto122["m_havingmode"] = false;
-$proto122["m_inBrackets"] = false;
-$proto122["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto122);
+			$proto124["m_contained"][]=$obj;
+$proto124["m_strCase"] = "";
+$proto124["m_havingmode"] = false;
+$proto124["m_inBrackets"] = false;
+$proto124["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto124);
 
-$proto120["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto120);
+$proto122["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto122);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto132=array();
-$proto132["m_link"] = "SQLL_LEFTJOIN";
-			$proto133=array();
-$proto133["m_strName"] = "ut_map_external_source_users";
-$proto133["m_srcTableName"] = "Export and Import Users";
-$proto133["m_columns"] = array();
-$proto133["m_columns"][] = "id_map";
-$proto133["m_columns"][] = "create_api_request_id";
-$proto133["m_columns"][] = "edit_api_request_id";
-$proto133["m_columns"][] = "syst_created_datetime";
-$proto133["m_columns"][] = "creation_system_id";
-$proto133["m_columns"][] = "created_by_id";
-$proto133["m_columns"][] = "creation_method";
-$proto133["m_columns"][] = "syst_updated_datetime";
-$proto133["m_columns"][] = "update_system_id";
-$proto133["m_columns"][] = "updated_by_id";
-$proto133["m_columns"][] = "update_method";
-$proto133["m_columns"][] = "is_update_on_duplicate_key";
-$proto133["m_columns"][] = "organization_id";
-$proto133["m_columns"][] = "is_obsolete";
-$proto133["m_columns"][] = "is_update_needed";
-$proto133["m_columns"][] = "person_id";
-$proto133["m_columns"][] = "mefe_user_id_parent";
-$proto133["m_columns"][] = "unee_t_mefe_user_id";
-$proto133["m_columns"][] = "unee_t_mefe_user_api_key";
-$proto133["m_columns"][] = "uneet_created_datetime";
-$proto133["m_columns"][] = "is_mefe_api_success";
-$proto133["m_columns"][] = "mefe_api_error_message";
-$proto133["m_columns"][] = "is_unee_t_created_by_me";
-$proto133["m_columns"][] = "uneet_login_name";
-$proto133["m_columns"][] = "external_person_id";
-$proto133["m_columns"][] = "external_system";
-$proto133["m_columns"][] = "table_in_external_system";
-$obj = new SQLTable($proto133);
+												$proto134=array();
+$proto134["m_link"] = "SQLL_LEFTJOIN";
+			$proto135=array();
+$proto135["m_strName"] = "ut_map_external_source_users";
+$proto135["m_srcTableName"] = "Export and Import Users";
+$proto135["m_columns"] = array();
+$proto135["m_columns"][] = "id_map";
+$proto135["m_columns"][] = "create_api_request_id";
+$proto135["m_columns"][] = "edit_api_request_id";
+$proto135["m_columns"][] = "syst_created_datetime";
+$proto135["m_columns"][] = "creation_system_id";
+$proto135["m_columns"][] = "created_by_id";
+$proto135["m_columns"][] = "creation_method";
+$proto135["m_columns"][] = "syst_updated_datetime";
+$proto135["m_columns"][] = "update_system_id";
+$proto135["m_columns"][] = "updated_by_id";
+$proto135["m_columns"][] = "update_method";
+$proto135["m_columns"][] = "is_update_on_duplicate_key";
+$proto135["m_columns"][] = "organization_id";
+$proto135["m_columns"][] = "is_obsolete";
+$proto135["m_columns"][] = "is_update_needed";
+$proto135["m_columns"][] = "person_id";
+$proto135["m_columns"][] = "mefe_user_id_parent";
+$proto135["m_columns"][] = "unee_t_mefe_user_id";
+$proto135["m_columns"][] = "unee_t_mefe_user_api_key";
+$proto135["m_columns"][] = "uneet_created_datetime";
+$proto135["m_columns"][] = "is_mefe_api_success";
+$proto135["m_columns"][] = "mefe_api_error_message";
+$proto135["m_columns"][] = "is_unee_t_created_by_me";
+$proto135["m_columns"][] = "uneet_login_name";
+$proto135["m_columns"][] = "external_person_id";
+$proto135["m_columns"][] = "external_system";
+$proto135["m_columns"][] = "table_in_external_system";
+$obj = new SQLTable($proto135);
 
-$proto132["m_table"] = $obj;
-$proto132["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
-$proto132["m_alias"] = "";
-$proto132["m_srcTableName"] = "Export and Import Users";
-$proto134=array();
-$proto134["m_sql"] = "persons.id_person = ut_map_external_source_users.person_id";
-$proto134["m_uniontype"] = "SQLL_UNKNOWN";
+$proto134["m_table"] = $obj;
+$proto134["m_sql"] = "LEFT OUTER JOIN ut_map_external_source_users ON persons.id_person = ut_map_external_source_users.person_id";
+$proto134["m_alias"] = "";
+$proto134["m_srcTableName"] = "Export and Import Users";
+$proto136=array();
+$proto136["m_sql"] = "persons.id_person = ut_map_external_source_users.person_id";
+$proto136["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "id_person",
 	"m_strTable" => "persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto134["m_column"]=$obj;
-$proto134["m_contained"] = array();
-$proto134["m_strCase"] = "= ut_map_external_source_users.person_id";
-$proto134["m_havingmode"] = false;
-$proto134["m_inBrackets"] = false;
-$proto134["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto134);
+$proto136["m_column"]=$obj;
+$proto136["m_contained"] = array();
+$proto136["m_strCase"] = "= ut_map_external_source_users.person_id";
+$proto136["m_havingmode"] = false;
+$proto136["m_inBrackets"] = false;
+$proto136["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto136);
 
-$proto132["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto132);
+$proto134["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto134);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto136=array();
-$proto136["m_link"] = "SQLL_LEFTJOIN";
-			$proto137=array();
-$proto137["m_strName"] = "ut_user_role_types";
-$proto137["m_srcTableName"] = "Export and Import Users";
-$proto137["m_columns"] = array();
-$proto137["m_columns"][] = "id_role_type";
-$proto137["m_columns"][] = "syst_created_datetime";
-$proto137["m_columns"][] = "creation_system_id";
-$proto137["m_columns"][] = "created_by_id";
-$proto137["m_columns"][] = "syst_updated_datetime";
-$proto137["m_columns"][] = "update_system_id";
-$proto137["m_columns"][] = "updated_by_id";
-$proto137["m_columns"][] = "order";
-$proto137["m_columns"][] = "is_obsolete";
-$proto137["m_columns"][] = "role_type";
-$proto137["m_columns"][] = "bz_description";
-$proto137["m_columns"][] = "description";
-$obj = new SQLTable($proto137);
+												$proto138=array();
+$proto138["m_link"] = "SQLL_LEFTJOIN";
+			$proto139=array();
+$proto139["m_strName"] = "ut_user_role_types";
+$proto139["m_srcTableName"] = "Export and Import Users";
+$proto139["m_columns"] = array();
+$proto139["m_columns"][] = "id_role_type";
+$proto139["m_columns"][] = "syst_created_datetime";
+$proto139["m_columns"][] = "creation_system_id";
+$proto139["m_columns"][] = "created_by_id";
+$proto139["m_columns"][] = "syst_updated_datetime";
+$proto139["m_columns"][] = "update_system_id";
+$proto139["m_columns"][] = "updated_by_id";
+$proto139["m_columns"][] = "order";
+$proto139["m_columns"][] = "is_obsolete";
+$proto139["m_columns"][] = "role_type";
+$proto139["m_columns"][] = "bz_description";
+$proto139["m_columns"][] = "description";
+$obj = new SQLTable($proto139);
 
-$proto136["m_table"] = $obj;
-$proto136["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$proto136["m_alias"] = "";
-$proto136["m_srcTableName"] = "Export and Import Users";
-$proto138=array();
-$proto138["m_sql"] = "ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
-$proto138["m_uniontype"] = "SQLL_UNKNOWN";
+$proto138["m_table"] = $obj;
+$proto138["m_sql"] = "LEFT OUTER JOIN ut_user_role_types ON ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto138["m_alias"] = "";
+$proto138["m_srcTableName"] = "Export and Import Users";
+$proto140=array();
+$proto140["m_sql"] = "ut_user_types.ut_user_role_type_id = ut_user_role_types.id_role_type";
+$proto140["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "ut_user_role_type_id",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Export and Import Users"
 ));
 
-$proto138["m_column"]=$obj;
-$proto138["m_contained"] = array();
-$proto138["m_strCase"] = "= ut_user_role_types.id_role_type";
-$proto138["m_havingmode"] = false;
-$proto138["m_inBrackets"] = false;
-$proto138["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto138);
+$proto140["m_column"]=$obj;
+$proto140["m_contained"] = array();
+$proto140["m_strCase"] = "= ut_user_role_types.id_role_type";
+$proto140["m_havingmode"] = false;
+$proto140["m_inBrackets"] = false;
+$proto140["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto140);
 
-$proto136["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto136);
+$proto138["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto138);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto140=array();
-						$obj = new SQLField(array(
-	"m_strName" => "unee_t_user_type_id",
-	"m_strTable" => "external_persons",
-	"m_srcTableName" => "Export and Import Users"
-));
-
-$proto140["m_column"]=$obj;
-$proto140["m_bAsc"] = 1;
-$proto140["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto140);
-
-$proto0["m_orderby"][]=$obj;					
 												$proto142=array();
 						$obj = new SQLField(array(
-	"m_strName" => "given_name",
+	"m_strName" => "unee_t_user_type_id",
 	"m_strTable" => "external_persons",
 	"m_srcTableName" => "Export and Import Users"
 ));
@@ -8158,6 +8299,19 @@ $proto142["m_column"]=$obj;
 $proto142["m_bAsc"] = 1;
 $proto142["m_nColumn"] = 0;
 $obj = new SQLOrderByItem($proto142);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto144=array();
+						$obj = new SQLField(array(
+	"m_strName" => "given_name",
+	"m_strTable" => "external_persons",
+	"m_srcTableName" => "Export and Import Users"
+));
+
+$proto144["m_column"]=$obj;
+$proto144["m_bAsc"] = 1;
+$proto144["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto144);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Export and Import Users";		
@@ -8172,7 +8326,7 @@ $queryData_Export_and_Import_Users = createSqlQuery_Export_and_Import_Users();
 					
 ;
 
-																																															
+																																																
 
 $tdataExport_and_Import_Users[".sqlquery"] = $queryData_Export_and_Import_Users;
 

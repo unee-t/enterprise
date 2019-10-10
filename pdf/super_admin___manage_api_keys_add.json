@@ -177,9 +177,6 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel Super_Admin___Manage_API_Keys api_key }","bold":true},{"text":{$api_key_pdfvalue}}],"margin":[0,0,0,15]},
 				
-				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Super_Admin___Manage_API_Keys mefe_user_id }","bold":true},{"text":{$mefe_user_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
 		  ],
   "border": [ false, false, false, false ],
           },

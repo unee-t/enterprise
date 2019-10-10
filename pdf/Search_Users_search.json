@@ -178,6 +178,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field3}","text":{$user_type_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field4}","text":{$is_super_admin_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

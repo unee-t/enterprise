@@ -85,8 +85,8 @@ include_once(getabspath("include/super_admin___manage_api_keys_events.php"));
 $tableEvents["Super Admin - Manage API Keys"] = new eventclass_super_admin___manage_api_keys;
 include_once(getabspath("include/super_admin___manage_mefe_master_user1_events.php"));
 $tableEvents["Super Admin - Manage MEFE Master User"] = new eventclass_super_admin___manage_mefe_master_user1;
-include_once(getabspath("include/super_admin___manage_user_types_events.php"));
-$tableEvents["Super Admin - Manage User Types"] = new eventclass_super_admin___manage_user_types;
+include_once(getabspath("include/super_admin___default_sot_for_unee_t_objects_events.php"));
+$tableEvents["Super Admin - Default sot for Unee-T objects"] = new eventclass_super_admin___default_sot_for_unee_t_objects;
 
 $xt = new Xtempl();
 

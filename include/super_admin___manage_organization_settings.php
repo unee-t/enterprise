@@ -66,18 +66,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelssuper_admin___manage_organization["English"]["description"] = "Description";
 	$fieldToolTipssuper_admin___manage_organization["English"]["description"] = "";
 	$placeHolderssuper_admin___manage_organization["English"]["description"] = "";
-	$fieldLabelssuper_admin___manage_organization["English"]["default_sot_system"] = "Default System";
-	$fieldToolTipssuper_admin___manage_organization["English"]["default_sot_system"] = "";
-	$placeHolderssuper_admin___manage_organization["English"]["default_sot_system"] = "";
-	$fieldLabelssuper_admin___manage_organization["English"]["default_sot_persons"] = "Default Table Persons";
-	$fieldToolTipssuper_admin___manage_organization["English"]["default_sot_persons"] = "";
-	$placeHolderssuper_admin___manage_organization["English"]["default_sot_persons"] = "";
-	$fieldLabelssuper_admin___manage_organization["English"]["default_sot_areas"] = "Default Table Areas";
-	$fieldToolTipssuper_admin___manage_organization["English"]["default_sot_areas"] = "";
-	$placeHolderssuper_admin___manage_organization["English"]["default_sot_areas"] = "";
-	$fieldLabelssuper_admin___manage_organization["English"]["default_sot_properties"] = "Default Table Properties";
-	$fieldToolTipssuper_admin___manage_organization["English"]["default_sot_properties"] = "";
-	$placeHolderssuper_admin___manage_organization["English"]["default_sot_properties"] = "";
 	$fieldLabelssuper_admin___manage_organization["English"]["default_area"] = "Default Area";
 	$fieldToolTipssuper_admin___manage_organization["English"]["default_area"] = "";
 	$placeHolderssuper_admin___manage_organization["English"]["default_area"] = "";
@@ -87,6 +75,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelssuper_admin___manage_organization["English"]["default_unit"] = "Default Unit";
 	$fieldToolTipssuper_admin___manage_organization["English"]["default_unit"] = "";
 	$placeHolderssuper_admin___manage_organization["English"]["default_unit"] = "";
+	$fieldLabelssuper_admin___manage_organization["English"]["default_role_type_id"] = "Default Role Type";
+	$fieldToolTipssuper_admin___manage_organization["English"]["default_role_type_id"] = "";
+	$placeHolderssuper_admin___manage_organization["English"]["default_role_type_id"] = "";
+	$fieldLabelssuper_admin___manage_organization["English"]["country_code"] = "Country Code";
+	$fieldToolTipssuper_admin___manage_organization["English"]["country_code"] = "";
+	$placeHolderssuper_admin___manage_organization["English"]["country_code"] = "";
 	if (count($fieldToolTipssuper_admin___manage_organization["English"]))
 		$tdatasuper_admin___manage_organization[".isUseToolTips"] = true;
 }
@@ -141,7 +135,7 @@ if( $pages[PAGE_ADD] ) {
 $tdatasuper_admin___manage_organization[".add"] = true;
 $tdatasuper_admin___manage_organization[".afterAddAction"] = 0;
 $tdatasuper_admin___manage_organization[".closePopupAfterAdd"] = 1;
-$tdatasuper_admin___manage_organization[".afterAddActionDetTable"] = "Detail tables not found!";
+$tdatasuper_admin___manage_organization[".afterAddActionDetTable"] = "Super Admin - Default sot for Unee-T objects";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -211,6 +205,8 @@ $tdatasuper_admin___manage_organization[".requiredSearchFields"] = array();
 $tdatasuper_admin___manage_organization[".googleLikeFields"] = array();
 $tdatasuper_admin___manage_organization[".googleLikeFields"][] = "designation";
 $tdatasuper_admin___manage_organization[".googleLikeFields"][] = "description";
+$tdatasuper_admin___manage_organization[".googleLikeFields"][] = "default_role_type_id";
+$tdatasuper_admin___manage_organization[".googleLikeFields"][] = "country_code";
 
 
 
@@ -246,9 +242,9 @@ $tdatasuper_admin___manage_organization[".strOrderBy"] = $tstrOrderBy;
 
 $tdatasuper_admin___manage_organization[".orderindexes"] = array();
 
-$tdatasuper_admin___manage_organization[".sqlHead"] = "SELECT id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties,  	default_area,  	default_building,  	default_unit";
+$tdatasuper_admin___manage_organization[".sqlHead"] = "SELECT id_organization,  syst_created_datetime,  creation_system_id,  creation_method,  created_by_id,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  `order`,  is_obsolete,  designation,  description,  default_area,  default_building,  default_unit,  default_role_type_id,  country_code";
 $tdatasuper_admin___manage_organization[".sqlFrom"] = "FROM uneet_enterprise_organizations";
-$tdatasuper_admin___manage_organization[".sqlWhereExpr"] = "";
+$tdatasuper_admin___manage_organization[".sqlWhereExpr"] = "(id_organization != 0)";
 $tdatasuper_admin___manage_organization[".sqlTail"] = "";
 
 
@@ -2022,550 +2018,10 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 
 	$tdatasuper_admin___manage_organization["description"] = $fdata;
 		$tdatasuper_admin___manage_organization[".searchableFields"][] = "description";
-//	default_sot_system
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 14;
-	$fdata["strName"] = "default_sot_system";
-	$fdata["GoodName"] = "default_sot_system";
-	$fdata["ownerTable"] = "uneet_enterprise_organizations";
-	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","default_sot_system");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "default_sot_system";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "default_sot_system";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatasuper_admin___manage_organization["default_sot_system"] = $fdata;
-		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_sot_system";
-//	default_sot_persons
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 15;
-	$fdata["strName"] = "default_sot_persons";
-	$fdata["GoodName"] = "default_sot_persons";
-	$fdata["ownerTable"] = "uneet_enterprise_organizations";
-	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","default_sot_persons");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "default_sot_persons";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "default_sot_persons";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatasuper_admin___manage_organization["default_sot_persons"] = $fdata;
-		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_sot_persons";
-//	default_sot_areas
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 16;
-	$fdata["strName"] = "default_sot_areas";
-	$fdata["GoodName"] = "default_sot_areas";
-	$fdata["ownerTable"] = "uneet_enterprise_organizations";
-	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","default_sot_areas");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "default_sot_areas";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "default_sot_areas";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatasuper_admin___manage_organization["default_sot_areas"] = $fdata;
-		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_sot_areas";
-//	default_sot_properties
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 17;
-	$fdata["strName"] = "default_sot_properties";
-	$fdata["GoodName"] = "default_sot_properties";
-	$fdata["ownerTable"] = "uneet_enterprise_organizations";
-	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","default_sot_properties");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-										
-
-		$fdata["strField"] = "default_sot_properties";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "default_sot_properties";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatasuper_admin___manage_organization["default_sot_properties"] = $fdata;
-		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_sot_properties";
 //	default_area
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "default_area";
 	$fdata["GoodName"] = "default_area";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -2911,7 +2367,7 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 //	default_building
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "default_building";
 	$fdata["GoodName"] = "default_building";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -3257,7 +2713,7 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 //	default_unit
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "default_unit";
 	$fdata["GoodName"] = "default_unit";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -3600,6 +3056,331 @@ $tdatasuper_admin___manage_organization[".hideMobileList"] = array();
 
 	$tdatasuper_admin___manage_organization["default_unit"] = $fdata;
 		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_unit";
+//	default_role_type_id
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 17;
+	$fdata["strName"] = "default_role_type_id";
+	$fdata["GoodName"] = "default_role_type_id";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","default_role_type_id");
+	$fdata["FieldType"] = 3;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "default_role_type_id";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "default_role_type_id";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_user_role_types";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "id_role_type";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "role_type";
+
+				$edata["LookupWhere"] = "`is_obsolete` = 0";
+
+
+	
+	$edata["LookupOrderBy"] = "order";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatasuper_admin___manage_organization["default_role_type_id"] = $fdata;
+		$tdatasuper_admin___manage_organization[".searchableFields"][] = "default_role_type_id";
+//	country_code
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 18;
+	$fdata["strName"] = "country_code";
+	$fdata["GoodName"] = "country_code";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("Super_Admin___Manage_Organization","country_code");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "country_code";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "country_code";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "List of Countries";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "country_code";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "country_name";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "country_code";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatasuper_admin___manage_organization["country_code"] = $fdata;
+		$tdatasuper_admin___manage_organization[".searchableFields"][] = "country_code";
 
 
 $tables_data["Super Admin - Manage Organization"]=&$tdatasuper_admin___manage_organization;
@@ -3698,6 +3479,35 @@ $detailsTablesData["Super Admin - Manage Organization"] = array();
 				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="created_by_id";
+//	Super Admin - Default sot for Unee-T objects
+	
+	
+
+		$dIndex = 3;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Super Admin - Default sot for Unee-T objects";
+		$detailsParam["dOriginalTable"] = "ut_external_sot_for_unee_t_objects";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "super_admin___default_sot_for_unee_t_objects";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Super_Admin___Default_sot_for_Unee_T_objects");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["masterKeys"][]="id_organization";
+
+				$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Super Admin - Manage Organization"][$dIndex]["detailKeys"][]="organization_id";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Super Admin - Manage Organization"] = array();
@@ -3722,24 +3532,26 @@ function createSqlQuery_super_admin___manage_organization()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties,  	default_area,  	default_building,  	default_unit";
+$proto0["m_strFieldList"] = "id_organization,  syst_created_datetime,  creation_system_id,  creation_method,  created_by_id,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  `order`,  is_obsolete,  designation,  description,  default_area,  default_building,  default_unit,  default_role_type_id,  country_code";
 $proto0["m_strFrom"] = "FROM uneet_enterprise_organizations";
-$proto0["m_strWhere"] = "";
+$proto0["m_strWhere"] = "(id_organization != 0)";
 $proto0["m_strOrderBy"] = "";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "id_organization != 0";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "id_organization",
+	"m_strTable" => "uneet_enterprise_organizations",
+	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "!= 0";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -3947,12 +3759,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_system",
+	"m_strName" => "default_area",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
-$proto32["m_sql"] = "default_sot_system";
+$proto32["m_sql"] = "default_area";
 $proto32["m_srcTableName"] = "Super Admin - Manage Organization";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -3961,12 +3773,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_persons",
+	"m_strName" => "default_building",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
-$proto34["m_sql"] = "default_sot_persons";
+$proto34["m_sql"] = "default_building";
 $proto34["m_srcTableName"] = "Super Admin - Manage Organization";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -3975,12 +3787,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_areas",
+	"m_strName" => "default_unit",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
-$proto36["m_sql"] = "default_sot_areas";
+$proto36["m_sql"] = "default_unit";
 $proto36["m_srcTableName"] = "Super Admin - Manage Organization";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -3989,12 +3801,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_properties",
+	"m_strName" => "default_role_type_id",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
-$proto38["m_sql"] = "default_sot_properties";
+$proto38["m_sql"] = "default_role_type_id";
 $proto38["m_srcTableName"] = "Super Admin - Manage Organization";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -4003,96 +3815,70 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_area",
+	"m_strName" => "country_code",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "Super Admin - Manage Organization"
 ));
 
-$proto40["m_sql"] = "default_area";
+$proto40["m_sql"] = "country_code";
 $proto40["m_srcTableName"] = "Super Admin - Manage Organization";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
 $obj = new SQLFieldListItem($proto40);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto42=array();
-			$obj = new SQLField(array(
-	"m_strName" => "default_building",
-	"m_strTable" => "uneet_enterprise_organizations",
-	"m_srcTableName" => "Super Admin - Manage Organization"
-));
-
-$proto42["m_sql"] = "default_building";
-$proto42["m_srcTableName"] = "Super Admin - Manage Organization";
-$proto42["m_expr"]=$obj;
-$proto42["m_alias"] = "";
-$obj = new SQLFieldListItem($proto42);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto44=array();
-			$obj = new SQLField(array(
-	"m_strName" => "default_unit",
-	"m_strTable" => "uneet_enterprise_organizations",
-	"m_srcTableName" => "Super Admin - Manage Organization"
-));
-
-$proto44["m_sql"] = "default_unit";
-$proto44["m_srcTableName"] = "Super Admin - Manage Organization";
-$proto44["m_expr"]=$obj;
-$proto44["m_alias"] = "";
-$obj = new SQLFieldListItem($proto44);
-
-$proto0["m_fieldlist"][]=$obj;
 $proto0["m_fromlist"] = array();
-												$proto46=array();
-$proto46["m_link"] = "SQLL_MAIN";
-			$proto47=array();
-$proto47["m_strName"] = "uneet_enterprise_organizations";
-$proto47["m_srcTableName"] = "Super Admin - Manage Organization";
-$proto47["m_columns"] = array();
-$proto47["m_columns"][] = "id_organization";
-$proto47["m_columns"][] = "syst_created_datetime";
-$proto47["m_columns"][] = "creation_system_id";
-$proto47["m_columns"][] = "creation_method";
-$proto47["m_columns"][] = "created_by_id";
-$proto47["m_columns"][] = "syst_updated_datetime";
-$proto47["m_columns"][] = "update_system_id";
-$proto47["m_columns"][] = "updated_by_id";
-$proto47["m_columns"][] = "update_method";
-$proto47["m_columns"][] = "order";
-$proto47["m_columns"][] = "is_obsolete";
-$proto47["m_columns"][] = "designation";
-$proto47["m_columns"][] = "description";
-$proto47["m_columns"][] = "default_sot_system";
-$proto47["m_columns"][] = "default_sot_persons";
-$proto47["m_columns"][] = "default_sot_areas";
-$proto47["m_columns"][] = "default_sot_properties";
-$proto47["m_columns"][] = "default_area";
-$proto47["m_columns"][] = "default_building";
-$proto47["m_columns"][] = "default_unit";
-$obj = new SQLTable($proto47);
+												$proto42=array();
+$proto42["m_link"] = "SQLL_MAIN";
+			$proto43=array();
+$proto43["m_strName"] = "uneet_enterprise_organizations";
+$proto43["m_srcTableName"] = "Super Admin - Manage Organization";
+$proto43["m_columns"] = array();
+$proto43["m_columns"][] = "id_organization";
+$proto43["m_columns"][] = "syst_created_datetime";
+$proto43["m_columns"][] = "creation_system_id";
+$proto43["m_columns"][] = "creation_method";
+$proto43["m_columns"][] = "created_by_id";
+$proto43["m_columns"][] = "syst_updated_datetime";
+$proto43["m_columns"][] = "update_system_id";
+$proto43["m_columns"][] = "updated_by_id";
+$proto43["m_columns"][] = "update_method";
+$proto43["m_columns"][] = "order";
+$proto43["m_columns"][] = "is_obsolete";
+$proto43["m_columns"][] = "designation";
+$proto43["m_columns"][] = "description";
+$proto43["m_columns"][] = "country_code";
+$proto43["m_columns"][] = "default_role_type_id";
+$proto43["m_columns"][] = "default_sot_system";
+$proto43["m_columns"][] = "default_sot_persons";
+$proto43["m_columns"][] = "default_sot_areas";
+$proto43["m_columns"][] = "default_sot_properties";
+$proto43["m_columns"][] = "default_area";
+$proto43["m_columns"][] = "default_building";
+$proto43["m_columns"][] = "default_unit";
+$obj = new SQLTable($proto43);
 
-$proto46["m_table"] = $obj;
-$proto46["m_sql"] = "uneet_enterprise_organizations";
-$proto46["m_alias"] = "";
-$proto46["m_srcTableName"] = "Super Admin - Manage Organization";
-$proto48=array();
-$proto48["m_sql"] = "";
-$proto48["m_uniontype"] = "SQLL_UNKNOWN";
+$proto42["m_table"] = $obj;
+$proto42["m_sql"] = "uneet_enterprise_organizations";
+$proto42["m_alias"] = "";
+$proto42["m_srcTableName"] = "Super Admin - Manage Organization";
+$proto44=array();
+$proto44["m_sql"] = "";
+$proto44["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto48["m_column"]=$obj;
-$proto48["m_contained"] = array();
-$proto48["m_strCase"] = "";
-$proto48["m_havingmode"] = false;
-$proto48["m_inBrackets"] = false;
-$proto48["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto48);
+$proto44["m_column"]=$obj;
+$proto44["m_contained"] = array();
+$proto44["m_strCase"] = "";
+$proto44["m_havingmode"] = false;
+$proto44["m_inBrackets"] = false;
+$proto44["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto44);
 
-$proto46["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto46);
+$proto42["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto42);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4109,7 +3895,7 @@ $queryData_super_admin___manage_organization = createSqlQuery_super_admin___mana
 					
 ;
 
-																				
+																		
 
 $tdatasuper_admin___manage_organization[".sqlquery"] = $queryData_super_admin___manage_organization;
 

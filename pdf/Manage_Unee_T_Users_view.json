@@ -1284,34 +1284,6 @@ pdfDocument = {
 {END cellblock_grid_c6}
 											],
 				{END row_grid_2}
-								{BEGIN row_grid_3}
-				
-		[
-												{BEGIN cellblock_grid_c3}
-
-{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			style: 'undefinedcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-			
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c3}
-											],
-				{END row_grid_3}
 					]
 	}
 }

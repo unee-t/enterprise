@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "609_1570539437";
+$projectBuildKey = "631_1570688884";
 $wizardBuildKey = "33839";
-$projectBuildNumber = "609";
+$projectBuildNumber = "631";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -715,12 +715,13 @@ $tableCaptions["English"]["Assign_Rooms"] = "Assign Rooms";
 $tableCaptions["English"]["ut_map_external_source_users"] = "Ut Map External Source Users";
 $tableCaptions["English"]["Unee_T_Enterprise_Account"] = "Unee-T Enterprise Account";
 $tableCaptions["English"]["All_Properties_by_Countries"] = "All Properties by Countries";
-$tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "SuperAdmin - manage UNTE admins";
+$tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "Manage UNTE admins";
 $tableCaptions["English"]["Super_Admin___Manage_Organization"] = "Super Admin - Manage Organization";
-$tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Super Admin - Manage API Keys";
-$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "Super Admin - Manage MEFE Master User";
-$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "Super Admin - Manage MEFE Master User";
-$tableCaptions["English"]["Super_Admin___Manage_User_Types"] = "Super Admin - Manage User Types";
+$tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Manage UNTE API Keys";
+$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "MEFE Master User";
+$tableCaptions["English"]["Super_Admin___Default_sot_for_Unee_T_objects"] = "Sources of Truth";
+$tableCaptions["English"]["User_Permissions"] = "User Permissions";
+$tableCaptions["English"]["uneet_enterprise_uggroups"] = "Uneet Enterprise Uggroups";
 
 
 $globalEvents = new class_GlobalEvents;

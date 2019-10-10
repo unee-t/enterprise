@@ -124,6 +124,13 @@ function InitLookupLinks()
 			$lookupTableLinks["uneet_enterprise_organizations"]["admin_users.organization_id"] = array();
 		}
 		$lookupTableLinks["uneet_enterprise_organizations"]["admin_users.organization_id"]["edit"] = array("table" => "admin_users", "field" => "organization_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["uneet_enterprise_organizations.default_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["uneet_enterprise_organizations.default_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["uneet_enterprise_organizations.default_role_type_id"]["edit"] = array("table" => "uneet_enterprise_organizations", "field" => "default_role_type_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
 			$lookupTableLinks["ut_map_external_source_units"] = array();
 		}
@@ -1237,6 +1244,13 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"] = array();
 		}
 		$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"]["edit"] = array("table" => "ut_map_external_source_users", "field" => "mefe_user_id_parent", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "default_role_type_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
 			$lookupTableLinks["ut_map_external_source_units"] = array();
 		}
@@ -1370,6 +1384,20 @@ function InitLookupLinks()
 			$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"] = array();
 		}
 		$lookupTableLinks["Search Units"]["super_admin___manage_organization.default_unit"]["search"] = array("table" => "Super Admin - Manage Organization", "field" => "default_unit", "page" => "search");
+		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
+			$lookupTableLinks["ut_user_role_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_organization.default_role_type_id"] )) {
+			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_organization.default_role_type_id"] = array();
+		}
+		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_organization.default_role_type_id"]["edit"] = array("table" => "Super Admin - Manage Organization", "field" => "default_role_type_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["List of Countries"] ) ) {
+			$lookupTableLinks["List of Countries"] = array();
+		}
+		if( !isset( $lookupTableLinks["List of Countries"]["super_admin___manage_organization.country_code"] )) {
+			$lookupTableLinks["List of Countries"]["super_admin___manage_organization.country_code"] = array();
+		}
+		$lookupTableLinks["List of Countries"]["super_admin___manage_organization.country_code"]["edit"] = array("table" => "Super Admin - Manage Organization", "field" => "country_code", "page" => "edit");
 		if( !isset( $lookupTableLinks["person_statuses"] ) ) {
 			$lookupTableLinks["person_statuses"] = array();
 		}
@@ -1419,27 +1447,13 @@ function InitLookupLinks()
 			$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"] = array();
 		}
 		$lookupTableLinks["property_groups_countries"]["super_admin___manage_mefe_master_user1.country_code"]["search"] = array("table" => "Super Admin - Manage MEFE Master User", "field" => "country_code", "page" => "search");
-		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
-			$lookupTableLinks["ut_user_role_types"] = array();
+		if( !isset( $lookupTableLinks["uneet_enterprise_uggroups"] ) ) {
+			$lookupTableLinks["uneet_enterprise_uggroups"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
-			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
+		if( !isset( $lookupTableLinks["uneet_enterprise_uggroups"]["user_permissions.GroupID"] )) {
+			$lookupTableLinks["uneet_enterprise_uggroups"]["user_permissions.GroupID"] = array();
 		}
-		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["edit"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
-			$lookupTableLinks["ut_user_role_types"] = array();
-		}
-		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
-			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
-		}
-		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["add"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "add");
-		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
-			$lookupTableLinks["ut_user_role_types"] = array();
-		}
-		if( !isset( $lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] )) {
-			$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"] = array();
-		}
-		$lookupTableLinks["ut_user_role_types"]["super_admin___manage_user_types.ut_user_role_type_id"]["search"] = array("table" => "Super Admin - Manage User Types", "field" => "ut_user_role_type_id", "page" => "search");
+		$lookupTableLinks["uneet_enterprise_uggroups"]["user_permissions.GroupID"]["edit"] = array("table" => "User Permissions", "field" => "GroupID", "page" => "edit");
 }
 
 ?>
