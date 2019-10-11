@@ -321,6 +321,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("uneet_enterprise_uggroups" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
+	if ("search_list_of_possible_assignees" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -902,6 +904,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="uneet_enterprise_uggroups";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search list of possible assignees");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Search list of possible assignees";
+	}
 	return $arr;
 }
 
@@ -970,6 +981,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Super Admin - Default sot for Unee-T objects";
 	$arr[]="User Permissions";
 	$arr[]="uneet_enterprise_uggroups";
+	$arr[]="Search list of possible assignees";
 	return $arr;
 }
 
@@ -2026,6 +2038,11 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="Search list of possible assignees" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2176,6 +2193,7 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Super Admin - Manage MEFE Master User_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Super Admin - Default sot for Unee-T objects_OwnerID"] = $data["active"];
 		$_SESSION["_User Permissions_OwnerID"] = $data["active"];
+		$_SESSION["_Search list of possible assignees_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -2405,6 +2423,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Search list of possible assignees")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	if( Security::permissionsAvailable() )
 	{
@@ -2584,6 +2608,10 @@ function SecuritySQL($strAction, $table, $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="All Properties by Countries")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search list of possible assignees")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

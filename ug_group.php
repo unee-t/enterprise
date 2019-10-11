@@ -71,6 +71,7 @@ $nonAdminTablesArr[] = "Super Admin - Manage MEFE Master User";
 $nonAdminTablesArr[] = "Super Admin - Default sot for Unee-T objects";
 $nonAdminTablesArr[] = "User Permissions";
 $nonAdminTablesArr[] = "uneet_enterprise_uggroups";
+$nonAdminTablesArr[] = "Search list of possible assignees";
 
 $ug_connection = $cman->getForUserGroups();
 

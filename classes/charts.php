@@ -608,6 +608,8 @@ class Chart
 			return true;
 		if("uneet_enterprise_uggroups" == $this->chrt_array['tables'][0])
 			return true;
+		if("ut_list_possible_assignees" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

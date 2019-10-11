@@ -806,6 +806,36 @@
 			</div>
 		</a>
 		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_landlord_default_assignee" checked="checked" value="1" data-field="landlord_default_assignee">
+					<span>{$label Manage_Buildings landlord_default_assignee }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_tenant_default_assignee" checked="checked" value="1" data-field="tenant_default_assignee">
+					<span>{$label Manage_Buildings tenant_default_assignee }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_agent_default_assignee" checked="checked" value="1" data-field="agent_default_assignee">
+					<span>{$label Manage_Buildings agent_default_assignee }</span>
+				</label>
+			</div>
+		</a>
+		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -1060,7 +1090,7 @@
 	 
 		{BEGIN designation_fieldheadercolumn}
 	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
 	{$label Manage_Buildings designation }	{$arrow_icon_designation}
 	</SPAN>
 	{END designation_fieldheader}
@@ -1087,7 +1117,7 @@
 	 
 		{BEGIN mgt_cny_default_assignee_fieldheadercolumn}
 	{BEGIN mgt_cny_default_assignee_fieldheader}
-	<SPAN {$mgt_cny_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee">
+	<SPAN {$mgt_cny_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee">
 	{$label Manage_Buildings mgt_cny_default_assignee }	{$arrow_icon_mgt_cny_default_assignee}
 	</SPAN>
 	{END mgt_cny_default_assignee_fieldheader}
@@ -1141,7 +1171,7 @@
 	 
 		{BEGIN area_id_fieldheadercolumn}
 	{BEGIN area_id_fieldheader}
-	<SPAN {$area_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_id">
+	<SPAN {$area_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_id">
 	{$label Manage_Buildings area_id }	{$arrow_icon_area_id}
 	</SPAN>
 	{END area_id_fieldheader}
@@ -1168,7 +1198,7 @@
 	 
 		{BEGIN description_fieldheadercolumn}
 	{BEGIN description_fieldheader}
-	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
+	<SPAN {$description_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="description">
 	{$label Manage_Buildings description }	{$arrow_icon_description}
 	</SPAN>
 	{END description_fieldheader}
@@ -1195,7 +1225,7 @@
 	 
 		{BEGIN is_creation_needed_in_unee_t_fieldheadercolumn}
 	{BEGIN is_creation_needed_in_unee_t_fieldheader}
-	<SPAN {$is_creation_needed_in_unee_t_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t">
+	<SPAN {$is_creation_needed_in_unee_t_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_creation_needed_in_unee_t">
 	{$label Manage_Buildings is_creation_needed_in_unee_t }	{$arrow_icon_is_creation_needed_in_unee_t}
 	</SPAN>
 	{END is_creation_needed_in_unee_t_fieldheader}
@@ -1222,7 +1252,7 @@
 	 
 		{BEGIN is_obsolete_fieldheadercolumn}
 	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
+	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
 	{$label Manage_Buildings is_obsolete }	{$arrow_icon_is_obsolete}
 	</SPAN>
 	{END is_obsolete_fieldheader}
@@ -1249,7 +1279,7 @@
 	 
 		{BEGIN uneet_created_datetime_fieldheadercolumn}
 	{BEGIN uneet_created_datetime_fieldheader}
-	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
+	<SPAN {$uneet_created_datetime_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="uneet_created_datetime">
 	{$label Manage_Buildings uneet_created_datetime }	{$arrow_icon_uneet_created_datetime}
 	</SPAN>
 	{END uneet_created_datetime_fieldheader}
@@ -1258,6 +1288,87 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field7}
+				 
+					{BEGIN cellblock_grid_headcell_field8}
+	<th
+	
+	{$cell_grid_headcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$landlord_default_assignee_class}
+			"
+
+			data-field="landlord_default_assignee"
+	
+	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN landlord_default_assignee_fieldheadercolumn}
+	{BEGIN landlord_default_assignee_fieldheader}
+	<SPAN {$landlord_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="landlord_default_assignee">
+	{$label Manage_Buildings landlord_default_assignee }	{$arrow_icon_landlord_default_assignee}
+	</SPAN>
+	{END landlord_default_assignee_fieldheader}
+{END landlord_default_assignee_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field8}
+				 
+					{BEGIN cellblock_grid_headcell_field9}
+	<th
+	
+	{$cell_grid_headcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$tenant_default_assignee_class}
+			"
+
+			data-field="tenant_default_assignee"
+	
+	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN tenant_default_assignee_fieldheadercolumn}
+	{BEGIN tenant_default_assignee_fieldheader}
+	<SPAN {$tenant_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="tenant_default_assignee">
+	{$label Manage_Buildings tenant_default_assignee }	{$arrow_icon_tenant_default_assignee}
+	</SPAN>
+	{END tenant_default_assignee_fieldheader}
+{END tenant_default_assignee_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+				 
+					{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$agent_default_assignee_class}
+			"
+
+			data-field="agent_default_assignee"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN agent_default_assignee_fieldheadercolumn}
+	{BEGIN agent_default_assignee_fieldheader}
+	<SPAN {$agent_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="agent_default_assignee">
+	{$label Manage_Buildings agent_default_assignee }	{$arrow_icon_agent_default_assignee}
+	</SPAN>
+	{END agent_default_assignee_fieldheader}
+{END agent_default_assignee_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
 							</tr>
 					 
 					 
@@ -1616,6 +1727,75 @@
 {END uneet_created_datetime_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field7}
+				 
+					{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$landlord_default_assignee_class}
+			"
+
+			data-field="landlord_default_assignee"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN landlord_default_assignee_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="landlord_default_assignee" data-default-width >
+{$landlord_default_assignee_value}
+</span>
+{END landlord_default_assignee_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+				 
+					{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$tenant_default_assignee_class}
+			"
+
+			data-field="tenant_default_assignee"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN tenant_default_assignee_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="tenant_default_assignee" data-default-width >
+{$tenant_default_assignee_value}
+</span>
+{END tenant_default_assignee_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+				 
+					{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$agent_default_assignee_class}
+			"
+
+			data-field="agent_default_assignee"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN agent_default_assignee_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="agent_default_assignee" data-default-width >
+{$agent_default_assignee_value}
+</span>
+{END agent_default_assignee_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
 							</tr>
 					 
 						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
@@ -1841,6 +2021,54 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field7}
+				 
+					{BEGIN cellblock_grid_footcell_field8}
+	<td
+	
+	{$cell_grid_footcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Buildings_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field8}
+				 
+					{BEGIN cellblock_grid_footcell_field9}
+	<td
+	
+	{$cell_grid_footcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Buildings_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field9}
+				 
+					{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Buildings_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
 							</tr>
 					
 					</tfoot>

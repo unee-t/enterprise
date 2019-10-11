@@ -3179,6 +3179,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "user_permissions" ] = "User Permissions";
 	$projectEntities[ "uneet_enterprise_uggroups" ] = array( "url" => "uneet_enterprise_uggroups", "type" => 0 );
 	$projectEntitiesReverse[ "uneet_enterprise_uggroups" ] = "uneet_enterprise_uggroups";
+	$projectEntities[ "Search list of possible assignees" ] = array( "url" => "search_list_of_possible_assignees", "type" => 1 );
+	$projectEntitiesReverse[ "search_list_of_possible_assignees" ] = "Search list of possible assignees";
 }
 
 function findTable( $table ) {

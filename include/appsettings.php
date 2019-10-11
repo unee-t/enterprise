@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "631_1570688884";
+$projectBuildKey = "638_1570785271";
 $wizardBuildKey = "33839";
-$projectBuildNumber = "631";
+$projectBuildNumber = "638";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -722,6 +722,7 @@ $tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "MEFE Maste
 $tableCaptions["English"]["Super_Admin___Default_sot_for_Unee_T_objects"] = "Sources of Truth";
 $tableCaptions["English"]["User_Permissions"] = "User Permissions";
 $tableCaptions["English"]["uneet_enterprise_uggroups"] = "Uneet Enterprise Uggroups";
+$tableCaptions["English"]["Search_list_of_possible_assignees"] = "Search list of possible assignees";
 
 
 $globalEvents = new class_GlobalEvents;

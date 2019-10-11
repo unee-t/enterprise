@@ -1,5 +1,6 @@
 <?php
-			$optionsArray = array( 'details' => array( 'User Permissions' => array( 'displayPreview' => 1 ) ),
+			$optionsArray = array( 'details' => array( 'User Permissions' => array( 'displayPreview' => 1,
+'previewPageId' => 'list' ) ),
 'master' => array( 'Super Admin - Manage Organization' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'username',
@@ -296,7 +297,8 @@ array( 'cells' => array( array( 'cell' => 'c',
 'details_preview' => array( 'type' => 'details_preview',
 'table' => 'User Permissions',
 'items' => array(  ),
-'popup' => false ) ),
+'popup' => false,
+'pageId' => 'list' ) ),
 'dbProps' => array(  ),
 'version' => 4,
 'fixedTopbar' => true );

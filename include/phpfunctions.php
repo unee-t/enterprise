@@ -955,7 +955,7 @@ function GetLWWhere($field, $ptype, $table = "")
 	}
 		if($table=="Manage Unee-T Users" && $field=="unee_t_user_type_id")
 	{
-		$strWhere = " `is_obsolete` = 0 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
+		$strWhere = " `is_obsolete` = 0 AND `is_super_admin` != 1 AND ((`organization_id` = " . $_SESSION["organization_logged_in_user"] . "	OR `organization_id` IS NULL)) ";
 		return $strWhere;
 	}
 		if($table=="Manage Unee-T Users" && $field=="gender")

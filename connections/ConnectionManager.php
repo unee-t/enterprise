@@ -375,6 +375,7 @@ class ConnectionManager
 		$connectionsIds["Super Admin - Default sot for Unee-T objects"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["User Permissions"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["uneet_enterprise_uggroups"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Search list of possible assignees"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

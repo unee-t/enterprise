@@ -540,6 +540,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Search list of possible assignees")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1081,6 +1085,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="uneet_enterprise_uggroups")
+		{
+			return false;
+		}
+		if($table=="Search list of possible assignees")
 		{
 			return false;
 		}

@@ -61,7 +61,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group1}"},
+			{"text":"","hidden":"{$item_hide_welcome_group2}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -86,7 +86,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group2}"},
+			{"text":"","hidden":"{$item_hide_welcome_group1}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -189,6 +189,29 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_welcome_group5}"},
 				
 		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								
+		[
+												
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			style: 'undefinedcell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
   "border": [ false, false, false, false ],
           },
 
