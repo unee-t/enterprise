@@ -36,16 +36,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -81,16 +80,15 @@ pdfDocument = {
 											"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -108,12 +106,12 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			{ 
-					cellId: 'c1',
-					row:  0,
-					col:  1,
-					text: ''
-				},
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
 							],
 					]
 	}
@@ -135,24 +133,41 @@ pdfDocument = {
 							{END col_grid_0}
 					 ],	
 		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+				],
+	
 		body: [
 				
 					{BEGIN row_grid_0}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c4}
-
 {
 	cellId: 'c4',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -191,21 +206,20 @@ pdfDocument = {
 						body: [
 								
 					{BEGIN row_section1_0}
-				
-		[
+				[
 												{BEGIN cellblock_section1_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -219,18 +233,18 @@ pdfDocument = {
 
 {END cellblock_section1_c}
 																			{BEGIN cellblock_section1_c28}
-
 {
 	cellId: 'c28',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -244,18 +258,18 @@ pdfDocument = {
 
 {END cellblock_section1_c28}
 																			{BEGIN cellblock_section1_c26}
-
 {
 	cellId: 'c26',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -269,18 +283,18 @@ pdfDocument = {
 
 {END cellblock_section1_c26}
 																			{BEGIN cellblock_section1_c27}
-
 {
 	cellId: 'c27',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -312,21 +326,20 @@ pdfDocument = {
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c5}
-
 {
 	cellId: 'c5',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -357,21 +370,20 @@ pdfDocument = {
 						body: [
 								
 					{BEGIN row_section5_0}
-				
-		[
+				[
 												{BEGIN cellblock_section5_c2}
-
 {
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -385,18 +397,18 @@ pdfDocument = {
 
 {END cellblock_section5_c2}
 																			{BEGIN cellblock_section5_c4}
-
 {
 	cellId: 'c4',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -428,21 +440,20 @@ pdfDocument = {
 											],
 				{END row_grid_1}
 								{BEGIN row_grid_2}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c3}
-
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -475,16 +486,15 @@ pdfDocument = {
 											"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -504,12 +514,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan

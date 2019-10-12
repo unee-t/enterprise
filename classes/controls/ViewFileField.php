@@ -66,6 +66,10 @@ class ViewFileField extends ViewControl
 			$this->upload_handler->field = $this->field;
 			$this->upload_handler->table = $this->container->pSet->_table;
 			$this->upload_handler->pageType = $this->container->pageType;
+			if(!is_null($this->pageObject))
+				$this->upload_handler->pageName = $this->pageObject->pageName;
+			else
+				$this->upload_handler->pageName = $this->upload_handler->pSet->pageName();
 		}
 	}
 	

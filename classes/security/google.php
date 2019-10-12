@@ -75,6 +75,14 @@ class SecurityPluginGoogle extends SecurityPlugin {
 		if( !$payload ) {
 			// payload is not valid JSON
 			$this->error = $response["content"];
+			return false;
+		}
+		$domain = GetGlobalData("GoogleDomain", "");
+		if( $domain ) {
+			if( $payload["hd"] != $domain ) {
+				$this->error = str_replace( "%s", $domain, mlang_message( 'GOOGLE_DOMAIN' ));
+				return false;
+			}
 		}
 		
 		return $payload;

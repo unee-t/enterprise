@@ -246,6 +246,7 @@ class FileField extends EditControl
 			$this->upload_handler->field = $this->field;
 			$this->upload_handler->table = $this->pageObject->tName;
 			$this->upload_handler->pageType = $this->pageObject->pageType;
+			$this->upload_handler->pageName = $this->pageObject->pageName;
 		}
 	}
 

@@ -36,16 +36,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -84,16 +83,15 @@ pdfDocument = {
 											"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -113,12 +111,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -160,16 +157,26 @@ pdfDocument = {
 											"%", 
 					 ],	
 		
+			heights: [
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+				],
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'hcell_username',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -186,12 +193,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_displayname',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -208,12 +214,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_email',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -230,12 +235,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_groupname',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -254,14 +258,12 @@ pdfDocument = {
     },
 
 											],
-								
-		[
-												
-{
+								[
+												{
 	cellId: 'hcell_search',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -278,12 +280,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_dn',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -298,12 +299,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_e',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -318,12 +318,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'hcell_all_checkbox',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -342,14 +341,12 @@ pdfDocument = {
     },
 
 											],
-								
-		[
-												
-{
+								[
+												{
 	cellId: 'cell_u',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -369,12 +366,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'cell_dn',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -391,12 +387,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'cell_e',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -413,12 +408,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'c_gn',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan

@@ -1087,6 +1087,7 @@ class RunnerPage
 		$this->settingsMap["tableSettings"]["updateSelected"] = array("default"=>false,"jsName"=>"updateSelected");
 		$this->settingsMap["tableSettings"]["isResizeColumns"] = array("default"=>false,"jsName"=>"isUseResize");
 		$this->settingsMap["tableSettings"]["detailsLinksOnList"] = array("default"=>DL_SINGLE,"jsName"=>"detailsLinksOnList");
+		$this->settingsMap["tableSettings"]["isDisplayLoading"] = array("default"=>false, "jsName"=>"displayLoading");
 
 		//if the Search panel added to the non table based page ajax suggests should be configured according to the search table's settings
 		$ajaxSuggestDefault = $this->tableBasedSearchPanelAdded ? !$this->isUseAjaxSuggest : true;
@@ -2160,8 +2161,8 @@ class RunnerPage
 		if( ( $this->pageType == PAGE_PRINT || $this->pageType == PAGE_RPRINT || $this->pdfJsonMode() ) && $masterTableData["type"] == PAGE_CHART )
 			return;
 
-		$this->jsSettings["tableSettings"][$this->tName]["hasMasterList"] = true;
-
+		$this->pageData["hasMasterList"] = true;
+	
 		$detailKeys = $masterTableData['detailKeys'];
 		$masterKeys = array();
 		for($j = 0; $j < count($detailKeys); $j ++)
@@ -3653,7 +3654,7 @@ class RunnerPage
 			Runner.applyPagesData( ".my_json_encode( $pagesData )." );
 			</script>\r\n";
 
-		echo "<script language=\"JavaScript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33839")."\"></script>\r\n";
+		echo "<script language=\"JavaScript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33896")."\"></script>\r\n";
 		echo "<script>".$this->PrepareJS()."</script>";
 	}
 

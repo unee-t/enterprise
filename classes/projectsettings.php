@@ -985,7 +985,7 @@ class ProjectSettings
 		$ret = ( array_search( $field, $gridFields ) !== FALSE );
 		if( !$ret ) {
 			if( $this->getPageType() === 'report' || $this->getPageType() === 'rprint' )
-				return array_search( $field, $this->getReportGroupFields() );
+				return array_search( $field, $this->getReportGroupFields() ) !== false;
 		}
 		return $ret;
 	}
@@ -2217,7 +2217,7 @@ class ProjectSettings
 	function getUploadFolder($field, $fileData = array())
 	{
 		if($this->isUploadCodeExpression($field))
-			$path = GetUploadFolderExpression($field, $fileData);
+			$path = GetUploadFolderExpression($field, $fileData, $this->_table );
 		else
 			$path = $this->getFieldData($field, "UploadFolder");
 				if(strlen($path) && substr($path,strlen($path)-1) != "/")

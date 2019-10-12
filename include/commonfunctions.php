@@ -4415,9 +4415,9 @@ function GetKeysArray($arr, $pageObject, $searchId = false)
 function GetBaseScriptsForPage($isDisplayLoading, $additionalScripts = "", $customText = "")
 {
 	$result = "";
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?33839")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?33896")."\"></script>";
 	$result .= $additionalScripts;
-	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?33839")."\"></script>";
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?33896")."\"></script>";
 
 	if( getMapProvider() == BING_MAPS )
 	{

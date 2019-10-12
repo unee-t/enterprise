@@ -300,7 +300,7 @@ class RightsPage extends ListPage
 		foreach($menu as $m)
 		{
 			$arr = array();
-			if ( $m["pageType"] == "WebReports" || $m["type"] == "Separator" )
+			if ( $m["pageType"] == "webreports" || $m["type"] == "Separator" )
 				continue;
 
 			if( $m["table"] && !$addedTables[ $m["table"] ] && array_search( $m["table"], $allTables ) !== FALSE )

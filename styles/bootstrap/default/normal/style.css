@@ -8971,7 +8971,7 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
 .nav-tabs li.active a[data-toggle="tab"].bs-proceed-link {
   text-decoration: underline;
 }
-.panel-body > [data-location="grid"] {
+.panel-body > [data-location="grid"]:not(.r-edit-form) {
   margin: -10px 0;
 }
 /* Make wide details stay within container on Add/Edit/View

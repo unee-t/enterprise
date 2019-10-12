@@ -36,16 +36,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -80,16 +79,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -107,14 +105,12 @@ pdfDocument = {
           },
 
 											],
-								
-		[
-												
-{
+								[
+												{
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -152,24 +148,36 @@ pdfDocument = {
 							{END col_grid_0}
 					 ],	
 		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+				],
+	
 		body: [
 				
 					{BEGIN row_grid_0}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -187,21 +195,20 @@ pdfDocument = {
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c6}
-
 {
 	cellId: 'c6',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -240,21 +247,20 @@ pdfDocument = {
 						body: [
 								
 					{BEGIN row_section2_0}
-				
-		[
+				[
 												{BEGIN cellblock_section2_c1}
-
 {
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -268,18 +274,18 @@ pdfDocument = {
 
 {END cellblock_section2_c1}
 																			{BEGIN cellblock_section2_c3}
-
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -294,18 +300,18 @@ pdfDocument = {
 
 {END cellblock_section2_c3}
 																			{BEGIN cellblock_section2_c2}
-
 {
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -320,18 +326,18 @@ pdfDocument = {
 
 {END cellblock_section2_c2}
 																			{BEGIN cellblock_section2_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -347,21 +353,20 @@ pdfDocument = {
 											],
 				{END row_section2_0}
 								{BEGIN row_section2_1}
-				
-		[
+				[
 												{BEGIN cellblock_section2_c4}
-
 {
 	cellId: 'c4',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -375,18 +380,18 @@ pdfDocument = {
 
 {END cellblock_section2_c4}
 																			{BEGIN cellblock_section2_c5}
-
 {
 	cellId: 'c5',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -401,18 +406,18 @@ pdfDocument = {
 
 {END cellblock_section2_c5}
 																			{BEGIN cellblock_section2_c6}
-
 {
 	cellId: 'c6',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -427,18 +432,18 @@ pdfDocument = {
 
 {END cellblock_section2_c6}
 																			{BEGIN cellblock_section2_c7}
-
 {
 	cellId: 'c7',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -486,16 +491,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan

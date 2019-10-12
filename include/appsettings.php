@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "638_1570785271";
-$wizardBuildKey = "33839";
-$projectBuildNumber = "638";
+$projectBuildKey = "639_1570785271";
+$wizardBuildKey = "33896";
+$projectBuildNumber = "639";
 
 $mlang_messages = array();
 $mlang_charsets = array();

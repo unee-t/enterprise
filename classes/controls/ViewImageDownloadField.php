@@ -77,19 +77,12 @@ class ViewImageDownloadField extends ViewFileField
 		$width = $this->imageWidth ? $this->imageWidth : $defWidth;
 		$thumbWidth = $this->thumbWidth ? $this->thumbWidth : 72;
 
-		if ( $this->isImageURL )
-		{
-			$content = myurl_get_contents_binary( $data[ $this->field ] );
-			$imageType = SupposeImageType( $content );
-			if( $imageType == "image/jpeg" || $imageType == "image/png" )
-			{
-				return '{
-					image: "' . jsreplace( 'data:'. $imageType . ';base64,' . base64_bin2str( $content ) ) . '",
-					width: ' . $width  . ',
-					height: ' . $this->imageHeight . '
-				}';
-			}
-			return '""';
+		if ($this->isImageURL) {
+			return '{
+				image: "' . $data[$this->field] . '",
+				width: ' . $width . ',
+				height: ' . $this->imageHeight . '
+			}';
 		}
 
 		$this->upload_handler->tkeys = $keylink;
@@ -238,7 +231,7 @@ class ViewImageDownloadField extends ViewFileField
 		}
 		if( $pSet->getImageBorder( $this->field ) )
 			$attrs["border"] = "true";
-		if( $pSet->getImageFullWidth( $this->field ) ) 
+		if( $pSet->getImageFullWidth( $this->field ) )
 			$attrs["fullwidth"] = "true";
 
 		$htmlAttrs = array();

@@ -48,6 +48,7 @@ $upload_handler->pSet = $pSet;
 $upload_handler->field = $field;
 $upload_handler->table = $table;
 $upload_handler->pageType = $pageType;	
+$upload_handler->pageName = $pageName;	
 
 switch ($requestAction) {
     case 'DELETE':

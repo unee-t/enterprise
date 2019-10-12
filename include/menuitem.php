@@ -673,7 +673,7 @@ class MenuItem
 			$attrs["link"] = "External";
 		}
 		
-		if( $this->linkType == "Internal" && $this->pageType == "WebReports" )
+		if( $this->linkType == "Internal" && $this->pageType == "webreports" )
 		{
 			$attrs["href"] = GetTableLink("webreport");
 			$attrs["value"] = GetTableLink("webreport");

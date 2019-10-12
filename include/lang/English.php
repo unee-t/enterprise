@@ -172,6 +172,7 @@ $mlang_messages["English"]["FIRST"]="First";
 $mlang_messages["English"]["FORGOT"]="Forgot password?";
 $mlang_messages["English"]["FORMATTED_VALUES"]="formatted values";
 $mlang_messages["English"]["GLOBAL_SUMMARY"]="Global summary";
+$mlang_messages["English"]["GOOGLE_DOMAIN"]="Only %s domain members are allowed to login";
 $mlang_messages["English"]["GROUPS_FOUND"]="Groups found";
 $mlang_messages["English"]["GROUPS_PP"]="Groups per page";
 $mlang_messages["English"]["GROUP_FUNCTION"]="Group function";

@@ -36,16 +36,15 @@ pdfDocument = {
 								"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -81,16 +80,15 @@ pdfDocument = {
 											"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -108,12 +106,12 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			{ 
-					cellId: 'c1',
-					row:  0,
-					col:  1,
-					text: ''
-				},
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
 							],
 					]
 	}
@@ -135,24 +133,51 @@ pdfDocument = {
 							{END col_grid_0}
 					 ],	
 		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
+				],
+	
 		body: [
 				
 					{BEGIN row_grid_0}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c5}
-
 {
 	cellId: 'c5',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -170,21 +195,20 @@ pdfDocument = {
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c3}
-
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -198,21 +222,20 @@ pdfDocument = {
 											],
 				{END row_grid_1}
 								{BEGIN row_grid_2}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c4}
-
 {
 	cellId: 'c4',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -251,21 +274,20 @@ pdfDocument = {
 						body: [
 								
 					{BEGIN row_section1_0}
-				
-		[
+				[
 												{BEGIN cellblock_section1_c1}
-
 {
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -279,18 +301,18 @@ pdfDocument = {
 
 {END cellblock_section1_c1}
 																			{BEGIN cellblock_section1_c3}
-
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -304,18 +326,18 @@ pdfDocument = {
 
 {END cellblock_section1_c3}
 																			{BEGIN cellblock_section1_c2}
-
 {
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -328,18 +350,18 @@ pdfDocument = {
 
 {END cellblock_section1_c2}
 																			{BEGIN cellblock_section1_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -356,21 +378,20 @@ pdfDocument = {
 											],
 				{END row_section1_0}
 								{BEGIN row_section1_1}
-				
-		[
+				[
 												{BEGIN cellblock_section1_c8}
-
 {
 	cellId: 'c8',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -384,18 +405,18 @@ pdfDocument = {
 
 {END cellblock_section1_c8}
 																			{BEGIN cellblock_section1_c9}
-
 {
 	cellId: 'c9',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -409,18 +430,18 @@ pdfDocument = {
 
 {END cellblock_section1_c9}
 																			{BEGIN cellblock_section1_c10}
-
 {
 	cellId: 'c10',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -435,18 +456,18 @@ pdfDocument = {
 
 {END cellblock_section1_c10}
 																			{BEGIN cellblock_section1_c11}
-
 {
 	cellId: 'c11',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -463,21 +484,20 @@ pdfDocument = {
 											],
 				{END row_section1_1}
 								{BEGIN row_section1_2}
-				
-		[
+				[
 												{BEGIN cellblock_section1_c4}
-
 {
 	cellId: 'c4',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -491,18 +511,18 @@ pdfDocument = {
 
 {END cellblock_section1_c4}
 																			{BEGIN cellblock_section1_c5}
-
 {
 	cellId: 'c5',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -516,18 +536,18 @@ pdfDocument = {
 
 {END cellblock_section1_c5}
 																			{BEGIN cellblock_section1_c6}
-
 {
 	cellId: 'c6',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -542,18 +562,18 @@ pdfDocument = {
 
 {END cellblock_section1_c6}
 																			{BEGIN cellblock_section1_c7}
-
 {
 	cellId: 'c7',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -586,21 +606,20 @@ pdfDocument = {
 											],
 				{END row_grid_2}
 								{BEGIN row_grid_3}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -635,21 +654,20 @@ pdfDocument = {
 						body: [
 								
 					{BEGIN row_section_0}
-				
-		[
+				[
 												{BEGIN cellblock_section_c1}
-
 {
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -663,18 +681,18 @@ pdfDocument = {
 
 {END cellblock_section_c1}
 																			{BEGIN cellblock_section_c2}
-
 {
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -688,18 +706,18 @@ pdfDocument = {
 
 {END cellblock_section_c2}
 																			{BEGIN cellblock_section_c}
-
 {
 	cellId: 'c',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -731,21 +749,20 @@ pdfDocument = {
 											],
 				{END row_grid_3}
 								{BEGIN row_grid_4}
-				
-		[
+				[
 												{BEGIN cellblock_grid_c1}
-
 {
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"stack": [
@@ -785,16 +802,15 @@ pdfDocument = {
 											"*", 
 					 ],	
 		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -814,12 +830,11 @@ pdfDocument = {
   "border": [ false, false, false, false ],
           },
 
-																			
-{
+																			{
 	cellId: 'c2',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan

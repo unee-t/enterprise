@@ -702,7 +702,7 @@ class LoginPage extends RunnerPage
 	 * run before login event
 	 * @return Boolean
 	 */
-	protected function callBeforeLoginEvent()
+	protected function callBeforeLoginEvent( $data = null )
 	{
 		global $globalEvents;
 
@@ -710,7 +710,7 @@ class LoginPage extends RunnerPage
 			return true;
 
 		$message = "";
-		$ret = $globalEvents->BeforeLogin( $this->var_pUsername, $this->var_pPassword, $message, $this, $this->controlsData );
+		$ret = $globalEvents->BeforeLogin( $this->var_pUsername, $this->var_pPassword, $message, $this, $data ? $data : $this->controlsData );
 
 		if( $message )
 			$this->message = $message;
@@ -1016,7 +1016,7 @@ class LoginPage extends RunnerPage
 			return false;
 		}
 
-		if( !$this->callBeforeLoginEvent() ) {
+		if( !$this->callBeforeLoginEvent( $info ) ) {
 			return false;
 		}
 
@@ -1092,7 +1092,7 @@ class LoginPage extends RunnerPage
 		$this->body['end'] .= "Runner.applyPagesData( ".my_json_encode( $pagesData )." );";
 		$this->body['end'] .= "window.settings = ".my_json_encode($this->jsSettings).";</script>";
 
-		$this->body["end"] .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33839")."\"></script>";
+		$this->body["end"] .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33896")."\"></script>";
 		$this->body["end"] .= '<script>'.$this->PrepareJS()."</script>";
 
 		$this->xt->assignbyref("body", $this->body);

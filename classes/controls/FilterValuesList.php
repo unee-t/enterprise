@@ -135,8 +135,6 @@ class FilterValuesList extends FilterControl
 		//	build query of the following form:
 		//  select field, ,,, from ( <original query with search, security and filters> ) group by field
 		
-//		$fullFieldName = RunnerPage::_getFieldSQLDecrypt( $this->fName, $this->connection, $this->pSet, $this->cipherer );
-		
 		//	field comes from the subquery, so only alias ( fieldname ) matters
 		$fullFieldName = $this->connection->addFieldWrappers( $this->fName );
 		
@@ -158,7 +156,8 @@ class FilterValuesList extends FilterControl
 			$parentAliases = array();
 			foreach( $this->parentFiltersNames as $p ) {
 				
-				$fullParentFieldName = RunnerPage::_getFieldSQLDecrypt( $p, $this->connection, $this->pSet, $this->cipherer );
+				// $fullParentFieldName = RunnerPage::_getFieldSQLDecrypt( $p, $this->connection, $this->pSet, $this->cipherer );
+				$fullParentFieldName = $this->connection->addFieldWrappers( $p );
 				$parentAlias = "_grval_"  . $p;
 				$parentExpression = FilterValuesList::_getFilterSQLExpr( $p, $fullParentFieldName, $this->pSet, $this->connection );
 				$parentFields[] = $parentExpression . " as " . $parentAlias;

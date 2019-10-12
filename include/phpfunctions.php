@@ -919,12 +919,9 @@ function CustomExpression($value, $data, $field, $ptype, $table="")
  * return custom expression for file
  * @intellisense
  */
-function fileCustomExpression($file, $data, $field, $ptype, $table="")
+function fileCustomExpression($file, $data, $field, $ptype, $table )
 {
 	$value = "";
-	global $strTableName;
-	if(!$table)
-		$table = $strTableName;
 	return $value;
 }
 
@@ -1452,11 +1449,8 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 /**
  * @intellisense
  */
-function GetUploadFolderExpression($field, $file, $table="")
+function GetUploadFolderExpression($field, $file, $table )
 {
-	global $strTableName;
-	if(!$table)
-		$table = $strTableName;
 	return "";
 }
 
