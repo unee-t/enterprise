@@ -529,11 +529,11 @@ $globalSettings["isDynamicPerm"] = true;
 
 
 
-$globalSettings["LandingPageType"] = 0;
+$globalSettings["LandingPageType"] = 1;
 $globalSettings["LandingTable"] = "";
-$globalSettings["LandingPage"] = "";
-$globalSettings["LandingURL"] = "";
-$globalSettings["LandingPageId"] = "";
+$globalSettings["LandingPage"] = "menu";
+$globalSettings["LandingURL"] = "menu.php?page=menu";
+$globalSettings["LandingPageId"] = "menu";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["English"] = "unee-t.enterprise";
@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "639_1570785271";
+$projectBuildKey = "646_1570785271";
 $wizardBuildKey = "33896";
-$projectBuildNumber = "639";
+$projectBuildNumber = "646";
 
 $mlang_messages = array();
 $mlang_charsets = array();
