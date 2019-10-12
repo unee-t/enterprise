@@ -159,6 +159,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_1}
 			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
 				],
 	
 		body: [
@@ -309,10 +314,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel Manage_Areas is_creation_needed_in_unee_t }","bold":true},{"text":{$is_creation_needed_in_unee_t_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           "alignment": 'center',
     },
@@ -335,10 +338,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Areas mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           "alignment": 'center',
     },
@@ -389,6 +390,120 @@ pdfDocument = {
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
+				[
+												{BEGIN cellblock_grid_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section2',
+			widths: ['*'],
+			body: [
+				[{text: 'Default Assignees', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section2_0}
+								'*', 
+								{END col_section2_0}
+							 
+								{BEGIN col_section2_1}
+								'*', 
+								{END col_section2_1}
+													],
+						body: [
+								
+					{BEGIN row_section2_0}
+				[
+												{BEGIN cellblock_section2_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Areas mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c1}
+																			{BEGIN cellblock_section2_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Manage_Areas agent_default_assignee }","bold":true},{"text":{$agent_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c2}
+											],
+				{END row_section2_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c1}
+											],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
 				[
 												{BEGIN cellblock_grid_c}
 {
@@ -530,7 +645,7 @@ pdfDocument = {
 
 {END cellblock_grid_c}
 											],
-				{END row_grid_1}
+				{END row_grid_2}
 					]
 	}
 }

@@ -60,6 +60,10 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 	
 		$values['person_status_id'] = 2;
 
+	// We are creating this in Unee-T
+
+		$values['is_unee_t_account_needed'] = 1;
+
 	# We  record the id of the system that is the source of truth for this organization
 		
 		# What is the organization id for the logged in user?

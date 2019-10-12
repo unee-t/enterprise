@@ -58,7 +58,7 @@
 	 
 		{BEGIN is_default_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default">
 	{$label Manage_Areas is_default }	</span>
 {END is_default_fieldheadercolumn}
 
@@ -115,31 +115,6 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$mgt_cny_default_assignee_class}
-			"
-
-			data-field="mgt_cny_default_assignee"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN mgt_cny_default_assignee_fieldheadercolumn}
- 
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee">
-	{$label Manage_Areas mgt_cny_default_assignee }	</span>
-{END mgt_cny_default_assignee_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
 							</tr>
 					 
 					 
@@ -224,29 +199,6 @@
 {END area_name_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
-				 
-					{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$mgt_cny_default_assignee_class}
-			"
-
-			data-field="mgt_cny_default_assignee"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN mgt_cny_default_assignee_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee" data-default-width >
-{$mgt_cny_default_assignee_value}
-</span>
-{END mgt_cny_default_assignee_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
 							</tr>
 					 
 					
@@ -310,22 +262,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field2}
-				 
-					{BEGIN cellblock_grid_footcell_field3}
-	<td
-	
-	{$cell_grid_footcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Areas_masterprint"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field3}
 							</tr>
 					
 					</tfoot>

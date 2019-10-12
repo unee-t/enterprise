@@ -124,6 +124,15 @@ pdfDocument = {
 										{BEGIN col_grid_21}
 					"%",
 					{END col_grid_21}
+										{BEGIN col_grid_22}
+					"%",
+					{END col_grid_22}
+										{BEGIN col_grid_23}
+					"%",
+					{END col_grid_23}
+										{BEGIN col_grid_24}
+					"%",
+					{END col_grid_24}
 															],
 							heights: [
 									{BEGIN row_grid_0}		
@@ -222,7 +231,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":"{$jslabel uneet_enterprise_organizations id_organization }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field25}","text":"{$jslabel uneet_enterprise_organizations id_organization }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -248,7 +257,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":"{$jslabel uneet_enterprise_organizations syst_created_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field26}","text":"{$jslabel uneet_enterprise_organizations syst_created_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -274,7 +283,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field24}","text":"{$jslabel uneet_enterprise_organizations creation_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field27}","text":"{$jslabel uneet_enterprise_organizations creation_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -300,7 +309,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field25}","text":"{$jslabel uneet_enterprise_organizations creation_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field28}","text":"{$jslabel uneet_enterprise_organizations creation_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -326,7 +335,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field26}","text":"{$jslabel uneet_enterprise_organizations created_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel uneet_enterprise_organizations created_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -352,7 +361,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field27}","text":"{$jslabel uneet_enterprise_organizations syst_updated_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel uneet_enterprise_organizations syst_updated_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -378,7 +387,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field28}","text":"{$jslabel uneet_enterprise_organizations update_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel uneet_enterprise_organizations update_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -404,7 +413,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field29}","text":"{$jslabel uneet_enterprise_organizations updated_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel uneet_enterprise_organizations updated_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -430,7 +439,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field30}","text":"{$jslabel uneet_enterprise_organizations update_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel uneet_enterprise_organizations update_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -456,7 +465,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field31}","text":"{$jslabel uneet_enterprise_organizations order }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel uneet_enterprise_organizations order }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -482,7 +491,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field32}","text":"{$jslabel uneet_enterprise_organizations is_obsolete }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel uneet_enterprise_organizations is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -508,7 +517,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel uneet_enterprise_organizations designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel uneet_enterprise_organizations designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -534,7 +543,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel uneet_enterprise_organizations description }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel uneet_enterprise_organizations description }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -560,7 +569,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel uneet_enterprise_organizations default_sot_system }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel uneet_enterprise_organizations default_sot_system }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -586,7 +595,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel uneet_enterprise_organizations default_sot_persons }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel uneet_enterprise_organizations default_sot_persons }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -612,7 +621,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel uneet_enterprise_organizations default_sot_areas }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel uneet_enterprise_organizations default_sot_areas }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -638,7 +647,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel uneet_enterprise_organizations default_sot_properties }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel uneet_enterprise_organizations default_sot_properties }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -664,7 +673,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel uneet_enterprise_organizations default_area }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel uneet_enterprise_organizations default_area }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -690,7 +699,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel uneet_enterprise_organizations default_building }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel uneet_enterprise_organizations default_building }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -716,7 +725,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel uneet_enterprise_organizations default_unit }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel uneet_enterprise_organizations default_unit }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -742,7 +751,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel uneet_enterprise_organizations default_role_type_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel uneet_enterprise_organizations default_role_type_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -768,7 +777,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel uneet_enterprise_organizations country_code }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel uneet_enterprise_organizations country_code }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -776,6 +785,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_field21}
+																			{BEGIN cellblock_grid_headcell_field22}
+{
+	cellId: 'headcell_field22',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel uneet_enterprise_organizations mefe_master_user_external_person_id }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_id_align}',
+  },
+
+{END cellblock_grid_headcell_field22}
+																			{BEGIN cellblock_grid_headcell_field23}
+{
+	cellId: 'headcell_field23',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel uneet_enterprise_organizations mefe_master_user_external_person_table }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_table_align}',
+  },
+
+{END cellblock_grid_headcell_field23}
+																			{BEGIN cellblock_grid_headcell_field24}
+{
+	cellId: 'headcell_field24',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel uneet_enterprise_organizations mefe_master_user_external_person_system }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_system_align}',
+  },
+
+{END cellblock_grid_headcell_field24}
 											],
 				{END row_grid_0}
 								
@@ -1356,6 +1443,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_field21}
+																			{BEGIN cellblock_grid_cell_field22}
+{
+	cellId: 'cell_field22',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field22}","text":{$mefe_master_user_external_person_id_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_id_align}',
+  },
+
+{END cellblock_grid_cell_field22}
+																			{BEGIN cellblock_grid_cell_field23}
+{
+	cellId: 'cell_field23',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field23}","text":{$mefe_master_user_external_person_table_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_table_align}',
+  },
+
+{END cellblock_grid_cell_field23}
+																			{BEGIN cellblock_grid_cell_field24}
+{
+	cellId: 'cell_field24',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field24}","text":{$mefe_master_user_external_person_system_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$mefe_master_user_external_person_system_align}',
+  },
+
+{END cellblock_grid_cell_field24}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -1870,6 +2035,75 @@ pdfDocument = {
           },
 
 {END cellblock_grid_footcell_field21}
+																			{BEGIN cellblock_grid_footcell_field22}
+{
+	cellId: 'footcell_field22',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field22}
+																			{BEGIN cellblock_grid_footcell_field23}
+{
+	cellId: 'footcell_field23',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field23}
+																			{BEGIN cellblock_grid_footcell_field24}
+{
+	cellId: 'footcell_field24',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field24}
 											],
 				{END row_grid_2}
 							

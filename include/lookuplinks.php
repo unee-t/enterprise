@@ -243,13 +243,34 @@ function InitLookupLinks()
 			$lookupTableLinks["property_groups_countries"]["Manage_Areas.country_code"] = array();
 		}
 		$lookupTableLinks["property_groups_countries"]["Manage_Areas.country_code"]["add"] = array("table" => "Manage Areas", "field" => "country_code", "page" => "add");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Areas.mgt_cny_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Areas.mgt_cny_default_assignee"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Areas.mgt_cny_default_assignee"]["edit"] = array("table" => "Manage Areas", "field" => "mgt_cny_default_assignee", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
 			$lookupTableLinks["ut_map_external_source_users"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.mgt_cny_default_assignee"] )) {
-			$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.mgt_cny_default_assignee"] = array();
+		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.landlord_default_assignee"] )) {
+			$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.landlord_default_assignee"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.mgt_cny_default_assignee"]["edit"] = array("table" => "Manage Areas", "field" => "mgt_cny_default_assignee", "page" => "edit");
+		$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.landlord_default_assignee"]["edit"] = array("table" => "Manage Areas", "field" => "landlord_default_assignee", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
+			$lookupTableLinks["ut_map_external_source_users"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.tenant_default_assignee"] )) {
+			$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.tenant_default_assignee"] = array();
+		}
+		$lookupTableLinks["ut_map_external_source_users"]["Manage_Areas.tenant_default_assignee"]["edit"] = array("table" => "Manage Areas", "field" => "tenant_default_assignee", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Areas.agent_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Areas.agent_default_assignee"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Areas.agent_default_assignee"]["edit"] = array("table" => "Manage Areas", "field" => "agent_default_assignee", "page" => "edit");
 		if( !isset( $lookupTableLinks["property_groups_countries"] ) ) {
 			$lookupTableLinks["property_groups_countries"] = array();
 		}
@@ -1244,13 +1265,6 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"] = array();
 		}
 		$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"]["edit"] = array("table" => "ut_map_external_source_users", "field" => "mefe_user_id_parent", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_user_role_types"] ) ) {
-			$lookupTableLinks["ut_user_role_types"] = array();
-		}
-		if( !isset( $lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"] )) {
-			$lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"] = array();
-		}
-		$lookupTableLinks["ut_user_role_types"]["unee_t_enterprise_account.default_role_type_id"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "default_role_type_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
 			$lookupTableLinks["ut_map_external_source_units"] = array();
 		}
@@ -1454,6 +1468,13 @@ function InitLookupLinks()
 			$lookupTableLinks["uneet_enterprise_uggroups"]["user_permissions.GroupID"] = array();
 		}
 		$lookupTableLinks["uneet_enterprise_uggroups"]["user_permissions.GroupID"]["edit"] = array("table" => "User Permissions", "field" => "GroupID", "page" => "edit");
+		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"] ) ) {
+			$lookupTableLinks["uneet_enterprise_organizations"] = array();
+		}
+		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"]["sources_of_truth.organization_id"] )) {
+			$lookupTableLinks["uneet_enterprise_organizations"]["sources_of_truth.organization_id"] = array();
+		}
+		$lookupTableLinks["uneet_enterprise_organizations"]["sources_of_truth.organization_id"]["edit"] = array("table" => "Sources of Truth", "field" => "organization_id", "page" => "edit");
 }
 
 ?>

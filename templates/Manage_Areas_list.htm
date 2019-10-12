@@ -519,16 +519,6 @@
 			</div>
 		</a>
 		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_mgt_cny_default_assignee" checked="checked" value="1" data-field="mgt_cny_default_assignee">
-					<span>{$label Manage_Areas mgt_cny_default_assignee }</span>
-				</label>
-			</div>
-		</a>
-		</li>
 			</ul>
 </div>
 		</div>					</div>
@@ -626,6 +616,18 @@
 		content: "{$label Manage_Areas mgt_cny_default_assignee}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="landlord_default_assignee"]:before {
+		content: "{$label Manage_Areas landlord_default_assignee}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="tenant_default_assignee"]:before {
+		content: "{$label Manage_Areas tenant_default_assignee}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="agent_default_assignee"]:before {
+		content: "{$label Manage_Areas agent_default_assignee}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
@@ -715,7 +717,7 @@
 	 
 		{BEGIN area_name_fieldheadercolumn}
 	{BEGIN area_name_fieldheader}
-	<SPAN {$area_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
+	<SPAN {$area_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
 	{$label Manage_Areas area_name }	{$arrow_icon_area_name}
 	</SPAN>
 	{END area_name_fieldheader}
@@ -731,22 +733,22 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$mgt_cny_default_assignee_class}
+		 r-ori-vert				{$country_code_class}
 			"
 
-			data-field="mgt_cny_default_assignee"
+			data-field="country_code"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN mgt_cny_default_assignee_fieldheadercolumn}
-	{BEGIN mgt_cny_default_assignee_fieldheader}
-	<SPAN {$mgt_cny_default_assignee_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee">
-	{$label Manage_Areas mgt_cny_default_assignee }	{$arrow_icon_mgt_cny_default_assignee}
+		{BEGIN country_code_fieldheadercolumn}
+	{BEGIN country_code_fieldheader}
+	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
+	{$label Manage_Areas country_code }	{$arrow_icon_country_code}
 	</SPAN>
-	{END mgt_cny_default_assignee_fieldheader}
-{END mgt_cny_default_assignee_fieldheadercolumn}
+	{END country_code_fieldheader}
+{END country_code_fieldheadercolumn}
 
 	
 	</th>
@@ -758,39 +760,12 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$country_code_class}
-			"
-
-			data-field="country_code"
-	
-	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN country_code_fieldheadercolumn}
-	{BEGIN country_code_fieldheader}
-	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
-	{$label Manage_Areas country_code }	{$arrow_icon_country_code}
-	</SPAN>
-	{END country_code_fieldheader}
-{END country_code_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$is_creation_needed_in_unee_t_class}
 			"
 
 			data-field="is_creation_needed_in_unee_t"
 	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -804,12 +779,12 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field3}
+	{END cellblock_grid_headcell_field2}
 				 
-					{BEGIN cellblock_grid_headcell_field4}
+					{BEGIN cellblock_grid_headcell_field3}
 	<th
 	
-	{$cell_grid_headcell_field4}
+	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_obsolete_class}
@@ -817,7 +792,7 @@
 
 			data-field="is_obsolete"
 	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -831,12 +806,12 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field4}
+	{END cellblock_grid_headcell_field3}
 				 
-					{BEGIN cellblock_grid_headcell_field5}
+					{BEGIN cellblock_grid_headcell_field4}
 	<th
 	
-	{$cell_grid_headcell_field5}
+	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$area_definition_class}
@@ -844,13 +819,13 @@
 
 			data-field="area_definition"
 	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN area_definition_fieldheadercolumn}
 	{BEGIN area_definition_fieldheader}
-	<SPAN {$area_definition_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_definition">
+	<SPAN {$area_definition_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_definition">
 	{$label Manage_Areas area_definition }	{$arrow_icon_area_definition}
 	</SPAN>
 	{END area_definition_fieldheader}
@@ -858,7 +833,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field5}
+	{END cellblock_grid_headcell_field4}
 							</tr>
 					 
 					 
@@ -1032,35 +1007,12 @@
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$mgt_cny_default_assignee_class}
-			"
-
-			data-field="mgt_cny_default_assignee"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN mgt_cny_default_assignee_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="mgt_cny_default_assignee" data-default-width >
-{$mgt_cny_default_assignee_value}
-</span>
-{END mgt_cny_default_assignee_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$country_code_class}
 			"
 
 			data-field="country_code"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1070,12 +1022,12 @@
 </span>
 {END country_code_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field1}
 				 
-					{BEGIN cellblock_grid_cell_field3}
+					{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field3}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_creation_needed_in_unee_t_class}
@@ -1083,7 +1035,7 @@
 
 			data-field="is_creation_needed_in_unee_t"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1093,12 +1045,12 @@
 </span>
 {END is_creation_needed_in_unee_t_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
+	{END cellblock_grid_cell_field2}
 				 
-					{BEGIN cellblock_grid_cell_field4}
+					{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$is_obsolete_class}
@@ -1106,7 +1058,7 @@
 
 			data-field="is_obsolete"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1116,12 +1068,12 @@
 </span>
 {END is_obsolete_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field3}
 				 
-					{BEGIN cellblock_grid_cell_field5}
+					{BEGIN cellblock_grid_cell_field4}
 	<td
 	
-	{$cell_grid_cell_field5}
+	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$area_definition_class}
@@ -1129,7 +1081,7 @@
 
 			data-field="area_definition"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1139,7 +1091,7 @@
 </span>
 {END area_definition_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field5}
+	{END cellblock_grid_cell_field4}
 							</tr>
 					 
 						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
@@ -1314,22 +1266,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field4}
-				 
-					{BEGIN cellblock_grid_footcell_field5}
-	<td
-	
-	{$cell_grid_footcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="Manage_Areas_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field5}
 							</tr>
 					
 					</tfoot>

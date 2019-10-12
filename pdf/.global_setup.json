@@ -48,27 +48,6 @@ pdfDocument = {
 								
 			"%",
 			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
 				],
 	
 		body: [
@@ -98,29 +77,6 @@ pdfDocument = {
 											],
 								[
 												{
-	cellId: 'c8',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group6}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
 	cellId: 'c1',
 	col:0,
 	row:0,
@@ -138,136 +94,6 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_welcome_group2}"},
 				
 		  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group1}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c6',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c4',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-											],
-								[
-												{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
   "border": [ false, false, false, false ],
           },
 

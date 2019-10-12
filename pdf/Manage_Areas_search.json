@@ -177,6 +177,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field}","text":{$mgt_cny_default_assignee_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field1}","text":{$landlord_default_assignee_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field2}","text":{$tenant_default_assignee_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field3}","text":{$agent_default_assignee_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

@@ -3181,6 +3181,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "uneet_enterprise_uggroups" ] = "uneet_enterprise_uggroups";
 	$projectEntities[ "Search list of possible assignees" ] = array( "url" => "search_list_of_possible_assignees", "type" => 1 );
 	$projectEntitiesReverse[ "search_list_of_possible_assignees" ] = "Search list of possible assignees";
+	$projectEntities[ "Sources of Truth" ] = array( "url" => "sources_of_truth", "type" => 1 );
+	$projectEntitiesReverse[ "sources_of_truth" ] = "Sources of Truth";
 }
 
 function findTable( $table ) {

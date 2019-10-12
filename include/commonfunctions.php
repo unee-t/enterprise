@@ -323,6 +323,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("search_list_of_possible_assignees" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("sources_of_truth" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -913,6 +915,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Search list of possible assignees";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Sources of Truth");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Sources of Truth";
+	}
 	return $arr;
 }
 
@@ -982,6 +993,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="User Permissions";
 	$arr[]="uneet_enterprise_uggroups";
 	$arr[]="Search list of possible assignees";
+	$arr[]="Sources of Truth";
 	return $arr;
 }
 
@@ -2043,6 +2055,11 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="Sources of Truth" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2194,6 +2211,7 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Super Admin - Default sot for Unee-T objects_OwnerID"] = $data["active"];
 		$_SESSION["_User Permissions_OwnerID"] = $data["active"];
 		$_SESSION["_Search list of possible assignees_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Sources of Truth_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -2429,6 +2447,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Sources of Truth")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	if( Security::permissionsAvailable() )
 	{
@@ -2612,6 +2636,10 @@ function SecuritySQL($strAction, $table, $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Search list of possible assignees")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Sources of Truth")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

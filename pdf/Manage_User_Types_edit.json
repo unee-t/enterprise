@@ -1280,6 +1280,50 @@ pdfDocument = {
 								
 					{BEGIN row_section3_0}
 				[
+												{BEGIN cellblock_section3_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section3_c2}
+			colSpan: {$colspan_section3_c2},
+			{END colspan_section3_c2}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field51}","stack":[{"text":"{$jslabel Manage_User_Types is_any_new_message }","bold":true},{"text":{$is_any_new_message_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section3_c2}
+																		{ 
+				cellId: 'c2',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c2',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+				{END row_section3_0}
+								{BEGIN row_section3_1}
+				[
 												{BEGIN cellblock_section3_c1}
 {
 	cellId: 'c1',
@@ -1359,8 +1403,8 @@ pdfDocument = {
 
 {END cellblock_section3_c3}
 											],
-				{END row_section3_0}
-								{BEGIN row_section3_1}
+				{END row_section3_1}
+								{BEGIN row_section3_2}
 				[
 												{BEGIN cellblock_section3_c}
 {
@@ -1441,7 +1485,7 @@ pdfDocument = {
 
 {END cellblock_section3_c6}
 											],
-				{END row_section3_1}
+				{END row_section3_2}
 									]
 					}
 				}]
@@ -1818,37 +1862,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field41}","stack":[{"text":"{$jslabel Manage_User_Types syst_created_datetime }","bold":true},{"text":{$syst_created_datetime_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field42}","stack":[{"text":"{$jslabel Manage_User_Types creation_system_id }","bold":true},{"text":{$creation_system_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field43}","stack":[{"text":"{$jslabel Manage_User_Types created_by_id }","bold":true},{"text":{$created_by_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field44}","stack":[{"text":"{$jslabel Manage_User_Types creation_method }","bold":true},{"text":{$creation_method_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field45}","stack":[{"text":"{$jslabel Manage_User_Types syst_updated_datetime }","bold":true},{"text":{$syst_updated_datetime_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field46}","stack":[{"text":"{$jslabel Manage_User_Types update_system_id }","bold":true},{"text":{$update_system_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field47}","stack":[{"text":"{$jslabel Manage_User_Types updated_by_id }","bold":true},{"text":{$updated_by_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field48}","stack":[{"text":"{$jslabel Manage_User_Types update_method }","bold":true},{"text":{$update_method_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field49}","stack":[{"text":"{$jslabel Manage_User_Types organization_id }","bold":true},{"text":{$organization_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field50}","stack":[{"text":"{$jslabel Manage_User_Types role_type }","bold":true},{"text":{$role_type_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field51}","stack":[{"text":"{$jslabel Manage_User_Types is_any_new_message }","bold":true},{"text":{$is_any_new_message_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

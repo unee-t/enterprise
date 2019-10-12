@@ -977,10 +977,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel Manage_Unee_T_Users is_unee_t_account_needed }","bold":true},{"text":{$is_unee_t_account_needed_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           },
 

@@ -87,6 +87,8 @@ include_once(getabspath("include/super_admin___manage_mefe_master_user1_events.p
 $tableEvents["Super Admin - Manage MEFE Master User"] = new eventclass_super_admin___manage_mefe_master_user1;
 include_once(getabspath("include/super_admin___default_sot_for_unee_t_objects_events.php"));
 $tableEvents["Super Admin - Default sot for Unee-T objects"] = new eventclass_super_admin___default_sot_for_unee_t_objects;
+include_once(getabspath("include/sources_of_truth_events.php"));
+$tableEvents["Sources of Truth"] = new eventclass_sources_of_truth;
 
 $xt = new Xtempl();
 

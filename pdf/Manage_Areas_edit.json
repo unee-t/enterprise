@@ -164,6 +164,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_2}
 			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
 				],
 	
 		body: [
@@ -307,9 +312,6 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
-					{BEGIN colspan_section1_c8}
-			colSpan: {$colspan_section1_c8},
-			{END colspan_section1_c8}
 		
 						
 	
@@ -325,51 +327,9 @@ pdfDocument = {
           },
 
 {END cellblock_section1_c8}
-																		{ 
-				cellId: 'c8',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-														{ 
-				cellId: 'c8',
-				row:  0,
-				col:  2,
-				text: ''
-			},
-							],
-				{END row_section1_1}
-								{BEGIN row_section1_2}
-				[
-												{BEGIN cellblock_section1_c4}
+																			{BEGIN cellblock_section1_c}
 {
-	cellId: 'c4',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Areas mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          "alignment": 'center',
-    },
-
-{END cellblock_section1_c4}
-																			{BEGIN cellblock_section1_c5}
-{
-	cellId: 'c5',
+	cellId: 'c',
 	col:0,
 	row:0,
 			style: 'cell',
@@ -389,13 +349,12 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'center',
-    },
+          },
 
-{END cellblock_section1_c5}
-																			{BEGIN cellblock_section1_c6}
+{END cellblock_section1_c}
+																			{BEGIN cellblock_section1_c7}
 {
-	cellId: 'c6',
+	cellId: 'c7',
 	col:0,
 	row:0,
 			style: 'cell',
@@ -415,12 +374,11 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'center',
-    },
+          },
 
-{END cellblock_section1_c6}
+{END cellblock_section1_c7}
 											],
-				{END row_section1_2}
+				{END row_section1_1}
 									]
 					}
 				}]
@@ -438,6 +396,120 @@ pdfDocument = {
 											],
 				{END row_grid_0}
 								{BEGIN row_grid_1}
+				[
+												{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section2',
+			widths: ['*'],
+			body: [
+				[{text: 'Default Assignees', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section2_0}
+								'*', 
+								{END col_section2_0}
+							 
+								{BEGIN col_section2_1}
+								'*', 
+								{END col_section2_1}
+													],
+						body: [
+								
+					{BEGIN row_section2_0}
+				[
+												{BEGIN cellblock_section2_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Areas mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c1}
+																			{BEGIN cellblock_section2_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Manage_Areas agent_default_assignee }","bold":true},{"text":{$agent_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c2}
+											],
+				{END row_section2_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c6}
+											],
+				{END row_grid_1}
+								{BEGIN row_grid_2}
 				[
 												{BEGIN cellblock_grid_c4}
 {
@@ -579,8 +651,8 @@ pdfDocument = {
 
 {END cellblock_grid_c4}
 											],
-				{END row_grid_1}
-								{BEGIN row_grid_2}
+				{END row_grid_2}
+								{BEGIN row_grid_3}
 				[
 												{BEGIN cellblock_grid_c}
 {
@@ -610,7 +682,7 @@ pdfDocument = {
 
 {END cellblock_grid_c}
 											],
-				{END row_grid_2}
+				{END row_grid_3}
 					]
 	}
 }

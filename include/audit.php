@@ -544,6 +544,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Sources of Truth")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1089,6 +1093,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Search list of possible assignees")
+		{
+			return false;
+		}
+		if($table=="Sources of Truth")
 		{
 			return false;
 		}

@@ -376,6 +376,7 @@ class ConnectionManager
 		$connectionsIds["User Permissions"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["uneet_enterprise_uggroups"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Search list of possible assignees"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Sources of Truth"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

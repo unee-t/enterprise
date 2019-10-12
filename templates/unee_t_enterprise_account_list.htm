@@ -89,6 +89,22 @@
 		Advanced search		
 		</a>
 	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -229,19 +245,45 @@
 				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
 		</div>
 		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_default_role_type_id}
+																		{BEGIN searchCtrlBlock_role_type}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_default_role_type_id}" {$filterRow_attrs_default_role_type_id}>
-			<label>{$label Unee_T_Enterprise_Account default_role_type_id }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_role_type}" {$filterRow_attrs_role_type}>
+			<label>{$label Unee_T_Enterprise_Account role_type }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_default_role_type_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_default_role_type_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_default_role_type_id}</span>
+								<span class="rnr-searchtype">{$searchtype_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_role_type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
 						</div>
-		{END searchCtrlBlock_default_role_type_id}
+		{END searchCtrlBlock_role_type}
+																{BEGIN searchCtrlBlock_unee_t_mefe_user_api_key}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_unee_t_mefe_user_api_key}" {$filterRow_attrs_unee_t_mefe_user_api_key}>
+			<label>{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_unee_t_mefe_user_api_key}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_mefe_user_api_key}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_mefe_user_api_key}</span>
+						</div>
+		{END searchCtrlBlock_unee_t_mefe_user_api_key}
+																{BEGIN searchCtrlBlock_unee_t_mefe_user_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_unee_t_mefe_user_id}" {$filterRow_attrs_unee_t_mefe_user_id}>
+			<label>{$label Unee_T_Enterprise_Account unee_t_mefe_user_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_unee_t_mefe_user_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_mefe_user_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_mefe_user_id}</span>
+						</div>
+		{END searchCtrlBlock_unee_t_mefe_user_id}
 																{BEGIN searchCtrlBlock_country_code}
 
 
@@ -285,15 +327,7 @@
 	
 ">
 		{BEGIN firstAboveGridCell}
-		 
-		{BEGIN add_link}
-<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" {$addlink_attrs} href="unee_t_enterprise_account_add.php" data-popup >
-							Add new			</a>
-</span>
-{END add_link}
-			{END firstAboveGridCell}	
+				{END firstAboveGridCell}	
 	</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
@@ -307,6 +341,39 @@
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
+		{BEGIN print_friendly}
+<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
+	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-print"></span>
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu pull-right">
+										 
+				 
+					<li class="container-fluid 
+										">
+									{BEGIN print_details}
+<div>
+	<label for="printDetailsToggler{$id}">
+		<input type="checkbox" id="printDetailsToggler{$id}">
+		Print details	</label>
+	<div  id="printdetailstables{$id}" style="display:none;">
+											{BEGIN print_details_sources_of_truth}
+			<div>
+				<label for="printDetailssources_of_truth{$id}">
+					<input type="checkbox" value="sources_of_truth" id="printDetailssources_of_truth{$id}" checked>
+					Sources of Truth				</label>
+			</div>
+			{END print_details_sources_of_truth}
+						</div>
+</div>
+{END print_details}
+				 
+					</li>
+															</ul>
+</span>
+{END print_friendly}
+	 
 		<div id="fildhidepanel{$id}" class="bs-fildhidepanel 
 	 showHide	 reorder	keep-open btn-group"
 	data-itemtype="columns_control" data-itemid="columns_control" {$item_columns_control} data-pageid="{$pageid}"	title="Show/hide columns"
@@ -317,28 +384,8 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_is_obsolete" checked="checked" value="1" data-field="is_obsolete">
-					<span>{$label Unee_T_Enterprise_Account is_obsolete }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_designation" checked="checked" value="1" data-field="designation">
 					<span>{$label Unee_T_Enterprise_Account designation }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_default_sot_system" checked="checked" value="1" data-field="default_sot_system">
-					<span>{$label Unee_T_Enterprise_Account default_sot_system }</span>
 				</label>
 			</div>
 		</a>
@@ -377,8 +424,8 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_default_role_type_id" checked="checked" value="1" data-field="default_role_type_id">
-					<span>{$label Unee_T_Enterprise_Account default_role_type_id }</span>
+					<input type="checkbox" id="hide_country_code" checked="checked" value="1" data-field="country_code">
+					<span>{$label Unee_T_Enterprise_Account country_code }</span>
 				</label>
 			</div>
 		</a>
@@ -387,8 +434,28 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_country_code" checked="checked" value="1" data-field="country_code">
-					<span>{$label Unee_T_Enterprise_Account country_code }</span>
+					<input type="checkbox" id="hide_unee_t_mefe_user_id" checked="checked" value="1" data-field="unee_t_mefe_user_id">
+					<span>{$label Unee_T_Enterprise_Account unee_t_mefe_user_id }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_unee_t_mefe_user_api_key" checked="checked" value="1" data-field="unee_t_mefe_user_api_key">
+					<span>{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_role_type" checked="checked" value="1" data-field="role_type">
+					<span>{$label Unee_T_Enterprise_Account role_type }</span>
 				</label>
 			</div>
 		</a>
@@ -470,20 +537,8 @@
 		content: "{$label Unee_T_Enterprise_Account default_role_type_id}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_sot_system"]:before {
-		content: "{$label Unee_T_Enterprise_Account default_sot_system}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_sot_persons"]:before {
-		content: "{$label Unee_T_Enterprise_Account default_sot_persons}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_sot_areas"]:before {
-		content: "{$label Unee_T_Enterprise_Account default_sot_areas}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_sot_properties"]:before {
-		content: "{$label Unee_T_Enterprise_Account default_sot_properties}";
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="role_type"]:before {
+		content: "{$label Unee_T_Enterprise_Account role_type}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_area"]:before {
@@ -498,11 +553,19 @@
 		content: "{$label Unee_T_Enterprise_Account default_unit}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
+		content: "{$label Unee_T_Enterprise_Account unee_t_mefe_user_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_api_key"]:before {
+		content: "{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
 	cellpadding="0" 
-	data-body-height="1"
+	data-body-height="2"
 >
 						<thead>
 			{BEGIN grid_header}
@@ -531,6 +594,23 @@
 	</th>
 	{END cellblock_grid_headcell_icons}
 				 
+					{BEGIN cellblock_grid_headcell_details}
+	<th
+	
+	{$cell_grid_headcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
+	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_details}
+				 
 					{BEGIN cellblock_grid_headcell_field}
 	<th
 	
@@ -548,7 +628,7 @@
 	 
 		{BEGIN designation_fieldheadercolumn}
 	{BEGIN designation_fieldheader}
-	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
+	<SPAN {$designation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="designation">
 	{$label Unee_T_Enterprise_Account designation }	{$arrow_icon_designation}
 	</SPAN>
 	{END designation_fieldheader}
@@ -564,22 +644,22 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$role_type_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="role_type"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_obsolete_fieldheadercolumn}
-	{BEGIN is_obsolete_fieldheader}
-	<SPAN {$is_obsolete_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete">
-	{$label Unee_T_Enterprise_Account is_obsolete }	{$arrow_icon_is_obsolete}
+		{BEGIN role_type_fieldheadercolumn}
+	{BEGIN role_type_fieldheader}
+	<SPAN {$role_type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type">
+	{$label Unee_T_Enterprise_Account role_type }	{$arrow_icon_role_type}
 	</SPAN>
-	{END is_obsolete_fieldheader}
-{END is_obsolete_fieldheadercolumn}
+	{END role_type_fieldheader}
+{END role_type_fieldheadercolumn}
 
 	
 	</th>
@@ -591,22 +671,22 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_sot_system_class}
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
 			"
 
-			data-field="default_sot_system"
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN default_sot_system_fieldheadercolumn}
-	{BEGIN default_sot_system_fieldheader}
-	<SPAN {$default_sot_system_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_sot_system">
-	{$label Unee_T_Enterprise_Account default_sot_system }	{$arrow_icon_default_sot_system}
+		{BEGIN unee_t_mefe_user_id_fieldheadercolumn}
+	{BEGIN unee_t_mefe_user_id_fieldheader}
+	<SPAN {$unee_t_mefe_user_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id">
+	{$label Unee_T_Enterprise_Account unee_t_mefe_user_id }	{$arrow_icon_unee_t_mefe_user_id}
 	</SPAN>
-	{END default_sot_system_fieldheader}
-{END default_sot_system_fieldheadercolumn}
+	{END unee_t_mefe_user_id_fieldheader}
+{END unee_t_mefe_user_id_fieldheadercolumn}
 
 	
 	</th>
@@ -618,12 +698,66 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
+		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
+			"
+
+			data-field="unee_t_mefe_user_api_key"
+	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN unee_t_mefe_user_api_key_fieldheadercolumn}
+	{BEGIN unee_t_mefe_user_api_key_fieldheader}
+	<SPAN {$unee_t_mefe_user_api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key">
+	{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }	{$arrow_icon_unee_t_mefe_user_api_key}
+	</SPAN>
+	{END unee_t_mefe_user_api_key_fieldheader}
+{END unee_t_mefe_user_api_key_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field3}
+				 
+					{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$country_code_class}
+			"
+
+			data-field="country_code"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN country_code_fieldheadercolumn}
+	{BEGIN country_code_fieldheader}
+	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
+	{$label Unee_T_Enterprise_Account country_code }	{$arrow_icon_country_code}
+	</SPAN>
+	{END country_code_fieldheader}
+{END country_code_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
+				 
+					{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
 		 r-ori-vert				{$default_area_class}
 			"
 
 			data-field="default_area"
 	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -637,12 +771,12 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field3}
+	{END cellblock_grid_headcell_field5}
 				 
-					{BEGIN cellblock_grid_headcell_field4}
+					{BEGIN cellblock_grid_headcell_field6}
 	<th
 	
-	{$cell_grid_headcell_field4}
+	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$default_building_class}
@@ -650,7 +784,7 @@
 
 			data-field="default_building"
 	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -664,12 +798,12 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field4}
+	{END cellblock_grid_headcell_field6}
 				 
-					{BEGIN cellblock_grid_headcell_field5}
+					{BEGIN cellblock_grid_headcell_field7}
 	<th
 	
-	{$cell_grid_headcell_field5}
+	{$cell_grid_headcell_field7}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$default_unit_class}
@@ -677,7 +811,7 @@
 
 			data-field="default_unit"
 	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -691,62 +825,9 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
-	<th
-	
-	{$cell_grid_headcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_role_type_id_class}
-			"
-
-			data-field="default_role_type_id"
-	
-	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_role_type_id_fieldheadercolumn}
-	{BEGIN default_role_type_id_fieldheader}
-	<SPAN {$default_role_type_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_role_type_id">
-	{$label Unee_T_Enterprise_Account default_role_type_id }	{$arrow_icon_default_role_type_id}
-	</SPAN>
-	{END default_role_type_id_fieldheader}
-{END default_role_type_id_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field6}
-				 
-					{BEGIN cellblock_grid_headcell_field7}
-	<th
-	
-	{$cell_grid_headcell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$country_code_class}
-			"
-
-			data-field="country_code"
-	
-	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN country_code_fieldheadercolumn}
-	{BEGIN country_code_fieldheader}
-	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
-	{$label Unee_T_Enterprise_Account country_code }	{$arrow_icon_country_code}
-	</SPAN>
-	{END country_code_fieldheader}
-{END country_code_fieldheadercolumn}
-
-	
-	</th>
 	{END cellblock_grid_headcell_field7}
 							</tr>
+					 
 					 
 					 
 					
@@ -768,24 +849,13 @@
 	{$cell_grid_cell_icons}
 	{$recordattrs}
 	class="
-					"
+		 r-ori-vert			"
 
 	
 	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"		data-control-cell
 	
 	>
 
-	 
-		{BEGIN edit_column}
-{BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Edit" class="btn-link   
-	 glyphicon glyphicon-pencil" href="unee_t_enterprise_account_edit.php?{$editlink}" {$editlink_attrs} title="Edit" data-popup >		
-				
-								</a>
-</span>
-{END edit_link}
-{END edit_column}
 	 
 		{BEGIN view_column}
 {BEGIN view_link}
@@ -800,6 +870,41 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
+				 
+					{BEGIN cellblock_grid_cell_details}
+	<td
+	
+	{$cell_grid_cell_details}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"		data-control-cell
+	
+	>
+
+	 
+			 
+		
+	{BEGIN dtables_link}
+				<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+		<a 
+			{$sources_of_truth_link_attrs} 
+			class="{$dtables_link_class} details-badge badge sources_of_truth_badge" 
+			title="Show details"
+		>
+							<span class="glyphicon glyphicon-th-list"></span>
+									<span class="{$sources_of_truth_cntspan_class}" {$sources_of_truth_childnumber_attr}>
+				{$sources_of_truth_childnumber}				
+			</span>
+		</a>
+		</span>
+	{END dtables_link}
+
+	
+	</td>
+	{END cellblock_grid_cell_details}
 				 
 					{BEGIN cellblock_grid_cell_field}
 	<td
@@ -830,20 +935,20 @@
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$is_obsolete_class}
+		 r-ori-vert				{$role_type_class}
 			"
 
-			data-field="is_obsolete"
+			data-field="role_type"
 	
 	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN is_obsolete_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_obsolete" data-default-width >
-{$is_obsolete_value}
+		{BEGIN role_type_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="role_type" data-default-width >
+{$role_type_value}
 </span>
-{END is_obsolete_fieldcolumn}	
+{END role_type_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
 				 
@@ -853,20 +958,20 @@
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_sot_system_class}
+		 r-ori-vert				{$unee_t_mefe_user_id_class}
 			"
 
-			data-field="default_sot_system"
+			data-field="unee_t_mefe_user_id"
 	
 	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN default_sot_system_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_sot_system" data-default-width >
-{$default_sot_system_value}
+		{BEGIN unee_t_mefe_user_id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_id" data-default-width >
+{$unee_t_mefe_user_id_value}
 </span>
-{END default_sot_system_fieldcolumn}	
+{END unee_t_mefe_user_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
 				 
@@ -876,20 +981,20 @@
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_area_class}
+		 r-ori-vert				{$unee_t_mefe_user_api_key_class}
 			"
 
-			data-field="default_area"
+			data-field="unee_t_mefe_user_api_key"
 	
 	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN default_area_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_area" data-default-width >
-{$default_area_value}
+		{BEGIN unee_t_mefe_user_api_key_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key" data-default-width >
+{$unee_t_mefe_user_api_key_value}
 </span>
-{END default_area_fieldcolumn}	
+{END unee_t_mefe_user_api_key_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
 				 
@@ -899,81 +1004,12 @@
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_building_class}
-			"
-
-			data-field="default_building"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_building_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_building" data-default-width >
-{$default_building_value}
-</span>
-{END default_building_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_unit_class}
-			"
-
-			data-field="default_unit"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_unit_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_unit" data-default-width >
-{$default_unit_value}
-</span>
-{END default_unit_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_role_type_id_class}
-			"
-
-			data-field="default_role_type_id"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_role_type_id_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_role_type_id" data-default-width >
-{$default_role_type_id_value}
-</span>
-{END default_role_type_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-				 
-					{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$country_code_class}
 			"
 
 			data-field="country_code"
 	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -983,7 +1019,106 @@
 </span>
 {END country_code_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field4}
+				 
+					{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$default_area_class}
+			"
+
+			data-field="default_area"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN default_area_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_area" data-default-width >
+{$default_area_value}
+</span>
+{END default_area_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$default_building_class}
+			"
+
+			data-field="default_building"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN default_building_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_building" data-default-width >
+{$default_building_value}
+</span>
+{END default_building_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+				 
+					{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$default_unit_class}
+			"
+
+			data-field="default_unit"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN default_unit_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_unit" data-default-width >
+{$default_unit_value}
+</span>
+{END default_unit_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field7}
+							</tr>
+					 
+						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+								
+							">
+				 
+					{BEGIN cellblock_grid_cell_dpreview}
+	<td
+	
+	{$cell_grid_cell_dpreview}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+			<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="sources_of_truth"
+			data-details-sources_of_truth	>
+		<span data-details-inside data-short-table="sources_of_truth">
+			</span>
+		<div data-details-preview>
+	</div>
+</div>
+	
+	</td>
+	{END cellblock_grid_cell_dpreview}
 							</tr>
 					 
 					
@@ -994,7 +1129,8 @@
 		 
 					 
 					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+					 
+						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
 									{$gridFooter_class}
 									
 								r-gridrow
@@ -1015,6 +1151,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
+				 
+					{BEGIN cellblock_grid_footcell_details}
+	<td
+	
+	{$cell_grid_footcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_details}
 				 
 					{BEGIN cellblock_grid_footcell_field}
 	<td

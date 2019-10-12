@@ -199,6 +199,14 @@ pdfDocument = {
 								{BEGIN col_section2_1}
 								'*', 
 								{END col_section2_1}
+							 
+								{BEGIN col_section2_2}
+								'*', 
+								{END col_section2_2}
+							 
+								{BEGIN col_section2_3}
+								'*', 
+								{END col_section2_3}
 													],
 						body: [
 								
@@ -254,6 +262,56 @@ pdfDocument = {
           },
 
 {END cellblock_section2_c}
+																			{BEGIN cellblock_section2_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account role_type }","bold":true},{"text":{$role_type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c3}
+																			{BEGIN cellblock_section2_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account country_code }","bold":true},{"text":{$country_code_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section2_c2}
 											],
 				{END row_section2_0}
 									]
@@ -300,7 +358,7 @@ pdfDocument = {
 			location: 'section1',
 			widths: ['*'],
 			body: [
-				[{text: 'External Source of Truth', style: 'tableHeader'}],
+				[{text: 'Master MEFE user', style: 'tableHeader'}],
 				[{
 					table: {
 						tableForm: true,
@@ -313,14 +371,6 @@ pdfDocument = {
 								{BEGIN col_section1_1}
 								'*', 
 								{END col_section1_1}
-							 
-								{BEGIN col_section1_2}
-								'*', 
-								{END col_section1_2}
-							 
-								{BEGIN col_section1_3}
-								'*', 
-								{END col_section1_3}
 													],
 						body: [
 								
@@ -344,63 +394,13 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_system }","bold":true},{"text":{$default_sot_system_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account unee_t_mefe_user_id }","bold":true},{"text":{$unee_t_mefe_user_id_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
           },
 
 {END cellblock_section1_c1}
-																			{BEGIN cellblock_section1_c3}
-{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_persons }","bold":true},{"text":{$default_sot_persons_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c3}
-																			{BEGIN cellblock_section1_c2}
-{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_areas }","bold":true},{"text":{$default_sot_areas_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c2}
 																			{BEGIN cellblock_section1_c}
 {
 	cellId: 'c',
@@ -419,7 +419,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_sot_properties }","bold":true},{"text":{$default_sot_properties_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account unee_t_mefe_user_api_key }","bold":true},{"text":{$unee_t_mefe_user_api_key_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -607,10 +607,9 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account default_role_type_id }","bold":true},{"text":{$default_role_type_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Unee_T_Enterprise_Account country_code }","bold":true},{"text":{$country_code_pdfvalue}}],"margin":[0,0,0,15]},
+			 {BEGIN details_sources_of_truth}
+			{$displayDetailTable_sources_of_truth }
+		{END details_sources_of_truth},
 				
 		  ],
   "border": [ false, false, false, false ],

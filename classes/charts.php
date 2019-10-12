@@ -610,6 +610,8 @@ class Chart
 			return true;
 		if("ut_list_possible_assignees" == $this->chrt_array['tables'][0])
 			return true;
+		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

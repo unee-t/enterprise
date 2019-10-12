@@ -16,6 +16,8 @@
 
 		$this->events["BeforeEdit"]=true;
 
+		$this->events["AfterAdd"]=true;
+
 
 	}
 
@@ -153,6 +155,95 @@ return true;
 ;		
 } // function BeforeEdit
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// After record added
+function AfterAdd(&$values, &$keys, $inline, &$pageObject)
+{
+
+		
+	// We update the values that allow us to find the MEFE master user for this organization
+
+		// what was the ID of the last inserted record?
+
+			$rs_organization_id = $values['id_organization'];
+		
+		// We update the value
+
+			$table_name = 'uneet_enterprise_organizations' ;
+
+			$data = array();
+				$data["mefe_master_user_external_person_id"] = (0 . '-' . $rs_organization_id) ;
+				$data["mefe_master_user_external_person_system"]  = 'Setup' ;
+				$data["mefe_master_user_external_person_table"] = 'Setup' ;
+			$keyvalues = array();
+				$keyvalues["id_organization"] = $rs_organization_id;
+
+			// Command to do the update
+				
+				DB::Update($table_name, $data, $keyvalues);
+
+// Place event code here.
+// Use "Add Action" button to add code snippets.
+;		
+} // function AfterAdd
+
+		
+		
+		
+		
 		
 		
 		

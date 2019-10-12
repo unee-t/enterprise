@@ -181,6 +181,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field21}","text":{$country_code_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field22}","text":{$mefe_master_user_external_person_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field23}","text":{$mefe_master_user_external_person_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field24}","text":{$mefe_master_user_external_person_system_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },
