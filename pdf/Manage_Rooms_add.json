@@ -422,10 +422,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel Manage_Rooms is_creation_needed_in_unee_t }","bold":true},{"text":{$is_creation_needed_in_unee_t_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           "alignment": 'center',
     },

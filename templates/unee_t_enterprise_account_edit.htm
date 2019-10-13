@@ -167,9 +167,9 @@
 	data-location="section2" id="form_section2_{$pageid}" data-makeup="topbar" {$form_section2} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="2"
+		data-form-width="4"
 		
-		data-v-width="4"
+		data-v-width="8"
 	>
 	<tbody>
 										<tr>
@@ -254,6 +254,88 @@
 	
 								</td>
 			{END cellblock_section2_c}
+			 
+																
+
+{BEGIN cellblock_section2_c3}
+<td
+	{$cell_section2_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN role_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_role_type}  r-vertical-field" 
+	data-fieldname="role_type" 
+	data-signal-error-for="role_type{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="role_type" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_role_type}">
+		{BEGIN role_type_label}{$label Unee_T_Enterprise_Account role_type }{END role_type_label}
+	</label>
+	<div class="r-edit-field">
+		{$role_type_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="role_type">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END role_type_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c3}
+			 
+																
+
+{BEGIN cellblock_section2_c2}
+<td
+	{$cell_section2_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN country_code_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" 
+	data-fieldname="country_code" 
+	data-signal-error-for="country_code{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="country_code" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_country_code}">
+		{BEGIN country_code_label}{$label Unee_T_Enterprise_Account country_code }{END country_code_label}
+	</label>
+	<div class="r-edit-field">
+		{$country_code_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="country_code">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END country_code_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c2}
 								</tr>
 			</tbody></table>
 {END section2_block}
@@ -264,7 +346,7 @@
 				 
 	 
 												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section3" {$item_section3} data-pageid="{$pageid}">
 		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
 
 				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
@@ -272,12 +354,137 @@
 		>
 		  <h4 class="panel-title">
 			<a role="button" >
-				External Source of Truth			</a>
+				API Keys and MEFE user id			</a>
 		  </h4>
 		</div>
 		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
 
 				id="section2{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section3_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section3" id="form_section3_{$pageid}" data-makeup="topbar" {$form_section3} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section3_c1}
+<td
+	{$cell_section3_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN unee_t_mefe_user_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_mefe_user_id}  r-vertical-field" 
+	data-fieldname="unee_t_mefe_user_id" 
+	data-signal-error-for="unee_t_mefe_user_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="unee_t_mefe_user_id" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_unee_t_mefe_user_id}">
+		{BEGIN unee_t_mefe_user_id_label}{$label Unee_T_Enterprise_Account unee_t_mefe_user_id }{END unee_t_mefe_user_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$unee_t_mefe_user_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="unee_t_mefe_user_id">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END unee_t_mefe_user_id_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c1}
+			 
+																
+
+{BEGIN cellblock_section3_c}
+<td
+	{$cell_section3_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN unee_t_mefe_user_api_key_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_mefe_user_api_key}  r-vertical-field" 
+	data-fieldname="unee_t_mefe_user_api_key" 
+	data-signal-error-for="unee_t_mefe_user_api_key{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="unee_t_mefe_user_api_key" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_unee_t_mefe_user_api_key}">
+		{BEGIN unee_t_mefe_user_api_key_label}{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }{END unee_t_mefe_user_api_key_label}
+	</label>
+	<div class="r-edit-field">
+		{$unee_t_mefe_user_api_key_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="unee_t_mefe_user_api_key">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END unee_t_mefe_user_api_key_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c}
+								</tr>
+			</tbody></table>
+{END section3_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+
+				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				External Source of Truth			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+
+				id="section3{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section1_block}
@@ -292,9 +499,9 @@
 	data-location="section1" id="form_section1_{$pageid}" data-makeup="topbar" {$form_section1} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="4"
+		data-form-width="3"
 		
-		data-v-width="8"
+		data-v-width="6"
 	>
 	<tbody>
 										<tr>
@@ -306,122 +513,147 @@
 	class=" r-ori-vert"
 	
 			data-single
-			
-			data-cellId="section1_c1" data-pageid="{$pageid}"
-		data-v-cell="2"
+				data-fullwidth
+		
+	ocolspan="3"		data-cellId="section1_c1" data-pageid="{$pageid}"
+		data-v-cell="6"
 		
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN default_sot_system_fieldblock}
+{BEGIN default_sot_id_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_system}  r-vertical-field" 
-	data-fieldname="default_sot_system" 
-	data-signal-error-for="default_sot_system{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="default_sot_system" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_id}  r-vertical-field" 
+	data-fieldname="default_sot_id" 
+	data-signal-error-for="default_sot_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="default_sot_id" >
 
 
-	<label class="r-edit-label control-label" for="{$labelfor_default_sot_system}">
-		{BEGIN default_sot_system_label}{$label Unee_T_Enterprise_Account default_sot_system }{END default_sot_system_label}
+	<label class="r-edit-label control-label" for="{$labelfor_default_sot_id}">
+		{BEGIN default_sot_id_label}{$label Unee_T_Enterprise_Account default_sot_id }{END default_sot_id_label}
 	</label>
 	<div class="r-edit-field">
-		{$default_sot_system_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="default_sot_system">
+		{$default_sot_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="default_sot_id">
 		<div class="text-muted" >
 				</div>
 	</div>
 </div>
 
 
-{END default_sot_system_fieldblock}
+{END default_sot_id_fieldblock}
 	
 								</td>
 			{END cellblock_section1_c1}
-			 
-																
+								</tr>
+	 
+	 
+														<tr>
+										
 
-{BEGIN cellblock_section1_c3}
+{BEGIN cellblock_section1_c4}
 <td
-	{$cell_section1_c3}
+	{$cell_section1_c4}
 	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c3" data-pageid="{$pageid}"
+			data-cellId="section1_c4" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN default_sot_persons_fieldblock}
+{BEGIN person_table_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_persons}  r-vertical-field" 
-	data-fieldname="default_sot_persons" 
-	data-signal-error-for="default_sot_persons{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="default_sot_persons" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_person_table}  r-vertical-field" 
+	data-fieldname="person_table" 
+	data-signal-error-for="person_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="person_table" >
 
 
-	<label class="r-edit-label control-label" for="{$labelfor_default_sot_persons}">
-		{BEGIN default_sot_persons_label}{$label Unee_T_Enterprise_Account default_sot_persons }{END default_sot_persons_label}
+	<label class="r-edit-label control-label" for="{$labelfor_person_table}">
+		{BEGIN person_table_label}{$label Unee_T_Enterprise_Account person_table }{END person_table_label}
 	</label>
 	<div class="r-edit-field">
-		{$default_sot_persons_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="default_sot_persons">
+		{$person_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="person_table">
 		<div class="text-muted" >
 				</div>
 	</div>
 </div>
 
 
-{END default_sot_persons_fieldblock}
+{END person_table_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c3}
+			{END cellblock_section1_c4}
 			 
 																
 
-{BEGIN cellblock_section1_c2}
+{BEGIN cellblock_section1_c5}
 <td
-	{$cell_section1_c2}
+	{$cell_section1_c5}
 	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c2" data-pageid="{$pageid}"
+			data-cellId="section1_c5" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN default_sot_areas_fieldblock}
+{BEGIN area_table_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_areas}  r-vertical-field" 
-	data-fieldname="default_sot_areas" 
-	data-signal-error-for="default_sot_areas{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="default_sot_areas" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_area_table}  r-vertical-field" 
+	data-fieldname="area_table" 
+	data-signal-error-for="area_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="area_table" >
 
 
-	<label class="r-edit-label control-label" for="{$labelfor_default_sot_areas}">
-		{BEGIN default_sot_areas_label}{$label Unee_T_Enterprise_Account default_sot_areas }{END default_sot_areas_label}
+	<label class="r-edit-label control-label" for="{$labelfor_area_table}">
+		{BEGIN area_table_label}{$label Unee_T_Enterprise_Account area_table }{END area_table_label}
 	</label>
 	<div class="r-edit-field">
-		{$default_sot_areas_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="default_sot_areas">
+		{$area_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="area_table">
 		<div class="text-muted" >
 				</div>
 	</div>
 </div>
 
 
-{END default_sot_areas_fieldblock}
+{END area_table_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c2}
+			{END cellblock_section1_c5}
 			 
-																
+		
+							
+
+{BEGIN cellblock_section1_c6}
+<td
+	{$cell_section1_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section1_c6}
+								</tr>
+	 
+	 
+														<tr>
+										
 
 {BEGIN cellblock_section1_c}
 <td
@@ -436,31 +668,113 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN default_sot_properties_fieldblock}
+{BEGIN properties_level_1_table_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_sot_properties}  r-vertical-field" 
-	data-fieldname="default_sot_properties" 
-	data-signal-error-for="default_sot_properties{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="default_sot_properties" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_properties_level_1_table}  r-vertical-field" 
+	data-fieldname="properties_level_1_table" 
+	data-signal-error-for="properties_level_1_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="properties_level_1_table" >
 
 
-	<label class="r-edit-label control-label" for="{$labelfor_default_sot_properties}">
-		{BEGIN default_sot_properties_label}{$label Unee_T_Enterprise_Account default_sot_properties }{END default_sot_properties_label}
+	<label class="r-edit-label control-label" for="{$labelfor_properties_level_1_table}">
+		{BEGIN properties_level_1_table_label}{$label Unee_T_Enterprise_Account properties_level_1_table }{END properties_level_1_table_label}
 	</label>
 	<div class="r-edit-field">
-		{$default_sot_properties_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="default_sot_properties">
+		{$properties_level_1_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="properties_level_1_table">
 		<div class="text-muted" >
 				</div>
 	</div>
 </div>
 
 
-{END default_sot_properties_fieldblock}
+{END properties_level_1_table_fieldblock}
 	
 								</td>
 			{END cellblock_section1_c}
+			 
+																
+
+{BEGIN cellblock_section1_c10}
+<td
+	{$cell_section1_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN properties_level_2_table_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_properties_level_2_table}  r-vertical-field" 
+	data-fieldname="properties_level_2_table" 
+	data-signal-error-for="properties_level_2_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="properties_level_2_table" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_properties_level_2_table}">
+		{BEGIN properties_level_2_table_label}{$label Unee_T_Enterprise_Account properties_level_2_table }{END properties_level_2_table_label}
+	</label>
+	<div class="r-edit-field">
+		{$properties_level_2_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="properties_level_2_table">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END properties_level_2_table_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c10}
+			 
+																
+
+{BEGIN cellblock_section1_c11}
+<td
+	{$cell_section1_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN properties_level_3_table_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_properties_level_3_table}  r-vertical-field" 
+	data-fieldname="properties_level_3_table" 
+	data-signal-error-for="properties_level_3_table{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="properties_level_3_table" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_properties_level_3_table}">
+		{BEGIN properties_level_3_table_label}{$label Unee_T_Enterprise_Account properties_level_3_table }{END properties_level_3_table_label}
+	</label>
+	<div class="r-edit-field">
+		{$properties_level_3_table_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="properties_level_3_table">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END properties_level_3_table_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c11}
 								</tr>
 			</tbody></table>
 {END section1_block}
@@ -472,9 +786,9 @@
 	 
 												 
 	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
-		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+		<div class="panel-heading" role="tab" {$section_section4_headattrs} data-toggle="collapse"   
 
-				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+				href="#section4{$pageid}" aria-expanded="true" aria-controls="section4"
 
 		>
 		  <h4 class="panel-title">
@@ -482,9 +796,9 @@
 				New Properties			</a>
 		  </h4>
 		</div>
-		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+		<div  class="panel-collapse collapse in {$section_section4_xtrclass}" role="tabpanel"  {$section_section4_attrs}
 
-				id="section3{$pageid}" 
+				id="section4{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section_block}
@@ -636,79 +950,34 @@
 	
 				 
 	 
-												<table 
+		
+					<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
 		data-form-width="1"
 		
-		data-v-width="4"
+		data-v-width="2"
 	>
 	<tbody>
-										<tr>
-										
+						<tr>
+						
 
 {BEGIN cellblock_grid_c3}
 <td
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
+			data-single
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN default_role_type_id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_default_role_type_id}  r-vertical-field" 
-	data-fieldname="default_role_type_id" 
-	data-signal-error-for="default_role_type_id{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="default_role_type_id" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_default_role_type_id}">
-		{BEGIN default_role_type_id_label}{$label Unee_T_Enterprise_Account default_role_type_id }{END default_role_type_id_label}
-	</label>
-	<div class="r-edit-field">
-		{$default_role_type_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="default_role_type_id">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END default_role_type_id_fieldblock}
-											
-{BEGIN country_code_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_country_code}  r-vertical-field" 
-	data-fieldname="country_code" 
-	data-signal-error-for="country_code{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="country_code" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_country_code}">
-		{BEGIN country_code_label}{$label Unee_T_Enterprise_Account country_code }{END country_code_label}
-	</label>
-	<div class="r-edit-field">
-		{$country_code_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="country_code">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END country_code_fieldblock}
-	
-								</td>
+									</td>
 			{END cellblock_grid_c3}
 								</tr>
 			</tbody></table>

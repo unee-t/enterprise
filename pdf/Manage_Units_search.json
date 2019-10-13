@@ -195,6 +195,30 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field}","text":{$uneet_created_datetime_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field1}","text":{$mgt_cny_default_assignee_l2p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field2}","text":{$landlord_default_assignee_l2p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field3}","text":{$tenant_default_assignee_l2p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field4}","text":{$agent_default_assignee_l2p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field5}","text":{$mgt_cny_default_assignee_l1p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field6}","text":{$landlord_default_assignee_l1p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field7}","text":{$tenant_default_assignee_l1p_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field8}","text":{$agent_default_assignee_l1p_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

@@ -153,7 +153,7 @@
 	{$grid_hiddenattr} 
 		data-form-width="1"
 		
-		data-v-width="2"
+		data-v-width="4"
 	>
 	<tbody>
 						<tr>
@@ -168,7 +168,7 @@
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="2"
+		data-v-cell="4"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -899,7 +899,131 @@
 </div>
 {END details_Assign_Units_to_User}
 	
-				{END grid_block}
+				 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN mgt_cny_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_mgt_cny_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="mgt_cny_default_assignee_l2p" 
+	data-signal-error-for="mgt_cny_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="mgt_cny_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_mgt_cny_default_assignee_l2p}">
+		{BEGIN mgt_cny_default_assignee_l2p_label}{$label Manage_Units mgt_cny_default_assignee_l2p }{END mgt_cny_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$mgt_cny_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="mgt_cny_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END mgt_cny_default_assignee_l2p_fieldblock}
+											
+{BEGIN landlord_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_landlord_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="landlord_default_assignee_l2p" 
+	data-signal-error-for="landlord_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="landlord_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_landlord_default_assignee_l2p}">
+		{BEGIN landlord_default_assignee_l2p_label}{$label Manage_Units landlord_default_assignee_l2p }{END landlord_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$landlord_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="landlord_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END landlord_default_assignee_l2p_fieldblock}
+											
+{BEGIN tenant_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_tenant_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="tenant_default_assignee_l2p" 
+	data-signal-error-for="tenant_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="tenant_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_tenant_default_assignee_l2p}">
+		{BEGIN tenant_default_assignee_l2p_label}{$label Manage_Units tenant_default_assignee_l2p }{END tenant_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$tenant_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="tenant_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END tenant_default_assignee_l2p_fieldblock}
+											
+{BEGIN agent_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_agent_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="agent_default_assignee_l2p" 
+	data-signal-error-for="agent_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="agent_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_agent_default_assignee_l2p}">
+		{BEGIN agent_default_assignee_l2p_label}{$label Manage_Units agent_default_assignee_l2p }{END agent_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$agent_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="agent_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END agent_default_assignee_l2p_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c7}
+								</tr>
+			</tbody></table>
+{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

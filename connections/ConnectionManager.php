@@ -377,6 +377,9 @@ class ConnectionManager
 		$connectionsIds["uneet_enterprise_uggroups"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Search list of possible assignees"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Sources of Truth"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Organization Default Area"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Organization Default L1P"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Search list of possible properties"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

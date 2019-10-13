@@ -738,6 +738,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
+				
 		  ],
   "border": [ true, true, true, true ],
           },
@@ -1062,6 +1065,11 @@ pdfDocument = {
 			 {BEGIN details_Assign_Buildings_to_User}
 			{$displayDetailTable_Assign_Buildings_to_User }
 		{END details_Assign_Buildings_to_User},
+				
+				
+			 {BEGIN details_organization_default_l1p}
+			{$displayDetailTable_organization_default_l1p }
+		{END details_organization_default_l1p},
 				
 		  ],
   "border": [ true, true, true, true ],

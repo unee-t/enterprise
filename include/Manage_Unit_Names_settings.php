@@ -3523,8 +3523,10 @@ $proto56["m_link"] = "SQLL_LEFTJOIN";
 $proto57["m_strName"] = "ut_organization_mefe_user_id";
 $proto57["m_srcTableName"] = "Manage Unit Names";
 $proto57["m_columns"] = array();
-$proto57["m_columns"][] = "mefe_user_id";
 $proto57["m_columns"][] = "organization_id";
+$proto57["m_columns"][] = "designation";
+$proto57["m_columns"][] = "mefe_user_id";
+$proto57["m_columns"][] = "unee_t_mefe_user_api_key";
 $obj = new SQLTable($proto57);
 
 $proto56["m_table"] = $obj;

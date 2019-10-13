@@ -73,6 +73,9 @@ $nonAdminTablesArr[] = "User Permissions";
 $nonAdminTablesArr[] = "uneet_enterprise_uggroups";
 $nonAdminTablesArr[] = "Search list of possible assignees";
 $nonAdminTablesArr[] = "Sources of Truth";
+$nonAdminTablesArr[] = "Organization Default Area";
+$nonAdminTablesArr[] = "Organization Default L1P";
+$nonAdminTablesArr[] = "Search list of possible properties";
 
 $ug_connection = $cman->getForUserGroups();
 

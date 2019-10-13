@@ -936,6 +936,11 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel Manage_Buildings agent_default_assignee }","bold":true},{"text":{$agent_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			 {BEGIN details_organization_default_l1p}
+			{$displayDetailTable_organization_default_l1p }
+		{END details_organization_default_l1p},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

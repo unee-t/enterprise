@@ -1,5 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'Manage Buildings' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'Organization Default Area' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'order',

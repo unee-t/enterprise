@@ -48,6 +48,12 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -94,6 +100,50 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_welcome_group2}"},
 				
 		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								[
+												{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+								[
+												{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
   "border": [ false, false, false, false ],
           },
 

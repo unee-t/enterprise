@@ -325,6 +325,12 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("sources_of_truth" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("organization_default_area" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("organization_default_l1p" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("search_list_of_possible_properties" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -924,6 +930,33 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Sources of Truth";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Organization Default Area");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Organization Default Area";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Organization Default L1P");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Organization Default L1P";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search list of possible properties");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Search list of possible properties";
+	}
 	return $arr;
 }
 
@@ -994,6 +1027,9 @@ function GetTablesListWithoutSecurity()
 	$arr[]="uneet_enterprise_uggroups";
 	$arr[]="Search list of possible assignees";
 	$arr[]="Sources of Truth";
+	$arr[]="Organization Default Area";
+	$arr[]="Organization Default L1P";
+	$arr[]="Search list of possible properties";
 	return $arr;
 }
 
@@ -2060,6 +2096,21 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="Organization Default Area" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Organization Default L1P" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search list of possible properties" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2185,6 +2236,7 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Manage Areas_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Buildings_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Units_OwnerID"] = $data["organization_id"];
+		$_SESSION["_external_property_groups_areas_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Manage Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Assign Areas to User_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search Users_OwnerID"] = $data["organization_id"];
@@ -2212,6 +2264,9 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_User Permissions_OwnerID"] = $data["active"];
 		$_SESSION["_Search list of possible assignees_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Sources of Truth_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Organization Default Area_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Organization Default L1P_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Search list of possible properties_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -2453,6 +2508,24 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Organization Default Area")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Organization Default L1P")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Search list of possible properties")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	if( Security::permissionsAvailable() )
 	{
@@ -2640,6 +2713,18 @@ function SecuritySQL($strAction, $table, $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Sources of Truth")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Organization Default Area")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Organization Default L1P")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Search list of possible properties")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

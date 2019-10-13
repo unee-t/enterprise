@@ -1938,13 +1938,14 @@ $proto31["m_columns"][] = "mefe_master_user_external_person_id";
 $proto31["m_columns"][] = "mefe_master_user_external_person_table";
 $proto31["m_columns"][] = "mefe_master_user_external_person_system";
 $proto31["m_columns"][] = "default_role_type_id";
+$proto31["m_columns"][] = "default_sot_id";
+$proto31["m_columns"][] = "default_area";
+$proto31["m_columns"][] = "default_building";
+$proto31["m_columns"][] = "default_unit";
 $proto31["m_columns"][] = "default_sot_system";
 $proto31["m_columns"][] = "default_sot_persons";
 $proto31["m_columns"][] = "default_sot_areas";
 $proto31["m_columns"][] = "default_sot_properties";
-$proto31["m_columns"][] = "default_area";
-$proto31["m_columns"][] = "default_building";
-$proto31["m_columns"][] = "default_unit";
 $obj = new SQLTable($proto31);
 
 $proto30["m_table"] = $obj;

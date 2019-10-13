@@ -4362,6 +4362,35 @@ $detailsTablesData["Manage Areas"] = array();
 				$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="area_id";
+//	Organization Default Area
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Organization Default Area";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_organizations";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "organization_default_area";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Organization_Default_Area");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Areas"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"][]="created_by_id";
+
+				$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="id_organization";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Areas"] = array();

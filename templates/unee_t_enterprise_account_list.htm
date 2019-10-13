@@ -83,28 +83,18 @@
 									<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+								<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span}  title="" >
+				
+		Edit selected		
+		</a>
+	</li>
+							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
 				<a   href="unee_t_enterprise_account_search.php" {$advsearchlink_attrs}  title="" >
 				
 		Advanced search		
 		</a>
 	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
 					</ul>
 	</span>
 </span>
@@ -205,108 +195,6 @@
 	class=" r-ori-vert			"
 			 
 	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
-
-	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_role_type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_role_type}" {$filterRow_attrs_role_type}>
-			<label>{$label Unee_T_Enterprise_Account role_type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_role_type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_role_type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_role_type}</span>
-						</div>
-		{END searchCtrlBlock_role_type}
-																{BEGIN searchCtrlBlock_unee_t_mefe_user_api_key}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unee_t_mefe_user_api_key}" {$filterRow_attrs_unee_t_mefe_user_api_key}>
-			<label>{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unee_t_mefe_user_api_key}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_mefe_user_api_key}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_mefe_user_api_key}</span>
-						</div>
-		{END searchCtrlBlock_unee_t_mefe_user_api_key}
-																{BEGIN searchCtrlBlock_unee_t_mefe_user_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unee_t_mefe_user_id}" {$filterRow_attrs_unee_t_mefe_user_id}>
-			<label>{$label Unee_T_Enterprise_Account unee_t_mefe_user_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unee_t_mefe_user_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unee_t_mefe_user_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unee_t_mefe_user_id}</span>
-						</div>
-		{END searchCtrlBlock_unee_t_mefe_user_id}
-																{BEGIN searchCtrlBlock_country_code}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_country_code}" {$filterRow_attrs_country_code}>
-			<label>{$label Unee_T_Enterprise_Account country_code }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_country_code}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_country_code}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_country_code}</span>
-						</div>
-		{END searchCtrlBlock_country_code}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
 </td>
 							</tr>
 					
@@ -323,11 +211,27 @@
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class=" r-ori-vert			col-md-6
+	class="			col-md-6
 	
 ">
 		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
+		 
+		{BEGIN saveall_link}
+<span data-itemtype="inline_save_all" data-itemid="inline_save_all" {$item_inline_save_all} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savealllink_attrs} {$savealllink_span} >
+							Save all			</a>
+</span>
+{END saveall_link}
+	 
+		{BEGIN cancelall_link}
+<span data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" {$item_inline_cancel_all} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$cancelalllink_attrs} {$cancelalllink_span} >
+							Cancel			</a>
+</span>
+{END cancelall_link}
+			{END firstAboveGridCell}	
 	</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
@@ -394,36 +298,6 @@
 		<a>
 		  	<div class="checkbox">
 				<label>
-					<input type="checkbox" id="hide_default_area" checked="checked" value="1" data-field="default_area">
-					<span>{$label Unee_T_Enterprise_Account default_area }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_default_building" checked="checked" value="1" data-field="default_building">
-					<span>{$label Unee_T_Enterprise_Account default_building }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
-					<input type="checkbox" id="hide_default_unit" checked="checked" value="1" data-field="default_unit">
-					<span>{$label Unee_T_Enterprise_Account default_unit }</span>
-				</label>
-			</div>
-		</a>
-		</li>
-						<li>
-		<a>
-		  	<div class="checkbox">
-				<label>
 					<input type="checkbox" id="hide_country_code" checked="checked" value="1" data-field="country_code">
 					<span>{$label Unee_T_Enterprise_Account country_code }</span>
 				</label>
@@ -456,6 +330,16 @@
 				<label>
 					<input type="checkbox" id="hide_role_type" checked="checked" value="1" data-field="role_type">
 					<span>{$label Unee_T_Enterprise_Account role_type }</span>
+				</label>
+			</div>
+		</a>
+		</li>
+						<li>
+		<a>
+		  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_default_sot_id" checked="checked" value="1" data-field="default_sot_id">
+					<span>{$label Unee_T_Enterprise_Account default_sot_id }</span>
 				</label>
 			</div>
 		</a>
@@ -541,16 +425,32 @@
 		content: "{$label Unee_T_Enterprise_Account role_type}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_sot_id"]:before {
+		content: "{$label Unee_T_Enterprise_Account default_sot_id}";
+	}
+	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_area"]:before {
 		content: "{$label Unee_T_Enterprise_Account default_area}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="area_name"]:before {
+		content: "{$label Unee_T_Enterprise_Account area_name}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_building"]:before {
 		content: "{$label Unee_T_Enterprise_Account default_building}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="building_name"]:before {
+		content: "{$label Unee_T_Enterprise_Account building_name}";
+	}
+	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="default_unit"]:before {
 		content: "{$label Unee_T_Enterprise_Account default_unit}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unit_name"]:before {
+		content: "{$label Unee_T_Enterprise_Account unit_name}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_id"]:before {
@@ -559,6 +459,26 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_user_api_key"]:before {
 		content: "{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="person_table"]:before {
+		content: "{$label Unee_T_Enterprise_Account person_table}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="area_table"]:before {
+		content: "{$label Unee_T_Enterprise_Account area_table}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="properties_level_1_table"]:before {
+		content: "{$label Unee_T_Enterprise_Account properties_level_1_table}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="properties_level_2_table"]:before {
+		content: "{$label Unee_T_Enterprise_Account properties_level_2_table}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="properties_level_3_table"]:before {
+		content: "{$label Unee_T_Enterprise_Account properties_level_3_table}";
 	}
 	
 }
@@ -594,6 +514,29 @@
 	</th>
 	{END cellblock_grid_headcell_icons}
 				 
+					{BEGIN cellblock_grid_headcell_checkbox}
+	<th
+	
+	{$cell_grid_headcell_checkbox}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"	
+		data-checkbox-cell
+	>
+
+	 
+		{BEGIN checkbox_column}
+<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
+	<input type="checkbox" {$checkboxheader_attrs}>
+</span>
+{END checkbox_column}
+	
+	</th>
+	{END cellblock_grid_headcell_checkbox}
+				 
 					{BEGIN cellblock_grid_headcell_details}
 	<th
 	
@@ -603,8 +546,7 @@
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
-	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	
@@ -709,7 +651,7 @@
 	 
 		{BEGIN unee_t_mefe_user_api_key_fieldheadercolumn}
 	{BEGIN unee_t_mefe_user_api_key_fieldheader}
-	<SPAN {$unee_t_mefe_user_api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key">
+	<SPAN {$unee_t_mefe_user_api_key_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unee_t_mefe_user_api_key">
 	{$label Unee_T_Enterprise_Account unee_t_mefe_user_api_key }	{$arrow_icon_unee_t_mefe_user_api_key}
 	</SPAN>
 	{END unee_t_mefe_user_api_key_fieldheader}
@@ -736,7 +678,7 @@
 	 
 		{BEGIN country_code_fieldheadercolumn}
 	{BEGIN country_code_fieldheader}
-	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
+	<SPAN {$country_code_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
 	{$label Unee_T_Enterprise_Account country_code }	{$arrow_icon_country_code}
 	</SPAN>
 	{END country_code_fieldheader}
@@ -752,80 +694,26 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_area_class}
+		 r-ori-vert				{$default_sot_id_class}
 			"
 
-			data-field="default_area"
+			data-field="default_sot_id"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN default_area_fieldheadercolumn}
-	{BEGIN default_area_fieldheader}
-	<SPAN {$default_area_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_area">
-	{$label Unee_T_Enterprise_Account default_area }	{$arrow_icon_default_area}
+		{BEGIN default_sot_id_fieldheadercolumn}
+	{BEGIN default_sot_id_fieldheader}
+	<SPAN {$default_sot_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_sot_id">
+	{$label Unee_T_Enterprise_Account default_sot_id }	{$arrow_icon_default_sot_id}
 	</SPAN>
-	{END default_area_fieldheader}
-{END default_area_fieldheadercolumn}
+	{END default_sot_id_fieldheader}
+{END default_sot_id_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
-	<th
-	
-	{$cell_grid_headcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_building_class}
-			"
-
-			data-field="default_building"
-	
-	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_building_fieldheadercolumn}
-	{BEGIN default_building_fieldheader}
-	<SPAN {$default_building_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_building">
-	{$label Unee_T_Enterprise_Account default_building }	{$arrow_icon_default_building}
-	</SPAN>
-	{END default_building_fieldheader}
-{END default_building_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field6}
-				 
-					{BEGIN cellblock_grid_headcell_field7}
-	<th
-	
-	{$cell_grid_headcell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_unit_class}
-			"
-
-			data-field="default_unit"
-	
-	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_unit_fieldheadercolumn}
-	{BEGIN default_unit_fieldheader}
-	<SPAN {$default_unit_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_unit">
-	{$label Unee_T_Enterprise_Account default_unit }	{$arrow_icon_default_unit}
-	</SPAN>
-	{END default_unit_fieldheader}
-{END default_unit_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field7}
 							</tr>
 					 
 					 
@@ -849,13 +737,53 @@
 	{$cell_grid_cell_icons}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+					"
 
 	
 	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"		data-control-cell
 	
 	>
 
+	 
+		{BEGIN edit_column}
+{BEGIN edit_link}
+<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Edit" class="btn-link   
+	 glyphicon glyphicon-pencil" href="unee_t_enterprise_account_edit.php?{$editlink}" {$editlink_attrs} title="Edit" data-popup >		
+				
+								</a>
+</span>
+{END edit_link}
+{END edit_column}
+	 
+		{BEGIN inlineedit_column}
+{BEGIN inlineedit_link}
+<span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Inline Edit" class="btn-link   
+	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" >		
+				
+								</a>
+</span>
+{END inlineedit_link}
+{END inlineedit_column}
+	 
+		{BEGIN inline_save}
+<span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Save" class="btn-link   
+	 glyphicon glyphicon-ok" {$inlinesavelink_attrs} title="Save" >		
+				
+								</a>
+</span>
+{END inline_save}
+	 
+		{BEGIN inline_cancel}
+<span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Cancel" class="btn-link   
+	 glyphicon glyphicon-remove" {$inlinerevertlink_attrs} title="Cancel" >		
+				
+								</a>
+</span>
+{END inline_cancel}
 	 
 		{BEGIN view_column}
 {BEGIN view_link}
@@ -870,6 +798,30 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
+				 
+					{BEGIN cellblock_grid_cell_checkbox}
+	<td
+	
+	{$cell_grid_cell_checkbox}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
+	
+		data-checkbox-cell
+	>
+
+	 
+		{BEGIN checkbox_column}
+<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
+	<input type="checkbox" {$checkbox_attrs}>
+</span>	
+{END checkbox_column}
+	
+	</td>
+	{END cellblock_grid_cell_checkbox}
 				 
 					{BEGIN cellblock_grid_cell_details}
 	<td
@@ -1027,68 +979,22 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$default_area_class}
+		 r-ori-vert				{$default_sot_id_class}
 			"
 
-			data-field="default_area"
+			data-field="default_sot_id"
 	
 	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN default_area_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_area" data-default-width >
-{$default_area_value}
+		{BEGIN default_sot_id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_sot_id" data-default-width >
+{$default_sot_id_value}
 </span>
-{END default_area_fieldcolumn}	
+{END default_sot_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_building_class}
-			"
-
-			data-field="default_building"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_building_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_building" data-default-width >
-{$default_building_value}
-</span>
-{END default_building_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-				 
-					{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$default_unit_class}
-			"
-
-			data-field="default_unit"
-	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN default_unit_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="default_unit" data-default-width >
-{$default_unit_value}
-</span>
-{END default_unit_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field7}
 							</tr>
 					 
 						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
@@ -1151,6 +1057,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
+				 
+					{BEGIN cellblock_grid_footcell_checkbox}
+	<td
+	
+	{$cell_grid_footcell_checkbox}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_checkbox}
 				 
 					{BEGIN cellblock_grid_footcell_details}
 	<td
@@ -1263,38 +1185,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
-				 
-					{BEGIN cellblock_grid_footcell_field6}
-	<td
-	
-	{$cell_grid_footcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field6}
-				 
-					{BEGIN cellblock_grid_footcell_field7}
-	<td
-	
-	{$cell_grid_footcell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="unee_t_enterprise_account_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field7}
 							</tr>
 					
 					</tfoot>

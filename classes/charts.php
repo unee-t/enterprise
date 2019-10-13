@@ -612,6 +612,12 @@ class Chart
 			return true;
 		if("ut_external_sot_for_unee_t_objects" == $this->chrt_array['tables'][0])
 			return true;
+		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
+			return true;
+		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
+			return true;
+		if("ut_list_possible_properties" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

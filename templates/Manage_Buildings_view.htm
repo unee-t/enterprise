@@ -1104,12 +1104,30 @@
 
 
 {END agent_default_assignee_fieldblock}
-	
-								</td>
+										</td>
 			{END cellblock_grid_c6}
-								</tr>
-			</tbody></table>
-{END grid_block}
+										</tr>
+										</tbody></table>
+				
+{BEGIN details_organization_default_l1p}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Organization_Default_L1P }				
+							<span>
+					{$detailslButtons_organization_default_l1p}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_organization_default_l1p}
+		</div>
+	</div>
+</div>
+{END details_organization_default_l1p}
+	
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

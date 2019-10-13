@@ -112,7 +112,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode = array();
 	$menuNode["id"] = "5";
 	$menuNode["name"] = "Videos and Tutorials";
-	$menuNode["href"] = "https://vimeo.com/uneet/albums";
+	$menuNode["href"] = "https://unee-t.com/how-it-works-videos-and-tutorials/";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";

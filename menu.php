@@ -89,6 +89,10 @@ include_once(getabspath("include/super_admin___default_sot_for_unee_t_objects_ev
 $tableEvents["Super Admin - Default sot for Unee-T objects"] = new eventclass_super_admin___default_sot_for_unee_t_objects;
 include_once(getabspath("include/sources_of_truth_events.php"));
 $tableEvents["Sources of Truth"] = new eventclass_sources_of_truth;
+include_once(getabspath("include/organization_default_area_events.php"));
+$tableEvents["Organization Default Area"] = new eventclass_organization_default_area;
+include_once(getabspath("include/organization_default_l1p_events.php"));
+$tableEvents["Organization Default L1P"] = new eventclass_organization_default_l1p;
 
 $xt = new Xtempl();
 

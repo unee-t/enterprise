@@ -1042,7 +1042,7 @@ function GetLWWhere($field, $ptype, $table = "")
 	}
 		if($table=="Manage Buildings" && $field=="area_id")
 	{
-		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		$strWhere = " `external_property_groups_areas`.`is_obsolete` = 0 AND  `external_property_groups_areas`.`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Buildings" && $field=="unee_t_unit_type" && $ptype=="edit")
@@ -1068,11 +1068,6 @@ function GetLWWhere($field, $ptype, $table = "")
 		if($table=="Manage Units" && $field=="area_id" && $ptype=="search")
 	{
 		$strWhere = " `is_obsolete` = 0 AND (`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " OR `created_by_id` IS NULL)";
-		return $strWhere;
-	}
-		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="edit")
-	{
-		$strWhere = " `is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="add")
@@ -1403,6 +1398,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		if($table=="Super Admin - Manage MEFE Master User" && $field=="country_code" && $ptype=="search")
 	{
 		$strWhere = " is_obsolete = 0 ";
+		return $strWhere;
+	}
+		if($table=="Organization Default L1P" && $field=="default_building")
+	{
+		$strWhere = " `external_property_type_id` = 1 AND `ut_list_possible_properties`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 	return "";

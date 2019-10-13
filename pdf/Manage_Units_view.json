@@ -159,6 +159,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_4}
 			 
+								{BEGIN row_grid_5}
+						
+			"%",
+						{END row_grid_5}
+			 
 				],
 	
 		body: [
@@ -784,6 +789,44 @@ pdfDocument = {
 {END cellblock_grid_c1}
 											],
 				{END row_grid_4}
+								{BEGIN row_grid_5}
+				[
+												{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Manage_Units mgt_cny_default_assignee_l2p }","bold":true},{"text":{$mgt_cny_default_assignee_l2p_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Manage_Units landlord_default_assignee_l2p }","bold":true},{"text":{$landlord_default_assignee_l2p_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel Manage_Units tenant_default_assignee_l2p }","bold":true},{"text":{$tenant_default_assignee_l2p_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel Manage_Units agent_default_assignee_l2p }","bold":true},{"text":{$agent_default_assignee_l2p_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c6}
+											],
+				{END row_grid_5}
 					]
 	}
 }

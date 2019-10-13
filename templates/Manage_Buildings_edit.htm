@@ -1267,38 +1267,26 @@
 	
 				 
 	 
-		
-					<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="2"
-	>
-	<tbody>
-						<tr>
-						
-
-{BEGIN cellblock_grid_c6}
-<td
-	{$cell_grid_c6}
-	class=" r-ori-vert"
+												
+{BEGIN details_organization_default_l1p}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Organization_Default_L1P }				
+							<span>
+					{$detailslButtons_organization_default_l1p}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_organization_default_l1p}
+		</div>
+	</div>
+</div>
+{END details_organization_default_l1p}
 	
-			data-single
-				data-fullwidth
-		
-			data-cellId="grid_c6" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_grid_c6}
-								</tr>
-			</tbody></table>
-{END grid_block}
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

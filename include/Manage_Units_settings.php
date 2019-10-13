@@ -87,7 +87,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Units["English"]["unit_category_id"] = "Unit Category";
 	$fieldToolTipsManage_Units["English"]["unit_category_id"] = "";
 	$placeHoldersManage_Units["English"]["unit_category_id"] = "";
-	$fieldLabelsManage_Units["English"]["count_rooms"] = "Number of Rooms";
+	$fieldLabelsManage_Units["English"]["count_rooms"] = "Nber of Rooms";
 	$fieldToolTipsManage_Units["English"]["count_rooms"] = "";
 	$placeHoldersManage_Units["English"]["count_rooms"] = "";
 	$fieldLabelsManage_Units["English"]["unit_id"] = "Unit Id";
@@ -138,6 +138,30 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_Units["English"]["unee_t_mefe_unit_id"] = "Unee T Mefe Unit Id";
 	$fieldToolTipsManage_Units["English"]["unee_t_mefe_unit_id"] = "";
 	$placeHoldersManage_Units["English"]["unee_t_mefe_unit_id"] = "";
+	$fieldLabelsManage_Units["English"]["mgt_cny_default_assignee_l2p"] = "Mgt Cny";
+	$fieldToolTipsManage_Units["English"]["mgt_cny_default_assignee_l2p"] = "";
+	$placeHoldersManage_Units["English"]["mgt_cny_default_assignee_l2p"] = "";
+	$fieldLabelsManage_Units["English"]["landlord_default_assignee_l2p"] = "Landlord";
+	$fieldToolTipsManage_Units["English"]["landlord_default_assignee_l2p"] = "";
+	$placeHoldersManage_Units["English"]["landlord_default_assignee_l2p"] = "";
+	$fieldLabelsManage_Units["English"]["tenant_default_assignee_l2p"] = "Tenant";
+	$fieldToolTipsManage_Units["English"]["tenant_default_assignee_l2p"] = "";
+	$placeHoldersManage_Units["English"]["tenant_default_assignee_l2p"] = "";
+	$fieldLabelsManage_Units["English"]["agent_default_assignee_l2p"] = "Agent";
+	$fieldToolTipsManage_Units["English"]["agent_default_assignee_l2p"] = "";
+	$placeHoldersManage_Units["English"]["agent_default_assignee_l2p"] = "";
+	$fieldLabelsManage_Units["English"]["mgt_cny_default_assignee_l1p"] = "Mgt Cny Default Assignee L1p";
+	$fieldToolTipsManage_Units["English"]["mgt_cny_default_assignee_l1p"] = "";
+	$placeHoldersManage_Units["English"]["mgt_cny_default_assignee_l1p"] = "";
+	$fieldLabelsManage_Units["English"]["landlord_default_assignee_l1p"] = "Landlord Default Assignee L1p";
+	$fieldToolTipsManage_Units["English"]["landlord_default_assignee_l1p"] = "";
+	$placeHoldersManage_Units["English"]["landlord_default_assignee_l1p"] = "";
+	$fieldLabelsManage_Units["English"]["tenant_default_assignee_l1p"] = "Tenant Default Assignee L1p";
+	$fieldToolTipsManage_Units["English"]["tenant_default_assignee_l1p"] = "";
+	$placeHoldersManage_Units["English"]["tenant_default_assignee_l1p"] = "";
+	$fieldLabelsManage_Units["English"]["agent_default_assignee_l1p"] = "Agent Default Assignee L1p";
+	$fieldToolTipsManage_Units["English"]["agent_default_assignee_l1p"] = "";
+	$placeHoldersManage_Units["English"]["agent_default_assignee_l1p"] = "";
 	if (count($fieldToolTipsManage_Units["English"]))
 		$tdataManage_Units[".isUseToolTips"] = true;
 }
@@ -269,6 +293,14 @@ $tdataManage_Units[".googleLikeFields"][] = "unit_designation";
 $tdataManage_Units[".googleLikeFields"][] = "unit_type";
 $tdataManage_Units[".googleLikeFields"][] = "description";
 $tdataManage_Units[".googleLikeFields"][] = "uneet_created_datetime";
+$tdataManage_Units[".googleLikeFields"][] = "mgt_cny_default_assignee_l2p";
+$tdataManage_Units[".googleLikeFields"][] = "landlord_default_assignee_l2p";
+$tdataManage_Units[".googleLikeFields"][] = "tenant_default_assignee_l2p";
+$tdataManage_Units[".googleLikeFields"][] = "agent_default_assignee_l2p";
+$tdataManage_Units[".googleLikeFields"][] = "mgt_cny_default_assignee_l1p";
+$tdataManage_Units[".googleLikeFields"][] = "landlord_default_assignee_l1p";
+$tdataManage_Units[".googleLikeFields"][] = "tenant_default_assignee_l1p";
+$tdataManage_Units[".googleLikeFields"][] = "agent_default_assignee_l1p";
 
 
 
@@ -318,7 +350,7 @@ $tdataManage_Units[".orderindexes"] = array();
 	$tdataManage_Units[".orderindexes"][] = array(20, (1 ? "ASC" : "DESC"), "external_property_level_2_units.designation");
 
 
-$tdataManage_Units[".sqlHead"] = "SELECT external_property_level_2_units.system_id_unit,  external_property_level_2_units.external_id,  external_property_level_2_units.external_system_id,  external_property_level_2_units.external_table,  external_property_level_2_units.syst_created_datetime,  external_property_level_2_units.creation_system_id,  external_property_level_2_units.created_by_id,  external_property_level_2_units.creation_method,  external_property_level_2_units.syst_updated_datetime,  external_property_level_2_units.update_system_id,  external_property_level_2_units.updated_by_id,  external_property_level_2_units.update_method,  external_property_level_1_buildings.country_code,  property_groups_countries.country_name,  external_property_level_1_buildings.area_id,  external_property_groups_areas.area_name,  external_property_level_2_units.building_system_id,  external_property_level_2_units.building_system_id AS building_id,  external_property_level_1_buildings.designation AS building_designation,  external_property_level_2_units.designation AS unit_designation,  external_property_level_2_units.activated_by_id,  external_property_level_2_units.is_obsolete,  external_property_level_2_units.is_creation_needed_in_unee_t,  external_property_level_2_units.unee_t_unit_type,  ut_unit_types.designation AS unit_type,  external_property_level_2_units.tower,  external_property_level_2_units.unit_category_id,  external_property_level_2_units.count_rooms,  external_property_level_2_units.unit_id,  external_property_level_2_units.surface,  external_property_level_2_units.surface_measurment_unit,  external_property_level_2_units.description,  external_property_level_2_units.do_not_insert,  external_property_groups_areas.`order` AS order_area,  external_property_level_1_buildings.`order` AS order_building,  ut_check_unee_t_updates_property_level_2.uneet_created_datetime,  ut_check_unee_t_updates_property_level_2.unee_t_mefe_unit_id";
+$tdataManage_Units[".sqlHead"] = "SELECT external_property_level_2_units.system_id_unit,  external_property_level_2_units.external_id,  external_property_level_2_units.external_system_id,  external_property_level_2_units.external_table,  external_property_level_2_units.syst_created_datetime,  external_property_level_2_units.creation_system_id,  external_property_level_2_units.created_by_id,  external_property_level_2_units.creation_method,  external_property_level_2_units.syst_updated_datetime,  external_property_level_2_units.update_system_id,  external_property_level_2_units.updated_by_id,  external_property_level_2_units.update_method,  external_property_level_1_buildings.country_code,  property_groups_countries.country_name,  external_property_level_1_buildings.area_id,  external_property_groups_areas.area_name,  external_property_level_2_units.building_system_id,  external_property_level_2_units.building_system_id AS building_id,  external_property_level_1_buildings.designation AS building_designation,  external_property_level_2_units.designation AS unit_designation,  external_property_level_2_units.activated_by_id,  external_property_level_2_units.is_obsolete,  external_property_level_2_units.is_creation_needed_in_unee_t,  external_property_level_2_units.unee_t_unit_type,  ut_unit_types.designation AS unit_type,  external_property_level_2_units.tower,  external_property_level_2_units.unit_category_id,  external_property_level_2_units.count_rooms,  external_property_level_2_units.unit_id,  external_property_level_2_units.surface,  external_property_level_2_units.surface_measurment_unit,  external_property_level_2_units.description,  external_property_level_2_units.do_not_insert,  external_property_groups_areas.`order` AS order_area,  external_property_level_1_buildings.`order` AS order_building,  ut_check_unee_t_updates_property_level_2.uneet_created_datetime,  ut_check_unee_t_updates_property_level_2.unee_t_mefe_unit_id,  external_property_level_2_units.mgt_cny_default_assignee AS mgt_cny_default_assignee_l2p,  external_property_level_2_units.landlord_default_assignee AS landlord_default_assignee_l2p,  external_property_level_2_units.tenant_default_assignee AS tenant_default_assignee_l2p,  external_property_level_2_units.agent_default_assignee AS agent_default_assignee_l2p,  external_property_level_1_buildings.mgt_cny_default_assignee AS mgt_cny_default_assignee_l1p,  external_property_level_1_buildings.landlord_default_assignee AS landlord_default_assignee_l1p,  external_property_level_1_buildings.tenant_default_assignee AS tenant_default_assignee_l1p,  external_property_level_1_buildings.agent_default_assignee AS agent_default_assignee_l1p";
 $tdataManage_Units[".sqlFrom"] = "FROM external_property_level_2_units  LEFT OUTER JOIN external_property_level_1_buildings ON external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building  LEFT OUTER JOIN external_property_groups_areas ON external_property_level_1_buildings.area_id = external_property_groups_areas.id_area  LEFT OUTER JOIN property_groups_countries ON external_property_level_1_buildings.country_code = property_groups_countries.country_code  LEFT OUTER JOIN ut_unit_types ON external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation  LEFT OUTER JOIN property_level_2_units ON external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id  LEFT OUTER JOIN ut_check_unee_t_updates_property_level_2 ON property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
 $tdataManage_Units[".sqlWhereExpr"] = "";
 $tdataManage_Units[".sqlTail"] = "";
@@ -3476,10 +3508,10 @@ $tdataManage_Units[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "external_property_level_1_buildings";
+	$edata["LookupTable"] = "Manage Buildings";
 			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
@@ -3487,7 +3519,7 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 3;
 	$edata["DisplayField"] = "designation";
 
-				$edata["LookupWhereCode"] = true;
+				$edata["LookupWhere"] = "`is_obsolete` = 0";
 
 
 	
@@ -3500,8 +3532,7 @@ $tdataManage_Units[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -6874,6 +6905,1170 @@ $tdataManage_Units[".hideMobileList"] = array();
 
 	$tdataManage_Units["unee_t_mefe_unit_id"] = $fdata;
 		$tdataManage_Units[".searchableFields"][] = "unee_t_mefe_unit_id";
+//	mgt_cny_default_assignee_l2p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 38;
+	$fdata["strName"] = "mgt_cny_default_assignee_l2p";
+	$fdata["GoodName"] = "mgt_cny_default_assignee_l2p";
+	$fdata["ownerTable"] = "external_property_level_2_units";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","mgt_cny_default_assignee_l2p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "mgt_cny_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_2_units.mgt_cny_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Search list of possible assignees";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 2;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "person_designation";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "person_designation";
+
+	
+	
+	
+	
+
+	
+	
+	
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["mgt_cny_default_assignee_l2p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "mgt_cny_default_assignee_l2p";
+//	landlord_default_assignee_l2p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 39;
+	$fdata["strName"] = "landlord_default_assignee_l2p";
+	$fdata["GoodName"] = "landlord_default_assignee_l2p";
+	$fdata["ownerTable"] = "external_property_level_2_units";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","landlord_default_assignee_l2p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "landlord_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_2_units.landlord_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Search list of possible assignees";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 2;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "person_designation";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "person_designation";
+
+	
+	
+	
+	
+
+	
+	
+	
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["landlord_default_assignee_l2p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "landlord_default_assignee_l2p";
+//	tenant_default_assignee_l2p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 40;
+	$fdata["strName"] = "tenant_default_assignee_l2p";
+	$fdata["GoodName"] = "tenant_default_assignee_l2p";
+	$fdata["ownerTable"] = "external_property_level_2_units";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","tenant_default_assignee_l2p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "tenant_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_2_units.tenant_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Search list of possible assignees";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 2;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "person_designation";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "person_designation";
+
+	
+	
+	
+	
+
+	
+	
+	
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["tenant_default_assignee_l2p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "tenant_default_assignee_l2p";
+//	agent_default_assignee_l2p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 41;
+	$fdata["strName"] = "agent_default_assignee_l2p";
+	$fdata["GoodName"] = "agent_default_assignee_l2p";
+	$fdata["ownerTable"] = "external_property_level_2_units";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","agent_default_assignee_l2p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "agent_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_2_units.agent_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Search list of possible assignees";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 2;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "person_designation";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "person_designation";
+
+	
+	
+	
+	
+
+	
+	
+	
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["agent_default_assignee_l2p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "agent_default_assignee_l2p";
+//	mgt_cny_default_assignee_l1p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 42;
+	$fdata["strName"] = "mgt_cny_default_assignee_l1p";
+	$fdata["GoodName"] = "mgt_cny_default_assignee_l1p";
+	$fdata["ownerTable"] = "external_property_level_1_buildings";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","mgt_cny_default_assignee_l1p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "mgt_cny_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_1_buildings.mgt_cny_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["mgt_cny_default_assignee_l1p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "mgt_cny_default_assignee_l1p";
+//	landlord_default_assignee_l1p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 43;
+	$fdata["strName"] = "landlord_default_assignee_l1p";
+	$fdata["GoodName"] = "landlord_default_assignee_l1p";
+	$fdata["ownerTable"] = "external_property_level_1_buildings";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","landlord_default_assignee_l1p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "landlord_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_1_buildings.landlord_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["landlord_default_assignee_l1p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "landlord_default_assignee_l1p";
+//	tenant_default_assignee_l1p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 44;
+	$fdata["strName"] = "tenant_default_assignee_l1p";
+	$fdata["GoodName"] = "tenant_default_assignee_l1p";
+	$fdata["ownerTable"] = "external_property_level_1_buildings";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","tenant_default_assignee_l1p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "tenant_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_1_buildings.tenant_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["tenant_default_assignee_l1p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "tenant_default_assignee_l1p";
+//	agent_default_assignee_l1p
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 45;
+	$fdata["strName"] = "agent_default_assignee_l1p";
+	$fdata["GoodName"] = "agent_default_assignee_l1p";
+	$fdata["ownerTable"] = "external_property_level_1_buildings";
+	$fdata["Label"] = GetFieldLabel("Manage_Units","agent_default_assignee_l1p");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "agent_default_assignee";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "external_property_level_1_buildings.agent_default_assignee";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_Units["agent_default_assignee_l1p"] = $fdata;
+		$tdataManage_Units[".searchableFields"][] = "agent_default_assignee_l1p";
 
 
 $tables_data["Manage Units"]=&$tdataManage_Units;
@@ -6983,7 +8178,7 @@ function createSqlQuery_Manage_Units()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "external_property_level_2_units.system_id_unit,  external_property_level_2_units.external_id,  external_property_level_2_units.external_system_id,  external_property_level_2_units.external_table,  external_property_level_2_units.syst_created_datetime,  external_property_level_2_units.creation_system_id,  external_property_level_2_units.created_by_id,  external_property_level_2_units.creation_method,  external_property_level_2_units.syst_updated_datetime,  external_property_level_2_units.update_system_id,  external_property_level_2_units.updated_by_id,  external_property_level_2_units.update_method,  external_property_level_1_buildings.country_code,  property_groups_countries.country_name,  external_property_level_1_buildings.area_id,  external_property_groups_areas.area_name,  external_property_level_2_units.building_system_id,  external_property_level_2_units.building_system_id AS building_id,  external_property_level_1_buildings.designation AS building_designation,  external_property_level_2_units.designation AS unit_designation,  external_property_level_2_units.activated_by_id,  external_property_level_2_units.is_obsolete,  external_property_level_2_units.is_creation_needed_in_unee_t,  external_property_level_2_units.unee_t_unit_type,  ut_unit_types.designation AS unit_type,  external_property_level_2_units.tower,  external_property_level_2_units.unit_category_id,  external_property_level_2_units.count_rooms,  external_property_level_2_units.unit_id,  external_property_level_2_units.surface,  external_property_level_2_units.surface_measurment_unit,  external_property_level_2_units.description,  external_property_level_2_units.do_not_insert,  external_property_groups_areas.`order` AS order_area,  external_property_level_1_buildings.`order` AS order_building,  ut_check_unee_t_updates_property_level_2.uneet_created_datetime,  ut_check_unee_t_updates_property_level_2.unee_t_mefe_unit_id";
+$proto0["m_strFieldList"] = "external_property_level_2_units.system_id_unit,  external_property_level_2_units.external_id,  external_property_level_2_units.external_system_id,  external_property_level_2_units.external_table,  external_property_level_2_units.syst_created_datetime,  external_property_level_2_units.creation_system_id,  external_property_level_2_units.created_by_id,  external_property_level_2_units.creation_method,  external_property_level_2_units.syst_updated_datetime,  external_property_level_2_units.update_system_id,  external_property_level_2_units.updated_by_id,  external_property_level_2_units.update_method,  external_property_level_1_buildings.country_code,  property_groups_countries.country_name,  external_property_level_1_buildings.area_id,  external_property_groups_areas.area_name,  external_property_level_2_units.building_system_id,  external_property_level_2_units.building_system_id AS building_id,  external_property_level_1_buildings.designation AS building_designation,  external_property_level_2_units.designation AS unit_designation,  external_property_level_2_units.activated_by_id,  external_property_level_2_units.is_obsolete,  external_property_level_2_units.is_creation_needed_in_unee_t,  external_property_level_2_units.unee_t_unit_type,  ut_unit_types.designation AS unit_type,  external_property_level_2_units.tower,  external_property_level_2_units.unit_category_id,  external_property_level_2_units.count_rooms,  external_property_level_2_units.unit_id,  external_property_level_2_units.surface,  external_property_level_2_units.surface_measurment_unit,  external_property_level_2_units.description,  external_property_level_2_units.do_not_insert,  external_property_groups_areas.`order` AS order_area,  external_property_level_1_buildings.`order` AS order_building,  ut_check_unee_t_updates_property_level_2.uneet_created_datetime,  ut_check_unee_t_updates_property_level_2.unee_t_mefe_unit_id,  external_property_level_2_units.mgt_cny_default_assignee AS mgt_cny_default_assignee_l2p,  external_property_level_2_units.landlord_default_assignee AS landlord_default_assignee_l2p,  external_property_level_2_units.tenant_default_assignee AS tenant_default_assignee_l2p,  external_property_level_2_units.agent_default_assignee AS agent_default_assignee_l2p,  external_property_level_1_buildings.mgt_cny_default_assignee AS mgt_cny_default_assignee_l1p,  external_property_level_1_buildings.landlord_default_assignee AS landlord_default_assignee_l1p,  external_property_level_1_buildings.tenant_default_assignee AS tenant_default_assignee_l1p,  external_property_level_1_buildings.agent_default_assignee AS agent_default_assignee_l1p";
 $proto0["m_strFrom"] = "FROM external_property_level_2_units  LEFT OUTER JOIN external_property_level_1_buildings ON external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building  LEFT OUTER JOIN external_property_groups_areas ON external_property_level_1_buildings.area_id = external_property_groups_areas.id_area  LEFT OUTER JOIN property_groups_countries ON external_property_level_1_buildings.country_code = property_groups_countries.country_code  LEFT OUTER JOIN ut_unit_types ON external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation  LEFT OUTER JOIN property_level_2_units ON external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id  LEFT OUTER JOIN ut_check_unee_t_updates_property_level_2 ON property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "ORDER BY property_groups_countries.country_name, external_property_groups_areas.`order`, external_property_groups_areas.area_name, external_property_level_1_buildings.`order`, external_property_level_1_buildings.designation, ut_unit_types.designation, external_property_level_2_units.designation";
@@ -7542,281 +8737,174 @@ $proto78["m_alias"] = "";
 $obj = new SQLFieldListItem($proto78);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto80=array();
-$proto80["m_link"] = "SQLL_MAIN";
-			$proto81=array();
-$proto81["m_strName"] = "external_property_level_2_units";
-$proto81["m_srcTableName"] = "Manage Units";
-$proto81["m_columns"] = array();
-$proto81["m_columns"][] = "system_id_unit";
-$proto81["m_columns"][] = "create_api_request_id";
-$proto81["m_columns"][] = "edit_api_request_id";
-$proto81["m_columns"][] = "external_id";
-$proto81["m_columns"][] = "external_system_id";
-$proto81["m_columns"][] = "external_table";
-$proto81["m_columns"][] = "syst_created_datetime";
-$proto81["m_columns"][] = "creation_system_id";
-$proto81["m_columns"][] = "created_by_id";
-$proto81["m_columns"][] = "creation_method";
-$proto81["m_columns"][] = "syst_updated_datetime";
-$proto81["m_columns"][] = "update_system_id";
-$proto81["m_columns"][] = "updated_by_id";
-$proto81["m_columns"][] = "update_method";
-$proto81["m_columns"][] = "is_update_on_duplicate_key";
-$proto81["m_columns"][] = "activated_by_id";
-$proto81["m_columns"][] = "is_obsolete";
-$proto81["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto81["m_columns"][] = "do_not_insert";
-$proto81["m_columns"][] = "unee_t_unit_type";
-$proto81["m_columns"][] = "building_system_id";
-$proto81["m_columns"][] = "tower";
-$proto81["m_columns"][] = "unit_category_id";
-$proto81["m_columns"][] = "designation";
-$proto81["m_columns"][] = "count_rooms";
-$proto81["m_columns"][] = "unit_id";
-$proto81["m_columns"][] = "surface";
-$proto81["m_columns"][] = "surface_measurment_unit";
-$proto81["m_columns"][] = "description";
-$proto81["m_columns"][] = "mgt_cny_default_assignee";
-$proto81["m_columns"][] = "landlord_default_assignee";
-$proto81["m_columns"][] = "tenant_default_assignee";
-$proto81["m_columns"][] = "agent_default_assignee";
-$obj = new SQLTable($proto81);
+						$proto80=array();
+			$obj = new SQLField(array(
+	"m_strName" => "mgt_cny_default_assignee",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
 
-$proto80["m_table"] = $obj;
-$proto80["m_sql"] = "external_property_level_2_units";
-$proto80["m_alias"] = "";
+$proto80["m_sql"] = "external_property_level_2_units.mgt_cny_default_assignee";
 $proto80["m_srcTableName"] = "Manage Units";
-$proto82=array();
-$proto82["m_sql"] = "";
-$proto82["m_uniontype"] = "SQLL_UNKNOWN";
+$proto80["m_expr"]=$obj;
+$proto80["m_alias"] = "mgt_cny_default_assignee_l2p";
+$obj = new SQLFieldListItem($proto80);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto82=array();
+			$obj = new SQLField(array(
+	"m_strName" => "landlord_default_assignee",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto82["m_sql"] = "external_property_level_2_units.landlord_default_assignee";
+$proto82["m_srcTableName"] = "Manage Units";
+$proto82["m_expr"]=$obj;
+$proto82["m_alias"] = "landlord_default_assignee_l2p";
+$obj = new SQLFieldListItem($proto82);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto84=array();
+			$obj = new SQLField(array(
+	"m_strName" => "tenant_default_assignee",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto84["m_sql"] = "external_property_level_2_units.tenant_default_assignee";
+$proto84["m_srcTableName"] = "Manage Units";
+$proto84["m_expr"]=$obj;
+$proto84["m_alias"] = "tenant_default_assignee_l2p";
+$obj = new SQLFieldListItem($proto84);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto86=array();
+			$obj = new SQLField(array(
+	"m_strName" => "agent_default_assignee",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto86["m_sql"] = "external_property_level_2_units.agent_default_assignee";
+$proto86["m_srcTableName"] = "Manage Units";
+$proto86["m_expr"]=$obj;
+$proto86["m_alias"] = "agent_default_assignee_l2p";
+$obj = new SQLFieldListItem($proto86);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto88=array();
+			$obj = new SQLField(array(
+	"m_strName" => "mgt_cny_default_assignee",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto88["m_sql"] = "external_property_level_1_buildings.mgt_cny_default_assignee";
+$proto88["m_srcTableName"] = "Manage Units";
+$proto88["m_expr"]=$obj;
+$proto88["m_alias"] = "mgt_cny_default_assignee_l1p";
+$obj = new SQLFieldListItem($proto88);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto90=array();
+			$obj = new SQLField(array(
+	"m_strName" => "landlord_default_assignee",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto90["m_sql"] = "external_property_level_1_buildings.landlord_default_assignee";
+$proto90["m_srcTableName"] = "Manage Units";
+$proto90["m_expr"]=$obj;
+$proto90["m_alias"] = "landlord_default_assignee_l1p";
+$obj = new SQLFieldListItem($proto90);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto92=array();
+			$obj = new SQLField(array(
+	"m_strName" => "tenant_default_assignee",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto92["m_sql"] = "external_property_level_1_buildings.tenant_default_assignee";
+$proto92["m_srcTableName"] = "Manage Units";
+$proto92["m_expr"]=$obj;
+$proto92["m_alias"] = "tenant_default_assignee_l1p";
+$obj = new SQLFieldListItem($proto92);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto94=array();
+			$obj = new SQLField(array(
+	"m_strName" => "agent_default_assignee",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto94["m_sql"] = "external_property_level_1_buildings.agent_default_assignee";
+$proto94["m_srcTableName"] = "Manage Units";
+$proto94["m_expr"]=$obj;
+$proto94["m_alias"] = "agent_default_assignee_l1p";
+$obj = new SQLFieldListItem($proto94);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto96=array();
+$proto96["m_link"] = "SQLL_MAIN";
+			$proto97=array();
+$proto97["m_strName"] = "external_property_level_2_units";
+$proto97["m_srcTableName"] = "Manage Units";
+$proto97["m_columns"] = array();
+$proto97["m_columns"][] = "system_id_unit";
+$proto97["m_columns"][] = "create_api_request_id";
+$proto97["m_columns"][] = "edit_api_request_id";
+$proto97["m_columns"][] = "external_id";
+$proto97["m_columns"][] = "external_system_id";
+$proto97["m_columns"][] = "external_table";
+$proto97["m_columns"][] = "syst_created_datetime";
+$proto97["m_columns"][] = "creation_system_id";
+$proto97["m_columns"][] = "created_by_id";
+$proto97["m_columns"][] = "creation_method";
+$proto97["m_columns"][] = "syst_updated_datetime";
+$proto97["m_columns"][] = "update_system_id";
+$proto97["m_columns"][] = "updated_by_id";
+$proto97["m_columns"][] = "update_method";
+$proto97["m_columns"][] = "is_update_on_duplicate_key";
+$proto97["m_columns"][] = "activated_by_id";
+$proto97["m_columns"][] = "is_obsolete";
+$proto97["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto97["m_columns"][] = "do_not_insert";
+$proto97["m_columns"][] = "unee_t_unit_type";
+$proto97["m_columns"][] = "building_system_id";
+$proto97["m_columns"][] = "tower";
+$proto97["m_columns"][] = "unit_category_id";
+$proto97["m_columns"][] = "designation";
+$proto97["m_columns"][] = "count_rooms";
+$proto97["m_columns"][] = "unit_id";
+$proto97["m_columns"][] = "surface";
+$proto97["m_columns"][] = "surface_measurment_unit";
+$proto97["m_columns"][] = "description";
+$proto97["m_columns"][] = "mgt_cny_default_assignee";
+$proto97["m_columns"][] = "landlord_default_assignee";
+$proto97["m_columns"][] = "tenant_default_assignee";
+$proto97["m_columns"][] = "agent_default_assignee";
+$obj = new SQLTable($proto97);
+
+$proto96["m_table"] = $obj;
+$proto96["m_sql"] = "external_property_level_2_units";
+$proto96["m_alias"] = "";
+$proto96["m_srcTableName"] = "Manage Units";
+$proto98=array();
+$proto98["m_sql"] = "";
+$proto98["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto82["m_column"]=$obj;
-$proto82["m_contained"] = array();
-$proto82["m_strCase"] = "";
-$proto82["m_havingmode"] = false;
-$proto82["m_inBrackets"] = false;
-$proto82["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto82);
-
-$proto80["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto80);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto84=array();
-$proto84["m_link"] = "SQLL_LEFTJOIN";
-			$proto85=array();
-$proto85["m_strName"] = "external_property_level_1_buildings";
-$proto85["m_srcTableName"] = "Manage Units";
-$proto85["m_columns"] = array();
-$proto85["m_columns"][] = "id_building";
-$proto85["m_columns"][] = "create_api_request_id";
-$proto85["m_columns"][] = "edit_api_request_id";
-$proto85["m_columns"][] = "external_id";
-$proto85["m_columns"][] = "external_system_id";
-$proto85["m_columns"][] = "external_table";
-$proto85["m_columns"][] = "syst_created_datetime";
-$proto85["m_columns"][] = "creation_system_id";
-$proto85["m_columns"][] = "created_by_id";
-$proto85["m_columns"][] = "creation_method";
-$proto85["m_columns"][] = "syst_updated_datetime";
-$proto85["m_columns"][] = "update_system_id";
-$proto85["m_columns"][] = "updated_by_id";
-$proto85["m_columns"][] = "update_method";
-$proto85["m_columns"][] = "is_update_on_duplicate_key";
-$proto85["m_columns"][] = "is_obsolete";
-$proto85["m_columns"][] = "order";
-$proto85["m_columns"][] = "area_id";
-$proto85["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto85["m_columns"][] = "do_not_insert";
-$proto85["m_columns"][] = "unee_t_unit_type";
-$proto85["m_columns"][] = "designation";
-$proto85["m_columns"][] = "tower";
-$proto85["m_columns"][] = "address_1";
-$proto85["m_columns"][] = "address_2";
-$proto85["m_columns"][] = "zip_postal_code";
-$proto85["m_columns"][] = "state";
-$proto85["m_columns"][] = "city";
-$proto85["m_columns"][] = "country_code";
-$proto85["m_columns"][] = "description";
-$proto85["m_columns"][] = "mgt_cny_default_assignee";
-$proto85["m_columns"][] = "landlord_default_assignee";
-$proto85["m_columns"][] = "tenant_default_assignee";
-$proto85["m_columns"][] = "agent_default_assignee";
-$obj = new SQLTable($proto85);
-
-$proto84["m_table"] = $obj;
-$proto84["m_sql"] = "LEFT OUTER JOIN external_property_level_1_buildings ON external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building";
-$proto84["m_alias"] = "";
-$proto84["m_srcTableName"] = "Manage Units";
-$proto86=array();
-$proto86["m_sql"] = "external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building";
-$proto86["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "building_system_id",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto86["m_column"]=$obj;
-$proto86["m_contained"] = array();
-$proto86["m_strCase"] = "= external_property_level_1_buildings.id_building";
-$proto86["m_havingmode"] = false;
-$proto86["m_inBrackets"] = false;
-$proto86["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto86);
-
-$proto84["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto84);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto88=array();
-$proto88["m_link"] = "SQLL_LEFTJOIN";
-			$proto89=array();
-$proto89["m_strName"] = "external_property_groups_areas";
-$proto89["m_srcTableName"] = "Manage Units";
-$proto89["m_columns"] = array();
-$proto89["m_columns"][] = "id_area";
-$proto89["m_columns"][] = "create_api_request_id";
-$proto89["m_columns"][] = "edit_api_request_id";
-$proto89["m_columns"][] = "external_id";
-$proto89["m_columns"][] = "external_system_id";
-$proto89["m_columns"][] = "external_table";
-$proto89["m_columns"][] = "syst_created_datetime";
-$proto89["m_columns"][] = "creation_system_id";
-$proto89["m_columns"][] = "created_by_id";
-$proto89["m_columns"][] = "creation_method";
-$proto89["m_columns"][] = "syst_updated_datetime";
-$proto89["m_columns"][] = "update_system_id";
-$proto89["m_columns"][] = "updated_by_id";
-$proto89["m_columns"][] = "update_method";
-$proto89["m_columns"][] = "is_update_on_duplicate_key";
-$proto89["m_columns"][] = "is_creation_needed_in_unee_t";
-$proto89["m_columns"][] = "is_obsolete";
-$proto89["m_columns"][] = "is_default";
-$proto89["m_columns"][] = "order";
-$proto89["m_columns"][] = "country_code";
-$proto89["m_columns"][] = "area_name";
-$proto89["m_columns"][] = "area_definition";
-$proto89["m_columns"][] = "mgt_cny_default_assignee";
-$proto89["m_columns"][] = "landlord_default_assignee";
-$proto89["m_columns"][] = "tenant_default_assignee";
-$proto89["m_columns"][] = "agent_default_assignee";
-$obj = new SQLTable($proto89);
-
-$proto88["m_table"] = $obj;
-$proto88["m_sql"] = "LEFT OUTER JOIN external_property_groups_areas ON external_property_level_1_buildings.area_id = external_property_groups_areas.id_area";
-$proto88["m_alias"] = "";
-$proto88["m_srcTableName"] = "Manage Units";
-$proto90=array();
-$proto90["m_sql"] = "external_property_level_1_buildings.area_id = external_property_groups_areas.id_area";
-$proto90["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "area_id",
-	"m_strTable" => "external_property_level_1_buildings",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto90["m_column"]=$obj;
-$proto90["m_contained"] = array();
-$proto90["m_strCase"] = "= external_property_groups_areas.id_area";
-$proto90["m_havingmode"] = false;
-$proto90["m_inBrackets"] = false;
-$proto90["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto90);
-
-$proto88["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto88);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto92=array();
-$proto92["m_link"] = "SQLL_LEFTJOIN";
-			$proto93=array();
-$proto93["m_strName"] = "property_groups_countries";
-$proto93["m_srcTableName"] = "Manage Units";
-$proto93["m_columns"] = array();
-$proto93["m_columns"][] = "id_country";
-$proto93["m_columns"][] = "syst_created_datetime";
-$proto93["m_columns"][] = "creation_system_id";
-$proto93["m_columns"][] = "created_by_id";
-$proto93["m_columns"][] = "syst_updated_datetime";
-$proto93["m_columns"][] = "update_system_id";
-$proto93["m_columns"][] = "updated_by_id";
-$proto93["m_columns"][] = "is_obsolete";
-$proto93["m_columns"][] = "is_default";
-$proto93["m_columns"][] = "is_system";
-$proto93["m_columns"][] = "order";
-$proto93["m_columns"][] = "country_code";
-$proto93["m_columns"][] = "country_name";
-$obj = new SQLTable($proto93);
-
-$proto92["m_table"] = $obj;
-$proto92["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON external_property_level_1_buildings.country_code = property_groups_countries.country_code";
-$proto92["m_alias"] = "";
-$proto92["m_srcTableName"] = "Manage Units";
-$proto94=array();
-$proto94["m_sql"] = "external_property_level_1_buildings.country_code = property_groups_countries.country_code";
-$proto94["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "country_code",
-	"m_strTable" => "external_property_level_1_buildings",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto94["m_column"]=$obj;
-$proto94["m_contained"] = array();
-$proto94["m_strCase"] = "= property_groups_countries.country_code";
-$proto94["m_havingmode"] = false;
-$proto94["m_inBrackets"] = false;
-$proto94["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto94);
-
-$proto92["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto92);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto96=array();
-$proto96["m_link"] = "SQLL_LEFTJOIN";
-			$proto97=array();
-$proto97["m_strName"] = "ut_unit_types";
-$proto97["m_srcTableName"] = "Manage Units";
-$proto97["m_columns"] = array();
-$proto97["m_columns"][] = "id_property_type";
-$proto97["m_columns"][] = "syst_created_datetime";
-$proto97["m_columns"][] = "creation_system_id";
-$proto97["m_columns"][] = "created_by_id";
-$proto97["m_columns"][] = "syst_updated_datetime";
-$proto97["m_columns"][] = "update_system_id";
-$proto97["m_columns"][] = "updated_by_id";
-$proto97["m_columns"][] = "order";
-$proto97["m_columns"][] = "is_level_1";
-$proto97["m_columns"][] = "is_level_2";
-$proto97["m_columns"][] = "is_level_3";
-$proto97["m_columns"][] = "is_obsolete";
-$proto97["m_columns"][] = "designation";
-$proto97["m_columns"][] = "description";
-$obj = new SQLTable($proto97);
-
-$proto96["m_table"] = $obj;
-$proto96["m_sql"] = "LEFT OUTER JOIN ut_unit_types ON external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation";
-$proto96["m_alias"] = "";
-$proto96["m_srcTableName"] = "Manage Units";
-$proto98=array();
-$proto98["m_sql"] = "external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation";
-$proto98["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "unee_t_unit_type",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
 $proto98["m_column"]=$obj;
 $proto98["m_contained"] = array();
-$proto98["m_strCase"] = "= ut_unit_types.designation";
+$proto98["m_strCase"] = "";
 $proto98["m_havingmode"] = false;
 $proto98["m_inBrackets"] = false;
 $proto98["m_useAlias"] = false;
@@ -7829,10 +8917,10 @@ $proto0["m_fromlist"][]=$obj;
 												$proto100=array();
 $proto100["m_link"] = "SQLL_LEFTJOIN";
 			$proto101=array();
-$proto101["m_strName"] = "property_level_2_units";
+$proto101["m_strName"] = "external_property_level_1_buildings";
 $proto101["m_srcTableName"] = "Manage Units";
 $proto101["m_columns"] = array();
-$proto101["m_columns"][] = "system_id_unit";
+$proto101["m_columns"][] = "id_building";
 $proto101["m_columns"][] = "create_api_request_id";
 $proto101["m_columns"][] = "edit_api_request_id";
 $proto101["m_columns"][] = "external_id";
@@ -7847,20 +8935,20 @@ $proto101["m_columns"][] = "update_system_id";
 $proto101["m_columns"][] = "updated_by_id";
 $proto101["m_columns"][] = "update_method";
 $proto101["m_columns"][] = "is_update_on_duplicate_key";
-$proto101["m_columns"][] = "organization_id";
-$proto101["m_columns"][] = "activated_by_id";
 $proto101["m_columns"][] = "is_obsolete";
+$proto101["m_columns"][] = "order";
+$proto101["m_columns"][] = "area_id";
 $proto101["m_columns"][] = "is_creation_needed_in_unee_t";
 $proto101["m_columns"][] = "do_not_insert";
 $proto101["m_columns"][] = "unee_t_unit_type";
-$proto101["m_columns"][] = "building_system_id";
-$proto101["m_columns"][] = "tower";
-$proto101["m_columns"][] = "unit_category_id";
 $proto101["m_columns"][] = "designation";
-$proto101["m_columns"][] = "count_rooms";
-$proto101["m_columns"][] = "unit_id";
-$proto101["m_columns"][] = "surface";
-$proto101["m_columns"][] = "surface_measurment_unit";
+$proto101["m_columns"][] = "tower";
+$proto101["m_columns"][] = "address_1";
+$proto101["m_columns"][] = "address_2";
+$proto101["m_columns"][] = "zip_postal_code";
+$proto101["m_columns"][] = "state";
+$proto101["m_columns"][] = "city";
+$proto101["m_columns"][] = "country_code";
 $proto101["m_columns"][] = "description";
 $proto101["m_columns"][] = "mgt_cny_default_assignee";
 $proto101["m_columns"][] = "landlord_default_assignee";
@@ -7869,91 +8957,21 @@ $proto101["m_columns"][] = "agent_default_assignee";
 $obj = new SQLTable($proto101);
 
 $proto100["m_table"] = $obj;
-$proto100["m_sql"] = "LEFT OUTER JOIN property_level_2_units ON external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
+$proto100["m_sql"] = "LEFT OUTER JOIN external_property_level_1_buildings ON external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building";
 $proto100["m_alias"] = "";
 $proto100["m_srcTableName"] = "Manage Units";
 $proto102=array();
-$proto102["m_sql"] = "external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
-$proto102["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id"
+$proto102["m_sql"] = "external_property_level_2_units.building_system_id = external_property_level_1_buildings.id_building";
+$proto102["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "building_system_id",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
 ));
 
 $proto102["m_column"]=$obj;
 $proto102["m_contained"] = array();
-						$proto104=array();
-$proto104["m_sql"] = "external_property_level_2_units.external_id = property_level_2_units.external_id";
-$proto104["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_id",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto104["m_column"]=$obj;
-$proto104["m_contained"] = array();
-$proto104["m_strCase"] = "= property_level_2_units.external_id";
-$proto104["m_havingmode"] = false;
-$proto104["m_inBrackets"] = false;
-$proto104["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto104);
-
-			$proto102["m_contained"][]=$obj;
-						$proto106=array();
-$proto106["m_sql"] = "external_property_level_2_units.external_system_id = property_level_2_units.external_system_id";
-$proto106["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_system_id",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto106["m_column"]=$obj;
-$proto106["m_contained"] = array();
-$proto106["m_strCase"] = "= property_level_2_units.external_system_id";
-$proto106["m_havingmode"] = false;
-$proto106["m_inBrackets"] = false;
-$proto106["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto106);
-
-			$proto102["m_contained"][]=$obj;
-						$proto108=array();
-$proto108["m_sql"] = "external_property_level_2_units.external_table = property_level_2_units.external_table";
-$proto108["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "external_table",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto108["m_column"]=$obj;
-$proto108["m_contained"] = array();
-$proto108["m_strCase"] = "= property_level_2_units.external_table";
-$proto108["m_havingmode"] = false;
-$proto108["m_inBrackets"] = false;
-$proto108["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto108);
-
-			$proto102["m_contained"][]=$obj;
-						$proto110=array();
-$proto110["m_sql"] = "external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
-$proto110["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "created_by_id",
-	"m_strTable" => "external_property_level_2_units",
-	"m_srcTableName" => "Manage Units"
-));
-
-$proto110["m_column"]=$obj;
-$proto110["m_contained"] = array();
-$proto110["m_strCase"] = "= property_level_2_units.organization_id";
-$proto110["m_havingmode"] = false;
-$proto110["m_inBrackets"] = false;
-$proto110["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto110);
-
-			$proto102["m_contained"][]=$obj;
-$proto102["m_strCase"] = "";
+$proto102["m_strCase"] = "= external_property_level_1_buildings.id_building";
 $proto102["m_havingmode"] = false;
 $proto102["m_inBrackets"] = false;
 $proto102["m_useAlias"] = false;
@@ -7963,39 +8981,149 @@ $proto100["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto100);
 
 $proto0["m_fromlist"][]=$obj;
+												$proto104=array();
+$proto104["m_link"] = "SQLL_LEFTJOIN";
+			$proto105=array();
+$proto105["m_strName"] = "external_property_groups_areas";
+$proto105["m_srcTableName"] = "Manage Units";
+$proto105["m_columns"] = array();
+$proto105["m_columns"][] = "id_area";
+$proto105["m_columns"][] = "create_api_request_id";
+$proto105["m_columns"][] = "edit_api_request_id";
+$proto105["m_columns"][] = "external_id";
+$proto105["m_columns"][] = "external_system_id";
+$proto105["m_columns"][] = "external_table";
+$proto105["m_columns"][] = "syst_created_datetime";
+$proto105["m_columns"][] = "creation_system_id";
+$proto105["m_columns"][] = "created_by_id";
+$proto105["m_columns"][] = "creation_method";
+$proto105["m_columns"][] = "syst_updated_datetime";
+$proto105["m_columns"][] = "update_system_id";
+$proto105["m_columns"][] = "updated_by_id";
+$proto105["m_columns"][] = "update_method";
+$proto105["m_columns"][] = "is_update_on_duplicate_key";
+$proto105["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto105["m_columns"][] = "is_obsolete";
+$proto105["m_columns"][] = "is_default";
+$proto105["m_columns"][] = "order";
+$proto105["m_columns"][] = "country_code";
+$proto105["m_columns"][] = "area_name";
+$proto105["m_columns"][] = "area_definition";
+$proto105["m_columns"][] = "mgt_cny_default_assignee";
+$proto105["m_columns"][] = "landlord_default_assignee";
+$proto105["m_columns"][] = "tenant_default_assignee";
+$proto105["m_columns"][] = "agent_default_assignee";
+$obj = new SQLTable($proto105);
+
+$proto104["m_table"] = $obj;
+$proto104["m_sql"] = "LEFT OUTER JOIN external_property_groups_areas ON external_property_level_1_buildings.area_id = external_property_groups_areas.id_area";
+$proto104["m_alias"] = "";
+$proto104["m_srcTableName"] = "Manage Units";
+$proto106=array();
+$proto106["m_sql"] = "external_property_level_1_buildings.area_id = external_property_groups_areas.id_area";
+$proto106["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "area_id",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto106["m_column"]=$obj;
+$proto106["m_contained"] = array();
+$proto106["m_strCase"] = "= external_property_groups_areas.id_area";
+$proto106["m_havingmode"] = false;
+$proto106["m_inBrackets"] = false;
+$proto106["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto106);
+
+$proto104["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto104);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto108=array();
+$proto108["m_link"] = "SQLL_LEFTJOIN";
+			$proto109=array();
+$proto109["m_strName"] = "property_groups_countries";
+$proto109["m_srcTableName"] = "Manage Units";
+$proto109["m_columns"] = array();
+$proto109["m_columns"][] = "id_country";
+$proto109["m_columns"][] = "syst_created_datetime";
+$proto109["m_columns"][] = "creation_system_id";
+$proto109["m_columns"][] = "created_by_id";
+$proto109["m_columns"][] = "syst_updated_datetime";
+$proto109["m_columns"][] = "update_system_id";
+$proto109["m_columns"][] = "updated_by_id";
+$proto109["m_columns"][] = "is_obsolete";
+$proto109["m_columns"][] = "is_default";
+$proto109["m_columns"][] = "is_system";
+$proto109["m_columns"][] = "order";
+$proto109["m_columns"][] = "country_code";
+$proto109["m_columns"][] = "country_name";
+$obj = new SQLTable($proto109);
+
+$proto108["m_table"] = $obj;
+$proto108["m_sql"] = "LEFT OUTER JOIN property_groups_countries ON external_property_level_1_buildings.country_code = property_groups_countries.country_code";
+$proto108["m_alias"] = "";
+$proto108["m_srcTableName"] = "Manage Units";
+$proto110=array();
+$proto110["m_sql"] = "external_property_level_1_buildings.country_code = property_groups_countries.country_code";
+$proto110["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "country_code",
+	"m_strTable" => "external_property_level_1_buildings",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto110["m_column"]=$obj;
+$proto110["m_contained"] = array();
+$proto110["m_strCase"] = "= property_groups_countries.country_code";
+$proto110["m_havingmode"] = false;
+$proto110["m_inBrackets"] = false;
+$proto110["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto110);
+
+$proto108["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto108);
+
+$proto0["m_fromlist"][]=$obj;
 												$proto112=array();
 $proto112["m_link"] = "SQLL_LEFTJOIN";
 			$proto113=array();
-$proto113["m_strName"] = "ut_check_unee_t_updates_property_level_2";
+$proto113["m_strName"] = "ut_unit_types";
 $proto113["m_srcTableName"] = "Manage Units";
 $proto113["m_columns"] = array();
-$proto113["m_columns"][] = "system_id_unit";
+$proto113["m_columns"][] = "id_property_type";
+$proto113["m_columns"][] = "syst_created_datetime";
+$proto113["m_columns"][] = "creation_system_id";
+$proto113["m_columns"][] = "created_by_id";
+$proto113["m_columns"][] = "syst_updated_datetime";
+$proto113["m_columns"][] = "update_system_id";
+$proto113["m_columns"][] = "updated_by_id";
+$proto113["m_columns"][] = "order";
+$proto113["m_columns"][] = "is_level_1";
+$proto113["m_columns"][] = "is_level_2";
+$proto113["m_columns"][] = "is_level_3";
+$proto113["m_columns"][] = "is_obsolete";
 $proto113["m_columns"][] = "designation";
-$proto113["m_columns"][] = "unee_t_mefe_unit_id";
-$proto113["m_columns"][] = "uneet_name";
-$proto113["m_columns"][] = "uneet_created_datetime";
-$proto113["m_columns"][] = "is_unee_t_created_by_me";
-$proto113["m_columns"][] = "creation_method";
-$proto113["m_columns"][] = "update_method";
-$proto113["m_columns"][] = "organization_id";
+$proto113["m_columns"][] = "description";
 $obj = new SQLTable($proto113);
 
 $proto112["m_table"] = $obj;
-$proto112["m_sql"] = "LEFT OUTER JOIN ut_check_unee_t_updates_property_level_2 ON property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto112["m_sql"] = "LEFT OUTER JOIN ut_unit_types ON external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation";
 $proto112["m_alias"] = "";
 $proto112["m_srcTableName"] = "Manage Units";
 $proto114=array();
-$proto114["m_sql"] = "property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto114["m_sql"] = "external_property_level_2_units.unee_t_unit_type = ut_unit_types.designation";
 $proto114["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "system_id_unit",
-	"m_strTable" => "property_level_2_units",
+	"m_strName" => "unee_t_unit_type",
+	"m_strTable" => "external_property_level_2_units",
 	"m_srcTableName" => "Manage Units"
 ));
 
 $proto114["m_column"]=$obj;
 $proto114["m_contained"] = array();
-$proto114["m_strCase"] = "= ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto114["m_strCase"] = "= ut_unit_types.designation";
 $proto114["m_havingmode"] = false;
 $proto114["m_inBrackets"] = false;
 $proto114["m_useAlias"] = false;
@@ -8005,97 +9133,276 @@ $proto112["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto112);
 
 $proto0["m_fromlist"][]=$obj;
+												$proto116=array();
+$proto116["m_link"] = "SQLL_LEFTJOIN";
+			$proto117=array();
+$proto117["m_strName"] = "property_level_2_units";
+$proto117["m_srcTableName"] = "Manage Units";
+$proto117["m_columns"] = array();
+$proto117["m_columns"][] = "system_id_unit";
+$proto117["m_columns"][] = "create_api_request_id";
+$proto117["m_columns"][] = "edit_api_request_id";
+$proto117["m_columns"][] = "external_id";
+$proto117["m_columns"][] = "external_system_id";
+$proto117["m_columns"][] = "external_table";
+$proto117["m_columns"][] = "syst_created_datetime";
+$proto117["m_columns"][] = "creation_system_id";
+$proto117["m_columns"][] = "created_by_id";
+$proto117["m_columns"][] = "creation_method";
+$proto117["m_columns"][] = "syst_updated_datetime";
+$proto117["m_columns"][] = "update_system_id";
+$proto117["m_columns"][] = "updated_by_id";
+$proto117["m_columns"][] = "update_method";
+$proto117["m_columns"][] = "is_update_on_duplicate_key";
+$proto117["m_columns"][] = "organization_id";
+$proto117["m_columns"][] = "activated_by_id";
+$proto117["m_columns"][] = "is_obsolete";
+$proto117["m_columns"][] = "is_creation_needed_in_unee_t";
+$proto117["m_columns"][] = "do_not_insert";
+$proto117["m_columns"][] = "unee_t_unit_type";
+$proto117["m_columns"][] = "building_system_id";
+$proto117["m_columns"][] = "tower";
+$proto117["m_columns"][] = "unit_category_id";
+$proto117["m_columns"][] = "designation";
+$proto117["m_columns"][] = "count_rooms";
+$proto117["m_columns"][] = "unit_id";
+$proto117["m_columns"][] = "surface";
+$proto117["m_columns"][] = "surface_measurment_unit";
+$proto117["m_columns"][] = "description";
+$proto117["m_columns"][] = "mgt_cny_default_assignee";
+$proto117["m_columns"][] = "landlord_default_assignee";
+$proto117["m_columns"][] = "tenant_default_assignee";
+$proto117["m_columns"][] = "agent_default_assignee";
+$obj = new SQLTable($proto117);
+
+$proto116["m_table"] = $obj;
+$proto116["m_sql"] = "LEFT OUTER JOIN property_level_2_units ON external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
+$proto116["m_alias"] = "";
+$proto116["m_srcTableName"] = "Manage Units";
+$proto118=array();
+$proto118["m_sql"] = "external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
+$proto118["m_uniontype"] = "SQLL_AND";
+	$obj = new SQLNonParsed(array(
+	"m_sql" => "external_property_level_2_units.external_id = property_level_2_units.external_id AND external_property_level_2_units.external_system_id = property_level_2_units.external_system_id AND external_property_level_2_units.external_table = property_level_2_units.external_table AND external_property_level_2_units.created_by_id = property_level_2_units.organization_id"
+));
+
+$proto118["m_column"]=$obj;
+$proto118["m_contained"] = array();
+						$proto120=array();
+$proto120["m_sql"] = "external_property_level_2_units.external_id = property_level_2_units.external_id";
+$proto120["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "external_id",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto120["m_column"]=$obj;
+$proto120["m_contained"] = array();
+$proto120["m_strCase"] = "= property_level_2_units.external_id";
+$proto120["m_havingmode"] = false;
+$proto120["m_inBrackets"] = false;
+$proto120["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto120);
+
+			$proto118["m_contained"][]=$obj;
+						$proto122=array();
+$proto122["m_sql"] = "external_property_level_2_units.external_system_id = property_level_2_units.external_system_id";
+$proto122["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "external_system_id",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto122["m_column"]=$obj;
+$proto122["m_contained"] = array();
+$proto122["m_strCase"] = "= property_level_2_units.external_system_id";
+$proto122["m_havingmode"] = false;
+$proto122["m_inBrackets"] = false;
+$proto122["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto122);
+
+			$proto118["m_contained"][]=$obj;
+						$proto124=array();
+$proto124["m_sql"] = "external_property_level_2_units.external_table = property_level_2_units.external_table";
+$proto124["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "external_table",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto124["m_column"]=$obj;
+$proto124["m_contained"] = array();
+$proto124["m_strCase"] = "= property_level_2_units.external_table";
+$proto124["m_havingmode"] = false;
+$proto124["m_inBrackets"] = false;
+$proto124["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto124);
+
+			$proto118["m_contained"][]=$obj;
+						$proto126=array();
+$proto126["m_sql"] = "external_property_level_2_units.created_by_id = property_level_2_units.organization_id";
+$proto126["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "created_by_id",
+	"m_strTable" => "external_property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto126["m_column"]=$obj;
+$proto126["m_contained"] = array();
+$proto126["m_strCase"] = "= property_level_2_units.organization_id";
+$proto126["m_havingmode"] = false;
+$proto126["m_inBrackets"] = false;
+$proto126["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto126);
+
+			$proto118["m_contained"][]=$obj;
+$proto118["m_strCase"] = "";
+$proto118["m_havingmode"] = false;
+$proto118["m_inBrackets"] = false;
+$proto118["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto118);
+
+$proto116["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto116);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto128=array();
+$proto128["m_link"] = "SQLL_LEFTJOIN";
+			$proto129=array();
+$proto129["m_strName"] = "ut_check_unee_t_updates_property_level_2";
+$proto129["m_srcTableName"] = "Manage Units";
+$proto129["m_columns"] = array();
+$proto129["m_columns"][] = "system_id_unit";
+$proto129["m_columns"][] = "designation";
+$proto129["m_columns"][] = "unee_t_mefe_unit_id";
+$proto129["m_columns"][] = "uneet_name";
+$proto129["m_columns"][] = "uneet_created_datetime";
+$proto129["m_columns"][] = "is_unee_t_created_by_me";
+$proto129["m_columns"][] = "creation_method";
+$proto129["m_columns"][] = "update_method";
+$proto129["m_columns"][] = "organization_id";
+$obj = new SQLTable($proto129);
+
+$proto128["m_table"] = $obj;
+$proto128["m_sql"] = "LEFT OUTER JOIN ut_check_unee_t_updates_property_level_2 ON property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto128["m_alias"] = "";
+$proto128["m_srcTableName"] = "Manage Units";
+$proto130=array();
+$proto130["m_sql"] = "property_level_2_units.system_id_unit = ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto130["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "system_id_unit",
+	"m_strTable" => "property_level_2_units",
+	"m_srcTableName" => "Manage Units"
+));
+
+$proto130["m_column"]=$obj;
+$proto130["m_contained"] = array();
+$proto130["m_strCase"] = "= ut_check_unee_t_updates_property_level_2.system_id_unit";
+$proto130["m_havingmode"] = false;
+$proto130["m_inBrackets"] = false;
+$proto130["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto130);
+
+$proto128["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto128);
+
+$proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto116=array();
+												$proto132=array();
 						$obj = new SQLField(array(
 	"m_strName" => "country_name",
 	"m_strTable" => "property_groups_countries",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto116["m_column"]=$obj;
-$proto116["m_bAsc"] = 1;
-$proto116["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto116);
+$proto132["m_column"]=$obj;
+$proto132["m_bAsc"] = 1;
+$proto132["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto132);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto118=array();
+												$proto134=array();
 						$obj = new SQLField(array(
 	"m_strName" => "order",
 	"m_strTable" => "external_property_groups_areas",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto118["m_column"]=$obj;
-$proto118["m_bAsc"] = 1;
-$proto118["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto118);
+$proto134["m_column"]=$obj;
+$proto134["m_bAsc"] = 1;
+$proto134["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto134);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto120=array();
+												$proto136=array();
 						$obj = new SQLField(array(
 	"m_strName" => "area_name",
 	"m_strTable" => "external_property_groups_areas",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto120["m_column"]=$obj;
-$proto120["m_bAsc"] = 1;
-$proto120["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto120);
+$proto136["m_column"]=$obj;
+$proto136["m_bAsc"] = 1;
+$proto136["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto136);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto122=array();
+												$proto138=array();
 						$obj = new SQLField(array(
 	"m_strName" => "order",
 	"m_strTable" => "external_property_level_1_buildings",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto122["m_column"]=$obj;
-$proto122["m_bAsc"] = 1;
-$proto122["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto122);
+$proto138["m_column"]=$obj;
+$proto138["m_bAsc"] = 1;
+$proto138["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto138);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto124=array();
+												$proto140=array();
 						$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "external_property_level_1_buildings",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto124["m_column"]=$obj;
-$proto124["m_bAsc"] = 1;
-$proto124["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto124);
+$proto140["m_column"]=$obj;
+$proto140["m_bAsc"] = 1;
+$proto140["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto140);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto126=array();
+												$proto142=array();
 						$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "ut_unit_types",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto126["m_column"]=$obj;
-$proto126["m_bAsc"] = 1;
-$proto126["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto126);
+$proto142["m_column"]=$obj;
+$proto142["m_bAsc"] = 1;
+$proto142["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto142);
 
 $proto0["m_orderby"][]=$obj;					
-												$proto128=array();
+												$proto144=array();
 						$obj = new SQLField(array(
 	"m_strName" => "designation",
 	"m_strTable" => "external_property_level_2_units",
 	"m_srcTableName" => "Manage Units"
 ));
 
-$proto128["m_column"]=$obj;
-$proto128["m_bAsc"] = 1;
-$proto128["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto128);
+$proto144["m_column"]=$obj;
+$proto144["m_bAsc"] = 1;
+$proto144["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto144);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="Manage Units";		
@@ -8110,7 +9417,7 @@ $queryData_Manage_Units = createSqlQuery_Manage_Units();
 					
 ;
 
-																																					
+																																													
 
 $tdataManage_Units[".sqlquery"] = $queryData_Manage_Units;
 

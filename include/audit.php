@@ -548,6 +548,18 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Organization Default Area")
+		{
+			return false;
+		}
+		if($table=="Organization Default L1P")
+		{
+			return false;
+		}
+		if($table=="Search list of possible properties")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1097,6 +1109,18 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Sources of Truth")
+		{
+			return false;
+		}
+		if($table=="Organization Default Area")
+		{
+			return false;
+		}
+		if($table=="Organization Default L1P")
+		{
+			return false;
+		}
+		if($table=="Search list of possible properties")
 		{
 			return false;
 		}

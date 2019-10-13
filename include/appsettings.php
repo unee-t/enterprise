@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "666_1570860833";
+$projectBuildKey = "701_1570970825";
 $wizardBuildKey = "33896";
-$projectBuildNumber = "666";
+$projectBuildNumber = "701";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -724,6 +724,9 @@ $tableCaptions["English"]["User_Permissions"] = "User Permissions";
 $tableCaptions["English"]["uneet_enterprise_uggroups"] = "Uneet Enterprise Uggroups";
 $tableCaptions["English"]["Search_list_of_possible_assignees"] = "Search list of possible assignees";
 $tableCaptions["English"]["Sources_of_Truth"] = "Sources of Truth";
+$tableCaptions["English"]["Organization_Default_Area"] = "Organization Default Area";
+$tableCaptions["English"]["Organization_Default_L1P"] = "Organization Default L1P";
+$tableCaptions["English"]["Search_list_of_possible_properties"] = "Search list of possible properties";
 
 
 $globalEvents = new class_GlobalEvents;

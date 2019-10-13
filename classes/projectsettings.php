@@ -3183,6 +3183,12 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "search_list_of_possible_assignees" ] = "Search list of possible assignees";
 	$projectEntities[ "Sources of Truth" ] = array( "url" => "sources_of_truth", "type" => 1 );
 	$projectEntitiesReverse[ "sources_of_truth" ] = "Sources of Truth";
+	$projectEntities[ "Organization Default Area" ] = array( "url" => "organization_default_area", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_area" ] = "Organization Default Area";
+	$projectEntities[ "Organization Default L1P" ] = array( "url" => "organization_default_l1p", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_l1p" ] = "Organization Default L1P";
+	$projectEntities[ "Search list of possible properties" ] = array( "url" => "search_list_of_possible_properties", "type" => 1 );
+	$projectEntitiesReverse[ "search_list_of_possible_properties" ] = "Search list of possible properties";
 }
 
 function findTable( $table ) {

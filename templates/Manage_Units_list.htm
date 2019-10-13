@@ -278,6 +278,58 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_is_creation_needed_in_unee_t}</span>
 						</div>
 		{END searchCtrlBlock_is_creation_needed_in_unee_t}
+																{BEGIN searchCtrlBlock_agent_default_assignee_l2p}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_agent_default_assignee_l2p}" {$filterRow_attrs_agent_default_assignee_l2p}>
+			<label>{$label Manage_Units agent_default_assignee_l2p }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_agent_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_agent_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_agent_default_assignee_l2p}</span>
+						</div>
+		{END searchCtrlBlock_agent_default_assignee_l2p}
+																{BEGIN searchCtrlBlock_tenant_default_assignee_l2p}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_tenant_default_assignee_l2p}" {$filterRow_attrs_tenant_default_assignee_l2p}>
+			<label>{$label Manage_Units tenant_default_assignee_l2p }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_tenant_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_tenant_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_tenant_default_assignee_l2p}</span>
+						</div>
+		{END searchCtrlBlock_tenant_default_assignee_l2p}
+																{BEGIN searchCtrlBlock_landlord_default_assignee_l2p}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_landlord_default_assignee_l2p}" {$filterRow_attrs_landlord_default_assignee_l2p}>
+			<label>{$label Manage_Units landlord_default_assignee_l2p }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_landlord_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_landlord_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_landlord_default_assignee_l2p}</span>
+						</div>
+		{END searchCtrlBlock_landlord_default_assignee_l2p}
+																{BEGIN searchCtrlBlock_mgt_cny_default_assignee_l2p}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_mgt_cny_default_assignee_l2p}" {$filterRow_attrs_mgt_cny_default_assignee_l2p}>
+			<label>{$label Manage_Units mgt_cny_default_assignee_l2p }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_mgt_cny_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_mgt_cny_default_assignee_l2p}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_mgt_cny_default_assignee_l2p}</span>
+						</div>
+		{END searchCtrlBlock_mgt_cny_default_assignee_l2p}
 																{BEGIN searchCtrlBlock_external_table}
 
 
@@ -1127,6 +1179,38 @@
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="unee_t_mefe_unit_id"]:before {
 		content: "{$label Manage_Units unee_t_mefe_unit_id}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="mgt_cny_default_assignee_l2p"]:before {
+		content: "{$label Manage_Units mgt_cny_default_assignee_l2p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="landlord_default_assignee_l2p"]:before {
+		content: "{$label Manage_Units landlord_default_assignee_l2p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="tenant_default_assignee_l2p"]:before {
+		content: "{$label Manage_Units tenant_default_assignee_l2p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="agent_default_assignee_l2p"]:before {
+		content: "{$label Manage_Units agent_default_assignee_l2p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="mgt_cny_default_assignee_l1p"]:before {
+		content: "{$label Manage_Units mgt_cny_default_assignee_l1p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="landlord_default_assignee_l1p"]:before {
+		content: "{$label Manage_Units landlord_default_assignee_l1p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="tenant_default_assignee_l1p"]:before {
+		content: "{$label Manage_Units tenant_default_assignee_l1p}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="agent_default_assignee_l1p"]:before {
+		content: "{$label Manage_Units agent_default_assignee_l1p}";
 	}
 	
 }

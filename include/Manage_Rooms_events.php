@@ -141,6 +141,10 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Manage_Rooms_Add_Page';
 
+	// By default we create that in Unee-T
+
+		$values['is_creation_needed_in_unee_t'] = 1;
+
 	# We  record the id of the system that is the source of truth for this organization
 		
 		# What is the organization id for the logged in user?

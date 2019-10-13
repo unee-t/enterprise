@@ -631,6 +631,27 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -941,6 +962,27 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -1251,6 +1293,27 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -2856,9 +2919,6 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	
 	
 	
-				//dependent dropdowns @deprecated data ?
-	$edata["DependentLookups"] = array();
-	$edata["DependentLookups"][] = "area_id";
 
 	
 	
@@ -3131,10 +3191,10 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "external_property_groups_areas";
+	$edata["LookupTable"] = "Manage Areas";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
@@ -3149,17 +3209,13 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$edata["LookupOrderBy"] = "order";
 
 	
-		$edata["UseCategory"] = true;
-	$edata["categoryFields"] = array();
-	$edata["categoryFields"][] = array( "main" => "country_code", "lookup" => "country_code" );
-
+	
 	
 	
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -3494,6 +3550,27 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -3762,6 +3839,27 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -5828,21 +5926,21 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "ut_map_external_source_users";
+	$edata["LookupTable"] = "Search list of possible assignees";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "unee_t_mefe_user_id";
 	$edata["LinkFieldType"] = 200;
-	$edata["DisplayField"] = "unee_t_mefe_user_id";
+	$edata["DisplayField"] = "person_designation";
 
 	
 
 	
-	$edata["LookupOrderBy"] = "";
+	$edata["LookupOrderBy"] = "person_designation";
 
 	
 	
@@ -5851,8 +5949,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -5898,7 +5995,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -5990,21 +6087,21 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "ut_map_external_source_users";
+	$edata["LookupTable"] = "Search list of possible assignees";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "unee_t_mefe_user_id";
 	$edata["LinkFieldType"] = 200;
-	$edata["DisplayField"] = "unee_t_mefe_user_id";
+	$edata["DisplayField"] = "person_designation";
 
 	
 
 	
-	$edata["LookupOrderBy"] = "";
+	$edata["LookupOrderBy"] = "person_designation";
 
 	
 	
@@ -6013,8 +6110,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -6058,7 +6154,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -6150,21 +6246,21 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "ut_map_external_source_users";
+	$edata["LookupTable"] = "Search list of possible assignees";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "unee_t_mefe_user_id";
 	$edata["LinkFieldType"] = 200;
-	$edata["DisplayField"] = "unee_t_mefe_user_id";
+	$edata["DisplayField"] = "person_designation";
 
 	
 
 	
-	$edata["LookupOrderBy"] = "";
+	$edata["LookupOrderBy"] = "person_designation";
 
 	
 	
@@ -6173,8 +6269,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -6218,7 +6313,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -6310,21 +6405,21 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "ut_map_external_source_users";
+	$edata["LookupTable"] = "Search list of possible assignees";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "unee_t_mefe_user_id";
 	$edata["LinkFieldType"] = 200;
-	$edata["DisplayField"] = "unee_t_mefe_user_id";
+	$edata["DisplayField"] = "person_designation";
 
 	
 
 	
-	$edata["LookupOrderBy"] = "";
+	$edata["LookupOrderBy"] = "person_designation";
 
 	
 	
@@ -6333,8 +6428,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -6378,7 +6472,7 @@ $tdataManage_Buildings[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -6474,6 +6568,35 @@ $detailsTablesData["Manage Buildings"] = array();
 				$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="unee_t_mefe_unit_id";
+//	Organization Default L1P
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Organization Default L1P";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_organizations";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "organization_default_l1p";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Organization_Default_L1P");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Buildings"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="created_by_id";
+
+				$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="id_organization";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Buildings"] = array();

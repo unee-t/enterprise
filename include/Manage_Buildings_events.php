@@ -56,6 +56,10 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 		$values['creation_method'] = 'Manage_Buildings_Add_Page';
 
+	// By default we create that in Unee-T
+
+		$values['is_creation_needed_in_unee_t'] = 1;
+
 	// If the areaId is null then area_id is the default value for this organization.
 				
 		if (EMPTY ($values["area_id"]))

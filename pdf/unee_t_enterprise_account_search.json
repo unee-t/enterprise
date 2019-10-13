@@ -163,9 +163,6 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field10}","text":{$is_obsolete_pdfvalue}},
-				
-				
 			{"hidden":"{$item_hide_integrated_search_field11}","text":{$designation_pdfvalue}},
 				
 				
@@ -182,6 +179,33 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field4}","text":{$role_type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field5}","text":{$area_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field6}","text":{$building_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field7}","text":{$unit_name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field8}","text":{$default_sot_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field9}","text":{$person_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field10}","text":{$area_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field12}","text":{$properties_level_1_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field13}","text":{$properties_level_2_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field14}","text":{$properties_level_3_table_pdfvalue}},
 				
 		  ],
   "border": [ false, false, false, false ],

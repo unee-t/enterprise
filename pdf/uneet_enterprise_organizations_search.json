@@ -190,6 +190,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field24}","text":{$mefe_master_user_external_person_system_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field25}","text":{$default_sot_id_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

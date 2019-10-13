@@ -131,6 +131,13 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_user_role_types"]["uneet_enterprise_organizations.default_role_type_id"] = array();
 		}
 		$lookupTableLinks["ut_user_role_types"]["uneet_enterprise_organizations.default_role_type_id"]["edit"] = array("table" => "uneet_enterprise_organizations", "field" => "default_role_type_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["ut_external_sot_for_unee_t_objects"] ) ) {
+			$lookupTableLinks["ut_external_sot_for_unee_t_objects"] = array();
+		}
+		if( !isset( $lookupTableLinks["ut_external_sot_for_unee_t_objects"]["uneet_enterprise_organizations.default_sot_id"] )) {
+			$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["uneet_enterprise_organizations.default_sot_id"] = array();
+		}
+		$lookupTableLinks["ut_external_sot_for_unee_t_objects"]["uneet_enterprise_organizations.default_sot_id"]["edit"] = array("table" => "uneet_enterprise_organizations", "field" => "default_sot_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
 			$lookupTableLinks["ut_map_external_source_units"] = array();
 		}
@@ -278,13 +285,13 @@ function InitLookupLinks()
 			$lookupTableLinks["property_groups_countries"]["Manage_Buildings.country_code"] = array();
 		}
 		$lookupTableLinks["property_groups_countries"]["Manage_Buildings.country_code"]["edit"] = array("table" => "Manage Buildings", "field" => "country_code", "page" => "edit");
-		if( !isset( $lookupTableLinks["external_property_groups_areas"] ) ) {
-			$lookupTableLinks["external_property_groups_areas"] = array();
+		if( !isset( $lookupTableLinks["Manage Areas"] ) ) {
+			$lookupTableLinks["Manage Areas"] = array();
 		}
-		if( !isset( $lookupTableLinks["external_property_groups_areas"]["Manage_Buildings.area_id"] )) {
-			$lookupTableLinks["external_property_groups_areas"]["Manage_Buildings.area_id"] = array();
+		if( !isset( $lookupTableLinks["Manage Areas"]["Manage_Buildings.area_id"] )) {
+			$lookupTableLinks["Manage Areas"]["Manage_Buildings.area_id"] = array();
 		}
-		$lookupTableLinks["external_property_groups_areas"]["Manage_Buildings.area_id"]["edit"] = array("table" => "Manage Buildings", "field" => "area_id", "page" => "edit");
+		$lookupTableLinks["Manage Areas"]["Manage_Buildings.area_id"]["edit"] = array("table" => "Manage Buildings", "field" => "area_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_unit_types"] ) ) {
 			$lookupTableLinks["ut_unit_types"] = array();
 		}
@@ -306,34 +313,34 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_unit_types"]["Manage_Buildings.unee_t_unit_type"] = array();
 		}
 		$lookupTableLinks["ut_unit_types"]["Manage_Buildings.unee_t_unit_type"]["search"] = array("table" => "Manage Buildings", "field" => "unee_t_unit_type", "page" => "search");
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
-			$lookupTableLinks["ut_map_external_source_users"] = array();
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.mgt_cny_default_assignee"] )) {
-			$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.mgt_cny_default_assignee"] = array();
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.mgt_cny_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.mgt_cny_default_assignee"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.mgt_cny_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "mgt_cny_default_assignee", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
-			$lookupTableLinks["ut_map_external_source_users"] = array();
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.mgt_cny_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "mgt_cny_default_assignee", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.landlord_default_assignee"] )) {
-			$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.landlord_default_assignee"] = array();
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.landlord_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.landlord_default_assignee"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.landlord_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "landlord_default_assignee", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
-			$lookupTableLinks["ut_map_external_source_users"] = array();
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.landlord_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "landlord_default_assignee", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.tenant_default_assignee"] )) {
-			$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.tenant_default_assignee"] = array();
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.tenant_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.tenant_default_assignee"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.tenant_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "tenant_default_assignee", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"] ) ) {
-			$lookupTableLinks["ut_map_external_source_users"] = array();
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.tenant_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "tenant_default_assignee", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.agent_default_assignee"] )) {
-			$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.agent_default_assignee"] = array();
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.agent_default_assignee"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.agent_default_assignee"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_users"]["Manage_Buildings.agent_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "agent_default_assignee", "page" => "edit");
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Buildings.agent_default_assignee"]["edit"] = array("table" => "Manage Buildings", "field" => "agent_default_assignee", "page" => "edit");
 		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"] ) ) {
 			$lookupTableLinks["uneet_enterprise_organizations"] = array();
 		}
@@ -390,13 +397,13 @@ function InitLookupLinks()
 			$lookupTableLinks["external_property_groups_areas"]["Manage_Units.area_id"] = array();
 		}
 		$lookupTableLinks["external_property_groups_areas"]["Manage_Units.area_id"]["search"] = array("table" => "Manage Units", "field" => "area_id", "page" => "search");
-		if( !isset( $lookupTableLinks["external_property_level_1_buildings"] ) ) {
-			$lookupTableLinks["external_property_level_1_buildings"] = array();
+		if( !isset( $lookupTableLinks["Manage Buildings"] ) ) {
+			$lookupTableLinks["Manage Buildings"] = array();
 		}
-		if( !isset( $lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"] )) {
-			$lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"] = array();
+		if( !isset( $lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"] )) {
+			$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"] = array();
 		}
-		$lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"]["edit"] = array("table" => "Manage Units", "field" => "building_system_id", "page" => "edit");
+		$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"]["edit"] = array("table" => "Manage Units", "field" => "building_system_id", "page" => "edit");
 		if( !isset( $lookupTableLinks["external_property_level_1_buildings"] ) ) {
 			$lookupTableLinks["external_property_level_1_buildings"] = array();
 		}
@@ -432,6 +439,34 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_unit_types"]["Manage_Units.unee_t_unit_type"] = array();
 		}
 		$lookupTableLinks["ut_unit_types"]["Manage_Units.unee_t_unit_type"]["search"] = array("table" => "Manage Units", "field" => "unee_t_unit_type", "page" => "search");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Units.mgt_cny_default_assignee_l2p"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Units.mgt_cny_default_assignee_l2p"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Units.mgt_cny_default_assignee_l2p"]["edit"] = array("table" => "Manage Units", "field" => "mgt_cny_default_assignee_l2p", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Units.landlord_default_assignee_l2p"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Units.landlord_default_assignee_l2p"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Units.landlord_default_assignee_l2p"]["edit"] = array("table" => "Manage Units", "field" => "landlord_default_assignee_l2p", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Units.tenant_default_assignee_l2p"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Units.tenant_default_assignee_l2p"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Units.tenant_default_assignee_l2p"]["edit"] = array("table" => "Manage Units", "field" => "tenant_default_assignee_l2p", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible assignees"] ) ) {
+			$lookupTableLinks["Search list of possible assignees"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible assignees"]["Manage_Units.agent_default_assignee_l2p"] )) {
+			$lookupTableLinks["Search list of possible assignees"]["Manage_Units.agent_default_assignee_l2p"] = array();
+		}
+		$lookupTableLinks["Search list of possible assignees"]["Manage_Units.agent_default_assignee_l2p"]["edit"] = array("table" => "Manage Units", "field" => "agent_default_assignee_l2p", "page" => "edit");
 		if( !isset( $lookupTableLinks["uneet_enterprise_organizations"] ) ) {
 			$lookupTableLinks["uneet_enterprise_organizations"] = array();
 		}
@@ -1265,13 +1300,27 @@ function InitLookupLinks()
 			$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"] = array();
 		}
 		$lookupTableLinks["ut_map_external_source_users"]["ut_map_external_source_users.mefe_user_id_parent"]["edit"] = array("table" => "ut_map_external_source_users", "field" => "mefe_user_id_parent", "page" => "edit");
-		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
-			$lookupTableLinks["ut_map_external_source_units"] = array();
+		if( !isset( $lookupTableLinks["List of Countries"] ) ) {
+			$lookupTableLinks["List of Countries"] = array();
 		}
-		if( !isset( $lookupTableLinks["ut_map_external_source_units"]["unee_t_enterprise_account.default_area"] )) {
-			$lookupTableLinks["ut_map_external_source_units"]["unee_t_enterprise_account.default_area"] = array();
+		if( !isset( $lookupTableLinks["List of Countries"]["unee_t_enterprise_account.country_code"] )) {
+			$lookupTableLinks["List of Countries"]["unee_t_enterprise_account.country_code"] = array();
 		}
-		$lookupTableLinks["ut_map_external_source_units"]["unee_t_enterprise_account.default_area"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "default_area", "page" => "edit");
+		$lookupTableLinks["List of Countries"]["unee_t_enterprise_account.country_code"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "country_code", "page" => "edit");
+		if( !isset( $lookupTableLinks["Sources of Truth"] ) ) {
+			$lookupTableLinks["Sources of Truth"] = array();
+		}
+		if( !isset( $lookupTableLinks["Sources of Truth"]["unee_t_enterprise_account.default_sot_id"] )) {
+			$lookupTableLinks["Sources of Truth"]["unee_t_enterprise_account.default_sot_id"] = array();
+		}
+		$lookupTableLinks["Sources of Truth"]["unee_t_enterprise_account.default_sot_id"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "default_sot_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["Manage Areas"] ) ) {
+			$lookupTableLinks["Manage Areas"] = array();
+		}
+		if( !isset( $lookupTableLinks["Manage Areas"]["unee_t_enterprise_account.default_area"] )) {
+			$lookupTableLinks["Manage Areas"]["unee_t_enterprise_account.default_area"] = array();
+		}
+		$lookupTableLinks["Manage Areas"]["unee_t_enterprise_account.default_area"]["edit"] = array("table" => "Unee-T Enterprise Account", "field" => "default_area", "page" => "edit");
 		if( !isset( $lookupTableLinks["ut_map_external_source_units"] ) ) {
 			$lookupTableLinks["ut_map_external_source_units"] = array();
 		}
@@ -1475,6 +1524,20 @@ function InitLookupLinks()
 			$lookupTableLinks["uneet_enterprise_organizations"]["sources_of_truth.organization_id"] = array();
 		}
 		$lookupTableLinks["uneet_enterprise_organizations"]["sources_of_truth.organization_id"]["edit"] = array("table" => "Sources of Truth", "field" => "organization_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["Manage Areas"] ) ) {
+			$lookupTableLinks["Manage Areas"] = array();
+		}
+		if( !isset( $lookupTableLinks["Manage Areas"]["organization_default_area.default_area"] )) {
+			$lookupTableLinks["Manage Areas"]["organization_default_area.default_area"] = array();
+		}
+		$lookupTableLinks["Manage Areas"]["organization_default_area.default_area"]["edit"] = array("table" => "Organization Default Area", "field" => "default_area", "page" => "edit");
+		if( !isset( $lookupTableLinks["Search list of possible properties"] ) ) {
+			$lookupTableLinks["Search list of possible properties"] = array();
+		}
+		if( !isset( $lookupTableLinks["Search list of possible properties"]["organization_default_l1p.default_building"] )) {
+			$lookupTableLinks["Search list of possible properties"]["organization_default_l1p.default_building"] = array();
+		}
+		$lookupTableLinks["Search list of possible properties"]["organization_default_l1p.default_building"]["edit"] = array("table" => "Organization Default L1P", "field" => "default_building", "page" => "edit");
 }
 
 ?>

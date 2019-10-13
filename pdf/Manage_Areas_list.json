@@ -554,6 +554,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
+				
 		  ],
   "border": [ true, true, true, true ],
           },
@@ -717,6 +720,11 @@ pdfDocument = {
 			 {BEGIN details_Manage_Buildings}
 			{$displayDetailTable_Manage_Buildings }
 		{END details_Manage_Buildings},
+				
+				
+			 {BEGIN details_organization_default_area}
+			{$displayDetailTable_organization_default_area }
+		{END details_organization_default_area},
 				
 		  ],
   "border": [ true, true, true, true ],

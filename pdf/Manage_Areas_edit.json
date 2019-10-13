@@ -676,6 +676,11 @@ pdfDocument = {
 			{$displayDetailTable_Manage_Buildings }
 		{END details_Manage_Buildings},
 				
+				
+			 {BEGIN details_organization_default_area}
+			{$displayDetailTable_organization_default_area }
+		{END details_organization_default_area},
+				
 		  ],
   "border": [ false, false, false, false ],
           },
