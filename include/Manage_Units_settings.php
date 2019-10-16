@@ -3645,7 +3645,7 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 3;
 	$edata["DisplayField"] = "designation";
 
-				$edata["LookupWhere"] = "`external_property_level_1_buildings`.`is_obsolete` = 0";
+				$edata["LookupWhereCode"] = true;
 
 
 	
