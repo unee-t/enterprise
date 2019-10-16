@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "701_1570970825";
+$projectBuildKey = "708_1571117735";
 $wizardBuildKey = "33896";
-$projectBuildNumber = "701";
+$projectBuildNumber = "708";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -727,6 +727,7 @@ $tableCaptions["English"]["Sources_of_Truth"] = "Sources of Truth";
 $tableCaptions["English"]["Organization_Default_Area"] = "Organization Default Area";
 $tableCaptions["English"]["Organization_Default_L1P"] = "Organization Default L1P";
 $tableCaptions["English"]["Search_list_of_possible_properties"] = "Search list of possible properties";
+$tableCaptions["English"]["Organization_Default_L2P"] = "Organization Default L2P";
 
 
 $globalEvents = new class_GlobalEvents;

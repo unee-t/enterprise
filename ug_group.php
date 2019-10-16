@@ -76,6 +76,7 @@ $nonAdminTablesArr[] = "Sources of Truth";
 $nonAdminTablesArr[] = "Organization Default Area";
 $nonAdminTablesArr[] = "Organization Default L1P";
 $nonAdminTablesArr[] = "Search list of possible properties";
+$nonAdminTablesArr[] = "Organization Default L2P";
 
 $ug_connection = $cman->getForUserGroups();
 

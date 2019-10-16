@@ -93,6 +93,8 @@ include_once(getabspath("include/organization_default_area_events.php"));
 $tableEvents["Organization Default Area"] = new eventclass_organization_default_area;
 include_once(getabspath("include/organization_default_l1p_events.php"));
 $tableEvents["Organization Default L1P"] = new eventclass_organization_default_l1p;
+include_once(getabspath("include/organization_default_l2p_events.php"));
+$tableEvents["Organization Default L2P"] = new eventclass_organization_default_l2p;
 
 $xt = new Xtempl();
 

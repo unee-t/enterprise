@@ -3189,6 +3189,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "organization_default_l1p" ] = "Organization Default L1P";
 	$projectEntities[ "Search list of possible properties" ] = array( "url" => "search_list_of_possible_properties", "type" => 1 );
 	$projectEntitiesReverse[ "search_list_of_possible_properties" ] = "Search list of possible properties";
+	$projectEntities[ "Organization Default L2P" ] = array( "url" => "organization_default_l2p", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_l2p" ] = "Organization Default L2P";
 }
 
 function findTable( $table ) {

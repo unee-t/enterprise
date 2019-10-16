@@ -211,6 +211,21 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field31}","text":{$latest_trigger_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field32}","text":{$area_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field33}","text":{$mgt_cny_default_assignee_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field34}","text":{$landlord_default_assignee_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field35}","text":{$tenant_default_assignee_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field36}","text":{$agent_default_assignee_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

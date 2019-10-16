@@ -1405,6 +1405,11 @@ function GetLWWhere($field, $ptype, $table = "")
 		$strWhere = " `external_property_type_id` = 1 AND `ut_list_possible_properties`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
+		if($table=="Organization Default L2P" && $field=="default_unit")
+	{
+		$strWhere = " `external_property_type_id` = 2 AND `ut_list_possible_properties`.`organization_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		return $strWhere;
+	}
 	return "";
 }
 

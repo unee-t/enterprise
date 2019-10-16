@@ -145,40 +145,7 @@
 {END mastertable_block}	
 				 
 	 
-		
-					<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-						<tr>
-						
-
-{BEGIN cellblock_grid_c3}
-<td
-	{$cell_grid_c3}
-	class=" r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_grid_c3}
-								</tr>
-	 
-	 
-																</tbody></table>
-				 
+												 
 	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}">
 		<div class="panel-heading" role="tab" {$section_section1_headattrs} data-toggle="collapse"   
 
@@ -207,9 +174,9 @@
 	data-location="section1" id="form_section1_{$pageid}" data-makeup="topbar" {$form_section1} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="4"
+		data-form-width="3"
 		
-		data-v-width="8"
+		data-v-width="6"
 	>
 	<tbody>
 										<tr>
@@ -269,34 +236,33 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN unee_t_unit_type_fieldblock}
+{BEGIN unit_designation_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_unit_type}  r-vertical-field" 
-	data-fieldname="unee_t_unit_type" 
-	data-signal-error-for="unee_t_unit_type{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="unee_t_unit_type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unit_designation}  r-vertical-field" 
+	data-fieldname="unit_designation" 
+	data-signal-error-for="unit_designation{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-page="Manage_Units_edit" data-field="unit_designation" >
 
 
-	<label class="r-edit-label control-label" for="{$labelfor_unee_t_unit_type}">
-		{BEGIN unee_t_unit_type_label}{$label Manage_Units unee_t_unit_type }{END unee_t_unit_type_label}
+	<label class="r-edit-label control-label" for="{$labelfor_unit_designation}">
+		{BEGIN unit_designation_label}{$label Manage_Units unit_designation }{END unit_designation_label}
 	</label>
 	<div class="r-edit-field">
-		{$unee_t_unit_type_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="unee_t_unit_type">
+		{$unit_designation_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="unit_designation">
 		<div class="text-muted" >
 				</div>
 	</div>
 </div>
 
 
-{END unee_t_unit_type_fieldblock}
+{END unit_designation_fieldblock}
 	
 								</td>
 			{END cellblock_section1_c3}
 			 
-		
-							
+																
 
 {BEGIN cellblock_section1_c2}
 <td
@@ -306,23 +272,6 @@
 			data-single
 			
 			data-cellId="section1_c2" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_section1_c2}
-			 
-																
-
-{BEGIN cellblock_section1_c}
-<td
-	{$cell_section1_c}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -352,7 +301,7 @@
 {END unit_id_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c}
+			{END cellblock_section1_c2}
 								</tr>
 	 
 	 
@@ -367,47 +316,6 @@
 			data-single
 			
 			data-cellId="section1_c8" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN unit_designation_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_unit_designation}  r-vertical-field" 
-	data-fieldname="unit_designation" 
-	data-signal-error-for="unit_designation{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-page="Manage_Units_edit" data-field="unit_designation" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_unit_designation}">
-		{BEGIN unit_designation_label}{$label Manage_Units unit_designation }{END unit_designation_label}
-	</label>
-	<div class="r-edit-field">
-		{$unit_designation_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="unit_designation">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END unit_designation_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c8}
-			 
-																
-
-{BEGIN cellblock_section1_c9}
-<td
-	{$cell_section1_c9}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c9" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -437,18 +345,18 @@
 {END count_rooms_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c9}
+			{END cellblock_section1_c8}
 			 
 																
 
-{BEGIN cellblock_section1_c10}
+{BEGIN cellblock_section1_c9}
 <td
-	{$cell_section1_c10}
-	class="r-align-center r-ori-vert"
+	{$cell_section1_c9}
+	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c10" data-pageid="{$pageid}"
+			data-cellId="section1_c9" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -478,18 +386,18 @@
 {END surface_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c10}
+			{END cellblock_section1_c9}
 			 
 																
 
-{BEGIN cellblock_section1_c11}
+{BEGIN cellblock_section1_c10}
 <td
-	{$cell_section1_c11}
+	{$cell_section1_c10}
 	class="r-align-center r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c11" data-pageid="{$pageid}"
+			data-cellId="section1_c10" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -519,62 +427,21 @@
 {END surface_measurment_unit_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c11}
+			{END cellblock_section1_c10}
 								</tr>
 	 
 	 
 														<tr>
 										
 
-{BEGIN cellblock_section1_c4}
+{BEGIN cellblock_section1_c12}
 <td
-	{$cell_section1_c4}
+	{$cell_section1_c12}
 	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c4" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN description_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" 
-	data-fieldname="description" 
-	data-signal-error-for="description{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="description" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_description}">
-		{BEGIN description_label}{$label Manage_Units description }{END description_label}
-	</label>
-	<div class="r-edit-field">
-		{$description_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="description">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END description_fieldblock}
-	
-								</td>
-			{END cellblock_section1_c4}
-			 
-																
-
-{BEGIN cellblock_section1_c5}
-<td
-	{$cell_section1_c5}
-	class=" r-ori-vert"
-	
-			data-single
-			
-			data-cellId="section1_c5" data-pageid="{$pageid}"
+			data-cellId="section1_c12" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -604,18 +471,18 @@
 {END is_creation_needed_in_unee_t_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c5}
+			{END cellblock_section1_c12}
 			 
 																
 
-{BEGIN cellblock_section1_c6}
+{BEGIN cellblock_section1_c13}
 <td
-	{$cell_section1_c6}
-	class="r-align-center r-ori-vert"
+	{$cell_section1_c13}
+	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c6" data-pageid="{$pageid}"
+			data-cellId="section1_c13" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -645,18 +512,18 @@
 {END uneet_created_datetime_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c6}
+			{END cellblock_section1_c13}
 			 
 																
 
-{BEGIN cellblock_section1_c7}
+{BEGIN cellblock_section1_c14}
 <td
-	{$cell_section1_c7}
-	class="r-align-center r-ori-vert"
+	{$cell_section1_c14}
+	class=" r-ori-vert"
 	
 			data-single
 			
-			data-cellId="section1_c7" data-pageid="{$pageid}"
+			data-cellId="section1_c14" data-pageid="{$pageid}"
 		data-v-cell="2"
 		
 >
@@ -686,7 +553,92 @@
 {END is_obsolete_fieldblock}
 	
 								</td>
-			{END cellblock_section1_c7}
+			{END cellblock_section1_c14}
+								</tr>
+	 
+	 
+														<tr>
+										
+
+{BEGIN cellblock_section1_c4}
+<td
+	{$cell_section1_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN unee_t_unit_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_unee_t_unit_type}  r-vertical-field" 
+	data-fieldname="unee_t_unit_type" 
+	data-signal-error-for="unee_t_unit_type{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="unee_t_unit_type" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_unee_t_unit_type}">
+		{BEGIN unee_t_unit_type_label}{$label Manage_Units unee_t_unit_type }{END unee_t_unit_type_label}
+	</label>
+	<div class="r-edit-field">
+		{$unee_t_unit_type_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="unee_t_unit_type">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END unee_t_unit_type_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c4}
+			 
+																
+
+{BEGIN cellblock_section1_c5}
+<td
+	{$cell_section1_c5}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section1_c5" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN description_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" 
+	data-fieldname="description" 
+	data-signal-error-for="description{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="description" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_description}">
+		{BEGIN description_label}{$label Manage_Units description }{END description_label}
+	</label>
+	<div class="r-edit-field">
+		{$description_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="description">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END description_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c5}
 								</tr>
 			</tbody></table>
 {END section1_block}
@@ -697,7 +649,7 @@
 				 
 	 
 												 
-	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}">
 		<div class="panel-heading" role="tab" {$section_section2_headattrs} data-toggle="collapse"   
 
 				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
@@ -705,12 +657,219 @@
 		>
 		  <h4 class="panel-title">
 			<a role="button" >
-				Source of the data			</a>
+				Default Assignee			</a>
 		  </h4>
 		</div>
 		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
 
 				id="section2{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section2_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section2" id="form_section2_{$pageid}" data-makeup="topbar" {$form_section2} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_section2_c1}
+<td
+	{$cell_section2_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN mgt_cny_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_mgt_cny_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="mgt_cny_default_assignee_l2p" 
+	data-signal-error-for="mgt_cny_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="mgt_cny_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_mgt_cny_default_assignee_l2p}">
+		{BEGIN mgt_cny_default_assignee_l2p_label}{$label Manage_Units mgt_cny_default_assignee_l2p }{END mgt_cny_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$mgt_cny_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="mgt_cny_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END mgt_cny_default_assignee_l2p_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c1}
+			 
+																
+
+{BEGIN cellblock_section2_c3}
+<td
+	{$cell_section2_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN landlord_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_landlord_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="landlord_default_assignee_l2p" 
+	data-signal-error-for="landlord_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="landlord_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_landlord_default_assignee_l2p}">
+		{BEGIN landlord_default_assignee_l2p_label}{$label Manage_Units landlord_default_assignee_l2p }{END landlord_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$landlord_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="landlord_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END landlord_default_assignee_l2p_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c3}
+			 
+																
+
+{BEGIN cellblock_section2_c2}
+<td
+	{$cell_section2_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN agent_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_agent_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="agent_default_assignee_l2p" 
+	data-signal-error-for="agent_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="agent_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_agent_default_assignee_l2p}">
+		{BEGIN agent_default_assignee_l2p_label}{$label Manage_Units agent_default_assignee_l2p }{END agent_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$agent_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="agent_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END agent_default_assignee_l2p_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c2}
+			 
+																
+
+{BEGIN cellblock_section2_c}
+<td
+	{$cell_section2_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN tenant_default_assignee_l2p_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_tenant_default_assignee_l2p}  r-vertical-field" 
+	data-fieldname="tenant_default_assignee_l2p" 
+	data-signal-error-for="tenant_default_assignee_l2p{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="tenant_default_assignee_l2p" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_tenant_default_assignee_l2p}">
+		{BEGIN tenant_default_assignee_l2p_label}{$label Manage_Units tenant_default_assignee_l2p }{END tenant_default_assignee_l2p_label}
+	</label>
+	<div class="r-edit-field">
+		{$tenant_default_assignee_l2p_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="tenant_default_assignee_l2p">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END tenant_default_assignee_l2p_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c}
+								</tr>
+			</tbody></table>
+{END section2_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}">
+		<div class="panel-heading" role="tab" {$section_section3_headattrs} data-toggle="collapse"   
+
+				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+
+		>
+		  <h4 class="panel-title">
+			<a role="button" >
+				Source of the data			</a>
+		  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+
+				id="section3{$pageid}" 
 		>
 		  <div class="panel-body">
 			{BEGIN section_block}
@@ -871,7 +1030,7 @@
 							{$caption Manage_Rooms }				
 							<span>
 					{$detailslButtons_Manage_Rooms}
-																															</span>
+																																										</span>
 			</h4>
 		</div>
 		<div class="panel-body">
@@ -889,7 +1048,7 @@
 							{$caption Assign_Units_to_User }				
 							<span>
 					{$detailslButtons_Assign_Units_to_User}
-																															</span>
+																																										</span>
 			</h4>
 		</div>
 		<div class="panel-body">
@@ -898,132 +1057,26 @@
 	</div>
 </div>
 {END details_Assign_Units_to_User}
-	
-				 
-	 
-												<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr>
-										
-
-{BEGIN cellblock_grid_c7}
-<td
-	{$cell_grid_c7}
-	class=" r-ori-vert"
-	
-				data-fullwidth
-		
-			data-cellId="grid_c7" data-pageid="{$pageid}"
-		data-v-cell="4"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN mgt_cny_default_assignee_l2p_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_mgt_cny_default_assignee_l2p}  r-vertical-field" 
-	data-fieldname="mgt_cny_default_assignee_l2p" 
-	data-signal-error-for="mgt_cny_default_assignee_l2p{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="mgt_cny_default_assignee_l2p" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_mgt_cny_default_assignee_l2p}">
-		{BEGIN mgt_cny_default_assignee_l2p_label}{$label Manage_Units mgt_cny_default_assignee_l2p }{END mgt_cny_default_assignee_l2p_label}
-	</label>
-	<div class="r-edit-field">
-		{$mgt_cny_default_assignee_l2p_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="mgt_cny_default_assignee_l2p">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END mgt_cny_default_assignee_l2p_fieldblock}
 											
-{BEGIN landlord_default_assignee_l2p_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_landlord_default_assignee_l2p}  r-vertical-field" 
-	data-fieldname="landlord_default_assignee_l2p" 
-	data-signal-error-for="landlord_default_assignee_l2p{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="landlord_default_assignee_l2p" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_landlord_default_assignee_l2p}">
-		{BEGIN landlord_default_assignee_l2p_label}{$label Manage_Units landlord_default_assignee_l2p }{END landlord_default_assignee_l2p_label}
-	</label>
-	<div class="r-edit-field">
-		{$landlord_default_assignee_l2p_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="landlord_default_assignee_l2p">
-		<div class="text-muted" >
-				</div>
+{BEGIN details_organization_default_l2p}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Organization_Default_L2P }				
+							<span>
+					{$detailslButtons_organization_default_l2p}
+																																										</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_organization_default_l2p}
+		</div>
 	</div>
 </div>
-
-
-{END landlord_default_assignee_l2p_fieldblock}
-											
-{BEGIN tenant_default_assignee_l2p_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_tenant_default_assignee_l2p}  r-vertical-field" 
-	data-fieldname="tenant_default_assignee_l2p" 
-	data-signal-error-for="tenant_default_assignee_l2p{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="tenant_default_assignee_l2p" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_tenant_default_assignee_l2p}">
-		{BEGIN tenant_default_assignee_l2p_label}{$label Manage_Units tenant_default_assignee_l2p }{END tenant_default_assignee_l2p_label}
-	</label>
-	<div class="r-edit-field">
-		{$tenant_default_assignee_l2p_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="tenant_default_assignee_l2p">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END tenant_default_assignee_l2p_fieldblock}
-											
-{BEGIN agent_default_assignee_l2p_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_agent_default_assignee_l2p}  r-vertical-field" 
-	data-fieldname="agent_default_assignee_l2p" 
-	data-signal-error-for="agent_default_assignee_l2p{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="agent_default_assignee_l2p" >
-
-
-	<label class="r-edit-label control-label" for="{$labelfor_agent_default_assignee_l2p}">
-		{BEGIN agent_default_assignee_l2p_label}{$label Manage_Units agent_default_assignee_l2p }{END agent_default_assignee_l2p_label}
-	</label>
-	<div class="r-edit-field">
-		{$agent_default_assignee_l2p_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="agent_default_assignee_l2p">
-		<div class="text-muted" >
-				</div>
-	</div>
-</div>
-
-
-{END agent_default_assignee_l2p_fieldblock}
+{END details_organization_default_l2p}
 	
-								</td>
-			{END cellblock_grid_c7}
-								</tr>
-			</tbody></table>
-{END grid_block}
+				{END grid_block}
 							</div>
 						
 										{BEGIN below-grid_block}

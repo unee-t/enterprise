@@ -25,6 +25,10 @@ $dalTableut_map_external_source_areas["new_record_id"] = array("type"=>3,"varnam
 $dalTableut_map_external_source_areas["external_id"] = array("type"=>200,"varname"=>"external_id", "name" => "external_id");
 $dalTableut_map_external_source_areas["external_system"] = array("type"=>200,"varname"=>"external_system", "name" => "external_system");
 $dalTableut_map_external_source_areas["table_in_external_system"] = array("type"=>200,"varname"=>"table_in_external_system", "name" => "table_in_external_system");
+$dalTableut_map_external_source_areas["mgt_cny_default_assignee"] = array("type"=>200,"varname"=>"mgt_cny_default_assignee", "name" => "mgt_cny_default_assignee");
+$dalTableut_map_external_source_areas["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
+$dalTableut_map_external_source_areas["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
+$dalTableut_map_external_source_areas["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
 	$dalTableut_map_external_source_areas["organization_id"]["key"]=true;
 	$dalTableut_map_external_source_areas["external_id"]["key"]=true;
 	$dalTableut_map_external_source_areas["external_system"]["key"]=true;

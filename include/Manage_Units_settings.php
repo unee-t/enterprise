@@ -671,6 +671,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -981,6 +1002,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -1289,6 +1331,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -2634,6 +2697,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -3059,6 +3143,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -3491,6 +3596,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["export"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -3519,7 +3645,7 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 3;
 	$edata["DisplayField"] = "designation";
 
-				$edata["LookupWhere"] = "`is_obsolete` = 0";
+				$edata["LookupWhere"] = "`external_property_level_1_buildings`.`is_obsolete` = 0";
 
 
 	
@@ -4155,6 +4281,27 @@ $tdataManage_Units[".hideMobileList"] = array();
 	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["masterprint"] = $vdata;
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["print"] = $vdata;
 //  End View Formats
 
 //	Begin Edit Formats
@@ -8138,6 +8285,35 @@ $detailsTablesData["Manage Units"] = array();
 				$detailsTablesData["Manage Units"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="unee_t_mefe_unit_id";
+//	Organization Default L2P
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Organization Default L2P";
+		$detailsParam["dOriginalTable"] = "uneet_enterprise_organizations";
+
+
+
+				$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "organization_default_l2p";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Organization_Default_L2P");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Manage Units"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Manage Units"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="created_by_id";
+
+				$detailsTablesData["Manage Units"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="id_organization";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Manage Units"] = array();

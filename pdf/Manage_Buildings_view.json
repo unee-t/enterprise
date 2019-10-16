@@ -164,6 +164,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_5}
 			 
+								{BEGIN row_grid_6}
+						
+			"%",
+						{END row_grid_6}
+			 
 				],
 	
 		body: [
@@ -292,7 +297,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel Manage_Buildings is_creation_needed_in_unee_t }","bold":true},{"text":{$is_creation_needed_in_unee_t_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel Manage_Buildings unee_t_unit_type }","bold":true},{"text":{$unee_t_unit_type_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -316,10 +321,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel Manage_Buildings unee_t_unit_type }","bold":true},{"text":{$unee_t_unit_type_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           },
 
@@ -350,8 +353,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'center',
-    },
+          },
 
 {END cellblock_section1_c4}
 																			{BEGIN cellblock_section1_c5}
@@ -376,8 +378,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'center',
-    },
+          },
 
 {END cellblock_section1_c5}
 																			{BEGIN cellblock_section1_c6}
@@ -397,10 +398,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Buildings is_obsolete }","bold":true},{"text":{$is_obsolete_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
           "alignment": 'center',
     },
@@ -420,6 +419,9 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
+					{BEGIN colspan_section1_c8}
+			colSpan: {$colspan_section1_c8},
+			{END colspan_section1_c8}
 		
 						
 	
@@ -435,32 +437,13 @@ pdfDocument = {
           },
 
 {END cellblock_section1_c8}
-																			{BEGIN cellblock_section1_c10}
-{
-	cellId: 'c10',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel Manage_Buildings uneet_created_datetime }","bold":true},{"text":{$uneet_created_datetime_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_section1_c10}
-																			{BEGIN cellblock_section1_c9}
+																		{ 
+				cellId: 'c8',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+															{BEGIN cellblock_section1_c9}
 {
 	cellId: 'c9',
 	col:0,
@@ -488,6 +471,85 @@ pdfDocument = {
 {END cellblock_section1_c9}
 											],
 				{END row_section1_2}
+								{BEGIN row_section1_3}
+				[
+												{BEGIN cellblock_section1_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel Manage_Buildings is_creation_needed_in_unee_t }","bold":true},{"text":{$is_creation_needed_in_unee_t_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section1_c11}
+																			{BEGIN cellblock_section1_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel Manage_Buildings uneet_created_datetime }","bold":true},{"text":{$uneet_created_datetime_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section1_c12}
+																			{BEGIN cellblock_section1_c13}
+{
+	cellId: 'c13',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Manage_Buildings is_obsolete }","bold":true},{"text":{$is_obsolete_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section1_c13}
+											],
+				{END row_section1_3}
 									]
 					}
 				}]
@@ -505,6 +567,178 @@ pdfDocument = {
 											],
 				{END row_grid_1}
 								{BEGIN row_grid_2}
+				[
+												{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section3',
+			widths: ['*'],
+			body: [
+				[{text: 'Default Assignees', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+							 
+								{BEGIN col_section3_0}
+								'*', 
+								{END col_section3_0}
+							 
+								{BEGIN col_section3_1}
+								'*', 
+								{END col_section3_1}
+							 
+								{BEGIN col_section3_2}
+								'*', 
+								{END col_section3_2}
+							 
+								{BEGIN col_section3_3}
+								'*', 
+								{END col_section3_3}
+													],
+						body: [
+								
+					{BEGIN row_section3_0}
+				[
+												{BEGIN cellblock_section3_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel Manage_Buildings mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section3_c1}
+																			{BEGIN cellblock_section3_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel Manage_Buildings agent_default_assignee }","bold":true},{"text":{$agent_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section3_c3}
+																			{BEGIN cellblock_section3_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel Manage_Buildings landlord_default_assignee }","bold":true},{"text":{$landlord_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section3_c2}
+																			{BEGIN cellblock_section3_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel Manage_Buildings tenant_default_assignee }","bold":true},{"text":{$tenant_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_section3_c}
+											],
+				{END row_section3_0}
+									]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_2}
+								{BEGIN row_grid_3}
 				[
 												{BEGIN cellblock_grid_c7}
 {
@@ -725,8 +959,8 @@ pdfDocument = {
 
 {END cellblock_grid_c7}
 											],
-				{END row_grid_2}
-								{BEGIN row_grid_3}
+				{END row_grid_3}
+								{BEGIN row_grid_4}
 				[
 												{BEGIN cellblock_grid_c4}
 {
@@ -868,8 +1102,8 @@ pdfDocument = {
 
 {END cellblock_grid_c4}
 											],
-				{END row_grid_3}
-								{BEGIN row_grid_4}
+				{END row_grid_4}
+								{BEGIN row_grid_5}
 				[
 												{BEGIN cellblock_grid_c5}
 {
@@ -904,8 +1138,8 @@ pdfDocument = {
 
 {END cellblock_grid_c5}
 											],
-				{END row_grid_4}
-								{BEGIN row_grid_5}
+				{END row_grid_5}
+								{BEGIN row_grid_6}
 				[
 												{BEGIN cellblock_grid_c6}
 {
@@ -925,18 +1159,6 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel Manage_Buildings mgt_cny_default_assignee }","bold":true},{"text":{$mgt_cny_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel Manage_Buildings landlord_default_assignee }","bold":true},{"text":{$landlord_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel Manage_Buildings tenant_default_assignee }","bold":true},{"text":{$tenant_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel Manage_Buildings agent_default_assignee }","bold":true},{"text":{$agent_default_assignee_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			 {BEGIN details_organization_default_l1p}
 			{$displayDetailTable_organization_default_l1p }
 		{END details_organization_default_l1p},
@@ -947,7 +1169,7 @@ pdfDocument = {
 
 {END cellblock_grid_c6}
 											],
-				{END row_grid_5}
+				{END row_grid_6}
 					]
 	}
 }

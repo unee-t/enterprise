@@ -921,6 +921,13 @@
 					Assign Units to User				</label>
 			</div>
 			{END print_details_Assign_Units_to_User}
+														{BEGIN print_details_organization_default_l2p}
+			<div>
+				<label for="printDetailsorganization_default_l2p{$id}">
+					<input type="checkbox" value="organization_default_l2p" id="printDetailsorganization_default_l2p{$id}" checked>
+					Organization Default L2P				</label>
+			</div>
+			{END print_details_organization_default_l2p}
 						</div>
 </div>
 {END print_details}
@@ -1671,6 +1678,25 @@
 	{END Assign_Units_to_User_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN organization_default_l2p_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$organization_default_l2p_link_attrs} data-short-details="organization_default_l2p"
+		class="{$organization_default_l2p_dlink_class}" 
+		title="{$caption Organization_Default_L2P }"	>
+								
+									{BEGIN organization_default_l2p_childcount}
+				<span class="details-badge badge organization_default_l2p_badge" {$organization_default_l2p_childnumber_attr}>
+					{$organization_default_l2p_childnumber}				
+				</span>
+				{END organization_default_l2p_childcount}
+						</a>
+	</span>
+	{END organization_default_l2p_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -1877,17 +1903,20 @@
 	>
 
 	 
-				<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="Manage_Rooms,Assign_Units_to_User"
-			data-details-Manage_Rooms			data-details-Assign_Units_to_User	>
+					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="Manage_Rooms,Assign_Units_to_User,organization_default_l2p"
+			data-details-Manage_Rooms			data-details-Assign_Units_to_User			data-details-organization_default_l2p	>
 		<span data-details-inside data-short-table="Manage_Rooms">
 			</span>
 		<span data-details-inside data-short-table="Assign_Units_to_User">
+			</span>
+		<span data-details-inside data-short-table="organization_default_l2p">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			
 	</td>
 	{END cellblock_grid_cell_dpreview}

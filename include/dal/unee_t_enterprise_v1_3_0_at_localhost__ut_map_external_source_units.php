@@ -17,6 +17,7 @@ $dalTableut_map_external_source_units["datetime_latest_trigger"] = array("type"=
 $dalTableut_map_external_source_units["latest_trigger"] = array("type"=>200,"varname"=>"latest_trigger", "name" => "latest_trigger");
 $dalTableut_map_external_source_units["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete", "name" => "is_obsolete");
 $dalTableut_map_external_source_units["is_update_needed"] = array("type"=>16,"varname"=>"is_update_needed", "name" => "is_update_needed");
+$dalTableut_map_external_source_units["area_id"] = array("type"=>3,"varname"=>"area_id", "name" => "area_id");
 $dalTableut_map_external_source_units["mefe_area_id"] = array("type"=>200,"varname"=>"mefe_area_id", "name" => "mefe_area_id");
 $dalTableut_map_external_source_units["mefe_unit_id_parent"] = array("type"=>200,"varname"=>"mefe_unit_id_parent", "name" => "mefe_unit_id_parent");
 $dalTableut_map_external_source_units["unee_t_mefe_unit_id"] = array("type"=>200,"varname"=>"unee_t_mefe_unit_id", "name" => "unee_t_mefe_unit_id");
@@ -32,6 +33,10 @@ $dalTableut_map_external_source_units["external_property_id"] = array("type"=>20
 $dalTableut_map_external_source_units["external_system"] = array("type"=>200,"varname"=>"external_system", "name" => "external_system");
 $dalTableut_map_external_source_units["table_in_external_system"] = array("type"=>200,"varname"=>"table_in_external_system", "name" => "table_in_external_system");
 $dalTableut_map_external_source_units["tower"] = array("type"=>200,"varname"=>"tower", "name" => "tower");
+$dalTableut_map_external_source_units["mgt_cny_default_assignee"] = array("type"=>200,"varname"=>"mgt_cny_default_assignee", "name" => "mgt_cny_default_assignee");
+$dalTableut_map_external_source_units["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
+$dalTableut_map_external_source_units["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
+$dalTableut_map_external_source_units["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
 	$dalTableut_map_external_source_units["organization_id"]["key"]=true;
 	$dalTableut_map_external_source_units["external_property_type_id"]["key"]=true;
 	$dalTableut_map_external_source_units["external_property_id"]["key"]=true;

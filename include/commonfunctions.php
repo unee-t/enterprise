@@ -331,6 +331,8 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("search_list_of_possible_properties" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
+	if ("organization_default_l2p" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
 	return false;
 }
 
@@ -957,6 +959,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Search list of possible properties";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Organization Default L2P");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Organization Default L2P";
+	}
 	return $arr;
 }
 
@@ -1030,6 +1041,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Organization Default Area";
 	$arr[]="Organization Default L1P";
 	$arr[]="Search list of possible properties";
+	$arr[]="Organization Default L2P";
 	return $arr;
 }
 
@@ -2111,6 +2123,11 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
+	if( $table=="Organization Default L2P" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2267,6 +2284,7 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Organization Default Area_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Organization Default L1P_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search list of possible properties_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Organization Default L2P_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -2526,6 +2544,12 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
+		if($table=="Organization Default L2P")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
 	}
 	if( Security::permissionsAvailable() )
 	{
@@ -2725,6 +2749,10 @@ function SecuritySQL($strAction, $table, $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Search list of possible properties")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Organization Default L2P")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
