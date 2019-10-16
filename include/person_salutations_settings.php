@@ -2,19 +2,17 @@
 
 
 
-
 $tdataperson_salutations = array();
 $tdataperson_salutations[".searchableFields"] = array();
-	$tdataperson_salutations[".truncateText"] = true;
-	$tdataperson_salutations[".NumberOfChars"] = 80;
-	$tdataperson_salutations[".ShortName"] = "person_salutations";
-	$tdataperson_salutations[".OwnerID"] = "";
-	$tdataperson_salutations[".OriginalTable"] = "person_salutations";
+$tdataperson_salutations[".ShortName"] = "person_salutations";
+$tdataperson_salutations[".OwnerID"] = "";
+$tdataperson_salutations[".OriginalTable"] = "person_salutations";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataperson_salutations[".pagesByType"] = my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" );
+$tdataperson_salutations[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataperson_salutations[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -91,7 +89,7 @@ $tdataperson_salutations[".listAjax"] = false;
 	$tdataperson_salutations[".locking"] = false;
 
 
-$pages = $tdataperson_salutations[".pages"];
+$pages = $tdataperson_salutations[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataperson_salutations[".edit"] = true;
@@ -187,9 +185,6 @@ $tdataperson_salutations[".printerPageOrientation"] = 0;
 $tdataperson_salutations[".nPrinterPageScale"] = 100;
 
 $tdataperson_salutations[".nPrinterSplitRecords"] = 40;
-
-$tdataperson_salutations[".nPrinterPDFSplitRecords"] = 40;
-
 
 $tdataperson_salutations[".geocodingEnabled"] = false;
 
@@ -310,6 +305,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -320,6 +317,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -329,7 +330,9 @@ $tdataperson_salutations[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -384,7 +387,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -436,6 +442,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -446,15 +454,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -508,7 +522,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -560,6 +577,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -570,15 +589,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -632,7 +657,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -684,6 +712,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -694,15 +724,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -756,7 +792,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -808,6 +847,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -818,15 +859,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -880,7 +927,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -932,6 +982,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -942,15 +994,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1004,7 +1062,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1056,6 +1117,8 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1066,15 +1129,21 @@ $tdataperson_salutations[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1127,7 +1196,10 @@ $tdataperson_salutations[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

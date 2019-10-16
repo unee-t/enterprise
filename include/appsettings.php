@@ -13,6 +13,9 @@ $page_titles = array();
 $placeHolders = array();
 $all_page_layouts = array();
 $all_page_types = null;
+$all_pages = null;
+$detailsTablesData = array();
+$masterTablesData = array();
 
 // .NET convertor needs this
 $tdataGLOBAL = array();
@@ -72,12 +75,13 @@ define('PAGE_RPRINT',"rprint");
 define('PAGE_MASTER_INFO_RPRINT',"masterrprint");
 define('PAGE_EXPORT',"export");
 define('PAGE_IMPORT',"import");
-define('PAGE_ADMIN_MEMBERS',"admin_members");
-define('PAGE_ADMIN_RIGHTS',"admin_rights");
 define('PAGE_INLINEADD',"inlineadd");
 define('PAGE_INLINEEDIT',"inlineedit");
 define('PAGE_DASHBOARD',"dashboard");
 define('PAGE_DASHMAP', "map");
+define('PAGE_ADMIN_RIGHTS', "admin_rights_list");
+define('PAGE_ADMIN_MEMBERS', "admin_members_list");
+define('PAGE_ADMIN_ADMEMBERS', "admin_admembers_list");
 
 define('ADMIN_USERS',"admin_users");
 
@@ -282,6 +286,7 @@ define("DL_NONE",2);
 define("SEARCH_SIMPLE", 0);
 define("SEARCH_LOAD_CONTROL", 1);
 define("SEARCH_DASHBOARD", 2);
+define("SEARCH_POPUP", 3);
 
 define("LCT_DROPDOWN",0);
 define("LCT_AJAX",1);
@@ -480,8 +485,12 @@ define('MEDIA_DESKTOP', 0);
 define('MEDIA_MOBILE', 1);
 define('MEDIA_MOBILE_EXPANDED', 2);
 
+define('WEBREPORTS_TABLE', "{04AFFBE6-86C0-47b0-ADD3-BA7FA19CA6FC}" );
+
 
 $globalSettings = array();
+$g_defaultOptionValues = array();
+$g_settingsType = array();
 
 $globalSettings["nLoginMethod"] = 1;
 
@@ -495,9 +504,9 @@ $globalSettings["bTwoFactorAuth"] = false;
 
 
 $globalSettings["popupPagesLayoutNames"] = array();
-						
-	;
-$globalSettings["popupPagesLayoutNames"]["login"] = "login_bootstrap";
+					
+;
+$globalSettings["popupPagesLayoutNames"]["login"] = "login";
 
 //mail settings
 $globalSettings["useBuiltInMailer"] = false;
@@ -520,10 +529,11 @@ $globalSettings["isDynamicPerm"] = true;
 
 
 
-$globalSettings["LandingPageType"] = 0;
+$globalSettings["LandingPageType"] = 1;
 $globalSettings["LandingTable"] = "";
-$globalSettings["LandingPage"] = "";
-$globalSettings["LandingURL"] = "";
+$globalSettings["LandingPage"] = "menu";
+$globalSettings["LandingURL"] = "menu.php?page=menu";
+$globalSettings["LandingPageId"] = "menu";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["English"] = "unee-t.enterprise";
@@ -532,12 +542,17 @@ $globalSettings["CookieBanner"] = array();
 
 $globalSettings["useCookieBanner"] = 0 != 0;
 
+
 $globalSettings["createLoginPage"] = true;
+$globalSettings["userGroupCount"] = 1;
+
 
 $globalSettings["apiGoogleMapsCode"] = "";
 
+$globalSettings["SpUserIdField"] = "";
 
-
+	
+	
 
 
 /**
@@ -572,6 +587,9 @@ $globalSettings["searchSuggestsNumber"] = 10;
 $globalSettings["override"] = array();
 
 
+$styleOverrides = array();
+
+
 $globalSettings["mapProvider"]=0;
 
 $globalSettings["CaptchaSettings"] = array();
@@ -594,10 +612,13 @@ $cUserNameField	= "username";
 $cPasswordField	= "password";
 $cUserGroupField = "groupid";
 $cEmailField = "email";
+$globalSettings["usersTableInProject"] = true;
+$globalSettings["usersDatasourceTable"] = "uneet_enterprise_users";
 
-if ($cDisplayNameField == ''){
+$globalSettings["jwtSecret"] = "s2dgfsg-43f";
+
+if( $cDisplayNameField == '' )
 	$cDisplayNameField = $cUserNameField;
-}
 
 $cDisplayNameFieldType	= 200;
 $cUserNameFieldType	= 200;
@@ -619,6 +640,10 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
+$projectBuildKey = "708_1571117735";
+$wizardBuildKey = "33896";
+$projectBuildNumber = "708";
+
 $mlang_messages = array();
 $mlang_charsets = array();
 
@@ -630,8 +655,6 @@ $projectMenus[] = "main";
 $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
-$menuDrillDownFlags = array();
-$menuDrillDownFlags["main"] = 0;
 
 
 
@@ -662,11 +685,49 @@ $tableCaptions["English"]["person_genders"] = "Person Genders";
 $tableCaptions["English"]["Manage_Areas"] = "Manage Areas";
 $tableCaptions["English"]["Manage_Buildings"] = "Manage Buildings";
 $tableCaptions["English"]["property_groups_areas"] = "Property Groups Areas";
-$tableCaptions["English"]["Unee_T_Enterprise_Configuration"] = "Unee-T Enterprise Configuration";
 $tableCaptions["English"]["ut_external_sot_for_unee_t_objects"] = "Ut External Sot For Unee T Objects";
 $tableCaptions["English"]["Manage_Units"] = "Manage Units";
 $tableCaptions["English"]["external_property_groups_areas"] = "External Property Groups Areas";
 $tableCaptions["English"]["external_property_level_1_buildings"] = "External Property Level 1 Buildings";
+$tableCaptions["English"]["Manage_Rooms"] = "Manage Rooms";
+$tableCaptions["English"]["Assign_Areas_to_User"] = "Assign Areas to User";
+$tableCaptions["English"]["Search_Users"] = "Search Users";
+$tableCaptions["English"]["Assign_Buildings_to_User"] = "Assign Buildings to User";
+$tableCaptions["English"]["property_level_1_buildings"] = "Property Level 1 Buildings";
+$tableCaptions["English"]["Assign_Units_to_User"] = "Assign Units to User";
+$tableCaptions["English"]["property_level_2_units"] = "Property Level 2 Units";
+$tableCaptions["English"]["Assign_Rooms_to_User"] = "Assign Rooms to User";
+$tableCaptions["English"]["property_level_3_rooms"] = "Property Level 3 Rooms";
+$tableCaptions["English"]["Search_Rooms"] = "Search Rooms";
+$tableCaptions["English"]["Search_Units"] = "Search Units";
+$tableCaptions["English"]["external_property_level_2_units"] = "External Property Level 2 Units";
+$tableCaptions["English"]["Search_All_Units"] = "Search All Units";
+$tableCaptions["English"]["ut_map_external_source_units"] = "Ut Map External Source Units";
+$tableCaptions["English"]["Search_Buildings"] = "Search Buildings";
+$tableCaptions["English"]["Export_and_Import_Buildings"] = "Export and Import Buildings";
+$tableCaptions["English"]["Export_and_Import_Areas"] = "Export and Import Areas";
+$tableCaptions["English"]["Export_and_Import_Units"] = "Export and Import Units";
+$tableCaptions["English"]["List_of_Countries"] = "List of Countries";
+$tableCaptions["English"]["Export_and_Import_Rooms"] = "Export and Import Rooms";
+$tableCaptions["English"]["Export_and_Import_User_Types"] = "Export and Import User Types";
+$tableCaptions["English"]["Export_and_Import_Users"] = "Export and Import Users";
+$tableCaptions["English"]["Assign_Rooms"] = "Assign Rooms";
+$tableCaptions["English"]["ut_map_external_source_users"] = "Ut Map External Source Users";
+$tableCaptions["English"]["Unee_T_Enterprise_Account"] = "Unee-T Enterprise Account";
+$tableCaptions["English"]["All_Properties_by_Countries"] = "All Properties by Countries";
+$tableCaptions["English"]["SuperAdmin___manage_UNTE_admins"] = "Manage UNTE admins";
+$tableCaptions["English"]["Super_Admin___Manage_Organization"] = "Super Admin - Manage Organization";
+$tableCaptions["English"]["Super_Admin___Manage_API_Keys"] = "Manage UNTE API Keys";
+$tableCaptions["English"]["Super_Admin___Manage_MEFE_Master_User"] = "MEFE Master User";
+$tableCaptions["English"]["Super_Admin___Default_sot_for_Unee_T_objects"] = "Sources of Truth";
+$tableCaptions["English"]["User_Permissions"] = "User Permissions";
+$tableCaptions["English"]["uneet_enterprise_uggroups"] = "Uneet Enterprise Uggroups";
+$tableCaptions["English"]["Search_list_of_possible_assignees"] = "Search list of possible assignees";
+$tableCaptions["English"]["Sources_of_Truth"] = "Sources of Truth";
+$tableCaptions["English"]["Organization_Default_Area"] = "Organization Default Area";
+$tableCaptions["English"]["Organization_Default_L1P"] = "Organization Default L1P";
+$tableCaptions["English"]["Search_list_of_possible_properties"] = "Search list of possible properties";
+$tableCaptions["English"]["Organization_Default_L2P"] = "Organization Default L2P";
 
 
 $globalEvents = new class_GlobalEvents;
@@ -685,6 +746,7 @@ include_once(getabspath("classes/controls/ViewControl.php"));
 require_once( getabspath('classes/db.php') );
 require_once( getabspath('classes/context.php') );
 require_once(getabspath("classes/cipherer.php"));
+require_once( getabspath('classes/wheretabs.php') );
 
 $contextStack = new RunnerContext;
 
@@ -715,8 +777,17 @@ $_cachedSeachClauses = array();
 $auditMaxFieldLength = 300;
 
 
+
 // default connection link #9875
 $conn = $cman->getDefault()->conn;
+
+
+//	delete old username & password cookies
+if( $_COOKIE["password"] ) {
+	setcookie("username", "", time() - 1, "", "", false, false);
+	setcookie("password", "", time() - 1, "", "", false, false);
+}
+
 
 $logoutPerformed = false;
 $scriptname = getFileNameFromURL();

@@ -6,76 +6,120 @@ class DatabaseFileField extends EditControl
 		parent::__construct($field, $pageObject, $id, $connection);
 		$this->format = $pageObject->pSetEdit->getEditFormat($field);
 	}
-	
+
 	/**
 	 * addJSFiles
 	 * Add control JS files to page object
 	 */
 	function addJSFiles()
 	{
-		$this->pageObject->AddJSFile("include/zoombox/zoombox.js");
 	}
-	
+
 	/**
 	 * addCSSFiles
 	 * Add control CSS files to page object
-	 */ 
+	 */
 	function addCSSFiles()
 	{
-		$this->pageObject->AddCSSFile("include/zoombox/zoombox.css");
 	}
-	
+
 	function buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data)
 	{
 		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
-		
+
 		$disp = "";
 		$strfilename = "";
-		
+
 		if($mode == MODE_EDIT || $mode == MODE_INLINE_EDIT)
 		{
 			$value = $this->connection->stripSlashesBinary( $value );
 			$itype = SupposeImageType($value);
+
 			if($itype)
 			{
-				if($this->pageObject->pSetEdit->showThumbnail($this->field))
+				if( $this->format == EDIT_FORMAT_DATABASE_IMAGE && !$this->pageObject->pSetEdit->showThumbnail( $this->field ) )
+				{
+					// show real db image instead of icon
+					$src = GetTableLink( "mfhandler", "", "filename=file.jpg&table=".rawurlencode( $this->container->tName )
+						."&field=".rawurlencode( $this->field )
+						."&nodisp=1"
+						."&pageType=".$this->container->pageType
+						."&page=".$this->pageObject->pageName
+						.$this->keylink."&rndVal=".rand(0,32768) );
+
+					$imgWidth = $this->container->pSetEdit->getImageWidth( $this->field );
+					$imgHeight = $this->container->pSetEdit->getImageHeight( $this->field );
+
+					$style = '';
+					if( $imgWidth )
+						$style.= 'max-width:'.$imgWidth.'px;';
+					if( $imgHeight )
+						$style.= 'max-height:'.$imgHeight.'px;';
+
+					$style = $style ? ' style="'.$style.'"' : '';
+
+					$disp = '<img class="mupload-preview-img" '.$style.' id="image_'.GoodFieldName( $this->field ).'_'.$this->id.'" name="'.$this->cfield.'"';
+					if( $this->is508 )
+						$disp.= ' alt="Image from DB"';
+					$disp.= ' border=0 src="'.$src.'">';
+				}
+				else if( $this->pageObject->pSetEdit->showThumbnail($this->field) )
 				{
 					$disp = "<a target=_blank";
-						
-					$disp.=" href=\"".GetTableLink("imager", "", "table=".GetTableURL($this->pageObject->tName)."&".$this->iquery."&rndVal=".rand(0,32768))."\" class='zoombox'>";
-					$disp.= "<img id=\"image_".GoodFieldName($this->field)."_".$this->id."\" name=\"".$this->cfield."\" border=0";
+
+					$disp.=" href=\"".
+						GetTableLink("imager", "",
+						"page=".$this->pageObject->pageName.
+						"&table=".GetTableURL($this->pageObject->tName).
+						"&".$this->iquery.
+						"&rndVal=".rand(0,32768))."\" >";
+					$disp.= "<img class=\"mupload-preview-img\" id=\"image_".GoodFieldName($this->field)."_".$this->id."\" name=\"".$this->cfield."\" border=0";
 					if($this->is508)
 						$disp .= " alt=\"Image from DB\"";
-					$disp .= " src=\"".GetTableLink("imager", "", "table=".GetTableURL($this->pageObject->tName)."&field="
-						.rawurlencode($this->pageObject->pSetEdit->getStrThumbnail($this->field))
-						."&alt=".rawurlencode($this->field).$this->keylink."&rndVal=".rand(0,32768))."\">";
+					
+					//	show thumbnail or fullsize image
+					$displayField = $this->pageObject->pSetEdit->getStrThumbnail($this->field);
+					if( !strlen( $data[ $displayField ]) ) {
+						$displayField = $this->field;
+					}
+
+					$disp .= " src=\"".
+						GetTableLink("imager", "",
+							"page=".$this->pageObject->pageName.
+							"&table=".GetTableURL($this->pageObject->tName).
+							"&field=".rawurlencode( $displayField ).
+							$this->keylink.
+							"&rndVal=".rand(0,32768))."\">";
 					$disp.= "</a>";
 				}
 				else
 				{
-					$disp='<img id="image_'.GoodFieldName($this->field).'_'.$this->id.'" name="'.$this->cfield.'"';
+					$disp='<img class="mupload-preview-img" id="image_'.GoodFieldName($this->field).'_'.$this->id.'" name="'.$this->cfield.'"';
 					if($this->is508)
 						$disp.= ' alt="Image from DB"';
-					$disp.=' border=0 src="'.GetTableLink("imager", "", 'table='.GetTableURL($this->pageObject->tName).'&'.$this->iquery."&src=1&rndVal="
-						.rand(0,32768)).'">';
-				}	
+					$disp.=' border=0 src="'.
+						GetTableLink("imager", "",
+							'table='.GetTableURL($this->pageObject->tName).
+							"&page=".$this->pageObject->pageName.
+							'&'.$this->iquery."&src=1&rndVal=".rand(0,32768)).'">';
+				}
 			}
 			else
 			{
 				if(strlen($value))
 				{
-					$disp = '<img id="image_'.GoodFieldName($this->field).'_'.$this->id.'" name="'.$this->cfield.'" border=0 ';
+					$disp = '<img class="mupload-preview-img" id="image_'.GoodFieldName($this->field).'_'.$this->id.'" name="'.$this->cfield.'" border=0 ';
 					if($this->is508)
 						$disp .= ' alt="file"';
 					$disp .= ' src="'.GetRootPathForResources("images/file.gif").'">';
 				}
-				}
+			}
 //	filename
 			if($this->format == EDIT_FORMAT_DATABASE_FILE && !$itype && strlen($value))
 			{
 				if(!($filename = @$data[$this->pageObject->pSetEdit->getFilenameField($this->field)]))
 					$filename = "file.bin";
-	
+
 				$disp = '<a href="'.GetTableLink("getfile", "", 'table='.GetTableURL( $this->pageObject->tName ).'&filename='.runner_htmlspecialchars( $filename )
 					.'&pagename='.runner_htmlspecialchars( $this->pageObject->pSetEdit->pageName() )
 					.'&'.$this->iquery).'".>'.$disp.'</a>';
@@ -89,18 +133,18 @@ class DatabaseFileField extends EditControl
 				{
 					$strfilename = '<br><label for="filename_'.$this->cfieldname.'">'."Filename"
 						.'</label>&nbsp;&nbsp;<input type="text" '.$this->inputStyle.' id="filename_'.$this->cfieldname
-						.'" name="filename_'.$this->cfieldname.'" size="20" maxlength="50" value="'.runner_htmlspecialchars($filename).'">';					
+						.'" name="filename_'.$this->cfieldname.'" size="20" maxlength="50" value="'.runner_htmlspecialchars($filename).'">';
 				}
 				else
 				{
 					$strfilename = '<br><label for="filename_'.$this->cfieldname.'">'."Filename"
 						.'</label>&nbsp;&nbsp;<input type="text" '.$this->inputStyle.' id="filename_'.$this->cfieldname.'" name="filename_'
-						.$this->cfieldname.'" size="20" maxlength="50" value="'.runner_htmlspecialchars($filename).'">';					
+						.$this->cfieldname.'" size="20" maxlength="50" value="'.runner_htmlspecialchars($filename).'">';
 				}
 			}
 			if(strlen($value)) {
 				$strtype = '<br><input id="'.$this->ctype.'_keep" type="Radio" name="'.$this->ctype.'" value="file0" checked class="rnr-uploadtype">'."Keep";
-			
+
 			if(strlen($value) && !$this->pageObject->pSetEdit->isRequired($this->field))
 			{
 					$strtype .= '<input id="'.$this->ctype.'_delete" type="Radio" name="'.$this->ctype.'" value="file1" class="rnr-uploadtype">'."Delete";
@@ -118,10 +162,10 @@ class DatabaseFileField extends EditControl
 			{
 				$strfilename = '<br><label for="filename_'.$this->cfieldname.'">'."Filename"
 					.'</label>&nbsp;&nbsp;<input type="text" '.$this->inputStyle.' id="filename_'.$this->cfieldname.'" name="filename_'
-					.$this->cfieldname.'" size="20" maxlength="50">';			
+					.$this->cfieldname.'" size="20" maxlength="50">';
 			}
 		}
-		
+
 		if($mode == MODE_INLINE_EDIT && $this->format == EDIT_FORMAT_DATABASE_FILE)
 			$disp = "";
 		echo $disp.$strtype;
@@ -130,13 +174,14 @@ class DatabaseFileField extends EditControl
 			echo '<br>';
 		}
 		echo '<input type="File" '.$this->inputStyle.' id="'.$this->cfield.'" '
+			.'accept="'.$this->pageObject->pSetEdit->getAcceptFileTypesHtml($this->field).'" '
 			.(($mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD) && $this->is508 ? 'alt="'.$this->strLabel.'" ' : '').' name="'
 			.$this->cfield.'" >'.$strfilename;
 		echo '<input type="Hidden" id="notempty_'.$this->cfieldname.'" value="'.(strlen($value) ? 1 : 0).'">';
 		$this->buildControlEnd($validate, $mode);
 	}
 
-	/** 
+	/**
 	* Create CSS code for specifying control's width
 	*/
 	function makeWidthStyle($widthPx)
@@ -145,7 +190,7 @@ class DatabaseFileField extends EditControl
 			return "";
 		return "min-width: ".$widthPx."px";
 	}
-	
+
 	function readWebValue(&$avalues, &$blobfields, $legacy1, $legacy2, &$filename_values)
 	{
 		$filename = "";
@@ -161,7 +206,7 @@ class DatabaseFileField extends EditControl
 					$this->webValue = $prepearedFile["value"];
 					$filename = $prepearedFile["filename"];
 				}
-				else 
+				else
 					$this->webValue = false;
 			}
 			else
@@ -174,7 +219,7 @@ class DatabaseFileField extends EditControl
 						$this->webValue = $prepearedFile["value"];
 						$filename = $prepearedFile["filename"];
 					}
-					else 
+					else
 						$this->webValue = false;
 				}
 				else if(substr($this->webType, 0, 6) == "upload")
@@ -193,7 +238,7 @@ class DatabaseFileField extends EditControl
 		}
 		else
 			$this->webValue = false;
-		
+
 		if(!($this->webValue === false))
 		{
 			if($this->webValue)
@@ -216,7 +261,7 @@ class DatabaseFileField extends EditControl
 				$blobfields[] = $this->pageObject->pSetEdit->getStrThumbnail($this->field);
 				$avalues[$blobfields[count($blobfields) - 1]] = "";
 			}
-			$blobfields[] = $this->field;		
+			$blobfields[] = $this->field;
 			$avalues[$this->field] = $this->webValue;
 		}
 		if($filename && $this->pageObject->pSetEdit->getStrFilename($this->field))

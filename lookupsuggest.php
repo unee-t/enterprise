@@ -6,33 +6,33 @@ require_once("include/dbcommon.php");
 
 header("Expires: Thu, 01 Jan 1970 00:00:01 GMT"); 
 
-$table = postvalue("table");
-if( !checkTableName($table) )
+$shortTable = postvalue("table");
+$table = GetTableByShort( $shortTable );
+if( !$table )
 	exit(0);
 
-require_once("include/".$table."_variables.php");
 
 $pageType = postvalue("pageType");
-$strTableName = GetTableByShort($table);
-$cipherer = new RunnerCipherer($strTableName);	
-$gSettings = new ProjectSettings($strTableName, $pageType, postvalue("page") );
+$pageName = postvalue("page");
 $field = postvalue('searchField');
+
+if( !Security::userHasFieldPermissions( $table, $field, $pageType, $pageName, true ) )
+	return;
+
+$gSettings = new ProjectSettings( $table, $pageType, $pageName );
 
 // if suggest for dashboard search
 if( $gSettings->getEntityType() == titDASHBOARD )
 {
-    $dashFields = $gSettings->getDashboardSearchFields();
-    $table = GoodFieldName($dashFields[$field][0]["table"]);
-    $strTableName = GetTableByShort($table);
-    $field = GoodFieldName($dashFields[$field][0]["field"]);
-	if (!checkTableName($table))
-	{
-		exit(0);
-	}
-	require_once("include/".$table."_variables.php");
-    $cipherer = new RunnerCipherer($strTableName);
-    $gSettings = new ProjectSettings($strTableName, $pageType);
+	$dashboard = $table;
+	$dashFields = $gSettings->getDashboardSearchFields();
+    $table = $dashFields[ $field ][0]["table"];
+	$field = $dashFields[$field][0]["field"];
+	
+    $gSettings = new ProjectSettings($table, $pageType, $pageName, $dashboard );
 }
+
+$cipherer = new RunnerCipherer($table);
 
 $masterTable = postvalue('masterTable');
 if ( $masterTable != "" && isset($_SESSION[ $masterTable . "_masterRecordData" ]) )
@@ -43,37 +43,6 @@ if ( $masterTable != "" && isset($_SESSION[ $masterTable . "_masterRecordData" ]
 $contextParams["data"] = my_json_decode( postvalue('data') );
 RunnerContext::push( new RunnerContextItem( $pageType, $contextParams));
 
-if( $strTableName != "uneet_enterprise_users" )
-{
-	if( !isLogged() )  
-		return;	
-	
-	if(!CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Edit") && !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Add") 
-		&& !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search"))
-	{
-		return;
-	}
-}
-else 
-{
-	$checkResult = true;
-	$registerFields = $pageType=="register" ? $gSettings->getPageFields() : array();
-	if(array_search( $field, $registerFields ) !== FALSE ) {
-		$checkResult	= false;
-	}
-	if($checkResult)
-	{
-		if( !isLogged() )  
-			return;	
-			
-		if( !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Edit") && !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Add") 
-			&& !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search") )
-		{
-			return;
-		}
-	}
-}
-
 $isExistParent = postvalue('isExistParent');
 $searchByLinkField = postvalue('searchByLinkField');
 $parentCtrlsData = my_json_decode( postvalue('parentCtrlsData') );
@@ -83,16 +52,12 @@ $values = postvalue('multiselection') ? splitvalues($value) : array($value);
 
 
 $lookupField = "";
-foreach($gSettings->getFieldsList() as $f)
+if( $gSettings->getEditFormat($field) == EDIT_FORMAT_LOOKUP_WIZARD )
 {
-	if( GoodFieldName($f) == $field && $gSettings->getEditFormat($f) == EDIT_FORMAT_LOOKUP_WIZARD )
+	$LookupType = $gSettings->getLookupType($field);
+	if(  $LookupType == LT_LOOKUPTABLE || $LookupType == LT_QUERY )
 	{
-		$LookupType = $gSettings->getLookupType($f);
-		if(  $LookupType == LT_LOOKUPTABLE || $LookupType == LT_QUERY )
-		{
-			$lookupField = $f;
-			break;
-		}
+		$lookupField = $field;
 	}
 }
 
@@ -129,7 +94,7 @@ if($LookupType == LT_QUERY)
 	$lookupQueryObj = $lookupPSet->getSQLQuery();
 	
 	if($gSettings->getCustomDisplay($lookupField))
-		$lookupQueryObj->AddCustomExpression($displayFieldName, $lookupPSet, $strTableName, $lookupField);
+		$lookupQueryObj->AddCustomExpression($displayFieldName, $lookupPSet, $table, $lookupField);
 	
 	$lookupQueryObj->ReplaceFieldsWithDummies($lookupPSet->getBinaryFieldsIndices());
 }

@@ -30,12 +30,15 @@ class ReportPage extends RunnerPage
 	
 	protected $crossTableObj = null;
 	
+	public $pdfJson = false;
+	
 	public $x;
 	public $y;
 	public $dataField;
 	public $operation;
 	public $xType;
 	public $yType;
+	public $selectedAxis;
 	
 	/**
 	 * @constructor
@@ -44,6 +47,7 @@ class ReportPage extends RunnerPage
 	function __construct( &$params ) 
 	{
 		parent::__construct($params);
+		
 		
 		$this->crossTable = $this->pSet->isCrossTabReport();
 		
@@ -408,6 +412,7 @@ class ReportPage extends RunnerPage
 		
 		$params = array();
 		
+		$params["selectedAxis"] = $this->selectedAxis;
 		$params["x"] = $this->x;
 		$params["y"] = $this->y;
 		$params["data"] = $this->dataField;
@@ -442,7 +447,7 @@ class ReportPage extends RunnerPage
 		if( $this->pdfJsonMode() )
 			$params["pdfJSON"] = true;		
 		
-		$this->crossTableObj = new CrossTableReport( $params, $this->getBasicCrossTableSQL() );
+		$this->crossTableObj = new CrossTableReport( $params, $this->getBasicCrossTableSQL(), $this );
 		
 		if( $this->crosstableRefresh )
 		{
@@ -569,15 +574,10 @@ class ReportPage extends RunnerPage
 			$options[] = "<option value=\"". $opData["value"] ."\" ". $opData["selected"] .">". $lastLabel ."</option>";			
 		}
 
-		$hiddenAttr = "";
-		$labelTag = "";
 		if ( count($options) < 2 )
-		{
-			$labelTag = "<span class=\"bs-cross-ddgroup form-control like-text\">". $lastLabel ."</span>";
-			$hiddenAttr = "style=\"display: none;\"";
-		}	
+			return  "<span id=\"group_func". $this->id."\" class=\"bs-cross-ddgroup form-control like-text\">". $lastLabel ."</span>";
 		
-		return "<select ".$hiddenAttr." id=\"group_func". $this->id ."\" class=\"bs-cross-ddgroup form-control\">". implode("", $options) ."</select>" . $labelTag;
+		return "<select id=\"group_func". $this->id ."\" class=\"bs-cross-ddgroup form-control\">". implode("", $options) ."</select>";
 	}
 	
 	/**
@@ -630,6 +630,8 @@ class ReportPage extends RunnerPage
 		}
 		
 		$this->xt->assign("crosstable_attrs", "&x=".$this->x."&y=".$this->y."&data=".$this->dataField."&op=".$this->operation);	//?
+		
+		$this->xt->assign( "grid_header", !$this->noRecordsFound );
 	}	
 	
 	
@@ -653,11 +655,13 @@ class ReportPage extends RunnerPage
 			
 		$this->arrReport = $rb->getReport( $this->pagestart );
 
+		$this->setRecordsId();
 		$this->setDetailLinks();
 		
 		$this->buildPagination();
 		
 		$this->standardReportCommonAssign();
+		$this->assignColumnHeaderClasses();
 	}
 
 	/**
@@ -716,14 +720,27 @@ class ReportPage extends RunnerPage
 		if ( $this->isBootstrap() )
 		{
 			$this->xt->assign("details_found", $this->arrReport['countRows'] != 0);
+			
+			if( $this->isPD() && $this->noRecordsFound )
+			{
+				$this->hideItem("details_found");
+				$this->hideItem("page_size");
+			}			
 		}
 		
 		$this->xt->assign("details_block", $this->arrReport['countRows'] != 0);
 		$this->xt->assign("records_found", $this->arrReport['countRows']);
 		$this->xt->assign("pages_block", $this->arrReport['countRows'] != 0);
 		$this->xt->assign("page", $this->myPage);
-		$this->xt->assign("maxpages", $this->maxPages);		
-		$this->xt->assign("global_summary", true);		
+		$this->xt->assign("maxpages", $this->maxPages);
+
+		
+		$this->xt->assign( "global_summary", !$this->noRecordsFound );
+		$this->xt->assign( "page_summary", !$this->noRecordsFound );
+		$this->xt->assign( "summary_header", !$this->noRecordsFound );
+
+		// tabular report
+		$this->xt->assign( "grid_header", !$this->noRecordsFound );
 	}
 	
 	/**
@@ -734,45 +751,55 @@ class ReportPage extends RunnerPage
 		//	prepare for create pagination
 		$this->maxPages = $this->arrReport['maxpages'];
 
-		$lastrecord = ( $this->myPage ) * $this->pageSize;
+		$lastrecord = $this->myPage * $this->pageSize;
 		if( $this->pageSize < 0 || $lastrecord > $this->arrReport['countRows'] )
 			$lastrecord = $this->arrReport['countRows'];
 		
 		$this->prepareRecordsIndicator( ( $this->myPage - 1 ) * $this->pageSize + 1, $lastrecord, $this->arrReport['countRows'] );
+
+		$advSeparator = "&nbsp;:&nbsp;";
+		$separator = "&nbsp;";
+		if( $this->isBootstrap() )
+		{
+			$separator = "";
+			$advSeparator = "";
+		}
 		
 		if($this->maxPages > 1)
 		{		
 			$this->xt->assign("pagination_block", true);
 			$pagination = '';
-			$limit=10;
-			if ($this->mobileTemplateMode())	
-				$limit=5;
+			$limit = 10;
+			if( $this->mobileTemplateMode() )	
+				$limit = 5;
 
-			$counterstart = $this->myPage - ($limit-1);
+			$counterstart = $this->myPage - ($limit - 1);
 			if($this->myPage % $limit != 0)
 				$counterstart = $this->myPage -($this->myPage % $limit) + 1;
-			$counterend = $counterstart + ($limit-1);
+			
+			$counterend = $counterstart + ($limit - 1);
 			if($counterend > $this->maxPages)
 				$counterend = $this->maxPages;
+			
 			if($counterstart != 1) 
 			{
-				$pagination.= $this->getPaginationLink(1,"First")."&nbsp;:&nbsp;";
-				$pagination.= $this->getPaginationLink($counterstart - 1,"Previous")."&nbsp;";
+				$pagination.= $this->getPaginationLink(1, "First").$advSeparator;
+				$pagination.= $this->getPaginationLink($counterstart - 1, "Previous").$separator;
 			}
-			$pageLinks = "";
-				
+			
+			$pageLinks = "";	
 			if(isRTL())
 			{
 				for($counter = $counterend; $counter >= $counterstart; $counter --) 
 				{
-					$pageLinks .= $separator . $this->getPaginationLink($counter,$counter, $counter == $this->myPage );
+					$pageLinks.= $separator . $this->getPaginationLink( $counter, $counter, $counter == $this->myPage );
 				}
 			}
 			else
 			{
 				for($counter = $counterstart; $counter <= $counterend; $counter ++) 
 				{
-					$pageLinks .= $separator . $this->getPaginationLink($counter,$counter, $counter == $this->myPage );
+					$pageLinks .= $separator . $this->getPaginationLink( $counter, $counter, $counter == $this->myPage );
 				}
 			}
 
@@ -780,12 +807,13 @@ class ReportPage extends RunnerPage
 			{
 				$pageLinks = "[" . $pageLinks . $separator . "]";
 			}
-			$pagination .= $pageLinks;
+			
+			$pagination.= $pageLinks;
 
 			if($counterend != $this->maxPages) 
 			{
-				$pagination.= "&nbsp;".$this->getPaginationLink($counterend + 1,"Next")."&nbsp;:&nbsp;";
-				$pagination.= "&nbsp;".$this->getPaginationLink($this->maxPages,"Last");
+				$pagination.= $separator . $this->getPaginationLink($counterend + 1, "Next") . $advSeparator;
+				$pagination.= $separator . $this->getPaginationLink($this->maxPages, "Last");
 			}			
 			if( $this->isBootstrap() )
 				$pagination = '<nav><ul class="pagination" data-function="pagination' . $this->id . '">' . $pagination . '</ul></nav>';
@@ -800,6 +828,14 @@ class ReportPage extends RunnerPage
 		}
 	}
 	
+	protected function setRecordsId() {
+		$recCount = count( $this->arrReport['list'] );
+		for( $i = 0; $i < $recCount; ++$i ) {
+			$this->genId();
+			$this->arrReport['list'][$i]["recId"] = $this->recId;
+		}
+	}
+
 	/**
 	 * fix it!
 	 */
@@ -824,11 +860,12 @@ class ReportPage extends RunnerPage
 			if (!isset($data['row_data']))
 				continue;
 			$record = array();
-			$this->genId();
+			//$this->genId();
+			$recId = $data["recId"];
 			
 			$gridRowInd = count($this->controlsMap['gridRows']);
 			$this->controlsMap['gridRows'][$gridRowInd] = array();
-			$this->controlsMap['gridRows'][$gridRowInd]['id'] = $this->recId;
+			$this->controlsMap['gridRows'][$gridRowInd]['id'] = $recId;
 			$this->controlsMap['gridRows'][$gridRowInd]['rowInd'] = $gridRowInd;
 			//Add the connection with containing row. It's important for vertical layout's multiple records per row mode
 			$this->controlsMap['gridRows'][$gridRowInd]['keyFields'] = array();
@@ -839,10 +876,11 @@ class ReportPage extends RunnerPage
 			}
 			
 			$this->proccessDetailGridInfo($record, $data, $gridRowInd);
-			$record["recordattrs"] = "data-record-id=\"".$this->recId."\"";
-			$record["rowattrs"] = " id=\"gridRow".$this->recId."\"";
+			$record["recordattrs"] = "data-record-id=\"".$recId."\"";
+			//$record["recId"] = $recId;
+			$record["rowattrs"] = " id=\"gridRow".$recId."\"";
 			$arrReportList[$key] = array_merge_assoc($data, $record);
-			$this->recIds[] = $this->recId;
+			$this->recIds[] = $recId;
 		}
 		
 		foreach($arrReportList as $key => $data)
@@ -1057,6 +1095,7 @@ class ReportPage extends RunnerPage
 		
 		$this->assignBody();
 		
+		$this->setLangParams();
 
 		//set the Search panel
 		$this->xt->assign("searchPanel", true);
@@ -1067,7 +1106,6 @@ class ReportPage extends RunnerPage
 		if( $this->mobileTemplateMode() )
 			$this->xt->assign('tableinfomobile_block', true);
 
-		//$this->prepareBreadcrumbs();		
 
 		$allow_search = $this->permis[ $this->tName ]["search"];
 		$allow_export = $this->permis[ $this->tName ]["export"]; 
@@ -1088,8 +1126,10 @@ class ReportPage extends RunnerPage
 		
 		if( $this->noRecordsFound )
 		{
-			$this->xt->assign("container_grid", false); //??
-			$this->xt->assign("grid_block", false);
+			if( !$this->isPD() ) {
+				$this->xt->assign("container_grid", false); //??
+				$this->xt->assign("grid_block", false);
+			}
 			$this->showNoRecordsMessage();
 		}
 	}
@@ -1356,6 +1396,14 @@ class ReportPage extends RunnerPage
 
 	public function prepareDisplayDetailsPD()
 	{		
+		if( $this->pdfJsonMode() ) 
+		{
+			$this->xt->assign("embedded_grid", true );
+			$this->xt->load_templateJSON( $this->templatefile);
+			$this->renderedBody = $this->xt->fetch_loadedJSON("body");
+			return;
+		}
+				
 		$forms = array( "grid" );
 		$bodyContents = $this->fetchForms($forms);		
 		$this->renderedBody = '<div id="detailPreview'.$this->id.'">'.$bodyContents.'</div>';	
@@ -1388,8 +1436,10 @@ class ReportPage extends RunnerPage
 	{
 		$class = parent::fieldClass( $field );
 
-		if( in_array( $this->pSet->getViewFormat( $field ), array( FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME ) ) )
-			return $class." rnr-field-crossdate";
+		if( $this->crossTable ) {
+			if( in_array( $this->pSet->getViewFormat( $field ), array( FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME ) ) )
+				return $class." rnr-field-crossdate";
+		}
 			
 		return $class;
 	}
@@ -1457,7 +1507,20 @@ class ReportPage extends RunnerPage
 		return $this->fetchBlocksList($blocks, false);
 
 	}
+
+	protected function assignColumnHeaderClasses()
+	{
+		$reportFields = $this->pSet->getFieldsList();
+		foreach( $reportFields as $field )
+		{
+			$goodName = GoodFieldname($field);
+			$this->xt->assign("fieldclass_".$goodName, $this->getFieldClass($field) ); 
+		}
+	}
 	
-	
+	function pdfJsonMode() 
+	{
+		return $this->pdfJson;
+	}	
 }
 ?>

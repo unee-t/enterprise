@@ -14,6 +14,12 @@ class Button
 	var $location = "";
 	
 	var $nextInd;
+
+	var $table;
+
+	var $page;
+
+	var $tempFileNames = array();
 	
 	function __construct(&$params)
 	{
@@ -52,7 +58,7 @@ class Button
 	 */
 	function modifyKeys()
 	{
-		global $strTableName, $gSettings;
+		global $gSettings;
 		
 		$keys = array();
 		
@@ -124,12 +130,12 @@ class Button
 	function getRecordData()
 	{
 
-		global $gSettings, $gQuery, $cipherer, $strTableName, $cman;
+		global $gSettings, $gQuery, $cipherer, $cman;
 	
 		if($this->location!=PAGE_EDIT && $this->location!=PAGE_VIEW && $this->location!=PAGE_LIST && $this->location!='grid' && !$next)
 			return false;
 		
-		$connection = $cman->byTable( $strTableName );
+		$connection = $cman->byTable( $this->table );
 		
 		if($this->isGetNext)
 		{
@@ -140,7 +146,7 @@ class Button
 		else
 			$keys = $this->currentKeys;
 		
-		$strSQL = $gQuery->buildSQL_default( array( KeyWhere($keys), SecuritySQL("Search") ) );
+		$strSQL = $gQuery->buildSQL_default( array( KeyWhere($keys, $this->table ), SecuritySQL("Search", $this->table ) ) );
 		LogInfo($strSQL);
 		
 		$data = $cipherer->DecryptFetchedArray( $connection->query( $strSQL )->fetchAssoc() );
@@ -155,6 +161,19 @@ class Button
 		}
 		
 		return false;
+	}
+
+	function saveTempFile( $contents ) {
+		$filename = tempnam("", "");
+		runner_save_file($filename, $contents);
+		$this->tempFileNames[] = $filename;
+		return $filename;
+	}
+
+	function deleteTempFiles() {
+		foreach( $this->tempFileNames as $f ) {
+			@unlink( $f );
+		}
 	}
 }
 ?>

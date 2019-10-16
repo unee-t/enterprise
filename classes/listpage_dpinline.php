@@ -71,6 +71,7 @@ class ListPage_DPInline extends ListPage_Embed
 		$this->jsSettings['tableSettings'][$this->tName]['masterTable'] = $this->masterTable;
 		$this->jsSettings['tableSettings'][$this->tName]['firstTime'] = $this->firstTime;
 		$this->jsSettings['tableSettings'][$this->tName]['strKey'] = $this->getStrMasterKey();
+		$this->addRawFieldValues = true;
 	}
 	
 	/**

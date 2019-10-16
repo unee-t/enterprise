@@ -9,7 +9,7 @@ require_once("classes/controls/ViewControl.php");
 require_once("classes/controls/ViewControlsContainer.php");
 
 $mode = postvalue("mode");
-$table = postvalue("table");
+$shortTable = postvalue("table");
 $field = postvalue("field");
 $pageType = postvalue('pagetype');
 $pageName = postvalue('page');
@@ -20,38 +20,20 @@ $lookup = false;
 if($mainTable && $mainField) {
 	$lookup = true;
 }
-
-if( !checkTableName($table) )
+$table = GetTableByShort( $shortTable );
+if( !$table )
 	exit(0);
-require_once("include/".$table."_variables.php");
 
-$pSet = new ProjectSettings(GetTableByShort($table), $pageType, $pageName );
-$cipherer = new RunnerCipherer(GetTableByShort($table), $pSet);
-$_connection = $cman->byTable( $strTableName );
-
-
-//	a field on the List page Lookup shown on the Register page
-$lookupInRegisterPage = false;
-
-if(!in_array($field,$pSet->getListFields()))
-{
-	$lookupInRegisterPage = false;
-}
-
-if((!isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"],"Search")) && !$lookupInRegisterPage)
-{ 
-	$returnJSON = array("success"=>false, "error"=>'');
-	echo printJSON($returnJSON);
+/* TODO: add exception for List page fields from Lookup:list page with search on the Register page */
+if( !Security::userHasFieldPermissions( $table, $field, $pageType, $pageName, false ) )
 	return;
-}
 
-if(!$pSet->checkFieldPermissions($field))
-{
-	$returnJSON = array("success"=>false, "error"=>'Error: You have not permission for read this text');
-	echo printJSON($returnJSON);
-	return;
-}
-	
+$pSet = new ProjectSettings( $table , $pageType, $pageName );
+$cipherer = new RunnerCipherer( $table, $pSet);
+$_connection = $cman->byTable( $table );
+$gQuery = $pSet->getSQLQuery();
+
+
 if(!$gQuery->HasGroupBy())
 {
 	// Do not select any fields except current (full text) field.
@@ -65,10 +47,10 @@ $keys = array();
 foreach ($keysArr as $ind=>$k)
 	$keys[$k] = postvalue("key".($ind+1));
 
-$where = KeyWhere($keys);
+$where = KeyWhere($keys, $table);
 
 if ($pSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN)
-	$where = whereAdd($where,SecuritySQL("Search", $strTableName));	
+	$where = whereAdd($where,SecuritySQL("Search", $table));	
 
 $sql = $gQuery->gSQLWhere($where);
 

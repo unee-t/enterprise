@@ -14,13 +14,28 @@ class CheckboxField extends EditControl
 		{
 			$checked = "";
 			
-			if( $this->connection->dbType == nDATABASE_PostgreSQL && ($value === "t" || $value != "" && $value != 0 ) || $this->connection->dbType != nDATABASE_PostgreSQL && ($value != "" && $value != 0 ))
+			if( $this->connection->dbType == nDATABASE_PostgreSQL 
+				&& ($value === "t" || $value != "" && $value != 0 ) 
+				|| $this->connection->dbType != nDATABASE_PostgreSQL && ($value != "" && $value != 0 )) {
+
 				$checked=" checked";
+			}
+
+			if( $this->pageObject->isPD() ) {
+				echo '<span class="checkbox r-checkbox-control"><label>';
+			}
+
 				
+			
 			echo '<input id="'.$this->ctype.'" type="hidden" name="'.$this->ctype.'" value="checkbox">';
 			echo '<input id="'.$this->cfield.'" type="Checkbox" '
 				.(($mode == MODE_INLINE_EDIT || $mode == MODE_INLINE_ADD) && $this->is508==true ? 'alt="'.$this->strLabel.'" ' : '')
 				.'name="'.$this->cfield.'" '.$checked.'>';
+
+			if( $this->pageObject->isPD() ) {
+				echo '</label></span>';
+			}
+	
 		}
 		else
 		{

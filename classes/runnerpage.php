@@ -706,7 +706,6 @@ class RunnerPage
 	 */
 	protected $dashElementData = array();
 
-
 	/**
 	 *	PDF rendering mode.
 	 *  empty - regular page display
@@ -842,13 +841,17 @@ class RunnerPage
 	var $renderedBody = "";
 	var $renderedButtons = "";
 
+	var $pdfBackgroundImage = "";
+
+	public $addRawFieldValues = false;
+
 	/**
 	 * @constructor
 	 * @param &Array params
 	 */
 	function __construct(&$params)
 	{
-		global $locale_info, $cCharset, $page_layouts;
+		global $locale_info, $cCharset, $page_layouts, $projectBuildKey, $wizardBuildKey;
 
 		// copy properties to object
 		RunnerApply($this, $params);
@@ -857,6 +860,9 @@ class RunnerPage
 			RunnerContext::pushPageContext( $this );
 		else
 			$this->standaloneContext = new RunnerContextItem( CONTEXT_PAGE, array( "pageObj" => $this ));
+
+		// Sanitize input. It must be checked before that, but just in case add it here.
+		$this->id = 0 + $this->id;
 
 		if( !$this->id )
 			$this->id = 1;
@@ -869,19 +875,19 @@ class RunnerPage
 		$this->xt->pageId = $this->id;
 		$this->xt->setPage( $this );
 		$this->xt->assign( "pageid", $this->id );
-		$this->prepareCharts();
 		$this->setTableConnection();
 
 		if( $this->pageTable == "" ) {
 			$this->pageTable = $this->tName;
 		}
-		$this->pSet = new ProjectSettings($this->tName, $this->pageType, $this->pageName, $this->pageTable );
+		$this->createProjectSettings();
 		$this->pageName = $this->pSet->pageName();
 		$this->pageData["pageName"] = $this->pageName;
 		$this->pageData["helperFormItems"] = $this->pSet->helperFormItems();
 		$this->pageData["helperItemsByType"] = $this->pSet->helperItemsByType();
 		$this->pageData["helperFieldItems"] = $this->pSet->allFieldItems();
 		$this->pageData["buttons"] = $this->pSet->buttons();
+		$this->pageData["fieldItems"] = $this->pSet->allFieldItems();
 		foreach( $this->pSet->buttons() as $b ) {
 			$this->AddJSFile( "include/button_".$b.".js" );
 		}
@@ -899,6 +905,7 @@ class RunnerPage
 		}
 
 		$this->assignCipherer();
+		$this->prepareCharts();
 
 		include_once getabspath("classes/controls/EditControlsContainer.php");
 		$this->controls = new EditControlsContainer($this, $this->pSetEdit, $this->pageType);
@@ -919,7 +926,7 @@ class RunnerPage
 			$this->reCaptchaCfg = array('siteKey' => $captchaSettings["siteKey"],  'inputCaptchaId' => "");
 		}
 
-				$this->debugJSMode = false;
+		$this->debugJSMode = false;
 
 		if($this->flyId < $this->id+1)
 			$this->flyId = $this->id+1;
@@ -939,10 +946,15 @@ class RunnerPage
 		$this->shortTableName = GetTableURL($this->tName);
 		// set layout
 
+
+		$this->pageLayout = GetPageLayout($this->pageTable, $this->pageName );
+
+		/*
 		if ($this->pageType == PAGE_REGISTER || $this->pageType == PAGE_CHANGEPASS || $this->pageType == PAGE_LOGIN || $this->pageType == PAGE_REMIND )
 			$this->pageLayout = GetPageLayout( GLOBAL_PAGES, $this->pageName );
 		else
 			$this->pageLayout = GetPageLayout($this->tName, $this->pageName );
+		*/			
 
 
 		//init settingMap globalSettings
@@ -961,7 +973,7 @@ class RunnerPage
 		//	get locking object
 		$this->lockingObj = $this->getLockingObject();
 		$this->warnLeavingPages = $this->pSet->warnLeavingPages();
-		$this->is508 = isEnableSection508();
+		$this->is508 = isEnableSection508() && !$this->pdfJsonMode();
 		$this->mapProvider = getMapProvider();
 		$this->isUseVideo = $this->pSet->isUseVideo();
 		$this->strCaption = GetTableCaption(GoodFieldName($this->tName));
@@ -1028,6 +1040,9 @@ class RunnerPage
 		$this->settingsMap["globalSettings"]["useCookieBanner"] = $this->isPD() && GetGlobalData("useCookieBanner", false );
 		$this->settingsMap["globalSettings"]["cookieBanner"] = Labels::getCookieBanner();
 
+		$this->settingsMap["globalSettings"]["projectBuildKey"] = $projectBuildKey;
+		$this->settingsMap["globalSettings"]["wizardBuildKey"] = $wizardBuildKey;
+
 		$globalPopupPagesLayoutNames = GetGlobalData("popupPagesLayoutNames", array());
 		if( !$this->mobileTemplateMode() && count( $globalPopupPagesLayoutNames ) )
 			$this->settingsMap["globalSettings"]["popupPagesLayoutNames"] = $globalPopupPagesLayoutNames;
@@ -1056,7 +1071,6 @@ class RunnerPage
 		$this->settingsMap["globalSettings"]["showDetailedError"] = GetGlobalData("showDetailedError", true);
 		$this->settingsMap["globalSettings"]["customErrorMessage"] = GetGlobalData("customErrorMessage", "");
 
-
 		$this->settingsMap["tableSettings"] = array();
 		$this->settingsMap['tableSettings']['entityType'] = array("default"=> 0 , "jsName"=>"entityType" );
 		$this->settingsMap['tableSettings']['hasEvents'] = array("default"=>false,"jsName"=>"hasEvents");
@@ -1073,16 +1087,20 @@ class RunnerPage
 		$this->settingsMap["tableSettings"]["updateSelected"] = array("default"=>false,"jsName"=>"updateSelected");
 		$this->settingsMap["tableSettings"]["isResizeColumns"] = array("default"=>false,"jsName"=>"isUseResize");
 		$this->settingsMap["tableSettings"]["detailsLinksOnList"] = array("default"=>DL_SINGLE,"jsName"=>"detailsLinksOnList");
+		$this->settingsMap["tableSettings"]["isDisplayLoading"] = array("default"=>false, "jsName"=>"displayLoading");
 
 		//if the Search panel added to the non table based page ajax suggests should be configured according to the search table's settings
 		$ajaxSuggestDefault = $this->tableBasedSearchPanelAdded ? !$this->isUseAjaxSuggest : true;
 		$this->settingsMap["tableSettings"]["isUseAjaxSuggest"] = array("default"=>$ajaxSuggestDefault,"jsName"=>"ajaxSuggest");
+		$this->settingsMap["tableSettings"]["pages"] = array("default"=>array(),"jsName"=>"pages");
+		$this->settingsMap["tableSettings"]["Keys"] = array("default"=>array(),"jsName"=>"keyFields");
 
 
 
 		$this->controlsMap["oldLayout"] = $this->isOldLayout();
 		$this->controlsMap["layoutVersion"] = $this->getLayoutVersion();
 		$this->controlsMap["layoutName"] = $this->getLayoutName();
+		$this->controlsMap["pageTable"] = $this->pSet->pageTable();
 
 		$this->settingsMap["fieldSettings"] = array();
 		$this->settingsMap["fieldSettings"]["UseTimestamp"] = array("default"=>false,"jsName"=>"isUseTimeStamp");
@@ -1099,6 +1117,10 @@ class RunnerPage
 		$this->settingsMap["fieldSettings"]["ShowListOfThumbnails"] = array("default"=>false,"jsName"=>"showListOfThumbnails");
 		$this->settingsMap["fieldSettings"]["ImageWidth"] = array("default"=>0,"jsName"=>"imageWidth");
 		$this->settingsMap["fieldSettings"]["ImageHeight"] = array("default"=>0,"jsName"=>"imageHeight");
+
+		$this->settingsMap["fieldSettings"]["weekdays"] = array("default"=>"","jsName"=>"weekdays");
+		$this->settingsMap["fieldSettings"]["weekdayMessage"] = array("default"=>"","jsName"=>"weekdayMessage");
+
 		if( $this->pageType == PAGE_VIEW )
 			$this->settingsMap["fieldSettings"]["fieldViewEvents"] = array("default"=>false,"jsName"=>"events");
 		else
@@ -1106,6 +1128,8 @@ class RunnerPage
 
 		$this->jsSettings["tableSettings"][$this->tName]["strCaption"] = $this->strCaption;
 		$this->jsSettings["tableSettings"][$this->tName]["pageMode"] = $this->mode;
+
+		$this->jsSettings["tableSettings"][$this->tName]["defaultPages"] = $this->pSet->getDefaultPages();
 
 		if ($this->listAjax)
 			$this->jsSettings['tableSettings'][$this->tName]['pageMode'] = LIST_AJAX;
@@ -1359,7 +1383,14 @@ class RunnerPage
 		foreach ($this->gridTabs as $key => $tab )
 		{
 			$linkAttrs = array();
-			$linkAttrs[] = 'href="' . GetTableLink($this->shortTableName, $this->pageType, "tab=" . $tab["tabId"] ) . '"';
+			
+			$getParams = "tab=" . $tab["tabId"];
+			$defaultPage = $this->pSet->getDefaultPage( $this->pageType );
+			if ( $this->pageName != $defaultPage ) {
+				$getParams .= '&page=' . $this->pageName;
+			}
+
+			$linkAttrs[] = 'href="' . GetTableLink($this->shortTableName, $this->pageType, $getParams ) . '"';
 			$linkAttrs[] = 'data-pageid="' . $this->id . '"';
 			$linkAttrs[] = 'data-tabid="' . $tab["tabId"] . '"';
 
@@ -1561,7 +1592,6 @@ class RunnerPage
 		return true;
 	}
 
-
 	/**
 	 * Init the page's functionality.
 	 * The method is invoked just after the constructor has been called
@@ -1569,7 +1599,7 @@ class RunnerPage
 	function init()
 	{
 		if( $this->xt )
-			$this->xt->assign("pagetitle", $this->getPageTitle( $this->pageType, $this->tName == GLOBAL_PAGES ? "" : GoodFieldName($this->tName) ));
+			$this->xt->assign("pagetitle", $this->getPageTitle( $this->pageName, $this->tName == GLOBAL_PAGES ? "" : GoodFieldName($this->tName) ));
 
 		//build the Search panel if the "searchpanel" brick is added to the page's layout
 		$this->buildAddedSearchPanel();
@@ -1654,20 +1684,18 @@ class RunnerPage
 
 					if( $loggedAsGuest )
 					{
-						$this->xt->assign("username_attrs", 'id="username'.$this->id.'" value="'
-							.runner_htmlspecialchars(refine(@$_COOKIE["username"])).'" placeholder="login"');
-						$this->xt->assign("password_attrs", 'id="password'.$this->id.'" value="'
-							.runner_htmlspecialchars(refine(@$_COOKIE["password"])).'" placeholder="password"');
+						$this->xt->assign("username_attrs", 'id="username'.$this->id.'" placeholder="login"');
+						$this->xt->assign("password_attrs", 'id="password'.$this->id.'" placeholder="password"');
 					}
 				}
 				else
 				{
-					$this->xt->assign("username_attrs", 'id="username" value="'.runner_htmlspecialchars(refine(@$_COOKIE["username"])).'" placeholder="login"');
-					$this->xt->assign("password_attrs", 'id="password" value="'.runner_htmlspecialchars(refine(@$_COOKIE["password"])).'" placeholder="password"');
+					$this->xt->assign("username_attrs", 'id="username" placeholder="login"');
+					$this->xt->assign("password_attrs", 'id="password" placeholder="password"');
 				}
 
 				$rememberbox_attrs = 'id="remember_password" name="remember_password" value="1"';
-				if( @$_COOKIE["username"] || @$_COOKIE["password"] )
+				if( @$_COOKIE["token"]  )
 					$rememberbox_attrs.= " checked";
 
 				$this->xt->assign("rememberbox_attrs", $rememberbox_attrs);
@@ -1703,6 +1731,14 @@ class RunnerPage
 		return 0 + $value;
 	}
 
+	/**
+	 * @param String strPassword
+	 * @return String
+	 */
+	public function getPasswordHash( $strPassword )
+	{
+		return getPasswordHash( $strPassword );
+	}
 
 	/**
 	 * Makes assigns for admin
@@ -1910,8 +1946,8 @@ class RunnerPage
 	 */
 	protected function setRowCssRule($rowCssRule)
 	{
-		$tdSelector = '[data-record-id="'.$this->recId.'"]';
-		$selectors = ' td'.$tdSelector.$tdSelector.$tdSelector.$tdSelector;
+		$tdSelector = '[data-record-id="'.$this->recId.'"][data-pageid="' . $this->id . '"]';
+		$selectors = ' td'.$tdSelector.$tdSelector;
 		if( $this->listGridLayout == gltVERTICAL )
 			$selectors.= ' td';
 
@@ -2125,8 +2161,8 @@ class RunnerPage
 		if( ( $this->pageType == PAGE_PRINT || $this->pageType == PAGE_RPRINT || $this->pdfJsonMode() ) && $masterTableData["type"] == PAGE_CHART )
 			return;
 
-		$this->jsSettings["tableSettings"][$this->tName]["hasMasterList"] = true;
-
+		$this->pageData["hasMasterList"] = true;
+	
 		$detailKeys = $masterTableData['detailKeys'];
 		$masterKeys = array();
 		for($j = 0; $j < count($detailKeys); $j ++)
@@ -2215,6 +2251,9 @@ class RunnerPage
 		RunnerContext::push( $masterPage->standaloneContext );
 
 		$masterPage->init();
+		if( !$masterPage->pSet->pageName() ) {
+			return;
+		}
 		$masterPage->preparePage();
 
 		foreach( $masterPage->pageData["buttons"] as $b ) {
@@ -2236,6 +2275,8 @@ class RunnerPage
 
 		//$this->xt->assign("master_heading", $masterPage->getMasterHeading() );
 
+		$this->jsSettings["tableSettings"][$this->tName]["masterPageId"] = $masterPage->id;
+		
 		$this->xt->assign_method("showmasterfile", $masterPage, "showMaster",array());
 
 		$this->addMasterMapsSettings( $masterTableData['mDataSourceTable'], $masterPage->recId, $mrData );
@@ -2358,7 +2399,7 @@ class RunnerPage
 		if( $mPageType != PAGE_CHART )
 		{
 			include_once getabspath('classes/controls/ViewControlsContainer.php');
-			$viewControls = new ViewControlsContainer(new ProjectSettings($mTableName, $mPageType), $mPageType);
+			$viewControls = new ViewControlsContainer(new ProjectSettings($mTableName, $mastertype), $mastertype);
 
 			$viewControls->addControlsJSAndCSS();
 			$this->includes_js = array_merge($this->includes_js, $viewControls->includes_js);
@@ -2600,7 +2641,7 @@ class RunnerPage
 	 */
 	function isUserHaveTablePerm($tName, $pageType)
 	{
-		if($pageType == "WebReports")
+		if( $tName === WEBREPORTS_TABLE )
 			return true;
 		if(!strlen($tName))
 			return false;
@@ -2647,12 +2688,14 @@ class RunnerPage
 	 */
 	function clearSessionKeys()
 	{
-		if( $this->pageType == PAGE_LIST && !count($_POST) && (!count($_GET)
-			|| count($_GET) == 1 && isset($_GET["menuItemId"])
-			|| count($_GET) == 1 && isset($_GET["page"])
-			|| $this->masterTable && $this->mode != LIST_DETAILS )
-			|| ($this->pageType == PAGE_CHART || $this->pageType == PAGE_REPORT || $this->pageType == PAGE_DASHBOARD) && !count($_POST) && !count($_GET)
-			|| @$_GET["editType"] == ADD_ONTHEFLY )
+		if( ($this->pageType == PAGE_LIST || $this->pageType == PAGE_CHART || $this->pageType == PAGE_REPORT || $this->pageType == PAGE_DASHBOARD )
+			&& !count($_POST) 
+			&& ( 
+				IsEmptyRequest() 
+				|| $this->masterTable && $this->mode != LIST_DETAILS 
+				|| @$_GET["editType"] == ADD_ONTHEFLY 
+			)
+		)
 		{
 			$this->unsetAllPageSessionKeys();
 		}
@@ -2746,6 +2789,8 @@ class RunnerPage
 		$this->settingsMap["fieldSettings"]["freeInput"] = array("default" => false, "jsName" => "freeInput");
 		$this->settingsMap["fieldSettings"]["HorizontalLookup"] = array("default" => false, "jsName" => "HorizontalLookup");
 		$this->settingsMap["fieldSettings"]["autoCompleteFields"] = array("default" => array(), "jsName" => "autoCompleteFields");
+		$this->settingsMap["fieldSettings"]["listPageId"] = array("default" => array(), "jsName" => "listPageId");
+		$this->settingsMap["fieldSettings"]["addPageId"] = array("default" => array(), "jsName" => "addPageId");
 	}
 
 	/**
@@ -2792,23 +2837,19 @@ class RunnerPage
 		$this->jsSettings['global']['shortTNames'][ $table ] = GetTableURL( $table );
 	}
 
-	/**
-	 * Add fields settings for the fields with names contained in array of fields
-	 *
-	 * @param array		$arrFields The array of fields
-	 * @param object	$pSet The project settings
-	 * @param boolean	$pageBased
-	 * @param string	$pageType The page type
-	 */
+
 	function addFieldsSettings($arrFields, $pSet, $pageBased, $pageType)
 	{
+		$tableJsSettings = & $this->jsSettings['tableSettings'][ $this->tName ];
 		foreach($arrFields as $fName)
 		{
-			if( !array_key_exists($fName, $this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings']) )
-				$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ] = array();
+			if( !array_key_exists($fName, $tableJsSettings['fieldSettings'] ) )
+				$tableJsSettings['fieldSettings'][ $fName ] = array();
+			$fieldJsSettings = &$tableJsSettings['fieldSettings'][ $fName ];
 
-			if( !array_key_exists($pageType, $this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ]) )
-				$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ][ $pageType ] = array();
+			if( !array_key_exists($pageType, $fieldJsSettings) )
+				$fieldJsSettings[ $pageType ] = array();
+			$fieldPageJsSettings = &$fieldJsSettings[ $pageType ];
 
 			$matchDK = $this->matchWithDetailKeys($fName) && $this->pageType != PAGE_SEARCH && $this->pageType != PAGE_LIST && $pageBased;
 
@@ -2816,6 +2857,9 @@ class RunnerPage
 			{
 				$fData = $pSet->getFieldData($fName, $key);
 
+				if( $key == "weekdayMessage" ) {
+					$fData = getCustomMessage( $fData );
+				}
 				if( $key == "DateEditType" && $this->isBootstrap() )
 				{
 					//	search panel control
@@ -2834,8 +2878,8 @@ class RunnerPage
 
 				if( $key == "validateAs" && !$matchDK )
 				{
-					if( $pageType == PAGE_ADD || $pageType == PAGE_EDIT || $pageType == PAGE_REGISTER )
-						$this->fillValidation($fData, $val, $this->jsSettings['tableSettings'][ $this->tName]['fieldSettings'][ $fName ][ $pageType ]);
+					if( $pageType == PAGE_ADD || $pageType == PAGE_EDIT || $pageType == PAGE_REGISTER || $pageType == PAGE_LOGIN )
+						$this->fillValidation($fData, $val, $fieldPageJsSettings);
 					continue;
 				}
 
@@ -2850,8 +2894,8 @@ class RunnerPage
 					if($fData == "RTECK")
 					{
 						$this->isUseCK = true;
-						$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ][ $pageType ]['nWidth'] = $pSet->getNCols($fName);
-						$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ][ $pageType ]['nHeight'] = $pSet->getNRows($fName);
+						$fieldPageJsSettings['nWidth'] = $pSet->getNCols($fName);
+						$fieldPageJsSettings['nHeight'] = $pSet->getNRows($fName);
 					}
 				}
 				elseif( $key == "autoCompleteFields" )
@@ -2866,17 +2910,17 @@ class RunnerPage
 					$isDefault = $fData === $val['default'];
 
 				if( !$isDefault && !$matchDK )
-					$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ][ $pageType ][ $val['jsName'] ] = $fData;
+					$fieldPageJsSettings[ $val['jsName'] ] = $fData;
 				else if( $matchDK && ($key == "EditFormat" || $key == "strName" || $key == "autoCompleteFields" || $key == "LinkField") )
-					$this->jsSettings['tableSettings'][ $this->tName ]['fieldSettings'][ $fName ][ $pageType ][ $val['jsName'] ] = $fData;
+					$fieldPageJsSettings[ $val['jsName'] ] = $fData;
 			}
 
-			$this->jsSettings['tableSettings'][ $this->tName ]['isUseCK'] = $this->isUseCK;
+			$tableJsSettings['isUseCK'] = $this->isUseCK;
 
 			if( count($this->googleMapCfg) != 0 && $this->googleMapCfg['isUseGoogleMap'] )
 			{
-				$this->jsSettings['tableSettings'][ $this->tName ]['isUseGoogleMap'] = true;
-				$this->jsSettings['tableSettings'][ $this->tName ]['googleMapCfg'] = $this->googleMapCfg;
+				$tableJsSettings['isUseGoogleMap'] = true;
+				$tableJsSettings['googleMapCfg'] = $this->googleMapCfg;
 			}
 
 			$lookupTableName = $pSet->getLookupTable($fName);
@@ -2887,6 +2931,7 @@ class RunnerPage
 				$this->fillTimePickSettings($fName, "", $pSet, $pageType);
 		}
 	}
+
 
 	/**
 	 * Fill field settings for current table
@@ -3207,7 +3252,7 @@ class RunnerPage
 		$this->xt->assign( "collapse_block", true );
 
 				$this->assignAdmin();
-		$this->xt->assign("changepwd_link", $_SESSION["AccessLevel"]!= ACCESS_LEVEL_GUEST && $_SESSION["fromFacebook"] == false);
+		$this->xt->assign("changepwd_link", $_SESSION["AccessLevel"]!= ACCESS_LEVEL_GUEST && !$_SESSION["pluginLogin"] );
 		$this->xt->assign("changepwdlink_attrs", "href=\"".GetTableLink("changepwd")."\" onclick=\"window.location.href='".GetTableLink("changepwd")."';return false;\"");
 	}
 
@@ -3235,17 +3280,21 @@ class RunnerPage
 		}
 
 		$this->hideElement("searchpanel");
+		
+
+		$this->prepareCollapseButton();
 		$this->prepareBreadcrumbs();
 
-		if( $this->mobileTemplateMode() )
-		{
-			if( $this->pageType != "menu" )
-				$this->hideElement("vmenu");
-			$this->hideElement("backbutton");
-			$this->hideElement("fulltext_mobile");
-			$this->hideElement("searchpanel_mobile");
-			$this->hideElement("vmsearch2");
-			$this->hideElement("adv_search_button");
+	}
+
+	function prepareCollapseButton() 
+	{
+		if( $_COOKIE["collapse_leftbar"] ) {
+			$this->xt->assign("leftbar_class", "r-left-collapsed");
+			$this->hideItemType('collapse_button');
+			$this->hideItemType('logo');
+		} else {
+			$this->hideItemType('expand_button');
 		}
 	}
 
@@ -3268,18 +3317,22 @@ class RunnerPage
 
 		foreach( $this->pSet->getParentFieldsData( $fName ) as $cData )
 		{
+			$parentField = $cData['main'];
+			if( !$this->searchFieldAppearsOnPage( $parentField ) )
+				continue;
+			$parentsFieldsData[ $parentField ] = "";
 			if( $searchApplied )
 			{
-				$categoryFieldParams = $this->searchClauseObj->getSearchCtrlParams( $cData['main'] );
+				$categoryFieldParams = $this->searchClauseObj->getSearchCtrlParams( $parentField );
 
 				if( count($categoryFieldParams) )
-					$parentsFieldsData[ $cData['main'] ] = $categoryFieldParams[0]['value1'];
+					$parentsFieldsData[ $parentField ] = $categoryFieldParams[0]['value1'];
 			}
 			else
 			{
-				$defaultValue = GetDefaultValue($cData['main'], PAGE_SEARCH);
+				$defaultValue = GetDefaultValue( $parentField, PAGE_SEARCH);
 				if( strlen($defaultValue) )
-					$parentsFieldsData[ $cData['main'] ] = $defaultValue;
+					$parentsFieldsData[ $parentField ] = $defaultValue;
 			}
 		}
 
@@ -3344,17 +3397,19 @@ class RunnerPage
 	 */
 	function fillValidation($fData, $val, &$arrSetVals)
 	{
+		$fData = $this->refineVaidationData( $fData );
+			
 		if( !count($fData) )
 			return;
-
+		
 		if( count( $fData['basicValidate'] ) )
 			$arrSetVals[ $val['jsName'] ]["validationArr"] = $fData['basicValidate'];
+		
+		if( array_key_exists("customMessages", $fData) && count( $fData["customMessages"] ) )
+			$arrSetVals[ $val['jsName'] ]["customMessages"] = $fData["customMessages"];		
 
 		if( array_key_exists("regExp", $fData) )
 			$arrSetVals[ $val['jsName'] ]["regExp"] = $fData["regExp"];
-
-		if( array_key_exists("customMessages", $fData) && count( $fData["customMessages"] ) )
-			$arrSetVals[ $val['jsName'] ]["customMessages"] = $fData["customMessages"];
 
 		if( in_array("IsTime", $fData['basicValidate']) )
 		{
@@ -3364,7 +3419,15 @@ class RunnerPage
 			$arrSetVals[ $val['jsName'] ]["regExp"] = $this->timeRegexp;
 		}
 	}
-
+	
+	/**
+	 * Remove excessive validation for page
+	 */
+	protected function refineVaidationData( &$fData )
+	{
+		return $fData;
+	}
+	
 	/**
 	 * Get the local time format regexp
 	 */
@@ -3590,7 +3653,8 @@ class RunnerPage
 			window.settings = ".my_json_encode($this->jsSettings).";
 			Runner.applyPagesData( ".my_json_encode( $pagesData )." );
 			</script>\r\n";
-		echo "<script language=\"JavaScript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js")."\"></script>\r\n";
+
+		echo "<script language=\"JavaScript\" src=\"".GetRootPathForResources("include/runnerJS/RunnerAll.js?33896")."\"></script>\r\n";
 		echo "<script>".$this->PrepareJS()."</script>";
 	}
 
@@ -3691,13 +3755,6 @@ class RunnerPage
 	 */
 	function AddCSSFile($file)
 	{
-		if( $this->pdfMode && $this->isBootstrap() )
-		{
-			if( 0 == count( $this->includes_css ) )
-				$this->includes_css[] = "styles/pdf.css";
-			return;
-		}
-
 		if(is_array($file))
 		{
 			foreach($file as $f)
@@ -3806,133 +3863,10 @@ class RunnerPage
 			$this->AddCSSFile("include/bootstrap/css/jquery.mCustomScrollbar.css"); // css?
 		}
 
-		if ($this->debugJSMode === true)
+		if ($this->pSet->isAddPageEvents() && $this->pageType != PAGE_LOGIN && $this->shortTableName != "")
 		{
-			$this->AddJSFile("include/runnerJS/ControlConstants.js");
-			$this->AddJSFile("include/runnerJS/RunnerEvent.js");
-			$this->AddJSFile("include/runnerJS/Validate.js","include/runnerJS/RunnerEvent.js");
-			$this->AddJSFile("include/runnerJS/ControlManager.js","include/runnerJS/Validate.js");
-			$this->AddJSFile("include/runnerJS/button.js", "include/runnerJS/ControlManager.js");
-			$this->AddJSFile("include/runnerJS/editControls/Control.js", "include/runnerJS/ControlManager.js");
-			$this->AddJSFile("include/runnerJS/MockControl.js", "include/runnerJS/ControlManager.js");
-			$this->AddJSFile("include/runnerJS/viewControls/ViewControl.js", "include/runnerJS/ControlManager.js");
-			$this->AddJSFile("include/runnerJS/editControls/ReadOnly.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/TextAreaControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/TextFieldControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/TimeFieldControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/RteControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/FileControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/MultiUploadControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/DateFieldControl.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/LookupWizard.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/RadioControl.js", "include/runnerJS/editControls/LookupWizard.js");
-			$this->AddJSFile("include/runnerJS/editControls/DropDown.js", "include/runnerJS/editControls/LookupWizard.js");
-			$this->AddJSFile("include/runnerJS/editControls/CheckBox.js", "include/runnerJS/editControls/Control.js");
-			$this->AddJSFile("include/runnerJS/editControls/CheckBoxLookup.js", "include/runnerJS/editControls/LookupWizard.js");
-			$this->AddJSFile("include/runnerJS/editControls/TextFieldLookup.js", "include/runnerJS/editControls/LookupWizard.js");
-			$this->AddJSFile("include/runnerJS/editControls/EditBoxLookup.js", "include/runnerJS/editControls/TextFieldLookup.js");
-			$this->AddJSFile("include/runnerJS/editControls/ListPageLookup.js", "include/runnerJS/editControls/TextFieldLookup.js");
-
-			$this->AddJSFile("include/runnerJS/pages/PageConstants.js", "include/runnerJS/ListPageLookup.js");
-			$this->AddJSFile("include/runnerJS/InlineEdit.js", "include/runnerJS/pages/PageConstants.js");
-
-			$this->AddJSFile("include/runnerJS/pages/RunnerDefaults.js", "include/runnerJS/pages/PageConstants.js");
-			$this->AddJSFile("include/runnerJS/pages/PageManager.js", "include/runnerJS/pages/RunnerDefaults.js");
-			$this->AddJSFile("include/runnerJS/pages/PageSettings.js", "include/runnerJS/pages/PageManager.js");
-			$this->AddJSFile("include/runnerJS/DetPreview.js", "include/runnerJS/pages/PageSettings.js");
-			$this->AddJSFile("include/runnerJS/PDDetails.js", "include/runnerJS/DetPreview.js");
-			$this->AddJSFile("include/runnerJS/PDLayout.js", "include/runnerJS/pages/PageSettings.js");
-			$this->AddJSFile("include/runnerJS/pages/RunnerPage.js", "include/runnerJS/pages/PageSettings.js");
-			$this->AddJSFile("include/runnerJS/pages/SearchPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ViewPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/LoginPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/RemindPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/PrintPdf.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/PrintPageCommon.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/PrintPage.js", "include/runnerJS/pages/PrintPageCommon.js");
-			$this->AddJSFile("include/runnerJS/pages/ReportPrintPage.js", "include/runnerJS/pages/PrintPageCommon.js");
-
-			$this->AddJSFile("include/runnerJS/pages/EditorPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/AddPage.js", "include/runnerJS/pages/EditorPage.js");
-			$this->AddJSFile("include/runnerJS/pages/AddPageFly.js", "include/runnerJS/pages/AddPage.js");
-			$this->AddJSFile("include/runnerJS/pages/AddPageDash.js", "include/runnerJS/pages/AddPage.js");
-			$this->AddJSFile("include/runnerJS/pages/EditPage.js", "include/runnerJS/pages/EditorPage.js");
-			$this->AddJSFile("include/runnerJS/pages/EditPageDash.js", "include/runnerJS/pages/EditPage.js");
-			$this->AddJSFile("include/runnerJS/pages/EditSelectedPage.js", "include/runnerJS/pages/EditPage.js");
-
-			$this->AddJSFile("include/runnerJS/pages/DataPageWithSearch.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPageCommon.js", "include/runnerJS/pages/DataPageWithSearch.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPageFly.js", "include/runnerJS/pages/ListPageCommon.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPage.js", "include/runnerJS/pages/ListPageCommon.js", "include/runnerJS/DetPreview.js", "include/runnerJS/pages/AddPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPageDash.js", "include/runnerJS/pages/ListPage.js");
-
-			$this->AddJSFile("include/runnerJS/pages/DashboardMap.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/DashboardLeadingMap.js", "include/runnerJS/pages/DashboardMap.js");
-			$this->AddJSFile("include/runnerJS/pages/DashboardGridBasedMap.js", "include/runnerJS/pages/DashboardMap.js");
-
-			$this->AddJSFile("include/runnerJS/pages/DashboardPage.js", "include/runnerJS/pages/RunnerPage.js");
-
-			if ($this->mobileTemplateMode())
-			{
-				$this->AddJSFile("include/runnerJS/pages/ListPageMobile.js", "include/runnerJS/pages/ListPage.js");
-				$this->AddJSFile("include/runnerJS/pages/ListPageMobileDP.js", "include/runnerJS/pages/ListPageDP.js");
-				$this->AddJSFile("include/runnerJS/pages/ReportPageMobile.js", "include/runnerJS/pages/ListPageMobile.js");
-				$this->AddJSFile("include/runnerJS/pages/ChartPageMobile.js", "include/runnerJS/pages/ListPageMobile.js");
-				$this->AddJSFile("include/runnerJS/pages/ChartPageMobileDP.js", "include/runnerJS/pages/ChartPageMobile.js");
-				$this->AddJSFile("include/runnerJS/pages/DashboardPageMobile.js", "include/runnerJS/pages/DashboardPage.js");
-				$this->AddJSFile("include/runnerJS/pages/ReportPageMobileDP.js", "include/runnerJS/pages/ReportPageDP.js");
-			}
-			else
-			{
-				$this->AddJSFile("include/runnerJS/pages/ChartPage.js", "include/runnerJS/pages/DataPageWithSearch.js");
-				$this->AddJSFile("include/runnerJS/pages/ChartPageDP.js", "include/runnerJS/pages/ChartPage.js");
-				$this->AddJSFile("include/runnerJS/pages/ChartPageDash.js", "include/runnerJS/pages/ChartPage.js");
-				$this->AddJSFile("include/runnerJS/pages/ChartPageDPDash.js", "include/runnerJS/pages/ChartPageDash.js");
-			}
-
-			$this->AddJSFile("include/runnerJS/pages/ReportPageDP.js", "include/runnerJS/pages/ReportPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ReportPage.js", "include/runnerJS/pages/DataPageWithSearch.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPageAjax.js", "include/runnerJS/pages/ListPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ListPageDP.js", "include/runnerJS/pages/ListPage.js");
-
-			$this->AddJSFile("include/runnerJS/pages/CheckboxesPage.js", "include/runnerJS/pages/ListPage.js");
-			$this->AddJSFile("include/runnerJS/pages/MembersPage.js", "include/runnerJS/pages/CheckboxesPage.js");
-			$this->AddJSFile("include/runnerJS/pages/RightsPage.js", "include/runnerJS/pages/CheckboxesPage.js");
-
-				$this->AddJSFile("include/runnerJS/pages/ChangePwdPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ExportPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/ImportPage.js", "include/runnerJS/pages/RunnerPage.js");
-			$this->AddJSFile("include/runnerJS/pages/RegisterPage.js", "include/runnerJS/pages/RunnerPage.js");
-
-			$this->AddJSFile("include/runnerJS/FilterControl.js", "include/runnerJS/editControls/DateFieldControl.js");
-			$this->AddJSFile("include/runnerJS/SearchForm.js");
-			$this->AddJSFile("include/runnerJS/SearchField.js");
-			$this->AddJSFile("include/runnerJS/SearchFormWithUI.js", "include/runnerJS/SearchForm.js");
-			$this->AddJSFile("include/runnerJS/SearchController.js", "include/runnerJS/SearchFormWithUI.js");
-			$this->AddJSFile("include/runnerJS/SearchParamsLogger.js", "include/runnerJS/SearchController.js");
-			$this->AddJSFile("include/runnerJS/RunnerForm.js");
-
-			$this->AddJSFile("include/runnerJS/RunnerBricks.js");
-			$this->AddJSFile("include/runnerJS/RunnerMenu.js");
-			if($this->lockingObj)
-				$this->AddJSFile("include/runnerJS/RunnerLocking.js");
-			if($this->is508)
-				$this->AddJSFile("include/runnerJS/RunnerSection508.js");
-
-			if ($this->pSet->isAddPageEvents() && $this->pageType != PAGE_LOGIN && $this->shortTableName != "")
-			{
-				$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js", "include/runnerJS/pages/PageSettings.js",
-					"include/runnerJS/button.js");
-			}
-
-			}
-		else
-		{
-			if ($this->pSet->isAddPageEvents() && $this->pageType != PAGE_LOGIN && $this->shortTableName != "")
-			{
-				$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js");
-			}
-			}
+			$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js");
+		}
 
 		if ( !$this->isBootstrap() )
 			$this->AddJSFile("include/yui/yui-min.js");
@@ -3977,14 +3911,7 @@ class RunnerPage
 		if ( !$this->pSet->isAddPageEvents() || $this->shortTableName == "")
 			return false;
 
-		if ($this->debugJSMode === true)
-		{
-			$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js", "include/runnerJS/pages/PageSettings.js");
-		}
-		else
-		{
-			$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js");
-		}
+		$this->AddJSFile("include/runnerJS/events/pageevents_".$this->shortTableName.".js");
 		return true;
 	}
 
@@ -5031,14 +4958,10 @@ class RunnerPage
 	 */
 	function buildPagination()
 	{
-		$activeClass = "";
-		$nonActiveClass = "pag_n";
 		$separator = "&nbsp;";
 		$advSeparator = "&nbsp;:&nbsp;";
 		if( $this->isBootstrap() )
 		{
-			$activeClass = "active";
-			$nonActiveClass = "";
 			$separator = "";
 			$advSeparator = "";
 		}
@@ -5178,13 +5101,25 @@ class RunnerPage
 		$this->xt->assign("firstrecord", $firstDisplayed );
 		$this->xt->assign("lastrecord", $lastDisplayed );
 
-		$template = "Displaying %first% - %last% of %total%";
-		$template = str_replace( array( '%first%', '%last%', '%total%'),
-			array( '<span class="bs-number">'.$firstDisplayed.'</span>',
-				'<span class="bs-number">'.$lastDisplayed.'</span>',
-				'<span class="bs-number">'.$totalDisplayed.'</span>' ),
-			$template );
-		$this->xt->assign( "records_indicator", $template );
+		$first = '<span class="bs-number">'.$firstDisplayed.'</span>';
+		$last = '<span class="bs-number">'.$lastDisplayed.'</span>';
+		$total = '<span class="bs-number">'.$totalDisplayed.'</span>';
+
+		if ( $this->isPD() )
+		{
+			$this->xt->assign( "details_found", true );			
+			foreach ( $this->pSet->detailsFoundLabelsData() as $itemId => $mLString )
+			{				
+				$template = str_replace( array( '%first%', '%last%', '%total%'), array( $first, $last, $total), GetMLString( $mLString ) );
+				$this->xt->assign( "details_found_label".$itemId, $template );
+			}
+		} 
+		else
+		{
+			$template = "Displaying %first% - %last% of %total%";
+			$template = str_replace( array( '%first%', '%last%', '%total%'), array( $first, $last, $total), $template );
+			$this->xt->assign( "records_indicator", $template );
+		}
 	}
 
 	/**
@@ -5220,6 +5155,21 @@ class RunnerPage
 			return false;
 	}
 
+	function fieldAlign($f)
+	{
+		if( $this->pSet->getEditFormat($f) == FORMAT_LOOKUP_WIZARD )
+			return 'left';
+		$format = $this->pSet->getViewFormat($f);
+		
+		if( $format == FORMAT_FILE || $format == FORMAT_AUDIO || $format == FORMAT_CHECKBOX )
+			return 'left';
+		
+		if( $format == FORMAT_NUMBER || IsNumberType( $this->pSet->getFieldType($f) ) )
+			return 'right';
+
+		return 'left';
+	}
+	
 	/**
 	 * Get the field's class name to align the field's value
 	 * basing on its edti and view formats
@@ -5243,9 +5193,9 @@ class RunnerPage
 			return ' rnr-field-checkbox';
 
 		if( $format == FORMAT_NUMBER || IsNumberType( $this->pSet->getFieldType($f) ) )
-			return ' rnr-field-number';
+			return ' r-field-number';
 
-		return "rnr-field-text";
+		return "r-field-text";
 	}
 
 	/**
@@ -5319,6 +5269,14 @@ class RunnerPage
 	 */
 	function showDBValue($field, &$data, $keylink = "")
 	{
+		if( !$keylink && $data ) {
+			$tKeys = $this->pSet->getTableKeys();
+			$keylink = "";
+			for($i = 0; $i < count($tKeys); $i ++) {
+				$keylink.= "&key".($i + 1)."=".rawurlencode(@$data[ $tKeys[$i] ]);
+			}
+	
+		}
 		if( $this->pdfJsonMode() ) {
 			return $this->getViewControl($field)->getPdfValue($data, $keylink);
 		}
@@ -5359,13 +5317,13 @@ class RunnerPage
 	 * Hide the field on the page
 	 * @param String fieldName
 	 */
-	function hideField($fieldName)
+	function hideField($fieldName, $recordId = "")
 	{
 		if( $this->isPD() ) {
 			$items = $this->pSet->getFieldItems( $fieldName );
 			if( is_array( $items ) ) {
 				foreach( $items as $i )
-					$this->hideItem( $i );
+					$this->hideItem( $i, $recordId );
 			}
 		} else {
 			if(!is_null($this->xt))
@@ -5924,24 +5882,31 @@ class RunnerPage
 	 */
 	function assignStyleFiles( $isPdfPage = false )
 	{
-/*
-		if(isIE8() && !$isPdfPage)
+		global $wizardBuildKey, $projectBuildKey;
+
+		for ( $i = 0; $i < count($this->includes_css); $i++ )
 		{
-			$newIncludes = array();
-			foreach($this->includes_css as $i => $f)
-			{
-				$newIncludes[$i] = GetTableLink("ie8css", "", $f);
+			$f = $this->includes_css[$i];
+			if ( $this->isCustomCssFile($f) )			 
+				$addKey = "?" . $projectBuildKey;
+			else
+				$addKey = "?" . $wizardBuildKey;
+		
+			if ( strpos($f, "style.css") > 0 )
+				$addKey .= "&" . $projectBuildKey;
 
-			}
-
-			foreach($newIncludes as $i => $incl)
-			{
-				$this->includes_css[$i] = $incl;
-			}
+			$this->includes_css[$i] = $f . $addKey;
 		}
-*/
+
 		$this->xt->assign_array("styleCSSFiles", "stylepath", array_unique($this->includes_css));
 		$this->includes_css = array();
+
+		$this->xt->assign("wizardBuildKey", $wizardBuildKey);
+	}
+
+	function isCustomCssFile($file)
+	{
+		return strpos($file, "/pages/") > 0;
 	}
 
 	/**
@@ -6013,7 +5978,7 @@ class RunnerPage
 			$this->controls,
 			$this->connection,
 			$this->getMasterTableSQLClause(),
-			$this->SecuritySQL("Search", $this->tName)
+			$this->SecuritySQL("Search" )
 		);
 		return $this->_cachedWhereComponents;
 	}
@@ -6073,9 +6038,9 @@ class RunnerPage
 	 * @paran String table
 	 * @return String
 	 */
-	function SecuritySQL($strAction, $table="")
+	function SecuritySQL($strAction )
 	{
-		return SecuritySQL($strAction, $table);
+		return SecuritySQL($strAction, $this->tName );
 	}
 
 	function showGridOnly() {
@@ -6520,9 +6485,11 @@ class RunnerPage
 		$options["masterPageType"] = $this->pageType;
 		$options["masterTable"] = $this->tName;
 		$options["xt"] = new Xtempl( true ); //#9607 1. Temporary fix
-		$options["flyId"] = $this->genId() + 1; //fix it!
+		$options["flyId"] = $this->genId() + 1;
 		$options["masterKeysReq"] = array();
 		$options["pushContext"] = false;
+		if( $this->pdfJsonMode() )
+			$options["pdfJson"] = true;
 
 		$mkr = 1;
 		$mKeys = $this->pSet->getMasterKeysByDetailTable( $reportTName );
@@ -6850,6 +6817,8 @@ class RunnerPage
 			return GetTableCaption($table);
 		if( $page == "menu" )
 			return "Menu";
+		if( $page == "admin_rights_list" || $page == "admin_members_list" || $page == "admin_admembers_list" )
+			return GetTableCaption($table);		
 	}
 
 	/**
@@ -7325,18 +7294,10 @@ class RunnerPage
 		$menuRoot = $this->getMenuRoot( $menuName, $menuMode );
 
 		MenuItem::setMenuSession();
-		if($this->getLayoutVersion() == 3 && $menuRoot->isDrillDown() )
-		{
-			$peers = $this->prepareActiveMenuBranch( $menuRoot, $xt );
-			$menuRoot->setCurrMenuElem($xt);
-			//	show only current menu item peers
-		}
-		else
-		{
-			// call xtempl assign, set session params
-			$menuRoot->assignMenuAttrsToTempl($xt);
-			$menuRoot->setCurrMenuElem($xt);
-		}
+
+		// call xtempl assign, set session params
+		$menuRoot->assignMenuAttrsToTempl($xt);
+		$menuRoot->setCurrMenuElem($xt);
 
 		$xt->assign("mainmenu_block",true);
 
@@ -7660,7 +7621,8 @@ class RunnerPage
 
 			$crumb["crumb_title"] = $title;
 
-			if(  $i < $firstShowPeersIndex && !count( $itemData["detailPeers"] ) || ( $this->isAdminTable() && GetGlobalData("nLoginMethod", 0) == SECURITY_AD ))
+			if( $i < $firstShowPeersIndex && ( !count( $itemData["detailPeers"] ) || !$itemData["isMenuItem"] )
+				|| ( $this->isAdminTable() && GetGlobalData("nLoginMethod", 0) == SECURITY_AD ) )
 			{
 				$breadcrumbs[] = $crumb;
 				continue;
@@ -7948,20 +7910,31 @@ class RunnerPage
 	{
 		global $cCharset;
 		$data["url"] = GetSiteUrl();
+		
 		if ( !isset($data["loginUrl"]) )
 			$data["loginUrl"] = GetSiteUrl() . "/login.php";
+		
 		$templateFile = "email/" . mlang_getcurrentlang() . "/" . $template . ".txt";
 
-		if ( file_exists(getabspath($templateFile)) )
-			$body = myfile_get_contents(getabspath($templateFile), "r");
-		else
+		if ( !file_exists(getabspath($templateFile)) )
 			return false;
-
-		foreach ($data as $tag => $value) {
-			$body = preg_replace("/%".$tag."%/i", $value, $body);
-
+		
+		$body = myfile_get_contents(getabspath($templateFile), "r");
+		
+		$matches = findMatches( "/%[^%\W]+%/i", $body );
+		for( $i = 0; $i < count( $matches ); ++$i ) {
+			$m = $matches[ $i ];
+			$key = substr( $m["match"], 1, strlen($m["match"]) - 2);
+			$value = ''. getArrayElementNC( $data, $key );
+			// update the string
+			$body = substr( $body, 0, $m["offset"]) . $value . substr( $body, $m["offset"] + strlen( $m["match"] ));
+			// update the rest of matches
+			$offsetDelta = strlen( $value ) - strlen( $m["match"] );
+			for( $j = $i+1; $j < count( $matches ); ++$j ) {
+				$matches[ $j ]["offset"] = $matches[ $j ]["offset"] + $offsetDelta;
+			}
 		}
-
+		
 		$subject = "";
 		if ( $firstRowEndPos = strpos($body,"\r") )
 		{
@@ -8297,6 +8270,92 @@ class RunnerPage
 
 	function pdfJsonMode() {
 		return false;
+	}
+
+	function searchFieldAppearsOnPage( $field ) {
+		if( $this->pageType === PAGE_SEARCH ) {
+			return $this->pSet->appearOnPage( $field );
+		}
+		return $this->pSet->appearAlwaysOnSearchPanel( $field );
+	}
+
+	function createProjectSettings() {
+		$this->pSet = new ProjectSettings($this->tName, $this->pageType, $this->pageName, $this->pageTable );
+		/**
+		 * Page type here has priority over page name. If supplied pageName is not compatible with the pageType, ignore the former.
+		 * ATTENTION! It is not so in the PageSettings class. On the opposite, pageName has priority there.
+		 */
+		if( $this->pSet->getPageType() !== $this->pageType ) {
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, null, $this->pageTable );
+		}
+	}
+
+	/**
+	 * format interval group value, like number interval or date part ( April 2010 )
+	 * @return String
+	 */
+	function formatGroupValue( $fName, $intervalType, $value ) 
+	{
+		if( !$intervalType ) {
+			$data = array( $fName => $value );
+			return $this->showDBValue( $fName, $data );
+		}
+
+		$fType = $this->pSet->getFieldType( $fName );
+		if( IsNumberType( $fType ) ) {
+			$start = $value - ($value % $intervalType);
+			if( !IsFloatType( $fType ) ) {
+				// 10 - 19, 20 - 29
+				$end = $start + $intervalType - 1;
+			} else  {
+				// just a guess: 10.00-19.99, 20.00 - 29.99
+				$end = $start + $intervalType - 0.01;
+			}
+
+			$dataStart = array( $fName => $start );
+			$dataEnd = array( $fName => $end );
+
+			$strStart = $this->showDBValue( $fName, $dataStart );
+			$strEnd = $this->showDBValue( $fName, $dataEnd );
+		
+			return $this->pdfJsonMode()
+				// remove exessive ' wrappers: start "'1'", end "'2'"  --> "'1-2'" 
+				? substr( $strStart, 0 , strlen( $strStart ) - 1 )." - ".substr( $strEnd, 1 )
+				: $strStart . " - " . $strEnd;
+		}
+		else if( isCharType( $fType ) ) 
+		{
+			$result = xmlencode( substr( $value, 0, $intervalType ) );
+			return $this->pdfJsonMode() ? "'". jsreplace( $result ) ."'" : $result;
+		}
+		else if( IsDateFieldType( $fType ) ) 
+		{
+			$result = formatDateIntervalValue( $value, $intervalType );
+			return $this->pdfJsonMode() ? "'". jsreplace( $result ) ."'" : $result;
+		}
+		return $value;
+	}
+
+	/**
+	 * preloads and assigns "background" parameter
+	 */
+	function preparePDFBackground() {
+		if( !$this->pdfBackgroundImage ) {
+			return;
+		}
+		//  CAREFUL! $this->pdfBackgroundImage comes from client's browser
+		//	Only files from "/images" can be used
+		$filename = "images/" . str_replace('..', '', $this->pdfBackgroundImage );
+		$image = myfile_get_contents_binary( getabspath( $filename ));
+		$imgSize = getImageDimensions( $image );
+		if( $imgSize ) {
+			$this->xt->assign( "bgWidth", $imgSize["width"] );
+			$this->xt->assign( "bgHeight", $imgSize["height"] );
+		}
+		$url = imageDataUrl( $image );
+		if( !$url )
+			return;
+		$this->xt->assign( "backgroundImage", "'" . jsreplace( $url ) . "'" );
 	}
 
 }

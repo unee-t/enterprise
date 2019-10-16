@@ -142,7 +142,7 @@ class ChartPage extends RunnerPage
 			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
 		
 		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search", $this->tName);
+		$sql["mandatoryWhere"][] = $this->SecuritySQL( "Search" );
 		
 		return $sql;
 	}
@@ -188,7 +188,8 @@ class ChartPage extends RunnerPage
 		if( $this->isShowMenu() )
 			$this->xt->assign("menu_block", true);		
 
-			
+		$this->setLangParams();
+	
 		$this->xt->assign("chart_block", true);
 		$this->xt->assign("asearch_link", true);
 		$this->xt->assign("exportpdflink_attrs", "onclick='chart.saveAsPDF();'");
@@ -215,7 +216,6 @@ class ChartPage extends RunnerPage
 		if( $this->mobileTemplateMode() )
 			$this->xt->assign('tableinfomobile_block', true);
 
-		//$this->prepareBreadcrumbs();
 		
 		$this->assignChartElement();
 		
@@ -361,31 +361,16 @@ class ChartPage extends RunnerPage
 			"chartPreview" => $this->mode !== CHART_SIMPLE && $this->mode != CHART_DASHBOARD
 		);
 
-		if( /*$this->mode == CHART_DASHBOARD ||*/ $this->mode == CHART_DASHDETAILS )
+		if( $this->mode == CHART_DASHBOARD || $this->mode == CHART_DASHDETAILS )
 		{
-			if( isset($this->dashElementData["width"]) || isset($this->dashElementData["height"]) ) //#10119
-			{
-				$chartXtParams["dashResize"] = true;
-				$chartXtParams["dashWidth"] = $this->dashElementData["width"];
-				$chartXtParams["dashHeight"] = $this->dashElementData["height"];			
-			}
-
-			/*if( $this->mode == CHART_DASHBOARD )
-			{
-				$chartXtParams["dash"] = true;
-				$chartXtParams["dashTName"] = $this->dashTName;
-				$chartXtParams["dashElementName"] = $this->dashElementName;
-			}
-			else
-			{*/
 				$chartXtParams["refreshTime"] = $this->dashElementData["reload"];
-			/*}*/
 		}
 		
-		ob_start();
-		xt_showchart( $chartXtParams );
-		$this->renderedBody = ob_get_contents();
-		ob_end_clean();
+		$this->prepareCharts();
+		$forms = array( "grid" );
+		$bodyContents = $this->fetchForms($forms);		
+		$this->renderedBody = '<div id="detailPreview'.$this->id.'">'.$bodyContents.'</div>';	
+		return;
 	}
 
 	public function showGridOnly() 

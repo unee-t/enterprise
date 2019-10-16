@@ -2,18 +2,16 @@
 
 
 
-
 $tdataadmin_rights = array();
 $tdataadmin_rights[".searchableFields"] = array();
-	$tdataadmin_rights[".truncateText"] = true;
-	$tdataadmin_rights[".NumberOfChars"] = 80;
-	$tdataadmin_rights[".ShortName"] = "admin_rights";
-	$tdataadmin_rights[".OwnerID"] = "";
-	$tdataadmin_rights[".OriginalTable"] = "uneet_enterprise_ugrights";
+$tdataadmin_rights[".ShortName"] = "admin_rights";
+$tdataadmin_rights[".OwnerID"] = "";
+$tdataadmin_rights[".OriginalTable"] = "uneet_enterprise_ugrights";
 
 
 $defaultPages = my_json_decode( "{}" );
 
+$tdataadmin_rights[".pagesByType"] = my_json_decode( "{}" );
 $tdataadmin_rights[".pages"] = types2pages( my_json_decode( "{}" ) );
 $tdataadmin_rights[".defaultPages"] = $defaultPages;
 
@@ -79,7 +77,7 @@ $tdataadmin_rights[".listAjax"] = false;
 	$tdataadmin_rights[".locking"] = false;
 
 
-$pages = $tdataadmin_rights[".pages"];
+$pages = $tdataadmin_rights[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataadmin_rights[".edit"] = true;
@@ -171,9 +169,6 @@ $tdataadmin_rights[".printerPageOrientation"] = 0;
 $tdataadmin_rights[".nPrinterPageScale"] = 100;
 
 $tdataadmin_rights[".nPrinterSplitRecords"] = 40;
-
-$tdataadmin_rights[".nPrinterPDFSplitRecords"] = 40;
-
 
 $tdataadmin_rights[".geocodingEnabled"] = false;
 
@@ -292,6 +287,8 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -302,15 +299,21 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -364,7 +367,10 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -416,6 +422,8 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -426,6 +434,10 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -435,7 +447,9 @@ $tdataadmin_rights[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -490,7 +504,10 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -542,6 +559,8 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -552,15 +571,21 @@ $tdataadmin_rights[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -614,7 +639,10 @@ $tdataadmin_rights[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -750,6 +778,7 @@ $proto13["m_columns"] = array();
 $proto13["m_columns"][] = "TableName";
 $proto13["m_columns"][] = "GroupID";
 $proto13["m_columns"][] = "AccessMask";
+$proto13["m_columns"][] = "Page";
 $obj = new SQLTable($proto13);
 
 $proto12["m_table"] = $obj;

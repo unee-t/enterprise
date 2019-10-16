@@ -3,32 +3,29 @@
 @ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
+header("Expires: Thu, 01 Jan 1970 00:00:01 GMT"); 
 
-$tableName = postvalue("tableName");
+$shortTableName = postvalue("tableName");
+$table = GetTableByShort( $shortTableName );
+if( !$table )
+	exit(0);
+
 $pageType = postvalue("pageType");
 $fieldName = postvalue("fieldName");
 $fieldControlType = postvalue("fieldControlType");
 $value = postvalue("value");
 
-if( !checkTableName($tableName) )
-{
-	exit(0);
-}
-
-require_once("include/".$tableName."_variables.php");
-
-if($pageType != PAGE_REGISTER && ( !isLogged() || !CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") ))
-{ 
-	$returnJSON = array("success" => false, "error" => "Error: You have not permissions to read the ".$tableName." table's data");
-	echo printJSON($returnJSON);
+if( !Security::userHasFieldPermissions( $table, $fieldName, $pageType, $pageName, true ) )
 	return;
-}
 
 // set db connection
-$_connection = $cman->byTable( $strTableName );
+$_connection = $cman->byTable( $table );
 
-$pSet = new ProjectSettings($strTableName, $pageType);
+$pSet = new ProjectSettings($table, $pageType);
 $denyChecking = $pSet->allowDuplicateValues( $fieldName );
+$regEmailMode = false;
+$regUsernameMode = false;
+
 
 if( $denyChecking )
 {
@@ -37,12 +34,12 @@ if( $denyChecking )
 	return;
 }
 
-$cipherer = new RunnerCipherer($strTableName, $pSet);
+$cipherer = new RunnerCipherer($table, $pSet);
 
 if( $cipherer->isFieldEncrypted($fieldName) )
 	$value = $cipherer->MakeDBValue($fieldName, $value, $fieldControlType, true);	
 else
-	$value = make_db_value($fieldName, $value, $fieldControlType, "", $strTableName);
+	$value = make_db_value($fieldName, $value, $fieldControlType, "", $table);
 
 if( $value == "null" )
 {
@@ -53,6 +50,15 @@ else
 	$fieldSQL = RunnerPage::_getFieldSQLDecrypt($fieldName, $_connection, $pSet, $cipherer);
 }
 $where = $fieldSQL . ( $value == "null" ? ' is ' : '=' ) . $value; 
+
+/* emails should always be compared case-insensitively */
+if( $regEmailMode ) {
+	$where = $_connection->comparisonSQL( $fieldSQL, $value, true );
+}
+/* username on register page */
+if( $regUsernameMode ) {
+	$where = $_connection->comparisonSQL( $fieldSQL, $value, $pSet->isCaseInsensitiveUsername() );
+}
 $sql = "SELECT count(*) from ".$_connection->addTableWrappers( $pSet->getOriginalTableName() )." where ".$where;
 
 $qResult = $_connection->query( $sql );

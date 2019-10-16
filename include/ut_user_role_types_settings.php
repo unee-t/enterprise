@@ -2,18 +2,16 @@
 
 
 
-
 $tdataut_user_role_types = array();
 $tdataut_user_role_types[".searchableFields"] = array();
-	$tdataut_user_role_types[".truncateText"] = true;
-	$tdataut_user_role_types[".NumberOfChars"] = 80;
-	$tdataut_user_role_types[".ShortName"] = "ut_user_role_types";
-	$tdataut_user_role_types[".OwnerID"] = "";
-	$tdataut_user_role_types[".OriginalTable"] = "ut_user_role_types";
+$tdataut_user_role_types[".ShortName"] = "ut_user_role_types";
+$tdataut_user_role_types[".OwnerID"] = "";
+$tdataut_user_role_types[".OriginalTable"] = "ut_user_role_types";
 
 
 $defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
+$tdataut_user_role_types[".pagesByType"] = my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" );
 $tdataut_user_role_types[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataut_user_role_types[".defaultPages"] = $defaultPages;
 
@@ -106,7 +104,7 @@ $tdataut_user_role_types[".listAjax"] = false;
 	$tdataut_user_role_types[".locking"] = false;
 
 
-$pages = $tdataut_user_role_types[".pages"];
+$pages = $tdataut_user_role_types[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataut_user_role_types[".edit"] = true;
@@ -207,9 +205,6 @@ $tdataut_user_role_types[".printerPageOrientation"] = 0;
 $tdataut_user_role_types[".nPrinterPageScale"] = 100;
 
 $tdataut_user_role_types[".nPrinterSplitRecords"] = 40;
-
-$tdataut_user_role_types[".nPrinterPDFSplitRecords"] = 40;
-
 
 $tdataut_user_role_types[".geocodingEnabled"] = false;
 
@@ -329,6 +324,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -339,6 +336,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -348,7 +349,9 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -403,7 +406,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -455,6 +461,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -464,17 +472,22 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -528,7 +541,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -580,6 +596,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -590,15 +608,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -652,7 +676,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -704,6 +731,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -714,15 +743,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -776,7 +811,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -828,6 +866,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -837,17 +877,22 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 
 	$edata = array("EditFormat" => "Date");
 
-		$edata["ShowTime"] = true;
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -901,7 +946,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -953,6 +1001,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -963,15 +1013,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1025,7 +1081,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1077,6 +1136,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1087,15 +1148,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1149,7 +1216,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1201,6 +1271,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1211,15 +1283,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1273,7 +1351,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1325,6 +1406,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1335,15 +1418,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1397,7 +1486,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1449,6 +1541,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1459,15 +1553,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1521,7 +1621,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1573,6 +1676,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1583,15 +1688,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1645,7 +1756,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1697,6 +1811,8 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1707,15 +1823,21 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text area");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1768,7 +1890,10 @@ $tdataut_user_role_types[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

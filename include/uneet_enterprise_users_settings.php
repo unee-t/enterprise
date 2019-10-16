@@ -2,18 +2,16 @@
 
 
 
-
 $tdatauneet_enterprise_users = array();
 $tdatauneet_enterprise_users[".searchableFields"] = array();
-	$tdatauneet_enterprise_users[".truncateText"] = true;
-	$tdatauneet_enterprise_users[".NumberOfChars"] = 80;
-	$tdatauneet_enterprise_users[".ShortName"] = "uneet_enterprise_users";
-	$tdatauneet_enterprise_users[".OwnerID"] = "";
-	$tdatauneet_enterprise_users[".OriginalTable"] = "uneet_enterprise_users";
+$tdatauneet_enterprise_users[".ShortName"] = "uneet_enterprise_users";
+$tdatauneet_enterprise_users[".OwnerID"] = "";
+$tdatauneet_enterprise_users[".OriginalTable"] = "uneet_enterprise_users";
 
 
 $defaultPages = my_json_decode( "{\"search\":\"search\"}" );
 
+$tdatauneet_enterprise_users[".pagesByType"] = my_json_decode( "{\"search\":[\"search\"]}" );
 $tdatauneet_enterprise_users[".pages"] = types2pages( my_json_decode( "{\"search\":[\"search\"]}" ) );
 $tdatauneet_enterprise_users[".defaultPages"] = $defaultPages;
 
@@ -94,7 +92,7 @@ $tdatauneet_enterprise_users[".listAjax"] = false;
 	$tdatauneet_enterprise_users[".locking"] = false;
 
 
-$pages = $tdatauneet_enterprise_users[".pages"];
+$pages = $tdatauneet_enterprise_users[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatauneet_enterprise_users[".edit"] = true;
@@ -192,9 +190,6 @@ $tdatauneet_enterprise_users[".printerPageOrientation"] = 0;
 $tdatauneet_enterprise_users[".nPrinterPageScale"] = 100;
 
 $tdatauneet_enterprise_users[".nPrinterSplitRecords"] = 40;
-
-$tdatauneet_enterprise_users[".nPrinterPDFSplitRecords"] = 40;
-
 
 $tdatauneet_enterprise_users[".geocodingEnabled"] = false;
 
@@ -314,6 +309,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -324,6 +321,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -333,7 +334,9 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -388,7 +391,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -440,6 +446,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -450,15 +458,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -512,7 +526,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -564,6 +581,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -574,15 +593,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Password");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -635,7 +660,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -687,6 +715,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -697,15 +727,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -759,7 +795,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -811,6 +850,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -821,15 +862,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -883,7 +930,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -935,6 +985,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -945,15 +997,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1007,7 +1065,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1059,6 +1120,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1069,15 +1132,21 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1131,7 +1200,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1183,6 +1255,8 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1193,13 +1267,17 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Lookup wizard");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "uneet_enterprise_organizations";
-		$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
@@ -1229,7 +1307,9 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 	
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1280,7 +1360,10 @@ $tdatauneet_enterprise_users[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings

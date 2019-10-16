@@ -364,6 +364,7 @@ class AddPage extends RunnerPage
 
 		$this->doCommonAssignments();	
 		$this->prepareBreadcrumbs();
+		$this->prepareCollapseButton();
 		
 		$this->displayAddPage();
 	}
@@ -775,7 +776,7 @@ class AddPage extends RunnerPage
 		{
 			$sessPrefix = $this->tName . "_" . $this->pageType;
 			if( isset($_SESSION["count_passes_captcha"]) || $_SESSION["count_passes_captcha"] > 0 || $_SESSION["count_passes_captcha"] < 5 )
-				$respJSON['hideCaptcha'] = true;						
+				$returnJSON['hideCaptcha'] = true;						
 		}
 
 		if( !$this->insertedSuccessfully )
@@ -878,11 +879,8 @@ class AddPage extends RunnerPage
 		$allFields = $this->pSet->getFieldsList();
 		foreach( $allFields as $f )
 		{
-			if( ($this->mode == ADD_MASTER || $this->mode == ADD_MASTER_POPUP || $this->mode == ADD_MASTER_DASH) && $this->pSet->appearOnAddPage($f) || $this->pSet->appearOnListPage($f) )
-			{
-				$showValues[ $f ] = $this->showDBValue($f, $data, $keylink);
-				$showFields[] = $f;
-			}
+			$showValues[ $f ] = $this->showDBValue($f, $data, $keylink);
+			$showFields[] = $f;
 			
 			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) )
 				$showRawValues[ $f ] = "";
@@ -1500,6 +1498,8 @@ class AddPage extends RunnerPage
 			}
 		}
 
+		$this->setLangParams();
+		
 		$this->xt->assign("message_block", true);
 		
 		if( $this->isMessageSet() )
@@ -1641,7 +1641,7 @@ class AddPage extends RunnerPage
 		$lookupIndexes = array("linkFieldIndex" => 0, "displayFieldIndex" => 0);
 		if( count($this->keys) )
 		{
-			$LookupSQL = $lookupQueryObj->buildSQL_default( KeyWhere($this->keys) );
+			$LookupSQL = $lookupQueryObj->buildSQL_default( KeyWhere($this->keys, $this->tName ) );
 				
 			$lookupIndexes = GetLookupFieldsIndexes($lookupMainSettings, $this->lookupField);
 			LogInfo($LookupSQL);
@@ -1855,5 +1855,20 @@ class AddPage extends RunnerPage
 	{
 		return $this->mode == ADD_SIMPLE;
 	}	
+	
+	function createProjectSettings() {
+		
+		$this->pSet = new ProjectSettings($this->tName, $this->pageType, $this->pageName, $this->pageTable );
+		if( $this->mode == ADD_INLINE && $this->pSet->getPageType() !== PAGE_LIST ) 
+		{
+			$pageName = $this->pSet->getDefaultPage( "list" );
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, $pageName, $this->pageTable );
+		} 
+		else if( $this->mode != ADD_INLINE && $this->pSet->getPageType() !== PAGE_ADD )
+		{
+			$this->pSet = new ProjectSettings($this->tName, $this->pageType, null, $this->pageTable );
+		}
+	}
+
 }
 ?>

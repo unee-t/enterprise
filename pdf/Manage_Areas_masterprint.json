@@ -1,5 +1,14 @@
 
 pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
 	styles: {
 				bodycell: {
 			fontSize:12,
@@ -32,7 +41,6 @@ pdfDocument = {
 				hLineWidth: function(i, node) { return 0.1; },
 				vLineWidth: function(i, node) { 
 					if( node.table.embeddedPage ) {
-						console.log( node.table.widths.length, i );
 						return (i === 0 || i === node.table.widths.length) ? 0.1 : 0;
 					} else  {
 						return 0.1; 
@@ -59,7 +67,19 @@ pdfDocument = {
 										{BEGIN col_grid_2}
 					"%",
 					{END col_grid_2}
-													],
+															],
+							heights: [
+									{BEGIN row_grid_0}		
+					"%",
+					{END row_grid_0}
+									{BEGIN row_grid_1}		
+					"%",
+					{END row_grid_1}
+									{BEGIN row_grid_2}		
+					"%",
+					{END row_grid_2}
+								],
+							
 				body: [
 				{BEGIN standalone_page}
 					[
@@ -77,21 +97,18 @@ pdfDocument = {
 		
 		
 		widths: [
-		 
-						'*', 
-					 ],
+								"*", 
+					 ],	
 		
-		
+	
 		body: [
 				
-					
-		[
-												
-{
+					[
+												{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'undefinedcell',
+			style: 'cell',
 		
 		
 	//	static colspan/rowspan
@@ -106,7 +123,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-        },
+          },
 
 											],
 					]
@@ -126,10 +143,8 @@ pdfDocument = {
 
 				
 					{BEGIN row_grid_0}
-				
-		[
+				[
 												{BEGIN cellblock_grid_headcell_field}
-
 {
 	cellId: 'headcell_field',
 	col:0,
@@ -140,7 +155,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -150,11 +166,11 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_align}',
+  },
 
 {END cellblock_grid_headcell_field}
 																			{BEGIN cellblock_grid_headcell_field1}
-
 {
 	cellId: 'headcell_field1',
 	col:0,
@@ -165,7 +181,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -175,11 +192,11 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$country_code_align}',
+  },
 
 {END cellblock_grid_headcell_field1}
 																			{BEGIN cellblock_grid_headcell_field2}
-
 {
 	cellId: 'headcell_field2',
 	col:0,
@@ -190,7 +207,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -200,7 +218,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$area_name_align}',
+  },
 
 {END cellblock_grid_headcell_field2}
 											],
@@ -210,10 +229,8 @@ pdfDocument = {
 	{BEGIN grid_record}
 				
 						{BEGIN row_grid_1}
-				
-		[
+				[
 												{BEGIN cellblock_grid_cell_field}
-
 {
 	cellId: 'cell_field',
 	col:0,
@@ -224,7 +241,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -234,11 +252,11 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$is_default_align}',
+  },
 
 {END cellblock_grid_cell_field}
 																			{BEGIN cellblock_grid_cell_field1}
-
 {
 	cellId: 'cell_field1',
 	col:0,
@@ -249,7 +267,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -259,11 +278,11 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$country_code_align}',
+  },
 
 {END cellblock_grid_cell_field1}
 																			{BEGIN cellblock_grid_cell_field2}
-
 {
 	cellId: 'cell_field2',
 	col:0,
@@ -274,7 +293,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -284,7 +304,8 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-        },
+            "alignment": '{$area_name_align}',
+  },
 
 {END cellblock_grid_cell_field2}
 											],
@@ -292,13 +313,10 @@ pdfDocument = {
 						{END grid_record}
 	{END grid_row}
 			
-			{BEGIN totals_row}
-			
+					
 							{BEGIN row_grid_2}
-				
-		[
+				[
 												{BEGIN cellblock_grid_footcell_field}
-
 {
 	cellId: 'footcell_field',
 	col:0,
@@ -309,7 +327,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -317,11 +336,10 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field}
 																			{BEGIN cellblock_grid_footcell_field1}
-
 {
 	cellId: 'footcell_field1',
 	col:0,
@@ -332,7 +350,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -340,11 +359,10 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field1}
 																			{BEGIN cellblock_grid_footcell_field2}
-
 {
 	cellId: 'footcell_field2',
 	col:0,
@@ -355,7 +373,8 @@ pdfDocument = {
 	//	dynamic colspan/rowspan
 
 		
-			
+						
+	
 	
 	
 			"text": [
@@ -363,13 +382,12 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-        },
+          },
 
 {END cellblock_grid_footcell_field2}
 											],
 				{END row_grid_2}
-						{END totals_row}
-		
+							
 									]
 			
 			}

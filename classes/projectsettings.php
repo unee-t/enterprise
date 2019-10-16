@@ -69,7 +69,13 @@ class ProjectSettings
 	}
 
 	function loadPageOptions( $option = "" ) {
+		if( $this->_pageOptions )
+			return;
 		importPageOptions( $this->_auxTable, $this->_page );
+		global $page_options;
+		$this->_pageOptions = &$page_options[$this->_auxTable][$this->_page];
+
+
 	}
 
 	function setPage($page) {
@@ -120,6 +126,13 @@ class ProjectSettings
 		return $this->_page;
 	}
 
+	/**
+	 * Return table where the page belongs. <global> for Login, Register page desite table==usersTable
+	 */
+	function pageTable() {
+		return $this->_auxTable;
+	}
+
 	function getDefaultViewPageType($tableType)
 	{
 		if($tableType == PAGE_CHART || $tableType == PAGE_REPORT)
@@ -156,7 +169,13 @@ class ProjectSettings
 		}
 	}
 
+	function getDefaultPages() {
+		$this->updatePages();
+		return $this->getAuxTableData(".defaultPages");
+	}
+
 	function getDefaultPage( $type, $pageTable = "" ) {
+		$this->updatePages();
 		if( isAdminPage( $this->_auxTable ) )
 			return $this->_pageType;
 		$defPages =& $this->getAuxTableData(".defaultPages");
@@ -167,6 +186,7 @@ class ProjectSettings
 	}
 
 	function getPageIds() {
+		$this->updatePages();
 		$ret = $this->getAuxTableData(".pages");
 		if( !is_array( $ret ) )
 			return array();
@@ -229,9 +249,7 @@ class ProjectSettings
 	function getPageOption($key1, $key2 = FALSE, $key3 = FALSE, $key4 = FALSE, $key5 = FALSE )
 	{
 		$this->loadPageOptions( $key1.$key2 );
-		global $page_options;
-		$pageOptions = &$page_options[$this->_auxTable][$this->_page];
-		if( !isset( $pageOptions[ $key1 ] ) )
+		if( !isset( $this->_pageOptions[ $key1 ] ) )
 			return FALSE;
 		$keys = array( $key1 );
 		if( $key2!== FALSE )
@@ -243,7 +261,7 @@ class ProjectSettings
 		if( $key5!== FALSE )
 			$keys[]= $key5;
 
-		$opt = &$pageOptions;
+		$opt = &$this->_pageOptions;
 		foreach( $keys as $k ) {
 			if( !is_array( $opt ) )
 				return FALSE;
@@ -261,9 +279,7 @@ class ProjectSettings
 	function getPageOptionArray( $keys )
 	{
 		$this->loadPageOptions();
-		global $page_options;
-		$pageOptions = &$page_options[$this->_auxTable][$this->_page];
-		$opt = &$pageOptions;
+		$opt = &$this->_pageOptions;
 		foreach( $keys as $k ) {
 			if( !is_array( $opt ) )
 				return FALSE;
@@ -582,9 +598,7 @@ class ProjectSettings
 	//	Is field has separate type for editing and viewing
 	function isSeparate($field)
 	{
-		if (isset($this->_tableData[$field]["isSeparate"]))
-			return $this->_tableData[$field]["isSeparate"];
-		return false;
+		return !!$this->_tableData[$field]["isSeparate"];
 	}
 
 	// return field label
@@ -711,6 +725,15 @@ class ProjectSettings
 	function lookupControlType($field)
 	{
 		return $this->getFieldData($field, "LCType");
+	}
+
+	function lookupListPageId($field)
+	{
+		return $this->getFieldData($field, "listPageId");
+	}
+	function lookupAddPageId($field)
+	{
+		return $this->getFieldData($field, "addPageId");
 	}
 
 	function isDeleteAssociatedFile($field)
@@ -879,7 +902,13 @@ class ProjectSettings
 		return $this->getPageOption( "fields", "fieldItems", $field );
 	}
 
-
+	/**
+	 * Returns array of group fields
+	 */
+	function getGroupFields()
+	{
+		return $this->getPageOption( "dataGrid", "groupFields");
+	}
 
 	/**
 	 * Check is appear current field on list page
@@ -887,8 +916,12 @@ class ProjectSettings
 	 */
 	function appearOnListPage($field)
 	{
-		return array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE;
-//		return $this->getFieldData($field, "bListPage");
+		if( array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE )
+			return true;
+		if( $this->getEntityType() == titREPORT ) {
+			return array_search( $field, $this->getReportGroupFields() ) !== FALSE;
+		}
+		return false;
 	}
 
 	/**
@@ -945,16 +978,44 @@ class ProjectSettings
 
 	function appearOnPage($field)
 	{
-		$gridFields = $this->getPageOption("fields", "gridFields");
+		$gridFields = &$this->getPageOption("fields", "gridFields");
 		if( !$gridFields )
 			return false;
 
-		return array_search( $field, $gridFields ) !== FALSE;
+		$ret = ( array_search( $field, $gridFields ) !== FALSE );
+		if( !$ret ) {
+			if( $this->getPageType() === 'report' || $this->getPageType() === 'rprint' )
+				return array_search( $field, $this->getReportGroupFields() ) !== false;
+		}
+		return $ret;
+	}
+
+	function appearOnSearchPanel($field)
+	{
+		$fields = &$this->getPageOption("fields", "searchPanelFields");
+		if( !$fields )
+			return false;
+
+		return array_search( $field, $fields ) !== FALSE;
+	}
+
+
+	function appearAlwaysOnSearchPanel( $field ) {
+		$fields  = &$this->getPageOption("listSearch", "alwaysOnPanelFields");
+		if( !$fields )
+			return false;
+
+		return array_search( $field, $fields ) !== FALSE;
+
 	}
 
 	function getPageFields()
 	{
-		return $this->getPageOption("fields", "gridFields");
+		$fields = $this->getPageOption("fields", "gridFields" );
+		if( $this->getEntityType() == titREPORT ) {
+			return array_merge( $fields, $this->getReportGroupFields() );
+		}
+		return $fields;
 	}
 
 	/**
@@ -972,8 +1033,7 @@ class ProjectSettings
 	 */
 	function appearOnPrinterPage($field)
 	{
-		return array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE;
-		//return $this->getFieldData($field, "bPrinterPage");
+		return $this->appearOnListPage($field);
 	}
 
 	function isVideoUrlField($field)
@@ -1214,6 +1274,11 @@ class ProjectSettings
 	}
 */
 
+	function getAllPageFields()
+	{
+		return array_merge( $this->getPageFields(), $this->getAllSearchFields() );
+	}
+
 	function getPanelSearchFields()
 	{
 		return $this->getPageOption("listSearch", "alwaysOnPanelFields");
@@ -1277,17 +1342,21 @@ class ProjectSettings
 
 	function getPrinterFields()
 	{
-		return $this->getPageOption("fields", "gridFields" );
+		return $this->getPageFields();
 	}
 
 	function getListFields()
 	{
-		return $this->getPageOption("fields", "gridFields" );
+		$fields = $this->getPageOption("fields", "gridFields" );
+		if( $this->getEntityType() == titREPORT ) {
+			return array_merge( $fields, $this->getReportGroupFields() );
+		}
+		return $fields;
 	}
 
 	function isAddPageEvents()
 	{
-		return $this->getTableData(".addPageEvents");
+		return $this->getAuxTableData(".addPageEvents");
 	}
 
 	function hasAjaxSnippet()
@@ -1297,7 +1366,12 @@ class ProjectSettings
 
 	function hasButtonsAdded()
 	{
-		return $this->getTableData(".buttonsAdded");
+		return $this->getPageOption("page", "hasCustomButtons");
+	}
+
+	function customButtons()
+	{
+		return $this->getPageOption("page", "customButtons");
 	}
 
 	function isUseFieldsMaps()
@@ -1411,6 +1485,11 @@ class ProjectSettings
 		return $this->getFieldData($field, "acceptFileTypes");
 	}
 
+	function getAcceptFileTypesHtml($field)
+	{
+		return $this->getFieldData($field, "acceptFileTypesHtml");
+	}
+
 	/**
 	 * Get maximum allowed size for uploaded files
 	 */
@@ -1494,17 +1573,17 @@ class ProjectSettings
 		return $this->getTableData(".Keys");
 	}
 
-	function isLargeTextTruncationSet()
+	function isLargeTextTruncationSet($field)
 	{
-		return $this->getTableData(".truncateText");
+		return $this->getFieldData($field, "truncateText");
 	}
 
 	/**
 	 * Return number of chars to show before "More..." link
 	 */
-	function getNumberOfChars()
+	function getNumberOfChars($field)
 	{
-		return $this->getTableData(".NumberOfChars");
+		return $this->getFieldData($field, "NumberOfChars");
 	}
 
 	/**
@@ -1547,6 +1626,11 @@ class ProjectSettings
 	function isRequired($field)
 	{
 		return $this->getFieldData($field, "IsRequired");
+	}
+
+	function insertNull($field)
+	{
+		return $this->getFieldData($field, "insertNull");
 	}
 
 	/**
@@ -1637,7 +1721,6 @@ class ProjectSettings
 	function checkFieldPermissions($field)
 	{
 		return $this->appearOnPage( $field );
-		//return $this->getFieldData($field,"FieldPermissions");
 	}
 
 	function getTableOwnerIdField()
@@ -1697,6 +1780,14 @@ class ProjectSettings
 		return $data['update_records'];
 	}
 
+	function activatonMessages()
+	{
+		$data = $this->labeledButtons();
+		if( !is_array( $data['register_activate_message'] ) )
+			return array();
+		return $data['register_activate_message'];
+	}
+
 	function labeledButtons()
 	{
 		return $this->getPageOption("page", "labeledButtons");
@@ -1706,6 +1797,12 @@ class ProjectSettings
 	{
 		$data = $this->labeledButtons();
 		return $data['print_pages'];
+	}
+
+	function detailsFoundLabelsData()
+	{
+		$data = $this->labeledButtons();
+		return $data['details_found'];
 	}
 
 
@@ -1764,25 +1861,26 @@ class ProjectSettings
 	function getExportTxtFormattingType()
 	{
 		return $this->getPageOption("export","format");
-		//return $this->getTableData(".exportFormatting");
 	}
 
 	function getExportDelimiter()
 	{
 		return $this->getPageOption("export","delimiter");
-		//return $this->getTableData(".exportDelimiter");
 	}
 
 	function chekcExportDelimiterSelection()
 	{
 		return $this->getPageOption("export","selectDelimiter");
-		//return $this->getTableData(".selectExportDelimiter");
 	}
 
 	function checkExportFieldsSelection()
 	{
 		return $this->getPageOption("export","selectFields");
-		//return $this->getTableData(".selectExportFields");
+	}
+
+	function exportFileTypes()
+	{
+		return $this->getPageOption("export", "exportFileTypes");
 	}
 
 	function getLoginFormType()
@@ -1811,12 +1909,17 @@ class ProjectSettings
 
 	function isReportWithGroups()
 	{
-		return $this->getTableData(".reportGroupFields");
+		return $this->getTableData(".\ields");
 	}
 
 	function isCrossTabReport()
 	{
 		return $this->getTableData(".crossTabReport");
+	}
+
+	function getReportGroupFields()
+	{
+		return $this->getTableData(".reportGroupFieldsList");
 	}
 
 	function getReportGroupFieldsData()
@@ -2114,7 +2217,7 @@ class ProjectSettings
 	function getUploadFolder($field, $fileData = array())
 	{
 		if($this->isUploadCodeExpression($field))
-			$path = GetUploadFolderExpression($field, $fileData);
+			$path = GetUploadFolderExpression($field, $fileData, $this->_table );
 		else
 			$path = $this->getFieldData($field, "UploadFolder");
 				if(strlen($path) && substr($path,strlen($path)-1) != "/")
@@ -2255,9 +2358,13 @@ class ProjectSettings
 		return $this->getPageOption("listSearch", "simpleSearchOptions");
 	}
 
+	function getFieldsToHideIfEmpty()
+	{
+		return $this->getPageOption("fields", "hideEmptyFields");
+	}
+
 	function getFilterFields()
 	{
-//		return $this->getTableData(".filterFields");
 		return $this->getPageOption("fields", "filterFields");
 	}
 
@@ -2291,29 +2398,14 @@ class ProjectSettings
 		return $this->getFieldData($field, "numberOfVisibleItems");
 	}
 
+	function getFilterByInterval($field)
+	{
+		return $this->getFieldData($field, "filterBy");
+	}
+
 	function getParentFilterName($field)
 	{
 		return $this->getFieldData($field, "parentFilterField");
-	}
-
-	function getParentFiltersNames($field)
-	{
-		return $this->getFieldData($field, "parentFilters");
-	}
-
-	function hasDependentFilter($field)
-	{
-		return $this->getDependentFilterName($field) != "";
-	}
-
-	function getDependentFilterName($field)
-	{
-		return $this->getFieldData($field, "dependentFilterName");
-	}
-
-	function getDependentFiltersNames($field)
-	{
-		return $this->getFieldData($field, "dependentFilters");
 	}
 
 	function getFilterIntervals($field)
@@ -2406,6 +2498,16 @@ class ProjectSettings
 		return strtoupper($value);
 	}
 
+	/**
+	 * Returns true if Users table is included into the project ( and has ist own SQL string )
+	 * @return boolean
+	 */
+	function usersTableInProject()
+	{
+		return GetGlobalData("usersTableInProject",false);
+	}
+
+
 	function getStrField($field)
 	{
 		return $this->getFieldData($field, "strField");
@@ -2497,13 +2599,6 @@ class ProjectSettings
 		global $menuTreelikeFlags;
 		return $menuTreelikeFlags[$menuName];
 	}
-
-	static function isMenuDrillDown( $menuName )
-	{
-		global $menuDrillDownFlags;
-		return $menuDrillDownFlags[$menuName];
-	}
-
 
 	function setPageMode($pageMode)
 	{
@@ -2841,7 +2936,7 @@ class ProjectSettings
 	{
 		return $this->getPageOption("events", "maps" );
 	}
-	
+
 	function mapsData()
 	{
 		return $this->getPageOption("events", "mapsData" );
@@ -2852,14 +2947,90 @@ class ProjectSettings
 		return $this->getPageOption("events", "buttons" );
 	}
 
-	function getPageType()
+	function getPageType( $page = "" )
 	{
-		return $this->_auxTableData[ ".pages" ][ $this->_page ];
+		if( !$page )
+			$page = $this->_page;
+		return $this->_auxTableData[ ".pages" ][ $page ];
 	}
 
 	function welcomeItems()
 	{
 		return $this->getPageOption("welcome", "welcomeItems");
+	}
+
+	function getMultipleImgMode( $field )
+	{
+		return $this->getFieldData( $field, "multipleImgMode" );
+	}
+
+	function getMaxImages( $field )
+	{
+		return $this->getFieldData( $field, "maxImages" );
+	}
+	function isGalleryEnabled( $field )
+	{
+		return $this->getFieldData( $field, "showGallery" );
+	}
+	function getGalleryMode( $field )
+	{
+		return $this->getFieldData( $field, "galleryMode" );
+	}
+	function getCaptionMode( $field )
+	{
+		return $this->getFieldData( $field, "captionMode" );
+	}
+	function getCaptionField( $field )
+	{
+		return $this->getFieldData( $field, "captionField" );
+	}
+
+	/**
+	 * @return boolean
+	 */
+	function getImageBorder( $field )
+	{
+		return $this->getFieldData( $field, "imageBorder" );
+	}
+
+	function getImageFullWidth( $field )
+	{
+		return $this->getFieldData( $field, "imageFullWidth" );
+	}
+
+	function updatePages() {
+		if( $this->_auxTableData[".pagesUpdated"] ) {
+			return;
+		}
+		$this->_auxTableData[".pagesUpdated"] = true;
+		if( !Security::permissionsAvailable() )
+			return;
+		$restrictedPages = Security::getRestrictedPages( $this->_auxTable );
+		if( !$restrictedPages ) {
+			return;
+		}
+		$pages =& $this->_auxTableData[".pages"];
+		$pagesByType =& $this->_auxTableData[".pagesByType"];
+		$newPages = array();
+		$defaultPages =& $this->_auxTableData[".defaultPages"];
+		foreach( $pages as $p => $type ) {
+			if( !$restrictedPages[$p] ) {
+				$newPages[ $p ] = $type;
+			}
+			else {
+				$idx = array_search( $p, $pagesByType[$type] );
+				unset( $pagesByType[$type][$idx] );
+				if( $defaultPages[ $type ] == $p ) {
+					$defaultPages[ $type ] = "";
+					//	pick the first available page
+					foreach( $pagesByType[$type] as $d ) {
+						$defaultPages[ $type ] = $d;
+						break;
+					}
+				}
+			}
+		}
+		$this->_auxTableData[".pages"] = &$newPages;
 	}
 }
 
@@ -2934,8 +3105,6 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "Manage_Buildings" ] = "Manage Buildings";
 	$projectEntities[ "property_groups_areas" ] = array( "url" => "property_groups_areas", "type" => 0 );
 	$projectEntitiesReverse[ "property_groups_areas" ] = "property_groups_areas";
-	$projectEntities[ "Unee-T Enterprise Configuration" ] = array( "url" => "Unee_T_Enterprise_Configuration", "type" => 1 );
-	$projectEntitiesReverse[ "Unee_T_Enterprise_Configuration" ] = "Unee-T Enterprise Configuration";
 	$projectEntities[ "ut_external_sot_for_unee_t_objects" ] = array( "url" => "ut_external_sot_for_unee_t_objects", "type" => 1 );
 	$projectEntitiesReverse[ "ut_external_sot_for_unee_t_objects" ] = "ut_external_sot_for_unee_t_objects";
 	$projectEntities[ "Manage Units" ] = array( "url" => "Manage_Units", "type" => 1 );
@@ -2944,6 +3113,84 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "external_property_groups_areas" ] = "external_property_groups_areas";
 	$projectEntities[ "external_property_level_1_buildings" ] = array( "url" => "external_property_level_1_buildings", "type" => 1 );
 	$projectEntitiesReverse[ "external_property_level_1_buildings" ] = "external_property_level_1_buildings";
+	$projectEntities[ "Manage Rooms" ] = array( "url" => "Manage_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Manage_Rooms" ] = "Manage Rooms";
+	$projectEntities[ "Assign Areas to User" ] = array( "url" => "Assign_Areas_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Areas_to_User" ] = "Assign Areas to User";
+	$projectEntities[ "Search Users" ] = array( "url" => "Search_Users", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Users" ] = "Search Users";
+	$projectEntities[ "Assign Buildings to User" ] = array( "url" => "Assign_Buildings_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Buildings_to_User" ] = "Assign Buildings to User";
+	$projectEntities[ "property_level_1_buildings" ] = array( "url" => "property_level_1_buildings", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_1_buildings" ] = "property_level_1_buildings";
+	$projectEntities[ "Assign Units to User" ] = array( "url" => "Assign_Units_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Units_to_User" ] = "Assign Units to User";
+	$projectEntities[ "property_level_2_units" ] = array( "url" => "property_level_2_units", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_2_units" ] = "property_level_2_units";
+	$projectEntities[ "Assign Rooms to User" ] = array( "url" => "Assign_Rooms_to_User", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Rooms_to_User" ] = "Assign Rooms to User";
+	$projectEntities[ "property_level_3_rooms" ] = array( "url" => "property_level_3_rooms", "type" => 0 );
+	$projectEntitiesReverse[ "property_level_3_rooms" ] = "property_level_3_rooms";
+	$projectEntities[ "Search Rooms" ] = array( "url" => "Search_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Rooms" ] = "Search Rooms";
+	$projectEntities[ "Search Units" ] = array( "url" => "Search_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Units" ] = "Search Units";
+	$projectEntities[ "external_property_level_2_units" ] = array( "url" => "external_property_level_2_units", "type" => 1 );
+	$projectEntitiesReverse[ "external_property_level_2_units" ] = "external_property_level_2_units";
+	$projectEntities[ "Search All Units" ] = array( "url" => "Search_All_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Search_All_Units" ] = "Search All Units";
+	$projectEntities[ "ut_map_external_source_units" ] = array( "url" => "ut_map_external_source_units", "type" => 1 );
+	$projectEntitiesReverse[ "ut_map_external_source_units" ] = "ut_map_external_source_units";
+	$projectEntities[ "Search Buildings" ] = array( "url" => "Search_Buildings", "type" => 1 );
+	$projectEntitiesReverse[ "Search_Buildings" ] = "Search Buildings";
+	$projectEntities[ "Export and Import Buildings" ] = array( "url" => "Export_and_Import_Buildings", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Buildings" ] = "Export and Import Buildings";
+	$projectEntities[ "Export and Import Areas" ] = array( "url" => "Export_and_Import_Areas", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Areas" ] = "Export and Import Areas";
+	$projectEntities[ "Export and Import Units" ] = array( "url" => "Export_and_Import_Units", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Units" ] = "Export and Import Units";
+	$projectEntities[ "List of Countries" ] = array( "url" => "List_of_Countries", "type" => 1 );
+	$projectEntitiesReverse[ "List_of_Countries" ] = "List of Countries";
+	$projectEntities[ "Export and Import Rooms" ] = array( "url" => "Export_and_Import_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Rooms" ] = "Export and Import Rooms";
+	$projectEntities[ "Export and Import User Types" ] = array( "url" => "Export_and_Import_User_Types", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_User_Types" ] = "Export and Import User Types";
+	$projectEntities[ "Export and Import Users" ] = array( "url" => "Export_and_Import_Users", "type" => 1 );
+	$projectEntitiesReverse[ "Export_and_Import_Users" ] = "Export and Import Users";
+	$projectEntities[ "Assign Rooms" ] = array( "url" => "Assign_Rooms", "type" => 1 );
+	$projectEntitiesReverse[ "Assign_Rooms" ] = "Assign Rooms";
+	$projectEntities[ "ut_map_external_source_users" ] = array( "url" => "ut_map_external_source_users", "type" => 1 );
+	$projectEntitiesReverse[ "ut_map_external_source_users" ] = "ut_map_external_source_users";
+	$projectEntities[ "Unee-T Enterprise Account" ] = array( "url" => "unee_t_enterprise_account", "type" => 1 );
+	$projectEntitiesReverse[ "unee_t_enterprise_account" ] = "Unee-T Enterprise Account";
+	$projectEntities[ "All Properties by Countries" ] = array( "url" => "all_properties_by_countries", "type" => 1 );
+	$projectEntitiesReverse[ "all_properties_by_countries" ] = "All Properties by Countries";
+	$projectEntities[ "SuperAdmin - manage UNTE admins" ] = array( "url" => "superadmin___manage_unte_admins", "type" => 1 );
+	$projectEntitiesReverse[ "superadmin___manage_unte_admins" ] = "SuperAdmin - manage UNTE admins";
+	$projectEntities[ "Super Admin - Manage Organization" ] = array( "url" => "super_admin___manage_organization", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_organization" ] = "Super Admin - Manage Organization";
+	$projectEntities[ "Super Admin - Manage API Keys" ] = array( "url" => "super_admin___manage_api_keys", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_api_keys" ] = "Super Admin - Manage API Keys";
+	$projectEntities[ "Super Admin - Manage MEFE Master User" ] = array( "url" => "super_admin___manage_mefe_master_user1", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___manage_mefe_master_user1" ] = "Super Admin - Manage MEFE Master User";
+	$projectEntities[ "Super Admin - Default sot for Unee-T objects" ] = array( "url" => "super_admin___default_sot_for_unee_t_objects", "type" => 1 );
+	$projectEntitiesReverse[ "super_admin___default_sot_for_unee_t_objects" ] = "Super Admin - Default sot for Unee-T objects";
+	$projectEntities[ "User Permissions" ] = array( "url" => "user_permissions", "type" => 1 );
+	$projectEntitiesReverse[ "user_permissions" ] = "User Permissions";
+	$projectEntities[ "uneet_enterprise_uggroups" ] = array( "url" => "uneet_enterprise_uggroups", "type" => 0 );
+	$projectEntitiesReverse[ "uneet_enterprise_uggroups" ] = "uneet_enterprise_uggroups";
+	$projectEntities[ "Search list of possible assignees" ] = array( "url" => "search_list_of_possible_assignees", "type" => 1 );
+	$projectEntitiesReverse[ "search_list_of_possible_assignees" ] = "Search list of possible assignees";
+	$projectEntities[ "Sources of Truth" ] = array( "url" => "sources_of_truth", "type" => 1 );
+	$projectEntitiesReverse[ "sources_of_truth" ] = "Sources of Truth";
+	$projectEntities[ "Organization Default Area" ] = array( "url" => "organization_default_area", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_area" ] = "Organization Default Area";
+	$projectEntities[ "Organization Default L1P" ] = array( "url" => "organization_default_l1p", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_l1p" ] = "Organization Default L1P";
+	$projectEntities[ "Search list of possible properties" ] = array( "url" => "search_list_of_possible_properties", "type" => 1 );
+	$projectEntitiesReverse[ "search_list_of_possible_properties" ] = "Search list of possible properties";
+	$projectEntities[ "Organization Default L2P" ] = array( "url" => "organization_default_l2p", "type" => 1 );
+	$projectEntitiesReverse[ "organization_default_l2p" ] = "Organization Default L2P";
 }
 
 function findTable( $table ) {
@@ -2980,6 +3227,9 @@ function GetTableURL($table = "")
 	if(!$table)
 		$table=$strTableName;
 
+	if(!$table) {
+		return "";
+	}
 	fillProjectEntites();
 
 	if( isset( $projectEntities[ $table ] ) )
@@ -3074,8 +3324,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["DeleteAssociatedFile"] = false;
 	$g_defaultOptionValues["denyDuplicates"] = false;
 	$g_defaultOptionValues["DependentLookups"] = array();
-	$g_defaultOptionValues["dependentFilterName"] = "";
-	$g_defaultOptionValues["dependentFilters"] = array();
 	$g_defaultOptionValues["descendingOrder"] = false;
 	$g_defaultOptionValues["DisplayField"] = "";
 //	E
@@ -3092,6 +3340,7 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["FieldType"] = "";
 	$g_defaultOptionValues["FieldPermissions"] = false;
 	$g_defaultOptionValues["Filename"] = "";
+	$g_defaultOptionValues["filterBy"] = 0;
 	$g_defaultOptionValues["filterFields"] = array();
 	$g_defaultOptionValues["filterFormat"] = FF_VALUE_LIST;
 	$g_defaultOptionValues["filterIntervals"] = array();
@@ -3115,7 +3364,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["googleLikeFields"] = array();
 	$g_defaultOptionValues["GoodName"] = "";
 //	H
-	$g_defaultOptionValues["hasDependentFilter"] = false;
 	$g_defaultOptionValues["hasEncryptedFields"] = false;
 	$g_defaultOptionValues["hideEmptyFieldsOnView"] = false;
 	$g_defaultOptionValues["HorizontalLookup"] = false;
@@ -3140,6 +3388,7 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["isDisplayLoading"] = false;
 	$g_defaultOptionValues["tableType"] = "";
 	$g_defaultOptionValues["IsRequired"] = false;
+	$g_defaultOptionValues["insertNull"] = false;
 	$g_defaultOptionValues["isResizeColumns"] = false;
 	$g_defaultOptionValues["isSeparate"] = false;
 	$g_defaultOptionValues["UpdateLatLng"] = false;
@@ -3171,6 +3420,8 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["LookupConnId"] = "";
 	$g_defaultOptionValues["LastYearFactor"] = 10;
 	$g_defaultOptionValues["LCType"] = LCT_DROPDOWN;
+	$g_defaultOptionValues["listPageId"] = "";
+	$g_defaultOptionValues["addPageId"] = "";
 	$g_defaultOptionValues["LinkField"] = "";
 	$g_defaultOptionValues["LinkFieldType"] = 0;
 	$g_defaultOptionValues["LinkPrefix"] = "";
@@ -3222,7 +3473,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["pageSize"] = 0;
 	$g_defaultOptionValues["panelSearchFields"] = array();
 	$g_defaultOptionValues["parentFilterField"] = "";
-	$g_defaultOptionValues["parentFilters"] = array();
 	$g_defaultOptionValues["printFriendly"] = false;
 	$g_defaultOptionValues["printFields"] = array();
 	$g_defaultOptionValues["popupPagesLayoutNames"] = array();
@@ -3237,6 +3487,7 @@ function GetTableByShort( $shortTName )
 
 	$g_defaultOptionValues["reportGroupFields"] = false;
 	$g_defaultOptionValues["reportGroupFieldsData"] = array();
+	$g_defaultOptionValues["reportGroupFieldsList"] = array();
 	$g_defaultOptionValues["reportHorizontalSummary"] = false;
 	$g_defaultOptionValues["reportVerticalSummary"] = false;
 	$g_defaultOptionValues["reportPageSummary"] = false;
@@ -3310,6 +3561,8 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["ViewFormat"] = "";
 //	W
 	$g_defaultOptionValues["warnLeavingPages"] = false;
+	$g_defaultOptionValues["weekdays"] = "";
+	$g_defaultOptionValues["weekdayMessage"] = array();
 //	X
 //	Y
 //	Z
@@ -3318,6 +3571,7 @@ function GetTableByShort( $shortTName )
 //	A
 	$g_settingsType["Absolute"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["acceptFileTypes"] = SETTING_TYPE_EDIT;
+	$g_settingsType["acceptFileTypesHtml"] = SETTING_TYPE_EDIT;
 	$g_settingsType["AllowToAdd"] = SETTING_TYPE_EDIT;
 	$g_settingsType["autoCompleteFields"] = SETTING_TYPE_EDIT;
 	$g_settingsType["autoCompleteFieldsOnEdit"] = SETTING_TYPE_EDIT;
@@ -3374,6 +3628,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["InitialYearFactor"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ImageHeight"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ImageWidth"] = SETTING_TYPE_VIEW;
+	$g_settingsType["insertNull"] = SETTING_TYPE_EDIT;
 	$g_settingsType["IsRequired"] = SETTING_TYPE_EDIT;
 	$g_settingsType["isSeparate"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["UpdateLatLng"] = SETTING_TYPE_EDIT;
@@ -3383,6 +3638,8 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["Label"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["LastYearFactor"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LCType"] = SETTING_TYPE_EDIT;
+	$g_settingsType["listPageId"] = SETTING_TYPE_EDIT;
+	$g_settingsType["addPageId"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LinkField"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LinkFieldType"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LinkPrefix"] = SETTING_TYPE_VIEW;
@@ -3410,6 +3667,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["NewSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["nRows"] = SETTING_TYPE_EDIT;
 	$g_settingsType["nSecOptions"] = ADVSECURITY_NONE;
+	$g_settingsType["NumberOfChars"] = SETTING_TYPE_VIEW;
 //	O
 	$g_settingsType["ownerTable"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["OraSequenceName"] = SETTING_TYPE_GLOBAL;
@@ -3437,6 +3695,7 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["ThumbnailSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ThumbHeight"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ThumbWidth"] = SETTING_TYPE_VIEW;
+	$g_settingsType["truncateText"] = SETTING_TYPE_VIEW;
 //	U
 	$g_settingsType["UploadFolder"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["UploadCodeExpression"] = SETTING_TYPE_GLOBAL;
@@ -3449,9 +3708,17 @@ function GetTableByShort( $shortTName )
 	$g_settingsType["videoWidth"] = SETTING_TYPE_VIEW;
 	$g_settingsType["videoTitleField"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ViewFormat"] = SETTING_TYPE_VIEW;
-//	W
-//	X
-//	Y
-//	Z
+
+	$g_settingsType["multipleImgMode"] = SETTING_TYPE_VIEW;
+	$g_settingsType["maxImages"] = SETTING_TYPE_VIEW;
+	$g_settingsType["showGallery"] = SETTING_TYPE_VIEW;
+	$g_settingsType["galleryMode"] = SETTING_TYPE_VIEW;
+	$g_settingsType["captionMode"] = SETTING_TYPE_VIEW;
+	$g_settingsType["captionField"] = SETTING_TYPE_VIEW;
+	$g_settingsType["imageBorder"] = SETTING_TYPE_VIEW;
+	$g_settingsType["imageFullWidth"] = SETTING_TYPE_VIEW;
+
+	$g_settingsType["weekdays"] = SETTING_TYPE_EDIT;
+	$g_settingsType["weekdayMessage"] = SETTING_TYPE_EDIT;
 
 ?>

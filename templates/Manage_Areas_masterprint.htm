@@ -28,7 +28,7 @@
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="panel-only" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  rnr-b-grid rnr-gridtable" 
-	cellpadding="0" data-brick="grid"
+	cellpadding="0" 
 	data-body-height="1"
 >
 						<thead>
@@ -58,8 +58,8 @@
 	 
 		{BEGIN is_default_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default">
-	{$label Manage_Areas is_default }	</label>
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="is_default">
+	{$label Manage_Areas is_default }	</span>
 {END is_default_fieldheadercolumn}
 
 	
@@ -83,8 +83,8 @@
 	 
 		{BEGIN country_code_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
-	{$label Manage_Areas country_code }	</label>
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="country_code">
+	{$label Manage_Areas country_code }	</span>
 {END country_code_fieldheadercolumn}
 
 	
@@ -108,8 +108,8 @@
 	 
 		{BEGIN area_name_fieldheadercolumn}
  
-	<label data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
-	{$label Manage_Areas area_name }	</label>
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="area_name">
+	{$label Manage_Areas area_name }	</span>
 {END area_name_fieldheadercolumn}
 
 	
@@ -205,7 +205,6 @@
 											{END grid_row}
 					</tbody>
 													<tfoot>
-			{BEGIN totals_row}
 					
 		 
 					 
@@ -265,8 +264,7 @@
 	{END cellblock_grid_footcell_field2}
 							</tr>
 					
-					{END totals_row}
-			</tfoot>
+					</tfoot>
 				</table>
 {END grid_block}
 								</div>

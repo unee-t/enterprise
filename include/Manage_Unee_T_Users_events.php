@@ -54,11 +54,96 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Manage Unee-T Users - Add Page';
+		$values['creation_method'] = 'Manage_Unee_T_Users_Add_Page';
 
 	// The value for the person status at creation in this interface should be 2 (Active)
 	
 		$values['person_status_id'] = 2;
+
+	// We are creating this in Unee-T
+
+		$values['is_unee_t_account_needed'] = 1;
+
+	# We  record the id of the system that is the source of truth for this organization
+		
+		# What is the organization id for the logged in user?
+
+			$data["organization_id"] = $_SESSION['organizationLoggedInUser'];
+
+		#  Make sure we have a default system id
+
+			if (EMPTY ($values["external_system"]))
+			{
+			
+				$rs_external_system_id = DB::Select("ut_organization_default_external_system", $data );
+
+				while( $record = $rs_external_system_id->fetchAssoc() )
+
+			# We replace the empty value with the default
+
+				$values["external_system"] = $record["designation"];
+			}
+
+			elseif ($values['external_system'] = 'null')
+			{
+			
+				$rs_external_system_id = DB::Select("ut_organization_default_external_system", $data );
+
+				while( $record = $rs_external_system_id->fetchAssoc() )
+
+			# We replace the 'null' value with the default
+
+				$values["external_system"] = $record["designation"];
+			}
+
+		#  Make sure we have a default table id
+
+			if (EMPTY ($values["external_table"]))
+			{
+			
+				$rs_external_table= DB::Select("ut_organization_default_table_persons", $data );
+
+				while( $record = $rs_external_table->fetchAssoc() )
+
+			# We replace the empty value with the default
+
+				$values["external_table"] = $record["person_table"];
+			}
+
+			elseif ($values["external_table"] = 'null')
+			{
+			
+				$rs_external_table = DB::Select("ut_organization_default_table_persons", $data );
+
+				while( $record = $rs_external_table->fetchAssoc() )
+
+			# We replace the 'null' value with the default
+
+				$values["external_table"] = $record["person_table"];
+			}
+
+		#  Make sure we have an external id. If empty, we use the email address of the user.
+
+			if (EMPTY ($values["external_id"]))
+			{
+	
+			# We replace the empty value with the default
+
+				$values["external_id"] = $values['email'];
+			}
+
+			elseif ($values["external_id"] = '')
+			{
+	
+			# We replace the empty value with the default
+
+				$values["external_id"] = $values['email'];
+			}
+
+			else
+			{
+				# We do nothing
+			}
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.
@@ -149,7 +234,7 @@ function BeforeEdit(&$values, $where, &$oldvalues, &$keys, &$message, $inline, &
 
 	// What is the creation method
 
-		$values['update_method'] = 'Manage Unee-T Users - Edit Page';
+		$values['update_method'] = 'Manage_Unee_T_Users_Edit_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.
@@ -267,7 +352,7 @@ function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 
 	// What is the creation method
 
-		$values['creation_method'] = 'Manage Unee-T Users - Import';
+		$values['creation_method'] = 'Manage_Unee_T_Users_Import_Page';
 
 	// we capture the organisation id of the user whi updated this record.
 
@@ -283,7 +368,7 @@ function BeforeInsert(&$rawvalues, &$values, &$pageObject, &$message)
 
 	// What is the creation method
 
-		$values['update_method'] = 'Manage Unee-T Users - Import';
+		$values['update_method'] = 'Manage_Unee_T_Users_Import_Page';
 
 // Place event code here.
 // Use "Add Action" button to add code snippets.

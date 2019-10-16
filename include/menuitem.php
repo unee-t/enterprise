@@ -56,6 +56,12 @@ class MenuItem
 	 */
 	var $pageType;
 	/**
+	 * id of page
+	 *
+	 * @var string
+	 */
+	var $pageId = "";
+	/**
 	 * Show this link or not
 	 *
 	 * @var bool
@@ -119,6 +125,11 @@ class MenuItem
 	var $comments;
 	var $icon;
 	var $iconType;
+	
+	/**
+	 * 0 - always, 1 - only in collapsed column
+	 */
+	var $iconShow;
 	var $color;
 	
 	
@@ -164,9 +175,11 @@ class MenuItem
 		$this->linkType = $menuItemInfo['linkType'];
 		$this->nameType = $menuItemInfo['nameType'];
 		$this->pageType = $menuItemInfo['pageType'];			
+		$this->pageId = $menuItemInfo['pageId'];
 		$this->openType = $menuItemInfo['openType'];
 		$this->icon = $menuItemInfo['icon'];
 		$this->iconType = $menuItemInfo['iconType'];
+		$this->iconShow = $menuItemInfo['iconShow'];
 		
 		// show as link attribute
 		$this->showAsLink = $this->checkLinkShowStatus();
@@ -637,16 +650,13 @@ class MenuItem
 		{
 			if( $this->isTreelike() )
 			{
-				$attrs["data-toggle"] = "collapse";
+				$attrs["data-toggle"] = "menu-collapse";
 				$attrs["data-target"] = "#submenu" . $this->id;
 			}
 			else 
 			{
 				$attrs["class"] = "dropdown-toggle";
-				if( $this->isDrillDown() )
-					$attrs["data-toggle"] = "dropdown";
-				else
-					$attrs["data-toggle"] = "nested-dropdown";
+				$attrs["data-toggle"] = "nested-dropdown";
 				$attrs["aria-haspopup"] = "true";
 				$attrs["aria-expanded"] = "false";
 			}
@@ -663,29 +673,34 @@ class MenuItem
 			$attrs["link"] = "External";
 		}
 		
-		if( $this->linkType == "Internal" && $this->pageType == "WebReports" )
+		if( $this->linkType == "Internal" && $this->pageType == "webreports" )
 		{
 			$attrs["href"] = GetTableLink("webreport");
 			$attrs["value"] = GetTableLink("webreport");
 		}
 		elseif( $this->linkType == "Internal" )
 		{
-			// add menu id param. Used for setting current menu element
-			$menuIdGetParam = '';
-			if ($this->menuTableMap[ $this->table ][ strtolower($this->pageType) ] > 1 )
-				$menuIdGetParam = 'menuItemId='.$this->id;
-			if($this->params)
+			$params = array();
+
+			if ( $this->pageId != "" )
 			{
-				if($menuIdGetParam)
-					$menuIdGetParam .='&'.$this->params;
-				else
-					$menuIdGetParam .= $this->params;
+				$params[] = 'page=' . $this->pageId; 
 			}
-			
-			$attrs["href"] = GetTableLink(GetTableURL($this->table), strtolower($this->pageType), $menuIdGetParam);	
-			$attrs["value"] = GetTableLink(GetTableURL($this->table), strtolower($this->pageType), $menuIdGetParam);
 				
-		} 
+
+			// add menu id param. Used for setting current menu element
+			if ( $this->menuTableMap[ $this->table ][ strtolower($this->pageType) ] > 1 )
+				$params[] = 'menuItemId=' . $this->id;
+
+			if( $this->params )
+				$params[] = $this->params;
+
+			$getParams = implode("&", $params);
+			
+			$attrs["href"] = GetTableLink(GetTableURL($this->table), strtolower($this->pageType), $getParams);	
+			$attrs["value"] = GetTableLink(GetTableURL($this->table), strtolower($this->pageType), $getParams);
+				
+		}  
 		elseif( $this->linkType == "External" )
 		{
 			$attrs["href"] = $this->href;
@@ -703,6 +718,9 @@ class MenuItem
 	{	
 		// assign title between tag a
 		$title = $this->title;
+		$arrowIcon = "glyphicon-triangle-right";
+		if( isRTL() )
+			$arrowIcon = "glyphicon-triangle-left";
 		if( $this->isBootstrap() && $this->isShowAsGroup() && !$this->isWelcome() )
 		{
 			if( !$this->isTreelike() )
@@ -710,15 +728,23 @@ class MenuItem
 				if( $showSubmenu )
 					$title .= '<span class="caret"></span>';
 				else
-					$title = '<span class="glyphicon glyphicon-triangle-right"></span>' . $title;
+					$title = '<span class="glyphicon '.$arrowIcon.'"></span> ' . $title;
 			}
 			else
 			{
-					$title = '<span class="menu-triangle glyphicon glyphicon-triangle-right"></span>' . $title;
+					$title = '<span class="menu-triangle glyphicon '.$arrowIcon.'"></span> ' . $title;
 			}
 		}
-		$title = $this->getIconHTML() . ' ' . $title;
-		$xt->assign("item".$this->id."_title", $title );
+		$icon = $this->getIconHTML();
+		if( $icon ) {
+			if( $this->iconShow == 1 )
+				$xt->assign("item".$this->id."_icon", $icon.' ' );
+			$xt->assign("item".$this->id."_collicon", $icon.' ' );
+		}
+		else 
+			$xt->assign("item".$this->id."_firstcap", substr( trim( $this->title ), 0, 1 ) );
+			$xt->assign("item".$this->id."_tooltip", runner_htmlspecialchars( $this->title )) ;
+			$xt->assign("item".$this->id."_title", $title );
 
 		$attrs = $this->getMenuItemAttributes( $showSubmenu );
 		
@@ -941,9 +967,5 @@ class MenuItem
 		return MENU_VERTICAL == $this->menuMode && ProjectSettings::isMenuTreelike( $this->menuId );
 	}
 
-	function isDrillDown() 
-	{
-		return !$this->isWelcome() && !$this->isTreelike() && ProjectSettings::isMenuDrillDown( $this->menuId );
-	}
 }
 ?>

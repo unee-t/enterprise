@@ -102,6 +102,7 @@ class SearchPage extends RunnerPage
 		
 		$this->addCommonJs();
 		$this->doCommonAssignments();
+		$this->prepareCollapseButton();
 
 		$this->fillSetCntrlMaps();
 		
@@ -212,6 +213,8 @@ class SearchPage extends RunnerPage
 			}
 		}
 		
+		$this->setLangParams();
+		
 		if( $this->mode !== SEARCH_DASHBOARD ) 
 			$this->assignBody();
 		
@@ -245,6 +248,12 @@ class SearchPage extends RunnerPage
 			$this->xt->assign( "dynamic", "true" );
 			$this->xt->assign( "cname", $this->chartName );
 		}
+		
+		if( $this->isPD() )
+		{
+			$this->xt->assign( "cancel_button", $this->mode == SEARCH_POPUP );
+			$this->xt->assign( "back_button", $this->mode != SEARCH_POPUP );
+		}
 	}
 	
 	protected function displaySearchPage()
@@ -255,7 +264,7 @@ class SearchPage extends RunnerPage
 		
 		if( $this->mode == SEARCH_SIMPLE )
 		{
-			$this->display($templateFile);
+			$this->display( $templateFile );
 			return;
 		}
 		
@@ -263,7 +272,8 @@ class SearchPage extends RunnerPage
 		$this->xt->assign("footer", false);
 		$this->xt->assign("body", $this->body);
 		
-		$this->displayAJAX($templateFile, $this->flyId + 1);
+		$this->displayAJAX( $templateFile, $this->flyId + 1 );
+		exit();
 	}
 	
 	function getLayoutVersion() 
@@ -296,10 +306,28 @@ class SearchPage extends RunnerPage
 		return $prms;
 	}
 	
-	
 	protected function checkShowBreadcrumbs() 
 	{
 		return $this->mode == SEARCH_SIMPLE;
-	}	
+	}
+
+	public static function readSearchModeFromRequest()
+	{
+		$mode = postvalue("mode"); 
+		
+		if( $mode == "dashsearch" )
+			return SEARCH_DASHBOARD;
+		
+		if( $mode == "inlineLoadCtrl" )
+		{
+			// load search panel control
+			return SEARCH_LOAD_CONTROL;
+		}
+
+		if( postvalue("onFly") )
+			return SEARCH_POPUP;
+		
+		return SEARCH_SIMPLE;
+	}
 }
 ?>

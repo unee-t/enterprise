@@ -344,24 +344,6 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("property_groups_areas", " " . "Property Groups Areas");
-$table = "Unee-T Enterprise Configuration";
-$mask="";
-if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
-	$mask .= "A";
-if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
-	$mask .= "E";
-if( pageEnabled($table, 'delete') )
-	$mask .= "D";
-if( pageEnabled($table, 'import') )
-	$mask .= "I";
-if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
-	$mask .= "S";
-if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
-	$mask .= "P";
-$mask .= "M";
-
-$pageMask[$table] = $mask;
-$tables[$table] = array("Unee_T_Enterprise_Configuration", " " . "Unee-T Enterprise Configuration");
 $table = "ut_external_sot_for_unee_t_objects";
 $mask="";
 if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
@@ -431,175 +413,694 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("external_property_level_1_buildings", " " . "External Property Level 1 Buildings");
+$table = "Manage Rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Manage_Rooms", " " . "Manage Rooms");
+$table = "Assign Areas to User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Areas_to_User", " " . "Assign Areas to User");
+$table = "Search Users";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Users", " " . "Search Users");
+$table = "Assign Buildings to User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout = new TLayout("admin_rights_list_bootstrap", "OfficeOffice", "MobileOffice");
-$layout->version = 3;
-	$layout->bootstrapTheme = "default";
-		$layout->customCssPageName = "_admin_rights_list";
-$layout->blocks["top"] = array();
-$layout->containers["top"] = array();
-$layout->container_properties["top"] = array(  );
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"menu" );
-$layout->containers["menu"] = array();
-$layout->container_properties["menu"] = array(  );
-$layout->containers["menu"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"hdr" );
-$layout->containers["hdr"] = array();
-$layout->container_properties["hdr"] = array(  );
-$layout->containers["hdr"][] = array("name"=>"logo",
-	"block"=>"logo_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Buildings_to_User", " " . "Assign Buildings to User");
+$table = "property_level_1_buildings";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->containers["hdr"][] = array("name"=>"bsnavbarcollapse",
-	"block"=>"collapse_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("property_level_1_buildings", " " . "Property Level 1 Buildings");
+$table = "Assign Units to User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["hdr"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Units_to_User", " " . "Assign Units to User");
+$table = "property_level_2_units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("property_level_2_units", " " . "Property Level 2 Units");
+$table = "Assign Rooms to User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["menu"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"menu_1" );
-$layout->containers["menu_1"] = array();
-$layout->container_properties["menu_1"] = array(  );
-$layout->containers["menu_1"][] = array("name"=>"hmenu",
-	"block"=>"menu_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Rooms_to_User", " " . "Assign Rooms to User");
+$table = "property_level_3_rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->containers["menu_1"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"more" );
-$layout->containers["more"] = array();
-$layout->container_properties["more"] = array(  );
-$layout->containers["more"][] = array("name"=>"morebutton",
-	"block"=>"more_list", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("property_level_3_rooms", " " . "Property Level 3 Rooms");
+$table = "Search Rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["more"][] = array("name"=>"loggedas",
-	"block"=>"security_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Rooms", " " . "Search Rooms");
+$table = "Search Units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["more"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Units", " " . "Search Units");
+$table = "external_property_level_2_units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("external_property_level_2_units", " " . "External Property Level 2 Units");
+$table = "Search All Units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["menu_1"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"more_1" );
-$layout->containers["more_1"] = array();
-$layout->container_properties["more_1"] = array(  );
-$layout->containers["more_1"][] = array("name"=>"search",
-	"block"=>"searchform_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_All_Units", " " . "Search All Units");
+$table = "ut_map_external_source_units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->skins["more_1"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("ut_map_external_source_units", " " . "Ut Map External Source Units");
+$table = "Search Buildings";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Search_Buildings", " " . "Search Buildings");
+$table = "Export and Import Buildings";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["menu_1"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_Buildings", " " . "Export and Import Buildings");
+$table = "Export and Import Areas";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_Areas", " " . "Export and Import Areas");
+$table = "Export and Import Units";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["menu"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_Units", " " . "Export and Import Units");
+$table = "List of Countries";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("List_of_Countries", " " . "List of Countries");
+$table = "Export and Import Rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"breadcrumbs" );
-$layout->containers["breadcrumbs"] = array();
-$layout->container_properties["breadcrumbs"] = array(  );
-$layout->containers["breadcrumbs"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"bc" );
-$layout->containers["bc"] = array();
-$layout->container_properties["bc"] = array(  );
-$layout->containers["bc"][] = array("name"=>"breadcrumbs",
-	"block"=>"breadcrumbs", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_Rooms", " " . "Export and Import Rooms");
+$table = "Export and Import User Types";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["bc"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_User_Types", " " . "Export and Import User Types");
+$table = "Export and Import Users";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("Export_and_Import_Users", " " . "Export and Import Users");
+$table = "Assign Rooms";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["breadcrumbs"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("Assign_Rooms", " " . "Assign Rooms");
+$table = "ut_map_external_source_users";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("ut_map_external_source_users", " " . "Ut Map External Source Users");
+$table = "Unee-T Enterprise Account";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"messagerow" );
-$layout->containers["messagerow"] = array();
-$layout->container_properties["messagerow"] = array(  );
-$layout->containers["messagerow"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"message" );
-$layout->containers["message"] = array();
-$layout->container_properties["message"] = array(  );
-$layout->containers["message"][] = array("name"=>"message",
-	"block"=>"message_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("unee_t_enterprise_account", " " . "Unee-T Enterprise Account");
+$table = "All Properties by Countries";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["message"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("all_properties_by_countries", " " . "All Properties by Countries");
+$table = "SuperAdmin - manage UNTE admins";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("superadmin___manage_unte_admins", " " . "Manage UNTE admins");
+$table = "Super Admin - Manage Organization";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->skins["messagerow"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("super_admin___manage_organization", " " . "Super Admin - Manage Organization");
+$table = "Super Admin - Manage API Keys";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("super_admin___manage_api_keys", " " . "Manage UNTE API Keys");
+$table = "Super Admin - Manage MEFE Master User";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"ugcontrols" );
-$layout->containers["ugcontrols"] = array();
-$layout->container_properties["ugcontrols"] = array(  );
-$layout->containers["ugcontrols"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"save" );
-$layout->containers["save"] = array();
-$layout->container_properties["save"] = array(  );
-$layout->containers["save"][] = array("name"=>"ugbuttons",
-	"block"=>"", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("super_admin___manage_mefe_master_user1", " " . "MEFE Master User");
+$table = "Super Admin - Default sot for Unee-T objects";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->skins["save"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("super_admin___default_sot_for_unee_t_objects", " " . "Sources of Truth");
+$table = "User Permissions";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("user_permissions", " " . "User Permissions");
+$table = "uneet_enterprise_uggroups";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
 
-$layout->containers["ugcontrols"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"filter" );
-$layout->containers["filter"] = array();
-$layout->container_properties["filter"] = array(  );
-$layout->containers["filter"][] = array("name"=>"ugrightbuttons",
-	"block"=>"savebuttons_block", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("uneet_enterprise_uggroups", " " . "Uneet Enterprise Uggroups");
+$table = "Search list of possible assignees";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["filter"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("search_list_of_possible_assignees", " " . "Search list of possible assignees");
+$table = "Sources of Truth";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("sources_of_truth", " " . "Sources of Truth");
+$table = "Organization Default Area";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["ugcontrols"] = "";
+$pageMask[$table] = $mask;
+$tables[$table] = array("organization_default_area", " " . "Organization Default Area");
+$table = "Organization Default L1P";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
+$pageMask[$table] = $mask;
+$tables[$table] = array("organization_default_l1p", " " . "Organization Default L1P");
+$table = "Search list of possible properties";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"grcontrols" );
-$layout->containers["grcontrols"] = array();
-$layout->container_properties["grcontrols"] = array(  );
-$layout->containers["grcontrols"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"groupcontrols" );
-$layout->containers["groupcontrols"] = array();
-$layout->container_properties["groupcontrols"] = array(  );
-$layout->containers["groupcontrols"][] = array("name"=>"bsugrights_groupbuttons",
-	"block"=>"", "substyle"=>1  );
+$pageMask[$table] = $mask;
+$tables[$table] = array("search_list_of_possible_properties", " " . "Search list of possible properties");
+$table = "Organization Default L2P";
+$mask="";
+if( pageEnabled($table, 'add') || pageEnabled($table, 'inline_add') )
+	$mask .= "A";
+if( pageEnabled($table, 'edit') || pageEnabled($table, 'inline_edit') )
+	$mask .= "E";
+if( pageEnabled($table, 'delete') )
+	$mask .= "D";
+if( pageEnabled($table, 'import') )
+	$mask .= "I";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled($table, 'export')  )
+	$mask .= "P";
+$mask .= "M";
 
-$layout->skins["groupcontrols"] = "";
-
-
-$layout->skins["grcontrols"] = "";
-
-
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"uggroups" );
-$layout->containers["uggroups"] = array();
-$layout->container_properties["uggroups"] = array(  );
-$layout->containers["uggroups"][] = array("name"=>"bsugrightsgroups",
-	"block"=>"", "substyle"=>1  );
-
-$layout->skins["uggroups"] = "";
-
-
-$layout->containers["top"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"permgrid" );
-$layout->containers["permgrid"] = array();
-$layout->container_properties["permgrid"] = array(  );
-$layout->containers["permgrid"][] = array("name"=>"ugrightsblock",
-	"block"=>"", "substyle"=>1  );
-
-$layout->skins["permgrid"] = "";
-
-
-$layout->skins["top"] = "";
-
-$layout->blocks["top"][] = "top";
-$page_layouts["admin_rights_list"] = $layout;
-
-
-
+$pageMask[$table] = $mask;
+$tables[$table] = array("organization_default_l2p", " " . "Organization Default L2P");
 
 require_once('include/xtempl.php');
 require_once('classes/listpage.php');
@@ -608,8 +1109,9 @@ require_once('classes/rightspage.php');
 $xt = new Xtempl();
 
 $options = array();
-$options["pageType"] = PAGE_LIST;
-$options["id"] = postvalue("id") ? postvalue("id") : 1;
+$options["pageType"] = "admin_rights_list";
+$options["pageTable"] = GLOBAL_PAGES;
+$options["id"] = postvalue_number("id") ? postvalue_number("id") : 1;
 $options["mode"] = RIGHTS_PAGE;
 $options['xt'] = &$xt;
 
@@ -621,8 +1123,8 @@ $pageObject = ListPage::createListPage($strTableName, $options);
 
 if( postvalue("a") == "saveRights" )
 {
-	$modifiedRights = my_json_decode(postvalue('values'));
-	$pageObject->saveRights($modifiedRights);
+	$modifiedRights = my_json_decode(postvalue('data'));
+	$pageObject->saveRights( $modifiedRights );
 	return;
 }
 

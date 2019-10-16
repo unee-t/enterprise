@@ -1,7 +1,9 @@
 [data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"] > * > label,
 [data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"] > * > * > input,
 [data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"] > * > * > select,
+[data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"] > * > * > .r-readonly-control,
 [data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"][data-page="Manage_Units_view"][data-itemid="integrated_edit_field5"] > * > * > * > select {
   font-weight: bold;
-  font-size: 1.5em;
 }
+
+

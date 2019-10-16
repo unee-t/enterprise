@@ -11,8 +11,8 @@ class EditControlsContainer
 	
 	public $pageObject = null;
 	
-	public $pageAddLikeInline = false;
-	public $pageEditLikeInline = false;
+	public $pageLikeInline = false;
+	
 	public $tableBasedSearchPanelAdded = false;
 	
 	public $searchPanelActivated = false;
@@ -37,9 +37,10 @@ class EditControlsContainer
 		if($pageObject != null)
 		{
 			$this->pageObject = $pageObject;
-			$this->pageAddLikeInline = $pageObject->pageType == PAGE_ADD && $pageObject->mode == ADD_INLINE;
-			$this->pageEditLikeInline = $pageObject->pageType == PAGE_EDIT && $pageObject->mode == EDIT_INLINE;
 			$this->tName = $pageObject->tName;
+			
+			$this->pageLikeInline = $pageObject->pageType == PAGE_ADD && $pageObject->mode == ADD_INLINE ||
+				$pageObject->pageType == PAGE_EDIT && $pageObject->mode == EDIT_INLINE;
 		}
 		else 
 		{
@@ -82,8 +83,16 @@ class EditControlsContainer
 	
 	function addControlsJSAndCSS()
 	{
-		$pageTypes = array();
-		switch ($this->pageType)
+		$allowedPageTypes = array( PAGE_ADD, PAGE_EDIT, PAGE_VIEW, PAGE_LIST, 
+			PAGE_SEARCH, PAGE_REGISTER, PAGE_LOGIN );
+	
+		// showing if there is Search panel on the page		
+		$searchPanelActivated = $this->isSearchPanelActivated();
+		
+		if( !in_array( $this->pageType, $allowedPageTypes ) && !$searchPanelActivated ) 
+			return;
+
+		switch( $this->pageType )
 		{
 			case PAGE_ADD:
 				$pageTypeStr = "Add";
@@ -93,32 +102,24 @@ class EditControlsContainer
 				break;
 			case PAGE_VIEW:	
 			case PAGE_LIST:
-			case PAGE_SEARCH:
 				$pageTypeStr = "List";
-				break;
-			case PAGE_REGISTER:
-				$pageTypeStr = "RegisterOrSearch";
-				break;
+				break;		
 			default:
 				$pageTypeStr = "";
 		}
-		
-		// the indicator showing if there is the Search panel on the page		
-		$searchPanelActivated = $this->isSearchPanelActivated();
-		
-		if($pageTypeStr == "" && !$searchPanelActivated) 
-			return;
 
-		if($pageTypeStr != "" && $this->pageType != PAGE_SEARCH)
+		if( $pageTypeStr != "" )
 		{
-			$getEditFieldsFunc = "get".(($this->pageAddLikeInline || $this->pageEditLikeInline) ? "Inline" : "").$pageTypeStr."Fields";
-			if($this->pageAddLikeInline || $this->pageEditLikeInline)
+			$getEditFieldsFunc = "get".($this->pageLikeInline ? "Inline" : "").$pageTypeStr."Fields";
+			if( $this->pageLikeInline )
 				$appearOnPageFunc = "appearOnInline".$pageTypeStr;
 			else 
 				$appearOnPageFunc = "appearOn".$pageTypeStr."Page";
 		}
-		switch($this->pageType)
+		
+		switch( $this->pageType )
 		{
+			case PAGE_LOGIN:
 			case PAGE_REGISTER:
 				$fields = $this->pSetEdit->getPageFields();
 				break;
@@ -127,31 +128,36 @@ class EditControlsContainer
 				break;
 			default:
 				$fields = array();
-				if($getEditFieldsFunc)
+				if( $getEditFieldsFunc )
 					$fields = $this->pSetEdit->$getEditFieldsFunc();	
 		}
 		
 		// Addign fields that aren't appear at list page, but appear on search panel  
 		$searchFields = array();
-		if($searchPanelActivated)
+		if( $searchPanelActivated )
 		{
 			$searchFields = $this->pSetEdit->getPanelSearchFields();
 			$searchFields = array_merge($searchFields, $this->pSetEdit->getAllSearchFields());
-			$searchFields = array_unique($searchFields);
 			$fields = array_merge($searchFields, $fields);
 			$fields = array_unique($fields);			
 		}
+		
 		foreach( $fields as $i => $f )
 		{
 			$appear = false;
-			if($this->pageType == PAGE_REGISTER || $this->pageType == PAGE_SEARCH || in_array($f, $searchFields))
-				$appear = true;
-			else if($appearOnPageFunc) 
-				$appear = $this->pSetEdit->$appearOnPageFunc($f);
-			if($appear)
+			if( $this->pageType == PAGE_REGISTER || $this->pageType == PAGE_SEARCH 
+				|| $this->pageType == PAGE_LOGIN || in_array($f, $searchFields) )
 			{
-				$this->getControl($f)->addJSFiles();
-				$this->getControl($f)->addCSSFiles();
+				$appear = true;
+			} 
+			else if( $appearOnPageFunc )
+				$appear = $this->pSetEdit->$appearOnPageFunc($f);
+			
+			if( $appear )
+			{
+				$editControl = $this->getControl($f);
+				$editControl->addJSFiles();
+				$editControl->addCSSFiles();
 			}
 		}
 	}

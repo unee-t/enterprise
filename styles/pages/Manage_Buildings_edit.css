@@ -1,7 +1,9 @@
 [data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"] > * > label,
 [data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"] > * > * > input,
 [data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"] > * > * > select,
+[data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"] > * > * > .r-readonly-control,
 [data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"][data-page="Manage_Buildings_edit"][data-itemid="integrated_edit_field6"] > * > * > * > select {
   font-weight: bold;
-  font-size: 1.5em;
 }
+
+

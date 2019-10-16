@@ -65,14 +65,19 @@ class CrossTableReport
 	protected $dataGroupFunction = "";
 
 	protected $pdfJSON = false;
+
+	protected $selectedAxis ;
+
+	protected $pageObject;
 	
 	/**
 	 * @constructor
 	 * @param Array params
 	 * @param String strSQL
 	 */
-	function __construct( $params, $strSQL )
+	function __construct( $params, $strSQL, $pageObject )
 	{
+		$this->pageObject = $pageObject;
 		$this->pageType	= $params["pageType"];	
 		$this->tableName = $params["tableName"];
 		$this->setDbConnection();		
@@ -86,6 +91,7 @@ class CrossTableReport
 		$this->groupFieldsData = $params["groupFields"];
 		$this->fieldsTotalsData = $params["totals"];
 		
+		$this->selectedAxis = $params["selectedAxis"];
 		$this->showXSummary = $params["xSummary"];
 		$this->showYSummary = $params["ySummary"];
 		$this->showTotalSummary = $params["totalSummary"];
@@ -99,6 +105,8 @@ class CrossTableReport
 	
 		$this->xIntervalType = $this->getIntervalTypeByParam( "x", $this->xFName, $params["xType"] );
 		$this->yIntervalType = $this->getIntervalTypeByParam( "y", $this->yFName, $params["yType"] );
+
+		$this->correctCrosstabParams();
 		
 		$this->fillGridData( $strSQL, $params["headerClass"], $params["dataClass"] );
 	}
@@ -164,7 +172,7 @@ class CrossTableReport
 		foreach( $group_x as $key_x => $value_x )
 		{
 			if( $value_x != "" )
-				$this->group_header["data"][ $key_x ]["gr_value"] = $this->getAxisDisplayValue( $this->xFName, $this->xIntervalType, $value_x );
+				$this->group_header["data"][ $key_x ]["gr_value"] = $this->pageObject->formatGroupValue( $this->xFName, $this->xIntervalType, $value_x );
 			else
 				$this->group_header["data"][ $key_x ]["gr_value"] = $space;
 				
@@ -191,7 +199,7 @@ class CrossTableReport
 			$value_y = $group_y[ $key_y ];
 			
 			$crossRowsData[ $key_y ]["row_summary"] = $space;
-			$crossRowsData[ $key_y ]["group_y"] = $this->getAxisDisplayValue( $this->yFName, $this->yIntervalType, $value_y );
+			$crossRowsData[ $key_y ]["group_y"] = $this->pageObject->formatGroupValue( $this->yFName, $this->yIntervalType, $value_y );
 			$crossRowsData[ $key_y ]["id_row_summary"] = "total_y_".$key_y;
 			$crossRowsData[ $key_y ]["summary_class"] = $dataClass;
 			//$crossRowsData[ $key_y ]["gr_y_class"] = ""; 
@@ -521,18 +529,18 @@ class CrossTableReport
 		$isTime = $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME || IsTimeType($ftype);
 		
 		if ( $isTime )
-			$select_field = $this->dataGroupFunction."(".$this->connection->timeToSecWrapper( $this->dataField )."), ";
+			$select_field = $this->dataGroupFunction."(".$this->connection->timeToSecWrapper( $this->dataField ).")";
 		else
-			$select_field = $this->dataGroupFunction."(".$this->connection->addFieldWrappers( $this->dataField )."), ";
+			$select_field = $this->dataGroupFunction."(".$this->connection->addFieldWrappers( $this->dataField ).")";
 
 		if( $this->dataGroupFunction == "avg" && !IsDateFieldType($ftype) )
 		{
 			$sum_for_avg = !$isTime ? "sum(".$this->connection->addFieldWrappers( $this->dataField ).")" : "sum(".$this->connection->timeToSecWrapper( $this->dataField ).")";
-			$avg_func = ", " . $sum_for_avg . " as ".$this->connection->addFieldWrappers("avg_sum")
-				.", count(".$this->connection->addFieldWrappers( $this->dataField ).") as ".$this->connection->addFieldWrappers("avg_count");
+			$avg_func = $sum_for_avg . " as ".$this->connection->addFieldWrappers("avg_sum")
+				."count(".$this->connection->addFieldWrappers( $this->dataField ).") as ".$this->connection->addFieldWrappers("avg_count");
 		}
 		else
-			$avg_func = ", 1 as ".$this->connection->addFieldWrappers("avg_sum").", 1 as ".$this->connection->addFieldWrappers("avg_count");	
+			$avg_func = "1 as ".$this->connection->addFieldWrappers("avg_sum").", 1 as ".$this->connection->addFieldWrappers("avg_count");	
 		
 		
 		$whereClause = "";
@@ -558,17 +566,12 @@ class CrossTableReport
 			
 		}
 		
-		$gx0 = $group_x[0];
-		$gx1 = $group_x[1];
-		$gy0 = $group_y[0];
-		$gy1 = $group_y[1];
-		 
-		$selectClause = "select ".$select_field.$gy0.", ".$gx0. $avg_func;
-		$groupByClause = "group by ".$gx1.", ".$gy1;
-		$orderByClause = "order by ".$gx1.",".$gy1;
+		$selectClause = "select ".$select_field . ", " . $group_y . ", ".$group_x . ", " . $avg_func;
+		$groupByClause = "group by " . $group_x . ", " . $group_y;
+		$orderByClause = "order by " . $group_x . ", " . $group_y;
 		
 		if( $this->connection->dbType == nDATABASE_Oracle )
-			return $selectClause." from (".$tableSQL.")".$whereClause." ".$groupByClause." ".$orderByClause;
+			return $selectClause . " from (" . $tableSQL . ")" . $whereClause . " " . $groupByClause . " " . $orderByClause;
 		
 		if( $this->connection->dbType == nDATABASE_MSSQLServer )
 		{
@@ -576,36 +579,32 @@ class CrossTableReport
 			if( $pos )
 				$tableSQL = substr($tableSQL, 0, $pos);
 		}
-		return $selectClause." from (".$tableSQL.") as cross_table".$whereClause." ".$groupByClause." ".$orderByClause;
+		return $selectClause . " from (" . $tableSQL . ") as cross_table" . $whereClause . " " . $groupByClause . " " . $orderByClause;
 	}
 	
 	/**
 	 * FIx the name
 	 * @param Number index
-	 * @return Array
+	 * @return String
 	 */
 	protected function _getIntervalTypeData( $fName, $int_type )
 	{
-		// no $int_type case ??
-		//if( $int_type == -1 )
-		//	return array("", "");
-
+		$wrappedGoodFieldName = $this->connection->addFieldWrappers( $fName );
 		if( $int_type == 0 ) 
 		{
-			$wrappedGoodFieldName = $this->connection->addFieldWrappers( $fName );
-			return array( $wrappedGoodFieldName, $wrappedGoodFieldName );
+			return $wrappedGoodFieldName;
 		}
 
 		$ftype = $this->pSet->getFieldType( $fName );
 		
 		if( IsNumberType($ftype) )
-			return $this->getNumberTypeInterval($fName, $int_type);
+			return $this->connection->intervalExpressionNumber( $wrappedGoodFieldName, $int_type );
 		
 		if( IsCharType( $ftype ) )
-			return $this->getCharTypeInterval($fName, $int_type);
+			return $this->connection->intervalExpressionString( $wrappedGoodFieldName, $int_type );
 		
 		if( IsDateFieldType( $ftype ) )
-			return $this->getDateTypeInterval($fName, $int_type);
+			return $this->connection->intervalExpressionDate( $wrappedGoodFieldName, $int_type );
 	}
 	
 	/**
@@ -818,7 +817,7 @@ class CrossTableReport
 	 * @param String $axis
 	 * @return Array
 	 */
-	public function getCrossFieldsData( $axis )
+	 public function getCrossFieldsData( $axis )
 	{
 		$dataList = array();
 
@@ -922,155 +921,6 @@ class CrossTableReport
 		}
 
 		return "";
-	}
-	
-	/**
-	 * Get axes displyed values
-	 * @param String fName
-	 * @param Number intervalType
-	 * @param String value
-	 * @return String
-	 */
-	protected function getAxisDisplayValue( $fName, $intervalType, $value)
-	{
-		if( $value == "" || is_null( $value ) )
-			return $this->pdfJsonMode() ? "''" : "";	
-		
-		if( $intervalType == 0 ) 
-		{	
-			// The 'Normal' interval is set
-			$data = array( $fName => $value );
-			return $this->showDBValue( $fName, $data );		
-		}
-		
-		$ftype = $this->pSet->getFieldType( $fName );		
-		
-		if( IsNumberType( $ftype ) ) 
-		{
-			$start = $value - ($value % $intervalType);
-			/*
-			$mul = 1; 
-			$digits = 0;
-			while ( $mul < $intervalType ) {
-				++$digits;
-				$mul *= 10;
-			}
-			$modulus = $start > 0 ? $start : -$start;
-			if( strlen( $modulus ) < $digits + 1) {
-				$formatted = '0' . str_repeat("X", $digits );
-			} else {
-				$formatted = substr( $modulus, 0, strlen( $modulus ) - $digits ) . str_repeat("X", $digits );
-			}
-			if( $start < 0 ) {
-				$formatted = "-" . $formatted;
-			}
-			return $formatted;
-			*/
-
-			$end = $start + $intervalType;
-
-			$dataStart = array( $fName => $start );
-			$dataEnd = array( $fName => $end );
-			
-			if( $this->pdfJsonMode() ) 
-			{
-				$start = $this->showDBValue( $fName, $dataStart );
-				$end = $this->showDBValue( $fName, $dataEnd );
-				
-				// remove exessive ' wrappers: start "'1'", end "'2'"  --> "'1-2'" 
-				return substr( $start, 0 , strlen( $start ) - 1 )." - ".substr( $end, 1 );
-			}
-
-			return $this->showDBValue( $fName, $dataStart )." - ".$this->showDBValue( $fName, $dataEnd );
-		} 
-		
-		if( IsCharType( $ftype ) )
-		{
-			$result = xmlencode( substr( $value, 0, $intervalType ) );
-			return $this->pdfJsonMode() ? "'". jsreplace( $result ) ."'" : $result;
-		}
-		
-		if( IsDateFieldType( $ftype ) ) 
-		{
-			$result = $this->getDateIntervalDisplayedValue( $value, $intervalType );
-			return $this->pdfJsonMode() ? "'". jsreplace( $result ) ."'" : $result;
-		}
-		
-		return $this->pdfJsonMode() ? "''" : "";
-	}
-	
-	protected function getDateIntervalDisplayedValue( $value, $intervalType ) 
-	{
-		global $locale_info;
-		
-		$dvalue = substr($value, 0, 4).'-'.substr($value, 4, 2).'-'.substr($value, 6, 2);
-		
-		if( strlen( $value ) == 10 )
-			$dvalue.= " ".substr($value, 8, 2)."00:00";
-		elseif( strlen( $value ) == 12 )
-			$dvalue.= " ".substr($value, 8, 2).":".substr($value, 10, 2).":00";
-		
-		$tm = db2time( $dvalue );
-		if( !count( $tm ) )
-			return "";
-	
-		switch( $intervalType )
-		{
-			case 1: // DATE_INTERVAL_YEAR
-				return $tm[0];
-			case 2: // DATE_INTERVAL_QUARTER
-				return $tm[0]."/Q".$tm[1];
-			case 3: // DATE_INTERVAL_MONTH
-				return @$locale_info[ "LOCALE_SABBREVMONTHNAME".$tm[1] ]." ".$tm[0];
-			case 4: // DATE_INTERVAL_WEEK
-				$dates = $this->getDatesByWeek( $tm[1] + 1, $tm[0] );
-				return format_shortdate( db2time( $dates[0] ) ) . ' - ' . format_shortdate( db2time( $dates[1] ) );				
-			case 5: // DATE_INTERVAL_DAY
-				return format_shortdate( $tm );
-			case 6: // DATE_INTERVAL_HOUR
-				$tm[4] = 0;
-				$tm[5] = 0;
-				return str_format_datetime( $tm );
-			case 7: // DATE_INTERVAL_MINUTE
-				$tm[5] = 0;
-				return str_format_datetime( $tm );
-			default:
-				return str_format_datetime( $tm );
-		}
-	}
-	
-	/**
-	 *
-	 */
-	protected function getDatesByWeek( $week, $year ) 
-	{
-		global $locale_info;
-		$startweekday = 0;
-		if($locale_info["LOCALE_IFIRSTDAYOFWEEK"]>0)
-			$startweekday = 7 - $locale_info["LOCALE_IFIRSTDAYOFWEEK"];	
-
-		$L = isleapyear($year) ? 1 : 0;
-		$months = array(31, 28 + $L, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-		$total_days = ($week - 1) * 7; 
-		$i = 0;
-		$sum = 0;
-		while($sum <= $total_days)
-		{
-			$sum += $months[$i++];
-		}
-		$sum -= $months[$i-1];
-		$month = $i;
-		$day = $total_days - $sum;
-		$day_of_week = getdayofweek(array($year, $month, $day));
-		if ($day_of_week == 0) 
-			$day_of_week = 7;
-		
-		$day = $day - ($day_of_week - 1) - $startweekday;
-		$dates = array();
-		$dates[0] = getYMDdate(mktime(0,0,0, $month, $day, $year));
-		$dates[1] = getYMDdate(mktime(1,1,1, $month, $day+6, $year));
-		
-		return $dates;
 	}
 	
 	/**
@@ -1251,4 +1101,64 @@ class CrossTableReport
 		}
 		return $control->showDBValue( $data, "" );
 	}	
+	
+	/**
+	 * Indicates which axis to change in case when both axes point to the same field/interval
+	 * Returns 'x','y' or ''
+	 */
+	protected function getFreeAxis() {
+		if( $this->selectedAxis )
+			return $this->selectedAxis == "y" ? "x" : "y";
+
+		// select axis where there are more than one option available
+		$xCount = 0;
+		$yCount = 0;
+		foreach( $this->groupFieldsData as $fData )
+		{
+			
+			if( $fData["group_type"] == "all" ) {
+				++$xCount;
+				++$yCount;
+			} else if( $fData["group_type"] == "x" ) {
+				++$xCount;
+			} else {
+				++$yCount;
+			}
+			if( $xCount > 1 ) {
+				return 'x';
+			}
+			if( $yCount > 1 ) {
+				return 'y';
+			}
+		}
+		return '';
+	}
+	
+	/**
+	 * Change crosstab parameters to ensure X(field+interval) != Y(field+interval)
+	 */
+	protected function correctCrosstabParams() {
+		if( $this->xFName != $this->yFName || $this->xIntervalType != $this->yIntervalType)
+			return;
+		// determine which axis to change
+		$freeAxis = $this->getFreeAxis();
+		if( !$freeAxis ) {
+			return;
+		}
+		foreach( $this->groupFieldsData as $fData )
+		{
+			if( $fData["group_type"] == "all" || $fData["group_type"] == $freeAxis ) {
+				if( $this->xFName !== $fData["name"] || $this->xIntervalType !== $fData["int_type"] ) {
+					if( $freeAxis === 'x' ) {
+						$this->xFName = $fData["name"];
+						$this->xIntervalType = $fData["int_type"];
+					} else {
+						$this->yFName = $fData["name"];
+						$this->yIntervalType = $fData["int_type"];
+					}
+					break;
+				}
+			}
+		}
+	}
 }

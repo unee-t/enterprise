@@ -85,5 +85,24 @@ class SQLite3Functions extends DBFunctions
 	{
 		return "SELECT last_insert_rowid()";
 	}	
+
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL.= " limit ".(($pageStart - 1) * $pageSize).",".$pageSize;
+	
+		return $connection->query( $strSQL );
+	}
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprSubstr( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
+	
 }
 ?>

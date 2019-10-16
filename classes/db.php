@@ -55,7 +55,7 @@ class DB
 
 	public static function Exec( $sql )
 	{
-		return DB::CurrentConnection()->execSilent( $sql );
+		return DB::CurrentConnection()->execSilent( $sql ) != NULL;
 	}
 
 	public static function LastError()
@@ -318,7 +318,7 @@ class DB
 		DB::_fillTablesList();
 
 		//	exact match
-		foreach( $dalTables as $t )
+		foreach( $dalTables[$conn->connId] as $t )
 		{
 			if( $t["schema"] == $tableName["schema"] && $t["name"] == $tableName["table"] )
 				return $t;
@@ -328,7 +328,7 @@ class DB
 		$tableName["schema"] = strtoupper( $tableName["schema"] );
 		$tableName["table"] = strtoupper( $tableName["table"] );
 
-		foreach( $dalTables as $t )
+		foreach( $dalTables[$conn->connId] as $t )
 		{
 			if( strtoupper( $t["schema"] ) == $tableName["schema"] && strtoupper( $t["name"] ) == $tableName["table"] )
 				return $t;
@@ -357,9 +357,9 @@ class DB
 
 		if ( $tableDescriptor )
 		{
-			include_once( getabspath( "include/dal/" . $tableDescriptor["varname"] . ".php" ) );
+			importTableInfo( $tableDescriptor["varname"] );
 
-			$tableInfo["fields"] = $db_table_info[ $tableDescriptor["varname"] ];
+			$tableInfo["fields"] = $dal_info[ $tableDescriptor["varname"] ];
 
 			if( $tableDescriptor["schema"] )
 				$tableInfo["fullName"] = $tableDescriptor["schema"] . "." . $tableDescriptor["name"];
@@ -372,18 +372,14 @@ class DB
 			if( isset($tableinfo_cache[ $connId ][ $table ] ) )
 				return $tableinfo_cache[ $connId ][ $table ];
 
-			$tables = DB::CurrentConnection()->getTableList();
-			if ( !in_array($table, $tables) )
-			{
-				$tableinfo_cache[ $connId ][ $table ] = false;
-				return false;
-			}
-
 			//	fetch table info from the database
 			$helpSql = "select * from " . DB::CurrentConnection()->addTableWrappers( $table ) . " where 1=0";
 
 			$tableInfo["fullName"] = $table;
 			$tableInfo["fields"] = array();
+
+			// in case getFieldsList throws error
+			$tableinfo_cache[ $connId ][ $table ] = false;
 
 			$fieldList = DB::CurrentConnection()->getFieldsList($helpSql);
 			foreach ($fieldList as $f )
@@ -406,16 +402,25 @@ class DB
 		$dalTables[ $conn->connId ] = array();
 		if( "unee_t_enterprise_v1_3_0_at_localhost" == $conn->connId )
 		{
+			$dalTables[$conn->connId][] = array("name" => "external_map_user_unit_role_permissions_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_areas", "altvarname" => "external_map_user_unit_role_permissions_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "external_map_user_unit_role_permissions_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_1", "altvarname" => "external_map_user_unit_role_permissions_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "external_map_user_unit_role_permissions_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_2", "altvarname" => "external_map_user_unit_role_permissions_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "external_map_user_unit_role_permissions_level_3", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_map_user_unit_role_permissions_level_3", "altvarname" => "external_map_user_unit_role_permissions_level_3", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "external_persons", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_persons", "altvarname" => "external_persons", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "external_property_groups_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_groups_areas", "altvarname" => "external_property_groups_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "external_property_level_1_buildings", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_level_1_buildings", "altvarname" => "external_property_level_1_buildings", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "external_property_level_2_units", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_level_2_units", "altvarname" => "external_property_level_2_units", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "external_property_level_3_rooms", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__external_property_level_3_rooms", "altvarname" => "external_property_level_3_rooms", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "person_genders", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__person_genders", "altvarname" => "person_genders", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "person_salutations", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__person_salutations", "altvarname" => "person_salutations", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "person_statuses", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__person_statuses", "altvarname" => "person_statuses", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "persons", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__persons", "altvarname" => "persons", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "property_groups_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_groups_areas", "altvarname" => "property_groups_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "property_groups_countries", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_groups_countries", "altvarname" => "property_groups_countries", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "property_level_1_buildings", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_level_1_buildings", "altvarname" => "property_level_1_buildings", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "property_level_2_units", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_level_2_units", "altvarname" => "property_level_2_units", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "property_level_3_rooms", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_level_3_rooms", "altvarname" => "property_level_3_rooms", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "property_types_level_3_rooms", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__property_types_level_3_rooms", "altvarname" => "property_types_level_3_rooms", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "uneet_enterprise_audit", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_audit", "altvarname" => "uneet_enterprise_audit", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "uneet_enterprise_organizations", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_organizations", "altvarname" => "uneet_enterprise_organizations", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "uneet_enterprise_settings", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_settings", "altvarname" => "uneet_enterprise_settings", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
@@ -424,7 +429,17 @@ class DB
 			$dalTables[$conn->connId][] = array("name" => "uneet_enterprise_ugrights", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_ugrights", "altvarname" => "uneet_enterprise_ugrights", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "uneet_enterprise_users", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__uneet_enterprise_users", "altvarname" => "uneet_enterprise_users", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_api_keys", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_api_keys", "altvarname" => "ut_api_keys", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_1", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_2", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_update_add_user_to_unit_level_3", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_update_add_user_to_unit_level_3", "altvarname" => "ut_check_unee_t_update_add_user_to_unit_level_3", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_updates_property_level_1", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_1", "altvarname" => "ut_check_unee_t_updates_property_level_1", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_updates_property_level_2", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_2", "altvarname" => "ut_check_unee_t_updates_property_level_2", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_check_unee_t_updates_property_level_3", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_check_unee_t_updates_property_level_3", "altvarname" => "ut_check_unee_t_updates_property_level_3", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_external_sot_for_unee_t_objects", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_external_sot_for_unee_t_objects", "altvarname" => "ut_external_sot_for_unee_t_objects", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_info_mefe_users", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_info_mefe_users", "altvarname" => "ut_info_mefe_users", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_list_possible_assignees", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_list_possible_assignees", "altvarname" => "ut_list_possible_assignees", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_list_possible_properties", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_list_possible_properties", "altvarname" => "ut_list_possible_properties", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_map_external_source_areas", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_map_external_source_areas", "altvarname" => "ut_map_external_source_areas", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_map_external_source_units", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_map_external_source_units", "altvarname" => "ut_map_external_source_units", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_map_external_source_users", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_map_external_source_users", "altvarname" => "ut_map_external_source_users", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_organization_mefe_user_id", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_organization_mefe_user_id", "altvarname" => "ut_organization_mefe_user_id", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
@@ -432,6 +447,7 @@ class DB
 			$dalTables[$conn->connId][] = array("name" => "ut_unit_types", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_unit_types", "altvarname" => "ut_unit_types", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_user_role_types", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_user_role_types", "altvarname" => "ut_user_role_types", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 			$dalTables[$conn->connId][] = array("name" => "ut_user_types", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_user_types", "altvarname" => "ut_user_types", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
+			$dalTables[$conn->connId][] = array("name" => "ut_verify_count_all_P_by_org_and_countries", "varname" => "unee_t_enterprise_v1_3_0_at_localhost__ut_verify_count_all_P_by_org_and_countries", "altvarname" => "ut_verify_count_all_P_by_org_and_countries", "connId" => "unee_t_enterprise_v1_3_0_at_localhost", "schema" => "", "connName" => "unee_t_enterprise");
 		}
 	}
 

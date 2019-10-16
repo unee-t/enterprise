@@ -119,7 +119,52 @@ class MSSQLFunctions extends DBFunctions
 	{
 		$wrappedFieldName = $this->addTableWrappers($strName);
 		return "(DATEPART(HOUR, " . $wrappedFieldName . ") * 3600) + (DATEPART(MINUTE, " . $wrappedFieldName . ") * 60) + (DATEPART(SECOND, " . $wrappedFieldName . "))";
+	}
+	
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL = AddTop($strSQL, $pageStart * $pageSize);
+	
+		$qResult = $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+		
+		return $qResult;
+	}
+
+	public function caseSensitiveComparison( $val1, $val2 )
+	{
+		return $val1 . ' = ' . $val2 .' COLLATE SQL_Latin1_General_CP1_CS_AS';
 	}	
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprLeft( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprFloor( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		if($interval == 1) // DATE_INTERVAL_YEAR
+			return "datepart(yyyy,".$expr.")*10000+0101";
+		if($interval == 2) // DATE_INTERVAL_QUARTER
+			return "datepart(yyyy,".$expr.")*10000 + datepart(qq,".$expr.")*100+1";
+		if($interval == 3) // DATE_INTERVAL_MONTH
+			return "datepart(yyyy,".$expr.")*10000+datepart(mm,".$expr.")*100+1";
+		if($interval == 4) // DATE_INTERVAL_WEEK
+			return "datepart(yyyy,".$expr.")*10000+(datepart(ww,".$expr.")-1)*100+01";
+		if($interval == 5) // DATE_INTERVAL_DAY
+			return "datepart(yyyy,".$expr.")*10000+datepart(mm,".$expr.")*100+datepart(dd,".$expr.")";
+		if($interval == 6) // DATE_INTERVAL_HOUR
+			return "datepart(yyyy,".$expr.")*1000000+datepart(mm,".$expr.")*10000+datepart(dd,".$expr.")*100+datepart(hh,".$expr.")";
+		if($interval == 7) // DATE_INTERVAL_MINUTE
+			return "datepart(yyyy,".$expr.")*100000000+datepart(mm,".$expr.")*1000000+datepart(dd,".$expr.")*10000+datepart(hh,".$expr.")*100+datepart(mi,".$expr.")";
+		return $expr;
+	}
 
 }
 ?>

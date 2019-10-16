@@ -1836,13 +1836,10 @@ class LookupField extends EditControl
 				return $this->loadLookupContent( $parentCtrlsData, '', true, false );			
 			}
 			
-			// there are parent lookups on the page one of them is empty
-			if( $mode == MODE_SEARCH )
-				return $this->loadLookupContent( $parentCtrlsData, '', false, false );
-			
-			if( $mode == MODE_EDIT || $mode == MODE_INLINE_EDIT || $mode == MODE_INLINE_ADD || $mode == MODE_ADD )
+			if( $mode == MODE_SEARCH || $mode == MODE_EDIT || $mode == MODE_INLINE_EDIT || $mode == MODE_INLINE_ADD || $mode == MODE_ADD )
 				return '';
 			
+			// which mode is this?
 			return $this->loadLookupContent( $parentCtrlsData, '', true, false );
 		}		
 		// there are not parent lookups on the page 

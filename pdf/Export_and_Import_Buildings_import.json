@@ -1,0 +1,175 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":{$pdf_image images/Unee-T%20Enterprise160x50.png undefined undefined},"hidden":"{$item_hide_image}"},
+				
+				
+			{"text":"{$jspagetitlelabel Export_and_Import_Buildings import}","hidden":"{$item_hide_import_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+			heights: [
+								
+			"%",
+			 
+				],
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_import_field17}","text":{$country_code_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field9}","text":{$area_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field1}","text":{$external_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field4}","text":{$designation_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field8}","text":{$is_creation_needed_in_unee_t_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field6}","text":{$unee_t_unit_type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field12}","text":{$is_obsolete_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field13}","text":{$order_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field7}","text":{$description_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field5}","text":{$tower_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field10}","text":{$address_1_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field11}","text":{$address_2_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field14}","text":{$zip_postal_code_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field16}","text":{$city_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field15}","text":{$state_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field2}","text":{$external_system_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field3}","text":{$external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field}","text":{$created_by_id_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+					]
+}
+  

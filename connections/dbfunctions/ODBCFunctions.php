@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Ignore the ODBC name
+ * This is MS Access functions class
+ */
 class ODBCFunctions extends DBFunctions
 {	
 	/**
@@ -116,5 +121,48 @@ class ODBCFunctions extends DBFunctions
 		$wrappedFieldName = $this->addTableWrappers($strName);
 		return "(DATEPART(HOUR, " . $wrappedFieldName . ") * 3600) + (DATEPART(MINUTE, " . $wrappedFieldName . ") * 60) + (DATEPART(SECOND, " . $wrappedFieldName . "))";
 	}	
+
+	public function queryPage( $connection, $strSQL, $pageStart, $pageSize, $applyLimit ) 
+	{
+		if( $applyLimit ) 
+			$strSQL = AddTop($strSQL, $pageStart * $pageSize);
+	
+		$qResult = $connection->query( $strSQL );
+		$qResult->seekPage( $pageSize, $pageStart );
+		
+		return $qResult;
+	}
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return DBFunctions::intervalExprLeft( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		if( !$interval )
+			return $expr;
+		return "int( " . $expr . " / " . $interval . " ) * ".$interval;
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		if($interval == 1) // DATE_INTERVAL_YEAR
+			return "datepart('yyyy',".$expr.")*10000+0101";
+		if($interval == 2) // DATE_INTERVAL_QUARTER
+			return "datepart('yyyy',".$expr.")*10000+datepart('q',".$expr.")*100+1";
+		if($interval == 3) // DATE_INTERVAL_MONTH
+			return "datepart('yyyy',".$expr.")*10000+datepart('m',".$expr.")*100+1";
+		if($interval == 4) // DATE_INTERVAL_WEEK
+			return "datepart('yyyy',".$expr.")*10000+(datepart('ww',".$expr.")-1)*100+01";
+		if($interval == 5) // DATE_INTERVAL_DAY
+			return "datepart('yyyy',".$expr.")*10000+datepart('m',".$expr.")*100+datepart('d',".$expr.")";
+		if($interval == 6) // DATE_INTERVAL_HOUR
+			return "datepart('yyyy',".$expr.")*1000000+datepart('m',".$expr.")*10000+datepart('d',".$expr.")*100+datepart('h',".$expr.")";
+		if($interval == 7) // DATE_INTERVAL_MINUTE
+			return "datepart('yyyy',".$expr.")*100000000+datepart('m',".$expr.")*1000000+datepart('d',".$expr.")*10000+datepart('h',".$expr.")*100+datepart('n',".$expr.")";
+		return $expr;
+	}
 }
+
 ?>

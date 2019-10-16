@@ -2,18 +2,16 @@
 
 
 
-
 $tdataManage_User_Default_Notifications = array();
 $tdataManage_User_Default_Notifications[".searchableFields"] = array();
-	$tdataManage_User_Default_Notifications[".truncateText"] = true;
-	$tdataManage_User_Default_Notifications[".NumberOfChars"] = 80;
-	$tdataManage_User_Default_Notifications[".ShortName"] = "Manage_User_Default_Notifications";
-	$tdataManage_User_Default_Notifications[".OwnerID"] = "organization_id";
-	$tdataManage_User_Default_Notifications[".OriginalTable"] = "ut_user_types";
+$tdataManage_User_Default_Notifications[".ShortName"] = "Manage_User_Default_Notifications";
+$tdataManage_User_Default_Notifications[".OwnerID"] = "organization_id";
+$tdataManage_User_Default_Notifications[".OriginalTable"] = "ut_user_types";
 
 
 $defaultPages = my_json_decode( "{\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
+$tdataManage_User_Default_Notifications[".pagesByType"] = my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
 $tdataManage_User_Default_Notifications[".pages"] = types2pages( my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdataManage_User_Default_Notifications[".defaultPages"] = $defaultPages;
 
@@ -62,9 +60,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_default_assignee"] = "Default Assignee";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_default_assignee"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_default_assignee"] = "";
-	$fieldLabelsManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "Invited to All Cases";
-	$fieldToolTipsManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "";
-	$placeHoldersManage_User_Default_Notifications["English"]["is_invited_all_cases"] = "";
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_dashboard_access"] = "Dashboard Access";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_dashboard_access"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_dashboard_access"] = "";
@@ -113,6 +108,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "The Tenant";
 	$fieldToolTipsManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "";
 	$placeHoldersManage_User_Default_Notifications["English"]["is_message_from_tenant"] = "";
+	$fieldLabelsManage_User_Default_Notifications["English"]["is_default_invited"] = "Is Invited to All Cases";
+	$fieldToolTipsManage_User_Default_Notifications["English"]["is_default_invited"] = "";
+	$placeHoldersManage_User_Default_Notifications["English"]["is_default_invited"] = "";
+	$fieldLabelsManage_User_Default_Notifications["English"]["is_super_admin"] = "Is Super Admin";
+	$fieldToolTipsManage_User_Default_Notifications["English"]["is_super_admin"] = "";
+	$placeHoldersManage_User_Default_Notifications["English"]["is_super_admin"] = "";
 	if (count($fieldToolTipsManage_User_Default_Notifications["English"]))
 		$tdataManage_User_Default_Notifications[".isUseToolTips"] = true;
 }
@@ -154,7 +155,7 @@ $tdataManage_User_Default_Notifications[".listAjax"] = false;
 	$tdataManage_User_Default_Notifications[".locking"] = false;
 
 
-$pages = $tdataManage_User_Default_Notifications[".pages"];
+$pages = $tdataManage_User_Default_Notifications[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataManage_User_Default_Notifications[".edit"] = true;
@@ -236,6 +237,7 @@ $tdataManage_User_Default_Notifications[".requiredSearchFields"] = array();
 
 $tdataManage_User_Default_Notifications[".googleLikeFields"] = array();
 $tdataManage_User_Default_Notifications[".googleLikeFields"][] = "designation";
+$tdataManage_User_Default_Notifications[".googleLikeFields"][] = "is_super_admin";
 
 
 
@@ -245,9 +247,6 @@ $tdataManage_User_Default_Notifications[".printerPageOrientation"] = 0;
 $tdataManage_User_Default_Notifications[".nPrinterPageScale"] = 100;
 
 $tdataManage_User_Default_Notifications[".nPrinterSplitRecords"] = 40;
-
-$tdataManage_User_Default_Notifications[".nPrinterPDFSplitRecords"] = 40;
-
 
 $tdataManage_User_Default_Notifications[".geocodingEnabled"] = false;
 
@@ -274,9 +273,9 @@ $tdataManage_User_Default_Notifications[".strOrderBy"] = $tstrOrderBy;
 
 $tdataManage_User_Default_Notifications[".orderindexes"] = array();
 
-$tdataManage_User_Default_Notifications[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
+$tdataManage_User_Default_Notifications[".sqlHead"] = "SELECT id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant,  is_super_admin";
 $tdataManage_User_Default_Notifications[".sqlFrom"] = "FROM ut_user_types";
-$tdataManage_User_Default_Notifications[".sqlWhereExpr"] = "";
+$tdataManage_User_Default_Notifications[".sqlWhereExpr"] = "(is_super_admin = 0)";
 $tdataManage_User_Default_Notifications[".sqlTail"] = "";
 
 
@@ -367,6 +366,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -377,6 +378,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
@@ -386,7 +391,9 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 	
 	
+	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -437,7 +444,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -489,6 +499,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -499,15 +511,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -558,7 +576,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -610,6 +631,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -620,15 +643,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -679,7 +708,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -731,6 +763,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -741,15 +775,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -800,7 +840,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -852,6 +895,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -862,15 +907,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -921,7 +972,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -973,6 +1027,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -983,15 +1039,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1042,7 +1104,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1094,6 +1159,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1104,15 +1171,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1163,7 +1236,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1215,6 +1291,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$vdata["NeedEncode"] = true;
 
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1225,15 +1303,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1284,7 +1368,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1335,6 +1422,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1345,15 +1434,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1404,7 +1499,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1455,6 +1553,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1465,15 +1565,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1524,7 +1630,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1575,6 +1684,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1585,15 +1696,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1644,7 +1761,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1652,14 +1772,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 	$tdataManage_User_Default_Notifications["is_default_assignee"] = $fdata;
 		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_default_assignee";
-//	is_invited_all_cases
+//	is_default_invited
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 12;
-	$fdata["strName"] = "is_invited_all_cases";
-	$fdata["GoodName"] = "is_invited_all_cases";
+	$fdata["strName"] = "is_default_invited";
+	$fdata["GoodName"] = "is_default_invited";
 	$fdata["ownerTable"] = "ut_user_types";
-	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Notifications","is_invited_all_cases");
+	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Notifications","is_default_invited");
 	$fdata["FieldType"] = 16;
 
 	
@@ -1667,10 +1787,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 										
 
-		$fdata["strField"] = "is_invited_all_cases";
+		$fdata["strField"] = "is_default_invited";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "is_invited_all_cases";
+	$fdata["FullName"] = "is_default_invited";
 
 	
 	
@@ -1695,6 +1815,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1705,15 +1827,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1748,7 +1876,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1764,14 +1892,17 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
 
 
-	$tdataManage_User_Default_Notifications["is_invited_all_cases"] = $fdata;
-		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_invited_all_cases";
+	$tdataManage_User_Default_Notifications["is_default_invited"] = $fdata;
+		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_default_invited";
 //	is_dashboard_access
 //	Custom field settings
 	$fdata = array();
@@ -1815,6 +1946,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1825,15 +1958,21 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Readonly");
 
 	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
 	
 	
 
 
 
+	
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1884,7 +2023,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -1935,6 +2077,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -1942,18 +2086,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1961,17 +2111,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -1991,7 +2138,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2007,7 +2154,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2058,6 +2208,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2065,18 +2217,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2084,17 +2242,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2114,7 +2269,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2130,7 +2285,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2181,6 +2339,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2188,18 +2348,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2207,17 +2373,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2237,7 +2400,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2253,7 +2416,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2304,6 +2470,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2311,18 +2479,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2330,17 +2504,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2360,7 +2531,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2376,7 +2547,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2427,6 +2601,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2434,18 +2610,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2453,17 +2635,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2483,7 +2662,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2499,7 +2678,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2550,6 +2732,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2557,18 +2741,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2576,17 +2766,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2606,7 +2793,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2622,7 +2809,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2673,6 +2863,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2680,18 +2872,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2699,17 +2897,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2729,7 +2924,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2745,7 +2940,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2796,6 +2994,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2803,18 +3003,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2822,17 +3028,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2852,7 +3055,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2868,7 +3071,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -2919,6 +3125,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -2926,18 +3134,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2945,17 +3159,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -2975,7 +3186,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2991,7 +3202,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3042,6 +3256,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3049,18 +3265,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3068,17 +3290,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -3098,7 +3317,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3114,7 +3333,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3165,6 +3387,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3172,18 +3396,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3191,17 +3421,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -3221,7 +3448,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3237,7 +3464,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3288,6 +3518,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3295,18 +3527,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3314,17 +3552,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -3344,7 +3579,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3360,7 +3595,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3411,6 +3649,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3418,18 +3658,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3437,17 +3683,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -3467,7 +3710,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3483,7 +3726,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3534,6 +3780,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3541,18 +3789,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3560,17 +3814,14 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 	//	End validation
@@ -3590,7 +3841,7 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -3606,7 +3857,10 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
@@ -3657,6 +3911,8 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
 
 	$fdata["ViewFormats"]["view"] = $vdata;
 //  End View Formats
@@ -3664,18 +3920,24 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
 
 	
 	
+
+
+
 	
-
-
-
 	
 	
 	
 			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3683,17 +3945,146 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataManage_User_Default_Notifications["is_message_from_tenant"] = $fdata;
+		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_message_from_tenant";
+//	is_super_admin
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 29;
+	$fdata["strName"] = "is_super_admin";
+	$fdata["GoodName"] = "is_super_admin";
+	$fdata["ownerTable"] = "ut_user_types";
+	$fdata["Label"] = GetFieldLabel("Manage_User_Default_Notifications","is_super_admin");
+	$fdata["FieldType"] = 16;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "is_super_admin";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "is_super_admin";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Readonly");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
 							
 	
 	//	End validation
@@ -3729,14 +4120,17 @@ $tdataManage_User_Default_Notifications[".hideMobileList"] = array();
 		$fdata["sortValueType"] = 0;
 		$fdata["numberOfVisibleItems"] = 10;
 
-			
+		$fdata["filterBy"] = 0;
+
+	
+
 	
 	
 //end of Filters settings
 
 
-	$tdataManage_User_Default_Notifications["is_message_from_tenant"] = $fdata;
-		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_message_from_tenant";
+	$tdataManage_User_Default_Notifications["is_super_admin"] = $fdata;
+		$tdataManage_User_Default_Notifications[".searchableFields"][] = "is_super_admin";
 
 
 $tables_data["Manage User Default Notifications"]=&$tdataManage_User_Default_Notifications;
@@ -3772,24 +4166,26 @@ function createSqlQuery_Manage_User_Default_Notifications()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_invited_all_cases,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant";
+$proto0["m_strFieldList"] = "id_unee_t_user_type,  syst_updated_datetime,  update_system_id,  updated_by_id,  update_method,  designation,  created_by_id,  organization_id,  is_occupant,  is_public,  is_default_assignee,  is_default_invited,  is_dashboard_access,  is_assigned_to_case,  is_invited_to_case,  is_solution_updated,  is_next_step_updated,  is_deadline_updated,  is_case_resolved,  is_case_critical,  is_case_blocker,  is_message_from_contractor,  is_message_from_mgt_cny,  is_message_from_agent,  is_message_from_occupant,  is_message_from_ll,  is_any_new_message,  is_message_from_tenant,  is_super_admin";
 $proto0["m_strFrom"] = "FROM ut_user_types";
-$proto0["m_strWhere"] = "";
+$proto0["m_strWhere"] = "(is_super_admin = 0)";
 $proto0["m_strOrderBy"] = "";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "is_super_admin = 0";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Default Notifications"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "= 0";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -3969,12 +4365,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "is_invited_all_cases",
+	"m_strName" => "is_default_invited",
 	"m_strTable" => "ut_user_types",
 	"m_srcTableName" => "Manage User Default Notifications"
 ));
 
-$proto28["m_sql"] = "is_invited_all_cases";
+$proto28["m_sql"] = "is_default_invited";
 $proto28["m_srcTableName"] = "Manage User Default Notifications";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -4205,82 +4601,103 @@ $proto60["m_alias"] = "";
 $obj = new SQLFieldListItem($proto60);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto62=array();
-$proto62["m_link"] = "SQLL_MAIN";
-			$proto63=array();
-$proto63["m_strName"] = "ut_user_types";
-$proto63["m_srcTableName"] = "Manage User Default Notifications";
-$proto63["m_columns"] = array();
-$proto63["m_columns"][] = "id_unee_t_user_type";
-$proto63["m_columns"][] = "syst_created_datetime";
-$proto63["m_columns"][] = "creation_system_id";
-$proto63["m_columns"][] = "created_by_id";
-$proto63["m_columns"][] = "creation_method";
-$proto63["m_columns"][] = "syst_updated_datetime";
-$proto63["m_columns"][] = "update_system_id";
-$proto63["m_columns"][] = "updated_by_id";
-$proto63["m_columns"][] = "update_method";
-$proto63["m_columns"][] = "organization_id";
-$proto63["m_columns"][] = "order";
-$proto63["m_columns"][] = "is_obsolete";
-$proto63["m_columns"][] = "designation";
-$proto63["m_columns"][] = "description";
-$proto63["m_columns"][] = "ut_user_role_type_id";
-$proto63["m_columns"][] = "is_occupant";
-$proto63["m_columns"][] = "is_public";
-$proto63["m_columns"][] = "is_default_assignee";
-$proto63["m_columns"][] = "is_invited_all_cases";
-$proto63["m_columns"][] = "is_dashboard_access";
-$proto63["m_columns"][] = "can_see_role_contractor";
-$proto63["m_columns"][] = "can_see_role_mgt_cny";
-$proto63["m_columns"][] = "can_see_occupant";
-$proto63["m_columns"][] = "can_see_role_landlord";
-$proto63["m_columns"][] = "can_see_role_agent";
-$proto63["m_columns"][] = "can_see_role_tenant";
-$proto63["m_columns"][] = "is_assigned_to_case";
-$proto63["m_columns"][] = "is_invited_to_case";
-$proto63["m_columns"][] = "is_solution_updated";
-$proto63["m_columns"][] = "is_next_step_updated";
-$proto63["m_columns"][] = "is_deadline_updated";
-$proto63["m_columns"][] = "is_case_resolved";
-$proto63["m_columns"][] = "is_case_critical";
-$proto63["m_columns"][] = "is_case_blocker";
-$proto63["m_columns"][] = "is_message_from_contractor";
-$proto63["m_columns"][] = "is_message_from_mgt_cny";
-$proto63["m_columns"][] = "is_message_from_agent";
-$proto63["m_columns"][] = "is_message_from_occupant";
-$proto63["m_columns"][] = "is_message_from_ll";
-$proto63["m_columns"][] = "is_message_from_tenant";
-$proto63["m_columns"][] = "is_any_new_message";
-$proto63["m_columns"][] = "is_new_ir";
-$proto63["m_columns"][] = "is_new_inventory";
-$proto63["m_columns"][] = "is_new_item";
-$proto63["m_columns"][] = "is_item_moved";
-$proto63["m_columns"][] = "is_item_removed";
-$obj = new SQLTable($proto63);
+						$proto62=array();
+			$obj = new SQLField(array(
+	"m_strName" => "is_super_admin",
+	"m_strTable" => "ut_user_types",
+	"m_srcTableName" => "Manage User Default Notifications"
+));
 
-$proto62["m_table"] = $obj;
-$proto62["m_sql"] = "ut_user_types";
-$proto62["m_alias"] = "";
+$proto62["m_sql"] = "is_super_admin";
 $proto62["m_srcTableName"] = "Manage User Default Notifications";
-$proto64=array();
-$proto64["m_sql"] = "";
-$proto64["m_uniontype"] = "SQLL_UNKNOWN";
+$proto62["m_expr"]=$obj;
+$proto62["m_alias"] = "";
+$obj = new SQLFieldListItem($proto62);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto64=array();
+$proto64["m_link"] = "SQLL_MAIN";
+			$proto65=array();
+$proto65["m_strName"] = "ut_user_types";
+$proto65["m_srcTableName"] = "Manage User Default Notifications";
+$proto65["m_columns"] = array();
+$proto65["m_columns"][] = "id_unee_t_user_type";
+$proto65["m_columns"][] = "syst_created_datetime";
+$proto65["m_columns"][] = "creation_system_id";
+$proto65["m_columns"][] = "created_by_id";
+$proto65["m_columns"][] = "creation_method";
+$proto65["m_columns"][] = "syst_updated_datetime";
+$proto65["m_columns"][] = "update_system_id";
+$proto65["m_columns"][] = "updated_by_id";
+$proto65["m_columns"][] = "update_method";
+$proto65["m_columns"][] = "organization_id";
+$proto65["m_columns"][] = "order";
+$proto65["m_columns"][] = "is_obsolete";
+$proto65["m_columns"][] = "designation";
+$proto65["m_columns"][] = "description";
+$proto65["m_columns"][] = "ut_user_role_type_id";
+$proto65["m_columns"][] = "is_super_admin";
+$proto65["m_columns"][] = "is_all_unit";
+$proto65["m_columns"][] = "is_all_units_in_country";
+$proto65["m_columns"][] = "is_all_units_in_area";
+$proto65["m_columns"][] = "is_all_units_in_level_1";
+$proto65["m_columns"][] = "is_all_units_in_level_2";
+$proto65["m_columns"][] = "is_occupant";
+$proto65["m_columns"][] = "is_public";
+$proto65["m_columns"][] = "is_default_assignee";
+$proto65["m_columns"][] = "is_default_invited";
+$proto65["m_columns"][] = "is_unit_owner";
+$proto65["m_columns"][] = "is_dashboard_access";
+$proto65["m_columns"][] = "can_see_role_contractor";
+$proto65["m_columns"][] = "can_see_role_mgt_cny";
+$proto65["m_columns"][] = "can_see_occupant";
+$proto65["m_columns"][] = "can_see_role_landlord";
+$proto65["m_columns"][] = "can_see_role_agent";
+$proto65["m_columns"][] = "can_see_role_tenant";
+$proto65["m_columns"][] = "is_assigned_to_case";
+$proto65["m_columns"][] = "is_invited_to_case";
+$proto65["m_columns"][] = "is_solution_updated";
+$proto65["m_columns"][] = "is_next_step_updated";
+$proto65["m_columns"][] = "is_deadline_updated";
+$proto65["m_columns"][] = "is_case_resolved";
+$proto65["m_columns"][] = "is_case_critical";
+$proto65["m_columns"][] = "is_case_blocker";
+$proto65["m_columns"][] = "is_message_from_contractor";
+$proto65["m_columns"][] = "is_message_from_mgt_cny";
+$proto65["m_columns"][] = "is_message_from_agent";
+$proto65["m_columns"][] = "is_message_from_occupant";
+$proto65["m_columns"][] = "is_message_from_ll";
+$proto65["m_columns"][] = "is_message_from_tenant";
+$proto65["m_columns"][] = "is_any_new_message";
+$proto65["m_columns"][] = "is_new_ir";
+$proto65["m_columns"][] = "is_new_inventory";
+$proto65["m_columns"][] = "is_new_item";
+$proto65["m_columns"][] = "is_item_moved";
+$proto65["m_columns"][] = "is_item_removed";
+$obj = new SQLTable($proto65);
+
+$proto64["m_table"] = $obj;
+$proto64["m_sql"] = "ut_user_types";
+$proto64["m_alias"] = "";
+$proto64["m_srcTableName"] = "Manage User Default Notifications";
+$proto66=array();
+$proto66["m_sql"] = "";
+$proto66["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto64["m_column"]=$obj;
-$proto64["m_contained"] = array();
-$proto64["m_strCase"] = "";
-$proto64["m_havingmode"] = false;
-$proto64["m_inBrackets"] = false;
-$proto64["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto64);
+$proto66["m_column"]=$obj;
+$proto66["m_contained"] = array();
+$proto66["m_strCase"] = "";
+$proto66["m_havingmode"] = false;
+$proto66["m_inBrackets"] = false;
+$proto66["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto66);
 
-$proto62["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto62);
+$proto64["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto64);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4297,7 +4714,7 @@ $queryData_Manage_User_Default_Notifications = createSqlQuery_Manage_User_Defaul
 					
 ;
 
-																												
+																													
 
 $tdataManage_User_Default_Notifications[".sqlquery"] = $queryData_Manage_User_Default_Notifications;
 

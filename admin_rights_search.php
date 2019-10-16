@@ -91,22 +91,18 @@ $page_layouts["admin_rights_search"] = $layout;
 require_once('include/xtempl.php');
 require_once('classes/searchpage.php');
 require_once('classes/searchpage_dash.php');
-$xt = new Xtempl();
-	
-$mode = SEARCH_SIMPLE;
-if( postvalue("mode") == "dashsearch" )
-	$mode = SEARCH_DASHBOARD;
-else if( postvalue("mode") == "inlineLoadCtrl" )
-{
-	// load search panel control
-	$mode = SEARCH_LOAD_CONTROL;
+
+$xt = new Xtempl();	
+$pageMode = SearchPage::readSearchModeFromRequest();
+
+if( $pageMode == SEARCH_LOAD_CONTROL )
 	$layoutVersion = postvalue("layoutVersion");
-}
+
 
 $params = array();
 $params['xt'] = &$xt;
-$params['id'] = postvalue("id");
-$params['mode'] = $mode;
+$params['id'] = postvalue_number("id");
+$params['mode'] = $pageMode;
 $params['tName'] = $strTableName;
 $params["pageName"] = postvalue("page");
 $params['pageType'] = PAGE_SEARCH;
@@ -121,7 +117,7 @@ $params['ctrlField'] = postvalue('ctrlField');
 
 $params['needSettings'] = postvalue('isNeedSettings');
 
-if( $mode == SEARCH_DASHBOARD )
+if( $pageMode == SEARCH_DASHBOARD )
 {
 	$params["dashTName"] = postvalue("table");
 	$params["dashElementName"] = postvalue("dashelement");
@@ -133,7 +129,7 @@ $params["extraPageParams"] = SearchPage::getExtraPageParams();
 
 $pageObject = new SearchPage($params);
 
-if( $mode == SEARCH_LOAD_CONTROL )
+if( $pageMode == SEARCH_LOAD_CONTROL )
 {
 	$pageObject->displaySearchControl();
 	return;

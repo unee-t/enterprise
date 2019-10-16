@@ -454,8 +454,12 @@
 'height' => 3 ) ) ),
 'loginForm' => array( 'loginForm' => 3 ),
 'page' => array( 'labeledButtons' => array( 'update_records' => array(  ),
-'print_pages' => array(  ) ),
-'gridType' => 0 ),
+'print_pages' => array(  ),
+'register_activate_message' => array(  ),
+'details_found' => array(  ) ),
+'gridType' => 0,
+'hasCustomButtons' => false,
+'customButtons' => array(  ) ),
 'misc' => array( 'type' => 'masterlist',
 'breadcrumb' => false ),
 'events' => array( 'maps' => array(  ),
@@ -734,5 +738,5 @@ array( 'cell' => 'footcell_field13' ) ) ) ),
 'simple_grid_field27' => array( 'type' => 'grid_field_label',
 'field' => 'description' ) ),
 'dbProps' => array(  ),
-'version' => 2 );
+'version' => 4 );
 		?>

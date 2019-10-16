@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 
 	<body class="{$stylename} function-import" {$bodyattrs}>
@@ -112,11 +112,11 @@
 				<li class="radio">
 					<label>
 						<input name="importDelimiter" class="importDelimiters" type="radio" value="other">
-						Other					</label> 
+						Other					</label>
 					<input id="customDelimiter{$id}" value=";" type="text">
-				</li>	
-			</ul>	
-				
+				</li>
+			</ul>
+
 			<div id="dateFormatSettings{$id}" class="rnr-is-control" style="display:none;">
 				<label>Date format:</label>
 				<input id="importDateFormat{$id}" type="text">
@@ -129,7 +129,7 @@
 			<table id="importPreviewBodyTable{$id}"></table>
 		</div>
 		<div id="importErrorMessage{$id}" class="alert alert-danger" style="display:none;"></div>
-	</div>	
+	</div>
 
 	<!-- bsimport_process data-brick="import_process" data-pageid="{$pageid}" {$import_process_hiddenattr} -->
 	<div id="importProgress{$id}" class="rnr-import-progress form-group" style="display:none;">
@@ -141,7 +141,7 @@
 
 	<!-- bsimportbuttons data-brick="importbuttons" data-pageid="{$pageid}" {$importbuttons_hiddenattr}-->
 	<div id="importButtons{$id}">
-		<div class="rnr-buttons-right">		
+		<div class="rnr-buttons-right">
 			<button type="button" class="btn btn-default" id="backToList{$id}">
 				Back to list			</button>
 			<button type="button" class="btn btn-default" id="newImport{$id}" style="display: none;">
@@ -161,7 +161,7 @@
 			<button type="button" class="btn btn-default errorReportButtons{$id}" id="saveErrorReport{$id}" style="display: none;">
 				Download error log			</button>
 		</div>
-	</div>	
+	</div>
 											</div>
 				</div>
 								

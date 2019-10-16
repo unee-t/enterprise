@@ -1,18 +1,18 @@
 <!doctype html>
 <html  {$html_attrs}>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{$pagetitle}</title>
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link REL="stylesheet" href="styles/default.css" type="text/css">
-		{BEGIN rtlCSS}
-		<link REL="stylesheet" href="styles/defaultRTL.css" type="text/css">
-		{END rtlCSS}
-		{BEGIN styleCSSFiles}
-		<link REL="stylesheet" href="{$stylepath}" type="text/css">
-		{END styleCSSFiles}
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
 	</head>
 
 	<body class="{$stylename} function-export" {$bodyattrs}>
@@ -93,13 +93,14 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<div class="row">
 		<div class="col-sm-4 col-md-4">
 			<div class="radio bs-desktop-right">
 				Output format			</div>
 		</div>
 		<div class="col-md-8 col-sm-8">
+			
 			<div class="radio">
 					{BEGIN groupExcel}
 			  <label>
@@ -108,24 +109,19 @@
 			  </label>
 			{END groupExcel}
 					</div>
-			<div class="radio">
+					<div class="radio">
 			  <label>
-				<input TYPE="radio" NAME="type" VALUE="word" {$wordradio_attrs}>
+				<input TYPE="radio" NAME="type" VALUE="word"  {$wordradio_attrs}>
 				<span> <img src="images/word.gif" align="absmiddle" alt=" ">&nbsp;Word</span>
-			  </label>
-			</div>
-			<div class="radio">
-			  <label>
-				<input TYPE="radio" NAME="type" VALUE="csv" {$csvradio_attrs}>
-				<span> <img src="images/csv.gif" align="absmiddle" alt=" ">&nbsp;CSV (comma separated values)</span>
 			  </label>
 			</div>
 					<div class="radio">
 			  <label>
-				<input TYPE="radio" NAME="type" VALUE="xml" {$xmlradio_attrs}>
-				<span> <img src="images/xml.gif" align="absmiddle" alt=" ">&nbsp;XML</span>
+				<input TYPE="radio" NAME="type" VALUE="csv"  {$csvradio_attrs}>
+				<span> <img src="images/csv.gif" align="absmiddle" alt=" ">&nbsp;CSV (comma separated values)</span>
 			  </label>
 			</div>
+						
 		</div>
 	</div>
 
@@ -148,15 +144,15 @@
 	
 ">
 		 
-		<span data-itemtype="export_export" data-itemid="export_export" {$item_export_export} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-primary   
+		<span data-itemtype="export_export" data-itemid="export_export" {$item_export_export} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
 	" href="#" {$exportlink_attrs} >
 							Export			</a>
 </span>
 	 
 		{BEGIN cancel_button}
-<span data-itemtype="export_cancel" data-itemid="export_cancel" {$item_export_cancel} data-pageid="{$pageid}" data-button-item>
-	<a type="button" class="btn btn-default   
+<span data-itemtype="export_cancel" data-itemid="export_cancel" {$item_export_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
 	" id="cancelButton{$id}" href="#" >
 							Cancel			</a>
 </span>

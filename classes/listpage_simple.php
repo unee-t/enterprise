@@ -105,24 +105,38 @@ class ListPage_Simple extends ListPage
 		if( $this->pSet->isAllowShowHideFields() ) 
 		{
 			$this->jsSettings['tableSettings'][ $this->tName ]['isAllowShowHideFields'] = true;
-			if( !$this->rowsFound )
-				$this->xt->displayBrickHidden("bsfieldhidepanel");
-
-			
 			$hideColumns = $this->getColumnsToHide();
 			$this->jsSettings['tableSettings'][ $this->tName ]['hideColumns'] = $hideColumns;
-			
-			$fieldsClasses = array();
 
-			foreach( $hideColumns as $d => $fields)
-			{
-				foreach( $fields as $f )
+			if( $this->isPD() ) {
+				if( !$this->rowsFound )
+					$this->hideItemType("columns_control");
+				
+				$fieldsClasses = array();
+
+				foreach( $hideColumns as $d => $fields)
 				{
-					$fieldsClasses[$f] .= " bs-hidden-column".$d;
+					foreach( $fields as $f )
+					{
+						$this->hideField( $f );
+					}
 				}
-				foreach( $fieldsClasses as $f => $c )
+			} else {
+				if( !$this->rowsFound )
+					$this->xt->displayBrickHidden("bsfieldhidepanel");
+				
+				$fieldsClasses = array();
+
+				foreach( $hideColumns as $d => $fields)
 				{
-					$this->hiddenColumnClasses[$f] = $c;
+					foreach( $fields as $f )
+					{
+						$fieldsClasses[$f] .= " bs-hidden-column".$d;
+					}
+					foreach( $fieldsClasses as $f => $c )
+					{
+						$this->hiddenColumnClasses[$f] = $c;
+					}
 				}
 			}
 		}

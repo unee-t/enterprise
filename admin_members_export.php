@@ -119,7 +119,7 @@ $xt = new Xtempl();
 
 //array of params for classes
 $params = array();
-$params["id"] = postvalue("id");
+$params["id"] = postvalue_number("id");
 $params["xt"] = &$xt;
 $params["tName"] = $strTableName;
 $params["pageType"] = PAGE_EXPORT;

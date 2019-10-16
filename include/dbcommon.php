@@ -22,7 +22,7 @@ if(@$_SERVER["REQUEST_URI"])
 }
 
 //	isolate sessions for projects running on the same site
-@session_name(str_replace(" ", "", "s1554652910"));
+@session_name(str_replace(" ", "", "s1571117735"));
 
 // Setting the cache limiter to '' will turn off automatic sending of cache headers entirely
 @session_cache_limiter("");
@@ -69,7 +69,7 @@ if(!function_exists('json_encode') || !$useUTF8)
 else
 {
 	function my_json_encode($value){
-		return json_encode($value);
+		return json_encode($value, JSON_PARTIAL_OUTPUT_ON_ERROR );
     }
 
     function my_json_decode($value){

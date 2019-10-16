@@ -406,6 +406,8 @@ class ListPage_Lookup extends ListPage_Embed
 			$this->showItemType( 'simple_search' );
 			$this->showItemType( 'simple_search_field' );
 			$this->showItemType( 'simple_search_option' );
+			
+			$this->hideItemType('columns_control');
 		} else {
 			$this->xt->hideAllBricksExcept($bricksExcept);
 		}
@@ -435,16 +437,11 @@ class ListPage_Lookup extends ListPage_Embed
 		$this->xt->assign("header",false);
 		$this->xt->assign("footer",false);
 		// popup header shows PD items only
-		$returnJSON["headerCont"] = '<h2 data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h2>";
 		
 		if( $this->isPD() ) {
-			$leftblock = $this->xt->fetch_loaded("left_block");
+			$returnJSON["headerCont"] = '<h3 data-itemtype="lookupheader" data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h3>";
 			$returnJSON["html"] = $this->xt->fetch_loaded("supertop_block")
 				. '<div class="r-popup-block">'
-					.( $leftblock 
-						? $this->xt->fetch_loaded("left_block") 	
-						 : ''
-					)
 					. '<div class="r-popup-data">'
 						. $this->xt->fetch_loaded("above-grid_block")
 						. $this->xt->fetch_loaded("grid_block")
@@ -453,6 +450,7 @@ class ListPage_Lookup extends ListPage_Embed
 				
 			$returnJSON["footerCont"] = $this->xt->fetch_loaded("below-grid_block");
 		} else {
+			$returnJSON["headerCont"] = '<h2 data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h2>";
 			$returnJSON["html"] = $this->xt->fetch_loaded("body");
 		}
 		
@@ -468,18 +466,13 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 *
 	 */
-	function SecuritySQL($strAction, $table="")
+	function SecuritySQL( $strAction )
 	{
-		global $strTableName;
-		
-		if( !strlen($table) )	
-			$table = $strTableName;
-		
-		$strPerm = GetUserPermissions($table);
+		$strPerm = GetUserPermissions( $this->tName );
 		if( strpos( $strPerm, "S" ) === false )
 			$strPerm .=  "S" ;
 		
-		return SecuritySQL($strAction, $table, $strPerm);
+		return SecuritySQL($strAction, $this->tName, $strPerm);
 	}
 
 	function displayTabsInPage() 

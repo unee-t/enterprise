@@ -14,6 +14,7 @@ class UploadHandler
 {
 	public $formStamp;
 	public $pageType;
+	public $pageName;
 	
 	/**
 	 * The datasource table name
@@ -33,6 +34,7 @@ class UploadHandler
     function __construct($options=null) {
 		$this->formStamp = "";
 		$this->pageType = "";
+		$this->pageName = "";
 		$this->table = "";
 		$this->field = "";
 		$this->tkeys = "";	
@@ -224,8 +226,9 @@ class UploadHandler
     	$uploadDirRelative = $this->pSet->getUploadFolder($this->field, $fileInfo);
         $file = array();
         $file["error"] = false;
-        $file["name"] = trim_file_name($name, $type, $index, $this);
-        $file["usrName"] = $file["name"];
+		$goodFilename = trim_file_name($name, $type, $index, $this);
+		$file["usrName"] = $goodFilename;
+        $file["name"] = simplify_file_name($goodFilename);
         $file["size"] = intval($size);
         switch($type)
         {
@@ -240,7 +243,7 @@ class UploadHandler
         	default:
         		$file["type"] = $type;
         }
-        $path_parts = $this->pathinfo_local($name);
+        $path_parts = $this->pathinfo_local( $file["name"] );
         if($file["type"] == "")
         	$file["type"] = getContentTypeByExtension($path_parts["extension"]);
         $file["isImg"] = false;
@@ -382,7 +385,9 @@ class UploadHandler
         	$userFile["error"] = $file["error"];
         $hasThumbnail = $file["thumbnail"] != "";
 	    $userFile["url"] = GetTableLink("mfhandler", "", "file=".rawurlencode($userFile["name"])."&table=".rawurlencode($this->table)
-	    	."&field=".rawurlencode($this->field)."&pageType=".rawurlencode($this->pageType)
+			."&field=".rawurlencode($this->field)
+			."&pageType=".rawurlencode($this->pageType)
+			."&page=".rawurlencode($this->pageName)
 	    	.($this->tkeys != "" ? $this->tkeys : "&fkey=".$this->formStamp));
 	    if($hasThumbnail)
         	$userFile["thumbnail_url"] = $userFile["url"]."&thumbnail=1";

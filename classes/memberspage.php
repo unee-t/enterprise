@@ -22,12 +22,14 @@ class MembersPage extends ListPage_Simple
 	 */	
 	var $users = array();
 	
-	var $addSaveButtons = false;
-	
 	var $fields = array();
 	
 	var $listAjax = false;
-	
+
+	/**
+	 * @type Boolean
+	 */
+	protected $noRecordsFound = false;
 	
 	
 	/**
@@ -36,12 +38,12 @@ class MembersPage extends ListPage_Simple
 	 * @param array $params
 	 * @return MembersPage
 	 */
-	function __construct(&$params) 
+	function __construct( &$params ) 
 	{
-		// call parent
-		parent::__construct($params);
+		parent::__construct( $params );
+
+	
 		
-			
 		$this->listAjax = false;
 		$this->pageSize = -1;	// all rows
 	}
@@ -54,7 +56,7 @@ class MembersPage extends ListPage_Simple
 		// call parent
 		parent::commonAssign();
 
-		if ($this->addSaveButtons)
+		if ( !$this->noRecordsFound ) 
 		{
 			$this->xt->assign("savebuttons_block", true);
 			$this->xt->assign("savebutton_attrs","id=\"saveBtn\"");
@@ -64,8 +66,13 @@ class MembersPage extends ListPage_Simple
 		$this->xt->assign("search_records_block",true);
 		// The user might rewrite $_SESSION["UserName"] value with HTML code in an event, so no encoding will be performed while printing this value.
 		$this->initLogin();
+		
 		$this->hideElement("message");
 		$this->xt->assign("menu_block",true);
+		
+		$this->xt->assign("grid_block", true);
+		$this->xt->assign("displayname_column", true);
+		$this->xt->assign("email_column", true);	
 	}		
 	
 	/**
@@ -73,12 +80,10 @@ class MembersPage extends ListPage_Simple
 	 */
 	function fillGridData() 
 	{
-		//	fill $rowInfo array
 		$rowInfo = array();	
-		// add grid data
 		$data = $this->beforeProccessRow();
-		// like usual grid data fill 
-		while($data)
+		
+		while( $data )
 		{
 			$row = array();
 			$userid = $this->recNo;
@@ -163,13 +168,14 @@ class MembersPage extends ListPage_Simple
 		}
 		
 		$this->xt->assign("displayuserheadersort_attrs", "id=\"displayNameSort\" href=\"#\"");
-		$this->xt->assign("displayuserheadertdsort_attrs", "id=\"tdsortDisplayName\" href=\"#\"");
-		$this->xt->assign("displayuserheadertdbox_attrs", "id=\"tdboxDisplayName\" href=\"#\"");
 		$this->xt->assign("emailuserheadersort_attrs", "id=\"EmailSort\" href=\"#\"");
-		$this->xt->assign("emailuserheadertdsort_attrs", "id=\"tdsortEmail\" href=\"#\"");
-		$this->xt->assign("emailuserheadertdbox_attrs", "id=\"tdboxEmail\" href=\"#\"");
 		$this->xt->assign("usernameheadersort_attrs", "id=\"userNameSort\" href=\"#\"");
 		$this->xt->assign("choosecolumnsbutton_attrs", "id=\"chooseColumnsButton\" href=\"#\"");
+		
+		$this->xt->assign("displayuserheadertdbox_attrs", "id=\"tdboxDisplayName\"");
+		$this->xt->assign("displayuserheadertdsort_attrs", "id=\"tdsortDisplayName\"");
+		$this->xt->assign("emailuserheadertdsort_attrs", "id=\"tdsortEmail\"");
+		$this->xt->assign("emailuserheadertdbox_attrs", "id=\"tdboxEmail\"");
 		
 		// assign grid rows		
 		$this->xt->assign_loopsection("grid_row", $rowInfo);
@@ -177,10 +183,9 @@ class MembersPage extends ListPage_Simple
 		$smartyGroups[ count($smartyGroups)-1 ]["rnredgeclass"] = "rnr-edge";
 		$this->xt->assign_loopsection("usergroup_header", $smartyGroups);
 		
-		if (count($rowInfo))
-		{
-			$this->addSaveButtons = true;
-		}
+		
+		if( !count( $rowInfo ) )
+			$this->noRecordsFound = true;
 	}
 	
 	/**
@@ -216,8 +221,10 @@ class MembersPage extends ListPage_Simple
 		$this->groups[] = array(-1, "<"."Admin".">");
 		$this->groupFullChecked[] = true;
 		
-		$sql = "select ". $grConnection->addFieldWrappers( "GroupID" ) .", ". $grConnection->addFieldWrappers( "Label" )
-			." from ". $grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) ." order by ". $grConnection->addFieldWrappers( "Label" );
+		$sql = "select ". $grConnection->addFieldWrappers( "GroupID" ) .", "
+			. $grConnection->addFieldWrappers( "Label" )
+			." from ". $grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) 
+			." order by ". $grConnection->addFieldWrappers( "Label" );
 		
 		$qResult = $grConnection->query( $sql );
 		while( $tdata = $qResult->fetchNumeric() )
@@ -230,9 +237,7 @@ class MembersPage extends ListPage_Simple
 	/**
 	 * A stub
 	 */
-	function prepareForResizeColumns()
-	{
-	}
+	function prepareForResizeColumns() {}
 		
 	/**
 	 * PRG rule, to avoid POSTDATA resend
@@ -240,7 +245,7 @@ class MembersPage extends ListPage_Simple
 	 */
 	function rulePRG() 
 	{		
-		if(no_output_done() && (postvalue("a")=="save"/* || count($this->selectedRecs)*/)) 
+		if( no_output_done() && postvalue("a") == "save" ) 
 		{
 			// redirect, add a=return param for saving SESSION
 			HeaderRedirect($this->shortTableName, $this->getPageType(), "a=return");
@@ -255,25 +260,25 @@ class MembersPage extends ListPage_Simple
 	 */
 	function prepareForBuildPage() 
 	{
-		// save recs
-		//$this->save();
 		// PRG rule, to avoid POSTDATA resend
-		$this->rulePRG();	
+		$this->rulePRG();
+		
 		// fill data
 		$this->fillMembers();
 		$this->fillGroups();
+		
 		// build sql query
 		$this->buildSQL();
 		$this->seekPageInRecSet($this->querySQL);			
-		// fill grid data
+
 		$this->fillGridData();
+		
 		$this->buildSearchPanel();
 		$this->fillFields();
-		// add common js code
+
 		$this->addCommonJs();
-		// add common html code
 		$this->addCommonHtml();
-		// Set common assign
+
 		$this->commonAssign();	
 	}
 	
@@ -305,14 +310,18 @@ class MembersPage extends ListPage_Simple
 		$this->jsSettings['tableSettings'][$this->tName]['fieldsList'] = $this->fields;
 		$this->jsSettings['tableSettings'][$this->tName]['groupsList'] = array();
 		
-		foreach ($this->groups as $grArr)
+		foreach( $this->groups as $grArr ) 
+		{
 			$this->jsSettings['tableSettings'][$this->tName]['groupsList'][$grArr[0]] = $grArr[1];
+		}
 	}
 	
 	function saveMembers( &$modifiedMembers )
 	{
-		foreach ($modifiedMembers as $user => $groups)
+		foreach( $modifiedMembers as $user => $groups ) 
+		{
 			$this->updateUserGroups($user, $groups);
+		}	
 		echo my_json_encode(array( 'success' => true ));
 	}
 	
@@ -332,9 +341,19 @@ class MembersPage extends ListPage_Simple
 		foreach ($groups as $group => $state)
 		{		
 			if ( $state == 1 )
-				$sql = "insert into ". $membersWTableName ." (". $userNameWFieldName .", ". $groupIdWFieldName .") values (". $grConnection->prepareString($user) .",".$group.")";
-			else
-				$sql = "delete from ". $membersWTableName ." where ". $userNameWFieldName ."=". $grConnection->prepareString($user) ." and ". $groupIdWFieldName ."=".$group;
+			{
+				$sql = "insert into ". $membersWTableName ." (". $userNameWFieldName .", ". $groupIdWFieldName 
+					.") values (". $grConnection->prepareString($user) .",". $group.")";
+			}
+			else 
+			{
+				$usernameClause = $this->connection->comparisonSQL( 
+					$userNameWFieldName, 
+					$grConnection->prepareString($user), 
+					$this->pSet->isCaseInsensitiveUsername() );
+					
+				$sql = "delete from ". $membersWTableName ." where ". $usernameClause ." and ". $groupIdWFieldName ."=". $group;
+			}
 			
 			$grConnection->exec( $sql );	
 		}
@@ -349,6 +368,7 @@ class MembersPage extends ListPage_Simple
 			$this->fields[] = array("name" => $g[0], "visible" => 1, "caption" => $g[1]);
 		}
 	}
+	
 	function eventExists($name)
 	{
 		return false;

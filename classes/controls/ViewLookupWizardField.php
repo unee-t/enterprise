@@ -234,7 +234,9 @@ class ViewLookupWizardField extends ViewControl
 			LogInfo($LookupSQL);
 		
 			$lookupArr = array(); 
-			$qResult = $this->lookupConnection->query( $LookupSQL );
+			$qResult = $this->lookupConnection->querySilent( $LookupSQL );
+			if( !$qResult )
+				continue;
 			while( $lookuprow = $qResult->fetchNumeric() )
 			{
 				$displayValue = $lookuprow[ $this->displayFieldIndex ];
@@ -275,7 +277,9 @@ class ViewLookupWizardField extends ViewControl
 			$LookupSQL = $this->getNotMultiselectLookupResolvingSQL( $value, $withoutWhere );
 			LogInfo($LookupSQL);
 			
-			$qResult = $this->lookupConnection->query( $LookupSQL );
+			$qResult = $this->lookupConnection->querySilent( $LookupSQL );
+			if( !$qResult )
+				continue;
 			if( $lookuprow = $qResult->fetchNumeric() )
 			{
 				$lookupvalue = $this->getDecryptLookupValue( $lookuprow[ $this->displayFieldIndex ] );

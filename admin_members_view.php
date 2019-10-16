@@ -93,7 +93,7 @@ $keys["ID"] = postvalue("editid1");
 
 //array of params for classes
 $params = array();
-$params["id"] = postvalue("id");
+$params["id"] = postvalue_number("id");
 $params["xt"] = &$xt;
 $params["keys"] = $keys;
 $params["mode"] = $pageMode;
@@ -125,6 +125,7 @@ if( $params["masterTable"] )
 {
 	$params["masterKeysReq"] = ViewPage::processMasterKeys();
 }
+$params["pdfBackgroundImage"] = postvalue("pdfBackgroundImage");
 
 $pageObject = new ViewPage($params);
 $pageObject->init();

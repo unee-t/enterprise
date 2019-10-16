@@ -35,7 +35,11 @@
 'cellMaps' => array(  ) ),
 'loginForm' => array( 'loginForm' => 3 ),
 'page' => array( 'labeledButtons' => array( 'update_records' => array(  ),
-'print_pages' => array(  ) ) ),
+'print_pages' => array(  ),
+'register_activate_message' => array(  ),
+'details_found' => array(  ) ),
+'hasCustomButtons' => false,
+'customButtons' => array(  ) ),
 'events' => array( 'maps' => array(  ),
 'mapsData' => array(  ),
 'buttons' => array(  ) ) );
@@ -87,5 +91,5 @@
 'import_field4' => array( 'field' => 'table_in_external_system',
 'type' => 'import_field' ) ),
 'dbProps' => array(  ),
-'version' => 2 );
+'version' => 4 );
 		?>

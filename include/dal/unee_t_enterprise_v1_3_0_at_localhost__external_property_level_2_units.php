@@ -1,6 +1,8 @@
 <?php
 $dalTableexternal_property_level_2_units = array();
 $dalTableexternal_property_level_2_units["system_id_unit"] = array("type"=>3,"varname"=>"system_id_unit", "name" => "system_id_unit");
+$dalTableexternal_property_level_2_units["create_api_request_id"] = array("type"=>200,"varname"=>"create_api_request_id", "name" => "create_api_request_id");
+$dalTableexternal_property_level_2_units["edit_api_request_id"] = array("type"=>200,"varname"=>"edit_api_request_id", "name" => "edit_api_request_id");
 $dalTableexternal_property_level_2_units["external_id"] = array("type"=>200,"varname"=>"external_id", "name" => "external_id");
 $dalTableexternal_property_level_2_units["external_system_id"] = array("type"=>200,"varname"=>"external_system_id", "name" => "external_system_id");
 $dalTableexternal_property_level_2_units["external_table"] = array("type"=>13,"varname"=>"external_table", "name" => "external_table");
@@ -12,6 +14,7 @@ $dalTableexternal_property_level_2_units["syst_updated_datetime"] = array("type"
 $dalTableexternal_property_level_2_units["update_system_id"] = array("type"=>200,"varname"=>"update_system_id", "name" => "update_system_id");
 $dalTableexternal_property_level_2_units["updated_by_id"] = array("type"=>3,"varname"=>"updated_by_id", "name" => "updated_by_id");
 $dalTableexternal_property_level_2_units["update_method"] = array("type"=>200,"varname"=>"update_method", "name" => "update_method");
+$dalTableexternal_property_level_2_units["is_update_on_duplicate_key"] = array("type"=>16,"varname"=>"is_update_on_duplicate_key", "name" => "is_update_on_duplicate_key");
 $dalTableexternal_property_level_2_units["activated_by_id"] = array("type"=>200,"varname"=>"activated_by_id", "name" => "activated_by_id");
 $dalTableexternal_property_level_2_units["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete", "name" => "is_obsolete");
 $dalTableexternal_property_level_2_units["is_creation_needed_in_unee_t"] = array("type"=>16,"varname"=>"is_creation_needed_in_unee_t", "name" => "is_creation_needed_in_unee_t");
@@ -26,6 +29,10 @@ $dalTableexternal_property_level_2_units["unit_id"] = array("type"=>200,"varname
 $dalTableexternal_property_level_2_units["surface"] = array("type"=>3,"varname"=>"surface", "name" => "surface");
 $dalTableexternal_property_level_2_units["surface_measurment_unit"] = array("type"=>200,"varname"=>"surface_measurment_unit", "name" => "surface_measurment_unit");
 $dalTableexternal_property_level_2_units["description"] = array("type"=>201,"varname"=>"description", "name" => "description");
+$dalTableexternal_property_level_2_units["mgt_cny_default_assignee"] = array("type"=>200,"varname"=>"mgt_cny_default_assignee", "name" => "mgt_cny_default_assignee");
+$dalTableexternal_property_level_2_units["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
+$dalTableexternal_property_level_2_units["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
+$dalTableexternal_property_level_2_units["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
 	$dalTableexternal_property_level_2_units["external_id"]["key"]=true;
 	$dalTableexternal_property_level_2_units["external_system_id"]["key"]=true;
 	$dalTableexternal_property_level_2_units["external_table"]["key"]=true;

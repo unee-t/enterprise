@@ -15,99 +15,40 @@ include_once ("include/dbcommon.php");
 @ini_set("display_errors","1");
 @ini_set("display_startup_errors","1");
 
+$table = postvalue("table");
+$field = postvalue("field");
+$thumb = postvalue( "thumb" );
+$pageType = postvalue("pageType");
+$outputAsAttachment = ( postvalue("nodisp") != 1 );
+$pageName = postvalue("page");
 
-$isPDF = isset($pdf);
-
-
-if($isPDF)
-{
-	$strTableName = $params["table"];
-	$field = $params["field"];
-	$pageType = $params["pageType"];
-	$outputAsAttachment = false;
-}
-else
-{
-	$strTableName = postvalue("table");
-	$field = postvalue("field");
-	$pageType = postvalue("pageType");
-	$outputAsAttachment = ( postvalue("nodisp") != 1 );
-}
-
-if($strTableName == "")
-{
-	if(!$isPDF)
-		echo "<p>No table name received</p>";
-	return;
-}
-if($field == "")
-{
-	if(!$isPDF)
-		echo "<p>No field name received</p>";
-	return;
-}
-
-if (!GetTableURL($strTableName))
+if (!GetTableURL($table))
 {
 	exit(0);
 }
 
+$requestAction = $_REQUEST['_action'];
 
-if($isPDF)
-{
-	$requestAction = 'GET';
+if( !Security::userHasFieldPermissions( $table, $field, $pageType, $pageName, $requestAction == "POST" || postvalue("fkey") ) ) {
+	exit(0);
 }
-else 
-{
-	$requestAction = $_REQUEST['_action'];
-}
+
+
 
 global $cman;	
-$_connection = $cman->byTable( $strTableName );
-$pSet = new ProjectSettings($strTableName, $pageType);
+$_connection = $cman->byTable( $table );
+$pSet = new ProjectSettings($table, $pageType);
 
-/*	
-TODO!!! CVheck field permissions
-if($requestAction == "POST")
-{
-	if($pageType == PAGE_ADD && !$pSet->appearOnAddPage($field) && !$pSet->appearOnInlineAdd($field) 
-		|| $pageType == PAGE_EDIT && !$pSet->appearOnEditPage($field) && !$pSet->appearOnInlineEdit($field)
-		|| $pageType == PAGE_REGISTER && !$pSet->appearOnPage($field)
-		|| $pageType != PAGE_ADD && $pageType != PAGE_EDIT && $pageType != PAGE_REGISTER)
-		exit("You have no permissions for this action");
-
-}
-else 
-	if(!$pSet->checkFieldPermissions($field) && ($pageType != PAGE_ADD || !$pSet->appearOnAddPage($field) && !$pSet->appearOnInlineAdd($field)))
-		exit("You have no permissions for this action");
-*/			
-if(!$isPDF)
-	add_nocache_headers();
-
-include_once("include/".GetTableURL($strTableName)."_variables.php");
-
-
-//	check if logged in
-if($requestAction == 'POST')
-	$havePermission = CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Add") 
-		|| CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Edit");
-else
-	$havePermission = CheckSecurity(@$_SESSION["_".$strTableName."_OwnerID"], "Search") || postvalue("fkey");
-	
-if(!isLogged() && $pageType != PAGE_REGISTER || !$havePermission)
-{ 
-	HeaderRedirect("login", "", "message=expired"); 
-	return;
-}
-
+add_nocache_headers();
 
 require_once getabspath('classes/uploadhandler.php');
 
 $upload_handler = new UploadHandler(getOptionsForMultiUpload($pSet, $field));
 $upload_handler->pSet = $pSet;
 $upload_handler->field = $field;
-$upload_handler->table = $strTableName;
+$upload_handler->table = $table;
 $upload_handler->pageType = $pageType;	
+$upload_handler->pageName = $pageName;	
 
 switch ($requestAction) {
     case 'DELETE':
@@ -128,17 +69,9 @@ switch ($requestAction) {
     	break;
     case 'GET':
     default:
-    	if($isPDF)
-    	{
-    		$isDBFile = isset($params["filename"]); 
-	    	$fileName = isset($params["file"]) ? $params["file"] : $params["filename"];
-    	}
-    	else 
-    	{
-	    	$isDBFile = postvalue("filename") != ""; 
-	    	$fileName = postvalue("file") != "" ? postvalue("file") : postvalue("filename");
-	    	$formStamp = postvalue("fkey");
-    	}
+		$isDBFile = postvalue("filename") != ""; 
+		$fileName = postvalue("file") != "" ? postvalue("file") : postvalue("filename");
+		$formStamp = postvalue("fkey");
     	if($fileName == "")
     		exit();
     	$sessionFile = null;
@@ -153,21 +86,26 @@ switch ($requestAction) {
 	    	$tKeys = $pSet->getTableKeys();
 			for($i = 0; $i < count($tKeys); $i++)
 			{
-				if($isPDF)
-					$keys[$tKeys[$i]] = $params["key".($i+1)];
-				else 
-					$keys[$tKeys[$i]] = postvalue("key".($i+1));
+				$keys[$tKeys[$i]] = postvalue("key".($i+1));
 			}
-			$strWhereClause = KeyWhere($keys);
+			$strWhereClause = KeyWhere($keys, $table);
 			if($pSet->getAdvancedSecurityType()!=ADVSECURITY_ALL)
-				$strWhereClause = whereAdd($strWhereClause, SecuritySQL("Search"));
+				$strWhereClause = whereAdd($strWhereClause, SecuritySQL("Search", $table) );
 			$queryObj = $pSet->getSQLQuery()->CloneObject();
-    		if( !$queryObj->HasGroupBy() )
+			$imgFieldIndices = array( $pSet->getFieldIndex($field) );
+
+			if( $thumb ) {
+				$thumbField = $pSet->getStrThumbnail( $field );
+				$thumbIdx = $pSet->getFieldIndex( $thumbField );
+				$imgFieldIndices[] = $thumbIdx;
+			}
+
+			if( !$queryObj->HasGroupBy() )
 			{
 				// Do not select any fields except current (file) field.
 				// If query has 'group by' clause then other fields are used in it and we may not simply cut 'em off.
 				// Just don't do anything in that case.
-				$queryObj->RemoveAllFieldsExcept($pSet->getFieldIndex($field));
+				$queryObj->RemoveAllFieldsExceptList( $imgFieldIndices );
 			}
 			
 			$qResult = $_connection->query( $queryObj->gSQLWhere($strWhereClause) );
@@ -176,13 +114,20 @@ switch ($requestAction) {
 				if( $qResult )
 				{
 					$data = $qResult->fetchAssoc();
-					if($data)
-						$value = $_connection->stripSlashesBinary( $data[ $field ] );
+					if( $data ) {
+						$value = "";
+						if( $thumbField ) {
+							if( $data[ $thumbField ] )
+								$value = $_connection->stripSlashesBinary( $data[ $thumbField ] );
+						}
+						if( !$value )
+							$value = $_connection->stripSlashesBinary( $data[ $field ] );
+					}
 				}
 			}
 			else 
 			{
-				$cipherer = new RunnerCipherer($strTableName, $pSet);
+				$cipherer = new RunnerCipherer($table, $pSet);
 				$row =  $cipherer->DecryptFetchedArray( $qResult->fetchAssoc() );
 				if( $row )
 				{
@@ -231,16 +176,8 @@ switch ($requestAction) {
     	{
     		$isThumbnail = false;
     		$isSRC = false;
-    		if($isPDF)
-    		{
-    			$isThumbnail = isset($params["thumbnail"]);
-    			$isSRC = isset($params['src']);
-    		}
-    		else
-    		{ 
-    			$isThumbnail = postvalue("thumbnail") != "";
-    			$isSRC = postvalue('src') == 1;
-    		}
+   			$isThumbnail = postvalue("thumbnail") != "";
+   			$isSRC = postvalue('src') == 1;
     		if(postvalue("icon") != ""){
     			$fsFileName = "images/icons/".getIconByFileType($sessionFile["type"], $sessionFile["name"]);
 				$fsize = filesize(getabspath($fsFileName));
@@ -284,15 +221,6 @@ switch ($requestAction) {
 				}
 			}
 								
-			if($isPDF)
-			{
-				if($isDBFile)
-					$file = $value;
-				else
-					$file = myfile_get_contents($fsFileName);
-				return;
-			}
-			
 		
 			$norange = ( postvalue('norange') == 1 );
 		

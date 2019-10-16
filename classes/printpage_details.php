@@ -35,13 +35,19 @@ class PrintPage_Details extends PrintPage
 		$this->openQuery();
 		
 		$this->fillGridPage();
+		$this->fillRenderedData( $this->pageBody["grid_row"]["data"] );
+		
 		$this->showTotals();
 
+		$this->hideEmptyFields();
+		
+		$this->addCommonJs();
+		
 		$this->doCommonAssignments();
 		$this->addCustomCss();
 		$this->displayPrintPage();		
 	}
-	
+
 	/**
 	 *
 	 */
@@ -130,7 +136,6 @@ class PrintPage_Details extends PrintPage
 	
 	protected function prepareColumnOrderSettings() 
 	{
-		
 	}
 }
 ?>

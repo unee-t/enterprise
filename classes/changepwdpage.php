@@ -104,8 +104,18 @@ class ChangePasswordPage extends RunnerPage
 			return " where".$this->connection->addFieldWrappers( "" )."=". $this->connection->prepareString( $this->token );
 				
 		$value = $this->getSqlPreparedLoginTableValue( @$_SESSION["UserID"], $this->usernameField, $cUserNameFieldType );
-		$sWhere = " where ".$this->getFieldSQLDecrypt( $this->usernameField )."=".$value;	
-
+		if( $this->pSet->usersTableInProject() ) {
+			$sWhere = " where ". $this->connection->comparisonSQL( 
+				$this->getFieldSQLDecrypt( $this->usernameField ), 
+				$value, 
+				$this->pSet->isCaseInsensitiveUsername() );	
+		} else {
+			$sWhere = " where ". $this->connection->comparisonSQL( 
+				$this->connection->addFieldWrappers( $this->usernameField ), 
+				$value, 
+				$this->pSet->isCaseInsensitiveUsername() 
+			);	
+		}
 		return $sWhere;
 	}
 	
@@ -117,7 +127,10 @@ class ChangePasswordPage extends RunnerPage
 	{
 		global $cLoginTable;
 		
-		$strSQL = "select ".$this->getFieldSQLDecrypt( $this->passwordField );
+		if( $this->pSet->usersTableInProject() )
+			$strSQL = "select ".$this->getFieldSQLDecrypt( $this->passwordField );
+		else
+			$strSQL = "select ".$this->connection->addFieldWrappers( $this->passwordField );	
 
 		return $strSQL ." from ".$this->connection->addTableWrappers( $cLoginTable ) . $where;
 	}

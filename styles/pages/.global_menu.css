@@ -1,30 +1,35 @@
 [data-page=".global_menu"][data-itemid="welcome_item"] > .bs-welcome-header {
-  background-color: #1E90FF;
-}
-[data-page=".global_menu"][data-itemid="welcome_item1"] > .bs-welcome-header {
-  background-color: #BC8F8F;
+  background-color: #002f6c;
 }
 [data-page=".global_menu"][data-itemid="welcome_item2"] > .bs-welcome-header {
-  background-color: #D2AF80;
-}
-[data-page=".global_menu"][data-itemid="welcome_item3"] > .bs-welcome-header {
-  background-color: #6DA5C8;
-}
-[data-page=".global_menu"][data-itemid="welcome_item4"] > .bs-welcome-header {
-  background-color: #e07878;
-}
-[data-page=".global_menu"][data-itemid="welcome_item5"] > .bs-welcome-header {
-  background-color: #d38621;
+  background-color: #560027;
 }
 [data-page=".global_menu"][data-itemid="welcome_item6"] > .bs-welcome-header {
-  background-color: #7B68EE;
+  background-color: #00363a;
 }
 [data-page=".global_menu"][data-itemid="welcome_item7"] > .bs-welcome-header {
-  background-color: #5f9ea0;
-}
-[data-page=".global_menu"][data-itemid="welcome_item8"] > .bs-welcome-header {
-  background-color: #1E90FF;
+  background-color: #005662;
 }
 [data-page=".global_menu"][data-itemid="welcome_item9"] > .bs-welcome-header {
-  background-color: #db7093;
+  background-color: #006978;
 }
+[data-page=".global_menu"][data-itemid="welcome_item10"] > .bs-welcome-header {
+  background-color: #007c91;
+}
+[data-page=".global_menu"][data-itemid="welcome_item11"] > .bs-welcome-header {
+  background-color: #00251a;
+}
+[data-page=".global_menu"][data-itemid="welcome_item13"] > .bs-welcome-header {
+  background-color: #003d33;
+}
+[data-page=".global_menu"][data-itemid="welcome_item12"] > .bs-welcome-header {
+  background-color: #004c40;
+}
+[data-page=".global_menu"][data-itemid="welcome_item14"] > .bs-welcome-header {
+  background-color: #005b4f;
+}
+[data-page=".global_menu"][data-itemid="welcome_item17"] > .bs-welcome-header {
+  background-color: #6B8E23;
+}
+
+

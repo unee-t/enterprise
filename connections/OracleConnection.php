@@ -32,6 +32,10 @@ class OracleConnection extends Connection
 	 */
 	public function connect()
 	{
+##if @BUILDER.strCharset == "utf-8"##
+		if( !getenv( "NLS_LANG" ) )
+			putenv( "NLS_LANG=AMERICAN_AMERICA.UTF8");
+##endif##
 		$this->conn = @ociplogon($this->user, $this->pwd, $this->sid);
 		if( !$this->conn ) {
 			$this->setError( ocierror() );

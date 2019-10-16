@@ -34,16 +34,16 @@ class Security
 		{
 			Security::tryRelogin();
 		}
-		
+
 		if( IsAdmin() )
 			return true;
-		
+
 		if( $ajaxMode )
 		{
 			Security::sendPermissionError();
 			return false;
 		}
-		
+
 		// The user is logged in but lacks necessary permissions
 		// redirect to Menu.
 		if( isLogged() && !isLoggedAsGuest() )
@@ -59,7 +59,7 @@ class Security
 		redirectToLogin();
 		return false;
 	}
-		
+
 	public static function saveRedirectURL()
 	{
 		$url = $_SERVER["SCRIPT_NAME"];
@@ -70,8 +70,8 @@ class Security
 				continue;
 			if( $query != "" )
 				$query.="&";
-			
-			if( is_array($value) ) 
+
+			if( is_array($value) )
 			{
 				$query .= rawurlencode($key."[]")."=";
 				$query .= implode( rawurlencode($key."[]")."=", $value );
@@ -81,20 +81,20 @@ class Security
 				$query .= rawurlencode($key);
 				if( strlen($value) )
 					$query .= "=" . rawurlencode($value);
-			}			
+			}
 		}
 		if( $query != "" )
 			$url .= "?" . $query;
 		$_SESSION["MyURL"] = $url;
 	}
-	
+
 	public static function checkPagePermissions( $table, $permission )
 	{
 		//	log out if received ?a=logout request
 		Security::processLogoutRequest();
 		// save current URL
 		Security::saveRedirectURL();
-		
+
 		$ret = Security::checkUserPermissions( $table, $permission );
 		//	remember if current user has permissions on the page saved in $_SESSION[MyURL]
 		$_SESSION["MyUrlAccess"] = $ret;
@@ -106,33 +106,68 @@ class Security
 		include_once(getabspath('classes/loginpage.php'));
 		include_once(getabspath('include/xtempl.php'));
 		$loginXt = new Xtempl();
-		
+
 		$loginParams = array("pageType" => PAGE_LOGIN);
 		$loginParams['id'] = -1;
 		$loginParams['xt'] = &$loginXt;
 		$loginParams["tName"]= GLOBAL_PAGES;
 		$loginParams['needSearchClauseObj'] = false;
-		$loginPageObject = new LoginPage($loginParams); 
+		$loginPageObject = new LoginPage($loginParams);
 		$loginPageObject->init();
 		return $loginPageObject;
 	}
 
+	/**
+	 * Try to login automatically using saved login data
+	 */
 	static function tryRelogin()
 	{
-		$username = $_COOKIE["username"];
-		$password = $_COOKIE["password"];
-		if( $username == "" || $password == "" ) 
-			return false;
-			
-		$loginPageObject = Security::createLoginPageObject();
+		//	don't try if we have just logged out
+		if( postvalue("a") == "logout" )
+			return;
 
-		// do not use Remember me in 2factor auth
-		if ( $loginPageObject->twoFactAuth )
-			return false;
+		$loginPageObject = null;
 
-		return $loginPageObject->LogIn($username, $password);
+		//	try to relogin with username & password from cookies first
+		$loginToken = postvalue("token");
+		if( !$loginToken ) {
+			$loginToken = $_COOKIE["token"];
+		}
+		if( $loginToken ) {
+			$tokenPayload = jwt_verify_decode( $loginToken );
+			if( $tokenPayload ) {
+				if( $tokenPayload["username"] ) {
+					$loginPageObject = Security::createLoginPageObject();
+					if( $loginPageObject->LogIn( $tokenPayload["username"], "", true ) )
+					{
+						return true;
+					}
+
+				}
+
+			}
+			//	clear cookie if weren't able to login
+			setProjectCookie( "token", "", time() - 1, true );
+
+		}
+
+		//	try security plugins
+		$securityPlugins = Security::GetPlugins();
+		foreach( $securityPlugins as $sp )
+		{
+			$token = $sp->savedToken();
+			if( $token )  {
+				if( !$loginPageObject )
+					$loginPageObject = Security::createLoginPageObject();
+
+				if( $loginPageObject->LoginWithSP( $sp, $token, false ) )
+					return true;
+			}
+		}
+
+		return false;
 	}
-	
+
 	static function checkUserPermissions($table, $permission)
 	{
 		//	user is logged in
@@ -143,7 +178,7 @@ class Security
 		//	admin area security
 		if( $table == ADMIN_USERS )
 			return IsAdmin();
-			
+
 		return CheckTablePermissions($table, $permission);
 	}
 
@@ -154,9 +189,9 @@ class Security
 	static function processLogoutRequest()
 	{
 		//	no need to logout
-		if( postvalue("a") != "logout" || !isLogged() || isLoggedAsGuest() ) 
+		if( postvalue("a") != "logout" || !isLogged() || isLoggedAsGuest() )
 			return false;
-		
+
 		//	logout and redirect (refresh current page)
 		$loginPageObject = Security::createLoginPageObject();
 		$loginPageObject->Logout();
@@ -166,7 +201,7 @@ class Security
 		$logoutPerformed = true;
 		return true;
 	}
-	
+
 	/**
 	 * @param String message (optional)
 	 */
@@ -188,30 +223,30 @@ class Security
 		HeaderRedirect("menu");
 		exit();
 	}
-	
+
 	public static function clearSecuritySession()
 	{
 		session_unset();
-		setcookie("username","",time()-365*1440*60);
-		setcookie("password","",time()-365*1440*60);
-		
-		
+		setcookie("token", "", time() - 1000, "", "", false, false );
+
+
 		// these lines are important
 		// DO NOT REMOVE THEM!
 		unset( $_COOKIE["username"] );
 		unset( $_COOKIE["password"] );
+		unset( $_COOKIE["token"] );
 
-		
+
 		unset( $_SESSION["UserID"] );
 		unset( $_SESSION["UserName"] );
 		unset( $_SESSION["AccessLevel"] );
-		unset( $_SESSION["fromFacebook"] );
+		unset( $_SESSION["pluginLogin"] );
 		unset( $_SESSION["UserRights"] );
 		unset( $_SESSION["LastReadRights"] );
 		unset( $_SESSION['GroupID'] );
 		unset( $_SESSION["OwnerID"] );
 		unset( $_SESSION["securityOverrides"] );
-		
+
 		$toClear = array();
 		foreach( $_SESSION as $k => $v )
 		{
@@ -223,26 +258,26 @@ class Security
 			unset( $_SESSION[ $k ] );
 		}
 	}
-	
+
 	public static function doGuestLogin()
 	{
 			$allowGuest = guestHasPermissions();
 	if( !$allowGuest )
 		return;
-		
+
 	DoLogin(true);
-	}	
-	
+	}
+
 	/**
-	 * Security API calls 
+	 * Security API calls
 	 */
-	
+
 	/**
-	 *	Return current user's group when Static Permissions are used. 
+	 *	Return current user's group when Static Permissions are used.
 	 *	When Dynamic permissions are used, returns any group name the user belongs to
 	 *	@return String
 	 */
-	public static function getUserGroup() 
+	public static function getUserGroup()
 	{
 		$userGroups = Security::getUserGroups();
 		foreach( $userGroups as $g => $v )
@@ -251,7 +286,7 @@ class Security
 		}
 		return "";
 	}
-	
+
 	/**
 	 *	Return array of the group IDs the user belongs to. Group Ids are the keys of the array:
 	 *	$groups[ <group1> ] = true;
@@ -261,12 +296,12 @@ class Security
 	 *	Returns empty array when the user is Guest or not logged in.
 	 *	@return Array
 	 */
-	public static function getUserGroupIds() 
+	public static function getUserGroupIds()
 	{
 		global $globalSettings;
 		if( $globalSettings["nLoginMethod"] == SECURITY_NONE || $globalSettings["nLoginMethod"] == SECURITY_HARDCODED )
 			return array();
-		
+
 		if( !$globalSettings["isDynamicPerm"] )
 		{
 			//	static permissions
@@ -282,7 +317,7 @@ class Security
 			$groups[$g] = true;
 		return $groups;
 	}
-	
+
 	/**
 	 *	Return array of the group names the user belongs to. Group names are the keys of the array:
 	 *	$groups[ <group1> ] = true;
@@ -291,8 +326,8 @@ class Security
 	 *	$groups[ <groupId> ] = true;
 	 *	Returns empty array when the user is Guest or not logged in or doesn't belong to any group.
 	 *	@return Array
-	 */	
-	public static function getUserGroups() 
+	 */
+	public static function getUserGroups()
 	{
 		global $globalSettings;
 		if( $globalSettings["nLoginMethod"] == SECURITY_NONE || $globalSettings["nLoginMethod"] == SECURITY_HARDCODED )
@@ -302,14 +337,14 @@ class Security
 
 		// database-based dynamic permissions
 		$groupIds = Security::getUserGroupIds();
-		
+
 		$groupNames = array();
-		
+
 		global $cman;
 		$grConnection = $cman->getForUserGroups();
 
 		$sql = "select ". $grConnection->addFieldWrappers( "Label" )
-			." from ". $grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) . " WHERE " . $grConnection->addFieldWrappers( "GroupID" ) 
+			." from ". $grConnection->addTableWrappers( "uneet_enterprise_uggroups" ) . " WHERE " . $grConnection->addFieldWrappers( "GroupID" )
 			." in ( " . implode( ",", array_keys( $groupIds ) ) . ")";
 
 		$qResult = $grConnection->query( $sql );
@@ -317,18 +352,18 @@ class Security
 		{
 			$groupNames[ $data[0] ] = true;
 		}
-		
+
 		if( $groupIds[ -1 ] )
 			$groupNames["<Admin>"] = true;
-		
+
 		return $groupNames;
 	}
-	
+
 	/**
 	 *	Return current user's name, the same he entered when logging in.
 	 *	@return String
 	 */
-	public static function getUserName() 
+	public static function getUserName()
 	{
 		return $_SESSION["UserID"];
 	}
@@ -337,7 +372,7 @@ class Security
 	 *	Return current user's display name, the one to be displayed on the pages.
 	 *	@return String
 	 */
-	public static function getDisplayName() 
+	public static function getDisplayName()
 	{
 		return $_SESSION["UserName"];
 	}
@@ -345,22 +380,22 @@ class Security
 	 *	Change the current user's display name, the one to be displayed on the pages.
 	 *	@param String $str - new name, HTML formatting is allowed
 	 */
-	public static function setDisplayName( $str ) 
+	public static function setDisplayName( $str )
 	{
 		$_SESSION["UserName"] = $str;
 	}
-	
+
 	/**
 	 *	Checks if the current user is Guest or not.
 	 *	@return Boolean
 	 */
-	public static function isGuest() 
+	public static function isGuest()
 	{
 		if($_SESSION["UserID"] == "Guest" && $_SESSION["AccessLevel"] == ACCESS_LEVEL_GUEST)
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 *	Checks if the current user is Admin or not.
 	 *	@return Boolean
@@ -370,21 +405,21 @@ class Security
 		global $globalSettings;
 		if( $globalSettings["nLoginMethod"] == SECURITY_NONE || $globalSettings["nLoginMethod"] == SECURITY_HARDCODED )
 			return false;
-		
+
 		//	dynamic, DB or AD-based
 		if( $globalSettings["isDynamicPerm"] )
 			return $_SESSION["UserRights"][ $_SESSION["UserID"] ][ ".IsAdmin" ];
-		
+
 		//	static
 		if( $globalSettings["nLoginMethod"] == SECURITY_TABLE )
 		{
 			return ( ACCESS_LEVEL_ADMIN == $_SESSION["AccessLevel"] );
 		}
-		
+
 		//	no admins otherwise
 		return false;
 	}
-	
+
 	/**
 	 *	Checks if the current user is logged in.
 	 *	@return Boolean
@@ -393,7 +428,7 @@ class Security
 	{
 		return ( $_SESSION["UserID"] != "" && !Security::isGuest() );
 	}
-	
+
 	/**
 	 *	Logs in under specified username
 	 *	@param String $username
@@ -415,15 +450,15 @@ class Security
 	public static function checkUsernamePassword( $username, $password, $fireEvents = false )
 	{
 		$loginPageObject = Security::createLoginPageObject();
-		
+
 		if( $loginPageObject->checkUsernamePassword( $username, $password ) )
 			return true;
-		
+
 		if( $fireEvents )
 		{
 			$loginPageObject->doAfterUnsuccessfulLog( $username );
 			$loginPageObject->callAfterUnsuccessfulLoginEvent();
-		}	
+		}
 		return false;
 	}
 
@@ -447,7 +482,7 @@ class Security
 	}
 
 
-	
+
 	/**
 	 *	Logs the current user out
 	 */
@@ -456,16 +491,16 @@ class Security
 		$loginPageObject = Security::createLoginPageObject();
 		$loginPageObject->Logout();
 	}
-	
+
 	/**
 	 *	Returns table permissions array the current user.
 	 *	Returns array where keys are specific permission letters:
-	 * 	A - add, 
-	 *  D - delete, 
-	 *  E - edit, 
-	 *  S - search/list, 
-	 *  P - print/export, 
-	 *  I - import, 
+	 * 	A - add,
+	 *  D - delete,
+	 *  E - edit,
+	 *  S - search/list,
+	 *  P - print/export,
+	 *  I - import,
 	 *	M - admin permission. When advanced permissions are in effect ( users can see/edit their own records only ), this permissions grants access to all records.
 	 *
 	 *  Sample:
@@ -484,16 +519,16 @@ class Security
 
 		return Security::permMask2Array( GetUserPermissions( $table ) );
 	}
-	
+
 	/**
 	 *	Set table permissions for the current user.
 	 *	Permissions should be passed in the form of array where keys are specific permission letters:
-	 * 	A - add, 
-	 *  D - delete, 
-	 *  E - edit, 
-	 *  S - search/list, 
-	 *  P - print/export, 
-	 *  I - import, 
+	 * 	A - add,
+	 *  D - delete,
+	 *  E - edit,
+	 *  S - search/list,
+	 *  P - print/export,
+	 *  I - import,
 	 *	M - admin permission. When advanced permissions are in effect ( users can see/edit their own records only ), this permissions grants access to all records.
 	 *
 	 *  Sample:
@@ -502,27 +537,27 @@ class Security
 	 *		$rights["D"] = false;
 	 *		Security::setPermissions( $table, $rights );
 	 *
-	 *  Permissions need to be set only once per user session, i.e. in the 'After Successful Login' event. 
+	 *  Permissions need to be set only once per user session, i.e. in the 'After Successful Login' event.
 	 *
 	 *	@param String $table - table name
 	 *	@param Array $rights
 	 *  @returns nothing
 	 */
-	 
+
 	public static function setPermissions( $table, $rights )
 	{
 		$table = findTable( $table );
 		if( $table == "" )
 			return;
-		
-		$strPerm = Security::permArray2Mask( $rights );
-		
-		if( !isset( $_SESSION[ "securityOverrides" ] ) )
-			$_SESSION[ "securityOverrides" ] = array();	
 
-		$_SESSION[ "securityOverrides" ][ $table ] = $strPerm;	
+		$strPerm = Security::permArray2Mask( $rights );
+
+		if( !isset( $_SESSION[ "securityOverrides" ] ) )
+			$_SESSION[ "securityOverrides" ] = array();
+
+		$_SESSION[ "securityOverrides" ][ $table ] = $strPerm;
 	}
-	
+
 	private static function permMask2Array( $str )
 	{
 		$ret = array();
@@ -551,36 +586,214 @@ class Security
 		return $str;
 	}
 
-	
+
 	/**
 	 *	Returns current user's OwnerID - the value used to identify records ownership in the specific table.
-	 *	
+	 *
 	 *	@param String $table - table name
 	 *  @returns String
 	 */
-	public static function getOwnerId( $table ) 
+	public static function getOwnerId( $table )
 	{
 		$table = findTable( $table );
 		if( $table == "" )
 			return;
-		
+
 		return $_SESSION[ "_" . $table . "_OwnerID" ];
 	}
 
 	/**
 	 *	Change current user's OwnerID - the value used to identify records ownership in the specific table.
-	 *	
+	 *
 	 *	@param String $table - table name
 	 *  @param String $ownerid
 	 */
-	public static function setOwnerId( $table, $ownerid ) 
+	public static function setOwnerId( $table, $ownerid )
 	{
 		$table = findTable( $table );
 		if( $table == "" )
 			return;
-		
+
 		$_SESSION[ "_" . $table . "_OwnerID" ] = $ownerid;
 	}
-	
+
+	public static function hasLogin() {
+		return GetGlobalData("createLoginPage");
+	}
+
+	public static function loginMethod() {
+		return GetGlobalData("nLoginMethod");
+	}
+
+	public static function dynamicPermissions() {
+		$method = Security::loginMethod();
+		if( $method != SECURITY_TABLE && $method != SECURITY_AD)
+			return false;
+		return GetGlobalData("isDynamicPerm");
+	}
+
+	/**
+	 * Returns true if permissions are defined in the project.
+	 * When false, no permissions system is present in the project. Everyone sees everything.
+	 * @return Boolean
+	 */
+	public static function permissionsAvailable() {
+		$method = Security::loginMethod();
+		if( $method != SECURITY_TABLE && $method != SECURITY_AD )
+			return false;
+		return GetGlobalData("isDynamicPerm") || GetGlobalData("userGroupCount");
+	}
+
+	/**
+	 * 	$permission - one of A,D,E,S,P,I literals
+	 *  $table that the permissions are requested on
+	 *  $ownerId - ownerId of the record the permissions is requested on
+	 */
+	public static function userCan( $permission, $table, $ownerId = null )
+	{
+		if( !Security::hasLogin() ) {
+			return true;
+		}
+
+		if($_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMIN)
+			return true;
+		$strPerm = GetUserPermissions( $table );
+
+		// no permissions
+		if( strpos( $strPerm, $permission ) === false )
+			return false;
+
+		//	record ownerId check not requested or user has admin permissions
+		if( $ownerId === null || strpos($strPerm, "M") !== false )
+			return true;
+
+		$pSet = new ProjectSettings($table);
+		$advSecType = $pSet->getAdvancedSecurityType();
+		if( $advSecType == ADVSECURITY_ALL || $advSecType == ADVSECURITY_NONE /*????*/  )
+			return true;
+
+		if( $advSecType == ADVSECURITY_EDIT_OWN && $permission != 'D' && $permission != 'E' ) {
+			return true;
+		}
+
+		$currentOwnerId = (string)$_SESSION["_".$table."_OwnerID"];
+		if( $pSet->isCaseInsensitiveUsername() ) {
+			$ownerId = strtoupper( $ownerId );
+			$currentOwnerId = strtoupper( $currentOwnerId );
+		}
+
+		return $ownerId === $currentOwnerId;
+	}
+
+	/**
+	 * 	User has permissions on fields specified on the Register page and on the fields from pages he has access to
+	 *  pageName can be substituted by another page
+	 *
+	 *  @param String table
+	 *  @param String field
+	 *  @param String pageType
+	 *  @param String pageName
+	 *  @param Boolean edit. Either we are asking to show field
+	 */
+	public static function userHasFieldPermissions( $table, $field, $pageType, $pageName, $edit ) {
+		global $cLoginTable;
+		$pageTable = $table;
+		if( $table === $cLoginTable && $pageType === "register") {
+			$pageTable = GLOBAL_PAGES;
+		}
+		$pSet = new ProjectSettings( $table, $pageType, $pageName, $pageTable );
+		$pageType = $pSet->getPageType();
+
+		$permission = Security::pageType2permission( $pageType );
+		if( $pageTable != GLOBAL_PAGES && !Security::userCan( $permission, $table ) ) {
+			return false;
+		}
+
+
+		//	search panel fields
+		if( $edit && !pageTypeInputsData( $pageType ) ) {
+			return $pSet->appearOnSearchPanel( $field );
+		}
+		if( !$edit && !pageTypeShowsData( $pageType ) )
+			return false;
+		return $pSet->appearOnPage( $field );
+	}
+
+	public static function getRestrictedPages( $table )
+	{
+		if( Security::dynamicPermissions() ) {
+			ReadUserPermissions();
+			$pages = @$_SESSION["UserRights"][$_SESSION["UserID"]][$table]["pages"];
+			if( !$pages ) {
+				$pages = array();
+			}
+			return $pages;
+		} else {
+			return Security::_staticRestrictedPages( $table );
+		}
+		return array();
+	}
+	public static function pageType2permission( $pageType ) {
+		if( $pageType == "add" )
+			return "A";
+		else if( $pageType == "edit" )
+			return "E";
+		else if( $pageType == "print" || $pageType == "export" || $pageType == "rprint" || $pageType == "masterprint" || $pageType == "masterrprint" )
+			return "P";
+		else if( $pageType == "import" )
+			return "I";
+		return "S";
+	}
+
+	public static function _staticRestrictedPages( $table ) {
+		$group = Security::getUserGroup();
+		//	default permissions
+		return array();
+	}
+
+	public static function GetPlugins() {
+		$plugins = array();
+		require_once( getabspath('classes/security/securityplugin.php') );
+
+		if( GetGlobalData("isFB", false) )
+		{
+			require_once( getabspath( 'classes/security/fb.php' ) );
+			$plugins["fb"] = new SecurityPluginFB();
+		}
+
+
+		if( GetGlobalData("isGoogleSignIn", false) )
+		{
+			require_once( getabspath( 'classes/security/google.php' ) );
+			$plugins["go"] = new SecurityPluginGoogle();
+		}
+
+		return $plugins;
+	}
+
+	public static function getLoginTable() {
+		global $cLoginTable;
+		if( Security::loginMethod() === SECURITY_TABLE )
+			return $cLoginTable;
+		return false;
+	}
+
+	/**
+	 * Test whether the user has permissions to see the page
+	 */
+	public static function userCanSeePage( $table, $page ) {
+		$pSet = new ProjectSettings( $table, "", $page );
+		if( $pSet->pageName() != $page )
+			return false;
+		if( $table ==  GLOBAL_PAGES ) 
+			return true;
+		$permission = Security::pageType2permission( $pSet->getPageType() );
+		if( !$permission ) {
+			//	page doesn't require permissions
+			return true;
+		}
+		$strPerm = GetUserPermissions( $table );
+		return strpos( $strPerm, $permission ) !== false;
+	}
 }
 ?>

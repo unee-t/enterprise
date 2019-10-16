@@ -174,21 +174,22 @@ require_once("classes/searchpanelsimple.php");
 require_once('classes/listpage.php');
 require_once('classes/listpage_simple.php');
 require_once('classes/memberspage.php');
+
+
 $xt = new Xtempl();
 
-
 $options = array();
-//array of params for classes
-$options["pageType"] = PAGE_LIST;
-$options["id"] = postvalue("id") ? postvalue("id") : 1;
+$options["pageType"] = PAGE_ADMIN_MEMBERS;
+$options["pageTable"] = GLOBAL_PAGES;
+$options["id"] = postvalue_number("id");
 $options["mode"] = MEMBERS_PAGE;
-$options['xt'] = &$xt;
+$options["xt"] = &$xt;
 
-$pageObject = ListPage::createListPage($strTableName, $options);
+$pageObject = ListPage::createListPage( $strTableName, $options );
 if( postvalue("a") == "saveMembers" )
 {
-	$modifiedMembers = my_json_decode(postvalue('values'));
-	$pageObject->saveMembers($modifiedMembers);
+	$modifiedMembers = my_json_decode( postvalue('values') );
+	$pageObject->saveMembers( $modifiedMembers );
 	return;
 }
 

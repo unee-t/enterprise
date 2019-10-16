@@ -8,7 +8,7 @@ class ViewVideoFileField extends ViewFileField
 	 */
 	public function addJSFiles()
 	{
-				$this->AddJSFile("include/video/projekktor.js");
+		$this->AddJSFile("include/video/projekktor.js");
 		$this->getJSControl();
 	}
 
@@ -61,7 +61,7 @@ class ViewVideoFileField extends ViewFileField
 				if($pageType != PAGE_ADD && $pageType != PAGE_EDIT)
 					$videoId .= $this->getContainer()->recId;
 				else
-					$videoId .= postvalue("id");
+					$videoId .= postvalue_number("id");
 				$videoId .= '_'.$counter++;
 				
 				if($fieldIsUrl)

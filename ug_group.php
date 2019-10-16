@@ -34,11 +34,49 @@ $nonAdminTablesArr[] = "person_genders";
 $nonAdminTablesArr[] = "Manage Areas";
 $nonAdminTablesArr[] = "Manage Buildings";
 $nonAdminTablesArr[] = "property_groups_areas";
-$nonAdminTablesArr[] = "Unee-T Enterprise Configuration";
 $nonAdminTablesArr[] = "ut_external_sot_for_unee_t_objects";
 $nonAdminTablesArr[] = "Manage Units";
 $nonAdminTablesArr[] = "external_property_groups_areas";
 $nonAdminTablesArr[] = "external_property_level_1_buildings";
+$nonAdminTablesArr[] = "Manage Rooms";
+$nonAdminTablesArr[] = "Assign Areas to User";
+$nonAdminTablesArr[] = "Search Users";
+$nonAdminTablesArr[] = "Assign Buildings to User";
+$nonAdminTablesArr[] = "property_level_1_buildings";
+$nonAdminTablesArr[] = "Assign Units to User";
+$nonAdminTablesArr[] = "property_level_2_units";
+$nonAdminTablesArr[] = "Assign Rooms to User";
+$nonAdminTablesArr[] = "property_level_3_rooms";
+$nonAdminTablesArr[] = "Search Rooms";
+$nonAdminTablesArr[] = "Search Units";
+$nonAdminTablesArr[] = "external_property_level_2_units";
+$nonAdminTablesArr[] = "Search All Units";
+$nonAdminTablesArr[] = "ut_map_external_source_units";
+$nonAdminTablesArr[] = "Search Buildings";
+$nonAdminTablesArr[] = "Export and Import Buildings";
+$nonAdminTablesArr[] = "Export and Import Areas";
+$nonAdminTablesArr[] = "Export and Import Units";
+$nonAdminTablesArr[] = "List of Countries";
+$nonAdminTablesArr[] = "Export and Import Rooms";
+$nonAdminTablesArr[] = "Export and Import User Types";
+$nonAdminTablesArr[] = "Export and Import Users";
+$nonAdminTablesArr[] = "Assign Rooms";
+$nonAdminTablesArr[] = "ut_map_external_source_users";
+$nonAdminTablesArr[] = "Unee-T Enterprise Account";
+$nonAdminTablesArr[] = "All Properties by Countries";
+$nonAdminTablesArr[] = "SuperAdmin - manage UNTE admins";
+$nonAdminTablesArr[] = "Super Admin - Manage Organization";
+$nonAdminTablesArr[] = "Super Admin - Manage API Keys";
+$nonAdminTablesArr[] = "Super Admin - Manage MEFE Master User";
+$nonAdminTablesArr[] = "Super Admin - Default sot for Unee-T objects";
+$nonAdminTablesArr[] = "User Permissions";
+$nonAdminTablesArr[] = "uneet_enterprise_uggroups";
+$nonAdminTablesArr[] = "Search list of possible assignees";
+$nonAdminTablesArr[] = "Sources of Truth";
+$nonAdminTablesArr[] = "Organization Default Area";
+$nonAdminTablesArr[] = "Organization Default L1P";
+$nonAdminTablesArr[] = "Search list of possible properties";
+$nonAdminTablesArr[] = "Organization Default L2P";
 
 $ug_connection = $cman->getForUserGroups();
 
@@ -66,15 +104,15 @@ switch(postvalue("a"))
 		break;
 		
 	case "del":
-		$sql = "delete from ". $wGroupTableName ." where ". $ug_connection->addFieldWrappers("GroupID") ."=".(postvalue("id")+0);
+		$sql = "delete from ". $wGroupTableName ." where ". $ug_connection->addFieldWrappers("GroupID") ."=".(postvalue_number("id"));
 		$ug_connection->exec( $sql );
 		
 		$sql = "delete from ". $ug_connection->addTableWrappers( "uneet_enterprise_ugrights" ) 
-			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue("id")+0);
+			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue_number("id"));
 		$ug_connection->exec( $sql );
 		
 		$sql = "delete from ".$ug_connection->addTableWrappers( "uneet_enterprise_ugmembers" ) 
-			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue("id")+0);
+			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue_number("id"));
 		$ug_connection->exec( $sql );
 		
 		echo printJSON( array('success' => true) );
@@ -83,12 +121,14 @@ switch(postvalue("a"))
 	case "rename":
 		$sql = "update ". $wGroupTableName  
 			." set ". $ug_connection->addFieldWrappers( "Label" ) ."=". $ug_connection->prepareString( postvalue("name") )
-			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue("id")+0);
+			." where ". $ug_connection->addFieldWrappers( "GroupID" ) ."=".(postvalue_number("id"));
 		$ug_connection->exec( $sql );
 		
 		echo printJSON( array('success' => true) );
 		break;
 	
+	// @deprecated 
+	// see ug_rights
 	case 'saveRights':
 		$error = '';
 		if( postvalue('state') )
@@ -167,53 +207,6 @@ switch(postvalue("a"))
 							."values (". $ug_connection->prepareString(html_special_decode($realTables[$table])) .", ". $groupId .", ". $ug_connection->prepareString($mask)  .")";
 						$ug_connection->exec( $sql );
 					}
-					
-					$error = $ug_connection->lastError();
-				}
-			}
-		}
-		
-		getJSONResult($error);
-		break;
-		
-	case 'saveMembership':
-		$error = '';
-		$groupId = postvalue('group');
-		$realUsers = GetRealValues();
-		
-		$wMemebersTableName = $ug_connection->addTableWrappers( "uneet_enterprise_ugmembers" );
-		
-		for($i = 0; $i < count($realUsers); $i++)
-		{
-			if( $realUsers[$i] != $_SESSION["UserID"] )
-			{
-				$sql = "delete from ". $wMemebersTableName ." where ". $ug_connection->addFieldWrappers( "UserName" )."=%s";
-			}
-			else
-			{
-				$sql = "delete from ". $wMemebersTableName ." where ". $ug_connection->addFieldWrappers( "UserName" ) ."=%s "
-					."and ". $ug_connection->addFieldWrappers( "GroupID" ) ."<>-1";
-			}
-			
-			$ug_connection->exec( mysprintf($sql, array( $ug_connection->prepareString( html_special_decode($realUsers[$i]) ) )) );	
-		}
-		
-		if(postvalue('state'))
-		{
-			$state = my_json_decode( postvalue('state') );
-			foreach ($state as $group => $users)
-			{
-				foreach ($users as $user)
-				{
-					if( !array_key_exists($user, $realUsers) )
-						continue;
-					
-					$sql = "insert into ". $wMemebersTableName 
-						." (". $ug_connection->addFieldWrappers( "UserName" ) 
-						.", ". $ug_connection->addFieldWrappers( "GroupID" ) 
-						.") values (". $ug_connection->prepareString( html_special_decode($realUsers[$user]) ) .", ". $group .")";
-					
-					$ug_connection->exec( $sql );
 					
 					$error = $ug_connection->lastError();
 				}

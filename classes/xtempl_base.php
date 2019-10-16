@@ -103,7 +103,8 @@ class XTempl_Base
 		$this->assign_method("event",$this, "xt_event", array());
 		$this->assign_function("label","xt_label",array());
 		$this->assign_function("tooltip","xt_tooltip",array());
-		$this->assign_function("custom","xt_custom",array());
+		$this->assign_method("custom", $this, "customLabel",array());
+		$this->assign_function("htmlcustom","xt_htmlcustom",array());
 		$this->assign_function("cl_length","xt_cl_length",array());
 		$this->assign_function("caption","xt_caption",array());
 		$this->assign_function("pagetitlelabel", "xt_pagetitlelabel", array());
@@ -117,6 +118,10 @@ class XTempl_Base
 		$this->assign_function("jspagetitlelabel","xt_jspagetitlelabel",array());
 		
 		$this->assign_function("pdf_image","getPdfImageObject",array());
+		
+		$this->assign_method("map", $this, "xt_event_map", array());
+		
+		$this->assign( "projectPath", projectPath() );
 		
 		if( !$hideAddedCharts ) //#9607 1. Temporary fix
 		{
@@ -135,8 +140,10 @@ $mlang_charsets["English"]="Windows-1252";;
 			$this->assign("rtlCSS",true);
 			$html_attrs .= 'dir="RTL" ';
 		}
-		else
+		else 
+		{
 			$this->assign("LTR_block",true);
+		}
 		if(mlang_getcurrentlang() == 'English')
 				$html_attrs .= 'lang="en"';
 		$this->assign("html_attrs",$html_attrs);	
@@ -264,6 +271,28 @@ $mlang_charsets["English"]="Windows-1252";;
 		}
 		return $this->xt_doevent( $params );
 	}
+
+	function customLabel($params)
+	{
+		$ret = GetCustomLabel($params["custom1"]);
+		echo $this->jsonMode 
+			? str_replace( "'", "\\'", $ret )
+			: $ret;
+	}
+	
+	
+	function xt_event_map( $params )
+	{
+		if( !$this->jsonMode ) 
+			return $this->xt_doevent( $params );
+		
+		ob_start();
+		$this->xt_doevent( $params );
+		$out = ob_get_contents() ;
+		ob_end_clean();
+		
+		echo $out;	
+	}	
 
 	function xt_doevent($params)
 	{

@@ -17,69 +17,17 @@ if( !ViewPage::processEditPageSecurity( $strTableName ) )
 
 
 
-$layout = new TLayout("view_bootstrap_2col", "OfficeOffice", "MobileOffice");
-$layout->version = 3;
-	$layout->bootstrapTheme = "default";
-		$layout->customCssPageName = "Manage_Units_view";
-$layout->blocks["top"] = array();
-$layout->containers["viewpage"] = array();
-$layout->container_properties["viewpage"] = array(  );
-$layout->containers["viewpage"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"header" );
-$layout->containers["header"] = array();
-$layout->container_properties["header"] = array(  );
-$layout->containers["header"][] = array("name"=>"viewheader",
-	"block"=>"viewheader", "substyle"=>1  );
 
-$layout->skins["header"] = "";
+	
+			
 
 
-$layout->skins["viewpage"] = "";
-
-$layout->blocks["top"][] = "viewpage";
-$layout->containers["fields"] = array();
-$layout->container_properties["fields"] = array(  );
-$layout->containers["fields"][] = array("name"=>"viewfields",
-	"block"=>"", "substyle"=>1  );
-
-$layout->skins["fields"] = "";
-
-$layout->blocks["top"][] = "fields";
-$layout->containers["bottombuttons"] = array();
-$layout->container_properties["bottombuttons"] = array(  );
-$layout->containers["bottombuttons"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"buttons" );
-$layout->containers["buttons"] = array();
-$layout->container_properties["buttons"] = array(  );
-$layout->containers["buttons"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"leftbuttons" );
-$layout->containers["leftbuttons"] = array();
-$layout->container_properties["leftbuttons"] = array(  );
-$layout->containers["leftbuttons"][] = array("name"=>"viewbuttons",
-	"block"=>"viewbuttons", "substyle"=>1  );
-
-$layout->skins["leftbuttons"] = "";
+	
+			
 
 
-$layout->containers["buttons"][] = array("name"=>"wrapper",
-	"block"=>"", "substyle"=>1 , "container"=>"leftbuttons_1" );
-$layout->containers["leftbuttons_1"] = array();
-$layout->container_properties["leftbuttons_1"] = array(  );
-$layout->containers["leftbuttons_1"][] = array("name"=>"rightviewbuttons",
-	"block"=>"rightviewbuttons", "substyle"=>1  );
-
-$layout->skins["leftbuttons_1"] = "";
-
-
-$layout->skins["buttons"] = "";
-
-
-$layout->skins["bottombuttons"] = "";
-
-$layout->blocks["top"][] = "bottombuttons";
-$page_layouts["Manage_Units_view"] = $layout;
-
-
+	
+			
 
 
 
@@ -96,7 +44,7 @@ $keys["created_by_id"] = postvalue("editid4");
 
 //array of params for classes
 $params = array();
-$params["id"] = postvalue("id");
+$params["id"] = postvalue_number("id");
 $params["xt"] = &$xt;
 $params["keys"] = $keys;
 $params["mode"] = $pageMode;
@@ -128,6 +76,7 @@ if( $params["masterTable"] )
 {
 	$params["masterKeysReq"] = ViewPage::processMasterKeys();
 }
+$params["pdfBackgroundImage"] = postvalue("pdfBackgroundImage");
 
 $pageObject = new ViewPage($params);
 $pageObject->init();

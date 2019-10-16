@@ -368,6 +368,27 @@ class Connection
 	}
 
 	/**
+	 * Returns SQL statement like 'val1 = val2'
+	 * Use this only for strings!
+	 */
+	public function comparisonSQL( $val1, $val2, $ignoreCase ) {
+		return $ignoreCase 
+			? $this->caseInsensitiveComparison( $val1, $val2 )
+			: $this->caseSensitiveComparison( $val1, $val2 );
+	}
+
+	
+	public function caseSensitiveComparison( $val1, $val2 )
+	{
+		return $this->_functions->caseSensitiveComparison( $val1, $val2 );
+	}
+
+	public function caseInsensitiveComparison( $val1, $val2 )
+	{
+		return $this->_functions->caseInsensitiveComparison( $val1, $val2 );
+	}
+
+	/**
 	 *	Checks if character at position $pos in SQL string is inside quotes.
 	 * 	Example:
 	 *  select 'aaa\' 1', ' ' 2
@@ -528,78 +549,7 @@ class Connection
 	 */
 	public function queryPage($strSQL, $pageStart, $pageSize, $applyLimit)
 	{
-		if( $this->dbType == nDATABASE_MySQL ) 
-		{
-			if( $applyLimit ) 
-				$strSQL.= " limit ".(($pageStart - 1) * $pageSize).",".$pageSize;
-			
-			return $this->query( $strSQL );
-		} 
-		
-		if( $this->dbType == nDATABASE_MSSQLServer || $this->dbType == nDATABASE_Access ) 
-		{
-			if( $applyLimit ) 
-				$strSQL = AddTop($strSQL, $pageStart * $pageSize);
-			
-			$qResult = $this->query( $strSQL );
-			$qResult->seekPage( $pageSize, $pageStart );
-			
-			return $qResult;
-		} 
-		
-		if( $this->dbType == nDATABASE_Oracle ) 
-		{
-			if( $applyLimit ) 
-				$strSQL = AddRowNumber($strSQL, $pageStart * $pageSize);
-			
-			$qResult =  $this->query( $strSQL );
-			$qResult->seekPage( $pageSize, $pageStart );
-			
-			return $qResult;
-		} 
-		
-		if( $this->dbType == nDATABASE_PostgreSQL ) 
-		{
-			if( $applyLimit )
-				$strSQL.= " limit ".$pageSize." offset ".(($pageStart - 1) * $pageSize);
-			
-			return $this->query( $strSQL );
-		}
-		
-		if( $this->dbType == nDATABASE_DB2 ) 
-		{
-			if( $applyLimit ) 
-			{
-				$strSQL = "with DB2_QUERY as (".$strSQL.") select * from DB2_QUERY where DB2_ROW_NUMBER between "
-					.(($pageStart - 1) * $pageSize + 1)." and ".($pageStart * $pageSize);
-			}
-			
-			return $this->query( $strSQL );
-		} 
-		
-		if( $this->dbType == nDATABASE_Informix ) 
-		{
-			if( $applyLimit ) 
-				$strSQL = AddTopIfx($strSQL, $pageStart * $pageSize);
-			
-			$qResult =  $this->query( $strSQL );
-			$qResult->seekPage( $pageSize, $pageStart );
-			
-			return $qResult;
-		} 
-		
-		if( $this->dbType == nDATABASE_SQLite3 ) 
-		{
-			if( $applyLimit ) 
-				$strSQL.= " limit ".(($pageStart - 1) * $pageSize).",".$pageSize;
-			
-			return $this->query( $strSQL );
-		} 
-		
-		$qResult =  $this->query( $strSQL );
-		$qResult->seekPage( $pageSize, $pageStart );
-		
-		return $qResult;
+		return $this->_functions->queryPage( $this, $strSQL, $pageStart, $pageSize, $applyLimit );
 	}
 	
 	/**
@@ -713,5 +663,21 @@ class Connection
 		$this->setSilentMode( $silent );
 		return $ret;
 	}	
+
+	public function intervalExpressionString( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionString( $expr, $interval );
+	}
+
+	public function intervalExpressionNumber( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionNumber( $expr, $interval );
+	}
+
+	public function intervalExpressionDate( $expr, $interval ) 
+	{
+		return $this->_functions->intervalExpressionDate( $expr, $interval );
+	}
+	
 }
 ?>

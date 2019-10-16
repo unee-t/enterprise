@@ -487,18 +487,21 @@ class SearchClause extends SearchClauseBase
 			$filterType = $filter[1];
 
 			$fValue = $this->searchUnEscape( $filter[2] );
-			$fValues = $this->getUnescapedFValues( $fValue );
-			$parentValuesAdded = count($fValues) > 1;
-			$fValue = $parentValuesAdded ? $fValues[0] : $fValue;
-			$parentValues = $parentValuesAdded ? array_slice($fValues, 1) : array();
-
 			$sValue = $this->searchUnEscape( $filter[3] );
+			
+			$parentValue = array();
+			if( $filter[4] )
+			{
+				$parentValuesString = $this->searchUnEscape( $filter[4] ); // values glued by '|'
+				$parentValues = $this->getUnescapedFValues( $parentValuesString );
+			}	
 
-			$where = $this->getFilterWhereByType($filterType, $fName, $fValue , $sValue, $parentValues, $connection);
+			$where = $this->getFilterWhereByType( $filterType, $fName, $fValue , $sValue, $parentValues, $connection );
 			if($where)
 			{
 				$strFieldWhere[$fName]["where"][] = $where;
 				$strFieldWhere[$fName]["value"][] = $fValue;
+				
 				if($sValue)
 					$strFieldWhere[$fName]["value"][] = $sValue;
 
@@ -565,12 +568,10 @@ class SearchClause extends SearchClauseBase
 		$dateField = IsDateFieldType($fieldType);
 		$timeField = IsTimeType($fieldType);
 
-		if($dateField || $timeField)
-		{
-			include_once getabspath("classes/controls/FilterControl.php");
-			include_once getabspath("classes/controls/FilterIntervalSlider.php");
-			include_once getabspath("classes/controls/FilterIntervalDateSlider.php");
-		}
+		include_once getabspath("classes/controls/FilterControl.php");
+		include_once getabspath("classes/controls/FilterValuesList.php");
+		include_once getabspath("classes/controls/FilterIntervalSlider.php");
+		include_once getabspath("classes/controls/FilterIntervalDateSlider.php");
 
 		switch($filterType)
 		{
@@ -584,17 +585,25 @@ class SearchClause extends SearchClauseBase
 				return FilterIntervalList::getIntervalFilterWhere($fName, $intervalData, $this->pSetSearch, $this->cipherer, $this->tName, $connection);
 
 			case 'equals':
+				$filterWhere = FilterValuesList::getFilterWhere( $fName, $fValue, $this->pSetSearch, $fullFieldName, $this->cipherer, $connection );
 				if( !count($parentValues) )
-					return $fullFieldName."=".$this->cipherer->MakeDBValue($fName, $fValue, "", true);
+					return $filterWhere;
+//				return $fullFieldName."=".$this->cipherer->MakeDBValue($fName, $fValue, "", true);
 
 				$wheres = array();
-				$wheres[] = $fullFieldName."=".$this->cipherer->MakeDBValue($fName, $fValue, "", true);
-				$parentFiltersNames = $this->pSetSearch->getParentFiltersNames($fName);
+				$wheres[] = $filterWhere;
+				$parentFiltersNames = FilterValuesList::getParentFilterFields( $fName, $this->pSetSearch );
 
 				foreach( $parentFiltersNames as $key => $parentName )
 				{
-					$wheres[] = RunnerPage::_getFieldSQLDecrypt($parentName, $connection, $this->pSetSearch, $this->cipherer)
-						."=".$this->cipherer->MakeDBValue($parentName, $parentValues[$key], "", true);
+
+					$wheres[] = FilterValuesList::getFilterWhere( 
+						$parentName, 
+						$parentValues[$key], 
+						$this->pSetSearch, 
+						RunnerPage::_getFieldSQLDecrypt($parentName, $connection, $this->pSetSearch, $this->cipherer), 
+						$this->cipherer, 
+						$connection );
 				}
 
 				return "(".implode(" AND ", $wheres).")";
@@ -643,6 +652,7 @@ class SearchClause extends SearchClauseBase
 				}
 				return $fullFieldName."<=".$this->cipherer->MakeDBValue($fName, $fValue, "", true);
 
+				
 			default:
 				return "";
 		}
@@ -998,7 +1008,9 @@ class SearchClause extends SearchClauseBase
 		$this->wholeDashboardSearch = false;
 
 		//set session if show all records
-		if(@$_REQUEST["a"] == "showall" || $requestTable == $this->tName && $requestPage == "list" && IsEmptyRequest() )
+		if(@$_REQUEST["a"] == "showall" || $requestTable == $this->tName 
+			&& ( $requestPage == "list" || $requestPage == "chart" || $requestPage == "report"  || $requestPage == "dashboard" )
+			&& IsEmptyRequest() )
 		{
 			$this->_where["_search"] = 0;
 			$this->srchType = 'showall';

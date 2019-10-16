@@ -72,7 +72,7 @@ class ODBCConnection extends Connection
 		$rs = odbc_exec( $this->conn, $sql );
 		if( !$rs )
 		{
-			$this->triggerError(odbc_error());
+			$this->triggerError( $this->lastError() );
 			return FALSE;
 		}
 		

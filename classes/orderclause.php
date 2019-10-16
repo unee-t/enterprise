@@ -132,7 +132,7 @@ class OrderClause
 									'expr' => RunnerPage::_getFieldSQLDecrypt( $f["field"], $this->connection, $this->pSet, $this->cipherer ),
 									'dir' => ( $f["desc"] ? 'DESC' : 'ASC' )
 								);
-					$columns[ $f ] = true;
+					$columns[ $f["field"] ] = true;
 				}
 			}
 			
@@ -168,9 +168,40 @@ class OrderClause
 						);
 		}
 		
-		$this->_cachedFields = $ret;
-		return $ret;
+		// group by sort
+		$groupByRet = array();
+		foreach( $pSet->getGroupFields() as $grField )
+		{
+			$grFieldPos = -1;
+			foreach ( $ret as $key => $of )
+			{
+				if ( $of["column"] == $grField )
+				{
+					$grFieldPos = $key;
+					break;
+				}
+			}
+
+			if ( $grFieldPos != -1 )
+			{
+				$groupByRet[] = $ret[ $grFieldPos ];
+				unset( $ret[ $grFieldPos ] );
+			}
+			else
+			{
+				$groupByRet[] = array(
+					'column' => $grField,
+					'index' => $pSet->getFieldIndex( $grField ),
+					'expr' => RunnerPage::_getFieldSQLDecrypt( $grField, $this->connection, $this->pSet, $this->cipherer ),
+					'dir' => 'ASC',
+					'hidden' => true
+				);
+			}
+		}
 		
+		$this->_cachedFields = array_merge($groupByRet, $ret);
+
+		return $this->_cachedFields;
 	}
 
 	public function getOrderUrlParams()
