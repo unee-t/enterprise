@@ -3707,10 +3707,10 @@ $tdataManage_Units[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "external_property_level_1_buildings";
+	$edata["LookupTable"] = "Manage Buildings";
 			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
@@ -3731,8 +3731,7 @@ $tdataManage_Units[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 

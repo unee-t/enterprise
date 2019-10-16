@@ -404,13 +404,13 @@ function InitLookupLinks()
 			$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"] = array();
 		}
 		$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"]["edit"] = array("table" => "Manage Units", "field" => "building_system_id", "page" => "edit");
-		if( !isset( $lookupTableLinks["external_property_level_1_buildings"] ) ) {
-			$lookupTableLinks["external_property_level_1_buildings"] = array();
+		if( !isset( $lookupTableLinks["Manage Buildings"] ) ) {
+			$lookupTableLinks["Manage Buildings"] = array();
 		}
-		if( !isset( $lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"] )) {
-			$lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"] = array();
+		if( !isset( $lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"] )) {
+			$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"] = array();
 		}
-		$lookupTableLinks["external_property_level_1_buildings"]["Manage_Units.building_system_id"]["add"] = array("table" => "Manage Units", "field" => "building_system_id", "page" => "add");
+		$lookupTableLinks["Manage Buildings"]["Manage_Units.building_system_id"]["add"] = array("table" => "Manage Units", "field" => "building_system_id", "page" => "add");
 		if( !isset( $lookupTableLinks["external_property_level_1_buildings"] ) ) {
 			$lookupTableLinks["external_property_level_1_buildings"] = array();
 		}

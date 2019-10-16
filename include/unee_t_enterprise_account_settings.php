@@ -2803,8 +2803,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -2825,8 +2824,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -3302,8 +3300,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -3324,8 +3321,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -3801,8 +3797,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -3823,8 +3818,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 

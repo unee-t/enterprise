@@ -8,7 +8,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode = array();
 	$menuNode["id"] = "1";
 	$menuNode["name"] = "Setup";
-	$menuNode["href"] = "/enterprise/menu.php?page=setup";
+	$menuNode["href"] = "/menu.php?page=setup";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
