@@ -1072,12 +1072,12 @@ function GetLWWhere($field, $ptype, $table = "")
 	}
 		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="edit")
 	{
-		$strWhere = " `external_property_level_1_buildings`.`is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		$strWhere = " `external_property_level_1_buildings`.`is_obsolete` = 0 AND `external_property_level_1_buildings`.`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="add")
 	{
-		$strWhere = " `external_property_level_1_buildings`.`is_obsolete` = 0 AND `created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
+		$strWhere = " `external_property_level_1_buildings`.`is_obsolete` = 0 AND `external_property_level_1_buildings`.`created_by_id` = " . $_SESSION["organization_logged_in_user"] . " ";
 		return $strWhere;
 	}
 		if($table=="Manage Units" && $field=="building_system_id" && $ptype=="search")
