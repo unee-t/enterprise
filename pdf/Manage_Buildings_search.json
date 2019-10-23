@@ -210,6 +210,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field9}","text":{$agent_default_assignee_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field10}","text":{$area_external_system_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field11}","text":{$area_external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field13}","text":{$area_external_id_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

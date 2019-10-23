@@ -1,0 +1,163 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel L3P_Export export}","hidden":"{$item_hide_export_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+			heights: [
+								
+			"%",
+			 
+				],
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_export_field3}","text":{$unit_designation_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field2}","text":{$system_id_unit_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field4}","text":{$room_designation_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field12}","text":{$system_id_room_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field1}","text":{$external_id_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field11}","text":{$external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field}","text":{$unee_t_unit_type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field6}","text":{$is_creation_needed_in_unee_t_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field5}","text":{$is_obsolete_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field7}","text":{$number_of_beds_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field8}","text":{$surface_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field9}","text":{$surface_measurment_unit_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field10}","text":{$room_description_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field14}","text":{$uneet_created_datetime_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field15}","text":{$unee_t_mefe_unit_id_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          },
+
+											],
+					]
+	}
+}
+,
+		
+					]
+}
+  

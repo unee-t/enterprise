@@ -21,7 +21,9 @@ $dalTableproperty_level_2_units["is_obsolete"] = array("type"=>16,"varname"=>"is
 $dalTableproperty_level_2_units["is_creation_needed_in_unee_t"] = array("type"=>16,"varname"=>"is_creation_needed_in_unee_t", "name" => "is_creation_needed_in_unee_t");
 $dalTableproperty_level_2_units["do_not_insert"] = array("type"=>16,"varname"=>"do_not_insert", "name" => "do_not_insert");
 $dalTableproperty_level_2_units["unee_t_unit_type"] = array("type"=>200,"varname"=>"unee_t_unit_type", "name" => "unee_t_unit_type");
-$dalTableproperty_level_2_units["building_system_id"] = array("type"=>3,"varname"=>"building_system_id", "name" => "building_system_id");
+$dalTableproperty_level_2_units["l1p_external_system"] = array("type"=>200,"varname"=>"l1p_external_system", "name" => "l1p_external_system");
+$dalTableproperty_level_2_units["l1p_external_table"] = array("type"=>200,"varname"=>"l1p_external_table", "name" => "l1p_external_table");
+$dalTableproperty_level_2_units["l1p_external_id"] = array("type"=>200,"varname"=>"l1p_external_id", "name" => "l1p_external_id");
 $dalTableproperty_level_2_units["tower"] = array("type"=>200,"varname"=>"tower", "name" => "tower");
 $dalTableproperty_level_2_units["unit_category_id"] = array("type"=>3,"varname"=>"unit_category_id", "name" => "unit_category_id");
 $dalTableproperty_level_2_units["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
@@ -34,6 +36,7 @@ $dalTableproperty_level_2_units["mgt_cny_default_assignee"] = array("type"=>200,
 $dalTableproperty_level_2_units["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
 $dalTableproperty_level_2_units["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
 $dalTableproperty_level_2_units["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
+$dalTableproperty_level_2_units["building_system_id"] = array("type"=>3,"varname"=>"building_system_id", "name" => "building_system_id");
 	$dalTableproperty_level_2_units["external_id"]["key"]=true;
 	$dalTableproperty_level_2_units["external_system_id"]["key"]=true;
 	$dalTableproperty_level_2_units["external_table"]["key"]=true;

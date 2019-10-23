@@ -20,7 +20,9 @@ $dalTableproperty_level_3_rooms["is_obsolete"] = array("type"=>16,"varname"=>"is
 $dalTableproperty_level_3_rooms["is_creation_needed_in_unee_t"] = array("type"=>16,"varname"=>"is_creation_needed_in_unee_t", "name" => "is_creation_needed_in_unee_t");
 $dalTableproperty_level_3_rooms["do_not_insert"] = array("type"=>16,"varname"=>"do_not_insert", "name" => "do_not_insert");
 $dalTableproperty_level_3_rooms["unee_t_unit_type"] = array("type"=>200,"varname"=>"unee_t_unit_type", "name" => "unee_t_unit_type");
-$dalTableproperty_level_3_rooms["system_id_unit"] = array("type"=>3,"varname"=>"system_id_unit", "name" => "system_id_unit");
+$dalTableproperty_level_3_rooms["l2p_external_system"] = array("type"=>200,"varname"=>"l2p_external_system", "name" => "l2p_external_system");
+$dalTableproperty_level_3_rooms["l2p_external_table"] = array("type"=>200,"varname"=>"l2p_external_table", "name" => "l2p_external_table");
+$dalTableproperty_level_3_rooms["l2p_external_id"] = array("type"=>200,"varname"=>"l2p_external_id", "name" => "l2p_external_id");
 $dalTableproperty_level_3_rooms["room_type_id"] = array("type"=>3,"varname"=>"room_type_id", "name" => "room_type_id");
 $dalTableproperty_level_3_rooms["number_of_beds"] = array("type"=>3,"varname"=>"number_of_beds", "name" => "number_of_beds");
 $dalTableproperty_level_3_rooms["surface"] = array("type"=>3,"varname"=>"surface", "name" => "surface");
@@ -31,6 +33,7 @@ $dalTableproperty_level_3_rooms["mgt_cny_default_assignee"] = array("type"=>200,
 $dalTableproperty_level_3_rooms["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
 $dalTableproperty_level_3_rooms["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
 $dalTableproperty_level_3_rooms["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
+$dalTableproperty_level_3_rooms["system_id_unit"] = array("type"=>3,"varname"=>"system_id_unit", "name" => "system_id_unit");
 	$dalTableproperty_level_3_rooms["external_id"]["key"]=true;
 	$dalTableproperty_level_3_rooms["external_system_id"]["key"]=true;
 	$dalTableproperty_level_3_rooms["external_table"]["key"]=true;

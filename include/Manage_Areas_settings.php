@@ -4357,11 +4357,21 @@ $detailsTablesData["Manage Areas"] = array();
 	
 		$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"] = array();
 
-	$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"][]="id_area";
+	$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"][]="external_id";
+
+	$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"][]="external_system_id";
+
+	$detailsTablesData["Manage Areas"][$dIndex]["masterKeys"][]="external_table";
 
 				$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="area_id";
+	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="area_external_id";
+
+		
+	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="area_external_system";
+
+		
+	$detailsTablesData["Manage Areas"][$dIndex]["detailKeys"][]="area_external_table";
 //	Organization Default Area
 	
 	

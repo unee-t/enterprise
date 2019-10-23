@@ -169,11 +169,6 @@ pdfDocument = {
 			"%",
 						{END row_grid_3}
 			 
-								{BEGIN row_grid_4}
-						
-			"%",
-						{END row_grid_4}
-			 
 				],
 	
 		body: [
@@ -884,33 +879,6 @@ pdfDocument = {
 {END cellblock_grid_c4}
 											],
 				{END row_grid_3}
-								{BEGIN row_grid_4}
-				[
-												{BEGIN cellblock_grid_c5}
-{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-          },
-
-{END cellblock_grid_c5}
-											],
-				{END row_grid_4}
 					]
 	}
 }

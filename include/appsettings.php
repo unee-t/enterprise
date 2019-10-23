@@ -640,9 +640,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "713_1571117735";
+$projectBuildKey = "728_1571820278";
 $wizardBuildKey = "33896";
-$projectBuildNumber = "713";
+$projectBuildNumber = "728";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -704,13 +704,9 @@ $tableCaptions["English"]["external_property_level_2_units"] = "External Propert
 $tableCaptions["English"]["Search_All_Units"] = "Search All Units";
 $tableCaptions["English"]["ut_map_external_source_units"] = "Ut Map External Source Units";
 $tableCaptions["English"]["Search_Buildings"] = "Search Buildings";
-$tableCaptions["English"]["Export_and_Import_Buildings"] = "Export and Import Buildings";
 $tableCaptions["English"]["Export_and_Import_Areas"] = "Export and Import Areas";
-$tableCaptions["English"]["Export_and_Import_Units"] = "Export and Import Units";
 $tableCaptions["English"]["List_of_Countries"] = "List of Countries";
-$tableCaptions["English"]["Export_and_Import_Rooms"] = "Export and Import Rooms";
 $tableCaptions["English"]["Export_and_Import_User_Types"] = "Export and Import User Types";
-$tableCaptions["English"]["Export_and_Import_Users"] = "Export and Import Users";
 $tableCaptions["English"]["Assign_Rooms"] = "Assign Rooms";
 $tableCaptions["English"]["ut_map_external_source_users"] = "Ut Map External Source Users";
 $tableCaptions["English"]["Unee_T_Enterprise_Account"] = "Unee-T Enterprise Account";
@@ -728,6 +724,15 @@ $tableCaptions["English"]["Organization_Default_Area"] = "Organization Default A
 $tableCaptions["English"]["Organization_Default_L1P"] = "Organization Default L1P";
 $tableCaptions["English"]["Search_list_of_possible_properties"] = "Search list of possible properties";
 $tableCaptions["English"]["Organization_Default_L2P"] = "Organization Default L2P";
+$tableCaptions["English"]["Search_Areas"] = "Search Areas";
+$tableCaptions["English"]["L1P_Export"] = "L1P Export";
+$tableCaptions["English"]["L1P_Import"] = "L1P Import";
+$tableCaptions["English"]["L2P_Export"] = "L2P Export";
+$tableCaptions["English"]["L2P_Import"] = "L2P Import";
+$tableCaptions["English"]["L3P_Export"] = "L3P Export";
+$tableCaptions["English"]["L3P_Import"] = "L3P Import";
+$tableCaptions["English"]["Users_Export"] = "Users Export";
+$tableCaptions["English"]["Users_Import"] = "Users Import";
 
 
 $globalEvents = new class_GlobalEvents;

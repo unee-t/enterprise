@@ -204,6 +204,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field}","text":{$uneet_created_datetime_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field3}","text":{$l2p_external_system_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field4}","text":{$l2p_external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field5}","text":{$l2p_external_id_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

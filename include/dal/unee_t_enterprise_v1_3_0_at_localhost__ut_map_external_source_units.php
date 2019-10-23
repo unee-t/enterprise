@@ -33,6 +33,9 @@ $dalTableut_map_external_source_units["external_property_id"] = array("type"=>20
 $dalTableut_map_external_source_units["external_system"] = array("type"=>200,"varname"=>"external_system", "name" => "external_system");
 $dalTableut_map_external_source_units["table_in_external_system"] = array("type"=>200,"varname"=>"table_in_external_system", "name" => "table_in_external_system");
 $dalTableut_map_external_source_units["tower"] = array("type"=>200,"varname"=>"tower", "name" => "tower");
+$dalTableut_map_external_source_units["parent_external_system"] = array("type"=>200,"varname"=>"parent_external_system", "name" => "parent_external_system");
+$dalTableut_map_external_source_units["parent_external_table"] = array("type"=>200,"varname"=>"parent_external_table", "name" => "parent_external_table");
+$dalTableut_map_external_source_units["parent_external_id"] = array("type"=>200,"varname"=>"parent_external_id", "name" => "parent_external_id");
 $dalTableut_map_external_source_units["mgt_cny_default_assignee"] = array("type"=>200,"varname"=>"mgt_cny_default_assignee", "name" => "mgt_cny_default_assignee");
 $dalTableut_map_external_source_units["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
 $dalTableut_map_external_source_units["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");

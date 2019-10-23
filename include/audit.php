@@ -468,15 +468,7 @@ class AuditTrailTable
 		{
 			return false;
 		}
-		if($table=="Export and Import Buildings")
-		{
-			return false;
-		}
 		if($table=="Export and Import Areas")
-		{
-			return false;
-		}
-		if($table=="Export and Import Units")
 		{
 			return false;
 		}
@@ -484,17 +476,9 @@ class AuditTrailTable
 		{
 			return false;
 		}
-		if($table=="Export and Import Rooms")
-		{
-			return false;
-		}
 		if($table=="Export and Import User Types")
 		{
 			return false;
-		}
-		if($table=="Export and Import Users")
-		{
-			return true;
 		}
 		if($table=="Assign Rooms")
 		{
@@ -563,6 +547,42 @@ class AuditTrailTable
 		if($table=="Organization Default L2P")
 		{
 			return false;
+		}
+		if($table=="Search Areas")
+		{
+			return false;
+		}
+		if($table=="L1P Export")
+		{
+			return false;
+		}
+		if($table=="L1P Import")
+		{
+			return false;
+		}
+		if($table=="L2P Export")
+		{
+			return false;
+		}
+		if($table=="L2P Import")
+		{
+			return false;
+		}
+		if($table=="L3P Export")
+		{
+			return false;
+		}
+		if($table=="L3P Import")
+		{
+			return false;
+		}
+		if($table=="Users Export")
+		{
+			return true;
+		}
+		if($table=="Users Import")
+		{
+			return true;
 		}
 	}
 	
@@ -1036,15 +1056,7 @@ class AuditTrailFile
 		{
 			return false;
 		}
-		if($table=="Export and Import Buildings")
-		{
-			return false;
-		}
 		if($table=="Export and Import Areas")
-		{
-			return false;
-		}
-		if($table=="Export and Import Units")
 		{
 			return false;
 		}
@@ -1052,17 +1064,9 @@ class AuditTrailFile
 		{
 			return false;
 		}
-		if($table=="Export and Import Rooms")
-		{
-			return false;
-		}
 		if($table=="Export and Import User Types")
 		{
 			return false;
-		}
-		if($table=="Export and Import Users")
-		{
-			return true;
 		}
 		if($table=="Assign Rooms")
 		{
@@ -1131,6 +1135,42 @@ class AuditTrailFile
 		if($table=="Organization Default L2P")
 		{
 			return false;
+		}
+		if($table=="Search Areas")
+		{
+			return false;
+		}
+		if($table=="L1P Export")
+		{
+			return false;
+		}
+		if($table=="L1P Import")
+		{
+			return false;
+		}
+		if($table=="L2P Export")
+		{
+			return false;
+		}
+		if($table=="L2P Import")
+		{
+			return false;
+		}
+		if($table=="L3P Export")
+		{
+			return false;
+		}
+		if($table=="L3P Import")
+		{
+			return false;
+		}
+		if($table=="Users Export")
+		{
+			return true;
+		}
+		if($table=="Users Import")
+		{
+			return true;
 		}
 	}
 	
