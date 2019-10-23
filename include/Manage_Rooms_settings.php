@@ -6763,13 +6763,9 @@ $masterTablesData["Manage Rooms"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["Manage Rooms"][0] = $masterParams;
 				$masterTablesData["Manage Rooms"][0]["masterKeys"] = array();
-	$masterTablesData["Manage Rooms"][0]["masterKeys"][]="external_id";
-				$masterTablesData["Manage Rooms"][0]["masterKeys"][]="external_system_id";
-				$masterTablesData["Manage Rooms"][0]["masterKeys"][]="external_table";
+	$masterTablesData["Manage Rooms"][0]["masterKeys"][]="system_id_unit";
 				$masterTablesData["Manage Rooms"][0]["detailKeys"] = array();
-	$masterTablesData["Manage Rooms"][0]["detailKeys"][]="l2p_external_id";
-				$masterTablesData["Manage Rooms"][0]["detailKeys"][]="l2p_external_system";
-				$masterTablesData["Manage Rooms"][0]["detailKeys"][]="l2p_external_table";
+	$masterTablesData["Manage Rooms"][0]["detailKeys"][]="system_id_unit";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 

@@ -6837,21 +6837,11 @@ $detailsTablesData["Manage Buildings"] = array();
 	
 		$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"] = array();
 
-	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="external_id";
-
-	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="external_system_id";
-
-	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="external_table";
+	$detailsTablesData["Manage Buildings"][$dIndex]["masterKeys"][]="id_building";
 
 				$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="l1p_external_id";
-
-		
-	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="l1p_external_system";
-
-		
-	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="l1p_external_table";
+	$detailsTablesData["Manage Buildings"][$dIndex]["detailKeys"][]="building_system_id";
 //	Assign Buildings to User
 	
 	
@@ -6928,13 +6918,9 @@ $masterTablesData["Manage Buildings"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["Manage Buildings"][0] = $masterParams;
 				$masterTablesData["Manage Buildings"][0]["masterKeys"] = array();
-	$masterTablesData["Manage Buildings"][0]["masterKeys"][]="external_id";
-				$masterTablesData["Manage Buildings"][0]["masterKeys"][]="external_system_id";
-				$masterTablesData["Manage Buildings"][0]["masterKeys"][]="external_table";
+	$masterTablesData["Manage Buildings"][0]["masterKeys"][]="id_area";
 				$masterTablesData["Manage Buildings"][0]["detailKeys"] = array();
-	$masterTablesData["Manage Buildings"][0]["detailKeys"][]="area_external_id";
-				$masterTablesData["Manage Buildings"][0]["detailKeys"][]="area_external_system";
-				$masterTablesData["Manage Buildings"][0]["detailKeys"][]="area_external_table";
+	$masterTablesData["Manage Buildings"][0]["detailKeys"][]="id_area";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 

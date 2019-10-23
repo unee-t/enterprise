@@ -8490,21 +8490,11 @@ $detailsTablesData["Manage Units"] = array();
 	
 		$detailsTablesData["Manage Units"][$dIndex]["masterKeys"] = array();
 
-	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="external_id";
-
-	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="external_system_id";
-
-	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="external_table";
+	$detailsTablesData["Manage Units"][$dIndex]["masterKeys"][]="system_id_unit";
 
 				$detailsTablesData["Manage Units"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="l2p_external_id";
-
-		
-	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="l2p_external_system";
-
-		
-	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="l2p_external_table";
+	$detailsTablesData["Manage Units"][$dIndex]["detailKeys"][]="system_id_unit";
 //	Assign Units to User
 	
 	
@@ -8581,13 +8571,9 @@ $masterTablesData["Manage Units"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["Manage Units"][0] = $masterParams;
 				$masterTablesData["Manage Units"][0]["masterKeys"] = array();
-	$masterTablesData["Manage Units"][0]["masterKeys"][]="external_id";
-				$masterTablesData["Manage Units"][0]["masterKeys"][]="external_system_id";
-				$masterTablesData["Manage Units"][0]["masterKeys"][]="external_table";
+	$masterTablesData["Manage Units"][0]["masterKeys"][]="id_building";
 				$masterTablesData["Manage Units"][0]["detailKeys"] = array();
-	$masterTablesData["Manage Units"][0]["detailKeys"][]="l1p_external_id";
-				$masterTablesData["Manage Units"][0]["detailKeys"][]="l1p_external_system";
-				$masterTablesData["Manage Units"][0]["detailKeys"][]="l1p_external_table";
+	$masterTablesData["Manage Units"][0]["detailKeys"][]="building_system_id";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
