@@ -8,7 +8,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode = array();
 	$menuNode["id"] = "1";
 	$menuNode["name"] = "Setup";
-	$menuNode["href"] = "/enterprise/menu.php?page=setup";
+	$menuNode["href"] = "/menu.php?page=setup";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
@@ -218,7 +218,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Export Buildings";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Buildings";
+	$menuNode["table"] = "L1P Export";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "6";
@@ -244,7 +244,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Export Units";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Units";
+	$menuNode["table"] = "L2P Export";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "6";
@@ -270,7 +270,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Export Rooms";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Rooms";
+	$menuNode["table"] = "L3P Export";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "6";
@@ -322,7 +322,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Export Users";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Users";
+	$menuNode["table"] = "Users Export";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "6";
@@ -400,7 +400,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Import Buildings";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Buildings";
+	$menuNode["table"] = "L1P Import";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "14";
@@ -426,7 +426,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Import Units";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Units";
+	$menuNode["table"] = "L2P Import";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "14";
@@ -452,7 +452,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Import Rooms";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Rooms";
+	$menuNode["table"] = "L3P Import";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "14";
@@ -504,7 +504,7 @@ function getMenuNodes_main($menuNodesObject)
 	$menuNode["name"] = "Import Users";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "Export and Import Users";
+	$menuNode["table"] = "Users Import";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "14";

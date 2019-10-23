@@ -105,6 +105,18 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsuneet_enterprise_organizations["English"]["default_sot_id"] = "Default Sot Id";
 	$fieldToolTipsuneet_enterprise_organizations["English"]["default_sot_id"] = "";
 	$placeHoldersuneet_enterprise_organizations["English"]["default_sot_id"] = "";
+	$fieldLabelsuneet_enterprise_organizations["English"]["default_assignee_mgt_cny"] = "Default Assignee Mgt Cny";
+	$fieldToolTipsuneet_enterprise_organizations["English"]["default_assignee_mgt_cny"] = "";
+	$placeHoldersuneet_enterprise_organizations["English"]["default_assignee_mgt_cny"] = "";
+	$fieldLabelsuneet_enterprise_organizations["English"]["default_assignee_agent"] = "Default Assignee Agent";
+	$fieldToolTipsuneet_enterprise_organizations["English"]["default_assignee_agent"] = "";
+	$placeHoldersuneet_enterprise_organizations["English"]["default_assignee_agent"] = "";
+	$fieldLabelsuneet_enterprise_organizations["English"]["default_assignee_landlord"] = "Default Assignee Landlord";
+	$fieldToolTipsuneet_enterprise_organizations["English"]["default_assignee_landlord"] = "";
+	$placeHoldersuneet_enterprise_organizations["English"]["default_assignee_landlord"] = "";
+	$fieldLabelsuneet_enterprise_organizations["English"]["default_assignee_tenant"] = "Default Assignee Tenant";
+	$fieldToolTipsuneet_enterprise_organizations["English"]["default_assignee_tenant"] = "";
+	$placeHoldersuneet_enterprise_organizations["English"]["default_assignee_tenant"] = "";
 	if (count($fieldToolTipsuneet_enterprise_organizations["English"]))
 		$tdatauneet_enterprise_organizations[".isUseToolTips"] = true;
 }
@@ -249,6 +261,10 @@ $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_sot_id";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_area";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_building";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_unit";
+$tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_assignee_mgt_cny";
+$tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_assignee_agent";
+$tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_assignee_landlord";
+$tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_assignee_tenant";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_sot_system";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_sot_persons";
 $tdatauneet_enterprise_organizations[".googleLikeFields"][] = "default_sot_areas";
@@ -288,7 +304,7 @@ $tdatauneet_enterprise_organizations[".strOrderBy"] = $tstrOrderBy;
 
 $tdatauneet_enterprise_organizations[".orderindexes"] = array();
 
-$tdatauneet_enterprise_organizations[".sqlHead"] = "SELECT id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	country_code,  	mefe_master_user_external_person_id,  	mefe_master_user_external_person_table,  	mefe_master_user_external_person_system,  	default_role_type_id,  	default_sot_id,  	default_area,  	default_building,  	default_unit,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties";
+$tdatauneet_enterprise_organizations[".sqlHead"] = "SELECT id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	country_code,  	mefe_master_user_external_person_id,  	mefe_master_user_external_person_table,  	mefe_master_user_external_person_system,  	default_role_type_id,  	default_sot_id,  	default_area,  	default_building,  	default_unit,  	default_assignee_mgt_cny,  	default_assignee_agent,  	default_assignee_landlord,  	default_assignee_tenant,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties";
 $tdatauneet_enterprise_organizations[".sqlFrom"] = "FROM uneet_enterprise_organizations";
 $tdatauneet_enterprise_organizations[".sqlWhereExpr"] = "";
 $tdatauneet_enterprise_organizations[".sqlTail"] = "";
@@ -3433,10 +3449,650 @@ $tdatauneet_enterprise_organizations[".hideMobileList"] = array();
 
 	$tdatauneet_enterprise_organizations["default_unit"] = $fdata;
 		$tdatauneet_enterprise_organizations[".searchableFields"][] = "default_unit";
-//	default_sot_system
+//	default_assignee_mgt_cny
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 23;
+	$fdata["strName"] = "default_assignee_mgt_cny";
+	$fdata["GoodName"] = "default_assignee_mgt_cny";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("uneet_enterprise_organizations","default_assignee_mgt_cny");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "default_assignee_mgt_cny";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "default_assignee_mgt_cny";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_map_external_source_users";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "unee_t_mefe_user_id";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatauneet_enterprise_organizations["default_assignee_mgt_cny"] = $fdata;
+		$tdatauneet_enterprise_organizations[".searchableFields"][] = "default_assignee_mgt_cny";
+//	default_assignee_agent
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 24;
+	$fdata["strName"] = "default_assignee_agent";
+	$fdata["GoodName"] = "default_assignee_agent";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("uneet_enterprise_organizations","default_assignee_agent");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "default_assignee_agent";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "default_assignee_agent";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_map_external_source_users";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "unee_t_mefe_user_id";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatauneet_enterprise_organizations["default_assignee_agent"] = $fdata;
+		$tdatauneet_enterprise_organizations[".searchableFields"][] = "default_assignee_agent";
+//	default_assignee_landlord
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 25;
+	$fdata["strName"] = "default_assignee_landlord";
+	$fdata["GoodName"] = "default_assignee_landlord";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("uneet_enterprise_organizations","default_assignee_landlord");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "default_assignee_landlord";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "default_assignee_landlord";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_map_external_source_users";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "unee_t_mefe_user_id";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatauneet_enterprise_organizations["default_assignee_landlord"] = $fdata;
+		$tdatauneet_enterprise_organizations[".searchableFields"][] = "default_assignee_landlord";
+//	default_assignee_tenant
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 26;
+	$fdata["strName"] = "default_assignee_tenant";
+	$fdata["GoodName"] = "default_assignee_tenant";
+	$fdata["ownerTable"] = "uneet_enterprise_organizations";
+	$fdata["Label"] = GetFieldLabel("uneet_enterprise_organizations","default_assignee_tenant");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+										
+
+		$fdata["strField"] = "default_assignee_tenant";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "default_assignee_tenant";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "ut_map_external_source_users";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "unee_t_mefe_user_id";
+	$edata["LinkFieldType"] = 200;
+	$edata["DisplayField"] = "unee_t_mefe_user_id";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatauneet_enterprise_organizations["default_assignee_tenant"] = $fdata;
+		$tdatauneet_enterprise_organizations[".searchableFields"][] = "default_assignee_tenant";
+//	default_sot_system
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "default_sot_system";
 	$fdata["GoodName"] = "default_sot_system";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -3571,7 +4227,7 @@ $tdatauneet_enterprise_organizations[".hideMobileList"] = array();
 //	default_sot_persons
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "default_sot_persons";
 	$fdata["GoodName"] = "default_sot_persons";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -3706,7 +4362,7 @@ $tdatauneet_enterprise_organizations[".hideMobileList"] = array();
 //	default_sot_areas
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 29;
 	$fdata["strName"] = "default_sot_areas";
 	$fdata["GoodName"] = "default_sot_areas";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -3841,7 +4497,7 @@ $tdatauneet_enterprise_organizations[".hideMobileList"] = array();
 //	default_sot_properties
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 30;
 	$fdata["strName"] = "default_sot_properties";
 	$fdata["GoodName"] = "default_sot_properties";
 	$fdata["ownerTable"] = "uneet_enterprise_organizations";
@@ -4008,7 +4664,7 @@ function createSqlQuery_uneet_enterprise_organizations()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	country_code,  	mefe_master_user_external_person_id,  	mefe_master_user_external_person_table,  	mefe_master_user_external_person_system,  	default_role_type_id,  	default_sot_id,  	default_area,  	default_building,  	default_unit,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties";
+$proto0["m_strFieldList"] = "id_organization,  	syst_created_datetime,  	creation_system_id,  	creation_method,  	created_by_id,  	syst_updated_datetime,  	update_system_id,  	updated_by_id,  	update_method,  	`order`,  	is_obsolete,  	designation,  	description,  	country_code,  	mefe_master_user_external_person_id,  	mefe_master_user_external_person_table,  	mefe_master_user_external_person_system,  	default_role_type_id,  	default_sot_id,  	default_area,  	default_building,  	default_unit,  	default_assignee_mgt_cny,  	default_assignee_agent,  	default_assignee_landlord,  	default_assignee_tenant,  	default_sot_system,  	default_sot_persons,  	default_sot_areas,  	default_sot_properties";
 $proto0["m_strFrom"] = "FROM uneet_enterprise_organizations";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -4359,12 +5015,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_system",
+	"m_strName" => "default_assignee_mgt_cny",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "uneet_enterprise_organizations"
 ));
 
-$proto50["m_sql"] = "default_sot_system";
+$proto50["m_sql"] = "default_assignee_mgt_cny";
 $proto50["m_srcTableName"] = "uneet_enterprise_organizations";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -4373,12 +5029,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_persons",
+	"m_strName" => "default_assignee_agent",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "uneet_enterprise_organizations"
 ));
 
-$proto52["m_sql"] = "default_sot_persons";
+$proto52["m_sql"] = "default_assignee_agent";
 $proto52["m_srcTableName"] = "uneet_enterprise_organizations";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -4387,12 +5043,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_areas",
+	"m_strName" => "default_assignee_landlord",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "uneet_enterprise_organizations"
 ));
 
-$proto54["m_sql"] = "default_sot_areas";
+$proto54["m_sql"] = "default_assignee_landlord";
 $proto54["m_srcTableName"] = "uneet_enterprise_organizations";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -4401,74 +5057,134 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "default_sot_properties",
+	"m_strName" => "default_assignee_tenant",
 	"m_strTable" => "uneet_enterprise_organizations",
 	"m_srcTableName" => "uneet_enterprise_organizations"
 ));
 
-$proto56["m_sql"] = "default_sot_properties";
+$proto56["m_sql"] = "default_assignee_tenant";
 $proto56["m_srcTableName"] = "uneet_enterprise_organizations";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
 $obj = new SQLFieldListItem($proto56);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto58=array();
-$proto58["m_link"] = "SQLL_MAIN";
-			$proto59=array();
-$proto59["m_strName"] = "uneet_enterprise_organizations";
-$proto59["m_srcTableName"] = "uneet_enterprise_organizations";
-$proto59["m_columns"] = array();
-$proto59["m_columns"][] = "id_organization";
-$proto59["m_columns"][] = "syst_created_datetime";
-$proto59["m_columns"][] = "creation_system_id";
-$proto59["m_columns"][] = "creation_method";
-$proto59["m_columns"][] = "created_by_id";
-$proto59["m_columns"][] = "syst_updated_datetime";
-$proto59["m_columns"][] = "update_system_id";
-$proto59["m_columns"][] = "updated_by_id";
-$proto59["m_columns"][] = "update_method";
-$proto59["m_columns"][] = "order";
-$proto59["m_columns"][] = "is_obsolete";
-$proto59["m_columns"][] = "designation";
-$proto59["m_columns"][] = "description";
-$proto59["m_columns"][] = "country_code";
-$proto59["m_columns"][] = "mefe_master_user_external_person_id";
-$proto59["m_columns"][] = "mefe_master_user_external_person_table";
-$proto59["m_columns"][] = "mefe_master_user_external_person_system";
-$proto59["m_columns"][] = "default_role_type_id";
-$proto59["m_columns"][] = "default_sot_id";
-$proto59["m_columns"][] = "default_area";
-$proto59["m_columns"][] = "default_building";
-$proto59["m_columns"][] = "default_unit";
-$proto59["m_columns"][] = "default_sot_system";
-$proto59["m_columns"][] = "default_sot_persons";
-$proto59["m_columns"][] = "default_sot_areas";
-$proto59["m_columns"][] = "default_sot_properties";
-$obj = new SQLTable($proto59);
+						$proto58=array();
+			$obj = new SQLField(array(
+	"m_strName" => "default_sot_system",
+	"m_strTable" => "uneet_enterprise_organizations",
+	"m_srcTableName" => "uneet_enterprise_organizations"
+));
 
-$proto58["m_table"] = $obj;
-$proto58["m_sql"] = "uneet_enterprise_organizations";
-$proto58["m_alias"] = "";
+$proto58["m_sql"] = "default_sot_system";
 $proto58["m_srcTableName"] = "uneet_enterprise_organizations";
-$proto60=array();
-$proto60["m_sql"] = "";
-$proto60["m_uniontype"] = "SQLL_UNKNOWN";
+$proto58["m_expr"]=$obj;
+$proto58["m_alias"] = "";
+$obj = new SQLFieldListItem($proto58);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto60=array();
+			$obj = new SQLField(array(
+	"m_strName" => "default_sot_persons",
+	"m_strTable" => "uneet_enterprise_organizations",
+	"m_srcTableName" => "uneet_enterprise_organizations"
+));
+
+$proto60["m_sql"] = "default_sot_persons";
+$proto60["m_srcTableName"] = "uneet_enterprise_organizations";
+$proto60["m_expr"]=$obj;
+$proto60["m_alias"] = "";
+$obj = new SQLFieldListItem($proto60);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto62=array();
+			$obj = new SQLField(array(
+	"m_strName" => "default_sot_areas",
+	"m_strTable" => "uneet_enterprise_organizations",
+	"m_srcTableName" => "uneet_enterprise_organizations"
+));
+
+$proto62["m_sql"] = "default_sot_areas";
+$proto62["m_srcTableName"] = "uneet_enterprise_organizations";
+$proto62["m_expr"]=$obj;
+$proto62["m_alias"] = "";
+$obj = new SQLFieldListItem($proto62);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto64=array();
+			$obj = new SQLField(array(
+	"m_strName" => "default_sot_properties",
+	"m_strTable" => "uneet_enterprise_organizations",
+	"m_srcTableName" => "uneet_enterprise_organizations"
+));
+
+$proto64["m_sql"] = "default_sot_properties";
+$proto64["m_srcTableName"] = "uneet_enterprise_organizations";
+$proto64["m_expr"]=$obj;
+$proto64["m_alias"] = "";
+$obj = new SQLFieldListItem($proto64);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto66=array();
+$proto66["m_link"] = "SQLL_MAIN";
+			$proto67=array();
+$proto67["m_strName"] = "uneet_enterprise_organizations";
+$proto67["m_srcTableName"] = "uneet_enterprise_organizations";
+$proto67["m_columns"] = array();
+$proto67["m_columns"][] = "id_organization";
+$proto67["m_columns"][] = "syst_created_datetime";
+$proto67["m_columns"][] = "creation_system_id";
+$proto67["m_columns"][] = "creation_method";
+$proto67["m_columns"][] = "created_by_id";
+$proto67["m_columns"][] = "syst_updated_datetime";
+$proto67["m_columns"][] = "update_system_id";
+$proto67["m_columns"][] = "updated_by_id";
+$proto67["m_columns"][] = "update_method";
+$proto67["m_columns"][] = "order";
+$proto67["m_columns"][] = "is_obsolete";
+$proto67["m_columns"][] = "designation";
+$proto67["m_columns"][] = "description";
+$proto67["m_columns"][] = "country_code";
+$proto67["m_columns"][] = "mefe_master_user_external_person_id";
+$proto67["m_columns"][] = "mefe_master_user_external_person_table";
+$proto67["m_columns"][] = "mefe_master_user_external_person_system";
+$proto67["m_columns"][] = "default_role_type_id";
+$proto67["m_columns"][] = "default_sot_id";
+$proto67["m_columns"][] = "default_area";
+$proto67["m_columns"][] = "default_building";
+$proto67["m_columns"][] = "default_unit";
+$proto67["m_columns"][] = "default_assignee_mgt_cny";
+$proto67["m_columns"][] = "default_assignee_agent";
+$proto67["m_columns"][] = "default_assignee_landlord";
+$proto67["m_columns"][] = "default_assignee_tenant";
+$proto67["m_columns"][] = "default_sot_system";
+$proto67["m_columns"][] = "default_sot_persons";
+$proto67["m_columns"][] = "default_sot_areas";
+$proto67["m_columns"][] = "default_sot_properties";
+$obj = new SQLTable($proto67);
+
+$proto66["m_table"] = $obj;
+$proto66["m_sql"] = "uneet_enterprise_organizations";
+$proto66["m_alias"] = "";
+$proto66["m_srcTableName"] = "uneet_enterprise_organizations";
+$proto68=array();
+$proto68["m_sql"] = "";
+$proto68["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto60["m_column"]=$obj;
-$proto60["m_contained"] = array();
-$proto60["m_strCase"] = "";
-$proto60["m_havingmode"] = false;
-$proto60["m_inBrackets"] = false;
-$proto60["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto60);
+$proto68["m_column"]=$obj;
+$proto68["m_contained"] = array();
+$proto68["m_strCase"] = "";
+$proto68["m_havingmode"] = false;
+$proto68["m_inBrackets"] = false;
+$proto68["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto68);
 
-$proto58["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto58);
+$proto66["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto66);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4485,7 +5201,7 @@ $queryData_uneet_enterprise_organizations = createSqlQuery_uneet_enterprise_orga
 					
 ;
 
-																										
+																														
 
 $tdatauneet_enterprise_organizations[".sqlquery"] = $queryData_uneet_enterprise_organizations;
 

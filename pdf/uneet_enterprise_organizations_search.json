@@ -193,6 +193,18 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field25}","text":{$default_sot_id_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field26}","text":{$default_assignee_mgt_cny_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field27}","text":{$default_assignee_agent_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field28}","text":{$default_assignee_landlord_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field29}","text":{$default_assignee_tenant_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

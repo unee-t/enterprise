@@ -253,7 +253,7 @@ $tdataExport_and_Import_Rooms[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "ORDER BY external_property_level_2_units.designation ASC, external_property_level_3_rooms.room_designation ASC";
+$tstrOrderBy = "ORDER BY external_property_level_2_units.designation, external_property_level_3_rooms.room_designation";
 if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
 	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataExport_and_Import_Rooms[".strOrderBy"] = $tstrOrderBy;
@@ -4451,7 +4451,7 @@ $proto0["m_strHead"] = "SELECT";
 $proto0["m_strFieldList"] = "external_property_level_3_rooms.system_id_room,  external_property_level_3_rooms.external_id,  external_property_level_3_rooms.external_system_id,  external_property_level_3_rooms.external_table,  external_property_level_3_rooms.syst_created_datetime,  external_property_level_3_rooms.creation_system_id,  external_property_level_3_rooms.created_by_id,  external_property_level_3_rooms.creation_method,  external_property_level_3_rooms.syst_updated_datetime,  external_property_level_3_rooms.update_system_id,  external_property_level_3_rooms.updated_by_id,  external_property_level_3_rooms.update_method,  external_property_level_3_rooms.system_id_unit,  external_property_level_2_units.designation AS unit_designation,  external_property_level_3_rooms.room_designation,  external_property_level_3_rooms.unee_t_unit_type,  external_property_level_3_rooms.is_obsolete,  external_property_level_3_rooms.is_creation_needed_in_unee_t,  external_property_level_3_rooms.number_of_beds,  external_property_level_3_rooms.surface,  external_property_level_3_rooms.surface_measurment_unit,  external_property_level_3_rooms.room_description,  external_property_level_3_rooms.room_type_id,  external_property_level_3_rooms.do_not_insert";
 $proto0["m_strFrom"] = "FROM external_property_level_3_rooms  LEFT OUTER JOIN external_property_level_2_units ON external_property_level_3_rooms.system_id_unit = external_property_level_2_units.system_id_unit";
 $proto0["m_strWhere"] = "";
-$proto0["m_strOrderBy"] = "ORDER BY external_property_level_2_units.designation ASC, external_property_level_3_rooms.room_designation ASC";
+$proto0["m_strOrderBy"] = "ORDER BY external_property_level_2_units.designation, external_property_level_3_rooms.room_designation";
 	
 					
 ;
@@ -4851,7 +4851,9 @@ $proto55["m_columns"][] = "is_obsolete";
 $proto55["m_columns"][] = "is_creation_needed_in_unee_t";
 $proto55["m_columns"][] = "do_not_insert";
 $proto55["m_columns"][] = "unee_t_unit_type";
-$proto55["m_columns"][] = "system_id_unit";
+$proto55["m_columns"][] = "l2p_external_system";
+$proto55["m_columns"][] = "l2p_external_table";
+$proto55["m_columns"][] = "l2p_external_id";
 $proto55["m_columns"][] = "room_type_id";
 $proto55["m_columns"][] = "number_of_beds";
 $proto55["m_columns"][] = "surface";
@@ -4862,6 +4864,7 @@ $proto55["m_columns"][] = "mgt_cny_default_assignee";
 $proto55["m_columns"][] = "landlord_default_assignee";
 $proto55["m_columns"][] = "tenant_default_assignee";
 $proto55["m_columns"][] = "agent_default_assignee";
+$proto55["m_columns"][] = "system_id_unit";
 $obj = new SQLTable($proto55);
 
 $proto54["m_table"] = $obj;
@@ -4913,7 +4916,9 @@ $proto59["m_columns"][] = "is_obsolete";
 $proto59["m_columns"][] = "is_creation_needed_in_unee_t";
 $proto59["m_columns"][] = "do_not_insert";
 $proto59["m_columns"][] = "unee_t_unit_type";
-$proto59["m_columns"][] = "building_system_id";
+$proto59["m_columns"][] = "l1p_external_system";
+$proto59["m_columns"][] = "l1p_external_table";
+$proto59["m_columns"][] = "l1p_external_id";
 $proto59["m_columns"][] = "tower";
 $proto59["m_columns"][] = "unit_category_id";
 $proto59["m_columns"][] = "designation";
@@ -4926,6 +4931,7 @@ $proto59["m_columns"][] = "mgt_cny_default_assignee";
 $proto59["m_columns"][] = "landlord_default_assignee";
 $proto59["m_columns"][] = "tenant_default_assignee";
 $proto59["m_columns"][] = "agent_default_assignee";
+$proto59["m_columns"][] = "building_system_id";
 $obj = new SQLTable($proto59);
 
 $proto58["m_table"] = $obj;

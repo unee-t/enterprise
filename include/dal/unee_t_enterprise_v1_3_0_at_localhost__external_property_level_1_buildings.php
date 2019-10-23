@@ -17,10 +17,12 @@ $dalTableexternal_property_level_1_buildings["update_method"] = array("type"=>20
 $dalTableexternal_property_level_1_buildings["is_update_on_duplicate_key"] = array("type"=>16,"varname"=>"is_update_on_duplicate_key", "name" => "is_update_on_duplicate_key");
 $dalTableexternal_property_level_1_buildings["is_obsolete"] = array("type"=>16,"varname"=>"is_obsolete", "name" => "is_obsolete");
 $dalTableexternal_property_level_1_buildings["order"] = array("type"=>3,"varname"=>"order", "name" => "order");
-$dalTableexternal_property_level_1_buildings["area_id"] = array("type"=>3,"varname"=>"area_id", "name" => "area_id");
 $dalTableexternal_property_level_1_buildings["is_creation_needed_in_unee_t"] = array("type"=>16,"varname"=>"is_creation_needed_in_unee_t", "name" => "is_creation_needed_in_unee_t");
 $dalTableexternal_property_level_1_buildings["do_not_insert"] = array("type"=>16,"varname"=>"do_not_insert", "name" => "do_not_insert");
 $dalTableexternal_property_level_1_buildings["unee_t_unit_type"] = array("type"=>200,"varname"=>"unee_t_unit_type", "name" => "unee_t_unit_type");
+$dalTableexternal_property_level_1_buildings["area_external_system"] = array("type"=>200,"varname"=>"area_external_system", "name" => "area_external_system");
+$dalTableexternal_property_level_1_buildings["area_external_table"] = array("type"=>200,"varname"=>"area_external_table", "name" => "area_external_table");
+$dalTableexternal_property_level_1_buildings["area_external_id"] = array("type"=>200,"varname"=>"area_external_id", "name" => "area_external_id");
 $dalTableexternal_property_level_1_buildings["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation");
 $dalTableexternal_property_level_1_buildings["tower"] = array("type"=>200,"varname"=>"tower", "name" => "tower");
 $dalTableexternal_property_level_1_buildings["address_1"] = array("type"=>200,"varname"=>"address_1", "name" => "address_1");
@@ -34,6 +36,7 @@ $dalTableexternal_property_level_1_buildings["mgt_cny_default_assignee"] = array
 $dalTableexternal_property_level_1_buildings["landlord_default_assignee"] = array("type"=>200,"varname"=>"landlord_default_assignee", "name" => "landlord_default_assignee");
 $dalTableexternal_property_level_1_buildings["tenant_default_assignee"] = array("type"=>200,"varname"=>"tenant_default_assignee", "name" => "tenant_default_assignee");
 $dalTableexternal_property_level_1_buildings["agent_default_assignee"] = array("type"=>200,"varname"=>"agent_default_assignee", "name" => "agent_default_assignee");
+$dalTableexternal_property_level_1_buildings["area_id"] = array("type"=>3,"varname"=>"area_id", "name" => "area_id");
 	$dalTableexternal_property_level_1_buildings["external_id"]["key"]=true;
 	$dalTableexternal_property_level_1_buildings["external_system_id"]["key"]=true;
 	$dalTableexternal_property_level_1_buildings["external_table"]["key"]=true;

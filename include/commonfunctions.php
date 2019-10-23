@@ -285,19 +285,11 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("Search_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
-	if ("Export_and_Import_Buildings" == $shortTName && ($type===false || ($type!==false && $type == 1)))
-		return true;
 	if ("Export_and_Import_Areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
-		return true;
-	if ("Export_and_Import_Units" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	if ("List_of_Countries" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
-	if ("Export_and_Import_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
-		return true;
 	if ("Export_and_Import_User_Types" == $shortTName && ($type===false || ($type!==false && $type == 1)))
-		return true;
-	if ("Export_and_Import_Users" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	if ("Assign_Rooms" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
@@ -332,6 +324,24 @@ function checkTableName($shortTName, $type=false)
 	if ("search_list_of_possible_properties" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	if ("organization_default_l2p" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("search_areas" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l1p_export" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l1p_import" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l2p_export" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l2p_import" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l3p_export" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("l3p_import" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("users_export" == $shortTName && ($type===false || ($type!==false && $type == 1)))
+		return true;
+	if ("users_import" == $shortTName && ($type===false || ($type!==false && $type == 1)))
 		return true;
 	return false;
 }
@@ -754,30 +764,12 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("Export and Import Buildings");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="Export and Import Buildings";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
 		$strPerm = GetUserPermissions("Export and Import Areas");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
 	}
 	if( $tableAvailable ) {
 		$arr[]="Export and Import Areas";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("Export and Import Units");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="Export and Import Units";
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
@@ -790,30 +782,12 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("Export and Import Rooms");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="Export and Import Rooms";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
 		$strPerm = GetUserPermissions("Export and Import User Types");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
 	}
 	if( $tableAvailable ) {
 		$arr[]="Export and Import User Types";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("Export and Import Users");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="Export and Import Users";
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
@@ -968,6 +942,87 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Organization Default L2P";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Search Areas");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Search Areas";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L1P Export");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L1P Export";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L1P Import");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L1P Import";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L2P Export");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L2P Export";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L2P Import");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L2P Import";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L3P Export");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L3P Export";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("L3P Import");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="L3P Import";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Users Export");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Users Export";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Users Import");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Users Import";
+	}
 	return $arr;
 }
 
@@ -1018,13 +1073,9 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Search All Units";
 	$arr[]="ut_map_external_source_units";
 	$arr[]="Search Buildings";
-	$arr[]="Export and Import Buildings";
 	$arr[]="Export and Import Areas";
-	$arr[]="Export and Import Units";
 	$arr[]="List of Countries";
-	$arr[]="Export and Import Rooms";
 	$arr[]="Export and Import User Types";
-	$arr[]="Export and Import Users";
 	$arr[]="Assign Rooms";
 	$arr[]="ut_map_external_source_users";
 	$arr[]="Unee-T Enterprise Account";
@@ -1042,6 +1093,15 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Organization Default L1P";
 	$arr[]="Search list of possible properties";
 	$arr[]="Organization Default L2P";
+	$arr[]="Search Areas";
+	$arr[]="L1P Export";
+	$arr[]="L1P Import";
+	$arr[]="L2P Export";
+	$arr[]="L2P Import";
+	$arr[]="L3P Export";
+	$arr[]="L3P Import";
+	$arr[]="Users Export";
+	$arr[]="Users Import";
 	return $arr;
 }
 
@@ -2008,17 +2068,7 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="Export and Import Buildings" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
 	if( $table=="Export and Import Areas" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
-	if( $table=="Export and Import Units" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -2028,17 +2078,7 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="Export and Import Rooms" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
 	if( $table=="Export and Import User Types" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
-	if( $table=="Export and Import Users" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -2124,6 +2164,51 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="Organization Default L2P" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Search Areas" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L1P Export" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L1P Import" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L2P Export" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L2P Import" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L3P Export" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="L3P Import" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Users Export" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Users Import" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -2264,12 +2349,8 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Search Units_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search All Units_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search Buildings_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Export and Import Buildings_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import Areas_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Export and Import Units_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Export and Import Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Export and Import User Types_OwnerID"] = $data["organization_id"];
-		$_SESSION["_Export and Import Users_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Assign Rooms_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Unee-T Enterprise Account_OwnerID"] = $data["organization_id"];
 		$_SESSION["_All Properties by Countries_OwnerID"] = $data["organization_id"];
@@ -2285,6 +2366,14 @@ function SetAuthSessionData($pUsername, &$data, $password, &$pageObject = null, 
 		$_SESSION["_Organization Default L1P_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Search list of possible properties_OwnerID"] = $data["organization_id"];
 		$_SESSION["_Organization Default L2P_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L1P Export_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L1P Import_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L2P Export_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L2P Import_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L3P Export_OwnerID"] = $data["organization_id"];
+		$_SESSION["_L3P Import_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Users Export_OwnerID"] = $data["organization_id"];
+		$_SESSION["_Users Import_OwnerID"] = $data["organization_id"];
 
 	$_SESSION["UserData"] = $data;
 
@@ -2460,37 +2549,13 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
-		if($table=="Export and Import Buildings")
-		{
-
-				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
-				return false;
-		}
 		if($table=="Export and Import Areas")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
 				return false;
 		}
-		if($table=="Export and Import Units")
-		{
-
-				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
-				return false;
-		}
-		if($table=="Export and Import Rooms")
-		{
-
-				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
-				return false;
-		}
 		if($table=="Export and Import User Types")
-		{
-
-				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
-				return false;
-		}
-		if($table=="Export and Import Users")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
@@ -2545,6 +2610,54 @@ function CheckSecurity($strValue, $strAction, $table = "")
 				return false;
 		}
 		if($table=="Organization Default L2P")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L1P Export")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L1P Import")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L2P Export")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L2P Import")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L3P Export")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="L3P Import")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Users Export")
+		{
+
+				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
+				return false;
+		}
+		if($table=="Users Import")
 		{
 
 				if(!($pSet->getCaseSensitiveUsername((string)$_SESSION["_".$table."_OwnerID"])===$pSet->getCaseSensitiveUsername((string)$strValue)))
@@ -2696,27 +2809,11 @@ function SecuritySQL($strAction, $table, $strPerm="")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
-		if($table=="Export and Import Buildings")
-		{
-				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
-		}
 		if($table=="Export and Import Areas")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
-		if($table=="Export and Import Units")
-		{
-				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
-		}
-		if($table=="Export and Import Rooms")
-		{
-				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
-		}
 		if($table=="Export and Import User Types")
-		{
-				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
-		}
-		if($table=="Export and Import Users")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
@@ -2753,6 +2850,38 @@ function SecuritySQL($strAction, $table, $strPerm="")
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}
 		if($table=="Organization Default L2P")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L1P Export")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L1P Import")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L2P Export")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L2P Import")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L3P Export")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="L3P Import")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Users Export")
+		{
+				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
+		}
+		if($table=="Users Import")
 		{
 				$ret = GetFullFieldName($pSet->getTableOwnerID(), $table, false)."=".make_db_value($pSet->getTableOwnerID(), $ownerid, "", "", $table);
 		}

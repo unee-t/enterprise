@@ -217,6 +217,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field33}","text":{$is_update_on_duplicate_key_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field34}","text":{$l1p_external_system_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field35}","text":{$l1p_external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field36}","text":{$l1p_external_id_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

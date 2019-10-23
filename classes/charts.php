@@ -572,19 +572,11 @@ class Chart
 			return true;
 		if("property_level_1_buildings" == $this->chrt_array['tables'][0])
 			return true;
-		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
-			return true;
 		if("external_property_groups_areas" == $this->chrt_array['tables'][0])
-			return true;
-		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
 			return true;
 		if("property_groups_countries" == $this->chrt_array['tables'][0])
 			return true;
-		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
-			return true;
 		if("ut_user_types" == $this->chrt_array['tables'][0])
-			return true;
-		if("external_persons" == $this->chrt_array['tables'][0])
 			return true;
 		if("external_map_user_unit_role_permissions_level_3" == $this->chrt_array['tables'][0])
 			return true;
@@ -619,6 +611,24 @@ class Chart
 		if("ut_list_possible_properties" == $this->chrt_array['tables'][0])
 			return true;
 		if("uneet_enterprise_organizations" == $this->chrt_array['tables'][0])
+			return true;
+		if("property_groups_areas" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_1_buildings" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_2_units" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_property_level_3_rooms" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_persons" == $this->chrt_array['tables'][0])
+			return true;
+		if("external_persons" == $this->chrt_array['tables'][0])
 			return true;
 		return false;
 	}

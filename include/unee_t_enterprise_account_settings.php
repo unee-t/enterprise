@@ -2803,8 +2803,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -2825,8 +2824,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -3302,8 +3300,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -3324,8 +3321,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -3801,8 +3797,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -3823,8 +3818,7 @@ $tdataunee_t_enterprise_account[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 	//	End validation
 
@@ -5622,6 +5616,10 @@ $proto67["m_columns"][] = "default_sot_id";
 $proto67["m_columns"][] = "default_area";
 $proto67["m_columns"][] = "default_building";
 $proto67["m_columns"][] = "default_unit";
+$proto67["m_columns"][] = "default_assignee_mgt_cny";
+$proto67["m_columns"][] = "default_assignee_agent";
+$proto67["m_columns"][] = "default_assignee_landlord";
+$proto67["m_columns"][] = "default_assignee_tenant";
 $proto67["m_columns"][] = "default_sot_system";
 $proto67["m_columns"][] = "default_sot_persons";
 $proto67["m_columns"][] = "default_sot_areas";
@@ -5924,6 +5922,9 @@ $proto91["m_columns"][] = "external_property_id";
 $proto91["m_columns"][] = "external_system";
 $proto91["m_columns"][] = "table_in_external_system";
 $proto91["m_columns"][] = "tower";
+$proto91["m_columns"][] = "parent_external_system";
+$proto91["m_columns"][] = "parent_external_table";
+$proto91["m_columns"][] = "parent_external_id";
 $proto91["m_columns"][] = "mgt_cny_default_assignee";
 $proto91["m_columns"][] = "landlord_default_assignee";
 $proto91["m_columns"][] = "tenant_default_assignee";
@@ -5994,6 +5995,9 @@ $proto95["m_columns"][] = "external_property_id";
 $proto95["m_columns"][] = "external_system";
 $proto95["m_columns"][] = "table_in_external_system";
 $proto95["m_columns"][] = "tower";
+$proto95["m_columns"][] = "parent_external_system";
+$proto95["m_columns"][] = "parent_external_table";
+$proto95["m_columns"][] = "parent_external_id";
 $proto95["m_columns"][] = "mgt_cny_default_assignee";
 $proto95["m_columns"][] = "landlord_default_assignee";
 $proto95["m_columns"][] = "tenant_default_assignee";

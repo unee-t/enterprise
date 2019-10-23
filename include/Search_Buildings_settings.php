@@ -225,12 +225,7 @@ $tdataSearch_Buildings[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "ORDER BY 
-	property_groups_countries.country_name
-	, property_groups_areas.`order`
-	, property_groups_areas.area_name
-	, property_level_1_buildings.`order`
-	, property_level_1_buildings.designation";
+$tstrOrderBy = "ORDER BY property_groups_countries.country_name, property_groups_areas.`order`, property_groups_areas.area_name, property_level_1_buildings.`order`, property_level_1_buildings.designation";
 if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
 	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataSearch_Buildings[".strOrderBy"] = $tstrOrderBy;
@@ -247,9 +242,9 @@ $tdataSearch_Buildings[".orderindexes"] = array();
 	$tdataSearch_Buildings[".orderindexes"][] = array(12, (1 ? "ASC" : "DESC"), "property_level_1_buildings.designation");
 
 
-$tdataSearch_Buildings[".sqlHead"] = "SELECT property_level_1_buildings.id_building,  	property_level_1_buildings.external_id,  	property_level_1_buildings.external_system_id,  	property_level_1_buildings.external_table,  	property_level_1_buildings.organization_id,  	ut_map_external_source_units.unee_t_mefe_unit_id,  	ut_map_external_source_units.uneet_created_datetime,  	property_level_1_buildings.country_code,  	property_groups_countries.country_name,  	property_level_1_buildings.area_id,  	property_groups_areas.area_name,  	property_level_1_buildings.designation AS building_name,  	property_groups_areas.`order` AS order_area,  	property_level_1_buildings.`order` AS order_building,  	property_level_1_buildings.is_obsolete AS is_unit_obsolete";
-$tdataSearch_Buildings[".sqlFrom"] = "FROM property_level_1_buildings  	LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  	LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  	INNER JOIN ut_map_external_source_units ON property_level_1_buildings.id_building = ut_map_external_source_units.new_record_id AND property_level_1_buildings.organization_id = ut_map_external_source_units.organization_id";
-$tdataSearch_Buildings[".sqlWhereExpr"] = "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL  	AND ut_map_external_source_units.external_property_type_id = 1)";
+$tdataSearch_Buildings[".sqlHead"] = "SELECT property_level_1_buildings.id_building,  property_level_1_buildings.external_id,  property_level_1_buildings.external_system_id,  property_level_1_buildings.external_table,  property_level_1_buildings.organization_id,  ut_map_external_source_units.unee_t_mefe_unit_id,  ut_map_external_source_units.uneet_created_datetime,  property_level_1_buildings.country_code,  property_groups_countries.country_name,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.designation AS building_name,  property_groups_areas.`order` AS order_area,  property_level_1_buildings.`order` AS order_building,  property_level_1_buildings.is_obsolete AS is_unit_obsolete";
+$tdataSearch_Buildings[".sqlFrom"] = "FROM property_level_1_buildings  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  INNER JOIN ut_map_external_source_units ON property_level_1_buildings.id_building = ut_map_external_source_units.new_record_id AND property_level_1_buildings.organization_id = ut_map_external_source_units.organization_id";
+$tdataSearch_Buildings[".sqlWhereExpr"] = "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL) AND (ut_map_external_source_units.external_property_type_id = 1)";
 $tdataSearch_Buildings[".sqlTail"] = "";
 
 
@@ -2393,19 +2388,19 @@ function createSqlQuery_Search_Buildings()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "property_level_1_buildings.id_building,  	property_level_1_buildings.external_id,  	property_level_1_buildings.external_system_id,  	property_level_1_buildings.external_table,  	property_level_1_buildings.organization_id,  	ut_map_external_source_units.unee_t_mefe_unit_id,  	ut_map_external_source_units.uneet_created_datetime,  	property_level_1_buildings.country_code,  	property_groups_countries.country_name,  	property_level_1_buildings.area_id,  	property_groups_areas.area_name,  	property_level_1_buildings.designation AS building_name,  	property_groups_areas.`order` AS order_area,  	property_level_1_buildings.`order` AS order_building,  	property_level_1_buildings.is_obsolete AS is_unit_obsolete";
-$proto0["m_strFrom"] = "FROM property_level_1_buildings  	LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  	LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  	INNER JOIN ut_map_external_source_units ON property_level_1_buildings.id_building = ut_map_external_source_units.new_record_id AND property_level_1_buildings.organization_id = ut_map_external_source_units.organization_id";
-$proto0["m_strWhere"] = "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL  	AND ut_map_external_source_units.external_property_type_id = 1)";
-$proto0["m_strOrderBy"] = "ORDER BY   	property_groups_countries.country_name  	, property_groups_areas.`order`  	, property_groups_areas.area_name  	, property_level_1_buildings.`order`  	, property_level_1_buildings.designation";
+$proto0["m_strFieldList"] = "property_level_1_buildings.id_building,  property_level_1_buildings.external_id,  property_level_1_buildings.external_system_id,  property_level_1_buildings.external_table,  property_level_1_buildings.organization_id,  ut_map_external_source_units.unee_t_mefe_unit_id,  ut_map_external_source_units.uneet_created_datetime,  property_level_1_buildings.country_code,  property_groups_countries.country_name,  property_level_1_buildings.area_id,  property_groups_areas.area_name,  property_level_1_buildings.designation AS building_name,  property_groups_areas.`order` AS order_area,  property_level_1_buildings.`order` AS order_building,  property_level_1_buildings.is_obsolete AS is_unit_obsolete";
+$proto0["m_strFrom"] = "FROM property_level_1_buildings  LEFT OUTER JOIN property_groups_areas ON property_level_1_buildings.area_id = property_groups_areas.id_area  LEFT OUTER JOIN property_groups_countries ON property_level_1_buildings.country_code = property_groups_countries.country_code  INNER JOIN ut_map_external_source_units ON property_level_1_buildings.id_building = ut_map_external_source_units.new_record_id AND property_level_1_buildings.organization_id = ut_map_external_source_units.organization_id";
+$proto0["m_strWhere"] = "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL) AND (ut_map_external_source_units.external_property_type_id = 1)";
+$proto0["m_strOrderBy"] = "ORDER BY property_groups_countries.country_name, property_groups_areas.`order`, property_groups_areas.area_name, property_level_1_buildings.`order`, property_level_1_buildings.designation";
 	
 					
 ;
 						$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL  	AND ut_map_external_source_units.external_property_type_id = 1";
+$proto2["m_sql"] = "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL) AND (ut_map_external_source_units.external_property_type_id = 1)";
 $proto2["m_uniontype"] = "SQLL_AND";
 	$obj = new SQLNonParsed(array(
-	"m_sql" => "ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL  	AND ut_map_external_source_units.external_property_type_id = 1"
+	"m_sql" => "(ut_map_external_source_units.unee_t_mefe_unit_id IS NOT NULL) AND (ut_map_external_source_units.external_property_type_id = 1)"
 ));
 
 $proto2["m_column"]=$obj;
@@ -2423,7 +2418,7 @@ $proto4["m_column"]=$obj;
 $proto4["m_contained"] = array();
 $proto4["m_strCase"] = "IS NOT NULL";
 $proto4["m_havingmode"] = false;
-$proto4["m_inBrackets"] = false;
+$proto4["m_inBrackets"] = true;
 $proto4["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto4);
 
@@ -2441,7 +2436,7 @@ $proto6["m_column"]=$obj;
 $proto6["m_contained"] = array();
 $proto6["m_strCase"] = "= 1";
 $proto6["m_havingmode"] = false;
-$proto6["m_inBrackets"] = false;
+$proto6["m_inBrackets"] = true;
 $proto6["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto6);
 
@@ -2705,10 +2700,12 @@ $proto41["m_columns"][] = "is_update_on_duplicate_key";
 $proto41["m_columns"][] = "organization_id";
 $proto41["m_columns"][] = "is_obsolete";
 $proto41["m_columns"][] = "order";
-$proto41["m_columns"][] = "area_id";
 $proto41["m_columns"][] = "is_creation_needed_in_unee_t";
 $proto41["m_columns"][] = "do_not_insert";
 $proto41["m_columns"][] = "unee_t_unit_type";
+$proto41["m_columns"][] = "area_external_system";
+$proto41["m_columns"][] = "area_external_table";
+$proto41["m_columns"][] = "area_external_id";
 $proto41["m_columns"][] = "designation";
 $proto41["m_columns"][] = "tower";
 $proto41["m_columns"][] = "address_1";
@@ -2722,6 +2719,7 @@ $proto41["m_columns"][] = "mgt_cny_default_assignee";
 $proto41["m_columns"][] = "landlord_default_assignee";
 $proto41["m_columns"][] = "tenant_default_assignee";
 $proto41["m_columns"][] = "agent_default_assignee";
+$proto41["m_columns"][] = "area_id";
 $obj = new SQLTable($proto41);
 
 $proto40["m_table"] = $obj;
@@ -2892,6 +2890,9 @@ $proto53["m_columns"][] = "external_property_id";
 $proto53["m_columns"][] = "external_system";
 $proto53["m_columns"][] = "table_in_external_system";
 $proto53["m_columns"][] = "tower";
+$proto53["m_columns"][] = "parent_external_system";
+$proto53["m_columns"][] = "parent_external_table";
+$proto53["m_columns"][] = "parent_external_id";
 $proto53["m_columns"][] = "mgt_cny_default_assignee";
 $proto53["m_columns"][] = "landlord_default_assignee";
 $proto53["m_columns"][] = "tenant_default_assignee";

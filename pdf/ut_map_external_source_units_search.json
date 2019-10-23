@@ -226,6 +226,15 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field36}","text":{$agent_default_assignee_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field37}","text":{$parent_external_system_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field38}","text":{$parent_external_table_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field39}","text":{$parent_external_id_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           },

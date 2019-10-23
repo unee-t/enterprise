@@ -1385,6 +1385,18 @@
 		content: "{$label Manage_Buildings agent_default_assignee}";
 	}
 	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="area_external_system"]:before {
+		content: "{$label Manage_Buildings area_external_system}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="area_external_table"]:before {
+		content: "{$label Manage_Buildings area_external_table}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="area_external_id"]:before {
+		content: "{$label Manage_Buildings area_external_id}";
+	}
+	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 

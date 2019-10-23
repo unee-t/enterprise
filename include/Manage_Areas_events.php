@@ -213,7 +213,6 @@ function BeforeAdd(&$values, &$message, $inline, &$pageObject)
 				$values["external_id"] = $values["area_name"];
 			}
 
-
 // Place event code here.
 // Use "Add Action" button to add code snippets.
 

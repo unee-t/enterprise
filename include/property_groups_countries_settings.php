@@ -9,10 +9,10 @@ $tdataproperty_groups_countries[".OwnerID"] = "";
 $tdataproperty_groups_countries[".OriginalTable"] = "property_groups_countries";
 
 
-$defaultPages = my_json_decode( "{}" );
+$defaultPages = my_json_decode( "{\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\"}" );
 
-$tdataproperty_groups_countries[".pagesByType"] = my_json_decode( "{}" );
-$tdataproperty_groups_countries[".pages"] = types2pages( my_json_decode( "{}" ) );
+$tdataproperty_groups_countries[".pagesByType"] = my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" );
+$tdataproperty_groups_countries[".pages"] = types2pages( my_json_decode( "{\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"]}" ) );
 $tdataproperty_groups_countries[".defaultPages"] = $defaultPages;
 
 //	field labels

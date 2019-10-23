@@ -278,7 +278,7 @@ class ConnectionManager
 		$data["connId"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$data["connName"] = "unee_t_enterprise";
 		$data["connStringType"] = "mysql";
-		$data["connectionString"] = "mysql;bz-db-local-dev-env.c5eg6u2xj9yy.ap-southeast-1.rds.amazonaws.com;unee_t_root;6hdu9hzZq4Yi7g9YAcUN;3306;unee_t_enterprise_v1.22.9;;1"; //currently unused
+		$data["connectionString"] = "mysql;bz-db-local-dev-env.c5eg6u2xj9yy.ap-southeast-1.rds.amazonaws.com;unee_t_root;6hdu9hzZq4Yi7g9YAcUN;3306;unee_t_enterprise_v1.22.11;;1"; //currently unused
 
 		$this->_connectionsIdByName["unee_t_enterprise"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		
@@ -295,10 +295,10 @@ class ConnectionManager
 		$data["connInfo"][1] = "unee_t_root";
 		$data["connInfo"][2] = "6hdu9hzZq4Yi7g9YAcUN";
 		$data["connInfo"][3] = "3306";
-		$data["connInfo"][4] = "unee_t_enterprise_v1.22.9";
+		$data["connInfo"][4] = "unee_t_enterprise_v1.22.11";
 		$data["connInfo"][5] = ""; //currently unused
 		$data["connInfo"][6] = "1"; //currently unused
-		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=bz-db-local-dev-env.c5eg6u2xj9yy.ap-southeast-1.rds.amazonaws.com;Uid=unee_t_root;Pwd=6hdu9hzZq4Yi7g9YAcUN;Port=3306;Database=unee_t_enterprise_v1.22.9;OPTION=3";
+		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=bz-db-local-dev-env.c5eg6u2xj9yy.ap-southeast-1.rds.amazonaws.com;Uid=unee_t_root;Pwd=6hdu9hzZq4Yi7g9YAcUN;Port=3306;Database=unee_t_enterprise_v1.22.11;OPTION=3";
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 1;
@@ -357,13 +357,9 @@ class ConnectionManager
 		$connectionsIds["Search All Units"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["ut_map_external_source_units"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Search Buildings"] = "unee_t_enterprise_v1_3_0_at_localhost";
-		$connectionsIds["Export and Import Buildings"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Export and Import Areas"] = "unee_t_enterprise_v1_3_0_at_localhost";
-		$connectionsIds["Export and Import Units"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["List of Countries"] = "unee_t_enterprise_v1_3_0_at_localhost";
-		$connectionsIds["Export and Import Rooms"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Export and Import User Types"] = "unee_t_enterprise_v1_3_0_at_localhost";
-		$connectionsIds["Export and Import Users"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Assign Rooms"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["ut_map_external_source_users"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Unee-T Enterprise Account"] = "unee_t_enterprise_v1_3_0_at_localhost";
@@ -381,6 +377,15 @@ class ConnectionManager
 		$connectionsIds["Organization Default L1P"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Search list of possible properties"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$connectionsIds["Organization Default L2P"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Search Areas"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L1P Export"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L1P Import"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L2P Export"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L2P Import"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L3P Export"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["L3P Import"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Users Export"] = "unee_t_enterprise_v1_3_0_at_localhost";
+		$connectionsIds["Users Import"] = "unee_t_enterprise_v1_3_0_at_localhost";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

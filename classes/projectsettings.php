@@ -3143,20 +3143,12 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "ut_map_external_source_units" ] = "ut_map_external_source_units";
 	$projectEntities[ "Search Buildings" ] = array( "url" => "Search_Buildings", "type" => 1 );
 	$projectEntitiesReverse[ "Search_Buildings" ] = "Search Buildings";
-	$projectEntities[ "Export and Import Buildings" ] = array( "url" => "Export_and_Import_Buildings", "type" => 1 );
-	$projectEntitiesReverse[ "Export_and_Import_Buildings" ] = "Export and Import Buildings";
 	$projectEntities[ "Export and Import Areas" ] = array( "url" => "Export_and_Import_Areas", "type" => 1 );
 	$projectEntitiesReverse[ "Export_and_Import_Areas" ] = "Export and Import Areas";
-	$projectEntities[ "Export and Import Units" ] = array( "url" => "Export_and_Import_Units", "type" => 1 );
-	$projectEntitiesReverse[ "Export_and_Import_Units" ] = "Export and Import Units";
 	$projectEntities[ "List of Countries" ] = array( "url" => "List_of_Countries", "type" => 1 );
 	$projectEntitiesReverse[ "List_of_Countries" ] = "List of Countries";
-	$projectEntities[ "Export and Import Rooms" ] = array( "url" => "Export_and_Import_Rooms", "type" => 1 );
-	$projectEntitiesReverse[ "Export_and_Import_Rooms" ] = "Export and Import Rooms";
 	$projectEntities[ "Export and Import User Types" ] = array( "url" => "Export_and_Import_User_Types", "type" => 1 );
 	$projectEntitiesReverse[ "Export_and_Import_User_Types" ] = "Export and Import User Types";
-	$projectEntities[ "Export and Import Users" ] = array( "url" => "Export_and_Import_Users", "type" => 1 );
-	$projectEntitiesReverse[ "Export_and_Import_Users" ] = "Export and Import Users";
 	$projectEntities[ "Assign Rooms" ] = array( "url" => "Assign_Rooms", "type" => 1 );
 	$projectEntitiesReverse[ "Assign_Rooms" ] = "Assign Rooms";
 	$projectEntities[ "ut_map_external_source_users" ] = array( "url" => "ut_map_external_source_users", "type" => 1 );
@@ -3191,6 +3183,24 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "search_list_of_possible_properties" ] = "Search list of possible properties";
 	$projectEntities[ "Organization Default L2P" ] = array( "url" => "organization_default_l2p", "type" => 1 );
 	$projectEntitiesReverse[ "organization_default_l2p" ] = "Organization Default L2P";
+	$projectEntities[ "Search Areas" ] = array( "url" => "search_areas", "type" => 1 );
+	$projectEntitiesReverse[ "search_areas" ] = "Search Areas";
+	$projectEntities[ "L1P Export" ] = array( "url" => "l1p_export", "type" => 1 );
+	$projectEntitiesReverse[ "l1p_export" ] = "L1P Export";
+	$projectEntities[ "L1P Import" ] = array( "url" => "l1p_import", "type" => 1 );
+	$projectEntitiesReverse[ "l1p_import" ] = "L1P Import";
+	$projectEntities[ "L2P Export" ] = array( "url" => "l2p_export", "type" => 1 );
+	$projectEntitiesReverse[ "l2p_export" ] = "L2P Export";
+	$projectEntities[ "L2P Import" ] = array( "url" => "l2p_import", "type" => 1 );
+	$projectEntitiesReverse[ "l2p_import" ] = "L2P Import";
+	$projectEntities[ "L3P Export" ] = array( "url" => "l3p_export", "type" => 1 );
+	$projectEntitiesReverse[ "l3p_export" ] = "L3P Export";
+	$projectEntities[ "L3P Import" ] = array( "url" => "l3p_import", "type" => 1 );
+	$projectEntitiesReverse[ "l3p_import" ] = "L3P Import";
+	$projectEntities[ "Users Export" ] = array( "url" => "users_export", "type" => 1 );
+	$projectEntitiesReverse[ "users_export" ] = "Users Export";
+	$projectEntities[ "Users Import" ] = array( "url" => "users_import", "type" => 1 );
+	$projectEntitiesReverse[ "users_import" ] = "Users Import";
 }
 
 function findTable( $table ) {

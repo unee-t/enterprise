@@ -163,6 +163,15 @@ pdfDocument = {
 										{BEGIN col_grid_34}
 					"%",
 					{END col_grid_34}
+										{BEGIN col_grid_35}
+					"%",
+					{END col_grid_35}
+										{BEGIN col_grid_36}
+					"%",
+					{END col_grid_36}
+										{BEGIN col_grid_37}
+					"%",
+					{END col_grid_37}
 															],
 							heights: [
 									{BEGIN row_grid_0}		
@@ -261,7 +270,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel property_level_1_buildings id_building }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel property_level_1_buildings id_building }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -287,7 +296,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel property_level_1_buildings external_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel property_level_1_buildings external_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -313,7 +322,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel property_level_1_buildings external_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel property_level_1_buildings external_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -339,7 +348,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel property_level_1_buildings external_table }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel property_level_1_buildings external_table }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -365,7 +374,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel property_level_1_buildings syst_created_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel property_level_1_buildings syst_created_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -391,7 +400,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel property_level_1_buildings creation_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel property_level_1_buildings creation_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -417,7 +426,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel property_level_1_buildings created_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel property_level_1_buildings created_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -443,7 +452,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel property_level_1_buildings creation_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel property_level_1_buildings creation_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -469,7 +478,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel property_level_1_buildings syst_updated_datetime }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel property_level_1_buildings syst_updated_datetime }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -495,7 +504,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel property_level_1_buildings update_system_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel property_level_1_buildings update_system_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -521,7 +530,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel property_level_1_buildings updated_by_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel property_level_1_buildings updated_by_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -547,7 +556,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel property_level_1_buildings update_method }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel property_level_1_buildings update_method }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -573,7 +582,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel property_level_1_buildings organization_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel property_level_1_buildings organization_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -599,7 +608,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel property_level_1_buildings is_obsolete }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel property_level_1_buildings is_obsolete }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -625,7 +634,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel property_level_1_buildings order }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel property_level_1_buildings order }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -651,7 +660,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel property_level_1_buildings area_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field53}","text":"{$jslabel property_level_1_buildings area_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -677,7 +686,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel property_level_1_buildings is_creation_needed_in_unee_t }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field54}","text":"{$jslabel property_level_1_buildings is_creation_needed_in_unee_t }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -703,7 +712,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel property_level_1_buildings do_not_insert }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field55}","text":"{$jslabel property_level_1_buildings do_not_insert }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -729,7 +738,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field53}","text":"{$jslabel property_level_1_buildings unee_t_unit_type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field56}","text":"{$jslabel property_level_1_buildings unee_t_unit_type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -755,7 +764,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field54}","text":"{$jslabel property_level_1_buildings designation }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field57}","text":"{$jslabel property_level_1_buildings designation }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -781,7 +790,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field55}","text":"{$jslabel property_level_1_buildings tower }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field58}","text":"{$jslabel property_level_1_buildings tower }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -807,7 +816,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field56}","text":"{$jslabel property_level_1_buildings address_1 }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field59}","text":"{$jslabel property_level_1_buildings address_1 }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -833,7 +842,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field57}","text":"{$jslabel property_level_1_buildings address_2 }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field60}","text":"{$jslabel property_level_1_buildings address_2 }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -859,7 +868,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field58}","text":"{$jslabel property_level_1_buildings zip_postal_code }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field61}","text":"{$jslabel property_level_1_buildings zip_postal_code }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -885,7 +894,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field59}","text":"{$jslabel property_level_1_buildings state }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field62}","text":"{$jslabel property_level_1_buildings state }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -911,7 +920,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field60}","text":"{$jslabel property_level_1_buildings city }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field63}","text":"{$jslabel property_level_1_buildings city }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -937,7 +946,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field61}","text":"{$jslabel property_level_1_buildings country_code }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field64}","text":"{$jslabel property_level_1_buildings country_code }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -963,7 +972,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field62}","text":"{$jslabel property_level_1_buildings description }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field65}","text":"{$jslabel property_level_1_buildings description }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -989,7 +998,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field63}","text":"{$jslabel property_level_1_buildings mgt_cny_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field66}","text":"{$jslabel property_level_1_buildings mgt_cny_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1015,7 +1024,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field64}","text":"{$jslabel property_level_1_buildings landlord_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field67}","text":"{$jslabel property_level_1_buildings landlord_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1041,7 +1050,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field65}","text":"{$jslabel property_level_1_buildings tenant_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field68}","text":"{$jslabel property_level_1_buildings tenant_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1067,7 +1076,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field66}","text":"{$jslabel property_level_1_buildings agent_default_assignee }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field69}","text":"{$jslabel property_level_1_buildings agent_default_assignee }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1093,7 +1102,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field67}","text":"{$jslabel property_level_1_buildings create_api_request_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field70}","text":"{$jslabel property_level_1_buildings create_api_request_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1119,7 +1128,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field68}","text":"{$jslabel property_level_1_buildings edit_api_request_id }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field71}","text":"{$jslabel property_level_1_buildings edit_api_request_id }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1145,7 +1154,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field69}","text":"{$jslabel property_level_1_buildings is_update_on_duplicate_key }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field72}","text":"{$jslabel property_level_1_buildings is_update_on_duplicate_key }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1153,6 +1162,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_field34}
+																			{BEGIN cellblock_grid_headcell_field35}
+{
+	cellId: 'headcell_field35',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field73}","text":"{$jslabel property_level_1_buildings area_external_system }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_system_align}',
+  },
+
+{END cellblock_grid_headcell_field35}
+																			{BEGIN cellblock_grid_headcell_field36}
+{
+	cellId: 'headcell_field36',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field74}","text":"{$jslabel property_level_1_buildings area_external_table }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_table_align}',
+  },
+
+{END cellblock_grid_headcell_field36}
+																			{BEGIN cellblock_grid_headcell_field37}
+{
+	cellId: 'headcell_field37',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field75}","text":"{$jslabel property_level_1_buildings area_external_id }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_id_align}',
+  },
+
+{END cellblock_grid_headcell_field37}
 											],
 				{END row_grid_0}
 								
@@ -2071,6 +2158,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_field34}
+																			{BEGIN cellblock_grid_cell_field35}
+{
+	cellId: 'cell_field35',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field35}","text":{$area_external_system_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_system_align}',
+  },
+
+{END cellblock_grid_cell_field35}
+																			{BEGIN cellblock_grid_cell_field36}
+{
+	cellId: 'cell_field36',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field36}","text":{$area_external_table_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_table_align}',
+  },
+
+{END cellblock_grid_cell_field36}
+																			{BEGIN cellblock_grid_cell_field37}
+{
+	cellId: 'cell_field37',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field37}","text":{$area_external_id_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+            "alignment": '{$area_external_id_align}',
+  },
+
+{END cellblock_grid_cell_field37}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -2884,6 +3049,75 @@ pdfDocument = {
           },
 
 {END cellblock_grid_footcell_field34}
+																			{BEGIN cellblock_grid_footcell_field35}
+{
+	cellId: 'footcell_field35',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field35}
+																			{BEGIN cellblock_grid_footcell_field36}
+{
+	cellId: 'footcell_field36',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field36}
+																			{BEGIN cellblock_grid_footcell_field37}
+{
+	cellId: 'footcell_field37',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          },
+
+{END cellblock_grid_footcell_field37}
 											],
 				{END row_grid_2}
 							

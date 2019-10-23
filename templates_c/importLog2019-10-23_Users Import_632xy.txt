@@ -1,0 +1,6 @@
+Import into external_persons
+23/10/2019 10:54:42
+
+1 out of 1 records processed successfully.
+1 records added.
+0 records updated.
